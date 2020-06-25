@@ -1,0 +1,28 @@
+{% set count_comments = comments|length - 3 %}
+{% if count_comments < 0 %}
+  {% set count_comments = 0 %}
+{% endif %}
+{% if count_comments != 0 %}
+<div class="entry-comments bg-gray">
+    <div class="entry-widget-title clearfix">
+        {{ count_comments }} Comments
+    </div>
+    <div class="comments-body">
+        <ul class="commentlist">
+            {{ comments }}
+        </ul>
+        <!-- .comments-list end -->
+    </div>
+</div>
+{% endif %}
+{% if comment_form %}
+<!-- .entry-comments end -->
+<div class="entry-comments-form bg-gray">
+    <div class="entry-widget-title clearfix">
+        Leave a reply
+    </div>
+    <div class="comment-css-form comment-form-body">
+        {{ comment_form }}
+    </div>
+</div>
+{% endif %}

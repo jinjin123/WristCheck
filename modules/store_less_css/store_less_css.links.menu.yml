@@ -1,0 +1,6 @@
+store_less_css.settings:
+  title: 'LESS'
+  description: 'Administer LESS settings'
+  route_name: store_less_css.settings
+  parent: system.admin_config_development
+  weight: 10

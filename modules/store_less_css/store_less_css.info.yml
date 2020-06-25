@@ -1,0 +1,7 @@
+name: Store LESS CSS preprocessor
+description: Provides support for LESS files.
+type: module
+core: 8.x
+version: VERSION
+package: NaviSystem
+configure: store_less_css.settings

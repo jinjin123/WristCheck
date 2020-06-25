@@ -1,2 +1,0 @@
-# WristCheck Web Beckend
-

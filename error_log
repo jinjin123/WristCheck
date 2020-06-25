@@ -1,0 +1,3 @@
+[08-Jan-2019 21:19:55 America/New_York] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 640 bytes) in /home/trangbh/public_html/drupal/ceali/modules/webform/src/Form/WebformEntityAjaxFormTrait.php on line 134
+[08-Jan-2019 23:12:39 America/New_York] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 74161 bytes) in /home/trangbh/public_html/drupal/ceali/core/lib/Drupal/Core/Cache/DatabaseBackend.php on line 240
+[08-Jan-2019 23:27:41 America/New_York] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 49152 bytes) in /home/trangbh/public_html/drupal/ceali/modules/webform/src/Controller/WebformPluginElementController.php on line 201

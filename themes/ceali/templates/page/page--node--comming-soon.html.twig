@@ -1,0 +1,32 @@
+<div class="footer-parallax-container">
+    {% include  "@structural/header.html.twig" %}
+    {{ page.content }}
+        <div class="section-empty">
+            <div class="container content box-middle-container full-screen-size" data-sub-height="80">
+                <div class="row box-middle">
+                    <div class="col-md-4 col-sm-12">
+                        <h2 class="text-xl">We will open soon. Stay tuned </h2>
+                    </div>
+                    <div class="col-md-8 col-sm-12">
+                        <div class="countdown" data-time="{{ node.field_datetime.value|date('m/d/Y') }}" data-utc-offset="-5">
+                            <div>
+                                <span class="days countdown-values text-xl">00</span><br /><span class="countdown-label text-m">Days</span>
+                            </div>
+                            <div>
+                                <span class="hours countdown-values text-xl">00</span><br /><span class="countdown-label text-m">Hours</span>
+                            </div>
+                            <div>
+                                <span class="minutes countdown-values text-xl">00</span><br /><span class="countdown-label text-m">Mins</span>
+                            </div>
+                            <div>
+                                <span class="seconds countdown-values text-xl">00</span><br /><span class="countdown-label text-m">Secs</span>
+                            </div>
+                        </div>
+                        <hr class="space m" />
+                        <a href="#" class="btn btn-xs">Write us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% include  "@structural/footer.html.twig" %}
+</div>
