@@ -1,6 +1,6 @@
-name: Ceali
+name: Wristcheck
 type: theme
-description: 'Ceali - Construction HTML Template'
+description: 'Wristcheck - Construction HTML Template'
 core: 8.x
 base theme: classy
 screenshot: screenshot.png
