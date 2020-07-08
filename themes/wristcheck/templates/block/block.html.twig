@@ -1,0 +1,23 @@
+{% if region == "cart"%}
+	{{ content }}
+{% else %}
+	<div{{ attributes }}>
+	  {{ title_prefix }}
+	  {% if region == 'blog_sidebar' %}
+	  	{% if label %}
+	  		<div class="widget-title">
+				<h5{{ title_attributes }}>{{ label }}</h5>
+			</div>
+	  	{% endif %}
+	  {% else %}
+	  	{% if label %}
+	    	<h2{{ title_attributes }}>{{ label }}</h2>
+	  	{% endif %}
+	  {% endif %}
+	  
+	  {{ title_suffix }}
+	  {% block content %}
+	    {{ content }}
+	  {% endblock %}
+	</div>
+{% endif %}

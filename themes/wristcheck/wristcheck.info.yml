@@ -1,0 +1,61 @@
+name: Wristcheck
+type: theme
+description: 'Wristcheck - Construction HTML Template'
+core: 8.x
+base theme: classy
+screenshot: screenshot.png
+libraries:
+  - wristcheck/ceali-lib
+stylesheets-remove:
+  - core/themes/stable/css/views/views.module.css
+  - core/themes/stable/css/system/components/align.module.css
+  - core/assets/vendor/normalize-css/normalize.css
+  - core/modules/system/css/system.module.css
+  - core/modules/system/css/system.theme.css
+  - core/modules/views/css/views.module.css
+  - core/themes/stable/css/system/components/progress.module.css
+  - core/themes/classy/css/components/menu.css
+
+regions:
+  section: 'Section content'
+  section_top: 'Section Top'
+  section_2: 'Section content 2'
+  section_3: 'Section Top content 3'
+  basic_section: 'Basic Section'
+  search: 'Search'
+  search2: 'Search 2'
+  top_header: 'Top header'
+  top_header2: 'Top header 2'
+  top_header3: 'Top header 3'
+  header: 'Header'
+  breadcrumb: 'Breadcrumb'
+  main_menu: 'Main menu'
+  header2_menu: 'Header 2 menu'
+  sidebar_menu: 'Sidebar Menu'
+  shopping_cart: 'Shopping cart'
+  slider: 'Slider'
+  content: 'Main content'
+  por_sidebar: 'Portfolio sidebar'
+  shop_section: 'Shop Section'
+  shop_sort_section: 'Shop Sort Section'
+  blog_sidebar: 'Blog sidebar'
+  blog_sidebar_2: 'Blog sidebar 2'
+  shop_sidebar: 'Shop Sidebar'
+  por_section: 'Portfolio Section'
+  blog_single_section: 'Blog Single Section'
+  sidebar: 'Sidebar'
+  footer: 'Footer 1'
+  footer_2: 'Footer 2'
+  footer_3: 'Footer 3'
+  footer_4: 'Footer 4'
+  footer_5: 'Footer 5'
+  footer_6: 'Footer 6'
+  footer_7: 'Footer 7'
+  footer_shop: 'Footer Shop'
+  footer_menu: 'Footer Menu'
+  bottom_footer: 'Bottom footer'
+  footer_simplenews: 'Footer Simplenews'
+  copyright: 'Copyright'
+  copyright_2: 'Copyright 2'
+  auto_hidden_block: 'Auto hidden blocks'
+  

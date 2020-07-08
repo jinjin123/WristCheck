@@ -1,0 +1,781 @@
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    	{% if content['#block_content'].field_type.value == 'type1'  %}
+			<section id="slider" class="slider slider-1">
+		{% elseif content['#block_content'].field_type.value == 'type2'  %}
+			<section id="slider" class="slider slider-2">
+		{% elseif content['#block_content'].field_type.value == 'type3'  %}
+			<section id="slider" class="slider slider-3">
+		{% elseif content['#block_content'].field_type.value == 'type4'  %}
+			<section id="slider" class="slider slider-4">
+		{% elseif content['#block_content'].field_type.value == 'type5'  %}
+			<section id="slider" class="slider slider-5">
+		{% elseif content['#block_content'].field_type.value == 'type6'  %}
+			<section id="slider" class="slider slider-6">
+		{% elseif content['#block_content'].field_type.value == 'type7'  %}
+			<section id="slider" class="slider slider-7">
+		{% elseif content['#block_content'].field_type.value == 'type8'  %}
+			<section id="slider" class="slider slider-6 slider-8">
+		{% elseif content['#block_content'].field_type.value == 'type9'  %}
+			<section id="slider" class="slider slider-6 slider-9">
+		{% elseif content['#block_content'].field_type.value == 'type10'  %}
+			<section id="slider" class="slider slider-10">
+		{% elseif content['#block_content'].field_type.value == 'type11'  %}
+			<section id="slider" class="slider slider-10 slider-11">
+		{% elseif content['#block_content'].field_type.value == 'type13'  %}
+			<section id="slider13" class="slider slider-13">
+		{% elseif content['#block_content'].field_type.value == 'type12'  %}
+			<section id="slider" class="slider slider-12">
+		{% else %}
+			<section id="slider" class="slider slider-1">
+		{% endif %}
+			<!-- START SLIDER 5.0 -->
+			<div class="rev_slider_wrapper">
+				<div id="slider1" class="rev_slider"  data-version="5.0">
+					<ul>
+						{% set i = 0 %}
+						{% for item in content['#block_content'].field_slider_ %}			
+							{% set img_uri = content.field_slider_[i]['#field_collection_item'].field_image|first.entity.uri.value %}
+							{% set img_url = file_url(img_uri) %}
+								<li data-transition="{{  content.field_slider_[i]['#field_collection_item'].field_effect.value }}"
+									data-slotamount="default" 
+									data-easein="Power4.easeInOut" 
+									data-easeout="Power4.easeInOut" 
+									data-masterspeed="2000"
+									data-thumb="{{ img_url }}">
+							        <!-- MAIN IMAGE -->
+									<img src="{{ img_url }}" alt="Slide Background Image"  width="1920" height="1280">
+									<!-- LAYER NR. 1 -->
+									{% set text_effect = content.field_slider_[i]['#field_collection_item'].field_text_effect.value  %}
+									{% if text_effect == 'left-type-1' %}
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['-50','20','20','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-whitespace="nowrap"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="x:[-100%];s:3000;e:Power2.easeInOut;s:3000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-splitin="none"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-60']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 4 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['110','100','120','120']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1750"
+											data-responsive_offset="on"
+											>
+											<div class="slide-action">
+												<a class="btn btn-secondary btn-hover " href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}">{{ content.field_slider_[0]['#field_collection_item'].field_link.title }}</a>
+											</div>
+										</div>
+									{% elseif text_effect == 'left-type-2' %}
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['-50','20','20','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="x:[-100%];s:3000;e:Power2.easeInOut;s:3000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','30']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-45','-45','-30','-30']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','30']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['70','70','100','90']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on"
+											data-responsive="off">
+											<div class="slide-action">
+												<a class="btn btn-secondary btn-hover btn-arrow" href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}"><i class="wristcheck-arrow-long-right"></i></a>
+											</div>
+										</div>
+									{% elseif text_effect == 'left-type-3' %}
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['-50','20','20','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="x:[-100%];s:3000;e:Power2.easeInOut;s:3000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-60']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 4 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['110','100','120','120']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1750"
+											data-responsive_offset="on"
+											>
+											<div class="slide-action">
+												<a class="btn btn-secondary btn-hover btn-arrow" href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}"><i class="wristcheck-arrow-long-right"></i></a>
+											</div>
+										</div>
+									{% elseif text_effect == 'left-type-4' %}
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','20','20','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="x:[-100%];s:3000;e:Power2.easeInOut;s:3000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-60']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 4 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['110','100','120','120']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1750"
+											data-responsive_offset="on"
+											>
+											<div class="slide-action">
+												<a class="btn btn-secondary btn-hover" href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}">{{ content.field_slider_[0]['#field_collection_item'].field_link.title }}</a>
+											</div>
+										</div>
+									{% elseif text_effect == 'left-type-5' %}
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50',20','-30']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['100','80','60','10']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-60']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['100','80','60','10']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 4 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['100','80','60','10']"
+											data-y="center" data-voffset="110"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1750"
+											data-responsive_offset="on"
+											>
+											<div class="slide-action">
+												<a class="btn btn-secondary btn-hover" href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}">{{ content.field_slider_[0]['#field_collection_item'].field_link.title }}</a>
+											</div>
+										</div>
+									{% elseif text_effect == 'left-type-6' %}
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','20',20','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['100','80','60','10']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-40','-40','-40','-50']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['100','80','60','10']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['50','50','50','50']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											
+											
+											data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+									{% elseif text_effect == 'center-type-1' %}
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-35','-35','-35','-20']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['55','55','55','55']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on">
+											<div class="slide--bio text-center">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+									{% elseif text_effect == 'center-type-2' %}
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-30','-30','-30','-50']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['55','55','55','55']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on">
+											<div class="slide--bio text-center">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 4 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['150','150','150','150']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1750"
+											data-responsive_offset="on"
+											>
+											<div class="slide-action">
+												<a class="btn  btn-secondary btn-hover" href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}">{{ content.field_slider_[0]['#field_collection_item'].field_link.title }}</a>
+											</div>
+										</div>
+									{% elseif text_effect == 'center-type-3' %}
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-30','-30','-30','-40']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','0','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['60','60','60','60']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on">
+											<div class="slide--bio text-center">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+									{% elseif text_effect == 'center-type-4' %}
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','20','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['40','40','30','30']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-40','-40','-40','-40']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['-60','-60','-60','-60']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['75','75','90','75']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on"
+											>
+											<div class="slide-action">
+												<a class="btn btn-secondary btn-hover btn-arrow" href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}"><i class="wristcheck-arrow-long-right"></i></a>
+											</div>
+										</div>
+									{% elseif text_effect == 'center-type-5' %}
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','20','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['40','40','30','30']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-40','-40','-40','-40']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250" 	data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['middle','middle','middle','middle']" data-hoffset="['-60','-60','-60','-60']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['75','75','90','75']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on"
+											>
+											<div class="slide-action">
+												<a class="btn btn-secondary btn-hover btn-arrow" href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}"><i class="wristcheck-arrow-long-right"></i></a>
+											</div>
+										</div>
+									{% else %}
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['-50','20','20','0']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-width="none"
+											data-height="none"
+											data-whitespace="nowrap"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="x:[-100%];s:3000;e:Power2.easeInOut;s:3000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1000"
+											data-splitin="none"
+											data-responsive_offset="on">
+											<div class="slide-container"></div>
+										</div>
+
+										<!-- LAYER NR. 2 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-60']"
+											data-fontsize="['65', '50', '40', '30']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1250"
+											data-responsive_offset="on">
+											<div class="slide--headline">{{ content.field_slider_[i]['#field_collection_item'].field_title.value }}</div>
+										</div>
+
+										<!-- LAYER NR. 3 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+											data-fontsize="['17', '17', '15', '13']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1500"
+											data-responsive_offset="on">
+											<div class="slide--bio">{{ content.field_slider_[i]['#field_collection_item'].field_description.value|raw }}</div>
+										</div>
+
+										<!-- LAYER NR. 4 -->
+										<div class="tp-caption"
+											data-x="['left','left','left','left']" data-hoffset="['50','50','50','20']"
+											data-y="['middle','middle','middle','middle']" data-voffset="['110','100','120','120']"
+											data-width="none"
+											data-height="none"
+											data-transform_idle="o:1;"
+											data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+											data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+											data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+											data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+											data-start="1750"
+											data-responsive_offset="on"
+											>
+											<div class="slide-action">
+												<a class="btn btn-secondary btn-hover " href="{{ file_url(content.field_slider_[0]['#field_collection_item'].field_link.uri) }}">{{ content.field_slider_[0]['#field_collection_item'].field_link.title }}</a>
+											</div>
+										</div>
+									{% endif %}
+								</li>
+							{% set i = i + 1 %}
+						{% endfor %}
+							
+
+					</ul>
+				</div>
+				<!-- END SLIDER -->
+			</div>
+			<!-- END OF SLIDER WRAPPER -->
+		</section>
+  {% endblock %}
+</div>

@@ -1,0 +1,44 @@
+{% include  "@wristcheck/header.html.twig" %}
+{% include  "@wristcheck/page/page--header.html.twig" %}	
+	{% if node.field_sidebar.value == 'left' %}
+		<section id="page-layout">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-sm-12 col-md-12 col-lg-3 sidebar mb-30-xs mb-30-sm">
+		                {{ page.blog_sidebar }}  
+		                <!-- .widget-recent end -->			
+		            </div>
+		            <!-- .col-lg-3 end -->
+		            <div class="col-sm-12 col-md-12 col-lg-9">
+		                {{ page.content }}
+		                {{ page.section }}
+		            </div>
+		            <!-- .col-lg-9 end -->
+		        </div>
+		        <!-- .row end -->
+		    </div>
+		    <!-- .container end -->
+		</section>
+	{% elseif node.field_sidebar.value == 'right' %}
+		<section id="page-layout">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-sm-12 col-md-12 col-lg-9">
+		                {{ page.content }}
+		                {{ page.section }}
+		            </div>
+		            <!-- .col-lg-9 end -->
+		            <div class="col-sm-12 col-md-12 col-lg-3 sidebar mb-30-xs mb-30-sm">
+		                {{ page.blog_sidebar }}       
+		            </div>
+		            <!-- .col-lg-3 end -->
+		        </div>
+		        <!-- .row end -->
+		    </div>
+		    <!-- .container end -->
+		</section>
+	{% else %}
+		{{ page.content }}
+		{{ page.section }}
+	{% endif %}
+{% include  "@wristcheck/footer.html.twig" %}

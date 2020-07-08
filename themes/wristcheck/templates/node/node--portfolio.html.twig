@@ -1,0 +1,921 @@
+{% set client = node.field_client.value %}
+{% set skill = node.field_skills.value %}
+{% set awards = node.field_awards.value %}
+{% set describle = node.field_description.value %}
+{% set date = node.created.value|date('d M, Y') %}
+{% set link = node.field_link.uri %}
+{% set style = node.field_style_single.value %}
+{% set value = node.field_value.value %}
+{% set year_por = node.field_year_por.value %}
+{% set category = '' %}
+{% set category_name = '' %}
+{% for term in node.field_categories  %}
+    {% set cat = term.target_id|term_load %}
+    {% set category_name = category_name ~ cat.getName ~ ' , ' %}
+    {% set category = category ~ term.target_id ~ " "  %}
+{% endfor %}
+{% set img_uri = node.field_images.entity.uri.value %}
+{% set img_url = file_url(img_uri) %}
+{% set img_url_style = getUrlByImageStyle(img_uri, 'image1170x673') %}
+{% if not page %}
+	
+{% else %}
+    {% if style == 'single-1' %}
+        <section id="portfolio-single" class="portfolio portfolio-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-cat text-center">
+                            {{ category_name|trim(' ')|trim(',') }}
+                        </div>
+                        <div class="portfolio-title text-center">
+                            <h2>{{ node.title.value }}</h2>
+                        </div>
+                        <div class="carousel owl-carousel carousel-dots mb-70" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="0" data-loop="true" data-speed="800">
+                        </div>
+                    </div>
+                    <div class="carousel owl-carousel carousel-dots mb-70" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="0" data-loop="true" data-speed="800">
+                            {% for img_item in node.field_images %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image1170x673 = getUrlByImageStyle(imguri, 'image1170x673') %}
+                                {% set imgi_url = file_url(imguri) %}
+                                <div class="portfolio-img">
+                                <img src="{{ image1170x673 }}" alt="portfolio image">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    <!-- .col-lg-12 end -->
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <ul class="portfolio-meta list-unstyled">
+                            <li>
+                                <div>Client :</div>
+                                <h5>{{ client }}</h5>
+                            </li>
+                            <li>
+                                <div>Skills :</div>
+                                <h5>{{ skill }}</h5>
+                            </li>
+                            <li>
+                                <div>Awards :</div>
+                                <h5>{{ awards }}</h5>
+                            </li>
+                            <li>
+                                <div>Date :</div>
+                                <h5>{{ date }}</h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        {{ content.body }}
+                        <a class="btn  btn-secondary btn-hover" href="#">{{'Visit Project'|t}}</a>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-share">
+                            <h3>{{'Share This Project'|t}}</h3>
+                            <ul class="list-inline">
+                                <li><a  href="http://www.facebook.com/sharer.php?u={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Facebook'|t}}
+                                </a></li>
+                                <li><a  href="http://twitter.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;text={{ node.title.value }}" target="_blank" >
+                                {{'Twitter'|t}}   
+                                </a></li>
+                                <li><a  href="https://plus.google.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Google +'|t}}    
+                                </a></li>
+                                <li><a  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;title={{ node.title.value }}" target="_blank" >
+                                {{'Linkedin'|t}}    
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 ">
+                        <div class="row portfolio-prev-next mb-0">
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <div class="portfolio-prev">
+                                    {% if link_prev_por %}
+                                        <a href="{{ link_prev_por }}">
+                                            <img src="{{ img_prev_por }}" alt="portfolio previous">
+                                        </a>
+                                        <div class="portfolio-icon portfolio-prev-icon">
+                                            <a href="{{ link_prev_por }}"><i class="wristcheck-arrow-long-left"></i></a>
+                                        </div>
+                                        <div class="portfolio-prev-content">
+                                            <h6>{{ 'previous'|t }}</h6>
+                                            <a class="portfolio-link" href="{{ link_prev_por }}">{{ title_prev_por }}</a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div> <!-- .col-lg-6 end -->
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                {% if link_next_por %}
+                                    <div class="portfolio-next">
+                                        <a href="{{ link_next_por }}">
+                                            <img src="{{ img_next_por }}" alt="portfolio next">
+                                        </a>
+                                        <div class="portfolio-icon portfolio-next-icon">
+                                            <a href="{{ link_next_por }}"><i class="wristcheck-arrow-long-right"></i></a>
+                                        </div>
+                                        <div class="portfolio-next-content">
+                                            <h6>{{ 'Next'|t }}</h6>
+                                            <a class="portfolio-link" href="{{ link_next_por }}">{{ title_next_por }}</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div> <!-- .col-lg-6 end -->
+                        </div> <!-- .row end -->
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    {% elseif style == 'single-2' %}
+        <section id="portfolio-single" class="portfolio portfolio-single portfolio-single-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-cat text-center">
+                            {{ category_name|trim(' ')|trim(',') }}
+                        </div>
+                        <!-- .portfolio-cat end -->
+                        <div class="portfolio-title text-center">
+                            <h2>
+                                <a href="#">{{ node.title.value }}</a>
+                            </h2>
+                        </div>
+                        <!-- .portfolio-title end -->
+                    </div>
+                    <!-- .col-lg-12 end -->
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <ul class="portfolio-meta list-unstyled">
+                            <li>
+                                <div>Client :</div>
+                                <h5>{{ client }}</h5>
+                            </li>
+                            <li>
+                                <div>Skills :</div>
+                                <h5>{{ skill }}</h5>
+                            </li>
+                            <li>
+                                <div>Awards :</div>
+                                <h5>{{ awards }}</h5>
+                            </li>
+                            <li>
+                                <div>Date :</div>
+                                <h5>{{ date }}</h5>
+                            </li>
+                        </ul>
+                        <!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        <div class="portfolio-desc">
+                            {{ content.body }}
+                            <a class="btn  btn-secondary btn-hover" href="{{ link }}">{{'Visit Project'|t}}</a>
+                            
+                            
+                        </div>
+                        <!-- .portfolio-desc end -->
+                    </div>
+                    
+                    <div class="clearfix"></div>
+                    <div class="row portfolio-images mt-70 mb-30 clearfix">
+                        {% set i = 1 %}
+
+                        {% for img_item in node.field_images %}
+                        
+                            {% if i % 5 == 1 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image1170x673 = getUrlByImageStyle(imguri, 'image1170x673') %}
+                                {% set imgi_url = file_url(imguri) %}
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <img style="margin-top: 30px" src="{{ image1170x673 }}" alt="portfolio image" class="mb-30">
+                                </div>
+                            {% elseif i % 5 == 2 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image770x330 = getUrlByImageStyle(imguri, 'image770x330') %}
+                                    <div class="col-sm-12 col-md-12 col-lg-8">
+                                        <div class="row">            
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <img class="mb-30" src="{{ image770x330 }}" alt="portfolio image" />
+                                            </div>
+                                {% if i == node.field_images|length %}
+                                        </div>
+                                    </div>           
+                                {% endif %}
+                            {% elseif i % 5 == 3 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set images370x330 = getUrlByImageStyle(imguri, 'images370x330') %}
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <img src="{{ images370x330 }}" alt="portfolio image" />
+                                </div>
+                                {% if i == node.field_images|length %}
+                                        </div>
+                                    </div>           
+                                {% endif %}
+                            {% elseif i % 5 == 4 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set images370x330 = getUrlByImageStyle(imguri, 'images370x330') %}
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <img src="{{ images370x330 }}" alt="portfolio image" />
+                                </div>
+                                    </div>
+                                </div>           
+                            {% elseif i % 5 == 0 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image370x690 = getUrlByImageStyle(imguri, 'image370x690') %}
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                    <img src="{{ image370x690 }}" alt="portfolio image" />
+                                </div>
+                            {% endif %}
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </div>
+                    <!-- .portfolio-images end -->
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-share">
+                            <h3>{{ 'Share This Project'|t }}</h3>
+                            <ul class="list-inline">
+                                <li><a  href="http://www.facebook.com/sharer.php?u={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Facebook'|t}}
+                                </a></li>
+                                <li><a  href="http://twitter.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;text={{ node.title.value }}" target="_blank" >
+                                {{'Twitter'|t}}   
+                                </a></li>
+                                <li><a  href="https://plus.google.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Google +'|t}}    
+                                </a></li>
+                                <li><a  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;title={{ node.title.value }}" target="_blank" >
+                                {{'Linkedin'|t}}    
+                                </a></li>
+                            </ul>
+                        </div>
+                        <!-- .portfolio-share end -->
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="row portfolio-prev-next portfolio-prev-next-short">
+                            {% if link_prev_por %}
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <div class="portfolio-prev">
+                                    <div class="portfolio-icon portfolio-prev-icon">
+                                        <a href="{{ link_prev_por }}"><i class="wristcheck-arrow-long-left"></i></a>
+                                    </div>
+                                    <div class="portfolio-prev-content">
+                                        <h6>{{'previous'|t}}</h6>
+                                        <a class="portfolio-link" href="{{ link_prev_por }}">{{ title_prev_por }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="col-sm-12 col-md-4 col-lg-4 text-center">
+                                
+                            </div>
+                            {% if link_next_por %}
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <div class="portfolio-next">
+                                    <div class="portfolio-icon portfolio-next-icon">
+                                        <a href="{{ link_next_por }}"><i class="wristcheck-arrow-long-right"></i></a>
+                                    </div>
+                                    <div class="portfolio-next-content">
+                                        <h6>{{'Next'|t}}</h6>
+                                        <a class="portfolio-link" href="{{ link_next_por }}">{{ title_next_por }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <!-- .portfolio-prev-next end -->
+                        <!-- .portfolio-related end -->
+                    </div>
+                </div>
+
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    {% elseif style == 'single-3' %}
+        <section id="portfolio-single" class="portfolio portfolio-single portfolio-single-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-cat text-center">
+                            {{ category_name|trim(' ')|trim(',') }}
+                        </div>
+                        <!-- .portfolio-cat end -->
+                        <div class="portfolio-title text-center">
+                            <h2>
+                                {{ node.title.value }}
+                            </h2>
+                        </div>
+                        <!-- .portfolio-title end -->
+                    </div>
+                    <!-- .col-lg-12 end -->
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <ul class="portfolio-meta list-unstyled">
+                            <li>
+                                <div>Client :</div>
+                                <h5>{{ client }}</h5>
+                            </li>
+                            <li>
+                                <div>Skills :</div>
+                                <h5>{{ skill }}</h5>
+                            </li>
+                            <li>
+                                <div>Awards :</div>
+                                <h5>{{ awards }}</h5>
+                            </li>
+                            <li>
+                                <div>Date :</div>
+                                <h5>{{ date }}</h5>
+                            </li>
+                        </ul>
+                        <!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        {{ content.body }}
+                        <a class="btn  btn-secondary btn-hover" href="{{ link }}">{{'Visit Project'|t}}</a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row portfolio-images mt-70 mb-30 clearfix">
+                        {% set i = 1 %}
+                        {% for img_item in node.field_images %}
+                            {% if i % 4 == 1 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image770x330 = getUrlByImageStyle(imguri, 'image770x330') %}
+                                    <div style="margin-top: 30px" class="col-sm-12 col-md-12 col-lg-8">
+                                        <div class="row">            
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <img class="mb-30" src="{{ image770x330 }}" alt="portfolio image" />
+                                            </div>
+                                {% if i == node.field_images|length %}
+                                        </div>
+                                    </div>           
+                                {% endif %}
+                            {% elseif i % 4 == 2 %}
+                                            {% set imguri = img_item.entity.uri.value %}
+                                            {% set images370x330 = getUrlByImageStyle(imguri, 'images370x330') %}
+                                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                                <img src="{{ images370x330 }}" alt="portfolio image" />
+                                            </div>
+                                {% if i == node.field_images|length %}
+                                        </div>
+                                    </div>           
+                                {% endif %}
+                            {% elseif i % 4 == 3 %}
+                                            {% set imguri = img_item.entity.uri.value %}
+                                            {% set images370x330 = getUrlByImageStyle(imguri, 'images370x330') %}
+                                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                                <img src="{{ images370x330 }}" alt="portfolio image" />
+                                            </div>
+                                        </div>
+                                    </div>           
+                            {% elseif i % 4 == 0 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image370x690 = getUrlByImageStyle(imguri, 'image370x690') %}
+                                <div style="margin-top: 30px" class="col-sm-12 col-md-12 col-lg-4">
+                                    <img src="{{ image370x690 }}" alt="portfolio image" />
+                                </div>
+                            {% endif %}
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </div>
+                    <!-- .portfolio-images end -->
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-share">
+                            <h3>Share This Project</h3>
+                            <ul class="list-inline">
+                                <li><a  href="http://www.facebook.com/sharer.php?u={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Facebook'|t}}
+                                </a></li>
+                                <li><a  href="http://twitter.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;text={{ node.title.value }}" target="_blank" >
+                                {{'Twitter'|t}}   
+                                </a></li>
+                                <li><a  href="https://plus.google.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Google +'|t}}    
+                                </a></li>
+                                <li><a  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;title={{ node.title.value }}" target="_blank" >
+                                {{'Linkedin'|t}}    
+                                </a></li>
+                            </ul>
+                        </div>
+                        <!-- .portfolio-share end -->
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-prev-next portfolio-prev-next-short mb-0">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    {% if link_prev_por %}
+                                        <div class="portfolio-prev">
+                                                <div class="portfolio-icon portfolio-prev-icon">
+                                                    <a href="{{ link_prev_por }}"><i class="wristcheck-arrow-long-left"></i></a>
+                                                </div>
+                                                <div class="portfolio-prev-content">
+                                                    <h6>{{'previous'|t}}</h6>
+                                                    <a class="portfolio-link" href="{{ link_prev_por }}">{{ title_prev_por }}</a>
+                                                </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4 text-center">
+                                    
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    {% if link_next_por %}
+                                        <div class="portfolio-next">
+                                            <div class="portfolio-icon portfolio-next-icon">
+                                                <a href="{{ link_next_por }}"><i class="wristcheck-arrow-long-right"></i></a>
+                                            </div>
+                                            <div class="portfolio-next-content">
+                                                <h6>{{'Next'|t}}</h6>
+                                                <a class="portfolio-link" href="{{ link_next_por }}">{{ title_next_por }}</a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .portfolio-prev-next end -->
+
+                    </div>
+                </div>
+
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    {% elseif style == 'single-4' %}
+        <section id="portfolio-single" class="portfolio portfolio-single portfolio-single-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-cat text-center">
+                            {{ category_name|trim(' ')|trim(',') }}
+                        </div>
+                        <!-- .portfolio-cat end -->
+                        <div class="portfolio-title text-center">
+                            <h2>
+                                {{ node.title.value }}
+                            </h2>
+                        </div>
+                        <!-- .portfolio-title end -->
+
+                    </div>
+                    <!-- .col-lg-12 end -->
+                    
+                    <div class="clearfix"></div>
+                    <div class="portfolio-images mt-50 mb-70 clearfix">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <img class="mb-30" src="{{ img_url_style }}" alt="portfolio image" />
+                        </div>
+                    </div>
+                    <!-- .portfolio-images end -->
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="portfolio-meta text-center">
+                            <div>Client :</div>
+                            <h5>{{ client }}</h5>
+                        </div><!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="portfolio-meta text-center">
+                            <div>Skills :</div>
+                            <h5>{{ skill }}</h5>
+                        </div><!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="portfolio-meta text-center">
+                            <div>Awards :</div>
+                            <h5>{{ awards }}</h5>
+                        </div><!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="portfolio-meta text-center">
+                            <div>Date :</div>
+                            <h5>{{ date }}</h5>
+                        </div><!-- .portfolio-meta end -->
+                    </div>
+                    <div class="portfolio-prev-next portfolio-prev-next-fluid mb-0">
+                        {% if link_prev_por %}
+                        <div class="portfolio-prev">
+                            <div class="portfolio-icon portfolio-prev-icon">
+                                <a href="{{ link_prev_por }}"><i class="wristcheck-arrow-long-left"></i></a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if link_next_por %}
+                        <div class="portfolio-next">
+                            <div class="portfolio-icon portfolio-next-icon">
+                                <a href="{{ link_next_por }}"><i class="wristcheck-arrow-long-right"></i></a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- .portfolio-prev-next end -->
+                    <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1 text-center">
+                        {{ content.body }}
+                        <a class="btn  btn-secondary btn-hover" href="{{ link }}">{{'Visit Project'|t}}</a>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-share">
+                            <h3>Share This Project</h3>
+                            <ul class="list-inline">
+                                <li><a  href="http://www.facebook.com/sharer.php?u={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Facebook'|t}}
+                                </a></li>
+                                <li><a  href="http://twitter.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;text={{ node.title.value }}" target="_blank" >
+                                {{'Twitter'|t}}   
+                                </a></li>
+                                <li><a  href="https://plus.google.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Google +'|t}}    
+                                </a></li>
+                                <li><a  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;title={{ node.title.value }}" target="_blank" >
+                                {{'Linkedin'|t}}    
+                                </a></li>
+                            </ul>
+                        </div>
+                        <!-- .portfolio-share end -->
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    {% elseif style == 'single-5' %}
+        <section id="portfolio-single" class="portfolio portfolio-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-cat text-center">
+                            {{ category_name|trim(' ')|trim(',') }}
+                        </div>
+                        <div class="portfolio-title text-center">
+                            <h2>{{ node.title.value }}</h2>
+                        </div>
+                        <div class="carousel owl-carousel carousel-dots mb-70" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="0" data-loop="true" data-speed="800">
+                            {% for img_item in node.field_images %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image1170x673 = getUrlByImageStyle(imguri, 'image1170x673') %}
+                                {% set imgi_url = file_url(imguri) %}
+                                <div class="portfolio-img">
+                                <img src="{{ image1170x673 }}" alt="portfolio image">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- .col-lg-12 end -->
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <ul class="portfolio-meta list-unstyled">
+                            <li>
+                                <div>Client :</div>
+                                <h5>{{ client }}</h5>
+                            </li>
+                            <li>
+                                <div>Skills :</div>
+                                <h5>{{ skill }}</h5>
+                            </li>
+                            <li>
+                                <div>Awards :</div>
+                                <h5>{{ awards }}</h5>
+                            </li>
+                            <li>
+                                <div>Date :</div>
+                                <h5>{{ date }}</h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        {{ content.body }}
+                        <a class="btn  btn-secondary btn-hover" href="{{ link }}">{{'Visit Project'|t}}</a>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-share">
+                            <h3>{{ 'Share This Project'|t }}</h3>
+                            <ul class="list-inline">
+                                <li><a  href="http://www.facebook.com/sharer.php?u={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Facebook'|t}}
+                                </a></li>
+                                <li><a  href="http://twitter.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;text={{ node.title.value }}" target="_blank" >
+                                {{'Twitter'|t}}   
+                                </a></li>
+                                <li><a  href="https://plus.google.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Google +'|t}}    
+                                </a></li>
+                                <li><a  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;title={{ node.title.value }}" target="_blank" >
+                                {{'Linkedin'|t}}    
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- .portfolio-related end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    {% elseif style == 'single-6' %}
+        <section id="portfolio-single" class="portfolio portfolio-single portfolio-single-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-cat text-center">
+                            {{ category_name|trim(' ')|trim(',') }}
+                        </div>
+                        <!-- .portfolio-cat end -->
+                        <div class="portfolio-title text-center">
+                            <h2>
+                                {{ node.title.value }}
+                            </h2>
+                        </div>
+                        <!-- .portfolio-title end -->
+                    </div>
+                    <!-- .col-lg-12 end -->
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <ul class="portfolio-meta list-unstyled">
+                            <li>
+                                <div>Client :</div>
+                                <h5>{{ client }}</h5>
+                            </li>
+                            <li>
+                                <div>Skills :</div>
+                                <h5>{{ skill }}</h5>
+                            </li>
+                            <li>
+                                <div>Awards :</div>
+                                <h5>{{ awards }}</h5>
+                            </li>
+                            <li>
+                                <div>Date :</div>
+                                <h5>{{ date }}</h5>
+                            </li>
+                        </ul>
+                        <!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        {{ content.body }}
+                        <a class="btn  btn-secondary btn-hover" href="{{ link }}">{{'Visit Project'|t}}</a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row portfolio-images mt-70 mb-30 clearfix">
+                        {% set i = 1 %}
+
+                        {% for img_item in node.field_images %}
+                        
+                            {% if i % 5 == 1 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image1170x673 = getUrlByImageStyle(imguri, 'image1170x673') %}
+                                {% set imgi_url = file_url(imguri) %}
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <img style="margin-top: 30px" src="{{ image1170x673 }}" alt="portfolio image" class="mb-30">
+                                </div>
+                            {% elseif i % 5 == 2 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image770x330 = getUrlByImageStyle(imguri, 'image770x330') %}
+                                    <div class="col-sm-12 col-md-12 col-lg-8">
+                                        <div class="row">            
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <img class="mb-30" src="{{ image770x330 }}" alt="portfolio image" />
+                                            </div>
+                                {% if i == node.field_images|length %}
+                                        </div>
+                                    </div>           
+                                {% endif %}
+                            {% elseif i % 5 == 3 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set images370x330 = getUrlByImageStyle(imguri, 'images370x330') %}
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <img src="{{ images370x330 }}" alt="portfolio image" />
+                                </div>
+                                {% if i == node.field_images|length %}
+                                        </div>
+                                    </div>           
+                                {% endif %}
+                            {% elseif i % 5 == 4 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set images370x330 = getUrlByImageStyle(imguri, 'images370x330') %}
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <img src="{{ images370x330 }}" alt="portfolio image" />
+                                </div>
+                                    </div>
+                                </div>           
+                            {% elseif i % 5 == 0 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image370x690 = getUrlByImageStyle(imguri, 'image370x690') %}
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                    <img src="{{ image370x690 }}" alt="portfolio image" />
+                                </div>
+                            {% endif %}
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </div>
+                    <!-- .portfolio-images end -->
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-share">
+                            <h3>Share This Project</h3>
+                            <ul class="list-inline">
+                                <li><a  href="http://www.facebook.com/sharer.php?u={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Facebook'|t}}
+                                </a></li>
+                                <li><a  href="http://twitter.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;text={{ node.title.value }}" target="_blank" >
+                                {{'Twitter'|t}}   
+                                </a></li>
+                                <li><a  href="https://plus.google.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Google +'|t}}    
+                                </a></li>
+                                <li><a  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;title={{ node.title.value }}" target="_blank" >
+                                {{'Linkedin'|t}}    
+                                </a></li>
+                            </ul>
+                        </div>
+                        <!-- .portfolio-share end -->
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row portfolio-prev-next">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            {% if link_prev_por %}
+                            <div class="portfolio-prev">
+                                <a href="{{ link_prev_por }}">
+                                    <img src="{{ img_prev_por }}" alt="portfolio previous">
+                                </a>
+                                <div class="portfolio-icon portfolio-prev-icon">
+                                    <a href="{{ link_prev_por }}"><i class="wristcheck-arrow-long-left"></i></a>
+                                </div>
+                                <div class="portfolio-prev-content">
+                                    <h6>previous</h6>
+                                    <a class="portfolio-link" href="{{ link_prev_por }}">{{ title_prev_por }}</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            {% if link_next_por %}
+                            <div class="portfolio-next">
+                                <a href="{{ link_next_por }}">
+                                    <img src="{{ img_next_por }}" alt="portfolio next">
+                                </a>
+                                <div class="portfolio-icon portfolio-next-icon">
+                                    <a href="{{ link_next_por }}"><i class="wristcheck-arrow-long-right"></i></a>
+                                </div>
+                                <div class="portfolio-next-content">
+                                    <h6>Next</h6>
+                                    <a class="portfolio-link" href="{{ link_next_por }}">{{ title_next_por }}</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    {% elseif style == 'single-7' %}
+        <section id="portfolio-single" class="portfolio portfolio-single portfolio-single-4 portfolio-single-7">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 portfolio-single-7-title">
+                        <div class="portfolio-cat text-center">
+                            {{ category_name|trim(' ')|trim(',') }}
+                        </div>
+                        <!-- .portfolio-cat end -->
+                        <div class="portfolio-title text-center">
+                            <h2>
+                                {{ node.title.value }}
+                            </h2>
+                        </div>
+                        <!-- .portfolio-title end -->
+                        <div class="portfolio-prev-next mb-0">
+                            <div class="portfolio-prev">
+                                <div class="portfolio-icon portfolio-prev-icon">
+                                    <a href="{{ link_prev_por }}"><i class="wristcheck-arrow-long-left"></i></a>
+                                </div>
+                            </div>
+                            <div class="portfolio-next">
+                                <div class="portfolio-icon portfolio-next-icon">
+                                    <a href="{{ link_next_por }}"><i class="wristcheck-arrow-long-right"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- .portfolio-prev-next end -->
+                    </div>
+                    <!-- .col-lg-12 end -->
+
+                    
+                    <div class="clearfix"></div>
+                    <div class="row portfolio-images mt-50 mb-70 clearfix">
+                        {% set i = 1 %}
+
+                        {% for img_item in node.field_images %}
+                        
+                            {% if i % 5 == 1 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image1170x673 = getUrlByImageStyle(imguri, 'image1170x673') %}
+                                {% set imgi_url = file_url(imguri) %}
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <img style="margin-top: 30px" src="{{ image1170x673 }}" alt="portfolio image" class="mb-30">
+                                </div>
+                            {% elseif i % 5 == 2 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image770x330 = getUrlByImageStyle(imguri, 'image770x330') %}
+                                    <div class="col-sm-12 col-md-12 col-lg-8">
+                                        <div class="row">            
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <img class="mb-30" src="{{ image770x330 }}" alt="portfolio image" />
+                                            </div>
+                                {% if i == node.field_images|length %}
+                                        </div>
+                                    </div>           
+                                {% endif %}
+                            {% elseif i % 5 == 3 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set images370x330 = getUrlByImageStyle(imguri, 'images370x330') %}
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <img src="{{ images370x330 }}" alt="portfolio image" />
+                                </div>
+                                {% if i == node.field_images|length %}
+                                        </div>
+                                    </div>           
+                                {% endif %}
+                            {% elseif i % 5 == 4 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set images370x330 = getUrlByImageStyle(imguri, 'images370x330') %}
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <img src="{{ images370x330 }}" alt="portfolio image" />
+                                </div>
+                                    </div>
+                                </div>           
+                            {% elseif i % 5 == 0 %}
+                                {% set imguri = img_item.entity.uri.value %}
+                                {% set image370x690 = getUrlByImageStyle(imguri, 'image370x690') %}
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                    <img src="{{ image370x690 }}" alt="portfolio image" />
+                                </div>
+                            {% endif %}
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </div>
+                    <!-- .portfolio-images end -->
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="portfolio-meta text-center">
+                            <div>Client :</div>
+                            <h5>{{ client }}</h5>
+                        </div><!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="portfolio-meta text-center">
+                            <div>Skills :</div>
+                            <h5>{{ skill }}</h5>
+                        </div><!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="portfolio-meta text-center">
+                            <div>Awards :</div>
+                            <h5>{{ awards }}</h5>
+                        </div><!-- .portfolio-meta end -->
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="portfolio-meta text-center">
+                            <div>Date :</div>
+                            <h5>{{ date }}</h5>
+                        </div><!-- .portfolio-meta end -->
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1 text-center">
+                        {{ content.body }}
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="portfolio-share">
+                            <h3>{{'Share This Project'|t}}</h3>
+                            <ul class="list-inline">
+                                <li><a  href="http://www.facebook.com/sharer.php?u={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Facebook'|t}}
+                                </a></li>
+                                <li><a  href="http://twitter.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;text={{ node.title.value }}" target="_blank" >
+                                {{'Twitter'|t}}   
+                                </a></li>
+                                <li><a  href="https://plus.google.com/share?url={{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" >
+                                {{'Google +'|t}}    
+                                </a></li>
+                                <li><a  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ path('entity.node.canonical', {'node': node.id}) }}&amp;title={{ node.title.value }}" target="_blank" >
+                                {{'Linkedin'|t}}    
+                                </a></li>
+                            </ul>
+                        </div>
+                        <!-- .portfolio-share end -->
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    {% else %}
+        
+    {% endif %}
+{% endif %}

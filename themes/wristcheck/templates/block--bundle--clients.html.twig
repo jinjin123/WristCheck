@@ -1,0 +1,62 @@
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    	{% if content['#block_content'].field_field_type.value == 'type1'  %}
+			<section id="clients1" class="clients clients-1 bg-gray pb-80">
+			    <div class="container">
+			        <div class="row">
+			            <div class="col-sm-12 col-md-12 col-lg-12">
+			            	<div  class="carousel owl-carousel carousel-dots" data-slide="6" data-slide-rs="2" data-autoplay="false" data-nav="false" data-dots="true" data-space="20" data-loop="true" data-speed="800">
+			                   {% for img in content['#block_content'].field_images %}	
+									{% set img_uri = img.entity.uri.value %}
+									{% set img_url = file_url(img_uri) %}
+									<div class="client">
+					                    <img src="{{ img_url }}" alt="client">
+					                </div>
+								{% endfor %}
+			                </div><!-- #clients end -->
+			            </div><!-- .col-lg-12 end -->
+			        </div>
+			        <!-- .row end -->
+			    </div>
+			    <!-- .container end -->
+			</section>
+			<!-- #clients1 end -->
+			<div class="clearfix mb-150"></div>   			
+		{% else %}
+			<section id="clients2" class="clients clients-1 clients-2 pb-80">
+				<div class="container">
+					{{ content.body }}
+					<!-- .row end -->
+
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-12">
+						<div  class="carousel owl-carousel carousel-dots" data-slide="6" data-slide-rs="2" data-autoplay="false" data-nav="false" data-dots="true" data-space="20" data-loop="true" data-speed="800">
+								<!-- Client #1 -->
+								{% for img in content['#block_content'].field_images %}	
+									{% set img_uri = img.entity.uri.value %}
+									{% set img_url = file_url(img_uri) %}
+									<div class="client">
+					                    <img src="{{ img_url }}" alt="client">
+					                </div>
+								{% endfor %}
+							</div>
+							<!-- #clients end -->
+						</div>
+						<!-- .col-lg-12 end -->
+					</div>
+					<!-- .row end -->
+				</div>
+				<!-- .container end -->
+			</section>
+			<!-- #clients2 end --><div class="clearfix mb-150"></div>
+		{% endif %}
+  {% endblock %}
+</div>
+
+
+
