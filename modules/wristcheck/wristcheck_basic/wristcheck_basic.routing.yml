@@ -1,0 +1,7 @@
+wristcheck_basic.maintenance_form:
+  path: '/wristcheck_basic/form/maintenance'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\MaintenanceForm'
+    _title: 'MaintenanceForm'
+  requirements:
+    _access: 'TRUE'
