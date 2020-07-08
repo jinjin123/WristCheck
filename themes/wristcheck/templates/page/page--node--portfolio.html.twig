@@ -1,0 +1,12 @@
+<div class="footer-parallax-container">
+	{% include  "@wristcheck/header.html.twig" %}
+	{% include  "@wristcheck/page/page--header.html.twig" %}
+		{{ page.slider }}
+	    {{ page.content }}
+	    {% set style = node.field_style_single.value %}
+	    {% if style == 'single-2' or style == 'single-4' or style == 'single-5' or style == 'single-7' %}
+	    	{{ page.por_section }}
+	    {% endif %}
+	    {{ page.section }}
+</div>
+{% include  "@wristcheck/footer.html.twig" %}

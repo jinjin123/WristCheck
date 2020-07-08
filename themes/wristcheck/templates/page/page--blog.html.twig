@@ -1,0 +1,106 @@
+<div class="footer-parallax-container">
+    {% include  "@wristcheck/header.html.twig" %}
+	{% include  "@wristcheck/page/page--header.html.twig" %}  
+
+	{% if blog_sidebar == 'right' %}
+		<section id="blog-grid-2columns" class="blog blog-grid blog-grid-2columns">
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-sm-12 col-md-12 col-lg-8 mb-30-xs mb-30-sm">
+		        <div class="row">
+		        	{% if blog_layout == 'grid-1-col' %}
+		        		<div class="col-sm-12 col-md-12 col-lg-12">
+		        			{{ page.content }}
+			          	{{ page.section }}
+			          </div>
+		        	{% else %}
+			          {{ page.content }}
+			          {{ page.section }}
+		          {% endif %}
+		        </div>
+		        <!-- .row end -->
+		      </div>
+		      <!-- .col-lg-8 end -->
+		      <div class="col-sm-12 col-md-12 col-lg-4 sidebar">
+		        {{ page.blog_sidebar }}
+		      </div>
+		      <!-- .sidebar -->
+		    </div>
+		    <!-- .row end -->
+		  </div>
+		  <!-- .container end -->
+		</section>	
+	{% elseif blog_sidebar == 'left' %}
+		<section id="blog-grid-2columns" class="blog blog-grid blog-grid-2columns">
+		  <div class="container">
+		    <div class="row">
+		    	<div class="col-sm-12 col-md-12 col-lg-4 sidebar">
+		        {{ page.blog_sidebar }}
+		      </div>
+		      <div class="col-sm-12 col-md-12 col-lg-8 mb-30-xs mb-30-sm">
+		        <div class="row">
+		          {% if blog_layout == 'grid-1-col' %}
+		        		<div class="col-sm-12 col-md-12 col-lg-12">
+		        			{{ page.content }}
+			          	{{ page.section }}
+			          </div>
+		        	{% else %}
+			          {{ page.content }}
+			          {{ page.section }}
+		          {% endif %}
+		        </div>
+		        <!-- .row end -->
+		      </div>
+		      <!-- .sidebar -->
+		    </div>
+		    <!-- .row end -->
+		  </div>
+		  <!-- .container end -->
+		</section>
+	{% else %}
+		{% if blog_layout == 'masonary' %}
+			<section id="blog-masonry" class="blog blog-masonry">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-sm-12 col-md-12 col-lg-12">
+		                <div class="blog-masonry-items">
+		                	{{ page.content }}
+			          			{{ page.section }}
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		  </section>
+		{% elseif blog_layout == 'grid-1-col' %}
+			<section id="blog-grid-2columns" class="blog blog-grid blog-grid-2columns">
+			  <div class="container">
+			    <div class="row">
+			      <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+	                <div class="row mb-25">
+	                    <div class="col-sm-12 col-md-12 col-lg-12">
+	                    	{{ page.content }}
+			          				{{ page.section }}
+	                    </div>
+	                </div>
+	          </div>
+			    </div>
+			    <!-- .row end -->
+			  </div>
+			  <!-- .container end -->
+			</section>
+		{% else %}
+			<section id="blog-grid-2columns" class="blog blog-grid blog-grid-2columns">
+			  <div class="container">
+	              <div class="row mb-25">
+	                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                  	{{ page.content }}
+		          				{{ page.section }}
+	                  </div>
+	              </div>
+			  </div>
+			  <!-- .container end -->
+			</section>
+		{% endif %}
+	{% endif %}  
+</div> 
+{% include  "@wristcheck/footer.html.twig" %}
