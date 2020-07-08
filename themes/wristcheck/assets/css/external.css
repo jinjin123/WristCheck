@@ -49,7 +49,7 @@
   font-style: normal;
 }
 
-[class^="wristcheck-"], [class*=" ceali-"] {
+[class^="wristcheck-"], [class*=" wristcheck-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'wristcheck' !important;
   speak: none;

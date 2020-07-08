@@ -292,7 +292,7 @@ function wristcheck_preprocess_html(&$variables) {
     $variables['custom_css'] = theme_get_setting('custom_css', $theme);
     $node       = \Drupal::routeMatch()->getParameter('node');
     $variables['theme_path'] = drupal_get_path('theme', $theme);
-    /*$variables['#attached']['library'][] = 'wristcheck/ceali-lib';*/
+    /*$variables['#attached']['library'][] = 'wristcheck/wristcheck-lib';*/
     $variables['#attached']['drupalSettings']['path']['themeUrl'] = base_path().\Drupal::theme()->getActiveTheme()->getPath();
 }
 

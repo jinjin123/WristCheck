@@ -5,7 +5,7 @@ core: 8.x
 base theme: classy
 screenshot: screenshot.png
 libraries:
-  - wristcheck/ceali-lib
+  - wristcheck/wristcheck-lib
 stylesheets-remove:
   - core/themes/stable/css/views/views.module.css
   - core/themes/stable/css/system/components/align.module.css

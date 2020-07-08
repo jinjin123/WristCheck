@@ -299,7 +299,7 @@ table a:hover{
 }
 
 
-#block-wristcheck-content .user-login-form , #block-ceali-content .user-pass{
+#block-wristcheck-content .user-login-form , #block-wristcheck-content .user-pass{
     width: 40%;
     border: 1px lightgray solid;
     padding: 10px;
