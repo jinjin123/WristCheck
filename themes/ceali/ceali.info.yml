@@ -6,6 +6,7 @@ base theme: classy
 screenshot: screenshot.png
 libraries:
   - ceali/ceali-lib
+  - ceali/wristcheck-global
 stylesheets-remove:
   - core/themes/stable/css/views/views.module.css
   - core/themes/stable/css/system/components/align.module.css

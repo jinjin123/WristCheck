@@ -1,0 +1,13 @@
+{
+    "name": "wristcheck_basic",
+    "type": "drupal-module",
+    "description": "WristCheck Basic functions & forms & configurations & pages.",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/wristcheck_basic",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/wristcheck_basic",
+        "source": "http://cgit.drupalcode.org/wristcheck_basic",
+    },
+}

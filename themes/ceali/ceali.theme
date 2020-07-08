@@ -611,3 +611,12 @@ function ceali_preprocess_breadcrumb(&$variables) {
     }
 }
 
+/**
+ * Theme override to display a single Drupal page while offline.
+ * 
+ * &$variables
+ */
+function ceali_preprocess_maintenance_page(&$variables) {
+    $maintenance_form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\MaintenanceForm');
+    $variables['maintenance_form'] = $maintenance_form;
+}
