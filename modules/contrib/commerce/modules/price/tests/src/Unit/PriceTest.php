@@ -35,7 +35,8 @@ class PriceTest extends UnitTestCase {
    * ::covers __construct.
    */
   public function testCreateFromInvalidArray() {
-    $this->setExpectedException(\InvalidArgumentException::class);
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('Price::fromArray() called with a malformed array.');
     $price = Price::fromArray([]);
   }
 
@@ -58,7 +59,7 @@ class PriceTest extends UnitTestCase {
    * ::covers __construct.
    */
   public function testInvalidNumber() {
-    $this->setExpectedException(\InvalidArgumentException::class);
+    $this->expectException(\InvalidArgumentException::class);
     $price = new Price('INVALID', 'USD');
   }
 
@@ -68,8 +69,9 @@ class PriceTest extends UnitTestCase {
    * ::covers __construct.
    */
   public function testInvalidCurrencyCode() {
-    $this->setExpectedException(\InvalidArgumentException::class);
-    $price = new Price('10', 'INVALID');
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('Invalid currency code "TEST".');
+    $price = new Price('10', 'TEST');
   }
 
   /**
@@ -85,6 +87,28 @@ class PriceTest extends UnitTestCase {
     $this->assertEquals('USD', $this->price->getCurrencyCode());
     $this->assertEquals('10 USD', $this->price->__toString());
     $this->assertEquals(['number' => '10', 'currency_code' => 'USD'], $this->price->toArray());
+  }
+
+  /**
+   * Tests addition with mismatched currencies.
+   *
+   * ::covers add.
+   */
+  public function testAddWithMismatchedCurrencies() {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The provided prices have mismatched currencies: 10 USD, 5 EUR.');
+    $this->price->add(new Price('5', 'EUR'));
+  }
+
+  /**
+   * Tests subtraction with mismatched currencies.
+   *
+   * ::covers subtract.
+   */
+  public function testSubtractWithMismatchedCurrencies() {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The provided prices have mismatched currencies: 10 USD, 4 EUR.');
+    $this->price->subtract(new Price('4', 'EUR'));
   }
 
   /**

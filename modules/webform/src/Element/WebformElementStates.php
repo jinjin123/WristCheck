@@ -2,6 +2,7 @@
 
 namespace Drupal\webform\Element;
 
+use Drupal\Component\Utility\Crypt;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Form\OptGroup;
@@ -74,6 +75,9 @@ class WebformElementStates extends FormElement {
       '#state_options' => static::getStateOptions(),
       '#trigger_options' => static::getTriggerOptions(),
     ];
+
+    $element['#state_options_flattened'] = OptGroup::flattenOptions($element['#state_options']);
+    $element['#selector_options_flattened'] = OptGroup::flattenOptions($element['#selector_options']);
 
     $element['#tree'] = TRUE;
 
@@ -175,7 +179,7 @@ class WebformElementStates extends FormElement {
 
     // Generator empty state with conditions rows.
     if ($row_index < $number_of_rows) {
-      $rows[$row_index] = static::buildStateRow($element, [], $table_id, $row_index, $ajax_settings);;
+      $rows[$row_index] = static::buildStateRow($element, [], $table_id, $row_index, $ajax_settings);
       $state_row_indexes[] = $row_index;
       $row_index++;
       while ($row_index < $number_of_rows) {
@@ -196,9 +200,10 @@ class WebformElementStates extends FormElement {
       '#attributes' => ['class' => ['webform-states-table']],
     ] + $rows;
 
+    $element['actions'] = ['#type' => 'container'];
     // Build add state action.
     if ($element['#multiple']) {
-      $element['add'] = [
+      $element['actions']['add'] = [
         '#type' => 'submit',
         '#value' => t('Add another state'),
         '#limit_validation_errors' => [],
@@ -210,7 +215,7 @@ class WebformElementStates extends FormElement {
 
     // Edit source.
     if (\Drupal::currentUser()->hasPermission('edit webform source')) {
-      $element['source'] = [
+      $element['actions']['source'] = [
         '#type' => 'submit',
         '#value' => t('Edit source'),
         '#limit_validation_errors' => [],
@@ -221,48 +226,51 @@ class WebformElementStates extends FormElement {
       ];
     }
 
-    // Display a warning message when a state is set to disabled or enabled.
-    $total_state_row_indexes = count($state_row_indexes);
-    $triggers = [];
-    foreach ($state_row_indexes as $index => $row_index) {
-      $id = Html::getId('edit-' . implode('-', $element['#parents']) . '-states-' . $row_index . '-state');
-      $triggers[] = [':input[data-drupal-selector="' . $id . '"]' => ['value' => ['pattern' => '^(disabled|enabled)$']]];
-      if (($index + 1) < $total_state_row_indexes) {
-        $triggers[] = 'or';
-      }
-    }
+    // Display a warning message when any state is set to disabled or enabled.
     if (!empty($element['#disabled_message'])) {
-      $element['disabled_message'] = [
-        '#type' => 'webform_message',
-        '#message_message' => t('<a href="https://www.w3schools.com/tags/att_input_disabled.asp" target="_blank">Disabled</a> elements do not submit data back to the server and the element\'s server-side default or current value will be preserved and saved to the database.'),
-        '#message_type' => 'warning',
-        '#states' => ['visible' => $triggers],
-      ];
+      $total_state_row_indexes = count($state_row_indexes);
+      $triggers = [];
+      foreach ($state_row_indexes as $index => $row_index) {
+        $id = Html::getId('edit-' . implode('-', $element['#parents']) . '-states-' . $row_index . '-state');
+        $triggers[] = [':input[data-drupal-selector="' . $id . '"]' => ['value' => ['pattern' => '^(disabled|enabled)$']]];
+        if (($index + 1) < $total_state_row_indexes) {
+          $triggers[] = 'or';
+        }
+      }
+      if ($triggers) {
+        $element['disabled_message'] = [
+          '#type' => 'webform_message',
+          '#message_message' => t('<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-disabled">Disabled</a> elements do not submit data back to the server and the element\'s server-side default or current value will be preserved and saved to the database.'),
+          '#message_type' => 'warning',
+          '#states' => ['visible' => $triggers],
+        ];
+      }
     }
 
     $element['#attached']['library'][] = 'webform/webform.element.states';
+
+    // Convert #options to jQuery autocomplete source format.
+    // @see http://api.jqueryui.com/autocomplete/#option-source
+    $selectors = [];
+    $sources = [];
     if ($element['#selector_sources']) {
-      // Convert #options to jQuery autocomplete source format.
-      // @see http://api.jqueryui.com/autocomplete/#option-source
-      $selectors = [];
-      $sources = [];
       foreach ($element['#selector_sources'] as $selector => $values) {
-        $sources_key = md5(serialize($values));
+        $sources_key = Crypt::hashBase64(serialize($values));
         $selectors[$selector] = $sources_key;
         if (!isset($sources[$sources_key])) {
           foreach ($values as $key => $value) {
             $sources[$sources_key][] = [
-              'label' => (string) $value . ($value != $key ? ' (' . $key . ')' : ''),
+              'label' => (string) $value . ($value !== $key ? ' (' . $key . ')' : ''),
               'value' => (string) $key,
             ];
           }
         }
       }
-      $element['#attached']['drupalSettings']['webformElementStates'] = [
-        'selectors' => $selectors,
-        'sources' => $sources,
-      ];
     }
+    $element['#attached']['drupalSettings']['webformElementStates'] = [
+      'selectors' => $selectors,
+      'sources' => $sources,
+    ];
 
     return $element;
   }
@@ -306,6 +314,7 @@ class WebformElementStates extends FormElement {
     ];
     return $build;
   }
+
   /**
    * Convert options with optgroup to item list.
    *
@@ -438,7 +447,7 @@ class WebformElementStates extends FormElement {
       '#empty_option' => t('- Select -'),
       '#error_no_message' => TRUE,
     ];
-    if (!isset($element['#selector_options'][$condition['selector']])) {
+    if (!isset($element['#selector_options_flattened'][$condition['selector']])) {
       $row['selector']['#options'][$condition['selector']] = $condition['selector'];
     }
     $row['condition'] = [
@@ -475,6 +484,8 @@ class WebformElementStates extends FormElement {
           [$trigger_selector => ['value' => 'greater']],
           'or',
           [$trigger_selector => ['value' => 'less']],
+          'or',
+          [$trigger_selector => ['value' => 'between']],
         ],
       ],
       '#wrapper_attributes' => ['class' => ['webform-states-table--value']],
@@ -483,12 +494,21 @@ class WebformElementStates extends FormElement {
     ];
     $row['condition']['pattern'] = [
       '#type' => 'container',
-      'description' => ['#markup' => t('Enter a <a href=":href">regular expression</a>', [':href' => 'http://www.w3schools.com/js/js_regexp.asp'])],
+      'description' => ['#markup' => t('Enter a <a href=":href">regular expression</a>', [':href' => 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions'])],
       '#states' => [
         'visible' => [
           [$trigger_selector => ['value' => 'pattern']],
           'or',
           [$trigger_selector => ['value' => '!pattern']],
+        ],
+      ],
+    ];
+    $row['condition']['pattern'] = [
+      '#type' => 'container',
+      'description' => ['#markup' => t('Enter a number range (1:100)')],
+      '#states' => [
+        'visible' => [
+          [$trigger_selector => ['value' => 'between']],
         ],
       ],
     ];
@@ -527,7 +547,7 @@ class WebformElementStates extends FormElement {
     $operations['remove'] = [
       '#type' => 'image_button',
       '#title' => t('Remove'),
-      '#src' => drupal_get_path('module', 'webform') . '/images/icons/ex.svg',
+      '#src' => drupal_get_path('module', 'webform') . '/images/icons/minus.svg',
       '#limit_validation_errors' => [],
       '#submit' => [[get_called_class(), 'removeRowSubmit']],
       '#ajax' => $ajax_settings,
@@ -552,7 +572,7 @@ class WebformElementStates extends FormElement {
   public static function addStateSubmit(array &$form, FormStateInterface $form_state) {
     // Get the webform states element by going up one level.
     $button = $form_state->getTriggeringElement();
-    $element =& NestedArray::getValue($form, array_slice($button['#array_parents'], 0, -1));
+    $element =& NestedArray::getValue($form, array_slice($button['#array_parents'], 0, -2));
 
     $values = $element['states']['#value'];
 
@@ -593,11 +613,11 @@ class WebformElementStates extends FormElement {
 
     // The $row_index is not sequential so we need to rebuild the value instead
     // of just using an array_slice().
-    $row_index = $button['#row_index'];
+    $row_index = (int) $button['#row_index'];
     $values = [];
     foreach ($element['states']['#value'] as $index => $value) {
       $values[] = $value;
-      if ($index == $row_index) {
+      if ($index === $row_index) {
         $values[] = ['selector' => '', 'trigger' => '', 'value' => ''];
       }
     }
@@ -656,7 +676,7 @@ class WebformElementStates extends FormElement {
     // Rebuild the form.
     $form_state->setRebuild();
   }
-  
+
   /**
    * Form submission handler for editing source.
    *
@@ -668,7 +688,7 @@ class WebformElementStates extends FormElement {
   public static function editSourceSubmit(array &$form, FormStateInterface $form_state) {
     // Get the webform states element by going up one level.
     $button = $form_state->getTriggeringElement();
-    $element =& NestedArray::getValue($form, array_slice($button['#array_parents'], 0, -1));
+    $element =& NestedArray::getValue($form, array_slice($button['#array_parents'], 0, -2));
 
     // Set edit source.
     $form_state->set(static::getStorageKey($element, 'edit_source'), TRUE);
@@ -687,7 +707,7 @@ class WebformElementStates extends FormElement {
    */
   public static function ajaxCallback(array &$form, FormStateInterface $form_state) {
     $button = $form_state->getTriggeringElement();
-    $parent_length = (isset($button['#row_index'])) ? -4 : -1;
+    $parent_length = (isset($button['#row_index'])) ? -4 : -2;
     $element = NestedArray::getValue($form, array_slice($button['#array_parents'], 0, $parent_length));
     return $element;
   }
@@ -838,7 +858,7 @@ class WebformElementStates extends FormElement {
         foreach ($state_array['conditions'] as $index => $condition) {
           extract(static::getFormApiStatesCondition($condition));
           if ($selector && $trigger) {
-            if ($operator == 'or' || $operator == 'xor') {
+            if ($operator === 'or' || $operator === 'xor') {
               if ($index !== 0) {
                 $states[$state][] = $operator;
               }
@@ -877,8 +897,8 @@ class WebformElementStates extends FormElement {
    *   An element selector.
    */
   protected static function setFormApiStateError(array $element, array &$errors, $state = NULL, $selector = NULL) {
-    $state_options = OptGroup::flattenOptions($element['#state_options']);
-    $selector_options = OptGroup::flattenOptions($element['#selector_options']);
+    $state_options = $element['#state_options_flattened'];
+    $selector_options = $element['#selector_options_flattened'];
 
     if ($state && !$selector) {
       $t_args = [
@@ -911,7 +931,7 @@ class WebformElementStates extends FormElement {
       if (in_array($trigger, ['value', '!value'])) {
         $value = $condition['value'];
       }
-      elseif (in_array($trigger, ['pattern', '!pattern', 'less', 'greater'])) {
+      elseif (in_array($trigger, ['pattern', '!pattern', 'less', 'greater', 'between'])) {
         $value = [$trigger => $condition['value']];
         $trigger = 'value';
       }
@@ -1006,7 +1026,7 @@ class WebformElementStates extends FormElement {
           }
 
           // Make sure the same operator is being used between the conditions.
-          if ($operator && $operator != $condition) {
+          if ($operator && $operator !== $condition) {
             return t('Conditional logic (Form API #states) has multiple operators.', ['%operator' => mb_strtoupper($condition)]);
           }
 
@@ -1067,14 +1087,13 @@ class WebformElementStates extends FormElement {
       'filled' => t('Filled'),
       'checked' => t('Checked'),
       'unchecked' => t('Unchecked'),
-      'expanded' => t('Expanded'),
-      'collapsed' => t('Collapsed'),
       'value' => t('Value is'),
       '!value' => t('Value is not'),
       'pattern' => t('Pattern'),
       '!pattern' => t('Not Pattern'),
       'less' => t('Less than'),
       'greater' => t('Greater than'),
+      'between' => t('Between'),
     ];
   }
 

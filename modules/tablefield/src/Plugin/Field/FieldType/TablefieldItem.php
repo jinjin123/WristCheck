@@ -1,10 +1,7 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Drupal\tablefield\Plugin\Field\FieldType;
+
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -42,10 +39,14 @@ class TablefieldItem extends FieldItemBase {
           'length' => 255,
           'default value' => '',
         ],
+        'caption' => [
+          'type' => 'varchar',
+          'length' => 255,
+          'default value' => '',
+        ],
       ],
     ];
   }
-
 
   /**
    * {@inheritdoc}
@@ -92,7 +93,7 @@ class TablefieldItem extends FieldItemBase {
     ];
     $form['lock_values'] = [
       '#type' => 'checkbox',
-      '#title' => 'Lock table field defaults from further edits during node add/edit.',
+      '#title' => 'Lock cell default values from further edits during node add/edit. Most commonly used to have fixed values for the header.',
       '#default_value' => $settings['lock_values'],
     ];
     $form['cell_processing'] = [
@@ -129,6 +130,12 @@ class TablefieldItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
+    $properties['table_value'] = DataDefinition::create('string')
+      ->setLabel(t('Stringified table value'))
+      ->setDescription(t('The stringified value of the table.'))
+      ->setComputed(TRUE)
+      ->setClass('\Drupal\tablefield\TableValue');
+
     $properties['value'] = MapDataDefinition::create()
       ->setLabel(t('Table data'))
       ->setDescription(t('Stores tabular data.'));
@@ -136,11 +143,14 @@ class TablefieldItem extends FieldItemBase {
     $properties['format'] = DataDefinition::create('filter_format')
       ->setLabel(t('Text format'));
 
+    $properties['caption'] = DataDefinition::create('string')
+      ->setLabel(t('Table Caption'));
+
     return $properties;
   }
 
   /**
-   *
+   * {@inheritdoc}
    */
   public function setValue($values, $notify = TRUE) {
     if (!isset($values)) {
@@ -162,14 +172,31 @@ class TablefieldItem extends FieldItemBase {
     }
     // In case this is being loaded from storage recalculate rows/cols.
     elseif (empty($values['rebuild'])) {
+      if (array_key_exists('value', $values) && array_key_exists('caption', $values['value'])) {
+        unset($values['value']['caption']);
+      }
       $values['rebuild']['rows'] = isset($values['value']) ? count($values['value']) : 0;
       $values['rebuild']['cols'] = isset($values['value'][0]) ? count($values['value'][0]) : 0;
     }
 
-    // If lock defaults is enabled the table might need sorting.
+    if (isset($values['caption'])) {
+      $values['value']['caption'] = $values['caption'];
+    }
+
+    // If "Lock defaults" is enabled the table needs sorting.
     $lock = $this->getFieldDefinition()->getSetting('lock_values');
     if ($lock) {
-      ksort($values['value']);
+      // Sort columns on key.
+      foreach ($values['value'] as $key => $value) {
+        if (is_array($value)) {
+          ksort($value);
+          $values['value'][$key] = $value;
+        }
+      }
+      // Sort rows on key.
+      if (is_array($values['value'])) {
+        ksort($values['value']);
+      }
     }
 
     parent::setValue($values, $notify);
@@ -179,7 +206,7 @@ class TablefieldItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
-    // @TODO should field definition be counted?
+    // @todo Should field definition be counted?
     return [
       'value' => [['Header 1', 'Header 2'], ['Data 1', 'Data 2']],
       'rebuild' => ['rows' => 2, 'cols' => 2],
@@ -196,7 +223,12 @@ class TablefieldItem extends FieldItemBase {
     $in_settings = \Drupal::request()->get(RouteObjectInterface::ROUTE_NAME) == 'entity.field_config.node_field_edit_form';
 
     // Check table data first.
-    if (!empty($value) && is_array($value['value'])) {
+    if (!empty($value) && isset($value['value']) && is_array($value['value'])) {
+
+      // Check table caption first.
+      if (!empty($value['caption'])) {
+        return FALSE;
+      }
 
       // Ignore table header?
       if (!$in_settings && $empty_rules['ignore_table_header']) {
@@ -204,9 +236,11 @@ class TablefieldItem extends FieldItemBase {
       }
 
       foreach ($value['value'] as $row) {
-        foreach ($row as $cell) {
-          if (!empty($cell)) {
-            return FALSE;
+        if (is_array($row)) {
+          foreach ($row as $cell) {
+            if (!empty($cell)) {
+              return FALSE;
+            }
           }
         }
       }

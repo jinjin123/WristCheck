@@ -9,8 +9,11 @@ use Drupal\commerce_price\Price;
 use Drupal\commerce_product\Entity\Product;
 use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\commerce_product\Entity\ProductVariationType;
+use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Core\DependencyInjection\ContainerBuilder;
+use Drupal\Core\DependencyInjection\ServiceModifierInterface;
 use Drupal\profile\Entity\Profile;
-use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
+use Drupal\Tests\commerce_order\Kernel\OrderKernelTestBase;
 use Drupal\user\Entity\User;
 
 /**
@@ -18,7 +21,7 @@ use Drupal\user\Entity\User;
  *
  * @group commerce
  */
-class OrderIntegrationTest extends CommerceKernelTestBase {
+class OrderIntegrationTest extends OrderKernelTestBase implements ServiceModifierInterface {
 
   /**
    * A sample order.
@@ -47,12 +50,8 @@ class OrderIntegrationTest extends CommerceKernelTestBase {
    * @var array
    */
   public static $modules = [
-    'entity_reference_revisions',
-    'profile',
-    'state_machine',
     'commerce_log',
-    'commerce_product',
-    'commerce_order',
+    'commerce_log_test',
   ];
 
   /**
@@ -61,13 +60,7 @@ class OrderIntegrationTest extends CommerceKernelTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->installEntitySchema('profile');
     $this->installEntitySchema('commerce_log');
-    $this->installEntitySchema('commerce_order');
-    $this->installEntitySchema('commerce_order_item');
-    $this->installEntitySchema('commerce_product');
-    $this->installEntitySchema('commerce_product_variation');
-    $this->installConfig(['commerce_product', 'commerce_order']);
     $user = $this->createUser(['mail' => $this->randomString() . '@example.com']);
     $this->logStorage = $this->container->get('entity_type.manager')->getStorage('commerce_log');
     $this->logViewBuilder = $this->container->get('entity_type.manager')->getViewBuilder('commerce_log');
@@ -125,12 +118,18 @@ class OrderIntegrationTest extends CommerceKernelTestBase {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function alter(ContainerBuilder $container) {
+    $container->removeDefinition('commerce_order.order_receipt_subscriber');
+  }
+
+  /**
    * Tests that a log is generated for the cancel transition.
    */
   public function testCancelLog() {
     // Draft -> Canceled.
-    $transition = $this->order->getState()->getTransitions();
-    $this->order->getState()->applyTransition($transition['cancel']);
+    $this->order->getState()->applyTransitionById('cancel');
     $this->order->save();
 
     $logs = $this->logStorage->loadMultipleByEntity($this->order);
@@ -147,8 +146,7 @@ class OrderIntegrationTest extends CommerceKernelTestBase {
    */
   public function testPlaceValidateFulfillLogs() {
     // Draft -> Placed.
-    $transition = $this->order->getState()->getTransitions();
-    $this->order->getState()->applyTransition($transition['place']);
+    $this->order->getState()->applyTransitionById('place');
     $this->order->save();
 
     $logs = $this->logStorage->loadMultipleByEntity($this->order);
@@ -160,8 +158,7 @@ class OrderIntegrationTest extends CommerceKernelTestBase {
     $this->assertText('The order was placed.');
 
     // Placed -> Validated.
-    $transition = $this->order->getState()->getTransitions();
-    $this->order->getState()->applyTransition($transition['validate']);
+    $this->order->getState()->applyTransitionById('validate');
     $this->order->save();
 
     $logs = $this->logStorage->loadMultipleByEntity($this->order);
@@ -173,8 +170,7 @@ class OrderIntegrationTest extends CommerceKernelTestBase {
     $this->assertText('The order was validated.');
 
     // Validated -> Fulfilled.
-    $transition = $this->order->getState()->getTransitions();
-    $this->order->getState()->applyTransition($transition['fulfill']);
+    $this->order->getState()->applyTransitionById('fulfill');
     $this->order->save();
 
     $logs = $this->logStorage->loadMultipleByEntity($this->order);
@@ -205,6 +201,49 @@ class OrderIntegrationTest extends CommerceKernelTestBase {
     $build = $this->logViewBuilder->view($log);
     $this->render($build);
     $this->assertText("The order was assigned to {$new_user->getDisplayName()}.");
+  }
+
+  /**
+   * Tests that a log is generated when any order email is sent.
+   */
+  public function testEmailLog() {
+    $order_receipt_mail = $this->container->get('commerce_order.order_receipt_mail');
+    $order_receipt_mail->send($this->order);
+    $this->order->setData('simulate_mail_failure', TRUE);
+    $order_receipt_mail->send($this->order);
+    $this->order->unsetData('simulate_mail_failure');
+    $subject = sprintf('Order %s test mail', $this->order->getOrderNumber());
+    $params = [
+      'id' => 'order_test',
+      'from' => $this->order->getStore()->getEmail(),
+      'order' => $this->order,
+    ];
+    $mail_handler = $this->container->get('commerce.mail_handler');
+    $mail_handler->sendMail($this->order->getEmail(), $subject, [], $params);
+    $this->order->setData('simulate_mail_failure', TRUE);
+    $mail_handler->sendMail($this->order->getEmail(), $subject, [], $params);
+
+    $logs = $this->logStorage->loadMultipleByEntity($this->order);
+    $this->assertEquals(4, count($logs));
+    $success_log = reset($logs);
+    $build = $this->logViewBuilder->view($success_log);
+    $this->render($build);
+    $this->assertText(new FormattableMarkup('Order receipt email sent to @mail.', ['@mail' => $this->order->getEmail()]));
+
+    $failure_log = $logs[2];
+    $build = $this->logViewBuilder->view($failure_log);
+    $this->render($build);
+    $this->assertText(new FormattableMarkup('Order receipt email failed to send to @mail.', ['@mail' => $this->order->getEmail()]));
+
+    $order_test_log = $logs[3];
+    $build = $this->logViewBuilder->view($order_test_log);
+    $this->render($build);
+    $this->assertText(new FormattableMarkup('Email "order_test" sent to @mail.', ['@mail' => $this->order->getEmail()]));
+
+    $order_test_failure_log = $logs[4];
+    $build = $this->logViewBuilder->view($order_test_failure_log);
+    $this->render($build);
+    $this->assertText(new FormattableMarkup('Failed to send "order_test" to @mail.', ['@mail' => $this->order->getEmail()]));
   }
 
 }

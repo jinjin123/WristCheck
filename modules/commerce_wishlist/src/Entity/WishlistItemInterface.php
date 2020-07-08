@@ -2,8 +2,9 @@
 
 namespace Drupal\commerce_wishlist\Entity;
 
-use Drupal\Core\Entity\EntityChangedInterface;
+use Drupal\commerce_wishlist\WishlistPurchase;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\EntityChangedInterface;
 
 /**
  * Defines the interface for wishlist items.
@@ -51,16 +52,6 @@ interface WishlistItemInterface extends ContentEntityInterface, EntityChangedInt
   public function getTitle();
 
   /**
-   * Sets the wishlist item title.
-   *
-   * @param string $title
-   *   The wishlist item title.
-   *
-   * @return $this
-   */
-  public function setTitle($title);
-
-  /**
    * Gets the wishlist item quantity.
    *
    * @return string
@@ -77,6 +68,99 @@ interface WishlistItemInterface extends ContentEntityInterface, EntityChangedInt
    * @return $this
    */
   public function setQuantity($quantity);
+
+  /**
+   * Gets the wishlist item comment.
+   *
+   * @return string
+   *   The wishlist item comment.
+   */
+  public function getComment();
+
+  /**
+   * Sets the wishlist item comment.
+   *
+   * @param string $comment
+   *   The wishlist item comment.
+   *
+   * @return $this
+   */
+  public function setComment($comment);
+
+  /**
+   * Gets the wishlist item priority.
+   *
+   * @return int
+   *   The wishlist item priority.
+   */
+  public function getPriority();
+
+  /**
+   * Sets the wishlist item priority.
+   *
+   * @param int $priority
+   *   The wishlist item priority.
+   *
+   * @return $this
+   */
+  public function setPriority($priority);
+
+  /**
+   * Gets the purchases.
+   *
+   * Each object contains the order ID, quantity, and timestamp of a purchase.
+   *
+   * @return \Drupal\commerce_wishlist\WishlistPurchase[]
+   *   The purchases.
+   */
+  public function getPurchases();
+
+  /**
+   * Sets the purchases.
+   *
+   * @param \Drupal\commerce_wishlist\WishlistPurchase[] $purchases
+   *   The purchases.
+   *
+   * @return $this
+   */
+  public function setPurchases(array $purchases);
+
+  /**
+   * Adds a new purchase.
+   *
+   * @param \Drupal\commerce_wishlist\WishlistPurchase $purchase
+   *   The purchase.
+   */
+  public function addPurchase(WishlistPurchase $purchase);
+
+  /**
+   * Removes a purchase.
+   *
+   * @param \Drupal\commerce_wishlist\WishlistPurchase $purchase
+   *   The purchase.
+   *
+   * @return $this
+   */
+  public function removePurchase(WishlistPurchase $purchase);
+
+  /**
+   * Gets the purchased quantity.
+   *
+   * Represents the sum of all purchase quantities.
+   *
+   * @return string
+   *   The purchased quantity.
+   */
+  public function getPurchasedQuantity();
+
+  /**
+   * Gets the timestamp of the last purchase.
+   *
+   * @return int|null
+   *   The timestamp of the last purchase, or NULL if the wishlist item
+   *   hasn't been purchased yet.
+   */
+  public function getLastPurchasedTime();
 
   /**
    * Gets the wishlist item creation timestamp.

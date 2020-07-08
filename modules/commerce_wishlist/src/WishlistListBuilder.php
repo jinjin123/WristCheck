@@ -2,12 +2,12 @@
 
 namespace Drupal\commerce_wishlist;
 
-use Drupal\commerce_wishlist\Entity\WishlistType;
 use Drupal\Core\Datetime\DateFormatter;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -23,6 +23,13 @@ class WishlistListBuilder extends EntityListBuilder {
   protected $dateFormatter;
 
   /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * Constructs a new WishlistListBuilder object.
    *
    * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
@@ -35,6 +42,7 @@ class WishlistListBuilder extends EntityListBuilder {
   public function __construct(EntityTypeInterface $entity_type, EntityTypeManagerInterface $entity_type_manager, DateFormatter $date_formatter) {
     parent::__construct($entity_type, $entity_type_manager->getStorage($entity_type->id()));
 
+    $this->entityTypeManager = $entity_type_manager;
     $this->dateFormatter = $date_formatter;
   }
 
@@ -54,24 +62,24 @@ class WishlistListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     $header = [
-      'wishlist_id' => [
-        'data' => $this->t('Wishlist ID'),
+      'name' => [
+        'data' => $this->t('Name'),
         'class' => [RESPONSIVE_PRIORITY_LOW],
       ],
       'type' => [
         'data' => $this->t('Type'),
         'class' => [RESPONSIVE_PRIORITY_MEDIUM],
       ],
-      'customer' => [
-        'data' => $this->t('Customer'),
-        'class' => [RESPONSIVE_PRIORITY_LOW],
-      ],
-      'changed' => [
-        'data' => $this->t('Changed'),
+      'owner' => [
+        'data' => $this->t('Owner'),
         'class' => [RESPONSIVE_PRIORITY_LOW],
       ],
       'created' => [
         'data' => $this->t('Created'),
+        'class' => [RESPONSIVE_PRIORITY_LOW],
+      ],
+      'changed' => [
+        'data' => $this->t('Changed'),
         'class' => [RESPONSIVE_PRIORITY_LOW],
       ],
     ];
@@ -83,22 +91,41 @@ class WishlistListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\commerce_wishlist\Entity\Wishlist */
-    $wishlistType = WishlistType::load($entity->bundle());
+    $wishlist_type_storage = $this->entityTypeManager->getStorage('commerce_wishlist_type');
+    $wishlist_type = $wishlist_type_storage->load($entity->bundle());
+
+    /* @var \Drupal\commerce_wishlist\Entity\WishlistInterface $entity */
     $row = [
-      'wishlist_id' => $entity->id(),
-      'type' => $wishlistType->label(),
-      'customer' => [
+      'name' => $entity->label(),
+      'type' => $wishlist_type->label(),
+      'owner' => [
         'data' => [
           '#theme' => 'username',
-          '#account' => $entity->getCustomer(),
+          '#account' => $entity->getOwner(),
         ],
       ],
-      'changed' => $this->dateFormatter->format($entity->getChangedTime(), 'short'),
       'created' => $this->dateFormatter->format($entity->getCreatedTime(), 'short'),
+      'changed' => $this->dateFormatter->format($entity->getChangedTime(), 'short'),
     ];
 
     return $row + parent::buildRow($entity);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getDefaultOperations(EntityInterface $entity) {
+    $operations = parent::getDefaultOperations($entity);
+    if ($entity->access('update')) {
+      $operations['items'] = [
+        'title' => $this->t('Items'),
+        'url' => new Url('entity.commerce_wishlist_item.collection', [
+          'commerce_wishlist' => $entity->id(),
+        ]),
+      ];
+    }
+
+    return $operations;
   }
 
 }

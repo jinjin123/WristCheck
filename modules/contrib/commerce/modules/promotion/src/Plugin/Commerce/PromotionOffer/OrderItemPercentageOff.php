@@ -27,16 +27,37 @@ class OrderItemPercentageOff extends OrderItemPromotionOfferBase {
     /** @var \Drupal\commerce_order\Entity\OrderItemInterface $order_item */
     $order_item = $entity;
     $percentage = $this->getPercentage();
-    $adjustment_amount = $order_item->getTotalPrice()->multiply($percentage);
+    if ($this->configuration['display_inclusive']) {
+      // Display-inclusive promotions must first be applied to the unit price.
+      $unit_price = $order_item->getUnitPrice();
+      $amount = $unit_price->multiply($percentage);
+      $amount = $this->rounder->round($amount);
+      $new_unit_price = $unit_price->subtract($amount);
+      $order_item->setUnitPrice($new_unit_price);
+      $adjustment_amount = $amount->multiply($order_item->getQuantity());
+    }
+    else {
+      $adjustment_amount = $order_item->getTotalPrice()->multiply($percentage);
+    }
     $adjustment_amount = $this->rounder->round($adjustment_amount);
+
+    $order = $order_item->getOrder();
+    if ($adjustment_amount->greaterThan($order->getTotalPrice())) {
+      $adjustment_amount = $order->getTotalPrice();
+    }
+
+    // Skip applying the promotion if there's no amount to discount.
+    if ($adjustment_amount->isZero()) {
+      return;
+    }
 
     $order_item->addAdjustment(new Adjustment([
       'type' => 'promotion',
-      // @todo Change to label from UI when added in #2770731.
-      'label' => t('Discount'),
+      'label' => $promotion->getDisplayName() ?: $this->t('Discount'),
       'amount' => $adjustment_amount->multiply('-1'),
       'percentage' => $percentage,
       'source_id' => $promotion->id(),
+      'included' => $this->configuration['display_inclusive'],
     ]));
   }
 

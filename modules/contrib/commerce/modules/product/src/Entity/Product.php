@@ -3,13 +3,15 @@
 namespace Drupal\commerce_product\Entity;
 
 use Drupal\commerce\Entity\CommerceContentEntityBase;
+use Drupal\commerce\EntityOwnerTrait;
+use Drupal\commerce_product\Event\ProductDefaultVariationEvent;
+use Drupal\commerce_product\Event\ProductEvents;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\user\UserInterface;
 
 /**
  * Defines the product entity class.
@@ -39,6 +41,9 @@ use Drupal\user\UserInterface;
  *       "add" = "Drupal\commerce_product\Form\ProductForm",
  *       "edit" = "Drupal\commerce_product\Form\ProductForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm"
+ *     },
+ *     "local_task_provider" = {
+ *       "default" = "Drupal\entity\Menu\DefaultEntityLocalTaskProvider",
  *     },
  *     "route_provider" = {
  *       "default" = "Drupal\entity\Routing\AdminHtmlRouteProvider",
@@ -77,7 +82,15 @@ use Drupal\user\UserInterface;
 class Product extends CommerceContentEntityBase implements ProductInterface {
 
   use EntityChangedTrait;
+  use EntityOwnerTrait;
   use EntityPublishedTrait;
+
+  /**
+   * The default product variation.
+   *
+   * @var \Drupal\commerce_product\Entity\ProductVariationInterface
+   */
+  protected $defaultVariation;
 
   /**
    * {@inheritdoc}
@@ -140,36 +153,6 @@ class Product extends CommerceContentEntityBase implements ProductInterface {
    */
   public function setStoreIds(array $store_ids) {
     $this->set('stores', $store_ids);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwner() {
-    return $this->get('uid')->entity;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwner(UserInterface $account) {
-    $this->set('uid', $account->id());
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwnerId() {
-    return $this->getEntityKey('owner');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwnerId($uid) {
-    $this->set('uid', $uid);
     return $this;
   }
 
@@ -251,12 +234,22 @@ class Product extends CommerceContentEntityBase implements ProductInterface {
    * {@inheritdoc}
    */
   public function getDefaultVariation() {
-    foreach ($this->getVariations() as $variation) {
-      // Return the first active variation.
-      if ($variation->isActive() && $variation->access('view')) {
-        return $variation;
+    if ($this->defaultVariation === NULL) {
+      $default_variation = NULL;
+      foreach ($this->getVariations() as $variation) {
+        // Return the first active variation.
+        if ($variation->isPublished() && $variation->access('view')) {
+          $default_variation = $variation;
+          break;
+        }
       }
+      // Allow other modules to set the default variation.
+      $event = new ProductDefaultVariationEvent($default_variation, $this);
+      $event_dispatcher = \Drupal::service('event_dispatcher');
+      $event_dispatcher->dispatch(ProductEvents::PRODUCT_DEFAULT_VARIATION, $event);
+      $this->defaultVariation = $event->getDefaultVariation();
     }
+    return $this->defaultVariation;
   }
 
   /**
@@ -268,8 +261,10 @@ class Product extends CommerceContentEntityBase implements ProductInterface {
     foreach (array_keys($this->getTranslationLanguages()) as $langcode) {
       $translation = $this->getTranslation($langcode);
 
-      // If no owner has been set explicitly, make the anonymous user the owner.
-      if (!$translation->getOwner()) {
+      // Explicitly set the owner ID to 0 if the translation owner is anonymous
+      // (This will ensure we don't store a broken reference in case the user
+      // no longer exists).
+      if ($translation->getOwner()->isAnonymous()) {
         $translation->setOwnerId(0);
       }
     }
@@ -295,7 +290,7 @@ class Product extends CommerceContentEntityBase implements ProductInterface {
    * {@inheritdoc}
    */
   public function getCacheContexts() {
-    return Cache::mergeContexts(parent::getCacheContexts(), ['url.query_args:v']);
+    return Cache::mergeContexts(parent::getCacheContexts(), ['url.query_args:v', 'store']);
   }
 
   /**
@@ -321,15 +316,26 @@ class Product extends CommerceContentEntityBase implements ProductInterface {
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
+    $fields += static::ownerBaseFieldDefinitions($entity_type);
     $fields += static::publishedBaseFieldDefinitions($entity_type);
 
-    $fields['uid'] = BaseFieldDefinition::create('entity_reference')
+    $fields['stores'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Stores'))
+      ->setDescription(t('The product stores.'))
+      ->setRequired(TRUE)
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setSetting('target_type', 'commerce_store')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('form', [
+        'type' => 'commerce_entity_select',
+        'weight' => -10,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['uid']
       ->setLabel(t('Author'))
       ->setDescription(t('The product author.'))
-      ->setSetting('target_type', 'user')
-      ->setSetting('handler', 'default')
-      ->setDefaultValueCallback('Drupal\commerce_product\Entity\Product::getCurrentUserId')
-      ->setTranslatable(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
@@ -354,6 +360,20 @@ class Product extends CommerceContentEntityBase implements ProductInterface {
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -5,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['variations'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Variations'))
+      ->setDescription(t('The product variations.'))
+      ->setRequired(TRUE)
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setSetting('target_type', 'commerce_product_variation')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('view', [
+        'type' => 'commerce_add_to_cart',
+        'weight' => 10,
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
@@ -400,15 +420,23 @@ class Product extends CommerceContentEntityBase implements ProductInterface {
   }
 
   /**
-   * Default value callback for 'uid' base field definition.
-   *
-   * @see ::baseFieldDefinitions()
-   *
-   * @return array
-   *   An array of default values.
+   * {@inheritdoc}
    */
-  public static function getCurrentUserId() {
-    return [\Drupal::currentUser()->id()];
+  public static function bundleFieldDefinitions(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
+    /** @var \Drupal\Core\Field\BaseFieldDefinition[] $fields */
+    $fields = [];
+    $fields['variations'] = clone $base_field_definitions['variations'];
+    /** @var \Drupal\commerce_product\Entity\ProductTypeInterface $product_type */
+    $product_type = ProductType::load($bundle);
+    if ($product_type) {
+      $variation_type_id = $product_type->getVariationTypeId();
+      // Restrict the variations field to the configured variation type.
+      $fields['variations']->setSetting('handler_settings', [
+        'target_bundles' => [$variation_type_id => $variation_type_id],
+      ]);
+    }
+
+    return $fields;
   }
 
 }

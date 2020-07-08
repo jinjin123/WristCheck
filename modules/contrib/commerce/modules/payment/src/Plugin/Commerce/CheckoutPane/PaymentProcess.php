@@ -2,18 +2,20 @@
 
 namespace Drupal\commerce_payment\Plugin\Commerce\CheckoutPane;
 
+use Drupal\commerce\InlineFormManager;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowInterface;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneBase;
+use Drupal\commerce_payment\Entity\PaymentGatewayInterface;
 use Drupal\commerce_payment\Exception\DeclineException;
 use Drupal\commerce_payment\Exception\PaymentGatewayException;
 use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\ManualPaymentGatewayInterface;
 use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OffsitePaymentGatewayInterface;
-use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OnsitePaymentGatewayInterface;
+use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\SupportsStoredPaymentMethodsInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Url;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -29,11 +31,18 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class PaymentProcess extends CheckoutPaneBase {
 
   /**
-   * The messenger.
+   * The inline form manager.
    *
-   * @var \Drupal\Core\Messenger\MessengerInterface
+   * @var \Drupal\commerce\InlineFormManager
    */
-  protected $messenger;
+  protected $inlineFormManager;
+
+  /**
+   * The logger.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
+  protected $logger;
 
   /**
    * Constructs a new PaymentProcess object.
@@ -48,13 +57,16 @@ class PaymentProcess extends CheckoutPaneBase {
    *   The parent checkout flow.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
-   *   The messenger.
+   * @param \Drupal\commerce\InlineFormManager $inline_form_manager
+   *   The inline form manager.
+   * @param \Psr\Log\LoggerInterface $logger
+   *   The logger.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, MessengerInterface $messenger) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, InlineFormManager $inline_form_manager, LoggerInterface $logger) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $checkout_flow, $entity_type_manager);
 
-    $this->messenger = $messenger;
+    $this->inlineFormManager = $inline_form_manager;
+    $this->logger = $logger;
   }
 
   /**
@@ -67,7 +79,8 @@ class PaymentProcess extends CheckoutPaneBase {
       $plugin_definition,
       $checkout_flow,
       $container->get('entity_type.manager'),
-      $container->get('messenger')
+      $container->get('plugin.manager.commerce_inline_form'),
+      $container->get('logger.channel.commerce_payment')
     );
   }
 
@@ -149,7 +162,7 @@ class PaymentProcess extends CheckoutPaneBase {
     $error_step_id = $this->getErrorStepId();
     // The payment gateway is currently always required to be set.
     if ($this->order->get('payment_gateway')->isEmpty()) {
-      $this->messenger->addError($this->t('No payment gateway selected.'));
+      $this->messenger()->addError($this->t('No payment gateway selected.'));
       $this->checkoutFlow->redirectToStep($error_step_id);
     }
 
@@ -157,56 +170,59 @@ class PaymentProcess extends CheckoutPaneBase {
     $payment_gateway = $this->order->payment_gateway->entity;
     $payment_gateway_plugin = $payment_gateway->getPlugin();
 
-    $payment_storage = $this->entityTypeManager->getStorage('commerce_payment');
-    /** @var \Drupal\commerce_payment\Entity\PaymentInterface $payment */
-    $payment = $payment_storage->create([
-      'state' => 'new',
-      'amount' => $this->order->getBalance(),
-      'payment_gateway' => $payment_gateway->id(),
-      'order_id' => $this->order->id(),
-    ]);
+    $payment = $this->createPayment($payment_gateway);
     $next_step_id = $this->checkoutFlow->getNextStepId($this->getStepId());
 
-    if ($payment_gateway_plugin instanceof OnsitePaymentGatewayInterface) {
+    if ($payment_gateway_plugin instanceof SupportsStoredPaymentMethodsInterface && !$this->order->get('payment_method')->isEmpty()) {
       try {
-        $payment->payment_method = $this->order->payment_method->entity;
+        $payment->payment_method = $this->order->get('payment_method')->entity;
         $payment_gateway_plugin->createPayment($payment, $this->configuration['capture']);
         $this->checkoutFlow->redirectToStep($next_step_id);
       }
       catch (DeclineException $e) {
         $message = $this->t('We encountered an error processing your payment method. Please verify your details and try again.');
-        $this->messenger->addError($message);
+        $this->messenger()->addError($message);
         $this->checkoutFlow->redirectToStep($error_step_id);
       }
       catch (PaymentGatewayException $e) {
-        \Drupal::logger('commerce_payment')->error($e->getMessage());
+        $this->logger->error($e->getMessage());
         $message = $this->t('We encountered an unexpected error processing your payment method. Please try again later.');
-        $this->messenger->addError($message);
+        $this->messenger()->addError($message);
         $this->checkoutFlow->redirectToStep($error_step_id);
       }
     }
     elseif ($payment_gateway_plugin instanceof OffsitePaymentGatewayInterface) {
-      $pane_form['offsite_payment'] = [
-        '#type' => 'commerce_payment_gateway_form',
-        '#operation' => 'offsite-payment',
-        '#default_value' => $payment,
-        '#return_url' => $this->buildReturnUrl()->toString(),
-        '#cancel_url' => $this->buildCancelUrl()->toString(),
-        '#exception_url' => $this->buildErrorUrl()->toString(),
-        '#exception_message' => $this->t('We encountered an unexpected error processing your payment. Please try again later.'),
-        '#capture' => $this->configuration['capture'],
-      ];
-
       $complete_form['actions']['next']['#value'] = $this->t('Proceed to @gateway', [
         '@gateway' => $payment_gateway_plugin->getDisplayLabel(),
       ]);
       // Make sure that the payment gateway's onCancel() method is invoked,
       // by pointing the "Go back" link to the cancel URL.
       $complete_form['actions']['next']['#suffix'] = Link::fromTextAndUrl($this->t('Go back'), $this->buildCancelUrl())->toString();
-      // Hide the actions by default, they are not needed by gateways that
-      // embed iframes or redirect via GET. The offsite-payment form can
-      // choose to show them when needed (redirect via POST).
+      // Actions are not needed by gateways that embed iframes or redirect
+      // via GET. The inline form can show them when needed (redirect via POST).
       $complete_form['actions']['#access'] = FALSE;
+
+      $inline_form = $this->inlineFormManager->createInstance('payment_gateway_form', [
+        'operation' => 'offsite-payment',
+        'catch_build_exceptions' => FALSE,
+      ], $payment);
+
+      $pane_form['offsite_payment'] = [
+        '#parents' => array_merge($pane_form['#parents'], ['offsite_payment']),
+        '#inline_form' => $inline_form,
+        '#return_url' => $this->buildReturnUrl()->toString(),
+        '#cancel_url' => $this->buildCancelUrl()->toString(),
+        '#capture' => $this->configuration['capture'],
+      ];
+      try {
+        $pane_form['offsite_payment'] = $inline_form->buildInlineForm($pane_form['offsite_payment'], $form_state);
+      }
+      catch (PaymentGatewayException $e) {
+        $this->logger->error($e->getMessage());
+        $message = $this->t('We encountered an unexpected error processing your payment. Please try again later.');
+        $this->messenger()->addError($message);
+        $this->checkoutFlow->redirectToStep($error_step_id);
+      }
 
       return $pane_form;
     }
@@ -216,14 +232,19 @@ class PaymentProcess extends CheckoutPaneBase {
         $this->checkoutFlow->redirectToStep($next_step_id);
       }
       catch (PaymentGatewayException $e) {
-        \Drupal::logger('commerce_payment')->error($e->getMessage());
+        $this->logger->error($e->getMessage());
         $message = $this->t('We encountered an unexpected error processing your payment. Please try again later.');
-        $this->messenger->addError($message);
+        $this->messenger()->addError($message);
         $this->checkoutFlow->redirectToStep($error_step_id);
       }
     }
     else {
-      $this->checkoutFlow->redirectToStep($next_step_id);
+      $this->logger->error('Unable process payment with :plugin_id', [
+        ':plugin_id' => $payment_gateway_plugin->getPluginId(),
+      ]);
+      $message = $this->t('We encountered an unexpected error processing your payment. Please try again later.');
+      $this->messenger()->addError($message);
+      $this->checkoutFlow->redirectToStep($error_step_id);
     }
   }
 
@@ -254,19 +275,6 @@ class PaymentProcess extends CheckoutPaneBase {
   }
 
   /**
-   * Builds the URL to the "error" page.
-   *
-   * @return \Drupal\Core\Url
-   *   The "error" page URL.
-   */
-  protected function buildErrorUrl() {
-    return Url::fromRoute('commerce_checkout.form', [
-      'commerce_order' => $this->order->id(),
-      'step' => $this->getErrorStepId(),
-    ], ['absolute' => TRUE]);
-  }
-
-  /**
    * Gets the step ID that the customer should be sent to on error.
    *
    * @return string
@@ -283,6 +291,27 @@ class PaymentProcess extends CheckoutPaneBase {
     }
 
     return $step_id;
+  }
+
+  /**
+   * Creates the payment to be processed.
+   *
+   * @param \Drupal\commerce_payment\Entity\PaymentGatewayInterface $payment_gateway
+   *   The payment gateway in use.
+   *
+   * @return \Drupal\commerce_payment\Entity\PaymentInterface
+   *   The created payment.
+   */
+  protected function createPayment(PaymentGatewayInterface $payment_gateway) {
+    $payment_storage = $this->entityTypeManager->getStorage('commerce_payment');
+    /** @var \Drupal\commerce_payment\Entity\PaymentInterface $payment */
+    $payment = $payment_storage->create([
+      'state' => 'new',
+      'amount' => $this->order->getBalance(),
+      'payment_gateway' => $payment_gateway->id(),
+      'order_id' => $this->order->id(),
+    ]);
+    return $payment;
   }
 
 }

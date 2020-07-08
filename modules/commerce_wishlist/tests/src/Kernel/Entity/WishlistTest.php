@@ -4,18 +4,17 @@ namespace Drupal\Tests\commerce_wishlist\Kernel\Entity;
 
 use Drupal\commerce_wishlist\Entity\Wishlist;
 use Drupal\commerce_wishlist\Entity\WishlistItem;
-use Drupal\commerce_wishlist\Entity\WishlistItemType;
-use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
+use Drupal\commerce_wishlist\Entity\WishlistType;
 use Drupal\profile\Entity\Profile;
+use Drupal\Tests\commerce_wishlist\Kernel\WishlistKernelTestBase;
 
 /**
- * Tests the Wishlist entity.
+ * Tests the wishlist entity.
  *
  * @coversDefaultClass \Drupal\commerce_wishlist\Entity\Wishlist
- *
  * @group commerce_wishlist
  */
-class WishlistTest extends EntityKernelTestBase {
+class WishlistTest extends WishlistKernelTestBase {
 
   /**
    * A sample user.
@@ -25,45 +24,10 @@ class WishlistTest extends EntityKernelTestBase {
   protected $user;
 
   /**
-   * Modules to enable.
-   *
-   * @var array
-   */
-  public static $modules = [
-    'options',
-    'entity',
-    'entity_reference_revisions',
-    'views',
-    'address',
-    'profile',
-    'state_machine',
-    'inline_entity_form',
-    'commerce',
-    'commerce_cart',
-    'commerce_order',
-    'commerce_price',
-    'commerce_store',
-    'commerce_product',
-    'commerce_wishlist',
-  ];
-
-  /**
    * {@inheritdoc}
    */
   protected function setUp() {
     parent::setUp();
-
-    $this->installEntitySchema('profile');
-    $this->installEntitySchema('commerce_wishlist');
-    $this->installEntitySchema('commerce_wishlist_item');
-    $this->installConfig('commerce_wishlist');
-
-    // A wishlist item type without a purchasable entity, for simplicity.
-    WishlistItemType::create([
-      'id' => 'test',
-      'label' => 'Test',
-      'wishlistType' => 'default',
-    ])->save();
 
     $user = $this->createUser();
     $this->user = $this->reloadEntity($user);
@@ -72,12 +36,14 @@ class WishlistTest extends EntityKernelTestBase {
   /**
    * Tests the wishlist entity and its methods.
    *
+   * @covers ::getCode
+   * @covers ::setCode
    * @covers ::getName
    * @covers ::setName
-   * @covers ::getCustomer
-   * @covers ::setCustomer
-   * @covers ::getCustomerId
-   * @covers ::setCustomerId
+   * @covers ::getOwner
+   * @covers ::setOwner
+   * @covers ::getOwnerId
+   * @covers ::setOwnerId
    * @covers ::getShippingProfile
    * @covers ::setShippingProfile
    * @covers ::getItems
@@ -88,6 +54,10 @@ class WishlistTest extends EntityKernelTestBase {
    * @covers ::hasItem
    * @covers ::getCreatedTime
    * @covers ::setCreatedTime
+   * @covers ::isPublic
+   * @covers ::setPublic
+   * @covers ::getKeepPurchasedItems
+   * @covers ::setKeepPurchasedItems
    */
   public function testWishlist() {
     $profile = Profile::create([
@@ -98,13 +68,13 @@ class WishlistTest extends EntityKernelTestBase {
 
     /** @var \Drupal\commerce_wishlist\Entity\WishlistItemInterface $wishlist_item */
     $wishlist_item = WishlistItem::create([
-      'type' => 'test',
+      'type' => 'commerce_product_variation',
     ]);
     $wishlist_item->save();
     $wishlist_item = $this->reloadEntity($wishlist_item);
     /** @var \Drupal\commerce_wishlist\Entity\WishlistItemInterface $another_wishlist_item */
     $another_wishlist_item = WishlistItem::create([
-      'type' => 'test',
+      'type' => 'commerce_product_variation',
       'quantity' => '2',
     ]);
     $another_wishlist_item->save();
@@ -112,21 +82,25 @@ class WishlistTest extends EntityKernelTestBase {
 
     $wishlist = Wishlist::create([
       'type' => 'default',
-      'state' => 'completed',
     ]);
     $wishlist->save();
+
+    $this->assertNotEmpty($wishlist->getCode());
+    $wishlist->setCode('new_code');
+    $this->assertEquals('new_code', $wishlist->getCode());
+    $this->assertEquals('/wishlist/new_code', $wishlist->toUrl()->toString());
 
     $wishlist->setName('My wishlist');
     $this->assertEquals('My wishlist', $wishlist->getName());
 
-    $wishlist->setCustomer($this->user);
-    $this->assertEquals($this->user, $wishlist->getCustomer());
-    $this->assertEquals($this->user->id(), $wishlist->getCustomerId());
-    $wishlist->setCustomerId(0);
-    $this->assertEquals(NULL, $wishlist->getCustomer());
-    $wishlist->setCustomerId($this->user->id());
-    $this->assertEquals($this->user, $wishlist->getCustomer());
-    $this->assertEquals($this->user->id(), $wishlist->getCustomerId());
+    $wishlist->setOwner($this->user);
+    $this->assertEquals($this->user, $wishlist->getOwner());
+    $this->assertEquals($this->user->id(), $wishlist->getOwnerId());
+    $wishlist->setOwnerId(0);
+    $this->assertEquals(NULL, $wishlist->getOwner());
+    $wishlist->setOwnerId($this->user->id());
+    $this->assertEquals($this->user, $wishlist->getOwner());
+    $this->assertEquals($this->user->id(), $wishlist->getOwnerId());
 
     $wishlist->setShippingProfile($profile);
     $this->assertEquals($profile, $wishlist->getShippingProfile());
@@ -144,6 +118,49 @@ class WishlistTest extends EntityKernelTestBase {
 
     $wishlist->setCreatedTime(635879700);
     $this->assertEquals(635879700, $wishlist->getCreatedTime());
+
+    $this->assertFalse($wishlist->isPublic());
+    $wishlist->setPublic(TRUE);
+    $this->assertTrue($wishlist->isPublic());
+
+    $this->assertTrue($wishlist->getKeepPurchasedItems());
+    $wishlist->setKeepPurchasedItems(FALSE);
+    $this->assertFalse($wishlist->getKeepPurchasedItems());
+  }
+
+  /**
+   * Tests the default wishlist functionality.
+   */
+  public function testDefaultWishlist() {
+    $wishlist_type = WishlistType::create([
+      'id' => 'test_defaults',
+      'label' => 'test_defaults',
+    ]);
+    $wishlist_type->save();
+
+    /** @var \Drupal\commerce_wishlist\Entity\WishlistInterface $wishlist1 */
+    $wishlist1 = Wishlist::create([
+      'type' => $wishlist_type->id(),
+      'uid' => $this->user->id(),
+    ]);
+    $wishlist1->save();
+    // Confirm that the wishlist was set as default.
+    $this->assertTrue($wishlist1->isDefault());
+
+    /** @var \Drupal\commerce_wishlist\Entity\WishlistInterface $wishlist2 */
+    $wishlist2 = Wishlist::create([
+      'type' => $wishlist_type->id(),
+      'uid' => $this->user->id(),
+    ]);
+    $wishlist2->setDefault(TRUE);
+    $wishlist2->save();
+
+    // Confirm that setting the second wishlist as default removed the
+    // flag from the first wishlist.
+    $wishlist2 = $this->reloadEntity($wishlist2);
+    $wishlist1 = $this->reloadEntity($wishlist1);
+    $this->assertTrue($wishlist2->isDefault());
+    $this->assertFalse($wishlist1->isDefault());
   }
 
 }

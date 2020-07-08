@@ -82,7 +82,7 @@ class WebformAdminConfigExportersForm extends WebformAdminConfigBaseForm {
 
     $form['export_settings'] = [
       '#type' => 'details',
-      '#title' => $this->t('Export settings'),
+      '#title' => $this->t('Export general settings'),
       '#open' => TRUE,
     ];
     $form['export_settings']['temp_directory'] = [
@@ -90,13 +90,13 @@ class WebformAdminConfigExportersForm extends WebformAdminConfigBaseForm {
       '#title' => $this->t('Temporary directory'),
       '#description' => $this->t('A local file system path where temporary export files will be stored. This directory should be persistent between requests and should not be accessible over the web.'),
       '#required' => TRUE,
-      '#default_value' => $config->get('export.temp_directory') ?: file_directory_temp(),
+      '#default_value' => $config->get('export.temp_directory') ?: $this->fileSystem->getTempDirectory(),
     ];
 
     // Export.
     $form['export_default_settings'] = [
       '#type' => 'details',
-      '#title' => $this->t('Default export settings'),
+      '#title' => $this->t('Export default settings'),
       '#description' => $this->t('Enter default export settings to be used by all webforms.'),
       '#open' => TRUE,
     ];
@@ -146,7 +146,7 @@ class WebformAdminConfigExportersForm extends WebformAdminConfigBaseForm {
     $export = $this->submissionExporter->getValuesFromInput($values) + ['excluded_exporters' => $excluded_exporters];
 
     // Set custom temp directory.
-    $export['temp_directory'] = ($values['temp_directory'] === file_directory_temp()) ? '' : $values['temp_directory'];
+    $export['temp_directory'] = ($values['temp_directory'] === $this->fileSystem->getTempDirectory()) ? '' : $values['temp_directory'];
 
     // Update config and submit form.
     $config = $this->config('webform.settings');

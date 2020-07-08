@@ -5,11 +5,10 @@ namespace Drupal\Tests\commerce_order\Kernel\Entity;
 use Drupal\commerce_order\Adjustment;
 use Drupal\commerce_order\Entity\Order;
 use Drupal\commerce_order\Entity\OrderItem;
-use Drupal\commerce_order\Entity\OrderItemType;
 use Drupal\commerce_price\Exception\CurrencyMismatchException;
 use Drupal\commerce_price\Price;
 use Drupal\profile\Entity\Profile;
-use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
+use Drupal\Tests\commerce_order\Kernel\OrderKernelTestBase;
 use Drupal\user\UserInterface;
 
 /**
@@ -19,7 +18,7 @@ use Drupal\user\UserInterface;
  *
  * @group commerce
  */
-class OrderTest extends CommerceKernelTestBase {
+class OrderTest extends OrderKernelTestBase {
 
   /**
    * A sample user.
@@ -34,11 +33,6 @@ class OrderTest extends CommerceKernelTestBase {
    * @var array
    */
   public static $modules = [
-    'entity_reference_revisions',
-    'profile',
-    'state_machine',
-    'commerce_product',
-    'commerce_order',
     'commerce_order_test',
   ];
 
@@ -47,18 +41,6 @@ class OrderTest extends CommerceKernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
-
-    $this->installEntitySchema('profile');
-    $this->installEntitySchema('commerce_order');
-    $this->installEntitySchema('commerce_order_item');
-    $this->installConfig('commerce_order');
-
-    // An order item type that doesn't need a purchasable entity, for simplicity.
-    OrderItemType::create([
-      'id' => 'test',
-      'label' => 'Test',
-      'orderType' => 'default',
-    ])->save();
 
     $user = $this->createUser();
     $this->user = $this->reloadEntity($user);
@@ -83,6 +65,7 @@ class OrderTest extends CommerceKernelTestBase {
    * @covers ::setIpAddress
    * @covers ::getBillingProfile
    * @covers ::setBillingProfile
+   * @covers ::collectProfiles
    * @covers ::getItems
    * @covers ::setItems
    * @covers ::hasItems
@@ -107,6 +90,7 @@ class OrderTest extends CommerceKernelTestBase {
    * @covers ::setRefreshState
    * @covers ::getData
    * @covers ::setData
+   * @covers ::unsetData
    * @covers ::isLocked
    * @covers ::lock
    * @covers ::unlock
@@ -116,10 +100,21 @@ class OrderTest extends CommerceKernelTestBase {
    * @covers ::setPlacedTime
    * @covers ::getCompletedTime
    * @covers ::setCompletedTime
+   * @covers ::getCalculationDate
    */
   public function testOrder() {
+    /** @var \Drupal\profile\Entity\ProfileInterface $profile */
     $profile = Profile::create([
       'type' => 'customer',
+      'address' => [
+        'country_code' => 'US',
+        'postal_code' => '53177',
+        'locality' => 'Milwaukee',
+        'address_line1' => 'Pabst Blue Ribbon Dr',
+        'administrative_area' => 'WI',
+        'given_name' => 'Frederick',
+        'family_name' => 'Pabst',
+      ],
     ]);
     $profile->save();
     $profile = $this->reloadEntity($profile);
@@ -187,6 +182,11 @@ class OrderTest extends CommerceKernelTestBase {
     $order->setBillingProfile($profile);
     $this->assertEquals($profile, $order->getBillingProfile());
 
+    $profiles = $order->collectProfiles();
+    $this->assertCount(1, $profiles);
+    $this->assertArrayHasKey('billing', $profiles);
+    $this->assertEquals($profile, $profiles['billing']);
+
     $order->setItems([$order_item, $another_order_item]);
     $this->assertEquals([$order_item, $another_order_item], $order->getItems());
     $this->assertNotEmpty($order->hasItems());
@@ -214,9 +214,9 @@ class OrderTest extends CommerceKernelTestBase {
     $order->addAdjustment($adjustments[0]);
     $order->addAdjustment($adjustments[1]);
     $this->assertEquals($adjustments, $order->getAdjustments());
-    $collected_adjustments = $order->collectAdjustments();
-    $this->assertEquals($adjustments[0]->getAmount(), $collected_adjustments[0]->getAmount());
-    $this->assertEquals($adjustments[1]->getAmount(), $collected_adjustments[1]->getAmount());
+    $this->assertEquals($adjustments, $order->getAdjustments(['custom', 'fee']));
+    $this->assertEquals([$adjustments[0]], $order->getAdjustments(['custom']));
+    $this->assertEquals([$adjustments[1]], $order->getAdjustments(['fee']));
     $order->removeAdjustment($adjustments[0]);
     $this->assertEquals(new Price('8.00', 'USD'), $order->getSubtotalPrice());
     $this->assertEquals(new Price('18.00', 'USD'), $order->getTotalPrice());
@@ -233,6 +233,11 @@ class OrderTest extends CommerceKernelTestBase {
     ]));
     $order->clearAdjustments();
     $this->assertEquals($adjustments, $order->getAdjustments());
+
+    $this->assertEquals($adjustments, $order->collectAdjustments());
+    $this->assertEquals($adjustments, $order->collectAdjustments(['custom', 'fee']));
+    $this->assertEquals([$adjustments[0]], $order->collectAdjustments(['custom']));
+    $this->assertEquals([$adjustments[1]], $order->collectAdjustments(['fee']));
 
     $this->assertEquals(new Price('0', 'USD'), $order->getTotalPaid());
     $this->assertEquals(new Price('17.00', 'USD'), $order->getBalance());
@@ -253,7 +258,7 @@ class OrderTest extends CommerceKernelTestBase {
     $this->assertEquals(new Price('-10.00', 'USD'), $order->getBalance());
     $this->assertTrue($order->isPaid());
 
-    $this->assertEquals('completed', $order->getState()->value);
+    $this->assertEquals('completed', $order->getState()->getId());
 
     // Confirm that free orders are considered paid after placement.
     $order->addAdjustment(new Adjustment([
@@ -273,6 +278,9 @@ class OrderTest extends CommerceKernelTestBase {
     $this->assertEquals('default', $order->getData('test', 'default'));
     $order->setData('test', 'value');
     $this->assertEquals('value', $order->getData('test', 'default'));
+    $order->unsetData('test');
+    $this->assertNull($order->getData('test'));
+    $this->assertEquals('default', $order->getData('test', 'default'));
 
     $this->assertFalse($order->isLocked());
     $order->lock();
@@ -289,10 +297,99 @@ class OrderTest extends CommerceKernelTestBase {
     $order->setCompletedTime(635879900);
     $this->assertEquals(635879900, $order->getCompletedTime());
 
-    // Confirm that saving the order clears an invalid customer ID.
-    $order->setCustomerId(888);
+    $date = $order->getCalculationDate();
+    $this->assertEquals($order->getPlacedTime(), $date->format('U'));
+    $order->set('placed', NULL);
+    $date = $order->getCalculationDate();
+    $this->assertEquals(\Drupal::time()->getRequestTime(), $date->format('U'));
+  }
+
+  /**
+   * @covers ::preSave
+   */
+  public function testPreSave() {
+    /** @var \Drupal\profile\Entity\ProfileInterface $profile */
+    $profile = Profile::create([
+      'type' => 'customer',
+      'uid' => $this->user->id(),
+      'address' => [
+        'country_code' => 'US',
+        'postal_code' => '53177',
+        'locality' => 'Milwaukee',
+        'address_line1' => 'Pabst Blue Ribbon Dr',
+        'administrative_area' => 'WI',
+        'given_name' => 'Frederick',
+        'family_name' => 'Pabst',
+      ],
+    ]);
+    $profile->save();
+    $profile = $this->reloadEntity($profile);
+
+    /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+    $order = Order::create([
+      'type' => 'default',
+      'store_id' => $this->store->id(),
+      'uid' => '888',
+      'billing_profile' => $profile,
+      'state' => 'completed',
+    ]);
     $order->save();
+
+    // Confirm that saving the order clears an invalid customer ID.
     $this->assertEquals(0, $order->getCustomerId());
+
+    // Confirm that saving the order reassigns the billing profile.
+    $order->save();
+    $this->assertEquals(0, $order->getBillingProfile()->getOwnerId());
+    $this->assertEquals($profile->id(), $order->getBillingProfile()->id());
+
+    /** @var \Drupal\commerce_order\Entity\OrderItemInterface $order_item */
+    $order_item = OrderItem::create([
+      'type' => 'test',
+      'quantity' => '1',
+      'unit_price' => new Price('2.00', 'USD'),
+    ]);
+    $order_item->save();
+    $order_item = $this->reloadEntity($order_item);
+    /** @var \Drupal\commerce_order\Entity\OrderItemInterface $another_order_item */
+    $another_order_item = OrderItem::create([
+      'type' => 'test',
+      'quantity' => '2',
+      'unit_price' => new Price('3.00', 'USD'),
+    ]);
+    $another_order_item->save();
+    $another_order_item = $this->reloadEntity($another_order_item);
+    $order->setItems([$order_item, $another_order_item]);
+    $this->assertCount(2, $order->get('order_items'));
+    $another_order_item->delete();
+    // Assert that saving the order fixes the reference to a deleted order item.
+    $order->save();
+    $this->reloadEntity($order);
+    $this->assertCount(1, $order->get('order_items'));
+  }
+
+  /**
+   * Tests that an order's email updates with the customer.
+   */
+  public function testOrderEmail() {
+    $customer = $this->createUser(['mail' => 'test@example.com']);
+    $order_with_customer = Order::create([
+      'type' => 'default',
+      'state' => 'completed',
+      'uid' => $customer,
+    ]);
+    $order_with_customer->save();
+    $this->assertEquals($customer->getEmail(), $order_with_customer->getEmail());
+
+    $order_without_customer = Order::create([
+      'type' => 'default',
+      'state' => 'completed',
+    ]);
+    $order_without_customer->save();
+    $this->assertEquals('', $order_without_customer->getEmail());
+    $order_without_customer->setCustomer($customer);
+    $order_without_customer->save();
+    $this->assertEquals($customer->getEmail(), $order_without_customer->getEmail());
   }
 
   /**
@@ -426,6 +523,37 @@ class OrderTest extends CommerceKernelTestBase {
   }
 
   /**
+   * Tests the generation of the 'placed' and 'completed' timestamps.
+   */
+  public function testTimestamps() {
+    /** @var \Drupal\commerce_order\Entity\OrderItemInterface $order_item */
+    $order_item = OrderItem::create([
+      'type' => 'test',
+      'quantity' => '2',
+      'unit_price' => new Price('2.00', 'USD'),
+    ]);
+    $order_item->save();
+
+    /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+    $order = Order::create([
+      'type' => 'default',
+      'store_id' => $this->store->id(),
+      'order_items' => [$order_item],
+      'state' => 'draft',
+    ]);
+    $order->save();
+    $order = $this->reloadEntity($order);
+
+    $this->assertNull($order->getPlacedTime());
+    $this->assertNull($order->getCompletedTime());
+    // Transitioning the order out of the draft state should set the timestamps.
+    $order->getState()->applyTransitionById('place');
+    $order->save();
+    $this->assertEquals($order->getPlacedTime(), \Drupal::time()->getRequestTime());
+    $this->assertEquals($order->getCompletedTime(), \Drupal::time()->getRequestTime());
+  }
+
+  /**
    * Tests the order with order items using different currencies.
    *
    * @covers ::getSubtotalPrice
@@ -433,7 +561,7 @@ class OrderTest extends CommerceKernelTestBase {
    * @covers ::getTotalPrice
    */
   public function testMultipleCurrencies() {
-    $currency_importer = \Drupal::service('commerce_price.currency_importer');
+    $currency_importer = $this->container->get('commerce_price.currency_importer');
     $currency_importer->import('EUR');
 
     $usd_order_item = OrderItem::create([
@@ -474,30 +602,6 @@ class OrderTest extends CommerceKernelTestBase {
       $currency_mismatch = TRUE;
     }
     $this->assertTrue($currency_mismatch);
-  }
-
-  /**
-   * Tests that an order's email updates with the customer.
-   */
-  public function testOrderEmail() {
-    $customer = $this->createUser(['mail' => 'test@example.com']);
-    $order_with_customer = Order::create([
-      'type' => 'default',
-      'state' => 'completed',
-      'uid' => $customer,
-    ]);
-    $order_with_customer->save();
-    $this->assertEquals($customer->getEmail(), $order_with_customer->getEmail());
-
-    $order_without_customer = Order::create([
-      'type' => 'default',
-      'state' => 'completed',
-    ]);
-    $order_without_customer->save();
-    $this->assertEquals('', $order_without_customer->getEmail());
-    $order_without_customer->setCustomer($customer);
-    $order_without_customer->save();
-    $this->assertEquals($customer->getEmail(), $order_without_customer->getEmail());
   }
 
   /**

@@ -3,9 +3,7 @@
 namespace Drupal\Tests\commerce_wishlist\Kernel;
 
 use Drupal\commerce_wishlist\Entity\WishlistInterface;
-use Drupal\commerce_wishlist\Entity\WishlistItemType;
 use Drupal\commerce_wishlist\Exception\DuplicateWishlistException;
-use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
 
 /**
  * Tests the wishlist provider.
@@ -13,29 +11,7 @@ use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
  * @coversDefaultClass \Drupal\commerce_wishlist\WishlistProvider
  * @group commerce_wishlist
  */
-class WishlistProviderTest extends EntityKernelTestBase {
-
-  /**
-   * Modules to enable.
-   *
-   * @var array
-   */
-  public static $modules = [
-    'options',
-    'entity',
-    'entity_reference_revisions',
-    'views',
-    'address',
-    'profile',
-    'inline_entity_form',
-    'state_machine',
-    'commerce',
-    'commerce_cart',
-    'commerce_order',
-    'commerce_price',
-    'commerce_store',
-    'commerce_wishlist',
-  ];
+class WishlistProviderTest extends WishlistKernelTestBase {
 
   /**
    * Anonymous user.
@@ -70,17 +46,6 @@ class WishlistProviderTest extends EntityKernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
-    $this->installSchema('system', 'router');
-    $this->installEntitySchema('profile');
-    $this->installEntitySchema('commerce_wishlist');
-    $this->installEntitySchema('commerce_wishlist_item');
-    $this->installConfig(['commerce_wishlist']);
-
-    WishlistItemType::create([
-      'id' => 'test',
-      'label' => 'Test',
-      'wishlistType' => 'default',
-    ])->save();
 
     $this->anonymousUser = $this->createUser([
       'uid' => 0,
@@ -90,7 +55,6 @@ class WishlistProviderTest extends EntityKernelTestBase {
     $this->authenticatedUser = $this->createUser();
 
     $this->entityTypeManager = $this->container->get('entity_type.manager');
-
     $this->wishlistProvider = $this->container->get('commerce_wishlist.wishlist_provider');
   }
 
@@ -105,7 +69,7 @@ class WishlistProviderTest extends EntityKernelTestBase {
     $this->assertInstanceOf(WishlistInterface::class, $wishlist);
 
     // Trying to recreate the same wishlist should throw an exception.
-    $this->setExpectedException(DuplicateWishlistException::class);
+    $this->expectException(DuplicateWishlistException::class);
     $this->wishlistProvider->createWishlist($wishlist_type, $this->anonymousUser);
   }
 
@@ -142,7 +106,7 @@ class WishlistProviderTest extends EntityKernelTestBase {
     $this->assertInstanceOf(WishlistInterface::class, $wishlist);
 
     // Trying to recreate the same wishlist should throw an exception.
-    $this->setExpectedException(DuplicateWishlistException::class);
+    $this->expectException(DuplicateWishlistException::class);
     $this->wishlistProvider->createWishlist('default', $this->authenticatedUser);
   }
 

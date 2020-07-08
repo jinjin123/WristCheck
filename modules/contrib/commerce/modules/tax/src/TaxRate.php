@@ -94,6 +94,23 @@ class TaxRate {
   }
 
   /**
+   * Gets the array representation of the tax rate.
+   *
+   * @return array
+   *   The array representation of the tax rate.
+   */
+  public function toArray() : array {
+    return [
+      'id' => $this->id,
+      'default' => $this->default,
+      'label' => $this->label,
+      'percentages' => array_map(function (TaxRatePercentage $percentage) {
+        return $percentage->toArray();
+      }, $this->percentages),
+    ];
+  }
+
+  /**
    * Gets the percentage valid for the given date.
    *
    * @param \Drupal\Core\Datetime\DrupalDateTime $date
@@ -105,15 +122,15 @@ class TaxRate {
   public function getPercentage(DrupalDateTime $date = NULL) {
     // Default to the current date.
     $date = $date ?: new DrupalDateTime();
+    // Unlike DateTime, DrupalDateTime objects can't be compared directly.
+    // Convert them to timestamps, after discarding the time portion.
+    $time = $date->setTime(0, 0, 0)->format('U');
+    $timezone = $date->getTimezone();
     foreach ($this->percentages as $percentage) {
-      // Unlike DateTime, DrupalDateTime objects can't be compared directly.
-      // Convert them to timestamps, after discarding the time portion.
-      $time = $date->setTime(0, 0, 0)->format('U');
-      $start_time = $percentage->getStartDate()->setTime(0, 0, 0)->format('U');
-      $end_time = 0;
-      if ($end_date = $percentage->getEndDate()) {
-        $end_time = $end_date->setTime(0, 0, 0)->format('U');
-      }
+      $start_date = $percentage->getStartDate($timezone);
+      $start_time = $start_date->setTime(0, 0, 0)->format('U');
+      $end_date = $percentage->getEndDate($timezone);
+      $end_time = $end_date ? $end_date->setTime(0, 0, 0)->format('U') : 0;
 
       if (($start_time <= $time) && (!$end_time || $end_time >= $time)) {
         return $percentage;

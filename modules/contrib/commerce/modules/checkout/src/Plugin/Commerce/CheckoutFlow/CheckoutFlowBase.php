@@ -2,7 +2,9 @@
 
 namespace Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow;
 
+use Drupal\commerce\AjaxFormTrait;
 use Drupal\commerce\Response\NeedsRedirectException;
+use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -22,6 +24,8 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  * checkout panes. Otherwise they should extend CheckoutFlowWithPanesBase.
  */
 abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterface, ContainerFactoryPluginInterface {
+
+  use AjaxFormTrait;
 
   /**
    * The entity manager.
@@ -45,13 +49,13 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
   protected $order;
 
   /**
-   * The ID of the parent config entity.
+   * The parent config entity.
    *
    * Not available while the plugin is being configured.
    *
-   * @var string
+   * @var \Drupal\commerce_checkout\Entity\CheckoutFlowInterface
    */
-  protected $entityId;
+  protected $parentEntity;
 
   /**
    * Constructs a new CheckoutFlowBase object.
@@ -75,9 +79,9 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
     $this->entityTypeManager = $entity_type_manager;
     $this->eventDispatcher = $event_dispatcher;
     $this->order = $route_match->getParameter('commerce_order');
-    if (array_key_exists('_entity_id', $configuration)) {
-      $this->entityId = $configuration['_entity_id'];
-      unset($configuration['_entity_id']);
+    if (array_key_exists('_entity', $configuration)) {
+      $this->parentEntity = $configuration['_entity'];
+      unset($configuration['_entity']);
     }
     $this->setConfiguration($configuration);
   }
@@ -94,6 +98,41 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       $container->get('event_dispatcher'),
       $container->get('current_route_match')
     );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __sleep() {
+    if (!empty($this->parentEntity)) {
+      $this->_parentEntityId = $this->parentEntity->id();
+      unset($this->parentEntity);
+    }
+    if (!empty($this->order)) {
+      $this->_orderId = $this->order->id();
+      unset($this->order);
+    }
+
+    return parent::__sleep();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __wakeup() {
+    parent::__wakeup();
+
+    if (!empty($this->_parentEntityId)) {
+      $checkout_flow_storage = $this->entityTypeManager->getStorage('commerce_checkout_flow');
+      $this->parentEntity = $checkout_flow_storage->load($this->_parentEntityId);
+      unset($this->_parentEntityId);
+    }
+
+    if (!empty($this->_orderId)) {
+      $order_storage = $this->entityTypeManager->getStorage('commerce_order');
+      $this->order = $order_storage->load($this->_orderId);
+      unset($this->_orderId);
+    }
   }
 
   /**
@@ -264,6 +303,8 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
     $form['#title'] = $steps[$step_id]['label'];
     $form['#theme'] = ['commerce_checkout_form'];
     $form['#attached']['library'][] = 'commerce_checkout/form';
+    // Workaround for core bug #2897377.
+    $form['#id'] = Html::getId($form_state->getBuildInfo()['form_id']);
     if ($this->hasSidebar($step_id)) {
       $form['sidebar']['order_summary'] = [
         '#theme' => 'commerce_checkout_order_summary',
@@ -274,9 +315,8 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
     $form['actions'] = $this->actions($form, $form_state);
 
     // Make sure the cache is removed if the parent entity or the order change.
-    $parent_entity = $this->entityTypeManager->getStorage('commerce_checkout_flow')->load($this->entityId);
     CacheableMetadata::createFromRenderArray($form)
-      ->addCacheableDependency($parent_entity)
+      ->addCacheableDependency($this->parentEntity)
       ->addCacheableDependency($this->order)
       ->applyTo($form);
 
@@ -327,9 +367,8 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       $this->order->unlock();
     }
     // Place the order.
-    if ($step_id == 'complete' && $this->order->getState()->value == 'draft') {
-      $transition = $this->order->getState()->getWorkflow()->getTransition('place');
-      $this->order->getState()->applyTransition($transition);
+    if ($step_id == 'complete' && $this->order->getState()->getId() == 'draft') {
+      $this->order->getState()->applyTransitionById('place');
     }
   }
 
@@ -378,10 +417,15 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       ];
       if ($has_previous_step) {
         $label = $steps[$previous_step_id]['previous_label'];
+        $options = [
+          'attributes' => [
+            'class' => ['link--previous'],
+          ],
+        ];
         $actions['next']['#suffix'] = Link::createFromRoute($label, 'commerce_checkout.form', [
           'commerce_order' => $this->order->id(),
           'step' => $previous_step_id,
-        ])->toString();
+        ], $options)->toString();
       }
     }
 

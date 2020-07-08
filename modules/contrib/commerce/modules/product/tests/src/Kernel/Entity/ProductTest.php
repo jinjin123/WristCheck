@@ -5,6 +5,7 @@ namespace Drupal\Tests\commerce_product\Kernel\Entity;
 use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\commerce_product\Entity\Product;
 use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
+use Drupal\user\UserInterface;
 
 /**
  * Tests the Product entity.
@@ -86,10 +87,27 @@ class ProductTest extends CommerceKernelTestBase {
     $this->assertEquals($this->user, $product->getOwner());
     $this->assertEquals($this->user->id(), $product->getOwnerId());
     $product->setOwnerId(0);
-    $this->assertEquals(NULL, $product->getOwner());
+    $this->assertInstanceOf(UserInterface::class, $product->getOwner());
+    $this->assertTrue($product->getOwner()->isAnonymous());
+    // Non-existent/deleted user ID.
+    $product->setOwnerId(891);
+    $this->assertInstanceOf(UserInterface::class, $product->getOwner());
+    $this->assertTrue($product->getOwner()->isAnonymous());
+    $this->assertEquals(891, $product->getOwnerId());
     $product->setOwnerId($this->user->id());
     $this->assertEquals($this->user, $product->getOwner());
     $this->assertEquals($this->user->id(), $product->getOwnerId());
+
+    $this->assertEquals([
+      'store',
+      'url.query_args:v',
+    ], $product->getCacheContexts());
+
+    // Ensure that we don't store a broken reference to the product owner.
+    $product->setOwnerId(900);
+    $this->assertEqual($product->getOwnerId(), 900);
+    $product->save();
+    $this->assertEqual($product->getOwnerId(), 0);
   }
 
   /**

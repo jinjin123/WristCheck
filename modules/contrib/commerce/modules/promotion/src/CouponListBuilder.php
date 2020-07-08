@@ -60,7 +60,7 @@ class CouponListBuilder extends EntityListBuilder {
   public static function createInstance(ContainerInterface $container, EntityTypeInterface $entity_type) {
     return new static(
       $entity_type,
-      $container->get('entity.manager')->getStorage($entity_type->id()),
+      $container->get('entity_type.manager')->getStorage($entity_type->id()),
       $container->get('current_route_match'),
       $container->get('commerce_promotion.usage')
     );
@@ -84,6 +84,7 @@ class CouponListBuilder extends EntityListBuilder {
   public function buildHeader() {
     $header['code'] = $this->t('Code');
     $header['usage'] = $this->t('Usage');
+    $header['customer_limit'] = $this->t('Per-customer limit');
     return $header + parent::buildHeader();
   }
 
@@ -95,11 +96,14 @@ class CouponListBuilder extends EntityListBuilder {
     $current_usage = $this->usageCounts[$entity->id()];
     $usage_limit = $entity->getUsageLimit();
     $usage_limit = $usage_limit ?: $this->t('Unlimited');
+    $customer_limit = $entity->getCustomerUsageLimit();
+    $customer_limit = $customer_limit ?: $this->t('Unlimited');
     $row['code'] = $entity->label();
     if (!$entity->isEnabled()) {
       $row['code'] .= ' (' . $this->t('Disabled') . ')';
     }
     $row['usage'] = $current_usage . ' / ' . $usage_limit;
+    $row['customer_limit'] = $customer_limit;
 
     return $row + parent::buildRow($entity);
   }

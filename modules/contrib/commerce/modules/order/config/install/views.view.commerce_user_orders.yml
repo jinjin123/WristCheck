@@ -14,7 +14,6 @@ description: 'Display a list of placed orders for a user.'
 tag: Commerce
 base_table: commerce_order
 base_field: order_id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -468,6 +467,7 @@ display:
           exposed: false
           expose:
             operator_id: ''
+            operator_limit_selection: false
             label: ''
             description: ''
             use_operator: false
@@ -554,7 +554,7 @@ display:
           plugin_id: numeric
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -582,7 +582,7 @@ display:
         menu_name: account
       display_description: ''
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

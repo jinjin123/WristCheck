@@ -61,7 +61,7 @@ class ProductForm extends ContentEntityForm {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     // Skip building the form if there are no available stores.
-    $store_query = $this->entityManager->getStorage('commerce_store')->getQuery();
+    $store_query = $this->entityTypeManager->getStorage('commerce_store')->getQuery();
     if ($store_query->count()->execute() == 0) {
       $link = Link::createFromRoute('Add a new store.', 'entity.commerce_store.add_page');
       $form['warning'] = [
@@ -211,13 +211,17 @@ class ProductForm extends ContentEntityForm {
     $actions = parent::actions($form, $form_state);
 
     if ($this->entity->isNew()) {
+      $product_type_storage = $this->entityTypeManager->getStorage('commerce_product_type');
+      /** @var \Drupal\commerce_product\Entity\ProductTypeInterface $product_type */
+      $product_type = $product_type_storage->load($this->entity->bundle());
+
       $actions['submit_continue'] = [
         '#type' => 'submit',
         '#value' => $this->t('Save and add variations'),
+        '#button_type' => 'secondary',
         '#continue' => TRUE,
         '#submit' => ['::submitForm', '::save'],
-        // Hide the button if variations are managed through a widget.
-        '#access' => empty($form['variations']),
+        '#access' => $product_type->allowsMultipleVariations(),
       ];
     }
 

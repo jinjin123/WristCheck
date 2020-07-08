@@ -2,10 +2,13 @@
 
 namespace Drupal\commerce_wishlist\Entity;
 
+use Drupal\commerce_wishlist\WishlistPurchase;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
+use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Defines the wishlist item entity class.
@@ -19,13 +22,27 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *     singular = "@count wishlist item",
  *     plural = "@count wishlist items",
  *   ),
- *   bundle_label = @Translation("wishlist item type"),
+ *   bundle_label = @Translation("Wishlist item type"),
  *   handlers = {
+ *     "event" = "Drupal\commerce_wishlist\Event\WishlistItemEvent",
  *     "storage" = "Drupal\commerce_wishlist\WishlistItemStorage",
- *     "access" = "Drupal\commerce\EmbeddedEntityAccessControlHandler",
+ *     "access" = "Drupal\commerce_wishlist\WishlistItemAccessControlHandler",
+ *     "permission_provider" = "Drupal\commerce_wishlist\WishlistItemPermissionProvider",
+ *     "list_builder" = "Drupal\commerce_wishlist\WishlistItemListBuilder",
  *     "views_data" = "Drupal\commerce_wishlist\WishlistItemViewsData",
  *     "form" = {
  *       "default" = "Drupal\Core\Entity\ContentEntityForm",
+ *       "add" = "Drupal\commerce_wishlist\Form\WishlistItemForm",
+ *       "edit" = "Drupal\commerce_wishlist\Form\WishlistItemForm",
+ *       "duplicate" = "Drupal\commerce_wishlist\Form\WishlistItemForm",
+ *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
+ *       "details" = "Drupal\commerce_wishlist\Form\WishlistItemDetailsForm",
+ *     },
+ *     "local_task_provider" = {
+ *       "default" = "Drupal\entity\Menu\DefaultEntityLocalTaskProvider",
+ *     },
+ *     "route_provider" = {
+ *       "default" = "Drupal\commerce_wishlist\WishlistItemRouteProvider",
  *     },
  *     "inline_form" = "Drupal\commerce_wishlist\Form\WishlistItemInlineForm",
  *   },
@@ -36,15 +53,30 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *     "id" = "wishlist_item_id",
  *     "uuid" = "uuid",
  *     "bundle" = "type",
- *     "label" = "title",
  *   },
- *   bundle_entity_type = "commerce_wishlist_item_type",
- *   field_ui_base_route = "entity.commerce_wishlist_item_type.edit_form",
+ *   links = {
+ *     "add-form" = "/admin/commerce/wishlists/{commerce_wishlist}/items/add",
+ *     "edit-form" = "/admin/commerce/wishlists/{commerce_wishlist}/items/{commerce_wishlist_item}/edit",
+ *     "duplicate-form" = "/admin/commerce/wishlists/{commerce_wishlist}/items/{commerce_wishlist_item}/duplicate",
+ *     "delete-form" = "/admin/commerce/wishlists/{commerce_wishlist}/items/{commerce_wishlist_item}/delete",
+ *     "collection" = "/admin/commerce/wishlists/{commerce_wishlist}/items",
+ *     "details-form" = "/wishlist-item/{commerce_wishlist_item}/details",
+ *   },
  * )
  */
 class WishlistItem extends ContentEntityBase implements WishlistItemInterface {
 
   use EntityChangedTrait;
+  use StringTranslationTrait;
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function urlRouteParameters($rel) {
+    $uri_route_parameters = parent::urlRouteParameters($rel);
+    $uri_route_parameters['commerce_wishlist'] = $this->getWishlistId();
+    return $uri_route_parameters;
+  }
 
   /**
    * {@inheritdoc}
@@ -77,16 +109,21 @@ class WishlistItem extends ContentEntityBase implements WishlistItemInterface {
   /**
    * {@inheritdoc}
    */
-  public function getTitle() {
-    return $this->get('title')->value;
+  public function label() {
+    return $this->getTitle();
   }
 
   /**
    * {@inheritdoc}
    */
-  public function setTitle($title) {
-    $this->set('title', $title);
-    return $this;
+  public function getTitle() {
+    $purchasable_entity = $this->getPurchasableEntity();
+    if ($purchasable_entity) {
+      return $purchasable_entity->label();
+    }
+    else {
+      return $this->t('This item is no longer available');
+    }
   }
 
   /**
@@ -107,6 +144,92 @@ class WishlistItem extends ContentEntityBase implements WishlistItemInterface {
   /**
    * {@inheritdoc}
    */
+  public function getComment() {
+    return $this->get('comment')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setComment($comment) {
+    $this->set('comment', $comment);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getPriority() {
+    return $this->get('priority')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setPriority($priority) {
+    $this->set('priority', $priority);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getPurchases() {
+    return $this->get('purchases')->getPurchases();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setPurchases(array $purchases) {
+    return $this->set('purchases', $purchases);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function addPurchase(WishlistPurchase $purchase) {
+    $this->get('purchases')->appendItem($purchase);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function removePurchase(WishlistPurchase $purchase) {
+    $this->get('purchases')->removePurchase($purchase);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getPurchasedQuantity() {
+    $purchased_quantity = 0;
+    foreach ($this->getPurchases() as $purchase) {
+      $purchased_quantity += $purchase->getQuantity();
+    }
+    return $purchased_quantity;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getLastPurchasedTime() {
+    $last_purchased_time = NULL;
+    if ($purchases = $this->getPurchases()) {
+      $purchased_times = array_map(function (WishlistPurchase $purchase) {
+        return $purchase->getPurchasedTime();
+      }, $purchases);
+      asort($purchased_times, SORT_NUMERIC);
+      $last_purchased_time = end($purchased_times);
+    }
+    return $last_purchased_time;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getCreatedTime() {
     return $this->get('created')->value;
   }
@@ -122,8 +245,26 @@ class WishlistItem extends ContentEntityBase implements WishlistItemInterface {
   /**
    * {@inheritdoc}
    */
+  public function postSave(EntityStorageInterface $storage, $update = TRUE) {
+    parent::postSave($storage, $update);
+
+    // Ensure there's a reference on each wishlist.
+    $wishlist = $this->getWishlist();
+    if ($wishlist && !$wishlist->hasItem($this)) {
+      $wishlist->addItem($this);
+      $wishlist->save();
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
+
+    $fields['type']
+      ->setSetting('max_length', EntityTypeInterface::BUNDLE_MAX_LENGTH)
+      ->setSetting('is_ascii', TRUE);
 
     // The wishlist back reference, populated by Wishlist::postSave().
     $fields['wishlist_id'] = BaseFieldDefinition::create('entity_reference')
@@ -147,14 +288,34 @@ class WishlistItem extends ContentEntityBase implements WishlistItemInterface {
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+    // Provide a default target_type for Views, which uses
+    // base field definitions without bundle overrides.
+    if (\Drupal::moduleHandler()->moduleExists('commerce_product')) {
+      $fields['purchasable_entity']->setSetting('target_type', 'commerce_product_variation');
+    }
 
-    $fields['title'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Title'))
-      ->setDescription(t('The wishlist item title.'))
-      ->setSettings([
-        'default_value' => '',
-        'max_length' => 512,
-      ]);
+    $fields['comment'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Comment'))
+      ->setDescription(t('The item comment.'))
+      ->setDisplayOptions('form', [
+        'type' => 'string_textarea',
+        'weight' => 25,
+        'settings' => [
+          'rows' => 4,
+        ],
+      ])
+      ->setDisplayOptions('view', [
+        'type' => 'string',
+        'label' => 'above',
+        'settings' => [],
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['priority'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('Priority'))
+      ->setDescription(t('The item priority.'))
+      ->setDefaultValue(0);
 
     $fields['quantity'] = BaseFieldDefinition::create('decimal')
       ->setLabel(t('Quantity'))
@@ -169,15 +330,15 @@ class WishlistItem extends ContentEntityBase implements WishlistItemInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['purchases'] = BaseFieldDefinition::create('commerce_wishlist_purchase')
+      ->setLabel(t('Purchases'))
+      ->setDescription(t('The order ID, quantity and timestamp of each purchase.'))
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED);
+
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
       ->setDescription(t('The time when the wishlist item was created.'))
       ->setRequired(TRUE)
-      ->setDisplayOptions('view', [
-        'label' => 'hidden',
-        'type' => 'timestamp',
-        'weight' => 0,
-      ])
       ->setDisplayConfigurable('form', TRUE);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
@@ -192,36 +353,11 @@ class WishlistItem extends ContentEntityBase implements WishlistItemInterface {
    * {@inheritdoc}
    */
   public static function bundleFieldDefinitions(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
-    /** @var \Drupal\commerce_wishlist\Entity\WishlistItemTypeInterface $wishlist_item_type */
-    $wishlist_item_type = WishlistItemType::load($bundle);
-    $purchasable_entity_type = $wishlist_item_type->getPurchasableEntityTypeId();
+    $purchasable_entity_type = \Drupal::entityTypeManager()->getDefinition($bundle);
     $fields = [];
     $fields['purchasable_entity'] = clone $base_field_definitions['purchasable_entity'];
-    if ($purchasable_entity_type) {
-      $fields['purchasable_entity']->setSetting('target_type', $purchasable_entity_type);
-    }
-    else {
-      // This wishlist item type won't reference a purchasable entity. The field
-      // can't be removed here, or converted to a configurable one, so it's
-      // hidden instead. https://www.drupal.org/node/2346347#comment-10254087.
-      $fields['purchasable_entity']->setRequired(FALSE);
-      $fields['purchasable_entity']->setDisplayOptions('form', [
-        'type' => 'hidden',
-      ]);
-      $fields['purchasable_entity']->setDisplayConfigurable('form', FALSE);
-      $fields['purchasable_entity']->setDisplayConfigurable('view', FALSE);
-      $fields['purchasable_entity']->setReadOnly(TRUE);
-
-      // Make the title field visible and required.
-      $fields['title'] = clone $base_field_definitions['title'];
-      $fields['title']->setRequired(TRUE);
-      $fields['title']->setDisplayOptions('form', [
-        'type' => 'string_textfield',
-        'weight' => -1,
-      ]);
-      $fields['title']->setDisplayConfigurable('form', TRUE);
-      $fields['title']->setDisplayConfigurable('view', TRUE);
-    }
+    $fields['purchasable_entity']->setSetting('target_type', $purchasable_entity_type->id());
+    $fields['purchasable_entity']->setLabel($purchasable_entity_type->getLabel());
 
     return $fields;
   }

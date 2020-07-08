@@ -80,7 +80,7 @@ class CartManager implements CartManagerInterface {
   /**
    * {@inheritdoc}
    */
-  public function addEntity(OrderInterface $cart, PurchasableEntityInterface $entity, $quantity = 1, $combine = TRUE, $save_cart = TRUE) {
+  public function addEntity(OrderInterface $cart, PurchasableEntityInterface $entity, $quantity = '1', $combine = TRUE, $save_cart = TRUE) {
     $order_item = $this->createOrderItem($entity, $quantity);
     return $this->addOrderItem($cart, $order_item, $combine, $save_cart);
   }
@@ -88,7 +88,7 @@ class CartManager implements CartManagerInterface {
   /**
    * {@inheritdoc}
    */
-  public function createOrderItem(PurchasableEntityInterface $entity, $quantity = 1) {
+  public function createOrderItem(PurchasableEntityInterface $entity, $quantity = '1') {
     $order_item = $this->orderItemStorage->createFromPurchasableEntity($entity, [
       'quantity' => $quantity,
     ]);
@@ -154,6 +154,14 @@ class CartManager implements CartManagerInterface {
     $order_item->delete();
     $cart->removeItem($order_item);
     $this->eventDispatcher->dispatch(CartEvents::CART_ORDER_ITEM_REMOVE, new CartOrderItemRemoveEvent($cart, $order_item));
+
+    // If this results in an empty cart call the emptyCart method for
+    // consistency.
+    if ($cart->get('order_items')->isEmpty()) {
+      $this->emptyCart($cart, $save_cart);
+      return;
+    }
+
     $this->resetCheckoutStep($cart);
     if ($save_cart) {
       $cart->save();
