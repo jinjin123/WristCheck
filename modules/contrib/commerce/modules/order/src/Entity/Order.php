@@ -4,8 +4,11 @@ namespace Drupal\commerce_order\Entity;
 
 use Drupal\commerce\Entity\CommerceContentEntityBase;
 use Drupal\commerce_order\Adjustment;
+use Drupal\commerce_order\Event\OrderEvents;
+use Drupal\commerce_order\Event\OrderProfilesEvent;
 use Drupal\commerce_price\Price;
 use Drupal\commerce_store\Entity\StoreInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
@@ -19,15 +22,16 @@ use Drupal\profile\Entity\ProfileInterface;
  *
  * @ContentEntityType(
  *   id = "commerce_order",
- *   label = @Translation("Order"),
- *   label_collection = @Translation("Orders"),
- *   label_singular = @Translation("order"),
- *   label_plural = @Translation("orders"),
+ *   label = @Translation("Order", context = "Commerce"),
+ *   label_collection = @Translation("Orders", context = "Commerce"),
+ *   label_singular = @Translation("order", context = "Commerce"),
+ *   label_plural = @Translation("orders", context = "Commerce"),
  *   label_count = @PluralTranslation(
  *     singular = "@count order",
  *     plural = "@count orders",
+ *     context = "Commerce",
  *   ),
- *   bundle_label = @Translation("Order type"),
+ *   bundle_label = @Translation("Order type", context = "Commerce"),
  *   handlers = {
  *     "event" = "Drupal\commerce_order\Event\OrderEvent",
  *     "storage" = "Drupal\commerce_order\OrderStorage",
@@ -42,6 +46,10 @@ use Drupal\profile\Entity\ProfileInterface;
  *       "edit" = "Drupal\commerce_order\Form\OrderForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
  *       "unlock" = "Drupal\commerce_order\Form\OrderUnlockForm",
+ *       "resend-receipt" = "Drupal\commerce_order\Form\OrderReceiptResendForm",
+ *     },
+ *     "local_task_provider" = {
+ *       "default" = "Drupal\entity\Menu\DefaultEntityLocalTaskProvider",
  *     },
  *     "route_provider" = {
  *       "default" = "Drupal\commerce_order\OrderRouteProvider",
@@ -64,10 +72,12 @@ use Drupal\profile\Entity\ProfileInterface;
  *     "delete-multiple-form" = "/admin/commerce/orders/delete",
  *     "reassign-form" = "/admin/commerce/orders/{commerce_order}/reassign",
  *     "unlock-form" = "/admin/commerce/orders/{commerce_order}/unlock",
- *     "collection" = "/admin/commerce/orders"
+ *     "collection" = "/admin/commerce/orders",
+ *     "resend-receipt-form" = "/admin/commerce/orders/{commerce_order}/resend-receipt"
  *   },
  *   bundle_entity_type = "commerce_order_type",
- *   field_ui_base_route = "entity.commerce_order_type.edit_form"
+ *   field_ui_base_route = "entity.commerce_order_type.edit_form",
+ *   allow_number_patterns = TRUE,
  * )
  */
 class Order extends CommerceContentEntityBase implements OrderInterface {
@@ -202,6 +212,22 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
   /**
    * {@inheritdoc}
    */
+  public function collectProfiles() {
+    $profiles = [];
+    if ($billing_profile = $this->getBillingProfile()) {
+      $profiles['billing'] = $billing_profile;
+    }
+    // Allow other modules to register their own profiles (e.g. shipping).
+    $event = new OrderProfilesEvent($this, $profiles);
+    \Drupal::service('event_dispatcher')->dispatch(OrderEvents::ORDER_PROFILES, $event);
+    $profiles = $event->getProfiles();
+
+    return $profiles;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getItems() {
     return $this->get('order_items')->referencedEntities();
   }
@@ -273,8 +299,20 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
   /**
    * {@inheritdoc}
    */
-  public function getAdjustments() {
-    return $this->get('adjustments')->getAdjustments();
+  public function getAdjustments(array $adjustment_types = []) {
+    /** @var \Drupal\commerce_order\Adjustment[] $adjustments */
+    $adjustments = $this->get('adjustments')->getAdjustments();
+    // Filter adjustments by type, if needed.
+    if ($adjustment_types) {
+      foreach ($adjustments as $index => $adjustment) {
+        if (!in_array($adjustment->getType(), $adjustment_types)) {
+          unset($adjustments[$index]);
+        }
+      }
+      $adjustments = array_values($adjustments);
+    }
+
+    return $adjustments;
   }
 
   /**
@@ -334,17 +372,17 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
   /**
    * {@inheritdoc}
    */
-  public function collectAdjustments() {
+  public function collectAdjustments(array $adjustment_types = []) {
     $adjustments = [];
     foreach ($this->getItems() as $order_item) {
-      foreach ($order_item->getAdjustments() as $adjustment) {
+      foreach ($order_item->getAdjustments($adjustment_types) as $adjustment) {
         if ($order_item->usesLegacyAdjustments()) {
           $adjustment = $adjustment->multiply($order_item->getQuantity());
         }
         $adjustments[] = $adjustment;
       }
     }
-    foreach ($this->getAdjustments() as $adjustment) {
+    foreach ($this->getAdjustments($adjustment_types) as $adjustment) {
       $adjustments[] = $adjustment;
     }
 
@@ -446,7 +484,7 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
     $balance = $this->getBalance();
     // Free orders are considered fully paid once they have been placed.
     if ($total_price->isZero()) {
-      return $this->getState()->value != 'draft';
+      return $this->getState()->getId() != 'draft';
     }
     else {
       return $balance->isNegative() || $balance->isZero();
@@ -496,8 +534,20 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
   /**
    * {@inheritdoc}
    */
+  public function unsetData($key) {
+    if (!$this->get('data')->isEmpty()) {
+      $data = $this->get('data')->first()->getValue();
+      unset($data[$key]);
+      $this->set('data', $data);
+    }
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function isLocked() {
-    return !empty($this->get('locked')->value);
+    return (bool) $this->get('locked')->value;
   }
 
   /**
@@ -564,6 +614,17 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
   /**
    * {@inheritdoc}
    */
+  public function getCalculationDate() {
+    $timezone = $this->getStore()->getTimezone();
+    $timestamp = $this->getPlacedTime() ?: \Drupal::time()->getRequestTime();
+    $date = DrupalDateTime::createFromTimestamp($timestamp, $timezone);
+
+    return $date;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function preSave(EntityStorageInterface $storage) {
     parent::preSave($storage);
 
@@ -573,14 +634,20 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
     $customer = $this->getCustomer();
     // The customer has been deleted, clear the reference.
     if ($this->getCustomerId() && $customer->isAnonymous()) {
-      $this->set('uid', 0);
+      $this->setCustomerId(0);
     }
     // Maintain the order email.
     if (!$this->getEmail() && $customer->isAuthenticated()) {
       $this->setEmail($customer->getEmail());
     }
+    // Make sure the billing profile is owned by the order, not the customer.
+    $billing_profile = $this->getBillingProfile();
+    if ($billing_profile && $billing_profile->getOwnerId()) {
+      $billing_profile->setOwnerId(0);
+      $billing_profile->save();
+    }
 
-    if ($this->getState()->value == 'draft') {
+    if ($this->getState()->getId() == 'draft') {
       // Refresh draft orders on every save.
       if (empty($this->getRefreshState())) {
         $this->setRefreshState(self::REFRESH_ON_SAVE);
@@ -712,9 +779,31 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['order_items'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Order items'))
+      ->setDescription(t('The order items.'))
+      ->setRequired(TRUE)
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setSetting('target_type', 'commerce_order_item')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('form', [
+        'type' => 'inline_entity_form_complex',
+        'weight' => 0,
+        'settings' => [
+          'override_labels' => TRUE,
+          'label_singular' => t('order item'),
+          'label_plural' => t('order items'),
+        ],
+      ])
+      ->setDisplayOptions('view', [
+        'type' => 'commerce_order_item_table',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['adjustments'] = BaseFieldDefinition::create('commerce_adjustment')
       ->setLabel(t('Adjustments'))
-      ->setRequired(FALSE)
       ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
       ->setDisplayOptions('form', [
         'type' => 'commerce_adjustment_default',

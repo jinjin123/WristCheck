@@ -3,6 +3,7 @@
 namespace Drupal\commerce_wishlist;
 
 use Drupal\commerce_wishlist\Exception\DuplicateWishlistException;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -53,6 +54,13 @@ class WishlistProvider implements WishlistProviderInterface {
   protected $wishlistData = [];
 
   /**
+   * The config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
    * Constructs a new WishlistProvider object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
@@ -61,11 +69,17 @@ class WishlistProvider implements WishlistProviderInterface {
    *   The current user.
    * @param \Drupal\commerce_wishlist\WishlistSessionInterface $wishlist_session
    *   The wishlist session.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountInterface $current_user, WishlistSessionInterface $wishlist_session) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountInterface $current_user, WishlistSessionInterface $wishlist_session, ConfigFactoryInterface $config_factory) {
     $this->wishlistStorage = $entity_type_manager->getStorage('commerce_wishlist');
     $this->currentUser = $current_user;
     $this->wishlistSession = $wishlist_session;
+    $this->configFactory = $config_factory;
   }
 
   /**
@@ -74,8 +88,9 @@ class WishlistProvider implements WishlistProviderInterface {
   public function createWishlist($wishlist_type, AccountInterface $account = NULL, $name = NULL) {
     $account = $account ?: $this->currentUser;
     $uid = $account->id();
-    // @todo Remove this limitation for bundles allowing multiple wishlists.
-    if ($this->getWishlistId($wishlist_type, $account)) {
+    $allow_multiple = $this->configFactory->get('commerce_wishlist.settings')->get('wishlist.allow_multiple');
+
+    if (empty($allow_multiple) && $this->getWishlistId($wishlist_type, $account)) {
       // Don't allow multiple wishlist entities matching the same criteria.
       throw new DuplicateWishlistException("A wishlist for type '$wishlist_type' and account '$uid' already exists.");
     }
@@ -174,7 +189,8 @@ class WishlistProvider implements WishlistProviderInterface {
       $query = $this->wishlistStorage->getQuery()
         ->condition('uid', $account->id())
         ->sort('is_default', 'DESC')
-        ->sort('wishlist_id', 'DESC');
+        ->sort('wishlist_id', 'DESC')
+        ->accessCheck(FALSE);
       $wishlist_ids = $query->execute();
     }
     else {
@@ -191,7 +207,7 @@ class WishlistProvider implements WishlistProviderInterface {
     /** @var \Drupal\commerce_wishlist\Entity\WishlistInterface[] $wishlists */
     $wishlists = $this->wishlistStorage->loadMultiple($wishlist_ids);
     foreach ($wishlists as $wishlist) {
-      if ($wishlist->getCustomerId() != $uid) {
+      if ($wishlist->getOwnerId() != $uid) {
         // Skip wishlists that are no longer eligible.
         continue;
       }

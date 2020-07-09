@@ -9,3 +9,6 @@ import tablefield:
 
 configure tablefield:
   title: 'Allow changes in the global tablefield module configuration'
+
+addrow tablefield:
+    title: 'To change row in tablefield'

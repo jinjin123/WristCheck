@@ -5,7 +5,7 @@
  * Hooks related to the Database system and the Schema API.
  */
 
-use Drupal\Core\Database\Query\Condition;
+use Drupal\Core\Database\Query\SelectInterface;
 
 /**
  * @defgroup database Database abstraction layer
@@ -92,6 +92,11 @@ use Drupal\Core\Database\Query\Condition;
  * should still use the Entity Query API if your query involves entities or
  * fields (see the @link entity_api Entity API topic @endlink for more on
  * entity queries).
+ *
+ * Note: \Drupal::database() is used here as a shorthand way to get a reference
+ * to the database connection object. In most classes, you should use dependency
+ * injection and inject the 'database' service to perform queries. See
+ * @ref sec_connection below for details.
  *
  * The dynamic query API lets you build up a query dynamically using method
  * calls. As an illustration, the query example from @ref sec_simple above
@@ -248,18 +253,15 @@ use Drupal\Core\Database\Query\Condition;
  *
  * The following keys are defined:
  *   - 'description': A string in non-markup plain text describing this table
- *     and its purpose. References to other tables should be enclosed in
- *     curly-brackets. For example, the node_field_revision table
- *     description field might contain "Stores per-revision title and
- *     body data for each {node}."
+ *     and its purpose. References to other tables should be enclosed in curly
+ *     brackets.
  *   - 'fields': An associative array ('fieldname' => specification)
  *     that describes the table's database columns. The specification
  *     is also an array. The following specification parameters are defined:
  *     - 'description': A string in non-markup plain text describing this field
- *       and its purpose. References to other tables should be enclosed in
- *       curly-brackets. For example, the node table vid field
- *       description might contain "Always holds the largest (most
- *       recent) {node_field_revision}.vid value for this nid."
+ *       and its purpose. References to other tables should be enclosed in curly
+ *       brackets. For example, the users_data table 'uid' field description
+ *       might contain "The {users}.uid this record affects."
  *     - 'type': The generic datatype: 'char', 'varchar', 'text', 'blob', 'int',
  *       'float', 'numeric', or 'serial'. Most types just map to the according
  *       database engine specific data types. Use 'serial' for auto incrementing
@@ -322,64 +324,70 @@ use Drupal\Core\Database\Query\Condition;
  *    key column specifiers (see below) that form an index on the
  *    table.
  *
- * A key column specifier is either a string naming a column or an
- * array of two elements, column name and length, specifying a prefix
- * of the named column.
+ * A key column specifier is either a string naming a column or an array of two
+ * elements, column name and length, specifying a prefix of the named column.
  *
- * As an example, here is a SUBSET of the schema definition for
- * Drupal's 'node' table. It show four fields (nid, vid, type, and
- * title), the primary key on field 'nid', a unique key named 'vid' on
- * field 'vid', and two indexes, one named 'nid' on field 'nid' and
- * one named 'node_title_type' on the field 'title' and the first four
- * bytes of the field 'type':
+ * As an example, this is the schema definition for the 'users_data' table. It
+ * shows five fields ('uid', 'module', 'name', 'value', and 'serialized'), the
+ * primary key (on the 'uid', 'module', and 'name' fields), and two indexes (the
+ * 'module' index on the 'module' field and the 'name' index on the 'name'
+ * field).
  *
  * @code
- * $schema['node'] = array(
- *   'description' => 'The base table for nodes.',
- *   'fields' => array(
- *     'nid'       => array('type' => 'serial', 'unsigned' => TRUE, 'not null' => TRUE),
- *     'vid'       => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE,'default' => 0),
- *     'type'      => array('type' => 'varchar','length' => 32,'not null' => TRUE, 'default' => ''),
- *     'language'  => array('type' => 'varchar','length' => 12,'not null' => TRUE,'default' => ''),
- *     'title'     => array('type' => 'varchar','length' => 255,'not null' => TRUE, 'default' => ''),
- *     'uid'       => array('type' => 'int', 'not null' => TRUE, 'default' => 0),
- *     'status'    => array('type' => 'int', 'not null' => TRUE, 'default' => 1),
- *     'created'   => array('type' => 'int', 'not null' => TRUE, 'default' => 0),
- *     'changed'   => array('type' => 'int', 'not null' => TRUE, 'default' => 0),
- *     'comment'   => array('type' => 'int', 'not null' => TRUE, 'default' => 0),
- *     'promote'   => array('type' => 'int', 'not null' => TRUE, 'default' => 0),
- *     'moderate'  => array('type' => 'int', 'not null' => TRUE,'default' => 0),
- *     'sticky'    => array('type' => 'int', 'not null' => TRUE, 'default' => 0),
- *     'translate' => array('type' => 'int', 'not null' => TRUE, 'default' => 0),
- *   ),
- *   'indexes' => array(
- *     'node_changed'        => array('changed'),
- *     'node_created'        => array('created'),
- *     'node_moderate'       => array('moderate'),
- *     'node_frontpage'      => array('promote', 'status', 'sticky', 'created'),
- *     'node_status_type'    => array('status', 'type', 'nid'),
- *     'node_title_type'     => array('title', array('type', 4)),
- *     'node_type'           => array(array('type', 4)),
- *     'uid'                 => array('uid'),
- *     'translate'           => array('translate'),
- *   ),
- *   'unique keys' => array(
- *     'vid' => array('vid'),
- *   ),
+ * $schema['users_data'] = [
+ *   'description' => 'Stores module data as key/value pairs per user.',
+ *   'fields' => [
+ *     'uid' => [
+ *       'description' => 'The {users}.uid this record affects.',
+ *       'type' => 'int',
+ *       'unsigned' => TRUE,
+ *       'not null' => TRUE,
+ *       'default' => 0,
+ *     ],
+ *     'module' => [
+ *       'description' => 'The name of the module declaring the variable.',
+ *       'type' => 'varchar_ascii',
+ *       'length' => DRUPAL_EXTENSION_NAME_MAX_LENGTH,
+ *       'not null' => TRUE,
+ *       'default' => '',
+ *     ],
+ *     'name' => [
+ *       'description' => 'The identifier of the data.',
+ *       'type' => 'varchar_ascii',
+ *       'length' => 128,
+ *       'not null' => TRUE,
+ *       'default' => '',
+ *     ],
+ *     'value' => [
+ *       'description' => 'The value.',
+ *       'type' => 'blob',
+ *       'not null' => FALSE,
+ *       'size' => 'big',
+ *     ],
+ *     'serialized' => [
+ *       'description' => 'Whether value is serialized.',
+ *       'type' => 'int',
+ *       'size' => 'tiny',
+ *       'unsigned' => TRUE,
+ *       'default' => 0,
+ *     ],
+ *   ],
+ *   'primary key' => ['uid', 'module', 'name'],
+ *   'indexes' => [
+ *     'module' => ['module'],
+ *     'name' => ['name'],
+ *   ],
  *   // For documentation purposes only; foreign keys are not created in the
  *   // database.
- *   'foreign keys' => array(
- *     'node_revision' => array(
- *       'table' => 'node_field_revision',
- *       'columns' => array('vid' => 'vid'),
- *      ),
- *     'node_author' => array(
+ *   'foreign keys' => [
+ *     'data_user' => [
  *       'table' => 'users',
- *       'columns' => array('uid' => 'uid'),
- *      ),
- *    ),
- *   'primary key' => array('nid'),
- * );
+ *       'columns' => [
+ *         'uid' => 'uid',
+ *       ],
+ *     ],
+ *   ],
+ * ];
  * @endcode
  *
  * @see drupal_install_schema()
@@ -417,6 +425,12 @@ function hook_query_alter(Drupal\Core\Database\Query\AlterableInterface $query) 
 /**
  * Perform alterations to a structured query for a given tag.
  *
+ * Some common tags include:
+ * - 'entity_reference': For queries that return entities that may be referenced
+ *   by an entity reference field.
+ * - ENTITY_TYPE . '_access': For queries of entities that will be displayed in
+ *   a listing (e.g., from Views) and therefore require access control.
+ *
  * @param $query
  *   An Query object describing the composite parts of a SQL query.
  *
@@ -428,34 +442,40 @@ function hook_query_alter(Drupal\Core\Database\Query\AlterableInterface $query) 
  * @ingroup database
  */
 function hook_query_TAG_alter(Drupal\Core\Database\Query\AlterableInterface $query) {
-  // Skip the extra expensive alterations if site has no node access control modules.
-  if (!node_access_view_all_nodes()) {
-    // Prevent duplicates records.
-    $query->distinct();
-    // The recognized operations are 'view', 'update', 'delete'.
-    if (!$op = $query->getMetaData('op')) {
-      $op = 'view';
+  // This is an example of a possible hook_query_media_access_alter()
+  // implementation. In other words, alter queries of media entities that
+  // require access control (have the 'media_access' query tag).
+
+  // Determine which media entities we want to remove from the query. In this
+  // example, we hard-code some media IDs.
+  $media_entities_to_hide = [1, 3];
+
+  // In this example, we're only interested in applying our media access
+  // restrictions to SELECT queries. hook_media_access() can be used to apply
+  // access control to 'update' and 'delete' operations.
+  if (!($query instanceof SelectInterface)) {
+    return;
+  }
+
+  // The tables in the query. This can include media entity tables and other
+  // tables. Tables might be joined more than once, with aliases.
+  $query_tables = $query->getTables();
+
+  // The tables belonging to media entity storage.
+  $table_mapping = \Drupal::entityTypeManager()->getStorage('media')->getTableMapping();
+  $media_tables = $table_mapping->getTableNames();
+
+  // For each table in the query, if it's a media entity storage table, add a
+  // condition to filter out records belonging to a media entity that we wish
+  // to hide.
+  foreach ($query_tables as $alias => $info) {
+    // Skip over subqueries.
+    if ($info['table'] instanceof SelectInterface) {
+      continue;
     }
-    // Skip the extra joins and conditions for node admins.
-    if (!\Drupal::currentUser()->hasPermission('bypass node access')) {
-      // The node_access table has the access grants for any given node.
-      $access_alias = $query->join('node_access', 'na', '%alias.nid = n.nid');
-      $or = new Condition('OR');
-      // If any grant exists for the specified user, then user has access to the node for the specified operation.
-      foreach (node_access_grants($op, $query->getMetaData('account')) as $realm => $gids) {
-        foreach ($gids as $gid) {
-          $or->condition((new Condition('AND'))
-            ->condition($access_alias . '.gid', $gid)
-            ->condition($access_alias . '.realm', $realm)
-          );
-        }
-      }
-
-      if (count($or->conditions())) {
-        $query->condition($or);
-      }
-
-      $query->condition($access_alias . 'grant_' . $op, 1, '>=');
+    $real_table_name = $info['table'];
+    if (in_array($real_table_name, $media_tables)) {
+      $query->condition("$alias.mid", $media_entities_to_hide, 'NOT IN');
     }
   }
 }
@@ -490,60 +510,61 @@ function hook_query_TAG_alter(Drupal\Core\Database\Query\AlterableInterface $que
  * @ingroup schemaapi
  */
 function hook_schema() {
-  $schema['node'] = [
-    // Example (partial) specification for table "node".
-    'description' => 'The base table for nodes.',
+  $schema['users_data'] = [
+    'description' => 'Stores module data as key/value pairs per user.',
     'fields' => [
-      'nid' => [
-        'description' => 'The primary identifier for a node.',
-        'type' => 'serial',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-      ],
-      'vid' => [
-        'description' => 'The current {node_field_revision}.vid version identifier.',
+      'uid' => [
+        'description' => 'The {users}.uid this record affects.',
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
         'default' => 0,
       ],
-      'type' => [
-        'description' => 'The type of this node.',
-        'type' => 'varchar',
-        'length' => 32,
+      'module' => [
+        'description' => 'The name of the module declaring the variable.',
+        'type' => 'varchar_ascii',
+        'length' => DRUPAL_EXTENSION_NAME_MAX_LENGTH,
         'not null' => TRUE,
         'default' => '',
       ],
-      'title' => [
-        'description' => 'The node title.',
-        'type' => 'varchar',
-        'length' => 255,
+      'name' => [
+        'description' => 'The identifier of the data.',
+        'type' => 'varchar_ascii',
+        'length' => 128,
         'not null' => TRUE,
         'default' => '',
+      ],
+      'value' => [
+        'description' => 'The value.',
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+      ],
+      'serialized' => [
+        'description' => 'Whether value is serialized.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'default' => 0,
       ],
     ],
+    'primary key' => ['uid', 'module', 'name'],
     'indexes' => [
-      'node_changed'        => ['changed'],
-      'node_created'        => ['created'],
-    ],
-    'unique keys' => [
-      'nid_vid' => ['nid', 'vid'],
-      'vid'     => ['vid'],
+      'module' => ['module'],
+      'name' => ['name'],
     ],
     // For documentation purposes only; foreign keys are not created in the
     // database.
     'foreign keys' => [
-      'node_revision' => [
-        'table' => 'node_field_revision',
-        'columns' => ['vid' => 'vid'],
-      ],
-      'node_author' => [
+      'data_user' => [
         'table' => 'users',
-        'columns' => ['uid' => 'uid'],
+        'columns' => [
+          'uid' => 'uid',
+        ],
       ],
     ],
-    'primary key' => ['nid'],
   ];
+
   return $schema;
 }
 

@@ -1,28 +1,34 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Drupal\tablefield\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Component\Utility\Unicode;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 /**
- *
+ * Implements table configuration form.
  */
 class TablefieldConfigForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
    */
-  public function getFormID() {
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('config.factory')
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId() {
     return 'tablefield_config_form';
   }
 
   /**
-   *
+   * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
     return ['tablefield.settings'];
@@ -36,9 +42,11 @@ class TablefieldConfigForm extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('CSV separator'),
       '#size' => 1,
+      '#length' => 1,
       '#maxlength' => 1,
-      '#default_value' => \Drupal::config('tablefield.settings')->get('csv_separator'),
-      '#description' => $this->t('Select the separator for the CSV import/export.'),
+      '#required' => TRUE,
+      '#default_value' => $this->config('tablefield.settings')->get('csv_separator'),
+      '#description' => $this->t('Select the separator for the CSV import/export. Most common are a comma (,) or a semicolon (;).'),
     ];
 
     $form['rows'] = [
@@ -46,7 +54,7 @@ class TablefieldConfigForm extends ConfigFormBase {
       '#title' => $this->t('Default number of table rows'),
       '#size' => 3,
       '#maxlength' => 3,
-      '#default_value' => \Drupal::config('tablefield.settings')->get('rows'),
+      '#default_value' => $this->config('tablefield.settings')->get('rows'),
       '#description' => $this->t('You can override this in field settings or in your custom form element.'),
     ];
 
@@ -55,21 +63,11 @@ class TablefieldConfigForm extends ConfigFormBase {
       '#title' => $this->t('Default number of table columns'),
       '#size' => 2,
       '#maxlength' => 2,
-      '#default_value' => \Drupal::config('tablefield.settings')->get('cols'),
+      '#default_value' => $this->config('tablefield.settings')->get('cols'),
       '#description' => $this->t('You can override this in field settings or in your custom form element.'),
     ];
 
     return parent::buildForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    if (Unicode::strlen($form_state->getValue('csv_separator')) !== 1) {
-      $message = $this->t('Separator must be one character only!');
-      $this->setFormError('csv_separator', $message);
-    }
   }
 
   /**

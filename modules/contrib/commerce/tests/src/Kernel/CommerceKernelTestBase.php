@@ -2,14 +2,19 @@
 
 namespace Drupal\Tests\commerce\Kernel;
 
+use Drupal\commerce_price\Comparator\NumberComparator;
+use Drupal\commerce_price\Comparator\PriceComparator;
 use Drupal\commerce_store\StoreCreationTrait;
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
+use Drupal\Tests\commerce\Traits\DeprecationSuppressionTrait;
+use SebastianBergmann\Comparator\Factory as PhpUnitComparatorFactory;
 
 /**
  * Provides a base class for Commerce kernel tests.
  */
 abstract class CommerceKernelTestBase extends EntityKernelTestBase {
 
+  use DeprecationSuppressionTrait;
   use StoreCreationTrait;
 
   /**
@@ -31,6 +36,7 @@ abstract class CommerceKernelTestBase extends EntityKernelTestBase {
     'commerce_price',
     'commerce_store',
     'path',
+    'path_alias',
   ];
 
   /**
@@ -45,16 +51,29 @@ abstract class CommerceKernelTestBase extends EntityKernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
+    $this->setErrorHandler();
 
+    $factory = PhpUnitComparatorFactory::getInstance();
+    $factory->register(new NumberComparator());
+    $factory->register(new PriceComparator());
+
+    $this->installEntitySchema('path_alias');
     $this->installEntitySchema('commerce_currency');
     $this->installEntitySchema('commerce_store');
     $this->installConfig(['commerce_store']);
 
-    $currency_importer = \Drupal::service('commerce_price.currency_importer');
+    $currency_importer = $this->container->get('commerce_price.currency_importer');
     $currency_importer->import('USD');
 
     $this->store = $this->createStore('Default store', 'admin@example.com');
-    \Drupal::entityTypeManager()->getStorage('commerce_store')->markAsDefault($this->store);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function tearDown() {
+    $this->restoreErrorHandler();
+    parent::tearDown();
   }
 
 }

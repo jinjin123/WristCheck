@@ -2,9 +2,9 @@
 
 namespace Drupal\commerce_wishlist;
 
-use Drupal\commerce_wishlist\Entity\WishlistItemInterface;
 use Drupal\commerce_wishlist\Entity\WishlistInterface;
 use Drupal\commerce\PurchasableEntityInterface;
+use Drupal\commerce_wishlist\Entity\WishlistItemInterface;
 
 /**
  * Manages the wishlist and its wishlist items.
@@ -42,47 +42,19 @@ interface WishlistManagerInterface {
   public function addEntity(WishlistInterface $wishlist, PurchasableEntityInterface $entity, $quantity = 1, $combine = TRUE, $save_wishlist = TRUE);
 
   /**
-   * Creates a wishlist item for the given purchasable entity.
+   * Merges the source wishlist into the target wishlist.
    *
-   * @param \Drupal\commerce\PurchasableEntityInterface $entity
-   *   The purchasable entity.
-   * @param int $quantity
-   *   The quantity.
+   * @param \Drupal\commerce_wishlist\Entity\WishlistInterface $source
+   *   The source wishlist to merge.
+   * @param \Drupal\commerce_wishlist\Entity\WishlistInterface $target
+   *   The target wishlist.
+   * @param bool $save
+   *   Save wishlist.
    *
-   * @return \Drupal\commerce_wishlist\Entity\WishlistItemInterface
-   *   The created wishlist item. Unsaved.
+   * @return \Drupal\commerce_wishlist\Entity\WishlistInterface
+   *   The saved or modified wishlist.
    */
-  public function createWishlistItem(PurchasableEntityInterface $entity, $quantity = 1);
-
-  /**
-   * Adds the given wishlist item to the given wishlist entity.
-   *
-   * @param \Drupal\commerce_wishlist\Entity\WishlistInterface $wishlist
-   *   The wishlist entity.
-   * @param \Drupal\commerce_wishlist\Entity\WishlistItemInterface $wishlist_item
-   *   The wishlist item.
-   * @param bool $combine
-   *   Whether the wishlist item should be combined with an existing matching
-   *   one.
-   * @param bool $save_wishlist
-   *   Whether the wishlist should be saved after the operation.
-   *
-   * @return \Drupal\commerce_wishlist\Entity\WishlistItemInterface
-   *   The saved wishlist item.
-   */
-  public function addWishlistItem(WishlistInterface $wishlist, WishlistItemInterface $wishlist_item, $combine = TRUE, $save_wishlist = TRUE);
-
-  /**
-   * Updates the given wishlist item.
-   *
-   * @param \Drupal\commerce_wishlist\Entity\WishlistInterface $wishlist
-   *   The wishlist entity.
-   * @param \Drupal\commerce_wishlist\Entity\WishlistItemInterface $wishlist_item
-   *   The wishlist item.
-   * @param bool $save_wishlist
-   *   Whether the wishlist should be saved after the operation.
-   */
-  public function updateWishlistItem(WishlistInterface $wishlist, WishlistItemInterface $wishlist_item, $save_wishlist = TRUE);
+  public function merge(WishlistInterface $source, WishlistInterface $target, $save = TRUE);
 
   /**
    * Removes the given wishlist item from the wishlist entity.

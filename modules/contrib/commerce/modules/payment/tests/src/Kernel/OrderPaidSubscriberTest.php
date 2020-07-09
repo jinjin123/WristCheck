@@ -4,11 +4,10 @@ namespace Drupal\Tests\commerce_payment\Kernel;
 
 use Drupal\commerce_order\Entity\Order;
 use Drupal\commerce_order\Entity\OrderItem;
-use Drupal\commerce_order\Entity\OrderItemType;
 use Drupal\commerce_payment\Entity\Payment;
 use Drupal\commerce_payment\Entity\PaymentGateway;
 use Drupal\commerce_price\Price;
-use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
+use Drupal\Tests\commerce_order\Kernel\OrderKernelTestBase;
 
 /**
  * Tests the OrderPaidSubscriber.
@@ -17,7 +16,7 @@ use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
  *
  * @group commerce
  */
-class OrderPaidSubscriberTest extends CommerceKernelTestBase {
+class OrderPaidSubscriberTest extends OrderKernelTestBase {
 
   /**
    * The sample order.
@@ -32,12 +31,6 @@ class OrderPaidSubscriberTest extends CommerceKernelTestBase {
    * @var array
    */
   public static $modules = [
-    'address',
-    'entity_reference_revisions',
-    'profile',
-    'state_machine',
-    'commerce_product',
-    'commerce_order',
     'commerce_payment',
     'commerce_payment_example',
   ];
@@ -48,19 +41,8 @@ class OrderPaidSubscriberTest extends CommerceKernelTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->installEntitySchema('profile');
-    $this->installEntitySchema('commerce_order');
-    $this->installEntitySchema('commerce_order_item');
     $this->installEntitySchema('commerce_payment');
-    $this->installConfig('commerce_order');
     $this->installConfig('commerce_payment');
-
-    // An order item type that doesn't need a purchasable entity, for simplicity.
-    OrderItemType::create([
-      'id' => 'test',
-      'label' => 'Test',
-      'orderType' => 'default',
-    ])->save();
 
     $order_item = OrderItem::create([
       'type' => 'test',
@@ -83,7 +65,7 @@ class OrderPaidSubscriberTest extends CommerceKernelTestBase {
    * Confirms that on-site payments do not affect the order status.
    */
   public function testOnsiteGateway() {
-    /** @var \Drupal\commerce_payment\Entity\PaymentGateway $onsite_gateway */
+    /** @var \Drupal\commerce_payment\Entity\PaymentGatewayInterface $onsite_gateway */
     $onsite_gateway = PaymentGateway::create([
       'id' => 'onsite',
       'label' => 'On-site',
@@ -105,9 +87,9 @@ class OrderPaidSubscriberTest extends CommerceKernelTestBase {
       'state' => 'completed',
     ]);
     $payment->save();
+    $this->order->save();
 
-    $this->order = $this->reloadEntity($this->order);
-    $this->assertEquals('draft', $this->order->getState()->value);
+    $this->assertEquals('draft', $this->order->getState()->getId());
     $this->assertEmpty($this->order->getOrderNumber());
     $this->assertEmpty($this->order->getPlacedTime());
     $this->assertEmpty($this->order->getCompletedTime());
@@ -117,7 +99,7 @@ class OrderPaidSubscriberTest extends CommerceKernelTestBase {
    * Confirms that off-site payments result in the order getting placed.
    */
   public function testOffsiteGateway() {
-    /** @var \Drupal\commerce_payment\Entity\PaymentGateway $gateway */
+    /** @var \Drupal\commerce_payment\Entity\PaymentGatewayInterface $offsite_gateway */
     $offsite_gateway = PaymentGateway::create([
       'id' => 'offsite',
       'label' => 'Off-site',
@@ -140,9 +122,9 @@ class OrderPaidSubscriberTest extends CommerceKernelTestBase {
       'state' => 'completed',
     ]);
     $payment->save();
+    $this->order->save();
 
-    $this->order = $this->reloadEntity($this->order);
-    $this->assertEquals('completed', $this->order->getState()->value);
+    $this->assertEquals('completed', $this->order->getState()->getId());
     $this->assertFalse($this->order->isLocked());
     $this->assertNotEmpty($this->order->getOrderNumber());
     $this->assertNotEmpty($this->order->getPlacedTime());

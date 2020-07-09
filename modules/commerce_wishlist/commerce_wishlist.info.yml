@@ -2,17 +2,15 @@ name: Commerce Wishlist
 type: module
 description: Provides the ability for customers to add products to a list.
 package: Commerce (contrib)
-# core: 8.x
+core_version_requirement: ^8.7.7 || ^9
 dependencies:
   - commerce:commerce
   - commerce:commerce_cart
   - commerce:commerce_store
-  - drupal:system (>=8.6.0)
   - inline_entity_form:inline_entity_form
   - profile:profile
 
-# Information added by Drupal.org packaging script on 2018-10-14
-version: '8.x-3.0-alpha8'
-core: '8.x'
+# Information added by Drupal.org packaging script on 2020-03-26
+version: '8.x-3.0-beta3'
 project: 'commerce_wishlist'
-datestamp: 1539541384
+datestamp: 1585257899

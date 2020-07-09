@@ -41,7 +41,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     this.oldRowElement = null;
 
-    this.oldY = 0;
+    this.oldY = null;
 
     this.changed = false;
 
@@ -74,8 +74,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       this.indentCount = 1;
 
       var indent = Drupal.theme('tableDragIndentation');
-      var testRow = $('<tr/>').addClass('draggable').appendTo(table);
-      var testCell = $('<td/>').appendTo(testRow).prepend(indent).prepend(indent);
+      var testRow = $('<tr></tr>').addClass('draggable').appendTo(table);
+      var testCell = $('<td></td>').appendTo(testRow).prepend(indent).prepend(indent);
       var $indentation = testCell.find('.js-indentation');
 
       this.indentAmount = $indentation.get(1).offsetLeft - $indentation.get(0).offsetLeft;
@@ -86,7 +86,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       self.makeDraggable(this);
     });
 
-    $table.before($('<button type="button" class="link tabledrag-toggle-weight"></button>').attr('title', Drupal.t('Re-order rows by numerical weight instead of dragging.')).on('click', $.proxy(function (e) {
+    $table.before($('<button type="button" class="link tabledrag-toggle-weight"></button>').on('click', $.proxy(function (e) {
       e.preventDefault();
       this.toggleColumns();
     }, this)).wrap('<div class="tabledrag-toggle-weight-wrapper"></div>').parent());
@@ -285,10 +285,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         case 38:
         case 63232:
           {
-            var $previousRow = $(self.rowObject.element).prev('tr:first-of-type');
+            var $previousRow = $(self.rowObject.element).prev('tr').eq(0);
             var previousRow = $previousRow.get(0);
             while (previousRow && $previousRow.is(':hidden')) {
-              $previousRow = $(previousRow).prev('tr:first-of-type');
+              $previousRow = $(previousRow).prev('tr').eq(0);
               previousRow = $previousRow.get(0);
             }
             if (previousRow) {
@@ -299,7 +299,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               if ($(item).is('.tabledrag-root')) {
                 groupHeight = 0;
                 while (previousRow && $previousRow.find('.js-indentation').length) {
-                  $previousRow = $(previousRow).prev('tr:first-of-type');
+                  $previousRow = $(previousRow).prev('tr').eq(0);
                   previousRow = $previousRow.get(0);
                   groupHeight += $previousRow.is(':hidden') ? 0 : previousRow.offsetHeight;
                 }
@@ -329,10 +329,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         case 40:
         case 63233:
           {
-            var $nextRow = $(self.rowObject.group).eq(-1).next('tr:first-of-type');
+            var $nextRow = $(self.rowObject.group).eq(-1).next('tr').eq(0);
             var nextRow = $nextRow.get(0);
             while (nextRow && $nextRow.is(':hidden')) {
-              $nextRow = $(nextRow).next('tr:first-of-type');
+              $nextRow = $(nextRow).next('tr').eq(0);
               nextRow = $nextRow.get(0);
             }
             if (nextRow) {
@@ -417,6 +417,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     if (self.oldRowElement) {
       $(self.oldRowElement).removeClass('drag-previous');
     }
+
+    self.oldY = self.pointerCoords(event).y;
   };
 
   Drupal.tableDrag.prototype.dragRow = function (event, self) {

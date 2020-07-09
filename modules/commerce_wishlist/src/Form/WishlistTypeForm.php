@@ -19,16 +19,6 @@ class WishlistTypeForm extends BundleEntityFormBase {
     /** @var \Drupal\commerce_wishlist\Entity\WishlistTypeInterface $wishlist_type */
     $wishlist_type = $this->entity;
 
-    // Prepare a list of views tagged 'commerce_wishlist_form'.
-    $view_storage = \Drupal::entityTypeManager()->getStorage('view');
-    $available_form_views = [];
-    /** @var \Drupal\views\ViewEntityInterface $view */
-    foreach ($view_storage->loadMultiple() as $view) {
-      if (strpos($view->get('tag'), 'commerce_wishlist_form') !== FALSE) {
-        $available_form_views[$view->id()] = $view->label();
-      }
-    }
-
     $form['#tree'] = TRUE;
     $form['label'] = [
       '#type' => 'textfield',
@@ -47,26 +37,11 @@ class WishlistTypeForm extends BundleEntityFormBase {
       ],
       '#maxlength' => EntityTypeInterface::BUNDLE_MAX_LENGTH,
     ];
+
     $form['allowAnonymous'] = [
       '#type' => 'checkbox',
       '#default_value' => $wishlist_type->isAllowAnonymous(),
       '#title' => $this->t('Allow anonymous wishlists'),
-    ];
-    $form['allowMultiple'] = [
-      '#type' => 'checkbox',
-      '#default_value' => $wishlist_type->isAllowMultiple(),
-      '#title' => $this->t('Allow multiple wishlists'),
-    ];
-    $form['allowPublic'] = [
-      '#type' => 'checkbox',
-      '#default_value' => $wishlist_type->isAllowPublic(),
-      '#title' => $this->t('Allow public wishlists'),
-    ];
-    $form['wishlistFormView'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Wishlist form view'),
-      '#default_value' => $wishlist_type->getWishlistFormView(),
-      '#options' => $available_form_views,
     ];
 
     return $this->protectBundleIdElement($form);
@@ -81,10 +56,6 @@ class WishlistTypeForm extends BundleEntityFormBase {
     $status = $wishlist_type->save();
     $this->messenger()->addStatus($this->t('Saved the %label wishlist type.', ['%label' => $wishlist_type->label()]));
     $form_state->setRedirect('entity.commerce_wishlist_type.collection');
-
-    if ($status == SAVED_NEW) {
-      commerce_wishlist_add_wishlist_items_field($wishlist_type);
-    }
   }
 
 }

@@ -1,17 +1,17 @@
-#entity.commerce_wishlist.add_page:
-#  route_name: entity.commerce_wishlist.add_page
-#  title: 'Create a new wishlist'
-#  appears_on:
-#    - entity.commerce_wishlist.collection
+entity.commerce_wishlist.add_page:
+  route_name: entity.commerce_wishlist.add_page
+  title: 'Add wishlist'
+  appears_on:
+    - entity.commerce_wishlist.collection
+
+entity.commerce_wishlist_item.add_form:
+  route_name: entity.commerce_wishlist_item.add_form
+  title: 'Add item'
+  appears_on:
+    - entity.commerce_wishlist_item.collection
 
 entity.commerce_wishlist_type.add_form:
   route_name: entity.commerce_wishlist_type.add_form
   title: 'Add wishlist type'
   appears_on:
     - entity.commerce_wishlist_type.collection
-
-entity.commerce_wishlist_item_type.add_form:
-  route_name: entity.commerce_wishlist_item_type.add_form
-  title: 'Add wishlist item type'
-  appears_on:
-    - entity.commerce_wishlist_item_type.collection

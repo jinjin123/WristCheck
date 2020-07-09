@@ -4,14 +4,16 @@ namespace Drupal\commerce_product\Entity;
 
 use Drupal\commerce\Entity\CommerceContentEntityBase;
 use Drupal\commerce\EntityHelper;
+use Drupal\commerce\EntityOwnerTrait;
 use Drupal\commerce_price\Price;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityChangedTrait;
+use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Url;
-use Drupal\user\UserInterface;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 /**
  * Defines the product variation entity class.
@@ -34,12 +36,15 @@ use Drupal\user\UserInterface;
  *     "permission_provider" = "Drupal\commerce_product\ProductVariationPermissionProvider",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\commerce_product\ProductVariationListBuilder",
- *     "views_data" = "Drupal\commerce\CommerceEntityViewsData",
+ *     "views_data" = "Drupal\commerce_product\ProductVariationViewsData",
  *     "form" = {
  *       "add" = "Drupal\commerce_product\Form\ProductVariationForm",
  *       "edit" = "Drupal\commerce_product\Form\ProductVariationForm",
  *       "duplicate" = "Drupal\commerce_product\Form\ProductVariationForm",
  *       "delete" = "Drupal\commerce_product\Form\ProductVariationDeleteForm",
+ *     },
+ *     "local_task_provider" = {
+ *       "default" = "Drupal\entity\Menu\DefaultEntityLocalTaskProvider",
  *     },
  *     "route_provider" = {
  *       "default" = "Drupal\commerce_product\ProductVariationRouteProvider",
@@ -62,7 +67,7 @@ use Drupal\user\UserInterface;
  *     "langcode" = "langcode",
  *     "uuid" = "uuid",
  *     "label" = "title",
- *     "status" = "status",
+ *     "published" = "status",
  *     "owner" = "uid",
  *     "uid" = "uid",
  *   },
@@ -84,6 +89,8 @@ use Drupal\user\UserInterface;
 class ProductVariation extends CommerceContentEntityBase implements ProductVariationInterface {
 
   use EntityChangedTrait;
+  use EntityOwnerTrait;
+  use EntityPublishedTrait;
 
   /**
    * {@inheritdoc}
@@ -98,13 +105,20 @@ class ProductVariation extends CommerceContentEntityBase implements ProductVaria
    * {@inheritdoc}
    */
   public function toUrl($rel = 'canonical', array $options = []) {
+    // Product variation URLs depend on the parent product.
+    if (!$this->getProductId()) {
+      // RouteNotFoundException tells EntityBase::uriRelationships()
+      // to skip this product variation's link relationships.
+      throw new RouteNotFoundException();
+    }
+
     // StringFormatter assumes 'revision' is always a valid link template.
     if (in_array($rel, ['canonical', 'revision'])) {
       $route_name = 'entity.commerce_product.canonical';
       $route_parameters = [
         'commerce_product' => $this->getProductId(),
       ];
-      $options = [
+      $options += [
         'query' => [
           'v' => $this->id(),
         ],
@@ -201,7 +215,7 @@ class ProductVariation extends CommerceContentEntityBase implements ProductVaria
    * {@inheritdoc}
    */
   public function isActive() {
-    return (bool) $this->getEntityKey('status');
+    return (bool) $this->getEntityKey('published');
   }
 
   /**
@@ -224,36 +238,6 @@ class ProductVariation extends CommerceContentEntityBase implements ProductVaria
    */
   public function setCreatedTime($timestamp) {
     $this->set('created', $timestamp);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwner() {
-    return $this->get('uid')->entity;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwner(UserInterface $account) {
-    $this->set('uid', $account->id());
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwnerId() {
-    return $this->getEntityKey('owner');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwnerId($uid) {
-    $this->set('uid', $uid);
     return $this;
   }
 
@@ -336,7 +320,7 @@ class ProductVariation extends CommerceContentEntityBase implements ProductVaria
     $attribute_values = [];
     foreach ($this->getAttributeFieldNames() as $field_name) {
       $field = $this->get($field_name);
-      if (!$field->isEmpty()) {
+      if (!$field->isEmpty() && $field->entity) {
         $attribute_values[$field_name] = $field->entity;
       }
     }
@@ -354,6 +338,13 @@ class ProductVariation extends CommerceContentEntityBase implements ProductVaria
     }
     $attribute_value = $this->getTranslatedReferencedEntity($field_name);
     return $attribute_value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheContexts() {
+    return Cache::mergeContexts(parent::getCacheContexts(), ['store']);
   }
 
   /**
@@ -446,14 +437,12 @@ class ProductVariation extends CommerceContentEntityBase implements ProductVaria
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
+    $fields += static::ownerBaseFieldDefinitions($entity_type);
+    $fields += static::publishedBaseFieldDefinitions($entity_type);
 
-    $fields['uid'] = BaseFieldDefinition::create('entity_reference')
+    $fields['uid']
       ->setLabel(t('Author'))
       ->setDescription(t('The variation author.'))
-      ->setSetting('target_type', 'user')
-      ->setSetting('handler', 'default')
-      ->setDefaultValueCallback('Drupal\commerce_product\Entity\ProductVariation::getCurrentUserId')
-      ->setTranslatable(TRUE)
       ->setDisplayConfigurable('form', TRUE);
 
     // The product backreference, populated by Product::postSave().
@@ -524,14 +513,14 @@ class ProductVariation extends CommerceContentEntityBase implements ProductVaria
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Active'))
-      ->setDescription(t('Whether the variation is active.'))
-      ->setDefaultValue(TRUE)
-      ->setTranslatable(TRUE)
+    $fields['status']
+      ->setLabel(t('Published'))
       ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
-        'weight' => 99,
+        'settings' => [
+          'display_label' => TRUE,
+        ],
+        'weight' => 90,
       ])
       ->setDisplayConfigurable('form', TRUE);
 
@@ -568,18 +557,6 @@ class ProductVariation extends CommerceContentEntityBase implements ProductVaria
     }
 
     return $fields;
-  }
-
-  /**
-   * Default value callback for 'uid' base field definition.
-   *
-   * @see ::baseFieldDefinitions()
-   *
-   * @return array
-   *   An array of default values.
-   */
-  public static function getCurrentUserId() {
-    return [\Drupal::currentUser()->id()];
   }
 
 }

@@ -3,7 +3,6 @@
 namespace Drupal\commerce_wishlist\Plugin\views\field;
 
 use Drupal\commerce_cart\CartManagerInterface;
-use Drupal\commerce_wishlist\Resolver\WishlistTypeResolverInterface;
 use Drupal\commerce_wishlist\WishlistManagerInterface;
 use Drupal\commerce_wishlist\WishlistProviderInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -43,13 +42,6 @@ class MoveToWishlist extends FieldPluginBase {
   protected $wishlistProvider;
 
   /**
-   * The wishlist type resolver.
-   *
-   * @var \Drupal\commerce_wishlist\Resolver\WishlistTypeResolverInterface
-   */
-  protected $wishlistTypeResolver;
-
-  /**
    * Constructs a new MoveToWishlist object.
    *
    * @param array $configuration
@@ -64,16 +56,13 @@ class MoveToWishlist extends FieldPluginBase {
    *   The wishlist manager.
    * @param \Drupal\commerce_wishlist\WishlistProviderInterface $wishlist_provider
    *   The wishlist provider.
-   * @param \Drupal\commerce_wishlist\Resolver\WishlistTypeResolverInterface $wishlist_type_resolver
-   *   The wishlist type resolver.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, CartManagerInterface $cart_manager, WishlistManagerInterface $wishlist_manager, WishlistProviderInterface $wishlist_provider, WishlistTypeResolverInterface $wishlist_type_resolver) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, CartManagerInterface $cart_manager, WishlistManagerInterface $wishlist_manager, WishlistProviderInterface $wishlist_provider) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
     $this->cartManager = $cart_manager;
     $this->wishlistManager = $wishlist_manager;
     $this->wishlistProvider = $wishlist_provider;
-    $this->wishlistTypeResolver = $wishlist_type_resolver;
   }
 
   /**
@@ -86,8 +75,7 @@ class MoveToWishlist extends FieldPluginBase {
       $plugin_definition,
       $container->get('commerce_cart.cart_manager'),
       $container->get('commerce_wishlist.wishlist_manager'),
-      $container->get('commerce_wishlist.wishlist_provider'),
-      $container->get('commerce_wishlist.chain_wishlist_type_resolver')
+      $container->get('commerce_wishlist.wishlist_provider')
     );
   }
 
@@ -182,16 +170,14 @@ class MoveToWishlist extends FieldPluginBase {
       $row_index = $triggering_element['#row_index'];
       /** @var \Drupal\commerce_order\Entity\OrderItemInterface $order_item */
       $order_item = $this->getEntity($this->view->result[$row_index]);
-
       $purchased_entity = $order_item->getPurchasedEntity();
-      $wishlist_item = $this->wishlistManager->createWishlistItem($purchased_entity, $order_item->getQuantity());
-      $wishlist_type = $this->wishlistTypeResolver->resolve($wishlist_item);
-
+      $quantity = $order_item->getQuantity();
+      $wishlist_type = 'default';
       $wishlist = $this->wishlistProvider->getWishlist($wishlist_type);
       if (!$wishlist) {
         $wishlist = $this->wishlistProvider->createWishlist($wishlist_type);
       }
-      $this->wishlistManager->addWishlistItem($wishlist, $wishlist_item, $this->options['combine']);
+      $this->wishlistManager->addEntity($wishlist, $purchased_entity, $quantity, $this->options['combine']);
 
       if (!$this->options['keep_item']) {
         $this->cartManager->removeOrderItem($order_item->getOrder(), $order_item);
