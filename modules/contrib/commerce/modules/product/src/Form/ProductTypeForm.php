@@ -10,10 +10,13 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\entity\Form\EntityDuplicateFormTrait;
 use Drupal\language\Entity\ContentLanguageSettings;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ProductTypeForm extends CommerceBundleEntityFormBase {
+
+  use EntityDuplicateFormTrait;
 
   /**
    * The variation type storage.
@@ -67,11 +70,14 @@ class ProductTypeForm extends CommerceBundleEntityFormBase {
     $variation_types = $this->variationTypeStorage->loadMultiple();
     // Create an empty product to get the default status value.
     // @todo Clean up once https://www.drupal.org/node/2318187 is fixed.
-    if ($this->operation == 'add') {
+    if (in_array($this->operation, ['add', 'duplicate'])) {
       $product = $this->entityTypeManager->getStorage('commerce_product')->create(['type' => $product_type->uuid()]);
+      $products_exist = FALSE;
     }
     else {
-      $product = $this->entityTypeManager->getStorage('commerce_product')->create(['type' => $product_type->id()]);
+      $storage = $this->entityTypeManager->getStorage('commerce_product');
+      $product = $storage->create(['type' => $product_type->id()]);
+      $products_exist = $storage->getQuery()->condition('type', $product_type->id())->execute();
     }
     $form_state->set('original_entity', $this->entity->createDuplicate());
 
@@ -89,6 +95,7 @@ class ProductTypeForm extends CommerceBundleEntityFormBase {
         'exists' => '\Drupal\commerce_product\Entity\ProductType::load',
       ],
       '#maxlength' => EntityTypeInterface::BUNDLE_MAX_LENGTH,
+      '#disabled' => !$product_type->isNew(),
     ];
     $form['description'] = [
       '#type' => 'textarea',
@@ -101,7 +108,7 @@ class ProductTypeForm extends CommerceBundleEntityFormBase {
       '#title' => $this->t('Product variation type'),
       '#default_value' => $product_type->getVariationTypeId(),
       '#options' => EntityHelper::extractLabels($variation_types),
-      '#disabled' => !$product_type->isNew(),
+      '#disabled' => $products_exist,
     ];
     if ($product_type->isNew()) {
       $form['variationType']['#empty_option'] = $this->t('- Create new -');
@@ -141,7 +148,7 @@ class ProductTypeForm extends CommerceBundleEntityFormBase {
       $form['#submit'][] = 'language_configuration_element_submit';
     }
 
-    return $this->protectBundleIdElement($form);
+    return $form;
   }
 
   /**
@@ -201,13 +208,12 @@ class ProductTypeForm extends CommerceBundleEntityFormBase {
     /** @var \Drupal\commerce_product\Entity\ProductTypeInterface $original_product_type */
     $original_product_type = $form_state->get('original_entity');
 
-    $status = $product_type->save();
+    $product_type->save();
+    $this->postSave($product_type, $this->operation);
     $this->submitTraitForm($form, $form_state);
     // Create the needed fields.
-    if ($status == SAVED_NEW) {
-      commerce_product_add_stores_field($product_type);
+    if ($this->operation == 'add') {
       commerce_product_add_body_field($product_type);
-      commerce_product_add_variations_field($product_type);
     }
     // Update the widget for the variations field.
     $form_display = commerce_get_entity_display('commerce_product', $product_type->id(), 'form');

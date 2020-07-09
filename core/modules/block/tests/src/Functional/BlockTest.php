@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\block\Functional;
 
+use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Component\Utility\Html;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Url;
@@ -14,6 +15,11 @@ use Drupal\user\RoleInterface;
  * @group block
  */
 class BlockTest extends BlockTestBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'classy';
 
   /**
    * Tests block visibility.
@@ -149,7 +155,7 @@ class BlockTest extends BlockTestBase {
         'theme' => $default_theme,
       ]);
       $links = $this->xpath('//a[contains(@href, :href)]', [':href' => $add_url->toString()]);
-      $this->assertEqual(1, count($links), 'Found one matching link.');
+      $this->assertCount(1, $links, 'Found one matching link.');
       $this->assertEqual(t('Place block'), $links[0]->getText(), 'Found the expected link text.');
 
       list($path, $query_string) = explode('?', $links[0]->getAttribute('href'), 2);
@@ -239,39 +245,15 @@ class BlockTest extends BlockTestBase {
   }
 
   /**
-   * Tests the block operation links.
-   */
-  public function testBlockOperationLinks() {
-    $this->drupalGet('admin/structure/block');
-    // Go to the select block form.
-    $this->clickLink('Place block');
-    // Select the first available block.
-    $this->clickLink('Place block');
-    // Finally place the block
-    $this->submitForm([], 'Save block');
-
-    $url = $this->getUrl();
-    $parsed = parse_url($url);
-    $this->assertContains('block-placement', $parsed['query']);
-
-    $this->clickLink('Remove');
-    $this->submitForm([], 'Remove');
-
-    $url = $this->getUrl();
-    $parsed = parse_url($url);
-    $this->assertTrue(empty($parsed['query']));
-  }
-
-  /**
    * Tests that the block form has a theme selector when not passed via the URL.
    */
   public function testBlockThemeSelector() {
     // Install all themes.
-    \Drupal::service('theme_handler')->install(['bartik', 'seven', 'stark']);
+    \Drupal::service('theme_installer')->install(['bartik', 'seven', 'stark']);
     $theme_settings = $this->config('system.theme');
     foreach (['bartik', 'seven', 'stark'] as $theme) {
       $this->drupalGet('admin/structure/block/list/' . $theme);
-      $this->assertTitle(t('Block layout') . ' | Drupal');
+      $this->assertTitle('Block layout | Drupal');
       // Select the 'Powered by Drupal' block to be placed.
       $block = [];
       $block['id'] = strtolower($this->randomMachineName());
@@ -298,7 +280,7 @@ class BlockTest extends BlockTestBase {
     $this->drupalPlaceBlock('local_tasks_block');
     // Explicitly set the default and admin themes.
     $theme = 'block_test_specialchars_theme';
-    \Drupal::service('theme_handler')->install([$theme]);
+    \Drupal::service('theme_installer')->install([$theme]);
     \Drupal::service('router.builder')->rebuild();
     $this->drupalGet('admin/structure/block');
     $this->assertEscaped('<"Cat" & \'Mouse\'>');
@@ -360,7 +342,7 @@ class BlockTest extends BlockTestBase {
     $this->drupalPostForm('admin/structure/block', $edit, t('Save blocks'));
 
     // Confirm that the block was moved to the proper region.
-    $this->assertText(t('The block settings have been updated.'), format_string('Block successfully moved to %region_name region.', ['%region_name' => $region]));
+    $this->assertText(t('The block settings have been updated.'), new FormattableMarkup('Block successfully moved to %region_name region.', ['%region_name' => $region]));
 
     // Confirm that the block is being displayed.
     $this->drupalGet('');
@@ -401,7 +383,7 @@ class BlockTest extends BlockTestBase {
     // both the page and block caches.
     $this->drupalGet('<front>');
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'HIT');
-    $cid_parts = [\Drupal::url('<front>', [], ['absolute' => TRUE]), 'html'];
+    $cid_parts = [Url::fromRoute('<front>', [], ['absolute' => TRUE])->toString(), ''];
     $cid = implode(':', $cid_parts);
     $cache_entry = \Drupal::cache('page')->get($cid);
     $expected_cache_tags = [
@@ -435,14 +417,14 @@ class BlockTest extends BlockTestBase {
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'HIT');
 
     // Place the "Powered by Drupal" block another time; verify a cache miss.
-    $block_2 = $this->drupalPlaceBlock('system_powered_by_block', ['id' => 'powered-2']);
+    $this->drupalPlaceBlock('system_powered_by_block', ['id' => 'powered-2']);
     $this->drupalGet('<front>');
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'MISS');
 
     // Verify a cache hit, but also the presence of the correct cache tags.
     $this->drupalGet('<front>');
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'HIT');
-    $cid_parts = [\Drupal::url('<front>', [], ['absolute' => TRUE]), 'html'];
+    $cid_parts = [Url::fromRoute('<front>', [], ['absolute' => TRUE])->toString(), ''];
     $cid = implode(':', $cid_parts);
     $cache_entry = \Drupal::cache('page')->get($cid);
     $expected_cache_tags = [
@@ -480,7 +462,9 @@ class BlockTest extends BlockTestBase {
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'HIT');
 
     // Delete the "Powered by Drupal" blocks; verify a cache miss.
-    entity_delete_multiple('block', ['powered', 'powered-2']);
+    $block_storage = \Drupal::entityTypeManager()->getStorage('block');
+    $block_storage->load('powered')->delete();
+    $block_storage->load('powered-2')->delete();
     $this->drupalGet('<front>');
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'MISS');
   }
@@ -505,17 +489,17 @@ class BlockTest extends BlockTestBase {
    * Tests that uninstalling a theme removes its block configuration.
    */
   public function testUninstallTheme() {
-    /** @var \Drupal\Core\Extension\ThemeHandlerInterface $theme_handler */
-    $theme_handler = \Drupal::service('theme_handler');
+    /** @var \Drupal\Core\Extension\ThemeInstallerInterface $theme_installer */
+    $theme_installer = \Drupal::service('theme_installer');
 
-    $theme_handler->install(['seven']);
+    $theme_installer->install(['seven']);
     $this->config('system.theme')->set('default', 'seven')->save();
     $block = $this->drupalPlaceBlock('system_powered_by_block', ['theme' => 'seven', 'region' => 'help']);
     $this->drupalGet('<front>');
     $this->assertText('Powered by Drupal');
 
     $this->config('system.theme')->set('default', 'classy')->save();
-    $theme_handler->uninstall(['seven']);
+    $theme_installer->uninstall(['seven']);
 
     // Ensure that the block configuration does not exist anymore.
     $this->assertIdentical(NULL, Block::load($block->id()));

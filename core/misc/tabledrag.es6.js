@@ -111,9 +111,9 @@
     /**
      * Used to determine up or down direction from last mouse move.
      *
-     * @type {number}
+     * @type {?number}
      */
-    this.oldY = 0;
+    this.oldY = null;
 
     /**
      * Whether anything in the entire table has changed.
@@ -202,10 +202,10 @@
       // manually append 2 indentations in the first draggable row, measure
       // the offset, then remove.
       const indent = Drupal.theme('tableDragIndentation');
-      const testRow = $('<tr/>')
+      const testRow = $('<tr></tr>')
         .addClass('draggable')
         .appendTo(table);
-      const testCell = $('<td/>')
+      const testCell = $('<td></td>')
         .appendTo(testRow)
         .prepend(indent)
         .prepend(indent);
@@ -229,10 +229,6 @@
     // Add a link before the table for users to show or hide weight columns.
     $table.before(
       $('<button type="button" class="link tabledrag-toggle-weight"></button>')
-        .attr(
-          'title',
-          Drupal.t('Re-order rows by numerical weight instead of dragging.'),
-        )
         .on(
           'click',
           $.proxy(function(e) {
@@ -558,10 +554,14 @@
         case 38:
         // Safari up arrow.
         case 63232: {
-          let $previousRow = $(self.rowObject.element).prev('tr:first-of-type');
+          let $previousRow = $(self.rowObject.element)
+            .prev('tr')
+            .eq(0);
           let previousRow = $previousRow.get(0);
           while (previousRow && $previousRow.is(':hidden')) {
-            $previousRow = $(previousRow).prev('tr:first-of-type');
+            $previousRow = $(previousRow)
+              .prev('tr')
+              .eq(0);
             previousRow = $previousRow.get(0);
           }
           if (previousRow) {
@@ -577,7 +577,9 @@
                 previousRow &&
                 $previousRow.find('.js-indentation').length
               ) {
-                $previousRow = $(previousRow).prev('tr:first-of-type');
+                $previousRow = $(previousRow)
+                  .prev('tr')
+                  .eq(0);
                 previousRow = $previousRow.get(0);
                 groupHeight += $previousRow.is(':hidden')
                   ? 0
@@ -618,10 +620,13 @@
         case 63233: {
           let $nextRow = $(self.rowObject.group)
             .eq(-1)
-            .next('tr:first-of-type');
+            .next('tr')
+            .eq(0);
           let nextRow = $nextRow.get(0);
           while (nextRow && $nextRow.is(':hidden')) {
-            $nextRow = $(nextRow).next('tr:first-of-type');
+            $nextRow = $(nextRow)
+              .next('tr')
+              .eq(0);
             nextRow = $nextRow.get(0);
           }
           if (nextRow) {
@@ -716,7 +721,7 @@
    * @param {Drupal.tableDrag} self
    *   The drag handle.
    * @param {HTMLElement} item
-   *   The item that that is being dragged.
+   *   The item that is being dragged.
    */
   Drupal.tableDrag.prototype.dragStart = function(event, self, item) {
     // Create a new dragObject recording the pointer information.
@@ -755,6 +760,10 @@
     if (self.oldRowElement) {
       $(self.oldRowElement).removeClass('drag-previous');
     }
+
+    // Set the initial y coordinate so the direction can be calculated in
+    // dragRow().
+    self.oldY = self.pointerCoords(event).y;
   };
 
   /**

@@ -10,6 +10,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  * @ConfigEntityType(
  *   id = "commerce_wishlist_type",
  *   label = @Translation("Wishlist type"),
+ *   label_collection = @Translation("Wishlist types"),
  *   label_singular = @Translation("wishlist type"),
  *   label_plural = @Translation("wishlist types"),
  *   label_count = @PluralTranslation(
@@ -39,9 +40,6 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "label",
  *     "id",
  *     "allowAnonymous",
- *     "allowMultiple",
- *     "allowPublic",
- *     "wishlistFormView"
  *   },
  *   links = {
  *     "add-form" = "/admin/commerce/config/wishlist-types/add",
@@ -75,27 +73,6 @@ class WishlistType extends ConfigEntityBundleBase implements WishlistTypeInterfa
   protected $allowAnonymous;
 
   /**
-   * Whether users are allowed to have multiple wishlists of the same type.
-   *
-   * @var bool
-   */
-  protected $allowMultiple;
-
-  /**
-   * Whether the wishlist item type allows public wishlists.
-   *
-   * @var bool
-   */
-  protected $allowPublic;
-
-  /**
-   * The Views ID of the wishlist form view to use.
-   *
-   * @var string
-   */
-  protected $wishlistFormView;
-
-  /**
    * {@inheritdoc}
    */
   public function isAllowAnonymous() {
@@ -107,51 +84,6 @@ class WishlistType extends ConfigEntityBundleBase implements WishlistTypeInterfa
    */
   public function setAllowAnonymous($allow_anonymous) {
     $this->allowAnonymous = $allow_anonymous;
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function isAllowMultiple() {
-    return $this->allowMultiple;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setAllowMultiple($allow_multiple) {
-    $this->allowMultiple = $allow_multiple;
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function isAllowPublic() {
-    return $this->allowPublic;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setAllowPublic($allow_public) {
-    $this->allowPublic = $allow_public;
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getWishlistFormView() {
-    return $this->wishlistFormView;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setWishlistFormView($wishlist_form_view) {
-    $this->wishlistFormView = $wishlist_form_view;
     return $this;
   }
 

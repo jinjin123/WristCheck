@@ -3,11 +3,14 @@
 namespace Drupal\commerce_tax\Plugin\Commerce\TaxType;
 
 use CommerceGuys\Addressing\Address;
+use CommerceGuys\Addressing\AddressInterface;
 use Drupal\commerce_order\Adjustment;
 use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Entity\OrderItemInterface;
 use Drupal\commerce_price\RounderInterface;
 use Drupal\commerce_store\Entity\StoreInterface;
+use Drupal\commerce_tax\Event\BuildZonesEvent;
+use Drupal\commerce_tax\Event\TaxEvents;
 use Drupal\commerce_tax\TaxZone;
 use Drupal\commerce_tax\Resolver\ChainTaxRateResolverInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -40,6 +43,13 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
    * @var \Drupal\commerce_tax\TaxZone[]
    */
   protected $zones;
+
+  /**
+   * The matched zones.
+   *
+   * @var array
+   */
+  protected $matchedZones;
 
   /**
    * Constructs a new LocalTaxTypeBase object.
@@ -100,6 +110,7 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
    * {@inheritdoc}
    */
   public function apply(OrderInterface $order) {
+    $calculation_date = $order->getCalculationDate();
     $store = $order->getStore();
     $prices_include_tax = $store->get('prices_include_tax')->value;
     $zones = $this->getZones();
@@ -112,7 +123,7 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
       $rates = $this->resolveRates($order_item, $customer_profile);
       foreach ($rates as $zone_id => $rate) {
         $zone = $zones[$zone_id];
-        $percentage = $rate->getPercentage();
+        $percentage = $rate->getPercentage($calculation_date);
         // Stores are allowed to enter prices without tax even if they're
         // going to be displayed with tax, and vice-versa.
         // Now that the rates are known, use them to determine the final
@@ -141,7 +152,7 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
           'label' => $zone->getDisplayLabel(),
           'amount' => $tax_amount,
           'percentage' => $percentage->getNumber(),
-          'source_id' => $this->entityId . '|' . $zone->getId() . '|' . $rate->getId(),
+          'source_id' => $this->parentEntity->id() . '|' . $zone->getId() . '|' . $rate->getId(),
           'included' => $this->isDisplayInclusive(),
         ]));
       }
@@ -158,12 +169,9 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
    *   TRUE if the tax type matches the billing address, FALSE otherwise.
    */
   protected function matchesAddress(StoreInterface $store) {
-    foreach ($this->getZones() as $zone) {
-      if ($zone->match($store->getAddress())) {
-        return TRUE;
-      }
-    }
-    return FALSE;
+    $zones = $this->getMatchingZones($store->getAddress());
+
+    return !empty($zones);
   }
 
   /**
@@ -225,8 +233,14 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
    *   The tax rates, keyed by tax zone ID.
    */
   protected function resolveRates(OrderItemInterface $order_item, ProfileInterface $customer_profile) {
-    $rates = [];
     $zones = $this->resolveZones($order_item, $customer_profile);
+    if (!$zones) {
+      return [];
+    }
+
+    // Provide the tax type entity to the resolvers.
+    $this->chainRateResolver->setTaxType($this->parentEntity);
+    $rates = [];
     foreach ($zones as $zone) {
       $rate = $this->chainRateResolver->resolve($zone, $order_item, $customer_profile);
       if (is_object($rate)) {
@@ -249,12 +263,8 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
    */
   protected function resolveZones(OrderItemInterface $order_item, ProfileInterface $customer_profile) {
     $customer_address = $customer_profile->get('address')->first();
-    $resolved_zones = [];
-    foreach ($this->getZones() as $zone) {
-      if ($zone->match($customer_address)) {
-        $resolved_zones[] = $zone;
-      }
-    }
+    $resolved_zones = $this->getMatchingZones($customer_address);
+
     return $resolved_zones;
   }
 
@@ -276,7 +286,6 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
       '#type' => 'details',
       '#title' => $this->t('Tax rates'),
       '#markup' => $this->t('The following tax rates are provided:'),
-      '#collapsible' => TRUE,
       '#open' => TRUE,
     ];
     $element['table'] = [
@@ -289,7 +298,7 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
     ];
     foreach ($zones as $zone) {
       if (count($zones) > 1) {
-        $element['table']['zone-' . $zone->getId()] = [
+        $element['table'][$zone->getId()] = [
           '#attributes' => [
             'class' => ['region-title'],
             'no_striping' => TRUE,
@@ -306,7 +315,7 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
           return $percentage->toString();
         }, $rate->getPercentages());
 
-        $element['table'][] = [
+        $element['table'][$zone->getId() . '|' . $rate->getId()] = [
           'rate' => [
             '#markup' => $rate->getLabel(),
           ],
@@ -325,17 +334,38 @@ abstract class LocalTaxTypeBase extends TaxTypeBase implements LocalTaxTypeInter
    */
   public function getZones() {
     if (empty($this->zones)) {
-      $this->zones = $this->buildZones();
+      $zones = $this->buildZones();
+      // Dispatch an event to allow altering the tax zones.
+      $event = new BuildZonesEvent($zones, $this);
+      $this->eventDispatcher->dispatch(TaxEvents::BUILD_ZONES, $event);
+      $this->zones = $event->getZones();
     }
 
     return $this->zones;
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function getMatchingZones(AddressInterface $address) {
+    $address_hash = spl_object_hash($address);
+    if (!isset($this->matchedZones[$address_hash])) {
+      $this->matchedZones[$address_hash] = [];
+      foreach ($this->getZones() as $zone) {
+        if ($zone->match($address)) {
+          $this->matchedZones[$address_hash][] = $zone;
+        }
+      }
+    }
+
+    return $this->matchedZones[$address_hash];
+  }
+
+  /**
    * Builds the tax zones.
    *
    * @return \Drupal\commerce_tax\TaxZone[]
-   *   The tax zones.
+   *   The tax zones, keyed by ID.
    */
   abstract protected function buildZones();
 

@@ -31,3 +31,4 @@ wristcheck-lib:
   dependencies:
     - core/jquery
     - core/drupalSettings
+

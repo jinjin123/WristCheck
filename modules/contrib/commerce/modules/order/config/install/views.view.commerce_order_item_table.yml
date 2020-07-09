@@ -11,7 +11,6 @@ description: 'Display a set of order items in a table.'
 tag: ''
 base_table: commerce_order_item
 base_field: order_item_id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -424,7 +423,7 @@ display:
           plugin_id: numeric
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

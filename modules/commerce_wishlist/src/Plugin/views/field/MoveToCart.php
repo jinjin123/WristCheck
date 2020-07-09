@@ -2,12 +2,12 @@
 
 namespace Drupal\commerce_wishlist\Plugin\views\field;
 
-use Drupal\commerce\PurchasableEntityInterface;
 use Drupal\commerce_cart\CartManagerInterface;
 use Drupal\commerce_cart\CartProviderInterface;
 use Drupal\commerce_order\Resolver\OrderTypeResolverInterface;
 use Drupal\commerce_product\Entity\ProductVariationInterface;
 use Drupal\commerce_store\CurrentStoreInterface;
+use Drupal\commerce_store\SelectStoreTrait;
 use Drupal\commerce_wishlist\Entity\WishlistItemInterface;
 use Drupal\commerce_wishlist\WishlistManagerInterface;
 use Drupal\Core\Entity\EntityPublishedInterface;
@@ -23,6 +23,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @ViewsField("commerce_wishlist_item_move_to_cart")
  */
 class MoveToCart extends FieldPluginBase {
+
+  use SelectStoreTrait;
 
   use UncacheableFieldHandlerTrait;
 
@@ -222,7 +224,10 @@ class MoveToCart extends FieldPluginBase {
       }
       $this->cartManager->addOrderItem($cart, $order_item, $this->options['combine']);
       if (!$this->options['keep_item']) {
-        $this->wishlistManager->removeWishlistItem($wishlist_item->getWishlist(), $wishlist_item);
+        $wishlist = $wishlist_item->getWishlist();
+        $wishlist->removeItem($wishlist_item);
+        $wishlist->save();
+        $wishlist_item->delete();
       }
     }
   }
@@ -232,38 +237,6 @@ class MoveToCart extends FieldPluginBase {
    */
   public function query() {
     // Do nothing.
-  }
-
-  /**
-   * Selects the store for the given purchasable entity.
-   *
-   * If the entity is sold from one store, then that store is selected.
-   * If the entity is sold from multiple stores, and the current store is
-   * one of them, then that store is selected.
-   *
-   * @param \Drupal\commerce\PurchasableEntityInterface $entity
-   *   The entity being added to cart.
-   *
-   * @throws \Exception
-   *   When the entity can't be purchased from the current store.
-   *
-   * @return \Drupal\commerce_store\Entity\StoreInterface
-   *   The selected store.
-   */
-  protected function selectStore(PurchasableEntityInterface $entity) {
-    $stores = $entity->getStores();
-    if (count($stores) === 1) {
-      $store = reset($stores);
-    }
-    else {
-      $store = $this->currentStore->getStore();
-      if (!in_array($store, $stores)) {
-        // Indicates that the site listings are not filtered properly.
-        throw new \Exception("The given entity can't be purchased from the current store.");
-      }
-    }
-
-    return $store;
   }
 
   /**
@@ -281,16 +254,23 @@ class MoveToCart extends FieldPluginBase {
    */
   protected function isValid(WishlistItemInterface $wishlist_item) {
     $purchasable_entity = $wishlist_item->getPurchasableEntity();
-    if (empty($purchasable_entity)) {
-      return FALSE;
-    }
+    $valid = FALSE;
+    // Check the deprecated ::isActive method.
     if ($purchasable_entity instanceof ProductVariationInterface) {
-      return $purchasable_entity->isActive();
+      $valid = $purchasable_entity->isActive();
     }
-    if ($purchasable_entity instanceof EntityPublishedInterface) {
-      return $purchasable_entity->isPublished();
+    elseif ($purchasable_entity instanceof EntityPublishedInterface) {
+      $valid = $purchasable_entity->isPublished();
     }
-    return TRUE;
+    if ($valid) {
+      try {
+        $this->selectStore($wishlist_item->getPurchasableEntity());
+      }
+      catch (\Exception $e) {
+        $valid = FALSE;
+      }
+    }
+    return $valid;
   }
 
 }

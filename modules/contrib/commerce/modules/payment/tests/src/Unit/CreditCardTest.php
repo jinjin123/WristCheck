@@ -17,7 +17,7 @@ class CreditCardTest extends UnitTestCase {
    */
   public function testGetTypes() {
     $types = CreditCard::getTypes();
-    $this->assertInternalType('array', $types);
+    $this->assertIsArray($types);
     foreach ($types as $key => $type) {
       $this->assertInstanceOf(CreditCardType::class, $type);
       $this->assertEquals($key, $type->getId());
@@ -28,7 +28,8 @@ class CreditCardTest extends UnitTestCase {
    * @covers ::getType
    */
   public function testGetInvalidType() {
-    $this->setExpectedException(\InvalidArgumentException::class, 'Invalid credit card type "monkey"');
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('Invalid credit card type "monkey"');
     CreditCard::getType("monkey");
   }
 

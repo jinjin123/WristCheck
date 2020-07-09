@@ -5,9 +5,10 @@ namespace Drupal\commerce_store\Entity;
 use CommerceGuys\Addressing\AddressFormat\AddressField;
 use CommerceGuys\Addressing\AddressFormat\FieldOverride;
 use Drupal\address\AddressInterface;
+use Drupal\commerce\EntityOwnerTrait;
 use Drupal\commerce_price\Entity\CurrencyInterface;
-use Drupal\user\UserInterface;
 use Drupal\Core\Entity\ContentEntityBase;
+use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 
@@ -16,15 +17,16 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *
  * @ContentEntityType(
  *   id = "commerce_store",
- *   label = @Translation("Store"),
- *   label_collection = @Translation("Stores"),
- *   label_singular = @Translation("store"),
- *   label_plural = @Translation("stores"),
+ *   label = @Translation("Store", context = "Commerce"),
+ *   label_collection = @Translation("Stores", context = "Commerce"),
+ *   label_singular = @Translation("store", context = "Commerce"),
+ *   label_plural = @Translation("stores", context = "Commerce"),
  *   label_count = @PluralTranslation(
  *     singular = "@count store",
  *     plural = "@count stores",
+ *     context = "Commerce",
  *   ),
- *   bundle_label = @Translation("Store type"),
+ *   bundle_label = @Translation("Store type", context = "Commerce"),
  *   handlers = {
  *     "event" = "Drupal\commerce_store\Event\StoreEvent",
  *     "storage" = "Drupal\commerce_store\StoreStorage",
@@ -38,7 +40,11 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *       "default" = "Drupal\commerce_store\Form\StoreForm",
  *       "add" = "Drupal\commerce_store\Form\StoreForm",
  *       "edit" = "Drupal\commerce_store\Form\StoreForm",
+ *       "duplicate" = "Drupal\commerce_store\Form\StoreForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm"
+ *     },
+ *     "local_task_provider" = {
+ *       "default" = "Drupal\entity\Menu\DefaultEntityLocalTaskProvider",
  *     },
  *     "route_provider" = {
  *       "default" = "Drupal\entity\Routing\AdminHtmlRouteProvider",
@@ -65,6 +71,7 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *     "add-page" = "/store/add",
  *     "add-form" = "/store/add/{commerce_store_type}",
  *     "edit-form" = "/store/{commerce_store}/edit",
+ *     "duplicate-form" = "/store/{commerce_store}/duplicate",
  *     "delete-form" = "/store/{commerce_store}/delete",
  *     "delete-multiple-form" = "/admin/commerce/config/stores/delete",
  *     "collection" = "/admin/commerce/config/stores",
@@ -74,6 +81,8 @@ use Drupal\Core\Field\BaseFieldDefinition;
  * )
  */
 class Store extends ContentEntityBase implements StoreInterface {
+
+  use EntityOwnerTrait;
 
   /**
    * {@inheritdoc}
@@ -87,36 +96,6 @@ class Store extends ContentEntityBase implements StoreInterface {
    */
   public function setName($name) {
     $this->set('name', $name);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwner() {
-    return $this->get('uid')->entity;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwner(UserInterface $account) {
-    $this->set('uid', $account->id());
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwnerId() {
-    return $this->getEntityKey('owner');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwnerId($uid) {
-    $this->set('uid', $uid);
     return $this;
   }
 
@@ -168,6 +147,21 @@ class Store extends ContentEntityBase implements StoreInterface {
   /**
    * {@inheritdoc}
    */
+  public function getTimezone() {
+    return $this->get('timezone')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setTimezone($timezone) {
+    $this->set('timezone', $timezone);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getAddress() {
     return $this->get('address')->first();
   }
@@ -204,8 +198,67 @@ class Store extends ContentEntityBase implements StoreInterface {
   /**
    * {@inheritdoc}
    */
+  public function isDefault() {
+    return (bool) $this->get('is_default')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setDefault($is_default) {
+    $this->set('is_default', (bool) $is_default);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function preSave(EntityStorageInterface $storage) {
+    parent::preSave($storage);
+
+    foreach (array_keys($this->getTranslationLanguages()) as $langcode) {
+      $translation = $this->getTranslation($langcode);
+
+      // Explicitly set the owner ID to 0 if the translation owner is anonymous
+      // (This will ensure we don't store a broken reference in case the user
+      // no longer exists).
+      if ($translation->getOwner()->isAnonymous()) {
+        $translation->setOwnerId(0);
+      }
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function postSave(EntityStorageInterface $storage, $update = TRUE) {
+    /** @var \Drupal\commerce_store\StoreStorage $storage */
+    parent::postSave($storage, $update);
+
+    $default = $this->isDefault();
+    $original_default = $this->original ? $this->original->isDefault() : FALSE;
+    if ($default && !$original_default) {
+      // The store was set as default, remove the flag from other stores.
+      $store_ids = $storage->getQuery()
+        ->condition('store_id', $this->id(), '<>')
+        ->condition('is_default', TRUE)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($store_ids as $store_id) {
+        /** @var \Drupal\commerce_store\Entity\StoreInterface $store */
+        $store = $storage->load($store_id);
+        $store->setDefault(FALSE);
+        $store->save();
+      }
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
+    $fields += static::ownerBaseFieldDefinitions($entity_type);
 
     $fields['type'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Type'))
@@ -213,15 +266,11 @@ class Store extends ContentEntityBase implements StoreInterface {
       ->setSetting('target_type', 'commerce_store_type')
       ->setReadOnly(TRUE);
 
-    $fields['uid'] = BaseFieldDefinition::create('entity_reference')
+    $fields['uid']
       ->setLabel(t('Owner'))
       ->setDescription(t('The store owner.'))
-      ->setDefaultValueCallback('Drupal\commerce_store\Entity\Store::getCurrentUserId')
-      ->setSetting('target_type', 'user')
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 50,
-      ]);
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
@@ -266,6 +315,21 @@ class Store extends ContentEntityBase implements StoreInterface {
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayConfigurable('form', TRUE);
 
+    $fields['timezone'] = BaseFieldDefinition::create('list_string')
+      ->setLabel(t('Timezone'))
+      ->setDescription(t('Used when determining promotion and tax availability.'))
+      ->setCardinality(1)
+      ->setRequired(TRUE)
+      ->setDefaultValueCallback('Drupal\commerce_store\Entity\Store::getSiteTimezone')
+      ->setSetting('allowed_values_function', ['\Drupal\commerce_store\Entity\Store', 'getTimezones'])
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+        'weight' => 3,
+      ])
+      ->setSetting('display_description', TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
+
     $fields['address'] = BaseFieldDefinition::create('address')
       ->setLabel(t('Address'))
       ->setDescription(t('The store address.'))
@@ -279,10 +343,7 @@ class Store extends ContentEntityBase implements StoreInterface {
       ])
       ->setDisplayOptions('form', [
         'type' => 'address_default',
-        'settings' => [
-          'default_country' => 'site_default',
-        ],
-        'weight' => 3,
+        'weight' => 4,
       ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayConfigurable('form', TRUE);
@@ -293,7 +354,7 @@ class Store extends ContentEntityBase implements StoreInterface {
       ->setSetting('allowed_values_function', ['\Drupal\commerce_store\Entity\Store', 'getAvailableCountries'])
       ->setDisplayOptions('form', [
         'type' => 'options_select',
-        'weight' => 4,
+        'weight' => 5,
       ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayConfigurable('form', TRUE);
@@ -309,19 +370,49 @@ class Store extends ContentEntityBase implements StoreInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setCustomStorage(TRUE);
 
+    // 'default' is a reserved SQL word, hence the 'is_' prefix.
+    $fields['is_default'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Default'))
+      ->setDescription(t('Whether this is the default store.'))
+      ->setDefaultValue(FALSE)
+      ->setDisplayOptions('form', [
+        'type' => 'boolean_checkbox',
+        'settings' => [
+          'display_label' => TRUE,
+        ],
+        'weight' => 90,
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
+
     return $fields;
   }
 
   /**
-   * Default value callback for 'uid' base field definition.
+   * Default value callback for the 'timezone' base field definition.
    *
    * @see ::baseFieldDefinitions()
    *
    * @return array
    *   An array of default values.
    */
-  public static function getCurrentUserId() {
-    return [\Drupal::currentUser()->id()];
+  public static function getSiteTimezone() {
+    $site_timezone = \Drupal::config('system.date')->get('timezone.default');
+    if (empty($site_timezone)) {
+      $site_timezone = @date_default_timezone_get();
+    }
+
+    return [$site_timezone];
+  }
+
+  /**
+   * Gets the allowed values for the 'timezone' base field.
+   *
+   * @return array
+   *   The allowed values.
+   */
+  public static function getTimezones() {
+    return system_time_zones(NULL, TRUE);
   }
 
   /**

@@ -3,6 +3,7 @@
 namespace Drupal\commerce_price\Plugin\Field\FieldType;
 
 use Drupal\commerce_price\Price;
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -34,6 +35,10 @@ class PriceItem extends FieldItemBase {
       ->setLabel(t('Currency code'))
       ->setRequired(FALSE);
 
+    $properties['formatted'] = DataDefinition::create('formatted_price')
+      ->setLabel(t('Formatted price'))
+      ->setRequired(FALSE);
+
     return $properties;
   }
 
@@ -62,6 +67,26 @@ class PriceItem extends FieldItemBase {
           'length' => 3,
         ],
       ],
+    ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
+    $available_currencies = array_filter($field_definition->getSetting('available_currencies'));
+    if (count($available_currencies) === 0) {
+      /** @var \Drupal\commerce_price\Entity\CurrencyInterface[] $currencies */
+      $currencies = \Drupal::entityTypeManager()->getStorage('commerce_currency')->loadMultiple();
+      $sample_currency_code = reset($currencies)->getCurrencyCode();
+    }
+    else {
+      $sample_currency_code = reset($available_currencies);
+    }
+
+    return [
+      'number' => '9.99',
+      'currency_code' => $sample_currency_code,
     ];
   }
 
@@ -99,17 +124,17 @@ class PriceItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public function getConstraints() {
-    $manager = \Drupal::typedDataManager()->getValidationConstraintManager();
+    $constraint_manager = $this->getTypedDataManager()->getValidationConstraintManager();
     $constraints = parent::getConstraints();
-    $constraints[] = $manager->create('ComplexData', [
+    $constraints[] = $constraint_manager->create('ComplexData', [
       'number' => [
         'Regex' => [
           'pattern' => '/^[+-]?((\d+(\.\d*)?)|(\.\d+))$/i',
         ],
       ],
     ]);
-    $available_currencies = $this->getSetting('available_currencies');
-    $constraints[] = $manager->create('Currency', ['availableCurrencies' => $available_currencies]);
+    $available_currencies = array_filter($this->getSetting('available_currencies'));
+    $constraints[] = $constraint_manager->create('Currency', ['availableCurrencies' => $available_currencies]);
 
     return $constraints;
   }

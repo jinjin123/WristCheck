@@ -16,7 +16,11 @@ class MigrateUploadTest extends MigrateDrupal6TestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['language', 'menu_ui'];
+  public static $modules = [
+    'language',
+    'content_translation',
+    'menu_ui',
+  ];
 
   /**
    * {@inheritdoc}
@@ -63,21 +67,21 @@ class MigrateUploadTest extends MigrateDrupal6TestBase {
    * Test upload migration from Drupal 6 to Drupal 8.
    */
   public function testUpload() {
-    $this->container->get('entity.manager')
+    $this->container->get('entity_type.manager')
       ->getStorage('node')
       ->resetCache([1, 2, 12]);
 
     $nodes = Node::loadMultiple([1, 2, 12]);
     $node = $nodes[1];
     $this->assertEquals('en', $node->langcode->value);
-    $this->assertIdentical(1, count($node->upload));
+    $this->assertCount(1, $node->upload);
     $this->assertIdentical('1', $node->upload[0]->target_id);
     $this->assertIdentical('file 1-1-1', $node->upload[0]->description);
     $this->assertIdentical(FALSE, $node->upload[0]->isDisplayed());
 
     $node = $nodes[2];
     $this->assertEquals('en', $node->langcode->value);
-    $this->assertIdentical(2, count($node->upload));
+    $this->assertCount(2, $node->upload);
     $this->assertIdentical('3', $node->upload[0]->target_id);
     $this->assertIdentical('file 2-3-3', $node->upload[0]->description);
     $this->assertIdentical(FALSE, $node->upload[0]->isDisplayed());
@@ -87,7 +91,7 @@ class MigrateUploadTest extends MigrateDrupal6TestBase {
 
     $node = $nodes[12];
     $this->assertEquals('zu', $node->langcode->value);
-    $this->assertEquals(1, count($node->upload));
+    $this->assertCount(1, $node->upload);
     $this->assertEquals('3', $node->upload[0]->target_id);
     $this->assertEquals('file 12-15-3', $node->upload[0]->description);
     $this->assertEquals(FALSE, $node->upload[0]->isDisplayed());

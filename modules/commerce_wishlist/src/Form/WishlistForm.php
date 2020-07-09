@@ -2,17 +2,21 @@
 
 namespace Drupal\commerce_wishlist\Form;
 
+use Drupal\commerce_wishlist\WishlistProvider;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\entity\Form\EntityDuplicateFormTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Form controller for the commerce_wishlist entity edit forms.
+ * Defines the wishlist add/edit form.
  */
 class WishlistForm extends ContentEntityForm {
+
+  use EntityDuplicateFormTrait;
 
   /**
    * The date formatter.
@@ -22,17 +26,27 @@ class WishlistForm extends ContentEntityForm {
   protected $dateFormatter;
 
   /**
+   * The wishlist provider.
+   *
+   * @var \Drupal\commerce_wishlist\WishlistProviderInterface
+   */
+  protected $wishlistProvider;
+
+  /**
    * Constructs a new WishlistForm object.
    *
    * @param \Drupal\Core\Entity\EntityRepositoryInterface $entity_repository
    *   The entity repository service.
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter.
+   * @param \Drupal\commerce_wishlist\WishlistProvider $wishlist_provider
+   *   The wishlist provider.
    */
-  public function __construct(EntityRepositoryInterface $entity_repository, DateFormatterInterface $date_formatter) {
+  public function __construct(EntityRepositoryInterface $entity_repository, DateFormatterInterface $date_formatter, WishlistProvider $wishlist_provider) {
     parent::__construct($entity_repository);
 
     $this->dateFormatter = $date_formatter;
+    $this->wishlistProvider = $wishlist_provider;
   }
 
   /**
@@ -41,7 +55,8 @@ class WishlistForm extends ContentEntityForm {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('entity.repository'),
-      $container->get('date.formatter')
+      $container->get('date.formatter'),
+      $container->get('commerce_wishlist.wishlist_provider')
     );
   }
 
@@ -90,7 +105,7 @@ class WishlistForm extends ContentEntityForm {
       $form['uid']['#group'] = 'customer';
     }
     else {
-      $user_link = $wishlist->getCustomer()->toLink()->toString();
+      $user_link = $wishlist->getOwner()->toLink()->toString();
       $form['customer']['uid'] = $this->fieldAsReadOnly($this->t('Customer'), $user_link);
     }
 
@@ -121,10 +136,56 @@ class WishlistForm extends ContentEntityForm {
   /**
    * {@inheritdoc}
    */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    $allow_multiple = (bool) $this->configFactory()->get('commerce_wishlist.settings')->get('allow_multiple');
+    // If we don't allow multiple wishlists per customer.
+    if (!$allow_multiple) {
+      $uid = $form_state->getValue(['uid', '0', 'target_id']);
+      // If there is not uid key, there is no ability to change owner on
+      // existing. But could be added a new wishlist on existing user.
+      if (!empty($uid)) {
+        $account = $this->entityTypeManager->getStorage('user')->load($uid);
+      }
+      else {
+        $account = $this->currentUser();
+      }
+      if ($wishlist_id = $this->wishlistProvider->getWishlistId($this->entity->bundle(), $account)) {
+        $form_state->setErrorByName('duplicate', 'Cannot create a new wishlist (Only a single wishlist per customer is allowed).');
+      }
+    }
+    return parent::validateForm($form, $form_state);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function actions(array $form, FormStateInterface $form_state) {
+    $actions = parent::actions($form, $form_state);
+
+    if ($this->entity->isNew()) {
+      $actions['submit_continue'] = [
+        '#type' => 'submit',
+        '#value' => $this->t('Save and add items'),
+        '#continue' => TRUE,
+        '#submit' => ['::submitForm', '::save'],
+      ];
+    }
+
+    return $actions;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function save(array $form, FormStateInterface $form_state) {
     $this->entity->save();
     $this->messenger()->addStatus($this->t('The wishlist %label has been successfully saved.', ['%label' => $this->entity->label()]));
-    $form_state->setRedirect('entity.commerce_wishlist.collection');
+    if (!empty($form_state->getTriggeringElement()['#continue'])) {
+      $form_state->setRedirect('entity.commerce_wishlist_item.collection', ['commerce_wishlist' => $this->entity->id()]);
+    }
+    else {
+      $form_state->setRedirect('entity.commerce_wishlist.collection');
+    }
   }
 
 }

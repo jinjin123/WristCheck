@@ -4,11 +4,10 @@ namespace Drupal\Tests\commerce_promotion\Kernel\Entity;
 
 use Drupal\commerce_order\Entity\Order;
 use Drupal\commerce_order\Entity\OrderItem;
-use Drupal\commerce_order\Entity\OrderItemType;
 use Drupal\commerce_price\Price;
 use Drupal\commerce_promotion\Entity\Coupon;
 use Drupal\commerce_promotion\Entity\Promotion;
-use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
+use Drupal\Tests\commerce_order\Kernel\OrderKernelTestBase;
 
 /**
  * Tests the Coupon entity.
@@ -17,7 +16,7 @@ use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
  *
  * @group commerce
  */
-class CouponTest extends CommerceKernelTestBase {
+class CouponTest extends OrderKernelTestBase {
 
   /**
    * Modules to enable.
@@ -25,11 +24,6 @@ class CouponTest extends CommerceKernelTestBase {
    * @var array
    */
   public static $modules = [
-    'entity_reference_revisions',
-    'profile',
-    'state_machine',
-    'commerce_order',
-    'commerce_product',
     'commerce_promotion',
   ];
 
@@ -39,23 +33,10 @@ class CouponTest extends CommerceKernelTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->installEntitySchema('profile');
-    $this->installEntitySchema('commerce_order');
-    $this->installEntitySchema('commerce_order_item');
     $this->installEntitySchema('commerce_promotion');
     $this->installEntitySchema('commerce_promotion_coupon');
     $this->installSchema('commerce_promotion', ['commerce_promotion_usage']);
-    $this->installConfig([
-      'profile',
-      'commerce_order',
-      'commerce_promotion',
-    ]);
-
-    OrderItemType::create([
-      'id' => 'test',
-      'label' => 'Test',
-      'orderType' => 'default',
-    ])->save();
+    $this->installConfig(['commerce_promotion']);
   }
 
   /**
@@ -65,6 +46,8 @@ class CouponTest extends CommerceKernelTestBase {
    * @covers ::setCode
    * @covers ::getUsageLimit
    * @covers ::setUsageLimit
+   * @covers ::getCustomerUsageLimit
+   * @covers ::setCustomerUsageLimit
    * @covers ::isEnabled
    * @covers ::setEnabled
    */
@@ -88,6 +71,9 @@ class CouponTest extends CommerceKernelTestBase {
 
     $coupon->setUsageLimit(10);
     $this->assertEquals(10, $coupon->getUsageLimit());
+
+    $coupon->setCustomerUsageLimit(1);
+    $this->assertEquals(1, $coupon->getCustomerUsageLimit());
 
     $coupon->setEnabled(TRUE);
     $this->assertEquals(TRUE, $coupon->isEnabled());
@@ -120,6 +106,7 @@ class CouponTest extends CommerceKernelTestBase {
       'order_types' => ['default'],
       'stores' => [$this->store->id()],
       'usage_limit' => 1,
+      'usage_limit_customer' => 1,
       'start_date' => '2017-01-01',
       'status' => TRUE,
     ]);
@@ -129,6 +116,7 @@ class CouponTest extends CommerceKernelTestBase {
       'promotion_id' => $promotion->id(),
       'code' => 'coupon_code',
       'usage_limit' => 1,
+      'usage_limit_customer' => 1,
       'status' => TRUE,
     ]);
     $coupon->save();
@@ -137,6 +125,25 @@ class CouponTest extends CommerceKernelTestBase {
     $coupon->setEnabled(FALSE);
     $this->assertFalse($coupon->available($order));
     $coupon->setEnabled(TRUE);
+
+    $this->container->get('commerce_promotion.usage')->register($order, $promotion, $coupon);
+    $this->assertFalse($coupon->available($order));
+
+    // Test limit coupon usage by customer.
+    $promotion->setUsageLimit(0);
+    $promotion->setCustomerUsageLimit(0);
+    $promotion->save();
+    $promotion = $this->reloadEntity($promotion);
+    $coupon->setUsageLimit(0);
+    $coupon->save();
+    $coupon = $this->reloadEntity($coupon);
+    $this->assertFalse($coupon->available($order));
+
+    $order->setEmail('another@example.com');
+    $order->setRefreshState(Order::REFRESH_SKIP);
+    $order->save();
+    $order = $this->reloadEntity($order);
+    $this->assertTrue($coupon->available($order));
 
     \Drupal::service('commerce_promotion.usage')->register($order, $promotion, $coupon);
     $this->assertFalse($coupon->available($order));

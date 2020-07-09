@@ -139,7 +139,7 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
    * {@inheritdoc}
    */
   public function isUnitPriceOverridden() {
-    return $this->get('overridden_unit_price')->value;
+    return (bool) $this->get('overridden_unit_price')->value;
   }
 
   /**
@@ -154,8 +154,20 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
   /**
    * {@inheritdoc}
    */
-  public function getAdjustments() {
-    return $this->get('adjustments')->getAdjustments();
+  public function getAdjustments(array $adjustment_types = []) {
+    /** @var \Drupal\commerce_order\Adjustment[] $adjustments */
+    $adjustments = $this->get('adjustments')->getAdjustments();
+    // Filter adjustments by type, if needed.
+    if ($adjustment_types) {
+      foreach ($adjustments as $index => $adjustment) {
+        if (!in_array($adjustment->getType(), $adjustment_types)) {
+          unset($adjustments[$index]);
+        }
+      }
+      $adjustments = array_values($adjustments);
+    }
+
+    return $adjustments;
   }
 
   /**
@@ -171,6 +183,9 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
    */
   public function addAdjustment(Adjustment $adjustment) {
     $this->get('adjustments')->appendItem($adjustment);
+    if ($this->getOrder()) {
+      $this->getOrder()->recalculateTotalPrice();
+    }
     return $this;
   }
 
@@ -179,6 +194,9 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
    */
   public function removeAdjustment(Adjustment $adjustment) {
     $this->get('adjustments')->removeAdjustment($adjustment);
+    if ($this->getOrder()) {
+      $this->getOrder()->recalculateTotalPrice();
+    }
     return $this;
   }
 
@@ -186,7 +204,7 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
    * {@inheritdoc}
    */
   public function usesLegacyAdjustments() {
-    return $this->get('uses_legacy_adjustments')->value;
+    return (bool) $this->get('uses_legacy_adjustments')->value;
   }
 
   /**
@@ -249,17 +267,11 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
    */
   protected function applyAdjustments(Price $price, array $adjustment_types = []) {
     $adjusted_price = $price;
-    foreach ($this->getAdjustments() as $adjustment) {
-      if ($adjustment_types && !in_array($adjustment->getType(), $adjustment_types)) {
-        continue;
+    foreach ($this->getAdjustments($adjustment_types) as $adjustment) {
+      if (!$adjustment->isIncluded()) {
+        $adjusted_price = $adjusted_price->add($adjustment->getAmount());
       }
-      if ($adjustment->isIncluded()) {
-        continue;
-      }
-
-      $adjusted_price = $adjusted_price->add($adjustment->getAmount());
     }
-
     return $adjusted_price;
   }
 
@@ -285,6 +297,18 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
   /**
    * {@inheritdoc}
    */
+  public function unsetData($key) {
+    if (!$this->get('data')->isEmpty()) {
+      $data = $this->get('data')->first()->getValue();
+      unset($data[$key]);
+      $this->set('data', $data);
+    }
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getCreatedTime() {
     return $this->get('created')->value;
   }
@@ -303,36 +327,6 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
   public function preSave(EntityStorageInterface $storage) {
     parent::preSave($storage);
     $this->recalculateTotalPrice();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function postSave(EntityStorageInterface $storage, $update = TRUE) {
-    parent::postSave($storage, $update);
-
-    $order = $this->getOrder();
-    if ($order && !$order->hasItem($this)) {
-      $order->addItem($this);
-      $order->save();
-    }
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function postDelete(EntityStorageInterface $storage, array $entities) {
-    parent::postDelete($storage, $entities);
-
-    /** @var \Drupal\commerce_order\Entity\OrderItemInterface[] $entities */
-    foreach ($entities as $order_item) {
-      // Remove the reference from the order.
-      $order = $order_item->getOrder();
-      if ($order && $order->hasItem($order_item)) {
-        $order->removeItem($order_item);
-        $order->save();
-      }
-    }
   }
 
   /**
@@ -363,6 +357,7 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
       ->setLabel(t('Purchased entity'))
       ->setDescription(t('The purchased entity.'))
       ->setRequired(TRUE)
+      ->addConstraint('PurchasedEntityAvailable')
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
         'weight' => -1,
@@ -374,6 +369,13 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+
+    /** @var \Drupal\commerce\PurchasableEntityTypeRepositoryInterface $purchasable_entity_type_repository */
+    $purchasable_entity_type_repository = \Drupal::service('commerce.purchasable_entity_type_repository');
+    $default_purchasable_entity_type = $purchasable_entity_type_repository->getDefaultPurchasableEntityType();
+    if ($default_purchasable_entity_type) {
+      $fields['purchased_entity']->setSetting('target_type', $default_purchasable_entity_type->id());
+    }
 
     $fields['title'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Title'))
@@ -468,7 +470,11 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
   public static function bundleFieldDefinitions(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
     /** @var \Drupal\commerce_order\Entity\OrderItemTypeInterface $order_item_type */
     $order_item_type = OrderItemType::load($bundle);
+    if (!$order_item_type) {
+      throw new \RuntimeException(sprintf('Could not load the "%s" order item type.', $bundle));
+    }
     $purchasable_entity_type = $order_item_type->getPurchasableEntityTypeId();
+
     $fields = [];
     $fields['purchased_entity'] = clone $base_field_definitions['purchased_entity'];
     if ($purchasable_entity_type) {

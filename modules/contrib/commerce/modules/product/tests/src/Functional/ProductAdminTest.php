@@ -6,6 +6,12 @@ use Drupal\commerce\EntityHelper;
 use Drupal\commerce_price\Price;
 use Drupal\commerce_product\Entity\Product;
 use Drupal\commerce_product\Entity\ProductVariation;
+use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\Tests\TestFileCreationTrait;
+use Drupal\user\Entity\Role;
+use Drupal\user\RoleInterface;
 
 /**
  * Create, view, edit, delete, and change products.
@@ -13,6 +19,56 @@ use Drupal\commerce_product\Entity\ProductVariation;
  * @group commerce
  */
 class ProductAdminTest extends ProductBrowserTestBase {
+
+  use TestFileCreationTrait;
+
+  /**
+   * A test image.
+   *
+   * @var object
+   */
+  protected $testImage;
+
+  /**
+   * Modules to enable.
+   *
+   * @var array
+   */
+  public static $modules = [
+    'file',
+    'image',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp() {
+    parent::setUp();
+
+    FieldStorageConfig::create([
+      'field_name' => 'field_image',
+      'type' => 'image',
+      'entity_type' => 'commerce_product_variation',
+    ])->save();
+    FieldConfig::create([
+      'field_name' => 'field_image',
+      'entity_type' => 'commerce_product_variation',
+      'bundle' => 'default',
+      'label' => 'Image',
+      'settings' => [
+        'alt_field_required' => FALSE,
+      ],
+    ])->save();
+    $form_display = EntityFormDisplay::load('commerce_product_variation.default.default');
+    $form_display->setComponent('field_image', [
+      'type' => 'image_image',
+    ]);
+    $form_display->save();
+
+    $file_system = \Drupal::service('file_system');
+    $this->testImage = current($this->getTestFiles('image'));
+    $this->testImage->realpath = $file_system->realpath($this->testImage->uri);
+  }
 
   /**
    * Tests creating a product.
@@ -71,7 +127,7 @@ class ProductAdminTest extends ProductBrowserTestBase {
     }
     $this->submitForm($edit, 'Save');
 
-    \Drupal::service('entity_type.manager')->getStorage('commerce_product')->resetCache([$product->id()]);
+    $this->container->get('entity_type.manager')->getStorage('commerce_product')->resetCache([$product->id()]);
     $product = Product::load($product->id());
     $this->assertEquals($product->getTitle(), $title, 'The product title successfully updated.');
     $this->assertFieldValues($product->getStores(), $this->stores, 'Updated product has the correct associated stores.');
@@ -91,7 +147,7 @@ class ProductAdminTest extends ProductBrowserTestBase {
     $this->assertSession()->pageTextContains(t('This action cannot be undone.'));
     $this->submitForm([], 'Delete');
 
-    \Drupal::service('entity_type.manager')->getStorage('commerce_product')->resetCache();
+    $this->container->get('entity_type.manager')->getStorage('commerce_product')->resetCache();
     $product_exists = (bool) Product::load($product->id());
     $this->assertEmpty($product_exists, 'The new product has been deleted from the database.');
   }
@@ -119,8 +175,6 @@ class ProductAdminTest extends ProductBrowserTestBase {
       'variationType' => 'default',
     ];
     $product_type = $this->createEntity('commerce_product_type', $values);
-    commerce_product_add_stores_field($product_type);
-    commerce_product_add_variations_field($product_type);
 
     /** @var \Drupal\commerce_product\Entity\ProductInterface $second_product */
     $second_product = $this->createEntity('commerce_product', [
@@ -136,10 +190,9 @@ class ProductAdminTest extends ProductBrowserTestBase {
     ]);
 
     $this->drupalGet('admin/commerce/products');
-    $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->pageTextNotContains('You are not authorized to access this page.');
     $row_count = $this->getSession()->getPage()->findAll('xpath', '//table/tbody/tr');
-    $this->assertEquals(3, count($row_count), 'Table has 3 rows.');
+    $this->assertEquals(3, count($row_count));
 
     // Confirm that product titles are displayed.
     $page = $this->getSession()->getPage();
@@ -166,9 +219,8 @@ class ProductAdminTest extends ProductBrowserTestBase {
     // and receive a 403 error code.
     $this->drupalLogout();
     $this->drupalGet('admin/commerce/products');
-    $this->assertSession()->statusCodeEquals(403);
     $this->assertSession()->pageTextContains('You are not authorized to access this page.');
-    $this->assertNotEmpty(!$this->getSession()->getPage()->hasLink('Add product'));
+    $this->assertEmpty($this->getSession()->getPage()->hasLink('Add product'));
 
     // Login and confirm access for 'access commerce_product overview'
     // permission. The second product should no longer be visible because
@@ -176,11 +228,11 @@ class ProductAdminTest extends ProductBrowserTestBase {
     $user = $this->drupalCreateUser(['access commerce_product overview']);
     $this->drupalLogin($user);
     $this->drupalGet('admin/commerce/products');
-    $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->pageTextNotContains('You are not authorized to access this page.');
-    $this->assertNotEmpty(!$this->getSession()->getPage()->hasLink('Add product'));
+    $this->assertEmpty($this->getSession()->getPage()->hasLink('Add product'));
+
     $row_count = $this->getSession()->getPage()->findAll('xpath', '//table/tbody/tr');
-    $this->assertEquals(2, count($row_count), 'Table has 3 rows.');
+    $this->assertEquals(2, count($row_count));
 
     // Confirm that product titles are displayed.
     $page = $this->getSession()->getPage();
@@ -189,17 +241,38 @@ class ProductAdminTest extends ProductBrowserTestBase {
     $product_count = $page->findAll('xpath', '//table/tbody/tr/td/a[text()="Third product"]');
     $this->assertEquals(1, count($product_count), 'Third product is displayed.');
 
-    // Confirm that product types are displayed.
-    $product_count = $page->findAll('xpath', '//table/tbody/tr/td[starts-with(text(), "Default")]');
-    $this->assertEquals(1, count($product_count), 'Default product type exists in the table.');
-    $product_count = $page->findAll('xpath', '//table/tbody/tr/td[starts-with(text(), "Random")]');
-    $this->assertEquals(1, count($product_count), 'Random product type exist in the table.');
-
     // Confirm that the right product statuses are displayed.
     $product_count = $page->findAll('xpath', '//table/tbody/tr/td[starts-with(text(), "Unpublished")]');
     $this->assertEquals(0, count($product_count), 'Unpublished product do not exist in the table.');
     $product_count = $page->findAll('xpath', '//table/tbody/tr/td[starts-with(text(), "Published")]');
     $this->assertEquals(2, count($product_count), 'Published products exist in the table.');
+
+    // Confirm that product types are displayed.
+    $this->assertSession()->optionExists('edit-type', 'default');
+    $this->assertSession()->optionExists('edit-type', 'random');
+    $product_count = $page->findAll('xpath', '//table/tbody/tr/td[starts-with(text(), "Default")]');
+    $this->assertEquals(1, count($product_count));
+    $product_count = $page->findAll('xpath', '//table/tbody/tr/td[starts-with(text(), "Random")]');
+    $this->assertEquals(1, count($product_count));
+
+    // Confirm that the product type filter respects view access.
+    $authenticated_role = Role::load(RoleInterface::AUTHENTICATED_ID);
+    $authenticated_role->revokePermission('view commerce_product');
+    $authenticated_role->save();
+    $this->drupalGet('admin/commerce/products');
+    $this->assertSession()->pageTextContains('No products available');
+    $this->assertSession()->optionNotExists('edit-type', 'default');
+    $this->assertSession()->optionNotExists('edit-type', 'random');
+
+    $authenticated_role->grantPermission('view default commerce_product');
+    $authenticated_role->save();
+    $this->drupalGet('admin/commerce/products');
+    $this->assertSession()->optionExists('edit-type', 'default');
+    $this->assertSession()->optionNotExists('edit-type', 'random');
+    $product_count = $page->findAll('xpath', '//table/tbody/tr/td[starts-with(text(), "Default")]');
+    $this->assertEquals(1, count($product_count));
+    $product_count = $page->findAll('xpath', '//table/tbody/tr/td[starts-with(text(), "Random")]');
+    $this->assertEquals(0, count($product_count));
 
     // Login and confirm access for "view own unpublished commerce_product".
     $user = $this->drupalCreateUser([
@@ -236,20 +309,20 @@ class ProductAdminTest extends ProductBrowserTestBase {
 
     $this->assertSession()->pageTextContains(t('The product @title has been successfully saved', ['@title' => $title]));
     $this->assertSession()->pageTextContains(t('There are no product variations yet.'));
-    $this->assertNotEmpty($this->getSession()->getPage()->hasLink('Add variation'));
+    $this->getSession()->getPage()->clickLink('Add variation');
 
     // Create a variation.
-    $this->getSession()->getPage()->clickLink('Add variation');
-    $this->assertSession()->pageTextContains(t('Add variation'));
-    $this->assertSession()->fieldExists('sku[0][value]');
-    $this->assertSession()->fieldExists('price[0][number]');
-    $this->assertSession()->fieldExists('status[value]');
-    $this->assertSession()->buttonExists('Save');
-
     $variation_sku = $this->randomMachineName();
+    // Fill all needed fields except the image.
     $this->getSession()->getPage()->fillField('sku[0][value]', $variation_sku);
     $this->getSession()->getPage()->fillField('price[0][number]', '9.99');
-    $this->submitForm([], t('Save'));
+    // Upload the image.
+    $this->submitForm([
+      'files[field_image_0]' => $this->testImage->realpath,
+    ], 'field_image_0_upload_button');
+    $this->assertSession()->buttonExists('field_image_0_remove_button');
+    // Submit the form.
+    $this->submitForm([], 'Save');
     $this->assertSession()->pageTextContains("Saved the $title variation.");
     $variation_in_table = $this->getSession()->getPage()->find('xpath', '//table/tbody/tr/td[text()="' . $variation_sku . '"]');
     $this->assertNotEmpty($variation_in_table);
@@ -258,8 +331,9 @@ class ProductAdminTest extends ProductBrowserTestBase {
     $variation = ProductVariation::load(1);
     $this->assertEquals($product->id(), $variation->getProductId());
     $this->assertEquals($variation_sku, $variation->getSku());
+    $this->assertFalse($variation->get('field_image')->isEmpty());
 
-    \Drupal::service('entity_type.manager')->getStorage('commerce_product')->resetCache([$product->id()]);
+    $this->container->get('entity_type.manager')->getStorage('commerce_product')->resetCache([$product->id()]);
     $product = Product::load($product->id());
     $this->assertTrue($product->hasVariation($variation));
   }
@@ -294,10 +368,10 @@ class ProductAdminTest extends ProductBrowserTestBase {
     $this->submitForm($variations_edit, 'Save');
     $this->assertSession()->addressEquals($variation->toUrl('collection'));
 
-    \Drupal::service('entity_type.manager')->getStorage('commerce_product_variation')->resetCache([$variation->id()]);
+    $this->container->get('entity_type.manager')->getStorage('commerce_product_variation')->resetCache([$variation->id()]);
     $variation = ProductVariation::load($variation->id());
-    $this->assertEquals($variation->getSku(), $new_sku);
-    $this->assertEquals($variation->getPrice()->getNumber(), $new_price_amount);
+    $this->assertEquals($new_sku, $variation->getSku());
+    $this->assertEquals($new_price_amount, $variation->getPrice()->getNumber());
   }
 
   /**
@@ -340,9 +414,9 @@ class ProductAdminTest extends ProductBrowserTestBase {
 
     $expected_variation_id = $variation->id() + 1;
     $variation = ProductVariation::load($expected_variation_id);
-    $this->assertEquals($variation->getSku(), $new_sku);
-    $this->assertEquals($variation->getPrice()->getNumber(), '12.00');
-    $this->assertTrue($variation->isActive());
+    $this->assertEquals($new_sku, $variation->getSku());
+    $this->assertEquals('12.00', $variation->getPrice()->getNumber());
+    $this->assertTrue($variation->isPublished());
   }
 
   /**
@@ -367,7 +441,7 @@ class ProductAdminTest extends ProductBrowserTestBase {
     $this->submitForm([], 'Delete');
     $this->assertSession()->addressEquals($variation->toUrl('collection'));
 
-    \Drupal::service('entity_type.manager')->getStorage('commerce_product_variation')->resetCache();
+    $this->container->get('entity_type.manager')->getStorage('commerce_product_variation')->resetCache();
     $variation_exists = (bool) ProductVariation::load($variation->id());
     $this->assertEmpty($variation_exists, 'The new variation has been deleted from the database.');
   }
@@ -377,26 +451,97 @@ class ProductAdminTest extends ProductBrowserTestBase {
    */
   public function testSingleVariationMode() {
     $this->drupalGet('admin/commerce/config/product-types/default/edit');
-    $edit = [
+    $this->submitForm([
       'multipleVariations' => FALSE,
-    ];
-    $this->submitForm($edit, t('Save'));
+    ], 'Save');
 
     $this->drupalGet('admin/commerce/products');
     $this->getSession()->getPage()->clickLink('Add product');
     $this->assertSession()->buttonNotExists('Save and add variations');
     $this->assertSession()->fieldExists('variations[entity][sku][0][value]');
 
+    $title = 'Mug';
     $store_id = $this->stores[0]->id();
-    $title = $this->randomMachineName();
     $sku = strtolower($this->randomMachineName());
+    // Fill all needed fields except the image.
+    $page = $this->getSession()->getPage();
+    $page->fillField('title[0][value]', $title);
+    $page->fillField('stores[target_id][value][' . $store_id . ']', $store_id);
+    $page->fillField('variations[entity][sku][0][value]', $sku);
+    $page->fillField('variations[entity][price][0][number]', '99.99');
+    // Upload the image.
+    $this->submitForm([
+      'files[variations_entity_field_image_0]' => $this->testImage->realpath,
+    ], 'variations_entity_field_image_0_upload_button');
+    $this->assertSession()->buttonExists('variations_entity_field_image_0_remove_button');
+    // Submit the form.
+    $this->submitForm([], 'Save');
+
+    // Confirm that we've avoided the #commerce_element_submit bug where
+    // uploading a file saves the variation in the background, causing the
+    // later submit to fail due to the SKU already existing in the database.
+    $this->assertSession()->pageTextNotContains(sprintf('The SKU "%s" is already in use and must be unique.', $sku));
+    $this->assertSession()->pageTextContains('The product Mug has been successfully saved');
+
+    $product = Product::load(1);
+    $this->assertNotEmpty($product);
+    $this->assertEquals($title, $product->getTitle());
+    $this->assertEquals([$store_id], $product->getStoreIds());
+    $variation = $product->getDefaultVariation();
+    $this->assertNotEmpty($variation);
+    $this->assertEquals($sku, $variation->getSku());
+    $this->assertEquals(new Price('99.99', 'USD'), $variation->getPrice());
+    $this->assertFalse($variation->get('field_image')->isEmpty());
+
+    $this->drupalGet($product->toUrl('edit-form'));
     $edit = [
-      'title[0][value]' => $title,
-      'stores[target_id][value][' . $store_id . ']' => $store_id,
-      'variations[entity][sku][0][value]' => $sku,
-      'variations[entity][price][0][number]' => '99.99',
+      'title[0][value]' => 'New title',
+      'variations[entity][price][0][number]' => '199.99',
     ];
     $this->submitForm($edit, 'Save');
+
+    \Drupal::entityTypeManager()->getStorage('commerce_product')->resetCache([1]);
+    \Drupal::entityTypeManager()->getStorage('commerce_product_variation')->resetCache([1]);
+    $product = Product::load(1);
+    $this->assertNotEmpty($product);
+    $this->assertEquals('New title', $product->getTitle());
+    $this->assertEquals([$store_id], $product->getStoreIds());
+    $variation = $product->getDefaultVariation();
+    $this->assertNotEmpty($variation);
+    $this->assertEquals(1, $variation->id());
+    $this->assertEquals($sku, $variation->getSku());
+    $this->assertEquals(new Price('199.99', 'USD'), $variation->getPrice());
+
+    // The variation collection page should be inaccessible.
+    $this->drupalGet($variation->toUrl('collection'));
+    $this->assertSession()->statusCodeEquals('403');
+  }
+
+  /**
+   * Tests the single variation widget on a product allowing multiple.
+   */
+  public function testMixedMode() {
+    $form_display = EntityFormDisplay::load('commerce_product.default.default');
+    $form_display->setComponent('variations', [
+      'type' => 'commerce_product_single_variation',
+      'weight' => 2,
+    ]);
+    $form_display->save();
+
+    $this->drupalGet('admin/commerce/products');
+    $this->getSession()->getPage()->clickLink('Add product');
+    $this->assertSession()->buttonExists('Save and add variations');
+    $this->assertSession()->fieldExists('variations[entity][sku][0][value]');
+
+    $title = 'Mug';
+    $store_id = $this->stores[0]->id();
+    $sku = strtolower($this->randomMachineName());
+    $page = $this->getSession()->getPage();
+    $page->fillField('title[0][value]', $title);
+    $page->fillField('stores[target_id][value][' . $store_id . ']', $store_id);
+    $page->fillField('variations[entity][sku][0][value]', $sku);
+    $page->fillField('variations[entity][price][0][number]', '99.99');
+    $this->submitForm([], 'Save and add variations');
 
     $product = Product::load(1);
     $this->assertNotEmpty($product);

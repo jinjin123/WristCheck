@@ -5,12 +5,30 @@ namespace Drupal\commerce_wishlist\Entity;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\profile\Entity\ProfileInterface;
-use Drupal\user\UserInterface;
+use Drupal\user\EntityOwnerInterface;
 
 /**
  * Defines the interface for wishlists.
  */
-interface WishlistInterface extends ContentEntityInterface, EntityChangedInterface {
+interface WishlistInterface extends ContentEntityInterface, EntityChangedInterface, EntityOwnerInterface {
+
+  /**
+   * Gets the wishlist code.
+   *
+   * @return string
+   *   The wishlist code.
+   */
+  public function getCode();
+
+  /**
+   * Sets the wishlist code.
+   *
+   * @param string $code
+   *   The wishlist code.
+   *
+   * @return $this
+   */
+  public function setCode($code);
 
   /**
    * Gets the wishlist name.
@@ -29,42 +47,6 @@ interface WishlistInterface extends ContentEntityInterface, EntityChangedInterfa
    * @return $this
    */
   public function setName($name);
-
-  /**
-   * Gets the customer user.
-   *
-   * @return \Drupal\user\UserInterface|null
-   *   The customer user entity, or NULL in case the wishlist is anonymous.
-   */
-  public function getCustomer();
-
-  /**
-   * Sets the customer user.
-   *
-   * @param \Drupal\user\UserInterface $account
-   *   The customer user entity.
-   *
-   * @return $this
-   */
-  public function setCustomer(UserInterface $account);
-
-  /**
-   * Gets the customer user ID.
-   *
-   * @return int|null
-   *   The customer user ID, or NULL in case the wishlist is anonymous.
-   */
-  public function getCustomerId();
-
-  /**
-   * Sets the customer user ID.
-   *
-   * @param int $uid
-   *   The customer user ID.
-   *
-   * @return $this
-   */
-  public function setCustomerId($uid);
 
   /**
    * Gets the shipping profile.
@@ -142,22 +124,58 @@ interface WishlistInterface extends ContentEntityInterface, EntityChangedInterfa
   public function hasItem(WishlistItemInterface $wishlist_item);
 
   /**
-   * Returns the wishlist default status indicator.
+   * Gets whether this is the user's default wishlist.
    *
    * @return bool
-   *   TRUE if the wishlist is the default one, FALSE otherwise.
+   *   TRUE if this is the user's default wishlist, FALSE otherwise.
    */
   public function isDefault();
 
   /**
-   * Sets the default status of a wishlist.
+   * Sets whether this is the user's default wishlist.
    *
-   * @param bool $is_default
-   *   TRUE to set this wishlist to default, FALSE to set it to not default.
+   * @param bool $default
+   *   Whether this is the user's default wishlist.
    *
    * @return $this
    */
-  public function setDefault($is_default);
+  public function setDefault($default);
+
+  /**
+   * Gets whether the wishlist is public.
+   *
+   * @return bool
+   *   TRUE if the wishlist is public, FALSE otherwise.
+   */
+  public function isPublic();
+
+  /**
+   * Sets whether the wishlist is public.
+   *
+   * @param bool $public
+   *   Whether the wishlist is public.
+   *
+   * @return $this
+   */
+  public function setPublic($public);
+
+  /**
+   * Gets whether items should remain in the wishlist once purchased.
+   *
+   * @return bool
+   *   TRUE if purchased items should remain in the wishlist, FALSE otherwise.
+   */
+  public function getKeepPurchasedItems();
+
+  /**
+   * Sets whether items should remain in the wishlist once purchased.
+   *
+   * @param bool $keep_purchased_items
+   *   Whether items should remain in the wishlist once purchased.
+   *
+   * @return $this
+   */
+  public function setKeepPurchasedItems($keep_purchased_items);
 
   /**
    * Gets the wishlist creation timestamp.

@@ -3,6 +3,7 @@
 namespace Drupal\Tests\commerce_price\Kernel;
 
 use CommerceGuys\Intl\Currency\Currency;
+use CommerceGuys\Intl\Exception\UnknownCurrencyException;
 use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
 
 /**
@@ -27,7 +28,7 @@ class CurrencyRepositoryTest extends CommerceKernelTestBase {
     parent::setUp();
 
     // The parent has already imported USD.
-    $currency_importer = \Drupal::service('commerce_price.currency_importer');
+    $currency_importer = $this->container->get('commerce_price.currency_importer');
     $currency_importer->import('EUR');
 
     $this->currencyRepository = $this->container->get('commerce_price.currency_repository');
@@ -35,9 +36,9 @@ class CurrencyRepositoryTest extends CommerceKernelTestBase {
 
   /**
    * @covers ::get
-   * @expectedException \CommerceGuys\Intl\Exception\UnknownCurrencyException
    */
   public function testUnknownGet() {
+    $this->expectException(UnknownCurrencyException::class);
     $this->currencyRepository->get('RSD');
   }
 

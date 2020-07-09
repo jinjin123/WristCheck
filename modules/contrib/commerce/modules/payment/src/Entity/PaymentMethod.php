@@ -2,13 +2,13 @@
 
 namespace Drupal\commerce_payment\Entity;
 
+use Drupal\commerce\EntityOwnerTrait;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityMalformedException;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\user\UserInterface;
 use Drupal\profile\Entity\ProfileInterface;
 
 /**
@@ -58,6 +58,7 @@ use Drupal\profile\Entity\ProfileInterface;
 class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface {
 
   use EntityChangedTrait;
+  use EntityOwnerTrait;
 
   /**
    * {@inheritdoc}
@@ -107,36 +108,6 @@ class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface 
   /**
    * {@inheritdoc}
    */
-  public function getOwner() {
-    return $this->get('uid')->entity;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwnerId() {
-    return $this->getEntityKey('owner');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwnerId($uid) {
-    $this->set('uid', $uid);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwner(UserInterface $account) {
-    $this->set('uid', $account->id());
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getRemoteId() {
     return $this->get('remote_id')->value;
   }
@@ -168,7 +139,7 @@ class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface 
    * {@inheritdoc}
    */
   public function isReusable() {
-    return $this->get('reusable')->value;
+    return (bool) $this->get('reusable')->value;
   }
 
   /**
@@ -183,7 +154,7 @@ class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface 
    * {@inheritdoc}
    */
   public function isDefault() {
-    return $this->get('is_default')->value;
+    return (bool) $this->get('is_default')->value;
   }
 
   /**
@@ -246,6 +217,12 @@ class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface 
     if ($this->get('payment_gateway_mode')->isEmpty()) {
       $this->set('payment_gateway_mode', $payment_gateway->getPlugin()->getMode());
     }
+    // Make sure the billing profile is owned by the payment method.
+    $billing_profile = $this->getBillingProfile();
+    if ($billing_profile && $billing_profile->getOwnerId()) {
+      $billing_profile->setOwnerId(0);
+      $billing_profile->save();
+    }
   }
 
   /**
@@ -253,6 +230,7 @@ class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface 
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
+    $fields += static::ownerBaseFieldDefinitions($entity_type);
 
     $fields['payment_gateway'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Payment gateway'))
@@ -265,12 +243,9 @@ class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface 
       ->setDescription(t('The payment gateway mode.'))
       ->setRequired(TRUE);
 
-    $fields['uid'] = BaseFieldDefinition::create('entity_reference')
+    $fields['uid']
       ->setLabel(t('Owner'))
       ->setDescription(t('The payment method owner.'))
-      ->setSetting('target_type', 'user')
-      ->setSetting('handler', 'default')
-      ->setDefaultValueCallback('Drupal\commerce_payment\Entity\PaymentMethod::getCurrentUserId')
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'author',
@@ -311,7 +286,8 @@ class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface 
     // 'default' is a reserved SQL word, hence the 'is_' prefix.
     $fields['is_default'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Default'))
-      ->setDescription(t("Whether this is the user's default payment method."));
+      ->setDescription(t("Whether this is the user's default payment method."))
+      ->setDefaultValue(FALSE);
 
     $fields['expires'] = BaseFieldDefinition::create('timestamp')
       ->setLabel(t('Expires'))
@@ -337,18 +313,6 @@ class PaymentMethod extends ContentEntityBase implements PaymentMethodInterface 
       ->setDescription(t('The time when the payment method was last edited.'));
 
     return $fields;
-  }
-
-  /**
-   * Default value callback for 'uid' base field definition.
-   *
-   * @see ::baseFieldDefinitions()
-   *
-   * @return array
-   *   An array of default values.
-   */
-  public static function getCurrentUserId() {
-    return [\Drupal::currentUser()->id()];
   }
 
 }

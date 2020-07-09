@@ -12,14 +12,13 @@ use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\commerce_product\Entity\ProductVariationType;
 use Drupal\Core\Session\AnonymousUserSession;
 use Drupal\profile\Entity\Profile;
-use Drupal\Tests\commerce\Kernel\CommerceKernelTestBase;
 
 /**
  * Tests the order refresh process.
  *
  * @group commerce
  */
-class OrderRefreshTest extends CommerceKernelTestBase {
+class OrderRefreshTest extends OrderKernelTestBase {
 
   /**
    * A sample user.
@@ -64,12 +63,7 @@ class OrderRefreshTest extends CommerceKernelTestBase {
    * @var array
    */
   public static $modules = [
-    'entity_reference_revisions',
-    'profile',
-    'state_machine',
-    'commerce_product',
-    'commerce_order',
-    'commerce_test',
+    'commerce_order_test',
   ];
 
   /**
@@ -77,13 +71,6 @@ class OrderRefreshTest extends CommerceKernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
-
-    $this->installEntitySchema('profile');
-    $this->installEntitySchema('commerce_order');
-    $this->installEntitySchema('commerce_order_item');
-    $this->installEntitySchema('commerce_product');
-    $this->installEntitySchema('commerce_product_variation');
-    $this->installConfig(['commerce_product', 'commerce_order']);
 
     $user = $this->createUser();
     $this->user = $this->reloadEntity($user);
@@ -190,6 +177,13 @@ class OrderRefreshTest extends CommerceKernelTestBase {
     $order_refresh = $this->createOrderRefresh(mktime(23, 10, 0, 2, 24, 2016));
     $this->order->setChangedTime(mktime(23, 0, 0, 2, 24, 2016));
     $this->assertNotEmpty($order_refresh->needsRefresh($this->order));
+
+    // Locked order.
+    $this->order->lock();
+    $this->assertFalse($order_refresh->needsRefresh($this->order));
+    $this->order->unlock();
+    $this->assertTrue($order_refresh->needsRefresh($this->order));
+
   }
 
   /**
