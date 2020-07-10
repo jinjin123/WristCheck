@@ -66,7 +66,23 @@ class FieldUninstallValidator implements ModuleUninstallValidatorInterface {
         }
       }
       else {
-        $reasons[] = $this->t('Fields pending deletion');
+        foreach ($field_storages as $field_storage) {
+          if ($field_storage->isDeleted()) {
+            if (\Drupal::hasContainer()) {
+              $reasons[] = $this->t('Field pending deletion: %label. <a href="@cron">Running cron</a> may delete the field.',
+                [
+                  '%label' => $field_storage->getLabel(),
+                  '@cron' => \Drupal::url('system.run_cron')
+                ]);
+            }
+            else {
+              $reasons[] = $this->t('Field pending deletion: %label. Running cron may delete the field.',
+                [
+                  '%label' => $field_storage->getLabel(),
+                ]);
+            }
+          }
+        }
       }
     }
     return $reasons;
