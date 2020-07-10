@@ -32,3 +32,15 @@ wristcheck-lib:
     - core/jquery
     - core/drupalSettings
 
+
+  
+wristcheck-global:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: { preprocess: 0, minified: true }
+  js:
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
