@@ -1,0 +1,21 @@
+uuid: 5e47e12c-5dd4-4ea9-97a0-c4a4ae0a4476
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.slider
+    - field.storage.block_content.field_type
+  module:
+    - options
+id: block_content.slider.field_type
+field_name: field_type
+entity_type: block_content
+bundle: slider
+label: Type
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

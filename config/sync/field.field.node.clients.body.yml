@@ -1,0 +1,23 @@
+uuid: a68974c0-d138-4607-a28a-fa8c41a0fa7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.clients
+  module:
+    - text
+id: node.clients.body
+field_name: body
+entity_type: node
+bundle: clients
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

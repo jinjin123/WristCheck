@@ -1,0 +1,46 @@
+uuid: 3a222d56-ecdd-49ec-a3d6-3d84cf2477bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view._taxanomy_
+  module:
+    - block_attributes
+    - block_visibility_groups
+    - ntv_block_background
+    - views
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: 'widget widget-categories'
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_views_block___taxanomy__taxanomy_blog_categories
+theme: wristcheck
+region: blog_sidebar
+weight: -12
+provider: null
+plugin: 'views_block:_taxanomy_-taxanomy_blog_categories'
+settings:
+  id: 'views_block:_taxanomy_-taxanomy_blog_categories'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }

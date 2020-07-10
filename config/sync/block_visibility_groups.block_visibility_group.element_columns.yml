@@ -1,0 +1,17 @@
+uuid: e42bfc85-d289-48df-b60c-01bbef199d75
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: element_columns
+label: 'Element - Columns'
+logic: and
+conditions:
+  38a9ae5b-55d3-4339-93a2-4a9b754e4d13:
+    id: request_path
+    pages: /node/61
+    negate: false
+    context_mapping: {  }
+    uuid: 38a9ae5b-55d3-4339-93a2-4a9b754e4d13
+allow_other_conditions: false

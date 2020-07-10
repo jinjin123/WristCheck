@@ -1,0 +1,15 @@
+uuid: 733642b9-a387-4ed9-b736-1999c57f33f2
+langcode: en
+status: true
+dependencies: {  }
+name: image570x311
+label: Image570x311
+effects:
+  24c03a31-b09d-4e4d-a30b-35152dd81aa1:
+    uuid: 24c03a31-b09d-4e4d-a30b-35152dd81aa1
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 570
+      height: 311
+      anchor: center-center

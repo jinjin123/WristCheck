@@ -1,0 +1,8 @@
+uuid: 55d95d64-4170-4a05-9b4c-7b7cf39f9a83
+langcode: en
+status: true
+dependencies: {  }
+id: bl
+label: 'Block Webform col-12'
+revision: 0
+description: ''

@@ -1,0 +1,21 @@
+uuid: 15a5e646-fa8b-4a4e-901d-0a1e39b07b71
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comming_soon_
+    - field.storage.block_content.field_date
+  module:
+    - datetime
+id: block_content.comming_soon_.field_date
+field_name: field_date
+entity_type: block_content
+bundle: comming_soon_
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

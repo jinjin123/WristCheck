@@ -1,0 +1,33 @@
+uuid: ea325177-8c2d-489b-927e-9538ce708535
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.multi_page.body
+    - field.field.node.multi_page.field_multi_page_layout
+    - node.type.multi_page
+  module:
+    - text
+    - user
+id: node.multi_page.teaser
+targetEntityType: node
+bundle: multi_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_multi_page_layout: true
+  langcode: true

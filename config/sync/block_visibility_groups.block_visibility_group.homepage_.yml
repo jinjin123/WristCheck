@@ -1,0 +1,17 @@
+uuid: 88eef36f-22ba-4280-b195-075d9ac3c47e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: homepage_
+label: 'Homepage 23'
+logic: and
+conditions:
+  b81c147b-0f9b-41f9-aba1-cba4b93d1a8a:
+    id: request_path
+    pages: /node/23
+    negate: false
+    context_mapping: {  }
+    uuid: b81c147b-0f9b-41f9-aba1-cba4b93d1a8a
+allow_other_conditions: false

@@ -1,0 +1,23 @@
+uuid: 8c655586-b796-49cf-9e8a-845fd77ab7ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_style_single
+    - node.type.portfolio
+  module:
+    - options
+id: node.portfolio.field_style_single
+field_name: field_style_single
+entity_type: node
+bundle: portfolio
+label: 'Style single'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: image
+default_value_callback: ''
+settings: {  }
+field_type: list_string

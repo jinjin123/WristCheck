@@ -1,0 +1,21 @@
+uuid: 9fdcd039-1765-4bb3-b52c-65a780396e16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject
+    - node.type.testominals
+id: node.testominals.field_subject
+field_name: field_subject
+entity_type: node
+bundle: testominals
+label: Subject
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Aenean sollicitudin, lorem quis bibendum aucto'
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,34 @@
+uuid: 305cfe9c-dba6-448d-9164-6cba8bae1a14
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comming_soon_
+    - field.field.block_content.comming_soon_.body
+    - field.field.block_content.comming_soon_.field_date
+  module:
+    - datetime
+    - text
+id: block_content.comming_soon_.default
+targetEntityType: block_content
+bundle: comming_soon_
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_date:
+    weight: 1
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  langcode: true

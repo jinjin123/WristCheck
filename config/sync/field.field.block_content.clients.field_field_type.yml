@@ -1,0 +1,23 @@
+uuid: 52a2a6af-853c-4a11-ad4d-99c3d09892ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.clients
+    - field.storage.block_content.field_field_type
+  module:
+    - options
+id: block_content.clients.field_field_type
+field_name: field_field_type
+entity_type: block_content
+bundle: clients
+label: field_type
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: type1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

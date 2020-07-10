@@ -1,0 +1,17 @@
+uuid: 64baaafc-df95-4332-b8d7-ad5ffee62e4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: page_testimonials
+label: 'Page - Testimonials'
+logic: and
+conditions:
+  d6296440-763c-44c6-aea6-e623382d1f41:
+    id: request_path
+    pages: /node/106
+    negate: false
+    context_mapping: {  }
+    uuid: d6296440-763c-44c6-aea6-e623382d1f41
+allow_other_conditions: false

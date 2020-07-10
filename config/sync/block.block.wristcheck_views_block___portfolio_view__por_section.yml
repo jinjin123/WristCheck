@@ -1,0 +1,47 @@
+uuid: 60c7d669-4f72-48f2-bc17-59ef8336facf
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view._portfolio_view_
+  module:
+    - block_attributes
+    - block_visibility_groups
+    - ntv_block_background
+    - views
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_views_block___portfolio_view__por_section
+theme: wristcheck
+region: por_section
+weight: 0
+provider: null
+plugin: 'views_block:_portfolio_view_-por_section'
+settings:
+  id: 'views_block:_portfolio_view_-por_section'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }

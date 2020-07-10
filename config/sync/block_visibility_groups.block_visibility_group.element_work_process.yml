@@ -1,0 +1,17 @@
+uuid: 25718e7b-fa26-4634-98f1-1588d771808b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: element_work_process
+label: 'Element - Work Process'
+logic: and
+conditions:
+  d7865c39-69ab-4ac2-afb8-ace1c7d787f7:
+    id: request_path
+    pages: /node/67
+    negate: false
+    context_mapping: {  }
+    uuid: d7865c39-69ab-4ac2-afb8-ace1c7d787f7
+allow_other_conditions: false

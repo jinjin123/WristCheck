@@ -1,0 +1,17 @@
+uuid: f02e358b-99fb-47c0-81c9-43799c0828d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: page_services_1
+label: 'Page - Services 1'
+logic: and
+conditions:
+  552d9c9f-3f75-4e41-ab0a-8276279771cb:
+    id: request_path
+    pages: /node/101
+    negate: false
+    context_mapping: {  }
+    uuid: 552d9c9f-3f75-4e41-ab0a-8276279771cb
+allow_other_conditions: false

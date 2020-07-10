@@ -1,0 +1,17 @@
+uuid: 953c07ac-4238-4d8f-949a-992282d3773c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: page_about_2
+label: 'Page - About 2'
+logic: and
+conditions:
+  ff9f7c6b-a6f0-4238-a4dd-daa90ed36c1d:
+    id: request_path
+    pages: /node/92
+    negate: false
+    context_mapping: {  }
+    uuid: ff9f7c6b-a6f0-4238-a4dd-daa90ed36c1d
+allow_other_conditions: false

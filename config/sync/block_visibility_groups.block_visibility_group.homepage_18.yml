@@ -1,0 +1,17 @@
+uuid: 899249cf-0123-4a02-96ea-28c629d4aec0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: homepage_18
+label: 'Homepage 18'
+logic: and
+conditions:
+  dbda8699-a564-45a2-bde1-e8c7808594dd:
+    id: request_path
+    pages: /node/18
+    negate: false
+    context_mapping: {  }
+    uuid: dbda8699-a564-45a2-bde1-e8c7808594dd
+allow_other_conditions: false

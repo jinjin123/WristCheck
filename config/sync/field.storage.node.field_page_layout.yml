@@ -1,0 +1,39 @@
+uuid: e33e85e8-08d1-4497-b346-344e066ac071
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_page_layout
+field_name: field_page_layout
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: layout1
+      label: 'Layout 1'
+    -
+      value: layout2
+      label: 'Layout 2'
+    -
+      value: layout3
+      label: 'Layout 3'
+    -
+      value: layout4
+      label: 'Layout 4'
+    -
+      value: layout5
+      label: 'Layout 5'
+    -
+      value: layout6
+      label: 'Layout 6'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
