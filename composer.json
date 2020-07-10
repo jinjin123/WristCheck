@@ -15,19 +15,21 @@
         }
     ],
     "require": {
-        "wikimedia/composer-merge-plugin": "^1.4",
-        "drupal/commerce": "^2.11",
-        "drupal/console": "~1.0",
         "commerceguys/intl": "^1.0",
         "composer/installers": "^1.2",
         "drupal/address": "^1.8",
         "drupal/blog": "^3.0",
+        "drupal/commerce": "^2.11",
+        "drupal/console": "~1.0",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/core-vendor-hardening": "^8.8",
         "drupal/entity": "^1.0",
-        "twig/twig": "1.42.5"
+        "drupal/paragraphs": "^1.12",
+        "drush/drush": "^10.3",
+        "twig/twig": "1.42.5",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "conflict": {
         "drupal/drupal": "*"
