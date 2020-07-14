@@ -26,6 +26,7 @@
         "drupal/core-recommended": "^8.8",
         "drupal/core-vendor-hardening": "^8.8",
         "drupal/entity": "^1.0",
+        "drupal/maintenance200": "^1.0",
         "drupal/paragraphs": "^1.12",
         "drush/drush": "^10.3",
         "twig/twig": "1.42.5",
