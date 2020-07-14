@@ -1,0 +1,15 @@
+uuid: e797ddc2-ba7e-45dd-acc7-082ec02bdf92
+langcode: en
+status: true
+dependencies: {  }
+name: image700x1081
+label: image700x1081
+effects:
+  e2282aa2-2fdb-4667-96d4-bf13823bee05:
+    uuid: e2282aa2-2fdb-4667-96d4-bf13823bee05
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 700
+      height: 1081
+      anchor: center-center

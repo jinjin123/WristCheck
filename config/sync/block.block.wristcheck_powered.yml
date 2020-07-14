@@ -1,0 +1,22 @@
+uuid: 77194d72-0011-4b66-98c6-198cecca8893
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wristcheck
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: wristcheck_powered
+theme: wristcheck
+region: auto_hidden_block
+weight: -2
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

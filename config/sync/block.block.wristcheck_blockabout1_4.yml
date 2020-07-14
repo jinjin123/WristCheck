@@ -1,0 +1,49 @@
+uuid: 95fc1005-c685-4152-9c39-1ac7537b573c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.homepage_19
+  content:
+    - 'block_content:basic:51963956-edc1-4878-95ca-cca0afe0d8eb'
+  module:
+    - block_attributes
+    - block_content
+    - block_visibility_groups
+    - ntv_block_background
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: bg-white-css
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_blockabout1_4
+theme: wristcheck
+region: section
+weight: -17
+provider: null
+plugin: 'block_content:51963956-edc1-4878-95ca-cca0afe0d8eb'
+settings:
+  id: 'block_content:51963956-edc1-4878-95ca-cca0afe0d8eb'
+  label: 'Block - About 1 '
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: homepage_19
+    context_mapping: {  }

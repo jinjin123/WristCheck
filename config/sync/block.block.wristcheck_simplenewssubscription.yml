@@ -1,0 +1,46 @@
+uuid: 0fa0bd28-7c1c-455b-9901-8f409fa12479
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - block_visibility_groups
+    - ntv_block_background
+    - simplenews
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_simplenewssubscription
+theme: wristcheck
+region: footer_simplenews
+weight: 0
+provider: null
+plugin: simplenews_subscription_block
+settings:
+  id: simplenews_subscription_block
+  label: 'Simplenews subscription'
+  provider: simplenews
+  label_display: '0'
+  newsletters:
+    default: default
+  message: ''
+  unique_id: f36cd05f-80ca-45c0-8442-acea858bbf68
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }

@@ -1,0 +1,17 @@
+uuid: de41e16a-0493-4809-bed5-0a3c6145b8da
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: homepage_24
+label: 'Homepage 24'
+logic: and
+conditions:
+  4b63349f-ede1-4cd6-b3b2-30544c3dcb69:
+    id: request_path
+    pages: '/product?sidebar=left'
+    negate: false
+    context_mapping: {  }
+    uuid: 4b63349f-ede1-4cd6-b3b2-30544c3dcb69
+allow_other_conditions: false

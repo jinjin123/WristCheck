@@ -1,0 +1,47 @@
+uuid: 8a630729-83c8-4ee6-8b8f-410bb7cff494
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.page_team_2
+    - views.view._team_view_
+  module:
+    - block_attributes
+    - block_visibility_groups
+    - ntv_block_background
+    - views
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: bg-white-css
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_views_block___team_view__element_team_1_4
+theme: wristcheck
+region: section
+weight: 0
+provider: null
+plugin: 'views_block:_team_view_-element_team_1'
+settings:
+  id: 'views_block:_team_view_-element_team_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: '20'
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: page_team_2
+    context_mapping: {  }

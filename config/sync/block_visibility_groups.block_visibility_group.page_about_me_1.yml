@@ -1,0 +1,17 @@
+uuid: d05b298c-b50d-4210-9dda-1da461c06702
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: page_about_me_1
+label: 'Page - About Me 1'
+logic: and
+conditions:
+  510b88f2-b90c-4879-be0b-b6b9811d38e7:
+    id: request_path
+    pages: "/node/94\r\n"
+    negate: false
+    context_mapping: {  }
+    uuid: 510b88f2-b90c-4879-be0b-b6b9811d38e7
+allow_other_conditions: false

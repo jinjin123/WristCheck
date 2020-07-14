@@ -1,0 +1,49 @@
+uuid: 39404011-8654-4968-9b3a-a95c8fd93731
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.element_clients
+  content:
+    - 'block_content:clients:9298ceca-a865-439b-b20b-52e0e4c6435b'
+  module:
+    - block_attributes
+    - block_content
+    - block_visibility_groups
+    - ntv_block_background
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_elementclients
+theme: wristcheck
+region: section
+weight: 0
+provider: null
+plugin: 'block_content:9298ceca-a865-439b-b20b-52e0e4c6435b'
+settings:
+  id: 'block_content:9298ceca-a865-439b-b20b-52e0e4c6435b'
+  label: 'Element - Clients'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: element_clients
+    context_mapping: {  }

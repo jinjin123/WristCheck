@@ -1,0 +1,38 @@
+uuid: 88125d7a-c63b-4b7d-9ebc-1c221bfde769
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.multi_page.body
+    - field.field.node.multi_page.field_multi_page_layout
+    - node.type.multi_page
+  module:
+    - options
+    - text
+    - user
+id: node.multi_page.default
+targetEntityType: node
+bundle: multi_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_multi_page_layout:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

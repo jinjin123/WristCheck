@@ -1,0 +1,6 @@
+services:
+  maintenance_mode_200_subscriber:
+    class: '\Drupal\maintenance200\EventSubscriber\MaintenanceModeSubscriber'
+    arguments: ['@config.factory', '@maintenance_mode', '@current_user']
+    tags:
+      - { name: event_subscriber }

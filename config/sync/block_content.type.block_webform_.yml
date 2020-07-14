@@ -1,0 +1,8 @@
+uuid: f29852f6-2819-49a3-be68-f668ed32f079
+langcode: en
+status: true
+dependencies: {  }
+id: block_webform_
+label: 'Block Webform col-6'
+revision: 0
+description: ''

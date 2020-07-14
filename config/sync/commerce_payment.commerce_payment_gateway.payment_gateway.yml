@@ -1,0 +1,18 @@
+uuid: 41d3fa41-3c62-4064-9719-13f85ee37cdc
+langcode: en
+status: true
+dependencies: {  }
+id: payment_gateway
+label: 'Payment gateway'
+weight: null
+plugin: manual
+configuration:
+  instructions:
+    value: ''
+    format: plain_text
+  display_label: Manual
+  mode: n/a
+  payment_method_types:
+    - credit_card
+conditions: {  }
+conditionOperator: AND

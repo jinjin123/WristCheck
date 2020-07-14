@@ -1,0 +1,17 @@
+uuid: 3c3fe2e5-b234-4703-8373-185cf577f854
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: homepage_4
+label: 'Homepage 4'
+logic: and
+conditions:
+  c366fdda-0837-49e1-82ff-68590c854e6e:
+    id: request_path
+    pages: /node/4
+    negate: false
+    context_mapping: {  }
+    uuid: c366fdda-0837-49e1-82ff-68590c854e6e
+allow_other_conditions: false

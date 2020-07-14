@@ -1,0 +1,17 @@
+uuid: b69653bf-d958-4788-a400-523cb551c0e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: element_
+label: 'Element - Team'
+logic: and
+conditions:
+  7b88eea1-abdc-4477-b831-87b2b20ba6c6:
+    id: request_path
+    pages: /node/69
+    negate: false
+    context_mapping: {  }
+    uuid: 7b88eea1-abdc-4477-b831-87b2b20ba6c6
+allow_other_conditions: false

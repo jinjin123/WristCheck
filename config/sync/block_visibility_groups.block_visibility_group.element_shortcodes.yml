@@ -1,0 +1,17 @@
+uuid: 7813e1f4-f447-4b4e-98fc-f471ee1bc094
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: element_shortcodes
+label: 'Element - Banners'
+logic: and
+conditions:
+  6de5c32f-8848-4fec-bc92-8f3373f2cbb2:
+    id: request_path
+    pages: /node/68
+    negate: false
+    context_mapping: {  }
+    uuid: 6de5c32f-8848-4fec-bc92-8f3373f2cbb2
+allow_other_conditions: false

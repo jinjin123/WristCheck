@@ -1,0 +1,30 @@
+uuid: c78fed3c-9761-4eb0-870d-2bcff051ec4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_google
+    - node.type.webform
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: '0'
+    php: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+    php_code: '0'
+id: node.webform.field_google
+field_name: field_google
+entity_type: node
+bundle: webform
+label: 'Google Map'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,30 @@
+uuid: 1da7b2c7-b95a-41d0-87ed-256c613825de
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_style_contact
+field_name: field_style_contact
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: contact1
+      label: 'Contact 1'
+    -
+      value: contact2
+      label: 'Contact 2'
+    -
+      value: contact3
+      label: 'Contact 3'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

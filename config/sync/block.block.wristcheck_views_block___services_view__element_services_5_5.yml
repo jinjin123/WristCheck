@@ -1,0 +1,47 @@
+uuid: a8ef04e8-3a4c-44f7-9f35-b4ea3ed38dfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.homepage_12
+    - views.view._services_view_
+  module:
+    - block_attributes
+    - block_visibility_groups
+    - ntv_block_background
+    - views
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: bg-white-css
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_views_block___services_view__element_services_5_5
+theme: wristcheck
+region: section
+weight: -15
+provider: null
+plugin: 'views_block:_services_view_-element_services_5'
+settings:
+  id: 'views_block:_services_view_-element_services_5'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: homepage_12
+    context_mapping: {  }

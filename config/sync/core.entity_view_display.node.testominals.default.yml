@@ -1,0 +1,66 @@
+uuid: cf55934a-e529-499d-bfe3-b8362c16c006
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.testominals.body
+    - field.field.node.testominals.field_comment_text
+    - field.field.node.testominals.field_image
+    - field.field.node.testominals.field_occupation
+    - field.field.node.testominals.field_subject
+    - node.type.testominals
+  module:
+    - image
+    - text
+    - user
+id: node.testominals.default
+targetEntityType: node
+bundle: testominals
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_comment_text:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_image:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_occupation:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_subject:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

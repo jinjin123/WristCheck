@@ -1,0 +1,40 @@
+uuid: d5b667b3-975a-4179-9c61-4a9026b20e8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_description
+    - field.field.user.user.field_full_name
+    - field.field.user.user.field_social
+    - field.field.user.user.user_picture
+    - image.style.image120x147
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content:
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: image120x147
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  commerce_remote_id: true
+  field_description: true
+  field_full_name: true
+  field_social: true
+  langcode: true
+  member_for: true
+  profile_customer: true
+  simplenews: true

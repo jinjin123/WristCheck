@@ -1,0 +1,8 @@
+uuid: dbaf101f-ca7e-4fb6-8510-7ead85a32265
+langcode: en
+status: true
+dependencies: {  }
+id: slider
+label: 'Slider Block'
+revision: 0
+description: ''

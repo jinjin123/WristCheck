@@ -1,0 +1,43 @@
+uuid: c49d71fb-73d1-4dfd-859b-260595b5db91
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.clients
+    - field.field.block_content.clients.body
+    - field.field.block_content.clients.field_field_type
+    - field.field.block_content.clients.field_images
+  module:
+    - image
+    - options
+    - text
+id: block_content.clients.default
+targetEntityType: block_content
+bundle: clients
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_field_type:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_images:
+    weight: 1
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  langcode: true

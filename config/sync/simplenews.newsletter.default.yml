@@ -1,0 +1,19 @@
+uuid: 9dbc5317-a729-42b8-9554-c64c8f936e9f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hj6zGNwndnW_J6lKfFcg-tY5e5YqWfgXyt0qioGtXL8
+name: 'Default newsletter'
+id: default
+description: 'This is an example newsletter. Change it.'
+format: plain
+priority: 0
+receipt: true
+from_name: Futures
+subject: '[[simplenews-newsletter:name]] [node:title]'
+from_address: info@companys.com
+hyperlinks: false
+new_account: none
+opt_inout: double
+weight: 0

@@ -1,0 +1,28 @@
+uuid: c23bda16-0acb-4a80-8a32-fdb40ef9553b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.portfolio
+  module:
+    - link
+id: node.portfolio.field_link
+field_name: field_link
+entity_type: node
+bundle: portfolio
+label: Link
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'http://example.com'
+    title: example
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

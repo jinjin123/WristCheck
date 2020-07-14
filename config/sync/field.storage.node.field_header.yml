@@ -1,0 +1,36 @@
+uuid: a473f32b-8e9c-486a-95d7-75431c50c0b9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_header
+field_name: field_header
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: header1
+      label: 'Header layout 1'
+    -
+      value: header2
+      label: 'Header layout 2'
+    -
+      value: header3
+      label: 'Header layout 3'
+    -
+      value: header4
+      label: 'Header layout 4'
+    -
+      value: header5
+      label: 'Header layout 5'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

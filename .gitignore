@@ -24,6 +24,10 @@
 # Ignore vscode
 /.vscode
 
+# Ignore 
+/themes/wristcheck/node_modules/
+/themes/wristcheck/package-lock.json
+
 # Ignore drupal core (if not versioning drupal sources)
 #/core
 /vendor

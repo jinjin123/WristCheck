@@ -1,0 +1,49 @@
+uuid: 44ce4445-0bf9-46a6-9030-eab469fcfa82
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.element_skills
+  content:
+    - 'block_content:basic:26b5c556-a4cf-4743-8936-20e39277a0fa'
+  module:
+    - block_attributes
+    - block_content
+    - block_visibility_groups
+    - ntv_block_background
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_elementskills
+theme: wristcheck
+region: section
+weight: 0
+provider: null
+plugin: 'block_content:26b5c556-a4cf-4743-8936-20e39277a0fa'
+settings:
+  id: 'block_content:26b5c556-a4cf-4743-8936-20e39277a0fa'
+  label: 'Element - Skills'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: element_skills
+    context_mapping: {  }

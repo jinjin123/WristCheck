@@ -1,0 +1,72 @@
+uuid: edd86bf6-1889-4300-b77a-2fad08c8c96e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_style
+field_name: field_style
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grid-big-thumbs
+      label: 'GRID BIG THUMBS'
+    -
+      value: grid-boxed-1
+      label: 'GRID BOXED 1'
+    -
+      value: grid-boxed-2
+      label: 'GRID BOXED 2'
+    -
+      value: grid-spaced
+      label: 'GRID SPACED'
+    -
+      value: grid-fullwidth
+      label: 'GRID FULLWIDTH'
+    -
+      value: horizontal-1
+      label: 'HORIZONTAL 1'
+    -
+      value: horizontal-2
+      label: 'HORIZONTAL 2'
+    -
+      value: horizontal-3
+      label: 'HORIZONTAL 3'
+    -
+      value: classic
+      label: CLASSIC
+    -
+      value: compact
+      label: COMPACT
+    -
+      value: creative
+      label: CREATIVE
+    -
+      value: vintage
+      label: VINTAGE
+    -
+      value: masonry-boxed
+      label: 'MASONRY BOXED'
+    -
+      value: masonry-fw-1
+      label: 'MASONRY FW 1'
+    -
+      value: masonry-fw-2
+      label: 'MASONRY FW 2'
+    -
+      value: masonry-spaced-1
+      label: 'MASONRY SPACED 1'
+    -
+      value: masonry-spaced-2
+      label: 'MASONRY SPACED 2'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,17 @@
+uuid: 64432a20-5c79-42a2-9844-48bf86463152
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: element_skills
+label: 'Element - Skills'
+logic: and
+conditions:
+  6e40f863-a59f-4ead-9546-e39917cc0839:
+    id: request_path
+    pages: /node/66
+    negate: false
+    context_mapping: {  }
+    uuid: 6e40f863-a59f-4ead-9546-e39917cc0839
+allow_other_conditions: false

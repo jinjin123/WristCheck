@@ -1,0 +1,47 @@
+uuid: 9dce9bce-6e07-4516-9f60-9661a4870fa3
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2e6e1be1-26da-4898-adda-ba8d3680f276'
+  module:
+    - block_attributes
+    - block_content
+    - block_visibility_groups
+    - ntv_block_background
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheck_blockfooter7
+theme: wristcheck
+region: footer_7
+weight: 0
+provider: null
+plugin: 'block_content:2e6e1be1-26da-4898-adda-ba8d3680f276'
+settings:
+  id: 'block_content:2e6e1be1-26da-4898-adda-ba8d3680f276'
+  label: 'Block - Footer 7'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }

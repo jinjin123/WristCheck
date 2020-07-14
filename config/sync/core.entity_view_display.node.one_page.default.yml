@@ -1,0 +1,38 @@
+uuid: febcc112-0356-427a-9571-d492fe3b26e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.one_page.body
+    - field.field.node.one_page.field_page_layout
+    - node.type.one_page
+  module:
+    - options
+    - text
+    - user
+id: node.one_page.default
+targetEntityType: node
+bundle: one_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_page_layout:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

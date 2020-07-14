@@ -1,0 +1,15 @@
+uuid: 943647b9-d18e-449c-8d80-1b0ce5b28176
+langcode: en
+status: true
+dependencies: {  }
+name: image770x516
+label: image770x516
+effects:
+  fc581935-357f-4ecd-89d4-7a279f008280:
+    uuid: fc581935-357f-4ecd-89d4-7a279f008280
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 770
+      height: 516
+      anchor: center-center

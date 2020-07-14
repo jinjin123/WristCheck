@@ -1,0 +1,17 @@
+uuid: f1038acc-4710-4d10-8d5b-2e7d86634b5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: homepage_11
+label: 'Homepage 11'
+logic: and
+conditions:
+  53820294-cb7f-4ac5-844c-af38de252b96:
+    id: request_path
+    pages: /node/11
+    negate: false
+    context_mapping: {  }
+    uuid: 53820294-cb7f-4ac5-844c-af38de252b96
+allow_other_conditions: false
