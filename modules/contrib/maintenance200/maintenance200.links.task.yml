@@ -1,0 +1,6 @@
+maintenance200.settings_form:
+  title: 'Configure maintenance200'
+  route_name: maintenance200_settings
+  description: 'Set maintenance200 module to provide a status other than 503 when the site is in maintenance mode.'
+  base_route: system.site_maintenance_mode
+  weight: 10
