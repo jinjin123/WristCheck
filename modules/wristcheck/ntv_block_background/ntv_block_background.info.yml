@@ -1,0 +1,7 @@
+name: 'ntv_block_background'
+type: module
+description: 'Place holder for ntv block background module'
+core: 8.x
+package: 'WristCheck'
+dependencies:
+  - block
