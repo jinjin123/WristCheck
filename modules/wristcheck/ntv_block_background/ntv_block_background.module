@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains ntv_block_background.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ntv_block_background_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ntv_block_background module.
+    case 'help.page.ntv_block_background':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Place holder for ntv block background module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ntv_block_background_theme() {
+  return [
+    'ntv_block_background' => [
+      'render element' => 'children',
+    ],
+  ];
+}

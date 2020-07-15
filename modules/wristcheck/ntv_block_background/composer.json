@@ -1,0 +1,13 @@
+{
+    "name": "ntv_block_background",
+    "type": "drupal-module",
+    "description": "Place holder for ntv block background module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/ntv_block_background",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/ntv_block_background",
+        "source": "http://cgit.drupalcode.org/ntv_block_background",
+    },
+}
