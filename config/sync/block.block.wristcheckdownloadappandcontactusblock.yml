@@ -1,0 +1,44 @@
+uuid: e5e70b06-85a1-42a2-a064-ad0131f12e02
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.wristcheck_page_buy
+  module:
+    - block_attributes
+    - block_visibility_groups
+    - ntv_block_background
+    - wristcheck_basic
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckdownloadappandcontactusblock
+theme: wristcheck
+region: section
+weight: 23
+provider: null
+plugin: wrist_check_download_app_and_contact_us_block
+settings:
+  id: wrist_check_download_app_and_contact_us_block
+  label: 'WristCheck Download App And Contact US Block'
+  provider: wristcheck_basic
+  label_display: '0'
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: wristcheck_page_buy
+    context_mapping: {  }

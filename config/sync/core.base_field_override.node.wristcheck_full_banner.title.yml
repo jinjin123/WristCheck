@@ -1,0 +1,18 @@
+uuid: 6a956ffc-9ee2-445f-b774-13017ef308b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_full_banner
+id: node.wristcheck_full_banner.title
+field_name: title
+entity_type: node
+bundle: wristcheck_full_banner
+label: 'WristCheck Full Banner'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

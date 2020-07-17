@@ -30,7 +30,7 @@ third_party_settings:
 id: wristcheck_elementcolumns
 theme: wristcheck
 region: section
-weight: 0
+weight: 9
 provider: null
 plugin: 'block_content:372f681e-08af-4760-a56a-f1983df40f90'
 settings:

@@ -1,0 +1,29 @@
+uuid: 0fe4d13e-5926-4ea0-b00e-f4c3c502db16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_introduction
+    - node.type.brand
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    full_html: full_html
+    php: '0'
+    restricted_html: '0'
+    plain_text: '0'
+id: node.brand.field_introduction
+field_name: field_introduction
+entity_type: node
+bundle: brand
+label: Introduction
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

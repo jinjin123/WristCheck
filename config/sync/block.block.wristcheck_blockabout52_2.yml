@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - block_visibility_groups.block_visibility_group.hom
+    - block_visibility_groups.block_visibility_group.homepage1
   content:
     - 'block_content:basic:0bdf194a-b772-430f-aaa7-dda564f752fa'
   module:
@@ -30,7 +30,7 @@ third_party_settings:
 id: wristcheck_blockabout52_2
 theme: wristcheck
 region: section
-weight: -16
+weight: -42
 provider: null
 plugin: 'block_content:0bdf194a-b772-430f-aaa7-dda564f752fa'
 settings:
@@ -45,5 +45,5 @@ visibility:
   condition_group:
     id: condition_group
     negate: false
-    block_visibility_group: hom
+    block_visibility_group: homepage1
     context_mapping: {  }
