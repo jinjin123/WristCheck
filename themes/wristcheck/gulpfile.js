@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     gulpIf = require('gulp-if'),
     eslint = require('gulp-eslint'),
     sass = require('gulp-sass'),
+    less = require('gulp-less'),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
     imagemin = require('gulp-imagemin'),
@@ -19,14 +20,18 @@ gulp.task('imagemin', function () {
         .pipe(gulp.dest('./images'));
 });
 
-gulp.task('sass', async function () {
-    await gulp.src('./src/sass/**/*.scss')
+gulp.task('sass', function () {
+    return gulp.src('./src/sass/**/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(autoprefixer('last 2 version'))
-        .pipe(sourcemaps.write('./'))
+        // .pipe(sourcemaps.write('./assets/less/style.less')).pipe(less)
         .pipe(gulp.dest('./css'));
 });
+
+gulp.task('less', function () {
+    return gulp.src('./assets/less/style.less').pipe(less()).pipe(gulp.dest('./assets/css/style.scss'))
+})
 
 function isFixed(file) {
     // Has ESLint fixed the file contents?
@@ -35,7 +40,7 @@ function isFixed(file) {
 
 
 gulp.task('eslint', function () {
-    gulp.src(['./src/js/*.js'])
+    return gulp.src(['./src/js/*.js'])
         .pipe(eslint({
             "extends": "eslint:recommended",
             "env": {
@@ -140,11 +145,11 @@ gulp.task('eslint', function () {
 });
 
 gulp.task('watch', function () {
-    livereload.listen();
-
-    gulp.watch('./src/sass/**/*.scss', gulp.series('sass'));
-    gulp.watch('./src/js/**/*.js', gulp.series('eslint'));
-    gulp.watch(['./css/style.css', './**/*.html.twig', './js/*.js'], function (files) {
-        livereload.changed(files)
-    });
+    // livereload.listen();
+    gulp.watch('./src/sass/**/*.scss', gulp.task('sass'));
+    // gulp.watch('./src/js/**/*.js', gulp.parallel('eslint'));
+    gulp.watch('./assets/less/*.less', gulp.task('less'))
+    // gulp.watch(['./css/style.css', './**/*.html.twig', './js/*.js'], function (files) {
+    //     livereload.changed(files)
+    // });
 });
