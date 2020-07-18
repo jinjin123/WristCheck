@@ -1,0 +1,13 @@
+{
+    "name": "block_attributes",
+    "type": "drupal-module",
+    "description": "Placeholder for block attribute module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/block_attributes",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/block_attributes",
+        "source": "http://cgit.drupalcode.org/block_attributes",
+    },
+}

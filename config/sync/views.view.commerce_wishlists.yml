@@ -1,12 +1,13 @@
-uuid: bf8aa62c-cc6d-403c-906c-36ddeefedd75
+uuid: f6c8d121-4ed1-4ef1-9e96-7c529bd0eea9
 langcode: en
 status: true
 dependencies:
   module:
+    - commerce
     - commerce_wishlist
     - user
 _core:
-  default_config_hash: 90kSKjVlf3qPNCb9NfvIlPeikXfX9BfJQw22nedsBw4
+  default_config_hash: adIQy5yAYCZmficTeafq_z2gFH_UQ-ZPH9_Oug6Z9is
 id: commerce_wishlists
 label: Wishlists
 module: views
@@ -229,7 +230,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true

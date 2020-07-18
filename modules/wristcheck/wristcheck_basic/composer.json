@@ -8,6 +8,6 @@
     "minimum-stability": "dev",
     "support": {
         "issues": "https://www.drupal.org/project/issues/wristcheck_basic",
-        "source": "http://cgit.drupalcode.org/wristcheck_basic"
-    }
+        "source": "http://cgit.drupalcode.org/wristcheck_basic",
+    },
 }

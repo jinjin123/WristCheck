@@ -29,7 +29,7 @@ third_party_settings:
 id: wristcheck_views_block___testominal_view__element_testominal_5
 theme: wristcheck
 region: section
-weight: 0
+weight: 18
 provider: null
 plugin: 'views_block:_testominal_view_-element_testominal_5'
 settings:

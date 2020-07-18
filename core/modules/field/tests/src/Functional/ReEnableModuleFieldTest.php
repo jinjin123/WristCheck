@@ -127,10 +127,14 @@ class ReEnableModuleFieldTest extends BrowserTestBase {
     $field_storage2->delete();
 
     $this->drupalGet('admin/modules/uninstall');
-    $this->assertText('Fields pending deletion');
+
+    $cron_url = \Drupal::url('system.run_cron');
+    $pending_deletion_text = sprintf('Field pending deletion: node.field_telephone. Running cron may delete the field.', $cron_url);
+
+    $this->assertText($pending_deletion_text);
     $this->cronRun();
     $this->assertNoText("The Telephone number field type is used in the following field: node.field_telephone");
-    $this->assertNoText('Fields pending deletion');
+    $this->assertNoText($pending_deletion_text);
   }
 
 }

@@ -1,18 +1,30 @@
-uuid: eead84e9-fb7a-4f06-9d1d-8869b538e1b2
+uuid: e31cb0e0-86e9-4b3a-b2d0-ad141805d658
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_wishlist.commerce_wishlist_type.default
-  module:
-    - inline_entity_form
 _core:
-  default_config_hash: DJdWvvwDEe4CBoHRiYuj0rDfpbdwTzqjPUNPtn7VEqo
+  default_config_hash: LKrm4hc-p8gGRBE2JmEu90N2755Px__LfEE7PYuvQ5Q
 id: commerce_wishlist.default.default
 targetEntityType: commerce_wishlist
 bundle: default
 mode: default
 content:
+  is_public:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 19
+    region: content
+    third_party_settings: {  }
+  keep_purchased_items:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 20
+    region: content
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -25,18 +37,6 @@ content:
     type: options_select
     weight: 1
     settings: {  }
-    third_party_settings: {  }
-    region: content
-  wishlist_items:
-    type: inline_entity_form_complex
-    weight: 2
-    settings:
-      override_labels: true
-      label_singular: 'wishlist item'
-      label_plural: 'wishlist items'
-      allow_new: true
-      match_operator: CONTAINS
-      allow_existing: false
     third_party_settings: {  }
     region: content
 hidden:

@@ -1,0 +1,26 @@
+uuid: 0416effb-316b-4db9-beaf-e45fb0a9c447
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.wristcheck_full_banner.field_wc_fullbanner_href
+    - field.field.node.wristcheck_full_banner.field_wc_fullbanner_img
+    - node.type.wristcheck_full_banner
+  module:
+    - user
+id: node.wristcheck_full_banner.teaser
+targetEntityType: node
+bundle: wristcheck_full_banner
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_wc_fullbanner_href: true
+  field_wc_fullbanner_img: true
+  langcode: true
+  search_api_excerpt: true

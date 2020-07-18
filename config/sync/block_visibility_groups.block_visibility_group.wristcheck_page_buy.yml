@@ -1,0 +1,17 @@
+uuid: 318c168b-d8df-4486-840c-17149e93cc90
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: wristcheck_page_buy
+label: 'WristCheck Page Buy'
+logic: and
+conditions:
+  1b2d747f-57da-464f-8bcc-04b98bf1d3a0:
+    id: request_path
+    pages: /pages/buy
+    negate: false
+    context_mapping: {  }
+    uuid: 1b2d747f-57da-464f-8bcc-04b98bf1d3a0
+allow_other_conditions: false

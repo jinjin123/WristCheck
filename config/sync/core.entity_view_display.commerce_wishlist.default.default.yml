@@ -1,4 +1,4 @@
-uuid: 852f3c3d-c4ad-4e20-aa69-2f1dd64bcefc
+uuid: a7ecdfca-7d89-4358-b91e-55fa090b7e80
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: 0yjxBMMs6SkvljPAcaoGnnnmpMVI6k990HDXGGL2rJw
+  default_config_hash: k0scr8eB2zeYsjx07iHj8cTLzKjLxF4r_qSxPtdYUpw
 id: commerce_wishlist.default.default
 targetEntityType: commerce_wishlist
 bundle: default
@@ -31,4 +31,5 @@ content:
     region: content
 hidden:
   name: true
+  search_api_excerpt: true
   shipping_profile: true

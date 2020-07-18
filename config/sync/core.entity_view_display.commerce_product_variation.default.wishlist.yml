@@ -1,4 +1,4 @@
-uuid: 6b5cf5f9-4b67-419d-8d43-6fa6eff99129
+uuid: 2173d60d-c761-4747-816b-0a6350f5d36a
 langcode: en
 status: true
 dependencies:
@@ -38,5 +38,6 @@ content:
 hidden:
   langcode: true
   price: true
+  search_api_excerpt: true
   sku: true
   title: true

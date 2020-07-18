@@ -1,0 +1,49 @@
+uuid: 5b18e79a-ad74-4fc6-84c1-05354f0e322c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.wristcheck_page_buy
+  content:
+    - 'block_content:basic:4fd5984f-da48-4157-af67-754b19b9a3b8'
+  module:
+    - block_attributes
+    - block_content
+    - block_visibility_groups
+    - ntv_block_background
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckbuyingprocess
+theme: wristcheck
+region: section
+weight: 22
+provider: null
+plugin: 'block_content:4fd5984f-da48-4157-af67-754b19b9a3b8'
+settings:
+  id: 'block_content:4fd5984f-da48-4157-af67-754b19b9a3b8'
+  label: 'WristCheck Buying Process'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: wristcheck_page_buy
+    context_mapping: {  }
