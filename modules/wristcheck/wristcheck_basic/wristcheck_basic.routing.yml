@@ -5,3 +5,11 @@ wristcheck_basic.maintenance_form:
     _title: 'MaintenanceForm'
   requirements:
     _access: 'TRUE'
+
+wristcheck_basic.home_page_controller_index:
+  path: '/homepage'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\HomePageController::index'
+    _title: 'homepageindex'
+  requirements:
+    _permission: 'access content'

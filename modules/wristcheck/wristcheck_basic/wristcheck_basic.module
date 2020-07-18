@@ -31,5 +31,8 @@ function wristcheck_basic_theme() {
     'wristcheck_basic' => [
       'render element' => 'children',
     ],
+    'wristcheck_homepage' => [
+      'variables' => ['test_var' => NULL],
+    ],
   ];
 }
