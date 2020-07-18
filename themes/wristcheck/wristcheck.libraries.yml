@@ -40,6 +40,7 @@ wristcheck-global:
     theme:
       css/style.css: { preprocess: 0, minified: true }
   js:
+    src/js/global.js: { preprocess: 0, minified: true }
   dependencies:
     - core/jquery
     - core/drupalSettings
