@@ -8,6 +8,6 @@
     "minimum-stability": "dev",
     "support": {
         "issues": "https://www.drupal.org/project/issues/block_attributes",
-        "source": "http://cgit.drupalcode.org/block_attributes",
-    },
+        "source": "http://cgit.drupalcode.org/block_attributes"
+    }
 }

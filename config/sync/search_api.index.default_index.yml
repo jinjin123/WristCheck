@@ -17,12 +17,39 @@ name: 'Default content index'
 description: 'Default content index created by the Database Search Defaults module'
 read_only: false
 field_settings:
-  title:
-    label: Title
+  author:
+    label: 'Author name'
     datasource_id: 'entity:node'
-    property_path: title
-    type: text
-    boost: !!float 8
+    property_path: 'uid:entity:name'
+    type: string
+    dependencies:
+      module:
+        - user
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+  field_tags:
+    label: Tags
+    datasource_id: 'entity:node'
+    property_path: field_tags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
   rendered_item:
     label: 'Rendered item'
     property_path: rendered_item
@@ -34,16 +61,6 @@ field_settings:
         'entity:node':
           article: search_index
           page: search_index
-  created:
-    label: 'Authored on'
-    datasource_id: 'entity:node'
-    property_path: created
-    type: date
-  changed:
-    label: Changed
-    datasource_id: 'entity:node'
-    property_path: changed
-    type: date
   status:
     label: 'Publishing status'
     datasource_id: 'entity:node'
@@ -56,22 +73,17 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: sticky
     type: boolean
-  field_tags:
-    label: Tags
+  title:
+    label: Title
     datasource_id: 'entity:node'
-    property_path: field_tags
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_tags
-  author:
-    label: 'Author name'
+    property_path: title
+    type: text
+    boost: !!float 8
+  type:
+    label: 'Content type'
     datasource_id: 'entity:node'
-    property_path: 'uid:entity:name'
+    property_path: type
     type: string
-    dependencies:
-      module:
-        - user
   uid:
     label: 'Author ID'
     datasource_id: 'entity:node'
@@ -79,18 +91,6 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
-  node_grants:
-    label: 'Node access information'
-    property_path: search_api_node_grants
-    type: string
-    indexed_locked: true
-    type_locked: true
-    hidden: true
-  type:
-    label: 'Content type'
-    datasource_id: 'entity:node'
-    property_path: type
-    type: string
 datasource_settings:
   'entity:node':
     bundles:
@@ -122,11 +122,11 @@ processor_settings:
     title: true
     alt: true
     tags:
+      b: 2
       h1: 5
       h2: 3
       h3: 2
       string: 2
-      b: 2
     all_fields: false
   ignorecase:
     weights:
@@ -142,8 +142,8 @@ processor_settings:
       pre_index_save: -10
   stopwords:
     weights:
-      preprocess_query: -10
       postprocess_query: -10
+      preprocess_query: -10
     fields:
       - rendered_item
       - title
