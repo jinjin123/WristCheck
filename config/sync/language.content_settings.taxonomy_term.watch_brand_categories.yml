@@ -1,0 +1,11 @@
+uuid: c4bfac4d-18b0-41c2-9621-14e51585ac06
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.watch_brand_categories
+id: taxonomy_term.watch_brand_categories
+target_entity_type_id: taxonomy_term
+target_bundle: watch_brand_categories
+default_langcode: site_default
+language_alterable: false

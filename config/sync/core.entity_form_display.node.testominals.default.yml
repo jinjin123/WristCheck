@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.testominals.body
     - field.field.node.testominals.field_comment_text
+    - field.field.node.testominals.field_company_name
     - field.field.node.testominals.field_image
     - field.field.node.testominals.field_occupation
     - field.field.node.testominals.field_subject
@@ -31,6 +31,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_company_name:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_image:
     weight: 7
@@ -108,5 +116,4 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden:
-  body: true
+hidden: {  }

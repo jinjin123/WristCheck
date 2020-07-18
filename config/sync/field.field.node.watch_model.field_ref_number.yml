@@ -1,0 +1,19 @@
+uuid: 1af57ec6-6822-4ac8-9d69-b789d6a54259
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ref_number
+    - node.type.watch_model
+id: node.watch_model.field_ref_number
+field_name: field_ref_number
+entity_type: node
+bundle: watch_model
+label: 'Ref Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

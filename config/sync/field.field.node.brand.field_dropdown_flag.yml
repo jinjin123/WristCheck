@@ -1,0 +1,23 @@
+uuid: a5f54a34-4473-4514-a0b2-c82420e8358a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dropdown_flag
+    - node.type.brand
+id: node.brand.field_dropdown_flag
+field_name: field_dropdown_flag
+entity_type: node
+bundle: brand
+label: 'Dropdown flag'
+description: 'Display brand in Dropdown list'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Display in dropdown menu'
+  off_label: 'Hidden in dropdown menu'
+field_type: boolean

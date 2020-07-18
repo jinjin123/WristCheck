@@ -1,0 +1,18 @@
+uuid: b567b5a5-1ef9-4a09-a3b2-41cea23bf929
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_faq
+id: node.wristcheck_faq.title
+field_name: title
+entity_type: node
+bundle: wristcheck_faq
+label: Question
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
