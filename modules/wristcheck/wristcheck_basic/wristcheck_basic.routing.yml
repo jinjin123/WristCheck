@@ -13,3 +13,42 @@ wristcheck_basic.home_page_controller_index:
     _title: 'homepageindex'
   requirements:
     _permission: 'access content'
+wristcheck_basic.buy_controller_index:
+  path: '/buy'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\BuyController::index'
+    _title: 'buy'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.sell_controller_index:
+  path: '/sell'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::index'
+    _title: 'sell'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.e_shop_controller_index:
+  path: '/eshop'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\EShopController::index'
+    _title: 'eshop'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.discover_controller_index:
+  path: '/discover'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\DiscoverController::index'
+    _title: 'discover'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.faq_controller_index:
+  path: '/faq'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\FaqController::index'
+    _title: 'faq'
+  requirements:
+    _permission: 'access content'
