@@ -1,0 +1,41 @@
+.footer-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  color: #FFF;
+  padding: 100px 0;
+
+  .footer-item {
+    min-width: 260px;
+    text-align: left;
+  }
+
+  .footer-item__title {
+    font-size: 18px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 1);
+    line-height: 49px;
+  }
+
+  .footer-item__sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+    line-height: 49px;
+  }
+
+  .icon-email {
+    display: inline-block;
+    width: 17px;
+    height: 14px;
+    margin-right: 12px;
+  }
+
+  .icon-call {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 19px;
+  }
+}
