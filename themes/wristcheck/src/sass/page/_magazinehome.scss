@@ -1,0 +1,75 @@
+.path-magazine-home {
+  .container {
+    .field--name-body {
+      h2,
+      h4{
+        text-align: center;
+      }
+      >div {
+        text-align: center;
+        display: flow-root;
+        margin-bottom: 60px;
+        a {
+          padding: 30px
+        }
+      }
+    }
+  }
+  .views-field-title {
+    text-align: center;
+    text-decoration: underline;
+  }
+  .views-field-field-mag-short-description {
+    text-align: center;
+  }
+  .field--name-field-mag-home-title {
+    font-size: 32px;
+    color: black;
+    text-align: center;
+  }
+  .field--name-field-mag-home-art-title {
+    color: black;
+    text-decoration: underline;
+    font-size: 15px;
+    padding: 0 25px;
+  }
+  .field--name-field-mag-home-img {
+    display: flex;
+    img {
+      margin-bottom: 30px;
+      padding: 25px;
+    }
+  }
+  #block-views-block-latest-articles-block-1-2 {
+    width: 100%;
+    >h2 {
+      text-align: center;
+    }
+    .views-field-field-latest-articles {
+      margin:0 6%;
+      .field-content {
+        display: flex;
+        align-content: flex-start;
+        flex-flow: row wrap;
+      }
+      .field--name-field-latest-img {
+        img {
+          padding: 10px;
+          //width: 50%;
+        }
+      }
+      .field--name-field-latest-title {
+        position: relative;
+        margin: 0 20px;
+        color: black;
+      }
+    }
+  }
+  .views-field-field-magazine-home{
+    .field-content {
+      display: flex;
+      align-content: flex-start;
+      flex-flow: row wrap;
+    }
+  }
+}
