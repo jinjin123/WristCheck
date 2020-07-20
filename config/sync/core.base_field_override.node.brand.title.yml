@@ -8,7 +8,7 @@ id: node.brand.title
 field_name: title
 entity_type: node
 bundle: brand
-label: 'Brand Name'
+label: 'Watch Brand Name'
 description: ''
 required: true
 translatable: true

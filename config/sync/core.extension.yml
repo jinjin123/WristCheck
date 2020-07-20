@@ -43,6 +43,7 @@ module:
   dblog: 0
   dc_ajax_add_cart: 0
   devel: 0
+  devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0
@@ -62,7 +63,6 @@ module:
   language: 0
   link: 0
   locale: 0
-  maintenance200: 0
   md_slider: 0
   menu_ui: 0
   naviteam_twig: 0
@@ -80,6 +80,8 @@ module:
   profile: 0
   quickedit: 0
   rdf: 0
+  realistic_dummy_content: 0
+  realistic_dummy_content_api: 0
   rest: 0
   search: 0
   search_api: 0
@@ -115,6 +117,7 @@ module:
   pathauto: 1
   content_translation: 10
   views: 10
+  paragraphs: 11
   standard: 1000
 theme:
   stable: 0

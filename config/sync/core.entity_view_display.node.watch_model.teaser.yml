@@ -1,0 +1,50 @@
+uuid: 081066e9-3fd5-4b33-aac3-f1cd784861ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.watch_model.body
+    - field.field.node.watch_model.field_brand_images
+    - field.field.node.watch_model.field_introduction
+    - field.field.node.watch_model.field_model_attributes
+    - field.field.node.watch_model.field_model_specifications
+    - field.field.node.watch_model.field_model_tags
+    - field.field.node.watch_model.field_ref_number
+    - field.field.node.watch_model.field_related_brand
+    - field.field.node.watch_model.field_related_model
+    - field.field.node.watch_model.field_subname
+    - node.type.watch_model
+  module:
+    - text
+    - user
+id: node.watch_model.teaser
+targetEntityType: node
+bundle: watch_model
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_brand_images: true
+  field_introduction: true
+  field_model_attributes: true
+  field_model_specifications: true
+  field_model_tags: true
+  field_ref_number: true
+  field_related_brand: true
+  field_related_model: true
+  field_subname: true
+  langcode: true
+  search_api_excerpt: true
