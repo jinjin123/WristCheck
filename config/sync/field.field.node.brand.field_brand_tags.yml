@@ -5,12 +5,12 @@ dependencies:
   config:
     - field.storage.node.field_brand_tags
     - node.type.brand
-    - taxonomy.vocabulary.watch_brand_categories
+    - taxonomy.vocabulary.tags
 id: node.brand.field_brand_tags
 field_name: field_brand_tags
 entity_type: node
 bundle: brand
-label: 'Watch Brand Categories'
+label: Tags
 description: ''
 required: false
 translatable: false
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      watch_brand_categories: watch_brand_categories
+      tags: tags
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: tags
+    auto_create_bundle: ''
 field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: 9e14964f-c69a-4d9f-ad42-94c793d64f5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wc_banner_enable
+    - node.type.wristcheck_banner
+id: node.wristcheck_banner.field_wc_banner_enable
+field_name: field_wc_banner_enable
+entity_type: node
+bundle: wristcheck_banner
+label: Enable
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

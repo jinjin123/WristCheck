@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.blog_post.field_blog_tags
     - field.field.node.blog_post.field_images
     - field.field.node.blog_post.field_page_title_image
-    - field.field.node.blog_post.field_related_brand
     - node.type.blog_post
   module:
     - text
@@ -39,6 +38,4 @@ hidden:
   field_blog_tags: true
   field_images: true
   field_page_title_image: true
-  field_related_brand: true
   langcode: true
-  search_api_excerpt: true

@@ -1,0 +1,11 @@
+uuid: 7e81a69b-03f9-400a-a156-aa7c1b167b5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_banner
+id: node.wristcheck_banner
+target_entity_type_id: node
+target_bundle: wristcheck_banner
+default_langcode: site_default
+language_alterable: false

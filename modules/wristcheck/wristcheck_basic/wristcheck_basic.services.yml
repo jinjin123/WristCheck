@@ -1,0 +1,7 @@
+services:
+  logger.channel.wristcheck_basic:
+    parent: logger.channel_base
+    arguments: ['wristcheck_basic']
+  wristcheck_basic.banner:
+    class: Drupal\wristcheck_basic\Service\BannerService
+    arguments: []
