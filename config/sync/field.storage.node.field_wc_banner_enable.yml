@@ -1,0 +1,18 @@
+uuid: b1259bf1-0bcf-4423-b7b5-59ad73274bb4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_wc_banner_enable
+field_name: field_wc_banner_enable
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

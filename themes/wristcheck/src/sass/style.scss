@@ -1,2 +1,12 @@
 @import './page/magazinehome';
 @import './page/magazinesingle';
+@import './component/footer';
+@import './component/header';
+@import './layout/narrow';
+
+@media (min-width: 1900px) {
+  .container{
+    max-width: 1800px;
+  }
+}
+

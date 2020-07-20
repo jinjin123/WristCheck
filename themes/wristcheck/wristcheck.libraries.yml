@@ -38,6 +38,7 @@ wristcheck-global:
   version: VERSION
   css:
     theme:
+      css/reset.css: { preprocess: 0, minified: true }
       css/style.css: { preprocess: 0, minified: true }
   js:
     src/js/global.js: { preprocess: 0, minified: true }

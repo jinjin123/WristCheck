@@ -30,7 +30,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('less', function () {
-    return gulp.src('./assets/less/style.less').pipe(less()).pipe(gulp.dest('./assets/css/style.scss'))
+    return gulp.src('./assets/less/style.less').pipe(less()).pipe(gulp.dest('./assets/css/'))
 })
 
 function isFixed(file) {
@@ -148,7 +148,8 @@ gulp.task('watch', function () {
     // livereload.listen();
     gulp.watch('./src/sass/**/*.scss', gulp.task('sass'));
     // gulp.watch('./src/js/**/*.js', gulp.parallel('eslint'));
-    gulp.watch('./assets/less/*.less', gulp.task('less'))
+    gulp.watch('./assets/**/*.less', gulp.task('less'));
+    gulp.watch('./src/images/**/*.', gulp.task('imagemin'))
     // gulp.watch(['./css/style.css', './**/*.html.twig', './js/*.js'], function (files) {
     //     livereload.changed(files)
     // });

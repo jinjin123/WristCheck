@@ -1,0 +1,27 @@
+uuid: b50da7ba-40e3-4ad1-b733-07eb6526fc6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wc_banner_file
+    - node.type.wristcheck_banner
+  module:
+    - file
+id: node.wristcheck_banner.field_wc_banner_file
+field_name: field_wc_banner_file
+entity_type: node
+bundle: wristcheck_banner
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg gif mp4'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

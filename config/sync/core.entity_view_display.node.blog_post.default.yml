@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.blog_post.field_blog_tags
     - field.field.node.blog_post.field_images
     - field.field.node.blog_post.field_page_title_image
-    - field.field.node.blog_post.field_related_brand
     - node.type.blog_post
   module:
     - comment
@@ -73,14 +72,6 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  field_related_brand:
-    weight: 110
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   links:
     weight: 100
     settings: {  }
@@ -88,4 +79,3 @@ content:
     region: content
 hidden:
   langcode: true
-  search_api_excerpt: true

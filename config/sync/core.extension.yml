@@ -62,6 +62,7 @@ module:
   language: 0
   link: 0
   locale: 0
+  maintenance200: 0
   md_slider: 0
   menu_ui: 0
   naviteam_twig: 0
@@ -114,7 +115,6 @@ module:
   pathauto: 1
   content_translation: 10
   views: 10
-  paragraphs: 11
   standard: 1000
 theme:
   stable: 0

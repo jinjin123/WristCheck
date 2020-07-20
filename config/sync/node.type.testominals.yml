@@ -6,9 +6,10 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
-name: Testimonials
+    available_menus:
+      - main
+    parent: 'main:'
+name: Testominals
 type: testominals
 description: ''
 help: ''

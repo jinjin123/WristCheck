@@ -3035,8 +3035,11 @@ ul.dot-list li i {
 }
 .navbar-nav > li {
   margin-right: 30px;
-  height: 100px;
+  height: 50px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .navbar-nav li a {
   font-size: 13px;
@@ -3046,8 +3049,9 @@ ul.dot-list li i {
   color: #333333;
 }
 .navbar-nav > li > a {
-  line-height: 100px;
+  display: inline-block;
   padding: 0;
+  position: relative;
 }
 .nav .open > a,
 .nav .open > a:hover,
@@ -3063,47 +3067,30 @@ ul.dot-list li i {
   background-color: transparent;
 }
 /* Menu Level #1 */
-.navbar-nav > li:before,
-.navbar-nav > li:after {
+.navbar-nav > li > a:before,
+.navbar-nav > li > a:after {
   position: absolute;
   background: #333333;
-  content: '';
-  opacity: 0;
+  content: ' ';
+  height: 2px;
+  width: 0;
+  bottom: -10px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  -webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  -o-transform: translateY(-10px);
-  -ms-transform: translateY(-10px);
-  transform: translateY(-10px);
 }
-.navbar-nav > li:after {
-  bottom: 38px;
-  width: 15px;
-  height: 2px;
-}
-.navbar-nav > li:before {
-  bottom: 35px;
+.navbar-nav > li:hover > a:after {
+  bottom: -10px;
   width: 2px;
-  height: 5px;
+  height: 2px;
+  bottom: 0;
+  right: 0;
 }
-.navbar-nav > li:hover::after,
-.navbar-nav > li:hover::before {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -o-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-}
-.navbar-nav > li.active::after,
-.navbar-nav > li.active:hover::after,
-.navbar-nav > li.active::before,
-.navbar-nav > li.active:hover::before {
-  opacity: 1;
-  transform: none;
-  -webkit-transform: none;
+.navbar-nav > li:hover > a:before {
+  bottom: -10px;
+  width: 80%;
+  height: 2px;
+  left: 0;
 }
 .dropdown-toggle::after {
   display: none;
@@ -9479,9 +9466,6 @@ footer {
 }
 .footer-1 .footer-container {
   background-color: #1b1a1a;
-}
-.footer-1 .footer-container {
-  padding-bottom: 69px;
 }
 .footer-1 .footer-widget {
   height: 150px;
