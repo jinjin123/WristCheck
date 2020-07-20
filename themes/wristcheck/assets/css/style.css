@@ -972,7 +972,7 @@ ul.dot-list li i {
   background-color: #ffffff !important;
 }
 .bg-dark {
-  background-color: #222222 !important;
+  background-color: #999999 !important;
 }
 .bg-dark3 {
   background-color: #1f2127 !important;
@@ -3042,16 +3042,18 @@ ul.dot-list li i {
   align-items: center;
 }
 .navbar-nav li a {
-  font-size: 13px;
+  font-size: 20px;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
-  color: #333333;
+  font-weight: bold;
+  color: #999999;
 }
 .navbar-nav > li > a {
   display: inline-block;
   padding: 0;
   position: relative;
+  height: 30px;
+  line-height: 30px;
 }
 .nav .open > a,
 .nav .open > a:hover,
@@ -3086,6 +3088,22 @@ ul.dot-list li i {
   bottom: 0;
   right: 0;
 }
+.navbar-nav .dian {
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  background-color: #333;
+  right: 0;
+  bottom: -10px;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.3s ease 0.2s;
+}
+.navbar-nav li.active .dian,
+.navbar-nav > li:hover .dian {
+  opacity: 1;
+}
+.navbar-nav li.active a:before,
 .navbar-nav > li:hover > a:before {
   bottom: -10px;
   width: 80%;
@@ -3098,6 +3116,11 @@ ul.dot-list li i {
 .container-p0 {
   padding-right: 0;
   padding-left: 0;
+}
+.navbar-nav li:hover a,
+.navbar-nav li.active a {
+  font-size: 26px;
+  color: #333333;
 }
 /*------------------------------------*\
     #Nav
@@ -8273,7 +8296,7 @@ td.cart-product-quantity {
   font-size: 15px;
   font-weight: 800;
   text-transform: capitalize;
-  color: rgba(39, 41, 48, 0.2);
+  color: #333333;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;

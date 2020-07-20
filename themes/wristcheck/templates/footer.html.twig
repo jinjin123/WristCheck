@@ -490,8 +490,54 @@
         </div><!-- .footer-container end -->
     </footer>
 {% else %}
-    <footer id="footer" class="footer footer-1">
-        <div class="footer-container">
+    <footer id="footer" class="footer">
+        <div class='footer-container'>
+            <div class='footer-box'>
+                <div class='footer-item'>
+                    <div class='footer-item__title'>Buy</div>
+                    <ul class='footer-item__sub'>
+                        <li><a>How it works</a></li>
+                        <li><a>Authentication Center</a></li>
+                        <li><a>Bidding policy</a></li>
+                        <li><a>Purchases & Returns</a></li>
+                    </ul>
+                </div>
+                <div class='footer-item'>
+                    <div class='footer-item__title'>Sell</div>
+                    <ul class='footer-item__sub'>
+                        <li><a>Sell now</a></li>
+                        <li><a>How it works</a></li>
+                        <li><a>Fee policy</a></li>
+                        <li><a>Drop off details</a></li>
+                    </ul>
+                </div>
+                <div class='footer-item'>
+                    <div class='footer-item__title'>Magazines</div>
+                    <ul class='footer-item__sub'>
+                        <li><a>About</a></li>
+                        <li><a>News (Editorials)</a></li>
+                        <li><a>APP</a></li>
+                        <li><a>Careers</a></li>
+                    </ul>
+                </div>
+                <div class='footer-item'>
+                    <div class='footer-item__title'>Support</div>
+                    <ul class='footer-item__sub'>
+                        <li><a>FAQ</a></li>
+                        <li><a>Terms</a></li>
+                        <li><a>Privacy</a></li>
+                        <li><a>Policies</a></li>
+                    </ul>
+                </div>
+                <div class='footer-item'>
+                    <ul class='footer-item__sub'>
+                        <li><a><img class='icon-email' src='/themes/wristcheck/images/icon-email.png' /> EMAIL</a></li>
+                        <li><a><img class='icon-call' src='/themes/wristcheck/images/icon-phone.png' />CALL</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {# <div class="footer-container">
             <!-- Widget Section
         ============================================= -->
             <div class="footer-widget">
@@ -525,6 +571,6 @@
         ============================================= -->
             {{ page.footer }}<!-- .footer-copyright end -->
 
-        </div><!-- .footer-container end -->
+        </div><!-- .footer-container end --> #}
     </footer>
 {% endif %}

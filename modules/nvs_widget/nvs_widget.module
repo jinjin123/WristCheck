@@ -73,12 +73,12 @@
     // do our business
     $feed = curl_init();
     curl_setopt_array($feed, $options);
-    $json = curl_exec($feed);
-    curl_close($feed);
+    // $json = curl_exec($feed);
+    // curl_close($feed);
 
-    $twitter_data = json_decode($json);
+    // $twitter_data = json_decode($json);
 
-    $tweetout = '';
-    foreach ($twitter_data as &$value) {
+    // $tweetout = '';
+    // foreach ($twitter_data as &$value) {
        //kint($value);
-    }
+    // }

@@ -23,6 +23,10 @@
     font-weight: 300;
     color: rgba(255, 255, 255, 1);
     line-height: 49px;
+    li>a:hover{
+      font-weight: bold;
+      cursor: pointer;
+    }
   }
 
   .icon-email {
