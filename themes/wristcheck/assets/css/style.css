@@ -5301,9 +5301,7 @@ ul.dot-list li i {
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  padding: 42px;
   opacity: 0;
-  background-image: url(../icons/up-decor.png);
   background-position: center 32px;
   background-repeat: no-repeat;
 }
@@ -5313,28 +5311,6 @@ ul.dot-list li i {
   height: 100%;
   position: relative;
   padding: 17px;
-}
-.portfolio .portfolio-hover:before,
-.portfolio .portfolio-hover:after {
-  position: absolute;
-  content: '';
-  pointer-events: none;
-}
-.portfolio .portfolio-hover:before {
-  top: 30px;
-  right: 27px;
-  bottom: 30px;
-  left: 27px;
-  border-top: 2px solid #2f2f2f;
-  border-bottom: 2px solid #2f2f2f;
-}
-.portfolio .portfolio-hover:after {
-  top: 27px;
-  right: 30px;
-  bottom: 27px;
-  left: 30px;
-  border-right: 2px solid #2f2f2f;
-  border-left: 2px solid #2f2f2f;
 }
 .portfolio .portfolio-cat {
   color: #9b9b9b;
@@ -5362,9 +5338,22 @@ ul.dot-list li i {
 }
 .portfolio .portfolio-title h4 a {
   color: white;
+  font-size: 25px;
+  font-style: italic;
+  font-family: 'Myriad Pro';
+}
+.portfolio .portfolio-sub-title {
+  font-size: 14px;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #333333;
+  line-height: 24px;
+  text-align: center;
+  padding-bottom: 40px;
 }
 .portfolio .portfolio-cat a {
   color: #9b9b9b;
+  font-size: 12px;
 }
 .portfolio .portfolio-title h4 a:hover,
 .portfolio .portfolio-cat a:hover {
