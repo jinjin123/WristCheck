@@ -63,23 +63,22 @@
 
     // if you're doing post, you need to skip the GET building above
     // and instead supply query parameters to CURLOPT_POSTFIELDS
-//todo remove twitter
-//    $options = array( CURLOPT_HTTPHEADER => array("Authorization: $auth"),
-//                      //CURLOPT_POSTFIELDS => $postfields,
-//                      CURLOPT_HEADER => false,
-//                      CURLOPT_URL => $url,
-//                      CURLOPT_RETURNTRANSFER => true,
-//                      CURLOPT_SSL_VERIFYPEER => false);
-//
-//    // do our business
-//    $feed = curl_init();
-//    curl_setopt_array($feed, $options);
-//    $json = curl_exec($feed);
-//    curl_close($feed);
-//
-//    $twitter_data = json_decode($json);
-//
-//    $tweetout = '';
-//    foreach ($twitter_data as &$value) {
-//       //kint($value);
-//    }
+    $options = array( CURLOPT_HTTPHEADER => array("Authorization: $auth"),
+                      //CURLOPT_POSTFIELDS => $postfields,
+                      CURLOPT_HEADER => false,
+                      CURLOPT_URL => $url,
+                      CURLOPT_RETURNTRANSFER => true,
+                      CURLOPT_SSL_VERIFYPEER => false);
+
+    // do our business
+    $feed = curl_init();
+    curl_setopt_array($feed, $options);
+    // $json = curl_exec($feed);
+    // curl_close($feed);
+
+    // $twitter_data = json_decode($json);
+
+    // $tweetout = '';
+    // foreach ($twitter_data as &$value) {
+       //kint($value);
+    // }

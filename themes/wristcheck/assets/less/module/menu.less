@@ -38,17 +38,19 @@
 }
 
 .navbar-nav li a {
-    font-size: 13px;
+    font-size: 20px;
     font-family: @font-thirdy;
     text-transform: uppercase;
-    font-weight: 700;
-    color: @color-secondary;
+    font-weight: bold;
+    color: @color-dark2;
 }
 
 .navbar-nav>li>a {
     display: inline-block;
     padding: 0;
     position: relative;
+    height: 30px;
+    line-height: 30px;
 }
 
 .nav .open>a,
@@ -89,6 +91,24 @@
     right: 0;
 }
 
+.navbar-nav .dian {
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background-color: #333;
+    right: 0;
+    bottom: -10px;
+    position: absolute;
+    opacity: 0;
+    transition: all .3s ease .2s;
+}
+
+.navbar-nav li.active .dian,
+.navbar-nav>li:hover .dian {
+    opacity: 1;
+}
+
+.navbar-nav li.active a:before,
 .navbar-nav>li:hover>a:before {
     bottom: -10px;
     width: 80%;
@@ -103,4 +123,10 @@
 .container-p0 {
     padding-right: 0;
     padding-left: 0;
+}
+
+.navbar-nav li:hover a,
+.navbar-nav li.active a {
+    font-size: 26px;
+    color: @color-dark;
 }
