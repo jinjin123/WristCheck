@@ -1,11 +1,16 @@
+@import './variables/color';
 @import './component/footer';
 @import './component/header';
 @import './component/banner';
 @import './layout/panel';
 @import './layout/narrow';
 
+.bg-f9{
+  background-color: $bg_gray2;
+}
+
 @media (min-width: 1900px) {
-  .container{
+  .container {
     max-width: 1800px;
   }
 }

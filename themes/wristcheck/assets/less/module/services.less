@@ -14,34 +14,37 @@
 .service .service-panel h3 {
     color: #282828;
     font-family: @font-heading;
-    font-size: 18px;
     font-weight: 600;
-    line-height: 29px;
     text-transform: capitalize;
     position: relative;
     padding-bottom: 10px;
-    margin-bottom: 14px;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 24px;
+    font-variant: all-small-caps;
 }
 
-.service .service-panel h3:before {
-    position: absolute;
-    content: "";
-    width: 46px;
-    height: 2px;
-    background-color: @color-theme;
-    left: -10px;
-    bottom: 0
-}
+// .service .service-panel h3:before {
+//     position: absolute;
+//     content: "";
+//     width: 46px;
+//     height: 2px;
+//     background-color: @color-theme;
+//     left: -10px;
+//     bottom: 0
+// }
 
-.service .service-panel h3:after {
-    position: absolute;
-    content: "";
-    width: 2px;
-    height: 2px;
-    background-color: #282828;
-    left: 39px;
-    bottom: 0
-}
+// .service .service-panel h3:after {
+//     position: absolute;
+//     content: "";
+//     width: 2px;
+//     height: 2px;
+//     background-color: #282828;
+//     left: 39px;
+//     bottom: 0
+// }
 
 .service .service-panel p {
     color: @color-body;
@@ -92,6 +95,33 @@
     color: @color-theme;
 }
 
+.service .service-content .service-detail {
+    height: 107px;
+    padding: 0 50px;
+    border-right: 1px solid #EFEEEE;
+    margin-bottom: 80px;
+
+    &:last-child {
+        border-right-color: transparent;
+    }
+}
+
+.service .service-content .wc-service-btn {
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bolder;
+    border-width: 2px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.service .row>div:last-child .service-detail {
+    border-right-color: transparent;
+}
 
 /* Service #1 */
 .service-1 .service-panel .service-icon {
@@ -162,46 +192,46 @@
     border-bottom: none
 }
 
-.service-3 .nav-tabs > li {
+.service-3 .nav-tabs>li {
     float: none;
     display: inline-block;
     text-align: center;
 }
 
-.service-3 .nav-tabs > li {
+.service-3 .nav-tabs>li {
     margin-right: 80px;
 }
 
-.service-3 .nav-tabs > li:last-child {
+.service-3 .nav-tabs>li:last-child {
     margin-right: 0
 }
 
-.service-3 .nav-tabs > li > a {
+.service-3 .nav-tabs>li>a {
     border: none;
     border-radius: 0;
     padding: 0;
     transition: .3s ease;
 }
 
-.service-3 .nav-tabs > li > a,
-.service-3 .nav-tabs > li > a:focus,
-.service-3 .nav-tabs > li > a:hover {
+.service-3 .nav-tabs>li>a,
+.service-3 .nav-tabs>li>a:focus,
+.service-3 .nav-tabs>li>a:hover {
     background-color: transparent;
     border: none;
 }
 
-.service-3 .nav-tabs > li > a.active,
-.service-3 .nav-tabs > li > a.active:focus,
-.service-3 .nav-tabs > li > a.active:hover {
+.service-3 .nav-tabs>li>a.active,
+.service-3 .nav-tabs>li>a.active:focus,
+.service-3 .nav-tabs>li>a.active:hover {
     background-color: transparent;
     color: @color-theme;
     border: none;
 }
 
-.service-3 .nav-tabs > li > a.active .service-icon,
-.service-3 .nav-tabs > li > a.active h3,
-.service-3 .nav-tabs > li > a:hover .service-icon,
-.service-3 .nav-tabs > li > a:hover h3 {
+.service-3 .nav-tabs>li>a.active .service-icon,
+.service-3 .nav-tabs>li>a.active h3,
+.service-3 .nav-tabs>li>a:hover .service-icon,
+.service-3 .nav-tabs>li>a:hover h3 {
     color: @color-theme
 }
 
@@ -282,7 +312,7 @@
 
 }
 
-.service-5 .service-panel:hover  .service-more{
+.service-5 .service-panel:hover .service-more {
     color: @color-theme;
 }
 
@@ -314,8 +344,8 @@
         margin-left: -50px;
     }
 
-    .service-3 .nav-tabs > li,
-    .service-3 .nav-tabs > li:last-child {
+    .service-3 .nav-tabs>li,
+    .service-3 .nav-tabs>li:last-child {
         margin: 0 10px 15px;
     }
 
@@ -359,7 +389,7 @@
         padding-right: 100px;
     }
 
-    .service-3 .nav-tabs > li {
+    .service-3 .nav-tabs>li {
         margin-right: 30px;
     }
 
@@ -375,14 +405,15 @@
     .service-4 .service-img {
         margin-bottom: 30px;
     }
-    .service-4 .service-img img{
+
+    .service-4 .service-img img {
         display: block;
         margin: auto;
     }
 }
 
 @media only screen and (min-width : 992px) and (max-width : 1024px) {
-    .service-3 .nav-tabs > li {
+    .service-3 .nav-tabs>li {
         margin-right: 69px;
     }
 
@@ -393,7 +424,7 @@
 }
 
 @media only screen and (min-width : 992px) and (max-width : 1200px) {
-    .service-3 .nav-tabs > li {
+    .service-3 .nav-tabs>li {
         margin-right: 35px;
     }
 
@@ -404,7 +435,8 @@
     .service-3 .service-panel .service-icon {
         margin-bottom: 10px;
     }
-    .service-4 .service-img{
+
+    .service-4 .service-img {
         margin-bottom: 30px;
     }
 }

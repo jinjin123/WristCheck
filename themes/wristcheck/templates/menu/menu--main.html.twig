@@ -48,9 +48,9 @@
           {% if menu_level == 0 %}
             <li{{ item.attributes.addClass('has-dropdown') }}>
               <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="{{ item.url }}">{{ item.title|raw }}<span class='dian'></span></a>
-              {# {% if item.below %}
+              {% if item.below %}
               {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-              {% endif %} #}
+              {% endif %}
             </li>
           {% elseif menu_level == 1 %}
             <li{{ item.attributes.addClass('dropdown-submenu') }}>
