@@ -1,3 +1,6 @@
+{% for banner in variables. banners %}
+  {{ banner.type }}-{{ banner.file_url }}-{{ banner.ext }}
+{% endfor %}
 {{ variables.banners }}
 <div>EXPLOER WRISTCHECK</div>
 {{ variables.exploer_wristcheck }}
