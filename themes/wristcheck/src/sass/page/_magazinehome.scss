@@ -55,22 +55,21 @@
       font-size:  25px;
     }
     .views-field-field-latest-articles {
-      margin:0 6%;
+      margin:0 3%;
       .field-content {
         display: flex;
-        align-content: flex-start;
-        flex-flow: row wrap;
-      }
-      .field--name-field-latest-img {
-        img {
-          padding: 10px;
-          //width: 50%;
+        flex-wrap: wrap;
+        .field--name-field-latest-img {
+          width: 33.3%;
+          img {
+            padding: 10px;
+          }
         }
-      }
-      .field--name-field-latest-title {
-        position: relative;
-        margin: 0 20px;
-        color: black;
+        .field--name-field-latest-title {
+          position: relative;
+          margin: 0 20px;
+          color: black;
+        }
       }
     }
   }
