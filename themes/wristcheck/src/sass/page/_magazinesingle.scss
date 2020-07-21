@@ -31,12 +31,20 @@
       margin-bottom: 20px;
     }
   }
+  .field--name-field-mag-single-body {
+    p {
+      margin-bottom: 40px;
+    }
+  }
   #block-views-block-latest-articles-block-1 {
     width: 100%;
     //padding: 0 10%;
     //margin:0 8%;
      >h2 {
        text-align: center;
+       font-size: 25px;
+       font-weight: bold;
+       margin-bottom: 10px;
      }
     .views-field-field-latest-articles {
       margin:0 6%;

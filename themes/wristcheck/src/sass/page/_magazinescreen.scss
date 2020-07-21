@@ -1,0 +1,20 @@
+.path-magazine-screening {
+  .views-field-field-magazine-screening {
+    margin: 0 20%;
+    .paragraph--type--magazine-screening {
+      display: flex;
+    }
+  }
+  .field--name-field-watch-magazine,
+  .field--name-field-mag-menu,
+  .field--name-field-buy-agzine {
+    padding: 100px;
+    .field__item {
+      a {
+        line-height: 50px;
+      }
+    }
+  }
+}
+
+
