@@ -6,7 +6,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\MapArray;
 
 /**
- * 
+ *
  *
  * @Block(
  *   id = "twitterwidget",
@@ -32,7 +32,7 @@ class TwitterWidget extends BlockBase {
       '#type' => 'select',
       '#title' => $this->t('Number of recent tweets items to display'),
       '#required' => TRUE,
-      '#options' => 
+      '#options' =>
         array(
           1 => $this->t('1'),
           2 => $this->t('2'),
@@ -157,40 +157,42 @@ class TwitterWidget extends BlockBase {
                       CURLOPT_RETURNTRANSFER => true,
                       CURLOPT_SSL_VERIFYPEER => false);
 
+    //todo remove tweet
     // do our business
-    $feed = curl_init();
-    curl_setopt_array($feed, $options);
-    $json = curl_exec($feed);
-    curl_close($feed);
-
-    $my_tweets = json_decode($json);
-
-    $tweetout = '';
-    foreach ($my_tweets as $key => $value) {
-      if(isset($my_tweets->errors)){           
-          $tweetout .= '<p>Error :'. $my_tweets->errors[0]->code. ' - '. $my_tweets->errors[0]->message.'</p>';
-      }else{
-        //print_r($value);
-        //profile_image_url
-        $profile_image_url = $value->user->profile_image_url;
-        //STATUS
-        $status = $value->text;
-        //created
-        $created = $value->created_at;
-
-        //output custom here
-        $tweetout .= '<li><div class="content"><i class="fa fa-twitter"></i>'.$this->makeClickableLinks($status).'<span>
-        '.$this->twitter_time($created).'</span></div></li>';
-      }
-    }
-    return  '<ul>'.$tweetout.'</ul>' ;
+//    $feed = curl_init();
+//    curl_setopt_array($feed, $options);
+//    $json = curl_exec($feed);
+//    curl_close($feed);
+//
+//    $my_tweets = json_decode($json);
+//
+//    $tweetout = '';
+//    foreach ($my_tweets as $key => $value) {
+//      if(isset($my_tweets->errors)){
+//          $tweetout .= '<p>Error :'. $my_tweets->errors[0]->code. ' - '. $my_tweets->errors[0]->message.'</p>';
+//      }else{
+//        //print_r($value);
+//        //profile_image_url
+//        $profile_image_url = $value->user->profile_image_url;
+//        //STATUS
+//        $status = $value->text;
+//        //created
+//        $created = $value->created_at;
+//
+//        //output custom here
+//        $tweetout .= '<li><div class="content"><i class="fa fa-twitter"></i>'.$this->makeClickableLinks($status).'<span>
+//        '.$this->twitter_time($created).'</span></div></li>';
+//      }
+//    }
+//    return  '<ul>'.$tweetout.'</ul>' ;
+    return '<ul></ul>';
   }
 
-  
+
   //convert time to TIME AGO
   function twitter_time($a) {
     //get current timestampt
-    $b = strtotime("now"); 
+    $b = strtotime("now");
     //get timestamp when tweet created
     $c = strtotime($a);
     //get difference
@@ -200,7 +202,7 @@ class TwitterWidget extends BlockBase {
     $hour = $minute * 60;
     $day = $hour * 24;
     $week = $day * 7;
-        
+
     if(is_numeric($d) && $d > 0) {
         //if less then 3 seconds
         if($d < 3) return "right now";

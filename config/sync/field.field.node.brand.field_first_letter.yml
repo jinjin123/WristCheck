@@ -1,0 +1,19 @@
+uuid: fa1a06ee-e729-4cdf-a6eb-4404db03877b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_first_letter
+    - node.type.brand
+id: node.brand.field_first_letter
+field_name: field_first_letter
+entity_type: node
+bundle: brand
+label: 'The First Letter'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

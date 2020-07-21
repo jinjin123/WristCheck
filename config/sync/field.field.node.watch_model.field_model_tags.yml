@@ -1,0 +1,29 @@
+uuid: b665a95e-8e34-4516-905b-ea377e89ae72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_model_tags
+    - node.type.watch_model
+    - taxonomy.vocabulary.product_categories
+id: node.watch_model.field_model_tags
+field_name: field_model_tags
+entity_type: node
+bundle: watch_model
+label: 'Model Tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      product_categories: product_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

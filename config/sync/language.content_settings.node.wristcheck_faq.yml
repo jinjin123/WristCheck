@@ -1,0 +1,11 @@
+uuid: c29834d7-5946-4b1d-baa7-e3719c61bea0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_faq
+id: node.wristcheck_faq
+target_entity_type_id: node
+target_bundle: wristcheck_faq
+default_langcode: site_default
+language_alterable: false

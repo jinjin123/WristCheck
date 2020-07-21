@@ -1,0 +1,28 @@
+uuid: 63c25806-2886-4519-8be7-781ed0f01dcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_brand
+    - node.type.article
+    - node.type.brand
+id: node.article.field_related_brand
+field_name: field_related_brand
+entity_type: node
+bundle: article
+label: 'Related Brand'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      brand: brand
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
