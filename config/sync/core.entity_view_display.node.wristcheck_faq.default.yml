@@ -1,0 +1,39 @@
+uuid: 05ca3230-149c-478b-9a6f-a3cca3e6dd9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.wristcheck_faq.body
+    - field.field.node.wristcheck_faq.field_faq_category
+    - node.type.wristcheck_faq
+  module:
+    - text
+    - user
+id: node.wristcheck_faq.default
+targetEntityType: node
+bundle: wristcheck_faq
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_faq_category:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

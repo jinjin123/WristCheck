@@ -1,0 +1,11 @@
+uuid: 2b27f3cc-f648-48e9-8446-68e358326281
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.watch_model
+id: node.watch_model
+target_entity_type_id: node
+target_bundle: watch_model
+default_langcode: site_default
+language_alterable: false
