@@ -11,6 +11,35 @@
     margin: 0;
     padding: 50px 0;
   }
+  .wc-ex-btn{
+    background-color: #FFF;
+    color: #333;
+    border: 1px solid #333;
+    position: relative;
+    &::before{
+      position: absolute;
+      width: 0;
+      height: 100%;
+      background-color: #333;
+      left: 0;
+      top: 0;
+      content: '';
+      transition: all .3s ease-in;
+      z-index: -1;
+    }
+    &:hover{
+      color: #FFF;
+      &::before{
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+  .portfolio-zoom{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .wc-ex-panel {
