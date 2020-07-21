@@ -1,0 +1,21 @@
+uuid: 05228e5c-37eb-4ace-a33a-43796531b38a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_purchase_date
+    - node.type.wcshw
+  module:
+    - datetime
+id: node.wcshw.field_purchase_date
+field_name: field_purchase_date
+entity_type: node
+bundle: wcshw
+label: 'Purchase date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

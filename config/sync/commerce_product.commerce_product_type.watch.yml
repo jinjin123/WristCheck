@@ -1,0 +1,12 @@
+uuid: 701b9128-44e8-4b82-99ab-bb32f047fe35
+langcode: en
+status: true
+dependencies: {  }
+id: watch
+label: 'Watch Model'
+description: 'Wristcheck watch product which will be reference to model selling contents.'
+variationType: watch
+multipleVariations: true
+injectVariationFields: true
+traits: {  }
+locked: false
