@@ -4890,31 +4890,16 @@ ul.dot-list li i {
 .service .service-panel h3 {
   color: #282828;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
   font-weight: 600;
-  line-height: 29px;
   text-transform: capitalize;
   position: relative;
   padding-bottom: 10px;
-  margin-bottom: 14px;
-}
-.service .service-panel h3:before {
-  position: absolute;
-  content: "";
-  width: 46px;
-  height: 2px;
-  background-color: #333;
-  left: -10px;
-  bottom: 0;
-}
-.service .service-panel h3:after {
-  position: absolute;
-  content: "";
-  width: 2px;
-  height: 2px;
-  background-color: #282828;
-  left: 39px;
-  bottom: 0;
+  margin-bottom: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333333;
+  line-height: 24px;
+  font-variant: all-small-caps;
 }
 .service .service-panel p {
   color: #9b9b9b;
@@ -4958,6 +4943,27 @@ ul.dot-list li i {
 }
 .service .service-panel .service-more:hover {
   color: #333;
+}
+.service .service-content .service-detail {
+  height: 107px;
+  padding: 0 50px;
+  border-right: 1px solid #EFEEEE;
+  margin-bottom: 80px;
+}
+.service .service-content .service-detail:last-child {
+  border-right-color: transparent;
+}
+.service .service-content .wc-service-btn {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bolder;
+  border-width: 2px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 /* Service #1 */
 .service-1 .service-panel .service-icon {
