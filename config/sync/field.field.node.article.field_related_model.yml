@@ -1,0 +1,28 @@
+uuid: 022dfaab-eade-4c17-ac95-54d7bf984659
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_model
+    - node.type.article
+    - node.type.watch_model
+id: node.article.field_related_model
+field_name: field_related_model
+entity_type: node
+bundle: article
+label: 'Related Model'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      watch_model: watch_model
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

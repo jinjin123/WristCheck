@@ -4,28 +4,20 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.testominals.body
     - field.field.node.testominals.field_comment_text
+    - field.field.node.testominals.field_company_name
     - field.field.node.testominals.field_image
     - field.field.node.testominals.field_occupation
+    - field.field.node.testominals.field_rate
     - field.field.node.testominals.field_subject
     - node.type.testominals
   module:
-    - text
     - user
 id: node.testominals.teaser
 targetEntityType: node
 bundle: testominals
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   links:
     weight: 100
     settings: {  }
@@ -33,7 +25,10 @@ content:
     region: content
 hidden:
   field_comment_text: true
+  field_company_name: true
   field_image: true
   field_occupation: true
+  field_rate: true
   field_subject: true
   langcode: true
+  search_api_excerpt: true

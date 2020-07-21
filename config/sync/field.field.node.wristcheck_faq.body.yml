@@ -1,0 +1,31 @@
+uuid: e42b758c-e7ee-4feb-bdd2-926e414cca56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.wristcheck_faq
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: '0'
+    php: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: node.wristcheck_faq.body
+field_name: body
+entity_type: node
+bundle: wristcheck_faq
+label: Answer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

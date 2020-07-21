@@ -2,7 +2,7 @@ uuid: 81912d1a-a85c-43a4-a1c7-c365597cfdd4
 langcode: en
 status: true
 dependencies: {  }
-name: 'Product Categories'
+name: 'Watch Model Categories'
 vid: product_categories
 description: ''
 weight: 0

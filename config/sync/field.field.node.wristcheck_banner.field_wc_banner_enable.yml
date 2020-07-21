@@ -1,4 +1,4 @@
-uuid: 9e14964f-c69a-4d9f-ad42-94c793d64f5f
+uuid: 2ab5d692-9f6b-4f9b-bb21-cb6329c208c3
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ entity_type: node
 bundle: wristcheck_banner
 label: Enable
 description: ''
-required: false
+required: true
 translatable: false
 default_value:
   -
