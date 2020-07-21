@@ -1,4 +1,23 @@
-<div class="wc-banner"></div>
+<div class="wc-banner">
+{% for banner in variables. banners %}
+  {{ banner.type }}-{{ banner.file_url }}-{{ banner.ext }}
+{% endfor %}
+{{ variables.banners }}
+<div>EXPLOER WRISTCHECK</div>
+{{ variables.exploer_wristcheck }}
+<div>POPULAR BRANDS</div>
+{{ variables.popular_brands }}
+<div>SELLING PROCESS</div>
+{{ variables.wristcheck_selling_process }}
+<div>WRISTCHECK IN THE NEWS</div>
+{{ variables.news }}
+<div>FURTHER ARTICLES ABOUT ROLEX</div>
+{{ variables.magazines }}
+<div>TESTIMDNIALS</div>
+{{ variables.testimdnials }}
+<div>DOWNLOAD</div>
+{{ variables.download }}
+</div>
 <div class="wc-panel">
   <h1 class='wc-panel__title text-center'>BUYING PROCESS</h1>
   <div class='container'>
