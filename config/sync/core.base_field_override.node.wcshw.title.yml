@@ -1,0 +1,18 @@
+uuid: 61452528-9dd1-4248-9de7-51eb87ccad79
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wcshw
+id: node.wcshw.title
+field_name: title
+entity_type: node
+bundle: wcshw
+label: 'Model Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

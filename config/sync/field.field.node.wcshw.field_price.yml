@@ -1,0 +1,25 @@
+uuid: 9e635b01-287b-4dbb-9f30-ec7ba24b353c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.wcshw
+  module:
+    - commerce_price
+id: node.wcshw.field_price
+field_name: field_price
+entity_type: node
+bundle: wcshw
+label: Price
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - CNY
+    - HKD
+    - USD
+field_type: commerce_price

@@ -1,0 +1,22 @@
+uuid: 9b1f731b-d2e3-43ab-9905-8ab74b09a0f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_owner_location
+    - node.type.wcshw
+  module:
+    - address
+id: node.wcshw.field_owner_location
+field_name: field_owner_location
+entity_type: node
+bundle: wcshw
+label: 'Owner location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries: {  }
+field_type: address_country

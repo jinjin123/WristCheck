@@ -4,6 +4,10 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
+    - field.field.commerce_product_variation.default.attribute_box
+    - field.field.commerce_product_variation.default.attribute_color
+    - field.field.commerce_product_variation.default.attribute_size
+    - field.field.commerce_product_variation.default.attribute_year
   module:
     - commerce_price
 id: commerce_product_variation.default.default
@@ -38,6 +42,11 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
+  attribute_box: true
+  attribute_color: true
+  attribute_size: true
+  attribute_year: true
   langcode: true
   product_id: true
+  search_api_excerpt: true
   title: true

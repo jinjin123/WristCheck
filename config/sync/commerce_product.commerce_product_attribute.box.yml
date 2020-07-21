@@ -1,0 +1,7 @@
+uuid: d12bd057-0456-4f46-8f24-be98b2979b6a
+langcode: en
+status: true
+dependencies: {  }
+id: box
+label: Box
+elementType: select

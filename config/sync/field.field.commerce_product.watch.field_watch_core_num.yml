@@ -1,0 +1,19 @@
+uuid: bf6603b2-f5d4-4578-8c1d-5d9d009470bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_watch_core_num
+id: commerce_product.watch.field_watch_core_num
+field_name: field_watch_core_num
+entity_type: commerce_product
+bundle: watch
+label: 'Watch Core Num'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,31 @@
+uuid: e814bc1f-03bd-4189-8f6c-7006a0fb9a3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.body
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: restricted_html
+    full_html: full_html
+    plain_text: plain_text
+    php: '0'
+id: commerce_product.watch.body
+field_name: body
+entity_type: commerce_product
+bundle: watch
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: null
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary
