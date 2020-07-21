@@ -30,7 +30,6 @@ module:
   commerce_promotion: 0
   commerce_store: 0
   commerce_tax: 0
-  commerce_wishlist: 0
   config: 0
   config_translation: 0
   contact: 0
