@@ -1,8 +1,9 @@
-uuid: 022dfaab-eade-4c17-ac95-54d7bf984659
+uuid: cfb43953-2e83-4e02-8a2a-c066d745c734
 langcode: en
 status: true
 dependencies:
   config:
+    - commerce_product.commerce_product_type.watch
     - field.storage.node.field_related_model
     - node.type.article
 id: node.article.field_related_model
@@ -12,13 +13,14 @@ bundle: article
 label: 'Related Model'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:commerce_product'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      watch: watch
     sort:
       field: _none
     auto_create: false
