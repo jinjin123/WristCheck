@@ -1,0 +1,17 @@
+uuid: fe417c16-cabe-4899-bc05-308ee016b394
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Wristcheck Second-hand watch'
+type: wcshw
+description: 'Wristcheck Second-hand watch content type. Which allow sller to create and let uset to start buying.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

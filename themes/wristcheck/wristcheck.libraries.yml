@@ -38,6 +38,7 @@ wristcheck-global:
   version: VERSION
   css:
     theme:
+      https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css: { preprocess: 0, minified: true }
       css/reset.css: { preprocess: 0, minified: true }
       css/style.css: { preprocess: 0, minified: true }
   js:

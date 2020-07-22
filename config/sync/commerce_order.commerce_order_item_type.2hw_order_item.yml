@@ -1,0 +1,15 @@
+uuid: a8a891b3-1f64-406c-a99a-96e6da7432ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_tax
+third_party_settings:
+  commerce_tax:
+    taxable_type: physical_goods
+label: '2 Hands Watch Order Item'
+id: 2hw_order_item
+purchasableEntityType: commerce_product_variation
+orderType: 2hw_order
+traits: {  }
+locked: false

@@ -1,0 +1,21 @@
+uuid: 823eede7-ee69-4df6-89d4-6eb3dbb1f59e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_integrity
+    - node.type.wcshw
+  module:
+    - options
+id: node.wcshw.field_product_integrity
+field_name: field_product_integrity
+entity_type: node
+bundle: wcshw
+label: 'Product integrity'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

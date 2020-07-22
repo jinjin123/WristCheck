@@ -1,0 +1,26 @@
+uuid: 91466239-2cb6-4d49-bcd6-151126669d3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+    - commerce_checkout
+third_party_settings:
+  commerce_cart:
+    cart_form_view: commerce_cart_form
+    cart_block_view: commerce_cart_block
+    cart_expiration:
+      unit: day
+      number: 15
+  commerce_checkout:
+    checkout_flow: second_hands_watch_buying_flow
+label: '2 Hands Watch Order'
+id: 2hw_order
+workflow: order_default
+numberPattern: null
+refresh_mode: customer
+refresh_frequency: 300
+sendReceipt: true
+receiptBcc: ''
+traits: {  }
+locked: false
