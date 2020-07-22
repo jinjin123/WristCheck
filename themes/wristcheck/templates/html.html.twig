@@ -25,6 +25,15 @@
  * @ingroup themeable
  */
 #}
+{%
+  set body_classes = [
+  logged_in ? 'user-logged-in',
+  not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+  node_type ? 'page-node-type-' ~ node_type|clean_class,
+  node_type ? 'path-' ~node_type|clean_class,
+  db_offline ? 'db-offline',
+]
+%}
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
@@ -44,7 +53,7 @@
 
     <js-placeholder token="{{ placeholder_token }}">
   </head>
-  <body>
+  <body {{ attributes.addClass(body_classes) }}>
     <input type="hidden" class="wristcheck_map" data-lag="{{ nvs_geolocation_lang }}" data-lat="{{ nvs_geolocation_lat }}" >
     <div id="wristcheck_map" class="hidden" data-lat="{{ nvs_geolocation_lat }}" data-lang="{{ nvs_geolocation_lang }}"></div>
       <div class="preloader">

@@ -1,0 +1,67 @@
+.path-magazine-single {
+  .views-field-created {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .views-field-title {
+    text-align: center;
+  }
+  .views-field-uid {
+    text-align: center;
+    color: black;
+    margin-bottom: 25px;
+  }
+  .views-field-field-mag-short-description {
+    text-align: center;
+  }
+  .field--name-field-mag-home-title {
+    font-size: 32px;
+    color: black;
+    text-align: center;
+  }
+  .field--name-field-mag-home-art-title {
+    color: black;
+    text-decoration: underline;
+    font-size: 15px;
+    padding: 0 25px;
+  }
+  .field--name-field-mag-single-img {
+    img {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  .field--name-field-mag-single-body {
+    p {
+      margin-bottom: 40px;
+    }
+  }
+  #block-views-block-latest-articles-block-1 {
+    width: 100%;
+    //padding: 0 10%;
+    //margin:0 8%;
+     >h2 {
+       text-align: center;
+       font-size: 25px;
+       font-weight: bold;
+       margin-bottom: 10px;
+     }
+    .views-field-field-latest-articles {
+      margin:0 6%;
+      .field-content {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .field--name-field-latest-img {
+        img {
+          padding: 10px;
+        }
+      }
+      .field--name-field-latest-title {
+        position: relative;
+        margin: 0 20px;
+        color: black;
+      }
+    }
+  }
+}
