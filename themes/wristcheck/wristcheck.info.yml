@@ -19,12 +19,14 @@ stylesheets-remove:
 
 regions:
   header: 'Header'
-  main_menu: 'Main menu'
-  Highlight: 'Highlight'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  highlighted: 'Highlighted'
   breadcrumb: 'Breadcrumb'
-  sidebar_left: 'Sidebar Left'
+  help: 'Help Region'
+  sidebar_first: 'Sidebar First'
   content: 'Main content'
-  sidebar_right: 'Sidebar Left'
+  sidebar_second: 'Sidebar Second'
   section: 'Section content'
   footer: 'Footer'
   bottom_footer: 'Bottom footer'
