@@ -3,7 +3,6 @@
 \*------------------------------------*/
 
 .navbar {
-    min-height: 100px;
     margin-bottom: 0;
     top: inherit;
     padding: 0;
@@ -31,7 +30,6 @@
 .navbar-nav>li {
     margin-right: 30px;
     height: 50px;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,14 +75,14 @@
     content: ' ';
     height: 2px;
     width: 0;
-    bottom: -10px;
+    bottom: -3px;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
 .navbar-nav>li:hover>a:after {
-    bottom: -10px;
+    bottom: -3px;
     width: 2px;
     height: 2px;
     bottom: 0;
@@ -97,7 +95,7 @@
     height: 2px;
     background-color: #333;
     right: 0;
-    bottom: -10px;
+    bottom: -3px;
     position: absolute;
     opacity: 0;
     transition: all .3s ease .2s;
@@ -110,7 +108,7 @@
 
 .navbar-nav li.active a:before,
 .navbar-nav>li:hover>a:before {
-    bottom: -10px;
+    bottom: -3px;
     width: 80%;
     height: 2px;
     left: 0;
