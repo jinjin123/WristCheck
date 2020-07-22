@@ -37,7 +37,7 @@ class BuyController extends ControllerBase implements ContainerInjectionInterfac
   public function index()
   {
     $banners = $this->bannerService->queryBanner(true);
-    $exploer_wristcheck_view = views_embed_view('wristcheck_buy_exploer');
+    $explore_wristcheck_view = views_embed_view('wristcheck_buy_explore');
     $popular_brands_view = views_embed_view('wristcheck_buy_popular_brands');
     $news_view = views_embed_view('wirstcheck_buy_news');
     $magazine_view = views_embed_view('wristcheck_buy_magazine');
@@ -53,7 +53,7 @@ class BuyController extends ControllerBase implements ContainerInjectionInterfac
     $variables = [
       'banners' => $banners,
       'magazines' => render($magazine_view),
-      'exploer_wristcheck' => render($exploer_wristcheck_view),
+      'explore_wristcheck' => render($explore_wristcheck_view),
       'popular_brands' => render($popular_brands_view),
       'testimdnials' => render($testimdnials_view),
       'news' => render($news_view),
