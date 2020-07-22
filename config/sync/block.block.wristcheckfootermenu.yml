@@ -1,7 +1,9 @@
-uuid: 1b3ec6d4-8acd-464c-a643-a6f7fd2fc709
+uuid: 539c809b-a3a8-451d-9154-84168975079a
 langcode: en
 status: true
 dependencies:
+  config:
+    - system.menu.wristcheck-footer-menu
   module:
     - block_attributes
     - block_visibility_groups
@@ -23,22 +25,20 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-_core:
-  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
-id: wristcheck_branding
+id: wristcheckfootermenu
 theme: wristcheck
-region: header
+region: bottom_footer
 weight: 0
 provider: null
-plugin: system_branding_block
+plugin: 'system_menu_block:wristcheck-footer-menu'
 settings:
-  id: system_branding_block
-  label: 'Site branding'
+  id: 'system_menu_block:wristcheck-footer-menu'
+  label: 'WristCheck Footer Menu'
   provider: system
   label_display: '0'
-  use_site_logo: false
-  use_site_name: true
-  use_site_slogan: true
+  level: 1
+  depth: 0
+  expand_all_items: true
 visibility:
   condition_group:
     id: condition_group
