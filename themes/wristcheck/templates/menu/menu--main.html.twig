@@ -32,46 +32,51 @@
   {% if items %}
     {% if menu_level == 0 %}
       <ul class="navbar-nav">
-    {% elseif menu_level == 1 or menu_level == 2 %}
-      <ul class="dropdown-menu">
-    {% else %}
-      <ul>
-    {% endif %}
-    {% for item in items %}
-      {%
-        set classes = [
-          item.is_expanded ? '',
-          item.is_collapsed ? '',
-          item.in_active_trail ? 'active',
-        ]
-      %}
-          {% if menu_level == 0 %}
-            <li{{ item.attributes.addClass('has-dropdown') }}>
-              <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="{{ item.url }}">{{ item.title|raw }}<span class='dian'></span></a>
-              {% if item.below %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-              {% endif %}
-            </li>
-          {% elseif menu_level == 1 %}
-            <li{{ item.attributes.addClass('dropdown-submenu') }}>
-              <a href="{{ item.url }}">{{ item.title|raw }}</a>
-              {% if item.below %}
-                
-                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-              {% endif %}
-            </li>  
+      {% elseif menu_level == 1 or menu_level == 2 %}
+        {% if menu_level == 1%}
+          <ul class="navbar-submenus">
           {% else %}
-            <li{{ item.attributes.addClass(classes) }}>
-              <a href="{{ item.url }}">{{ item.title|raw }}</a>  
-              {% if item.below %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            <ul class="dropdown-menu">
+            {% endif %}
+          {% else %}
+            <ul>
+            {% endif %}
+            {% for item in items %}
+              {%
+                set classes = [
+                  item.is_expanded ? '',
+                  item.is_collapsed ? '',
+                  item.in_active_trail ? 'active',
+                ]
+              %}
+              {% if menu_level == 0 %}
+                <li{{item.attributes.addClass('has-dropdown')}}>
+                  <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="{{ item.url }}">{{ item.title|raw }}<span class='dian'></span>
+                  </a>
+                  {% if item.below %}
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                  {% endif %}
+                </li>
+              {% elseif menu_level == 1 %}
+                <li{{item.attributes.addClass('dropdown-submenu')}}>
+                  <a href="{{ item.url }}">{{ item.title|raw }}</a>
+                  {% if item.below %}
+
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                  {% endif %}
+                </li>
+              {% else %}
+                <li{{item.attributes.addClass(classes)}}>
+                  <a href="{{ item.url }}">{{ item.title|raw }}</a>
+                  {% if item.below %}
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                  {% endif %}
+                </li>
               {% endif %}
-            </li>
-          {% endif %}
-         
-      
-    {% endfor %}
-        
-      </ul>
-  {% endif %}
-{% endmacro %}
+
+
+            {% endfor %}
+
+          </ul>
+        {% endif %}
+      {% endmacro %}
