@@ -1,4 +1,4 @@
-uuid: 1b3ec6d4-8acd-464c-a643-a6f7fd2fc709
+uuid: e74a84c8-65aa-4848-9299-8175c2a61c96
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - block_attributes
     - block_visibility_groups
     - ntv_block_background
-    - system
+    - search
   theme:
     - wristcheck
 third_party_settings:
@@ -23,22 +23,18 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-_core:
-  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
-id: wristcheck_branding
+id: searchform
 theme: wristcheck
 region: header
 weight: 0
 provider: null
-plugin: system_branding_block
+plugin: search_form_block
 settings:
-  id: system_branding_block
-  label: 'Site branding'
-  provider: system
+  id: search_form_block
+  label: 'WristCheck Search Form'
+  provider: search
   label_display: '0'
-  use_site_logo: false
-  use_site_name: true
-  use_site_slogan: true
+  page_id: ''
 visibility:
   condition_group:
     id: condition_group

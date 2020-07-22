@@ -424,27 +424,29 @@
 {% else %}
   <div class='header-box'>
     <div class='container'>
+
       <div class='header-top flex-row'>
-        <div class='header-top__left flex-1 flex-row'>
-          <a href='javascript:;' class='wc-logo'>WRISTCHECK</a>
-          <div class='header-top-search'>
-            <span class='header-search__icon'></span>
-            <input/>
-          </div>
-        </div>
-        <div class='header-top__right flex-row align-center'>
-          <a class='header-cart flex-row align-center'>
-            <span class='header-cart__icon'></span>
-            <span>WISHLIST</span>
-          </a>
-          <span class='vertical-line'></span>
-          <a class='header-profile flex-row align-center'>
-            <span>MY FROFILE</span>
-            <span class='header-profile__icon'>
-              <img src='/themes/wristcheck/images/photo.png'/>
-            </span>
-          </a>
-        </div>
+        {{ page.header }}
+{#        <div class='header-top__left flex-1 flex-row'>#}
+{#          <a href='javascript:;' class='wc-logo'>WRISTCHECK</a>#}
+{#          <div class='header-top-search'>#}
+{#            <span class='header-search__icon'></span>#}
+{#            <input/>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class='header-top__right flex-row align-center'>#}
+{#          <a class='header-cart flex-row align-center'>#}
+{#            <span class='header-cart__icon'></span>#}
+{#            <span>WISHLIST</span>#}
+{#          </a>#}
+{#          <span class='vertical-line'></span>#}
+{#          <a class='header-profile flex-row align-center'>#}
+{#            <span>MY FROFILE</span>#}
+{#            <span class='header-profile__icon'>#}
+{#              <img src='/themes/wristcheck/images/photo.png'/>#}
+{#            </span>#}
+{#          </a>#}
+{#        </div>#}
       </div>
       <header id="navbar-spy" class="header wc-header">
         <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light">
