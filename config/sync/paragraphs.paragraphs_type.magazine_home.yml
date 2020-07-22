@@ -1,0 +1,10 @@
+uuid: 837a92a4-ceb8-489b-822b-2163a82d0c94
+langcode: en
+status: true
+dependencies: {  }
+id: magazine_home
+label: magazine_home
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
