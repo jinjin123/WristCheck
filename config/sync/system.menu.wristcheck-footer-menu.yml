@@ -1,8 +1,0 @@
-uuid: fbc6b112-1c0d-4b58-ad48-100117fcc934
-langcode: en
-status: true
-dependencies: {  }
-id: wristcheck-footer-menu
-label: 'WristCheck Footer Menu'
-description: ''
-locked: false
