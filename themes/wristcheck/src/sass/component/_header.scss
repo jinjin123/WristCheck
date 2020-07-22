@@ -149,7 +149,7 @@
     }
   }
 
-  #block-useraccountmenu{
+  #block-useraccountmenu {
     position: absolute;
     top: 0;
     right: 0;
@@ -164,6 +164,9 @@
   }
 }
 
+.header-top__right {
+  margin: 0 0 0 auto;
+}
 
 // nav
 .wc-header {
