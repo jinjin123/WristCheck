@@ -39,7 +39,7 @@ class BuyController extends ControllerBase implements ContainerInjectionInterfac
     $banners = $this->bannerService->queryBanner(true);
     $explore_wristcheck_view = views_embed_view('wristcheck_buy_explore');
     $popular_brands_view = views_embed_view('wristcheck_buy_popular_brands');
-    $news_view = views_embed_view('wirstcheck_buy_news');
+    $news_view = views_embed_view('wristcheck_buy_news');
     $magazine_view = views_embed_view('wristcheck_buy_magazine');
     $testimdnials_view = views_embed_view('wristcheck_testimdnials');
 

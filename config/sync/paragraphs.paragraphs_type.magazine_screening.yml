@@ -1,0 +1,10 @@
+uuid: 1e450aee-fc79-4b9a-b81d-aeea8067bea7
+langcode: en
+status: true
+dependencies: {  }
+id: magazine_screening
+label: magazine_screening
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
