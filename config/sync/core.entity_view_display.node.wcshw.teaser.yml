@@ -1,0 +1,48 @@
+uuid: ee11cdb3-47e8-4d1c-94c9-d93e3d877050
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.wcshw.body
+    - field.field.node.wcshw.field_accessories_description
+    - field.field.node.wcshw.field_have_box
+    - field.field.node.wcshw.field_material_pictures
+    - field.field.node.wcshw.field_owner_location
+    - field.field.node.wcshw.field_price
+    - field.field.node.wcshw.field_product_integrity
+    - field.field.node.wcshw.field_purchase_date
+    - field.field.node.wcshw.field_year_of_issue
+    - node.type.wcshw
+  module:
+    - text
+    - user
+id: node.wcshw.teaser
+targetEntityType: node
+bundle: wcshw
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_accessories_description: true
+  field_have_box: true
+  field_material_pictures: true
+  field_owner_location: true
+  field_price: true
+  field_product_integrity: true
+  field_purchase_date: true
+  field_year_of_issue: true
+  langcode: true
+  search_api_excerpt: true

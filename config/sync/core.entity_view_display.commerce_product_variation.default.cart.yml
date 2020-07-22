@@ -5,6 +5,10 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - core.entity_view_mode.commerce_product_variation.cart
+    - field.field.commerce_product_variation.default.attribute_box
+    - field.field.commerce_product_variation.default.attribute_color
+    - field.field.commerce_product_variation.default.attribute_size
+    - field.field.commerce_product_variation.default.attribute_year
   enforced:
     module:
       - commerce_cart
@@ -36,7 +40,12 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  attribute_box: true
+  attribute_color: true
+  attribute_size: true
+  attribute_year: true
   langcode: true
   price: true
+  search_api_excerpt: true
   sku: true
   title: true
