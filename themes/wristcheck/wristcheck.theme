@@ -326,30 +326,16 @@ function wristcheck_preprocess_page(&$variables) {
 function wristcheck_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
     global $header_layout;
     global $region;
-    
-       /* if(preg_match('/search_block_form/i', $form_id)){
-        unset($form['search_block_form']['#title']); // remove label form
-        $form['keys']['#attributes']['placeholder'][] = 'TYPE AND HIT ENTER';
-        $form['keys']['#attributes']['class'][] = 'form-control';
-        $form['keys']['#prefix'] = '<div class="form-group">';
-        $form['keys']['#suffix'] = '</div>';
-        $form['actions']['submit']['#value'] = t('SEARCH'); // Change the text on the submit button
-        $form['actions']['submit']['#attributes']['class'] = array('btn btn-default');
-        // $form['#attributes']['class'] = array('sidebar-search widget-margin');
-        $form['actions']['submit']['#attributes']['data-webform-submit'] = 'search_submit';
-        }*/
-        if(preg_match('/search_block_form/i', $form_id)){
-        unset($form['search_block_form']['#title']); // remove label form
-        $form['keys']['#attributes']['placeholder'][] = t('Type here');
-        $form['keys']['#attributes']['class'][] = 'form-control';
-        $form['actions']['submit']['#value'] = t('&#xf002;'); // Change the text on the submit button
-        $form['actions']['submit']['#attributes']['class'] = array('fa');
-        $form['actions']['submit']['#attributes']['class'] = array('btn btn-default');
-        // $form['#attributes']['class'] = array('sidebar-search widget-margin');
-        $form['actions']['submit']['#attributes']['data-webform-submit'] = 'search_submit';
-        }
 
-    
+    if(preg_match('/search_block_form/i', $form_id)){
+    unset($form['search_block_form']['#title']); // remove label form
+    $form['keys']['#attributes']['placeholder'][] = t('Type here');
+    $form['keys']['#attributes']['class'][] = 'form-control';
+    $form['actions']['submit']['#value'] = t('&#xf002;'); // Change the text on the submit button
+    $form['actions']['submit']['#attributes']['class'] = array('fa');
+    $form['actions']['submit']['#attributes']['class'] = array('btn btn-default');
+    $form['actions']['submit']['#attributes']['data-webform-submit'] = 'search_submit';
+    }
 }
 
 
@@ -371,18 +357,18 @@ function wristcheck_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
            $form['actions']['submit']['#attributes']['class'] = array('btn btn-secondary btn-hover');
            $form['actions']['submit']['#attributes']['data-shop-submit'] = 'shop_submit';
         } 
-    
 }
+
 function wristcheck_preprocess_menu(array &$variables) {
     if ($variables['theme_hook_original'] == 'menu__main') { 
     $items = $variables['items'];
     $variables['logo'] = theme_get_setting('logo.url','wristcheck');
     foreach ($items as $key => $item) {
-
-                $variables['items'][$key]['logo'] = $variables['logo'];
-            }
+            $variables['items'][$key]['logo'] = $variables['logo'];
+        }
     }
 }
+
 function wristcheck_preprocess(&$variables){
     global $por_style;
     global $header_layout;
@@ -403,16 +389,13 @@ function wristcheck_preprocess(&$variables){
     }
     // xóa cache của url
     $variables['#cache']['contexts'][] = 'url';
-    // $variables['header_style'] = theme_get_setting('header_layout', 'wristcheck');
+
     if (!empty(theme_get_setting('color_primary','wristcheck'))) {
         $variables['color_primary']      = theme_get_setting('color_primary','wristcheck');
     }else{
         $variables['color_primary'] = '#b2c81e';
     }
-    $variables['header_layout']     = theme_get_setting('header_layout', 'wristcheck');
-    $variables['footer_layout'] = theme_get_setting('footer_layout', 'wristcheck');
    
-    
     $variables['logo_white_image'] = theme_get_setting('logo_white_image', 'wristcheck');
     
     $variables['background_color']   =    theme_get_setting('background_color','wristcheck');
@@ -491,9 +474,6 @@ function wristcheck_preprocess(&$variables){
     if(\Drupal::routeMatch()->getParameter('node')){
         $node = \Drupal::routeMatch()->getParameter('node');
        
-        // if (isset($node->field_page_bckground) && !empty($node->field_page_bckground->getValue()[0]['value'])) {
-        //     $variables['page_header_background_image'] = $node->field_page_bckground->getValue()[0]['value'];
-        // }
         if (isset($variables['node']->field_page_bckground)) {
         $field_page_bckground = $variables['node']->get('field_page_bckground')->getValue();
         // If a file has been uploaded, get it.

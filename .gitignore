@@ -47,3 +47,4 @@ themes/wristcheck/node_modules/
 themes/wristcheck/package-lock.json
 sites/default/default.services.yml
 sites/default/default.settings.php
+.idea

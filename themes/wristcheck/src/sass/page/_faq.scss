@@ -1,0 +1,43 @@
+.path-faq {
+  .field--name-field-faq-answer {
+   display: none;
+  }
+  .field--name-field-faq-question {
+    height: 35px;
+    >div {
+      span {
+        color: black;
+        font-size: 20px;
+      }
+      i {
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        margin-bottom: 5px;
+        margin-left: 50%;
+      }
+    }
+  }
+  .views-field-title {
+    text-align: left;
+    margin-bottom: 20px;
+    .field-content {
+      a {
+        font-size: 25px;
+        font-weight: bold;
+      }
+    }
+  }
+  .views-field-field-faq-short-description {
+    margin-bottom: 100px;
+    p {
+      color: black;
+    }
+  }
+}
+
+
+
