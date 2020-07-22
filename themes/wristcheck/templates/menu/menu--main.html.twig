@@ -21,6 +21,7 @@
  */
 #}
 {% import _self as menus %}
+
 {#
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
@@ -50,7 +51,13 @@
                 ]
               %}
               {% if menu_level == 0 %}
-                <li{{item.attributes.addClass('has-dropdown')}}>
+              {% 
+                set current_classes = [
+                  'has-dropdown',
+                  item.in_active_trail ? 'active',
+                ]
+              %}
+                <li{{item.attributes.addClass(current_classes)}}>
                   <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="{{ item.url }}">{{ item.title|raw }}<span class='dian'></span>
                   </a>
                   {% if item.below %}
