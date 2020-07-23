@@ -35,9 +35,9 @@
       <ul class="navbar-nav">
       {% elseif menu_level == 1 or menu_level == 2 %}
         {% if menu_level == 1%}
-          <ul class="navbar-submenus">
+          <ul class="dropdown-menu mega-dropdown-menu">
           {% else %}
-            <ul class="dropdown-menu">
+            <ul class="navbar-submenus">
             {% endif %}
           {% else %}
             <ul>
@@ -54,7 +54,7 @@
               {%
                 set current_classes = [
                   'has-dropdown',
-                'mega-dropdown',
+                  'mega-dropdown',
                   item.in_active_trail ? 'active',
                 ]
               %}
@@ -66,7 +66,7 @@
                   {% endif %}
                 </li>
               {% elseif menu_level == 1 %}
-                <li{{item.attributes.addClass('dropdown-submenu')}}>
+                <li{{item.attributes.addClass('dropdown-submenu col-md-4')}}>
                   <a href="{{ item.url }}">{{ item.title|raw }}</a>
                   {% if item.below %}
 

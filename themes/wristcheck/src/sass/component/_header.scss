@@ -16,6 +16,18 @@
     color: $color-dark-logo;
     font-variant: all-small-caps;
   }
+  #block-wristcheck-branding{
+    .site-logo{
+      display: none;
+    }
+    .site-name{
+      display: inline-block;
+      font-size: 36px;
+      font-weight: 800;
+      color: $color-dark-logo;
+      font-variant: all-small-caps;
+    }
+  }
 
   // search
   .header-top-search {
@@ -113,6 +125,7 @@
   .header-cart,
   .header-profile {
     cursor: pointer;
+    position: relative;
 
     .header-cart__icon {
       display: inline-block;
@@ -148,11 +161,31 @@
       padding-left: 7px;
     }
   }
+  .header-profile:hover{
+    #block-useraccountmenu {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
 
   #block-useraccountmenu {
     position: absolute;
-    top: 0;
+    top: 100%;
     right: 0;
+    width: 100%;
+    background-color: #FFF;
+    box-shadow: 0 0 1px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transform: scaleY(0);
+    transform-origin: 0 0 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1;
+
+    li{
+      padding: 10px;
+      border-bottom: 1px solid $bg_gray;
+    }
   }
 
   // cart end
@@ -181,31 +214,25 @@
       flex: 1;
       text-align: center;
       padding-bottom: 10px;
-
-      &:hover {
-        .navbar-submenus {
-          display: flex;
-          padding: 90px 50px;
-        }
-      }
+    }
+    .dropdown-submenu>a{
+      font-size:24px;
+      font-weight:bold;
+      color: $color-dark3;
+      line-height: 1;
+      padding-bottom: 35px;
+    }
+    .navbar-submenus >li >a{
+      font-size:18px;
+      font-weight:bold;
+      color:$color-dark9;
+      line-height: 1;
+      padding-bottom: 30px;
     }
   }
-
-  .navbar-submenus {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #FFF;
-    z-index: 9;
-    border-top: 1px solid #f1f1f1;
-    padding: 20px;
-    display: none;
-
-    li {
-      flex: 1;
-    }
+  .mega-dropdown-menu .container{
+    border-top: 1px solid #E3E3E3;
+    padding: 90px 120px;
   }
 }
-
 // nav end
