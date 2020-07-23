@@ -11,23 +11,5 @@ definitions:
     menu_name: main
     parent: ''
     expanded: false
-  user__page:
-    weight: -49
-    parent: 'menu_link_content:6c907644-f4de-459b-9ce1-f45ce1fa7252'
-    menu_name: account
-    enabled: true
-    expanded: false
-  blog__myblog_link:
-    weight: -50
-    parent: 'menu_link_content:6c907644-f4de-459b-9ce1-f45ce1fa7252'
-    menu_name: account
-    expanded: false
-    enabled: true
-  user__logout:
-    weight: -48
-    parent: 'menu_link_content:6c907644-f4de-459b-9ce1-f45ce1fa7252'
-    menu_name: account
-    expanded: false
-    enabled: true
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

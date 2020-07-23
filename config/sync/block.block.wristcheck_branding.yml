@@ -3,32 +3,15 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block_attributes
-    - block_visibility_groups
-    - ntv_block_background
     - system
   theme:
     - wristcheck
-third_party_settings:
-  block_attributes:
-    attr_class: ''
-    attr_id: ''
-    sub_title: ''
-  ntv_block_background:
-    disable: disable
-    color: '#000000'
-    bg_image: {  }
-    bg_image_type: default
-    bg_repeat: 'no'
-    bg_image_position: ''
-    bg_image_size: ''
-    background_overlay: ''
 _core:
   default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
 id: wristcheck_branding
 theme: wristcheck
 region: header
-weight: 0
+weight: -44
 provider: null
 plugin: system_branding_block
 settings:
@@ -36,12 +19,7 @@ settings:
   label: 'Site branding'
   provider: system
   label_display: '0'
-  use_site_logo: false
+  use_site_logo: true
   use_site_name: true
   use_site_slogan: true
-visibility:
-  condition_group:
-    id: condition_group
-    negate: false
-    block_visibility_group: ''
-    context_mapping: {  }
+visibility: {  }

@@ -1,14 +1,20 @@
 @import '../variables/color';
 
 .header-top {
+  display: flex;
+  align-items: center;
   padding-top: 38px;
   padding-bottom: 50px;
   color: $color-dark3;
+  position: relative;
 
+  #block-wristcheck-branding,
   .wc-logo {
+    display: inline-block;
     font-size: 36px;
     font-weight: 800;
     color: $color-dark-logo;
+    font-variant: all-small-caps;
   }
 
   // search
@@ -19,6 +25,53 @@
     height: 38px;
     border: 1px solid $border-dark;
     position: relative;
+
+    .header-search__icon {
+      position: absolute;
+      top: 8px;
+      left: 9px;
+      width: 22px;
+      height: 22px;
+      background: url('../images/icon-search.png') no-repeat;
+      background-position: center center;
+      background-size: contain;
+    }
+
+    input {
+      width: 100%;
+      height: 36px;
+      line-height: 36px;
+      padding: 9px;
+      border: none;
+      position: relative;
+      z-index: 2;
+      background-color: transparent;
+      transition: all .2s ease-in;
+
+      &:hover,
+      &:focus,
+      &:active {
+        outline: none;
+      }
+
+      &:focus {
+        background-color: #FFF;
+      }
+    }
+  }
+
+  #block-searchform {
+    margin-left: 47px;
+    margin-right: 40px;
+    width: 465px;
+    height: 38px;
+    border: 1px solid $border-dark;
+    position: relative;
+    float: left;
+
+    .form-item {
+      margin: 0;
+    }
 
     .header-search__icon {
       position: absolute;
@@ -96,6 +149,12 @@
     }
   }
 
+  #block-useraccountmenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
   // cart end
   .vertical-line {
     width: 1px;
@@ -103,9 +162,10 @@
     margin: 0 25px;
     background-color: rgba(153, 153, 153, 0.16);
   }
+}
 
-  // profile
-  // profile end
+.header-top__right {
+  margin: 0 0 0 auto;
 }
 
 // nav
