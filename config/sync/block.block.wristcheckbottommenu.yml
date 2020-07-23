@@ -1,14 +1,14 @@
-uuid: 98d6bd5a-9944-422e-aa6d-650066ba818c
+uuid: a21280ad-1d93-43e1-8419-27c08f59b3c0
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:1f70ff72-85c1-4062-9410-9cbd579e96ea'
+  config:
+    - system.menu.wristcheck-bottom-menu
   module:
     - block_attributes
-    - block_content
     - block_visibility_groups
     - ntv_block_background
+    - system
   theme:
     - wristcheck
 third_party_settings:
@@ -25,20 +25,20 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristchecksellingprocess
+id: wristcheckbottommenu
 theme: wristcheck
-region: auto_hidden_block
+region: bottom_footer
 weight: 0
 provider: null
-plugin: 'block_content:1f70ff72-85c1-4062-9410-9cbd579e96ea'
+plugin: 'system_menu_block:wristcheck-bottom-menu'
 settings:
-  id: 'block_content:1f70ff72-85c1-4062-9410-9cbd579e96ea'
-  label: 'WristCheck Selling Process'
-  provider: block_content
+  id: 'system_menu_block:wristcheck-bottom-menu'
+  label: 'Wristcheck bottom menu'
+  provider: system
   label_display: '0'
-  status: true
-  info: ''
-  view_mode: full
+  level: 1
+  depth: 0
+  expand_all_items: false
 visibility:
   condition_group:
     id: condition_group

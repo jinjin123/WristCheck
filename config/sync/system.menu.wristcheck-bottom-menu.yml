@@ -1,0 +1,8 @@
+uuid: 01fb2b0c-afae-4e95-bf6b-7cc811b1ecc0
+langcode: en
+status: true
+dependencies: {  }
+id: wristcheck-bottom-menu
+label: 'Wristcheck bottom menu'
+description: ''
+locked: false
