@@ -12,29 +12,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Class BannerService.
  */
-class BannerService extends BaseService implements BannerServiceInterface, ContainerInjectionInterface
+class BannerService extends BaseService implements BannerServiceInterface
 {
-  protected $entityTypeManager;
-
-  /**
-   * BannerService constructor.
-   * @param EntityTypeManagerInterface $entityTypeManager
-   */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager)
-  {
-    $this->entityTypeManager = $entityTypeManager;
-  }
 
   public function queryBanner(bool $isEnable)
   {
-    $query = $this->entityTypeManager->getStorage('node');
-    $query = $query->getQuery()
-      ->condition('type', 'wristcheck_banner')
-      ->execute();
-
-    $result = $this->entityTypeManager
-      ->getStorage('node')
-      ->loadMultiple($query);
+    $result = $this->queryEntity('wristcheck_banner');
 
     $data = [];
 
@@ -55,7 +38,7 @@ class BannerService extends BaseService implements BannerServiceInterface, Conta
             $currentData['file_url'] = $file->url();
             $mineType = $file->getMimeType();
             $currentData['ext'] = $mineType;
-            if (str_contains($mineType,'image')) {
+            if (str_contains($mineType, 'image')) {
               $currentData['type'] = 'image';
             }
             if (str_contains($mineType, 'video')) {
@@ -73,10 +56,4 @@ class BannerService extends BaseService implements BannerServiceInterface, Conta
     return $data;
   }
 
-  public static function create(ContainerInterface $container)
-  {
-    return new static(
-      $container->get('entity_type.manager'),
-    );
-  }
 }
