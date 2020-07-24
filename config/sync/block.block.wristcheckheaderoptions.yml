@@ -2,11 +2,8 @@ uuid: 1d4e239e-6473-4108-80fd-a041a952a4ed
 langcode: en
 status: true
 dependencies:
-  config:
-    - block_visibility_groups.block_visibility_group.wristcheck_page_buy
   module:
     - block_attributes
-    - block_visibility_groups
     - ntv_block_background
   theme:
     - wristcheck
@@ -27,7 +24,7 @@ third_party_settings:
 id: wristcheckheaderoptions
 theme: wristcheck
 region: section
-weight: 21
+weight: -8
 provider: null
 plugin: 'block_content:029ede08-034b-4fd9-93ef-7300edc8f35c'
 settings:
@@ -38,9 +35,4 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility:
-  condition_group:
-    id: condition_group
-    negate: false
-    block_visibility_group: wristcheck_page_buy
-    context_mapping: {  }
+visibility: {  }

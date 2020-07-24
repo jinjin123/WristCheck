@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: clients
-label: Clients
+label: 'Layout Builder Block'
 revision: 0
 description: ''

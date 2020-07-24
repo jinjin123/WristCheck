@@ -10,8 +10,8 @@ _core:
   default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
 id: wristcheck_messages
 theme: wristcheck
-region: auto_hidden_block
-weight: -5
+region: help
+weight: -43
 provider: null
 plugin: system_messages_block
 settings:

@@ -12,7 +12,7 @@ _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
 id: wristcheck_footer
 theme: wristcheck
-region: auto_hidden_block
+region: footer
 weight: -7
 provider: null
 plugin: 'system_menu_block:footer'

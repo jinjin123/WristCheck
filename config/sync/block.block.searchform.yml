@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - block_attributes
-    - block_visibility_groups
     - ntv_block_background
     - search
   theme:
@@ -35,9 +34,4 @@ settings:
   provider: search
   label_display: '0'
   page_id: ''
-visibility:
-  condition_group:
-    id: condition_group
-    negate: false
-    block_visibility_group: ''
-    context_mapping: {  }
+visibility: {  }
