@@ -6,7 +6,6 @@ dependencies:
     - system.menu.wristcheck-bottom-menu
   module:
     - block_attributes
-    - block_visibility_groups
     - ntv_block_background
     - system
   theme:
@@ -39,9 +38,4 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility:
-  condition_group:
-    id: condition_group
-    negate: false
-    block_visibility_group: ''
-    context_mapping: {  }
+visibility: {  }
