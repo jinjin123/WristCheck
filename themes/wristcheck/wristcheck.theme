@@ -2,7 +2,6 @@
 global $base_url;
 global $head_title;
 global $product_entity;
-global $header_layout;
 global $region;
 global $por_style;
 global $view;
@@ -42,66 +41,66 @@ function wristcheck_theme_suggestions_block_alter(array &$suggestions, array $va
 
 function wristcheck_preprocess_block(&$variables) {
     
-    global $base_url,$region;   
+    // global $base_url,$region;   
 
-    switch ($variables['base_plugin_id']) {
-        case 'system_branding_block':
-            $variables['site_logo'] = '';
-            if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
-                $variables['site_logo'] = str_replace('.svg', '.png', $variables['content']['site_logo']['#uri']);
-            }
-            break;
-    }
-    $theme      = \Drupal::theme()->getActiveTheme()->getName();
-    $variables['theme_path'] = drupal_get_path('theme', $theme);
+    // switch ($variables['base_plugin_id']) {
+    //     case 'system_branding_block':
+    //         $variables['site_logo'] = '';
+    //         if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+    //             $variables['site_logo'] = str_replace('.svg', '.png', $variables['content']['site_logo']['#uri']);
+    //         }
+    //         break;
+    // }
+    // $theme      = \Drupal::theme()->getActiveTheme()->getName();
+    // $variables['theme_path'] = drupal_get_path('theme', $theme);
 
-    if (isset($variables['elements']['#id']) && !empty($variables['elements']['#id'])) {
-        $block_id   = $variables['elements']['#id'];
-        $block      = \Drupal\block\Entity\Block::load($block_id);
-        if ($block->getRegion()) {
-            $region = $block->getRegion();
-            $variables['region'] = $region;
-        }
-        //config as context module
-    } else {
-        $variables['region'] = $variables['elements']['#configuration']['region'];
-    }
-    $region = $variables['region'];
+    // if (isset($variables['elements']['#id']) && !empty($variables['elements']['#id'])) {
+    //     $block_id   = $variables['elements']['#id'];
+    //     $block      = \Drupal\block\Entity\Block::load($block_id);
+    //     if ($block->getRegion()) {
+    //         $region = $block->getRegion();
+    //         $variables['region'] = $region;
+    //     }
+    //     //config as context module
+    // } else {
+    //     $variables['region'] = $variables['elements']['#configuration']['region'];
+    // }
+    // $region = $variables['region'];
 
 
-    $blocks_name = array();
-    $arr_block = array();
-    $blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'search', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]);
-    foreach ($blocks_name as $k => $v) {
-        $block = \Drupal\block\Entity\Block::load($k);
-        $arr_block[$k] = (\Drupal::entityManager()->getViewBuilder('block')->view($block));
-        //print render($arr_block[$k]);
-    }
-    if (isset($arr_block) && !empty($arr_block)) {
-        $variables['search_region'] = $arr_block;
-    }
-    $blocks_name = array();
-    $arr_block = array();
-    $blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'cart', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]);
-    foreach ($blocks_name as $k => $v) {
-        $block = \Drupal\block\Entity\Block::load($k);
-        $arr_block[$k] = (\Drupal::entityManager()->getViewBuilder('block')->view($block));
-        //print render($arr_block[$k]);
-    }
-    if (isset($arr_block) && !empty($arr_block)) {
-        $variables['cart_region'] = $arr_block;
-    }
-    $blocks_name = array();
-    $arr_block = array();
-    $blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'top_header2', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]);
-    foreach ($blocks_name as $k => $v) {
-        $block = \Drupal\block\Entity\Block::load($k);
-        $arr_block[$k] = (\Drupal::entityManager()->getViewBuilder('block')->view($block));
-        //print render($arr_block[$k]);
-    }
-    if (isset($arr_block) && !empty($arr_block)) {
-        $variables['account_menu_region'] = $arr_block;
-    }
+    // $blocks_name = array();
+    // $arr_block = array();
+    // $blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'search', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]);
+    // foreach ($blocks_name as $k => $v) {
+    //     $block = \Drupal\block\Entity\Block::load($k);
+    //     $arr_block[$k] = (\Drupal::entityManager()->getViewBuilder('block')->view($block));
+    //     //print render($arr_block[$k]);
+    // }
+    // if (isset($arr_block) && !empty($arr_block)) {
+    //     $variables['search_region'] = $arr_block;
+    // }
+    // $blocks_name = array();
+    // $arr_block = array();
+    // $blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'cart', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]);
+    // foreach ($blocks_name as $k => $v) {
+    //     $block = \Drupal\block\Entity\Block::load($k);
+    //     $arr_block[$k] = (\Drupal::entityManager()->getViewBuilder('block')->view($block));
+    //     //print render($arr_block[$k]);
+    // }
+    // if (isset($arr_block) && !empty($arr_block)) {
+    //     $variables['cart_region'] = $arr_block;
+    // }
+    // $blocks_name = array();
+    // $arr_block = array();
+    // $blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'top_header2', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]);
+    // foreach ($blocks_name as $k => $v) {
+    //     $block = \Drupal\block\Entity\Block::load($k);
+    //     $arr_block[$k] = (\Drupal::entityManager()->getViewBuilder('block')->view($block));
+    //     //print render($arr_block[$k]);
+    // }
+    // if (isset($arr_block) && !empty($arr_block)) {
+    //     $variables['account_menu_region'] = $arr_block;
+    // }
 }
 
 function wristcheck_preprocess_node(&$variables) {
@@ -324,32 +323,17 @@ function wristcheck_preprocess_page(&$variables) {
 
 
 function wristcheck_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
-    global $header_layout;
     global $region;
-    
-       /* if(preg_match('/search_block_form/i', $form_id)){
-        unset($form['search_block_form']['#title']); // remove label form
-        $form['keys']['#attributes']['placeholder'][] = 'TYPE AND HIT ENTER';
-        $form['keys']['#attributes']['class'][] = 'form-control';
-        $form['keys']['#prefix'] = '<div class="form-group">';
-        $form['keys']['#suffix'] = '</div>';
-        $form['actions']['submit']['#value'] = t('SEARCH'); // Change the text on the submit button
-        $form['actions']['submit']['#attributes']['class'] = array('btn btn-default');
-        // $form['#attributes']['class'] = array('sidebar-search widget-margin');
-        $form['actions']['submit']['#attributes']['data-webform-submit'] = 'search_submit';
-        }*/
-        if(preg_match('/search_block_form/i', $form_id)){
-        unset($form['search_block_form']['#title']); // remove label form
-        $form['keys']['#attributes']['placeholder'][] = t('Type here');
-        $form['keys']['#attributes']['class'][] = 'form-control';
-        $form['actions']['submit']['#value'] = t('&#xf002;'); // Change the text on the submit button
-        $form['actions']['submit']['#attributes']['class'] = array('fa');
-        $form['actions']['submit']['#attributes']['class'] = array('btn btn-default');
-        // $form['#attributes']['class'] = array('sidebar-search widget-margin');
-        $form['actions']['submit']['#attributes']['data-webform-submit'] = 'search_submit';
-        }
 
-    
+    if(preg_match('/search_block_form/i', $form_id)){
+    unset($form['search_block_form']['#title']); // remove label form
+    $form['keys']['#attributes']['placeholder'][] = t('Type here');
+    $form['keys']['#attributes']['class'][] = 'form-control';
+    $form['actions']['submit']['#value'] = t('&#xf002;'); // Change the text on the submit button
+    $form['actions']['submit']['#attributes']['class'] = array('fa');
+    $form['actions']['submit']['#attributes']['class'] = array('btn btn-default');
+    $form['actions']['submit']['#attributes']['data-webform-submit'] = 'search_submit';
+    }
 }
 
 
@@ -371,21 +355,20 @@ function wristcheck_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
            $form['actions']['submit']['#attributes']['class'] = array('btn btn-secondary btn-hover');
            $form['actions']['submit']['#attributes']['data-shop-submit'] = 'shop_submit';
         } 
-    
 }
+
 function wristcheck_preprocess_menu(array &$variables) {
     if ($variables['theme_hook_original'] == 'menu__main') { 
     $items = $variables['items'];
     $variables['logo'] = theme_get_setting('logo.url','wristcheck');
     foreach ($items as $key => $item) {
-
-                $variables['items'][$key]['logo'] = $variables['logo'];
-            }
+            $variables['items'][$key]['logo'] = $variables['logo'];
+        }
     }
 }
+
 function wristcheck_preprocess(&$variables){
     global $por_style;
-    global $header_layout;
     global $base_root;
     $variables['base_root'] = $base_root;
     $theme      = \Drupal::theme()->getActiveTheme()->getName();
@@ -403,24 +386,19 @@ function wristcheck_preprocess(&$variables){
     }
     // xóa cache của url
     $variables['#cache']['contexts'][] = 'url';
-    // $variables['header_style'] = theme_get_setting('header_layout', 'wristcheck');
+
     if (!empty(theme_get_setting('color_primary','wristcheck'))) {
         $variables['color_primary']      = theme_get_setting('color_primary','wristcheck');
     }else{
         $variables['color_primary'] = '#b2c81e';
     }
-    $variables['header_layout']     = theme_get_setting('header_layout', 'wristcheck');
-    $variables['footer_layout'] = theme_get_setting('footer_layout', 'wristcheck');
    
-    
     $variables['logo_white_image'] = theme_get_setting('logo_white_image', 'wristcheck');
     
     $variables['background_color']   =    theme_get_setting('background_color','wristcheck');
     $variables['background_style']   =    theme_get_setting('background_style','wristcheck');
     $variables['layout_type']   =    theme_get_setting('layout_type','wristcheck');
 
-    
-   
     $variables['blog_layout']   =    theme_get_setting('blog_layout', 'wristcheck');
     $variables['blog_single_style']   =    theme_get_setting('blog_single_style', 'wristcheck');
     $variables['blog_sidebar']   =    theme_get_setting('blog_sidebar', 'wristcheck');
@@ -428,10 +406,7 @@ function wristcheck_preprocess(&$variables){
     $variables['logo'] = theme_get_setting('logo.url','wristcheck');
      // $variables['page_header_background_image'] = theme_get_setting('page_header_background_image','wristcheck'); 
     $page_header_background_image = theme_get_setting('page_header_background_image','wristcheck');
-    $blog_header_background_image = theme_get_setting('blog_header_background_image','wristcheck');
-   
-   
-    
+    $blog_header_background_image = theme_get_setting('blog_header_background_image','wristcheck');    
     
     $logo_white_image = theme_get_setting('logo_white_image', 'wristcheck');
     //shop
@@ -472,13 +447,6 @@ function wristcheck_preprocess(&$variables){
         $variables['blog_single_style']   = $_GET['layout'];
         $variables['layout_type']   = $_GET['layout'];
     }
-    if (isset( $_GET['header'] )){
-        $variables['header_layout'] = $_GET['header'];
-    }
-
-    if (isset( $_GET['footer'] )){
-        $variables['footer_layout'] = $_GET['footer'];
-    }
     
     if (isset( $_GET['loading'])){
         $variables['loading_style'] = $_GET['loading'];
@@ -491,9 +459,6 @@ function wristcheck_preprocess(&$variables){
     if(\Drupal::routeMatch()->getParameter('node')){
         $node = \Drupal::routeMatch()->getParameter('node');
        
-        // if (isset($node->field_page_bckground) && !empty($node->field_page_bckground->getValue()[0]['value'])) {
-        //     $variables['page_header_background_image'] = $node->field_page_bckground->getValue()[0]['value'];
-        // }
         if (isset($variables['node']->field_page_bckground)) {
         $field_page_bckground = $variables['node']->get('field_page_bckground')->getValue();
         // If a file has been uploaded, get it.
@@ -530,9 +495,6 @@ function wristcheck_preprocess(&$variables){
         if (isset($node->field_sidebar) && !empty($node->field_sidebar->getValue()[0]['value'])) {
             $variables['sider_style'] = $node->field_sidebar->getValue()[0]['value'];
         }
-        if (isset($node->field_header) && !empty($node->field_header->getValue()[0]['value'])) {
-            $variables['header_layout'] = $node->field_header->getValue()[0]['value'];
-        }
         if (isset($node->field_page_layout) && !empty($node->field_page_layout->getValue()[0]['value'])) {
             $variables['onepage_layout'] = $node->field_page_layout->getValue()[0]['value'];
         }
@@ -542,7 +504,6 @@ function wristcheck_preprocess(&$variables){
         // if (isset($node->field_default_sidebar_1) && !empty($node->field_default_sidebar_1->getValue()[0]['value'])) {
         //     $variables['shop_single'] = $node->field_default_sidebar_1->getValue()[0]['value'];
         // }
-        $header_layout = $variables['header_layout'];
     }
 
     // Background in html.html.twig field

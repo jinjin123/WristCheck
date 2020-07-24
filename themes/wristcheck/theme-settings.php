@@ -21,46 +21,23 @@ function wristcheck_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\F
     $build_info = $form_state->getBuildInfo();
 
     if (!in_array($theme_file, $build_info['files'])) {
-
         $build_info['files'][] = $theme_file;
-
     }
 
     $form_state->setBuildInfo($build_info);
 
-
-
     $form['#submit'][] = 'wristcheck_theme_settings_form_submit';
-
-
-
-
-
-        $form['settings'] = array(
-
+    
+    $form['settings'] = array(
         '#type' => 'details',
-
         '#title' => t('Theme settings'),
-
         '#open' => TRUE,
-
         '#attached' => array(
-
           'library' =>  array(
-
             'wristcheck/theme-color-lib'
-
           ),
-
         ),
-
-        
-
     );
-
-
-
-
 
     $form['settings']['general_setting'] = array(
 
@@ -72,8 +49,6 @@ function wristcheck_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\F
 
     );
 
-
-
     $form['settings']['general_setting']['general_setting_tracking_code'] = array(
 
         '#type' => 'textarea',
@@ -83,7 +58,6 @@ function wristcheck_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\F
         '#default_value' => theme_get_setting('general_setting_tracking_code', 'wristcheck'),
 
     );
-
 
 
     $form['settings']['general_setting']['page_header_background'] = array(
@@ -104,57 +78,36 @@ function wristcheck_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\F
         '#title' => t('Layout Type'),
 
         '#options' => array(
-
             'type1' => t('Page title 1'),
-
             'type2' => t('Page title 2'),
-
             'type3' => t('Page title 3'),
-
             'type4' => t('Page title 4'),
-
             'type5' => t('Page title 5'),
-
             'type6' => t('Page title 6'),
-
             'type7' => t('Page title 7'),
+            'type8' => t('Page title 8'),
+            'type9' => t('Page title 9'),
+        ),
 
-             'type8' => t('Page title 8'),
-
-             'type9' => t('Page title 9'),
-         ),
-
-         '#required' => true,
+        '#required' => true,
 
         '#default_value' => theme_get_setting('layout_type', 'wristcheck'),
-
      );
     
 
       $form['settings']['general_setting']['page_header_background']['page_header_background_image'] = array(
-
         '#type' => 'managed_file',
-
         '#title' => t('Upload image'),
-
-
-
         '#upload_location' => file_default_scheme() . '://background_images',
-
         '#default_value' => theme_get_setting('page_header_background_image','wristcheck'), 
-
         '#upload_validators' => array(
-
           'file_validate_extensions' => array('gif png jpg jpeg apng svg'),
-
           //'file_validate_image_resolution' => array('960x400','430x400')
-
         ),
 
         '#description' => t('If you don\'t jave direct access to the server, use this field to upload your background image. Uploads limited to .png .gif .jpg .jpeg .apng .svg extensions'),
 
         //'#element_validate' => array('save_image_upload'),
-
       );
 
     $form['settings']['logo']  = array(
@@ -198,93 +151,6 @@ function wristcheck_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\F
 
     );
 
-// Header settings
-
-    $form['settings']['header'] = array(
-
-        '#type' => 'details',
-
-        '#title' => t('Header settings'),
-
-        '#open' => FALSE,
-
-    );
-
-     $form['settings']['header']['header_layout'] = array(
-
-        '#type' => 'select',
-
-        '#title' => t('Top header bg'),
-
-        '#options' => array(
-            'header1' => t('Header 1'),
-            'header2' => t('Header 2'),
-            'header3' => t('Header 3'),
-            'header4' => t('Header 4'),
-            'header5' => t('Header 5'),
-        ),
-
-        '#required' => true,
-
-        '#default_value' => theme_get_setting('header_layout', 'wristcheck'),
-
-    );
-
-// End Header
-
-// Footer settings
-
-    $form['settings']['footer'] = array(
-
-        '#type' => 'details',
-
-        '#title' => t('Footer settings'),
-
-        '#open' => FALSE,
-
-    );
-
-     $form['settings']['footer']['footer_layout'] = array(
-
-        '#type' => 'select',
-
-        '#title' => t('Bottom footer bg'),
-
-        '#options' => array(
-
-            'footer1' => t('Footer 1'),
-
-            'footer2' => t('Footer 2'),
-
-            'footer3' => t('Footer 3'),
-
-            'footer4' => t('Footer 4'),
-
-            'footer5' => t('Footer 5'),
-
-            'footer6' => t('Footer 6'),
-
-            'footer7' => t('Footer 7'),
-
-            'footer8' => t('Footer 8'),
-
-            'footer9' => t('Footer 9'),
-
-            'footer10' => t('Footer 10'),
-
-            'footer11' => t('Footer 11'),
-
-            'footer12' => t('Footer 12'),
-
-        ),
-
-        '#required' => true,
-
-        '#default_value' => theme_get_setting('footer_layout', 'wristcheck'),
-
-    );
-
-// End Footer
 
 // Blog
 
@@ -456,12 +322,6 @@ function wristcheck_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\F
 
 // end Css
 
-//shop
-
-    
-
-// end shop
-
 }
 
 
@@ -484,8 +344,6 @@ function wristcheck_theme_settings_form_submit(&$form, FormStateInterface $form_
     $count = count($bg);
 
     for ($i=0; $i < $count; $i++) {
-
-
 
     if (isset($bg[$i]) && !empty($bg[$i])) {
 

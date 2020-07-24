@@ -3013,7 +3013,6 @@ ul.dot-list li i {
     #Nav
 \*------------------------------------*/
 .navbar {
-  min-height: 100px;
   margin-bottom: 0;
   top: inherit;
   padding: 0;
@@ -3036,7 +3035,6 @@ ul.dot-list li i {
 .navbar-nav > li {
   margin-right: 30px;
   height: 50px;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3076,13 +3074,13 @@ ul.dot-list li i {
   content: ' ';
   height: 2px;
   width: 0;
-  bottom: -10px;
+  bottom: -3px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .navbar-nav > li:hover > a:after {
-  bottom: -10px;
+  bottom: -3px;
   width: 2px;
   height: 2px;
   bottom: 0;
@@ -3094,7 +3092,7 @@ ul.dot-list li i {
   height: 2px;
   background-color: #333;
   right: 0;
-  bottom: -10px;
+  bottom: -3px;
   position: absolute;
   opacity: 0;
   transition: all 0.3s ease 0.2s;
@@ -3105,7 +3103,7 @@ ul.dot-list li i {
 }
 .navbar-nav li.active a:before,
 .navbar-nav > li:hover > a:before {
-  bottom: -10px;
+  bottom: -3px;
   width: 80%;
   height: 2px;
   left: 0;
@@ -3375,7 +3373,6 @@ ul.dot-list li i {
     line-height: 40px;
     color: #7f7f7f;
     padding: 0;
-    border-bottom: 1px solid #f3f3f3;
     display: block;
     font-size: 13px;
     font-weight: 400;
@@ -3492,7 +3489,6 @@ ul.dot-list li i {
   }
   .mega-dropdown-menu .container {
     background-color: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.15);
   }
   .mega-dropdown-menu .container div.col {
     padding-left: 0;
@@ -3507,7 +3503,6 @@ ul.dot-list li i {
   }
   .mega-dropdown-menu li ul li a {
     padding: 0;
-    border-bottom: 1px solid #f3f3f3;
   }
   .mega-dropdown-menu li ul li:last-child a {
     border-bottom: none;

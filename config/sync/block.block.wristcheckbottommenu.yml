@@ -1,0 +1,47 @@
+uuid: a21280ad-1d93-43e1-8419-27c08f59b3c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wristcheck-bottom-menu
+  module:
+    - block_attributes
+    - block_visibility_groups
+    - ntv_block_background
+    - system
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckbottommenu
+theme: wristcheck
+region: bottom_footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:wristcheck-bottom-menu'
+settings:
+  id: 'system_menu_block:wristcheck-bottom-menu'
+  label: 'Wristcheck bottom menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }
