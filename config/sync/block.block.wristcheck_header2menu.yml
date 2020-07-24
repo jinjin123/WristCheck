@@ -1,6 +1,6 @@
 uuid: a52174ff-20c9-4cc2-b3c5-3d42d0816e3f
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.header-2-menu
@@ -27,8 +27,8 @@ third_party_settings:
     background_overlay: ''
 id: wristcheck_header2menu
 theme: wristcheck
-region: header2_menu
-weight: 0
+region: header
+weight: -43
 provider: null
 plugin: 'system_menu_block:header-2-menu'
 settings:

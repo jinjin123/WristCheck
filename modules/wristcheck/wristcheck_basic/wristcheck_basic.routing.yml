@@ -52,3 +52,11 @@ wristcheck_basic.faq_controller_index:
     _title: 'faq'
   requirements:
     _permission: 'access content'
+
+wristcheck_basic.category_controller_index:
+  path: '/category'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\CategoryController::index'
+    _title: 'Category'
+  requirements:
+    _permission: 'access content'

@@ -11,7 +11,7 @@ _core:
 id: wristcheck_branding
 theme: wristcheck
 region: header
-weight: 0
+weight: -44
 provider: null
 plugin: system_branding_block
 settings:
