@@ -9,8 +9,68 @@ dependencies:
     - field.field.block_content.clients.field_images
   module:
     - image
+    - layout_builder
+    - layout_discovery
     - options
     - text
+third_party_settings:
+  layout_builder:
+    allow_custom: true
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          7dd079ec-0714-4ead-827c-c2f81e6f326e:
+            uuid: 7dd079ec-0714-4ead-827c-c2f81e6f326e
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:block_content:clients:body'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 0
+          d8b00573-2086-457f-ae9e-f90044a0a9b3:
+            uuid: d8b00573-2086-457f-ae9e-f90044a0a9b3
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:block_content:clients:field_images'
+              formatter:
+                label: above
+                settings:
+                  image_style: ''
+                  image_link: ''
+                third_party_settings: {  }
+                type: image
+            additional: {  }
+            weight: 1
+          7d68d346-da5c-41e3-a569-76e66fef1d0d:
+            uuid: 7d68d346-da5c-41e3-a569-76e66fef1d0d
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:block_content:clients:field_field_type'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: list_default
+            additional: {  }
+            weight: 2
+        third_party_settings: {  }
 id: block_content.clients.default
 targetEntityType: block_content
 bundle: clients
@@ -41,3 +101,4 @@ content:
     region: content
 hidden:
   langcode: true
+  search_api_excerpt: true

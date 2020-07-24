@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - block_attributes
-    - block_visibility_groups
     - ntv_block_background
   theme:
     - wristcheck
@@ -24,8 +23,8 @@ third_party_settings:
     background_overlay: ''
 id: wristchecksellingprocess
 theme: wristcheck
-region: auto_hidden_block
-weight: 0
+region: content
+weight: -7
 provider: null
 plugin: 'block_content:1f70ff72-85c1-4062-9410-9cbd579e96ea'
 settings:
@@ -36,9 +35,4 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility:
-  condition_group:
-    id: condition_group
-    negate: false
-    block_visibility_group: ''
-    context_mapping: {  }
+visibility: {  }
