@@ -13,13 +13,41 @@
   background-color: $bg_gray2;
 }
 
-.view-wristcheck-buy-popular-brands .view-content {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+.portfolio,
+.wc-news {
+  .views-element-container {
+    width: 100%;
+  }
+
+  .view-id-wristcheck_buy_magazine .view-content,
+  .view-id-wristcheck_buy_news .view-content,
+  .view-id-wristcheck_buy_popular_brands .view-content,
+  .view-id-wristcheck_buy_explore .view-content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .news-detail-href{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+.wc-testimdnials{
+  .views-element-container{
+    display: flex;
+  }
+}
+.view-id-wristcheck_testimdnials{
+  .view-content{
+    display: flex;
+    .flex-1-item{
+      width: 100%;
+    }
+  }
 }
 
 @media (min-width: 1900px) {

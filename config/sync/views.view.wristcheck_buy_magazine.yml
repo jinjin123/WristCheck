@@ -143,7 +143,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-rolex-item\">\r\n{{ field_page_title_image }}\r\n          <div class=\"wc-rolex-action\">\r\n            <p class='wc-rolex-sub'>NEW</p>\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n          </div>\r\n        </div>"
+            text: "<div class=\"wc-rolex-item\">\r\n       <img src=\"{{field_page_title_image}}\"  alt=\"{{ field_page_title_image__alt }}\" title=\"{{ field_page_title_image__title }}\" class=\"img-bg\" />\r\n      <div class='wc-rolex-modal'>\r\n     <div class=\"wc-rolex-action\">\r\n            <p class='wc-rolex-sub'>NEW</p>\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n          </div>\r\n     </div>      \r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -174,17 +174,16 @@ display:
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_class: wc-magazine-item
           element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: image_url
           settings:
             image_style: ''
-            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: true

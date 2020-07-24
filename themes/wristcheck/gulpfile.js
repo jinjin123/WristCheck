@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('imagemin', function () {
-    return gulp.src('./src/images/*')
+    return gulp.src('./src/images/**/*')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{ removeViewBox: false }],
