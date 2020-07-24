@@ -1,14 +1,12 @@
-uuid: 621a0343-8aa6-428d-8ac0-e17a5e191b69
+uuid: fcfdd1ae-0ac8-4f1f-a36a-3c69157dec9a
 langcode: en
 status: true
 dependencies:
-  config:
-    - system.menu.main
   module:
     - block_attributes
     - block_visibility_groups
     - ntv_block_background
-    - system
+    - search
   theme:
     - wristcheck
 third_party_settings:
@@ -25,20 +23,18 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_mainnavigation
+id: searchform
 theme: wristcheck
-region: primary_menu
-weight: -44
+region: header
+weight: 0
 provider: null
-plugin: 'system_menu_block:main'
+plugin: search_form_block
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
-  provider: system
+  id: search_form_block
+  label: 'Search form'
+  provider: search
   label_display: '0'
-  level: 1
-  depth: 0
-  expand_all_items: false
+  page_id: ''
 visibility:
   condition_group:
     id: condition_group

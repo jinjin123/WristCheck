@@ -3373,7 +3373,6 @@ ul.dot-list li i {
     line-height: 40px;
     color: #7f7f7f;
     padding: 0;
-    border-bottom: 1px solid #f3f3f3;
     display: block;
     font-size: 13px;
     font-weight: 400;
@@ -3490,7 +3489,6 @@ ul.dot-list li i {
   }
   .mega-dropdown-menu .container {
     background-color: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.15);
   }
   .mega-dropdown-menu .container div.col {
     padding-left: 0;
@@ -3505,7 +3503,6 @@ ul.dot-list li i {
   }
   .mega-dropdown-menu li ul li a {
     padding: 0;
-    border-bottom: 1px solid #f3f3f3;
   }
   .mega-dropdown-menu li ul li:last-child a {
     border-bottom: none;

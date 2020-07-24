@@ -1,9 +1,9 @@
-uuid: 621a0343-8aa6-428d-8ac0-e17a5e191b69
+uuid: 7b6fbadd-22ad-4bbb-9439-1c97c92c8ac5
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.account
   module:
     - block_attributes
     - block_visibility_groups
@@ -25,15 +25,15 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_mainnavigation
+id: wristcheckuseraccountmenu
 theme: wristcheck
-region: primary_menu
-weight: -44
+region: header
+weight: 0
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'system_menu_block:account'
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
+  id: 'system_menu_block:account'
+  label: 'Wristcheck user account menu'
   provider: system
   label_display: '0'
   level: 1

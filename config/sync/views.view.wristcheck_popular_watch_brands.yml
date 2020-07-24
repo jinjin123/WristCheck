@@ -1,4 +1,4 @@
-uuid: 40702df4-1680-451e-9b84-6928be2d30d3
+uuid: 4d615478-13bf-47ab-9f21-978f2037ddb2
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
     - image
     - node
     - user
-id: wristcheck_buy_popular_brands
-label: 'WristCheck Popular Brands'
+id: wristcheck_popular_watch_brands
+label: 'Wristcheck popular watch brands'
 module: views
 description: ''
 tag: ''
@@ -51,14 +51,15 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 8
+          items_per_page: 15
           offset: 0
       style:
         type: default
         options:
           grouping: {  }
-          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print'
+          row_class: ''
           default_row_class: true
+          uses_fields: false
       row:
         type: fields
         options:
@@ -67,71 +68,6 @@ display:
           hide_empty: false
           default_field_elements: true
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: false
-            ellipsis: false
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
         field_brand_logo:
           id: field_brand_logo
           table: node__field_brand_logo
@@ -142,8 +78,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: "<div class=\"portfolio-img wc-ex-panel mb-40\">\r\n              {{ field_brand_logo }}\r\n            <!-- .Portfolio-hover end -->\r\n            </div>\r\n            <div class='portfolio-sub-title'>{{ title }}</div>\r\n            <!-- .Portfolio-img end -->"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false

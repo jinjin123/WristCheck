@@ -27,7 +27,7 @@ third_party_settings:
     background_overlay: ''
 id: wristcheck_header2menu
 theme: wristcheck
-region: header
+region: primary_menu
 weight: -43
 provider: null
 plugin: 'system_menu_block:header-2-menu'

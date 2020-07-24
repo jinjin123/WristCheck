@@ -1,9 +1,9 @@
-uuid: 621a0343-8aa6-428d-8ac0-e17a5e191b69
+uuid: a21280ad-1d93-43e1-8419-27c08f59b3c0
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.wristcheck-bottom-menu
   module:
     - block_attributes
     - block_visibility_groups
@@ -25,15 +25,15 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_mainnavigation
+id: wristcheckbottommenu
 theme: wristcheck
-region: primary_menu
-weight: -44
+region: bottom_footer
+weight: 0
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'system_menu_block:wristcheck-bottom-menu'
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
+  id: 'system_menu_block:wristcheck-bottom-menu'
+  label: 'Wristcheck bottom menu'
   provider: system
   label_display: '0'
   level: 1
