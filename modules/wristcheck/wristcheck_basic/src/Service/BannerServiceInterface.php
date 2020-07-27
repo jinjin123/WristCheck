@@ -7,5 +7,5 @@ namespace Drupal\wristcheck_basic\Service;
  */
 interface BannerServiceInterface extends BaseServiceInterface
 {
-  public function queryBanner(bool $isEnable);
+  public function queryBanner(bool $isEnable = true);
 }

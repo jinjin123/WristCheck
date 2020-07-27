@@ -41,13 +41,13 @@ class BuyController extends ControllerBase implements ContainerInjectionInterfac
     $popular_brands_view = views_embed_view('wristcheck_buy_popular_brands');
     $news_view = views_embed_view('wristcheck_buy_news');
     $magazine_view = views_embed_view('wristcheck_buy_magazine');
-    $testimdnials_view = views_embed_view('wristcheck_testimdnials');
+//    $testimdnials_view = views_embed_view('wristcheck_testimdnials');
 
-    $block = \Drupal\block\Entity\Block::load('wristchecksellingprocess');
-    $wristcheck_selling_process_view = \Drupal::entityTypeManager()->getViewBuilder('block')->view($block);
-
-    $download_block = Block::load('wristcheckdownloadappfollowus');
-    $download_view = \Drupal::entityTypeManager()->getViewBuilder('block')->view($download_block);
+//    $block = \Drupal\block\Entity\Block::load('wristchecksellingprocess');
+//    $wristcheck_selling_process_view = \Drupal::entityTypeManager()->getViewBuilder('block')->view($block);
+//
+//    $download_block = Block::load('wristcheckdownloadappfollowus');
+//    $download_view = \Drupal::entityTypeManager()->getViewBuilder('block')->view($download_block);
 
 
     $variables = [
@@ -55,10 +55,10 @@ class BuyController extends ControllerBase implements ContainerInjectionInterfac
       'magazines' => render($magazine_view),
       'explore_wristcheck' => render($explore_wristcheck_view),
       'popular_brands' => render($popular_brands_view),
-      'testimdnials' => render($testimdnials_view),
+//      'testimdnials' => render($testimdnials_view),
       'news' => render($news_view),
-      'wristcheck_selling_process' => render($wristcheck_selling_process_view),
-      'download' =>render($download_view)
+//      'wristcheck_selling_process' => render($wristcheck_selling_process_view),
+//      'download' =>render($download_view)
     ];
 
 
