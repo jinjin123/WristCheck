@@ -1,13 +1,13 @@
-uuid: 621a0343-8aa6-428d-8ac0-e17a5e191b69
+uuid: 9d4509ef-87ce-4609-b126-ef6a2966939a
 langcode: en
 status: true
 dependencies:
-  config:
-    - system.menu.main
+  content:
+    - 'block_content:clients:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
   module:
     - block_attributes
+    - block_content
     - ntv_block_background
-    - system
   theme:
     - wristcheck
 third_party_settings:
@@ -24,18 +24,18 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_mainnavigation
+id: testlayoutbuilder
 theme: wristcheck
-region: primary_menu
-weight: -43
+region: secondary_menu
+weight: -44
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'block_content:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
-  provider: system
-  label_display: '0'
-  level: 1
-  depth: 0
-  expand_all_items: false
+  id: 'block_content:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
+  label: 'Test Layout Builder'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
 visibility: {  }

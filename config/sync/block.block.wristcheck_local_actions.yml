@@ -8,8 +8,8 @@ _core:
   default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
 id: wristcheck_local_actions
 theme: wristcheck
-region: auto_hidden_block
-weight: 0
+region: primary_menu
+weight: -42
 provider: null
 plugin: local_actions_block
 settings:

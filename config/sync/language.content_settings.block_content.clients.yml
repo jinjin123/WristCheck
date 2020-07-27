@@ -1,0 +1,11 @@
+uuid: 12cfd53d-2f2d-4538-a60f-c811a8c4f6f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.clients
+id: block_content.clients
+target_entity_type_id: block_content
+target_bundle: clients
+default_langcode: site_default
+language_alterable: false
