@@ -9,17 +9,18 @@ dependencies:
     - field.field.commerce_product.watch.field_crust_material
     - field.field.commerce_product.watch.field_introduction
     - field.field.commerce_product.watch.field_model_images
-    - field.field.commerce_product.watch.field_model_specifications
     - field.field.commerce_product.watch.field_model_tags
     - field.field.commerce_product.watch.field_ref_number
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
+    - field.field.commerce_product.watch.field_specifications
     - field.field.commerce_product.watch.field_subname
     - field.field.commerce_product.watch.field_watch_core
     - field.field.commerce_product.watch.field_watch_core_num
     - field.field.commerce_product.watch.field_watch_style
   module:
     - commerce_product
+    - entity_reference_revisions
     - image
     - text
 id: commerce_product.watch.default
@@ -66,14 +67,6 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  field_model_specifications:
-    weight: 15
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_model_tags:
     weight: 16
     label: above
@@ -105,6 +98,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_specifications:
+    type: entity_reference_revisions_entity_view
+    weight: 25
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
     region: content
   field_subname:
     weight: 20

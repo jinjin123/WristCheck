@@ -1,15 +1,15 @@
-uuid: 2ed15f2d-4284-49fa-aac3-d47882a5d96d
+uuid: bc097683-f3d7-433a-b305-4918e45fca36
 langcode: en
 status: true
 dependencies:
   module:
-    - commerce_product
-id: commerce_product.field_model_specifications
-field_name: field_model_specifications
-entity_type: commerce_product
+    - paragraphs
+id: paragraph.field_title
+field_name: field_title
+entity_type: paragraph
 type: string
 settings:
-  max_length: 100
+  max_length: 255
   is_ascii: false
   case_sensitive: false
 module: core

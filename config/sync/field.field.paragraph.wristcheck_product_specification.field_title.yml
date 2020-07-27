@@ -1,0 +1,19 @@
+uuid: 21d687e7-19ba-4ec9-acc1-e9d642f11832
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.wristcheck_product_specification
+id: paragraph.wristcheck_product_specification.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: wristcheck_product_specification
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
