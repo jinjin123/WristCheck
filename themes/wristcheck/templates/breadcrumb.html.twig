@@ -1,11 +1,13 @@
 {% if breadcrumb %}
-    <ol class="breadcrumb b white" >
-    {% for item in breadcrumb %}
+  <div class="breadcrumb">
+    <ol class="container breadcrumb-container b white">
+      {% for item in breadcrumb %}
         {% if item.url %}
-          	<li><a href="{{ item.url }}">{{ item.text }}</a> </li>
+          <li><a href="{{ item.url }}">{{ item.text }}</a></li>
         {% else %}
-          	<li class="active">/ {{ item.text }}</li>
+          <li class="active">/ {{ item.text }}</li>
         {% endif %}
-    {% endfor %}
+      {% endfor %}
     </ol>
+  </div>
 {% endif %}
