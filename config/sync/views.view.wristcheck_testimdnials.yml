@@ -314,6 +314,27 @@ display:
           admin_label: 'field_related_model: Product'
           required: false
           plugin_id: standard
+      arguments: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_rate'
+        - 'config:field.storage.node.field_subject'
+  product_testimdnials:
+    display_plugin: block
+    id: product_testimdnials
+    display_title: Block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      defaults:
+        arguments: false
       arguments:
         product_id:
           id: product_id
@@ -351,25 +372,6 @@ display:
           entity_type: commerce_product
           entity_field: product_id
           plugin_id: numeric
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_rate'
-        - 'config:field.storage.node.field_subject'
-  product_testimdnials:
-    display_plugin: block
-    id: product_testimdnials
-    display_title: Block
-    position: 1
-    display_options:
-      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:

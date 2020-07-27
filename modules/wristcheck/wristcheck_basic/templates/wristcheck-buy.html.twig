@@ -17,51 +17,7 @@
 <div>DOWNLOAD</div>
 {{ variables.download }}
  #}
-<div class="wc-banner">
-  <section
-    id="slider" class="slider slider-12">
-    <!-- START REVOLUTION SLIDER 5.0 -->
-    <div class="rev_slider_wrapper">
-      <div id="slider1" class="rev_slider" data-version="5.0">
-        <ul>
-          <!-- slide 1 -->
-          {% for item in variables.banners %}
-            <li
-              data-transition="slideleft" data-slotamount="default" data-easein="Power4.easeInOut"
-              data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="assets/images/sliders/thumb/11.html">
-              <!-- MAIN IMAGE -->
-              <img
-                src="{{ item.file_url }}" alt="Slide Background Image">
-              {#            https://picsum.photos/id/651/2511/1671#}
-              {# <!-- LAYER NR. 1 -->
-               <div class="tp-caption" data-x="['middle','middle','middle','middle']" data-hoffset="['0','0','20','20']" data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']" data-width="none" data-height="none" data-transform_idle="o:1;" data-transform_in="x:[-155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-responsive_offset="on">
-                 <div class="slide-container"></div>
-               </div>
-               <!-- LAYER NR. 2 -->
-               <div class="tp-caption" data-x="['middle','middle','middle','middle']" data-hoffset="['40','40','30','30']" data-y="['middle','middle','middle','middle']" data-voffset="['-40','-40','-40','-40']" data-fontsize="['17', '17', '15', '13']" data-width="none" data-height="none" data-transform_idle="o:1;" data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1250" data-responsive_offset="on">
-                 <div class="slide--bio">Product is the vital essence of what<br>
-                   we do, and truly great product is<br>
-                   born of meticulous planning and
-                   <br>process. This is where we
-                   <br>specialise !</div>
-               </div>#}
-              <!-- LAYER NR. 3 -->
-              {# <div class="tp-caption" data-x="['middle','middle','middle','middle']" data-hoffset="['-60','-60','-60','-60']" data-y="['middle','middle','middle','middle']" data-voffset="['75','75','90','75']" data-width="none" data-height="none" data-transform_idle="o:1;" data-transform_in="x:[155%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500" data-responsive_offset="on">
-                 <div class="slide-action">
-                   <a class="btn btn-secondary btn-hover btn-arrow" href="#">
-                     <i class="celia-arrow-long-right"></i>
-                   </a>
-                 </div>
-               </div>#}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <!-- END REVOLUTION SLIDER -->
-    </div>
-    <!-- END OF SLIDER WRAPPER -->
-  </section>
-</div>
+
 <div class="wc-panel pt-100">
   <h1 class='wc-panel__title text-center'>BUYING PROCESS</h1>
   <div class='container'>
@@ -142,7 +98,7 @@
     </button>
   </div>
 </div>
-{{ variables.wristcheck_selling_process }}
+{{ drupal_view('wristchecksellingprocess') }}
 <div class="wc-panel wc-news">
   <h1 class='wc-panel__title text-center'>WRISTCHECK IN THE NEWS</h1>
   <div class='container'>
@@ -180,9 +136,9 @@
   </div>
 </div>
 <div class="wc-panel wc-testimdnials">
-  <h1 class='wc-panel__title text-center'>TESTIMDNIALS</h1>
+  <h1 class='wc-panel__title text-center'>{{ 'TESTIMDNIALS'|t }}</h1>
   <div class='container pt-50 pb-100'>
-    {{ variables.testimdnials }}
+    {{ drupal_view('wristcheck_testimdnials','default') }}
     {#    <div class="flex">#}
     {#      <div class="flex-1 flex-1-item text-center">#}
     {#        <img class="wc-testimdnials-img" src="/themes/wristcheck/images/icon-star.png"/>#}
@@ -220,43 +176,5 @@
     {#        </div>#}
     {#      </div>#}
     {#    </div>#}
-  </div>
-</div>
-<div class="wc-panel bg-f9">
-  <h1 class='wc-panel__title text-center'>DOWNLOAD OUR APP & FOLLOW US</h1>
-  {{ variables.download }}
-  <div class="container">
-    <div class="wc-download-follow">
-      <div class="flex-1-item">
-        <a href="javascript:;">
-          <img class="wc-df-icon" src="/themes/wristcheck/images/icon/w.png"/>
-          <p class="wc-title">wristcheck <br/> App</p>
-        </a>
-      </div>
-      <div class="flex-1-item">
-        <a href="javascript:;">
-          <img class="wc-df-icon" src="/themes/wristcheck/images/icon/instagram.png"/>
-          <p class="wc-title">wristcheck <br>on <br/> instagram</p>
-        </a>
-      </div>
-      <div class="flex-1-item">
-        <a href="javascript:;">
-          <img class="wc-df-icon" src="/themes/wristcheck/images/icon/weibo.png"/>
-          <p class="wc-title">weibo</p>
-        </a>
-      </div>
-      <div class="flex-1-item">
-        <a href="javascript:;">
-          <img class="wc-df-icon" src="/themes/wristcheck/images/icon/facebook.png"/>
-          <p class="wc-title">facebook</p>
-        </a>
-      </div>
-      <div class="flex-1-item">
-        <a href="javascript:;">
-          <img class="wc-df-icon" src="/themes/wristcheck/images/icon/twitter.png"/>
-          <p class="wc-title">twwitter</p>
-        </a>
-      </div>
-    </div>
   </div>
 </div>
