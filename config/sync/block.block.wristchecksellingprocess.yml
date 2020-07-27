@@ -8,6 +8,7 @@ dependencies:
     - block_attributes
     - block_content
     - ntv_block_background
+    - system
   theme:
     - wristcheck
 third_party_settings:
@@ -38,4 +39,9 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /buy
+    negate: false
+    context_mapping: {  }

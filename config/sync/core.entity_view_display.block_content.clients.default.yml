@@ -70,8 +70,8 @@ third_party_settings:
                 type: list_default
             additional: {  }
             weight: 2
-          81b0416c-2fb9-4825-b7a9-cc67c024df5a:
-            uuid: 81b0416c-2fb9-4825-b7a9-cc67c024df5a
+          38b40b8c-a7d9-4216-9a98-903e0fe9380c:
+            uuid: 38b40b8c-a7d9-4216-9a98-903e0fe9380c
             region: content
             configuration:
               label_display: '0'
@@ -85,8 +85,8 @@ third_party_settings:
                 third_party_settings: {  }
             additional: {  }
             weight: 3
-          a5fc95ea-2cb8-4c10-b9e4-4f2135ded757:
-            uuid: a5fc95ea-2cb8-4c10-b9e4-4f2135ded757
+          e6bbffff-b786-4b53-83a4-6fec620b9b80:
+            uuid: e6bbffff-b786-4b53-83a4-6fec620b9b80
             region: content
             configuration:
               label_display: '0'
@@ -102,8 +102,8 @@ third_party_settings:
                 type: image
             additional: {  }
             weight: 4
-          925e2ae7-3862-4099-8827-c2ff44493820:
-            uuid: 925e2ae7-3862-4099-8827-c2ff44493820
+          c495e434-8a5c-4b99-abb0-e034e3fc1efb:
+            uuid: c495e434-8a5c-4b99-abb0-e034e3fc1efb
             region: content
             configuration:
               label_display: '0'
