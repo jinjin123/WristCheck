@@ -1,5 +1,7 @@
 @import '../variables/color';
-
+.header-box{
+  border-bottom: 1px solid $bg_gray4;
+}
 .header-top {
   display: flex;
   align-items: center;
