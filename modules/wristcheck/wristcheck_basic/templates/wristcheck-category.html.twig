@@ -1,5 +1,18 @@
-<h1>WATCH BRANDS AND MANUFACTURERS</h1>
-<h3>Popular watch brands</h3>
-{{ variables.wristcheck_popular_watch_brands }}
-<h1>ALL BRANDS</h1>
-{{ variables.wristcheck_all_brands }}
+<div class="wc-panel pt-100">
+  <h1 class='wc-panel__title text-center'>WATCH BRANDS AND MANUFACTURERS</h1>
+  <h3 class="wc-panel__sub text-center pb-50">Popular watch brands</h3>
+  <div class='container wc-brands-warp'>
+    {{ drupal_view('wristcheck_popular_watch_brands') }}
+  </div>
+  {#  <div class="wc-brands-warp">#}
+  {#    <div class="wc-brands-item">#}
+  {#      <img class="img-responsive" src="/themes/wristcheck/images/brand/1.jpg" alt=""/>#}
+  {#    </div>#}
+  {#  </div>#}
+</div>
+<div class="wc-panel">
+  <h1 class='wc-panel__title text-center'>ALL BRANDS</h1>
+  <div class="container">
+    {{ drupal_view('wristcheck_all_brands') }}
+  </div>
+</div>

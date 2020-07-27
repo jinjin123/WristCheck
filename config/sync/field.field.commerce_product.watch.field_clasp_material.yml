@@ -1,0 +1,19 @@
+uuid: e07089ef-ffc3-49d3-82e2-f84152076579
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_clasp_material
+id: commerce_product.watch.field_clasp_material
+field_name: field_clasp_material
+entity_type: commerce_product
+bundle: watch
+label: clasp_material
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

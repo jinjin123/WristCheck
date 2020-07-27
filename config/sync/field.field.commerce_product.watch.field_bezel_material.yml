@@ -1,0 +1,19 @@
+uuid: e03c3eb9-c3da-4f05-b073-8e777187a467
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_bezel_material
+id: commerce_product.watch.field_bezel_material
+field_name: field_bezel_material
+entity_type: commerce_product
+bundle: watch
+label: bezel_material
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

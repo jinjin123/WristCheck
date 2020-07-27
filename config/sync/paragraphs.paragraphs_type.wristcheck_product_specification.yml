@@ -1,0 +1,10 @@
+uuid: c5d0e9a0-9b70-4a2d-9e96-b69539713e63
+langcode: en
+status: true
+dependencies: {  }
+id: wristcheck_product_specification
+label: 'Wristcheck  product specifications'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
