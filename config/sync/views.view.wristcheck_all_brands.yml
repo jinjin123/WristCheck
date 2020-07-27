@@ -96,8 +96,8 @@ display:
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
+          element_wrapper_class: wc-all-brands-item
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -233,8 +233,34 @@ display:
         - user.permissions
       max-age: -1
       tags: {  }
-  attachment_1:
-    id: attachment_1
+  category_brand:
+    id: category_brand
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      query:
+        type: views_query
+        options: {  }
+      path: glossary
+      menu:
+        type: normal
+        title: Glossary
+        weight: 0
+        menu_name: main
+        parent: ''
+      display_extenders: {  }
+    cache_metadata:
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      max-age: -1
+      tags: {  }
+  fliter_attachment:
+    id: fliter_attachment
     display_title: Attachment
     display_plugin: attachment
     position: 2
@@ -288,34 +314,8 @@ display:
           entity_field: title
       displays:
         default: default
-        page_1: page_1
+        category_brand: category_brand
       inherit_arguments: false
-      display_extenders: {  }
-    cache_metadata:
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - 'user.node_grants:view'
-        - user.permissions
-      max-age: -1
-      tags: {  }
-  page_1:
-    id: page_1
-    display_title: Page
-    display_plugin: page
-    position: 1
-    display_options:
-      query:
-        type: views_query
-        options: {  }
-      path: glossary
-      menu:
-        type: normal
-        title: Glossary
-        weight: 0
-        menu_name: main
-        parent: ''
       display_extenders: {  }
     cache_metadata:
       contexts:

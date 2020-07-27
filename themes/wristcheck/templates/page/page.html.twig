@@ -1,7 +1,6 @@
 
 
 
-
 {#
 /**
  * @file
@@ -49,8 +48,7 @@
 <div class="layout-container">
 
   {% include  "@wristcheck/header.html.twig" %}
-
-  {{ page.primary_menu }}
+  {#  {{ page.primary_menu }}#}
   {{ page.secondary_menu }}
 
   {{ page.breadcrumb }}
@@ -87,13 +85,13 @@
   {% endif %}
 
   {% if page.bottom_footer %}
-      {{ page.bottom_footer }}
-      {{ page.copyright }}
+    {{ page.bottom_footer }}
+    {{ page.copyright }}
   {% endif %}
 
-</div>{# /.layout-container #}
+</div>
 
-
+{# /.layout-container #}
 {# {% include "@wristcheck/header.html.twig" %}
 <section class="sec-padding">
   {{ page.content }}

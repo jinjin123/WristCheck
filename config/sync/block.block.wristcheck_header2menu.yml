@@ -1,9 +1,9 @@
-uuid: 621a0343-8aa6-428d-8ac0-e17a5e191b69
+uuid: a52174ff-20c9-4cc2-b3c5-3d42d0816e3f
 langcode: en
-status: true
+status: false
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.header-2-menu
   module:
     - block_attributes
     - block_visibility_groups
@@ -25,15 +25,15 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_mainnavigation
+id: wristcheck_header2menu
 theme: wristcheck
-region: auto_hidden_block
-weight: -44
+region: primary_menu
+weight: -45
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'system_menu_block:header-2-menu'
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
+  id: 'system_menu_block:header-2-menu'
+  label: 'Header 2 menu'
   provider: system
   label_display: '0'
   level: 1
