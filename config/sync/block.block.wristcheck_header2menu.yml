@@ -28,7 +28,7 @@ third_party_settings:
 id: wristcheck_header2menu
 theme: wristcheck
 region: primary_menu
-weight: -43
+weight: -45
 provider: null
 plugin: 'system_menu_block:header-2-menu'
 settings:

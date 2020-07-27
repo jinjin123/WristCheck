@@ -42,7 +42,7 @@ class CategoryController extends ControllerBase implements ContainerInjectionInt
 //    wristcheck_popular_watch_brands
     $wristcheck_popular_watch_brands_view = views_embed_view('wristcheck_popular_watch_brands');
 
-    $wristcheck_all_brands_view = views_embed_view('wristcheck_all_brands');
+    $wristcheck_all_brands_view = views_embed_view('wristcheck_all_brands','category_brand');
 
     $variables = [
       'wristcheck_popular_watch_brands' => render($wristcheck_popular_watch_brands_view),

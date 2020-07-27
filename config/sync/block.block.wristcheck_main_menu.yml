@@ -12,8 +12,8 @@ _core:
   default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
 id: wristcheck_main_menu
 theme: wristcheck
-region: auto_hidden_block
-weight: -6
+region: primary_menu
+weight: -44
 provider: null
 plugin: 'system_menu_block:main'
 settings:

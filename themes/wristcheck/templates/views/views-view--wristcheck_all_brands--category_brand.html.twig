@@ -56,14 +56,22 @@
     </div>
   {% endif %}
   {% if attachment_before %}
-    <div class="attachment attachment-before">
-      {{ attachment_before }}
+    <div class="wc-all-brands-header">
+      <div class="wc-all-brands-header-name">
+        a-z
+      </div>
+      <div class="wc-all-brands-header-list">
+        {{ attachment_before }}
+      </div>
     </div>
   {% endif %}
 
   {% if rows %}
-    <div class="view-content">
-      {{ rows }}
+    <div class="view-content wc-all-brands-body">
+      <div class="wc-all-brands-name">A</div>
+      <div class="wc-all-brands-list">
+        {{ rows }}
+      </div>
     </div>
   {% elseif empty %}
     <div class="view-empty">
