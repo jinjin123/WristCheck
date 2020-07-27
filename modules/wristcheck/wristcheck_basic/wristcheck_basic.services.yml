@@ -13,3 +13,8 @@ services:
     parent: wristcheck_basic.base
     class: Drupal\wristcheck_basic\Service\BrandService
     arguments: []
+  wristcheck_basic_commerce_wishlist.twig.extension:
+    class: Drupal\wristcheck_basic\TwigExtension\CommerceWishlistExtension
+    arguments: []
+    tags:
+      - { name: twig.extension }

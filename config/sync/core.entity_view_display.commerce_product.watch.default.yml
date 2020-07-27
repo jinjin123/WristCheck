@@ -27,15 +27,18 @@ dependencies:
     - field.field.commerce_product.watch.field_introduction
     - field.field.commerce_product.watch.field_manufacturer
     - field.field.commerce_product.watch.field_model_images
-    - field.field.commerce_product.watch.field_model_specifications
     - field.field.commerce_product.watch.field_model_tags
     - field.field.commerce_product.watch.field_others
     - field.field.commerce_product.watch.field_power_time
     - field.field.commerce_product.watch.field_ref_number
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
+<<<<<<< HEAD
     - field.field.commerce_product.watch.field_shock
     - field.field.commerce_product.watch.field_sku
+=======
+    - field.field.commerce_product.watch.field_specifications
+>>>>>>> dev-jun
     - field.field.commerce_product.watch.field_subname
     - field.field.commerce_product.watch.field_watch_core
     - field.field.commerce_product.watch.field_watch_core_num
@@ -45,6 +48,7 @@ dependencies:
     - field.field.commerce_product.watch.field_year
   module:
     - commerce_product
+    - entity_reference_revisions
     - image
     - text
 id: commerce_product.watch.default
@@ -227,14 +231,6 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  field_model_specifications:
-    weight: 15
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_model_tags:
     weight: 16
     label: above
@@ -283,6 +279,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+<<<<<<< HEAD
   field_shock:
     weight: 29
     label: above
@@ -298,6 +295,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+=======
+  field_specifications:
+    type: entity_reference_revisions_entity_view
+    weight: 25
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+>>>>>>> dev-jun
     region: content
   field_subname:
     weight: 20

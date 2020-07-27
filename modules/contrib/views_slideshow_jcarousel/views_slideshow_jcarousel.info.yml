@@ -1,0 +1,16 @@
+name: 'Views Slideshow: JCarousel'
+description: 'Adds a jCarousel option to views slideshow.'
+type: module
+package: Views
+# core: 8.x
+
+dependencies:
+  - drupal:views
+  - views_slideshow:views_slideshow
+  - jquery_migrate:jquery_migrate
+
+# Information added by Drupal.org packaging script on 2019-02-22
+version: '8.x-1.0-alpha0'
+core: '8.x'
+project: 'views_slideshow_jcarousel'
+datestamp: 1550813887

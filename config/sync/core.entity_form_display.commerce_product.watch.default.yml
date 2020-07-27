@@ -27,7 +27,6 @@ dependencies:
     - field.field.commerce_product.watch.field_introduction
     - field.field.commerce_product.watch.field_manufacturer
     - field.field.commerce_product.watch.field_model_images
-    - field.field.commerce_product.watch.field_model_specifications
     - field.field.commerce_product.watch.field_model_tags
     - field.field.commerce_product.watch.field_others
     - field.field.commerce_product.watch.field_power_time
@@ -36,6 +35,7 @@ dependencies:
     - field.field.commerce_product.watch.field_related_model
     - field.field.commerce_product.watch.field_shock
     - field.field.commerce_product.watch.field_sku
+    - field.field.commerce_product.watch.field_specifications
     - field.field.commerce_product.watch.field_subname
     - field.field.commerce_product.watch.field_watch_core
     - field.field.commerce_product.watch.field_watch_core_num
@@ -47,6 +47,7 @@ dependencies:
   module:
     - commerce
     - image
+    - paragraphs
     - path
     - text
 id: commerce_product.watch.default
@@ -238,14 +239,6 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
-  field_model_specifications:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_model_tags:
     weight: 12
     settings:
@@ -315,6 +308,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  field_specifications:
+    type: entity_reference_paragraphs
+    weight: 21
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   field_subname:
     weight: 3
