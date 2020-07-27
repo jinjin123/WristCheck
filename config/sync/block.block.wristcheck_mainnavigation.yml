@@ -6,7 +6,6 @@ dependencies:
     - system.menu.main
   module:
     - block_attributes
-    - block_visibility_groups
     - ntv_block_background
     - system
   theme:
@@ -27,8 +26,8 @@ third_party_settings:
     background_overlay: ''
 id: wristcheck_mainnavigation
 theme: wristcheck
-region: auto_hidden_block
-weight: -44
+region: primary_menu
+weight: -43
 provider: null
 plugin: 'system_menu_block:main'
 settings:
@@ -39,9 +38,4 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility:
-  condition_group:
-    id: condition_group
-    negate: false
-    block_visibility_group: ''
-    context_mapping: {  }
+visibility: {  }
