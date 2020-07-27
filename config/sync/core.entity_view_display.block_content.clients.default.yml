@@ -70,6 +70,53 @@ third_party_settings:
                 type: list_default
             additional: {  }
             weight: 2
+          7801e03a-b356-49d6-bb4f-db2baa95e41c:
+            uuid: 7801e03a-b356-49d6-bb4f-db2baa95e41c
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:block_content:clients:body'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 3
+          c8788cb0-4d9c-4a6a-b9da-f5b49a57535c:
+            uuid: c8788cb0-4d9c-4a6a-b9da-f5b49a57535c
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:block_content:clients:field_images'
+              formatter:
+                label: above
+                settings:
+                  image_style: ''
+                  image_link: ''
+                third_party_settings: {  }
+                type: image
+            additional: {  }
+            weight: 4
+          d0916870-a161-4540-ba13-18eb56098301:
+            uuid: d0916870-a161-4540-ba13-18eb56098301
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:block_content:clients:field_field_type'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: list_default
+            additional: {  }
+            weight: 5
         third_party_settings: {  }
 id: block_content.clients.default
 targetEntityType: block_content
@@ -101,4 +148,5 @@ content:
     region: content
 hidden:
   langcode: true
+  layout_builder__layout: true
   search_api_excerpt: true

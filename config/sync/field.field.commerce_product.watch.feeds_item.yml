@@ -1,0 +1,23 @@
+uuid: 4f6b15a2-bd65-4340-99a3-6b9e16500be6
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.feeds_item
+  module:
+    - feeds
+id: commerce_product.watch.feeds_item
+field_name: feeds_item
+entity_type: commerce_product
+bundle: watch
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

@@ -1,0 +1,19 @@
+uuid: 6fa2fad3-9010-40d4-a65c-95b9e2b54558
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_water_resistance
+id: commerce_product.watch.field_water_resistance
+field_name: field_water_resistance
+entity_type: commerce_product
+bundle: watch
+label: water_resistance
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
