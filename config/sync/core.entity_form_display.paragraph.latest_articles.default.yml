@@ -1,0 +1,35 @@
+uuid: 967f8014-6bac-401a-811f-cdf580679a96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.latest_articles.field_latest_img
+    - field.field.paragraph.latest_articles.field_latest_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.latest_articles
+  module:
+    - image
+id: paragraph.latest_articles.default
+targetEntityType: paragraph
+bundle: latest_articles
+mode: default
+content:
+  field_latest_img:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_latest_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

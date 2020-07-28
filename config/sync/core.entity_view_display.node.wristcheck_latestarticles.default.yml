@@ -1,0 +1,32 @@
+uuid: 0b00ecbc-f007-46f6-82f9-127779d121a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.wristcheck_latestarticles.field_latest_articles
+    - node.type.wristcheck_latestarticles
+  module:
+    - entity_reference_revisions
+    - user
+id: node.wristcheck_latestarticles.default
+targetEntityType: node
+bundle: wristcheck_latestarticles
+mode: default
+content:
+  field_latest_articles:
+    type: entity_reference_revisions_entity_view
+    weight: 101
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

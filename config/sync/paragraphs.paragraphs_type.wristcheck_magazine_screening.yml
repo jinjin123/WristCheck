@@ -1,0 +1,10 @@
+uuid: 270cdb5d-21aa-4340-8012-c0f10e0ddf62
+langcode: en
+status: true
+dependencies: {  }
+id: wristcheck_magazine_screening
+label: 'Wristcheck magazine screening'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,20 @@
+uuid: cd4b1eba-9ee0-445b-9e55-a90c90cd31e0
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_buyer_guide_tag
+field_name: field_buyer_guide_tag
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

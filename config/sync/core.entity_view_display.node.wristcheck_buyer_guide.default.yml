@@ -1,0 +1,32 @@
+uuid: 64be45a3-a8f5-49fc-81f4-67e37d82ffbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.wristcheck_buyer_guide.field_buyer_guide
+    - node.type.wristcheck_buyer_guide
+  module:
+    - entity_reference_revisions
+    - user
+id: node.wristcheck_buyer_guide.default
+targetEntityType: node
+bundle: wristcheck_buyer_guide
+mode: default
+content:
+  field_buyer_guide:
+    type: entity_reference_revisions_entity_view
+    weight: 101
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true
