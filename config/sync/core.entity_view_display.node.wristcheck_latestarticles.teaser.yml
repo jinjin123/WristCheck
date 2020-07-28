@@ -1,0 +1,24 @@
+uuid: 22381243-3cc0-420f-856a-17430a1a09b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.wristcheck_latestarticles.field_latest_articles
+    - node.type.wristcheck_latestarticles
+  module:
+    - user
+id: node.wristcheck_latestarticles.teaser
+targetEntityType: node
+bundle: wristcheck_latestarticles
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_latest_articles: true
+  langcode: true
+  search_api_excerpt: true

@@ -308,6 +308,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_specifications:
     type: entity_reference_paragraphs
     weight: 21
