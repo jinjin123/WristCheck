@@ -46,18 +46,15 @@
  */
 #}
 <div class="layout-container">
-
   {% include  "@wristcheck/header.html.twig" %}
-  {#  {{ page.primary_menu }}#}
+{#  {{ page.primary_menu }}#}
   {{ page.secondary_menu }}
-
   {{ page.breadcrumb }}
-
   {{ page.highlighted }}
-
   {{ page.help }}
 
   <main role="main">
+<<<<<<< HEAD
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="layout-content">
@@ -79,6 +76,33 @@
     {% if page.section %}
       {{ page.section }}
     {% endif %}
+=======
+    <a id="main-content" tabindex="-1"></a>
+    <div class="container">
+      <div class="row">
+        {% if page.sidebar_first %}
+          <div class="col-md-3">
+            <aside class="layout-sidebar-first" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          </div>
+        {% endif %}
+        {% set classes = [
+          page.sidebar_first and page.sidebar_second ? 'col-md-6' : page.sidebar_first or page.sidebar_second ? 'col-md-9' : 'col-md-12',
+        ] %}
+        <div {{ attributes.addClass(classes) }}>
+          <div class="layout-content">
+            {{ page.content }}
+          </div>
+        </div>
+        {% if page.sidebar_second %}
+          <aside class="layout-sidebar-second" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endif %}
+      </div>
+    </div>
+>>>>>>> dev-jun
   </main>
 
   {% if page.footer %}
@@ -91,13 +115,4 @@
     {{ page.bottom_footer }}
     {{ page.copyright }}
   {% endif %}
-
 </div>
-
-{# /.layout-container #}
-{# {% include "@wristcheck/header.html.twig" %}
-<section class="sec-padding">
-  {{ page.content }}
-</section>
-{{ page.section }}
-{% include "@wristcheck/footer.html.twig" %} #}

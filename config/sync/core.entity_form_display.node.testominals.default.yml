@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.testominals.field_image
     - field.field.node.testominals.field_occupation
     - field.field.node.testominals.field_rate
+    - field.field.node.testominals.field_related_model
     - field.field.node.testominals.field_subject
     - image.style.thumbnail
     - node.type.testominals
@@ -62,6 +63,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_related_model:
+    weight: 28
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_subject:
     weight: 8

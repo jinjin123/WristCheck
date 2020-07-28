@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class BannerService extends BaseService implements BannerServiceInterface
 {
 
-  public function queryBanner(bool $isEnable)
+  public function queryBanner(bool $isEnable = true)
   {
     $result = $this->queryEntity('wristcheck_banner');
 

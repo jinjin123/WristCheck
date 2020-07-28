@@ -1,10 +1,12 @@
-uuid: 98d6bd5a-9944-422e-aa6d-650066ba818c
+uuid: 83c67475-80d5-4e47-b56c-80e1ef154685
 langcode: en
 status: true
 dependencies:
   module:
     - block_attributes
     - ntv_block_background
+    - system
+    - wristcheck_basic
   theme:
     - wristcheck
 third_party_settings:
@@ -21,18 +23,20 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristchecksellingprocess
+id: wristcheckbannerblock
 theme: wristcheck
-region: content
-weight: -9
+region: highlighted
+weight: 0
 provider: null
-plugin: 'block_content:1f70ff72-85c1-4062-9410-9cbd579e96ea'
+plugin: wristcheck_banner_block
 settings:
-  id: 'block_content:1f70ff72-85c1-4062-9410-9cbd579e96ea'
-  label: 'WristCheck Selling Process'
-  provider: block_content
+  id: wristcheck_banner_block
+  label: 'Wristcheck banner block'
+  provider: wristcheck_basic
   label_display: '0'
-  status: true
-  info: ''
-  view_mode: full
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /buy
+    negate: false
+    context_mapping: {  }
