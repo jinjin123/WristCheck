@@ -58,7 +58,7 @@ class FieldUninstallValidatorTest extends UnitTestCase {
     $field_storage = $this->getMockBuilder('Drupal\field\Entity\FieldStorageConfig')
       ->disableOriginalConstructor()
       ->getMock();
-    $field_storage->expects($this->exactly(2))
+    $field_storage->expects($this->once())
       ->method('isDeleted')
       ->willReturn(TRUE);
     $this->fieldUninstallValidator->expects($this->once())
@@ -66,7 +66,7 @@ class FieldUninstallValidatorTest extends UnitTestCase {
       ->willReturn([$field_storage]);
 
     $module = $this->randomMachineName();
-    $expected = ['Field pending deletion: <em class="placeholder"></em>. Running cron may delete the field.'];
+    $expected = ['Fields pending deletion'];
     $reasons = $this->fieldUninstallValidator->validate($module);
     $this->assertSame($expected, $this->castSafeStrings($reasons));
   }
