@@ -1,0 +1,24 @@
+uuid: 768c2e6e-bcd9-406a-98ae-7f4f9b31951b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.wristcheck_buyer_guide.field_buyer_guide
+    - node.type.wristcheck_buyer_guide
+  module:
+    - user
+id: node.wristcheck_buyer_guide.teaser
+targetEntityType: node
+bundle: wristcheck_buyer_guide
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_buyer_guide: true
+  langcode: true
+  search_api_excerpt: true

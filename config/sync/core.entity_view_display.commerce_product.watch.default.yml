@@ -291,6 +291,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_specifications:
     type: entity_reference_revisions_entity_view
     weight: 25

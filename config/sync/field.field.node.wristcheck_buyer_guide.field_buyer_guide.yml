@@ -1,0 +1,46 @@
+uuid: 861aab5b-0db9-4f1b-93a2-e475ac758fd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_buyer_guide
+    - node.type.wristcheck_buyer_guide
+    - paragraphs.paragraphs_type.wristcheck_buyer_guide
+  module:
+    - entity_reference_revisions
+id: node.wristcheck_buyer_guide.field_buyer_guide
+field_name: field_buyer_guide
+entity_type: node
+bundle: wristcheck_buyer_guide
+label: buyer_guide
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      wristcheck_buyer_guide: wristcheck_buyer_guide
+    target_bundles_drag_drop:
+      latest_articles:
+        weight: 7
+        enabled: false
+      wristcheck_buyer_guide:
+        enabled: true
+        weight: 8
+      wristcheck_further_articles:
+        weight: 9
+        enabled: false
+      wristcheck_magazine_screening:
+        weight: 10
+        enabled: false
+      wristcheck_magazine_single:
+        weight: 11
+        enabled: false
+      wristcheck_product_specification:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

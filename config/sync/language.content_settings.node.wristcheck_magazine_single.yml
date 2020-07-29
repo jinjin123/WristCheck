@@ -1,0 +1,11 @@
+uuid: 1a87680e-d10d-4e9c-bb14-308a10b7e305
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_magazine_single
+id: node.wristcheck_magazine_single
+target_entity_type_id: node
+target_bundle: wristcheck_magazine_single
+default_langcode: site_default
+language_alterable: false

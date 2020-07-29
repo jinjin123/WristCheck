@@ -1,0 +1,30 @@
+uuid: b3ea52f1-a78d-4d77-b429-49bfcd61ec69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mag_single_body
+    - paragraphs.paragraphs_type.wristcheck_magazine_single
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: paragraph.wristcheck_magazine_single.field_mag_single_body
+field_name: field_mag_single_body
+entity_type: paragraph
+bundle: wristcheck_magazine_single
+label: mag_single_body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

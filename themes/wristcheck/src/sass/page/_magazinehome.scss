@@ -1,4 +1,10 @@
-.path-magazine-home {
+.path-wristcheck-magazine-home {
+  .views-field-field-page-title-image {
+    margin-bottom: 50px;
+    img {
+      width: 100%;
+    }
+  }
   .container {
     .field--name-body {
       h2,
@@ -25,59 +31,138 @@
   .views-field-title {
     text-align: center;
     text-decoration: underline;
+    margin-bottom: 25px;
+    font-weight: bold;
   }
-  .views-field-field-mag-short-description {
+  .views-field-body {
     text-align: center;
-  }
-  .field--name-field-mag-home-title {
-    font-size: 32px;
-    color: black;
-    text-align: center;
-  }
-  .field--name-field-mag-home-art-title {
-    color: black;
-    text-decoration: underline;
-    font-size: 15px;
-    padding: 0 25px;
-  }
-  .field--name-field-mag-home-img {
-    display: flex;
-    img {
-      margin-bottom: 30px;
-      padding: 25px;
+    margin-bottom: 25px;
+    .field-content {
+      p {
+        color: #333;
+      }
     }
   }
-  #block-views-block-latest-articles-block-1-2 {
+  .views-field-uid {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 10px;
+  }
+
+  #block-views-block-latest-articles-block-1 {
     width: 100%;
     >h2 {
       text-align: center;
+      font-size: 25px;
       font-weight: bold;
-      font-size:  25px;
+      margin-bottom: 30px;
     }
-    .views-field-field-latest-articles {
-      margin:0 3%;
-      .field-content {
+    .view-latest-articles {
+      margin:0 6%;
+      .view-content {
         display: flex;
         flex-wrap: wrap;
-        .field--name-field-latest-img {
-          width: 33.3%;
-          img {
-            padding: 10px;
+        .views-row {
+          padding: 0 30px;
+          width: 50%;
+          .views-field-field-latest-title {
+            .field-content {
+              h5 {
+                color: #999999;
+                font-size: 15px;
+                //text-decoration: none !important;
+              }
+              h2 {
+                color: #333;
+                font-weight: bold;
+                margin-bottom: 25px;
+                //text-decoration: underline;
+                padding-bottom: 5px;
+                border-bottom: 1px solid #333;
+              }
+            }
           }
-        }
-        .field--name-field-latest-title {
-          position: relative;
-          margin: 0 20px;
-          color: black;
+          .views-field-field-latest-img {
+            .field-content {
+              img {
+                width: 100%;
+              }
+            }
+          }
+          .views-field-uid {
+            text-align: left;
+            margin-bottom: 25px;
+            font-size: 15px;
+            padding:0;
+            .field-content {
+              color: #999999;
+            }
+          }
         }
       }
     }
   }
-  .views-field-field-magazine-home {
-    .field-content {
-      display: flex;
-      align-content: flex-start;
-      flex-flow: row wrap;
+  #block-views-block-wristcheck-further-articles-block-1 {
+    >h2 {
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .view-wristcheck-further-articles {
+      .view-content {
+        display: flex;
+        padding: 0 130px;
+        //flex-wrap: wrap;
+        .views-row {
+          display: grid;
+          padding: 0 20px;
+          width: 40%;
+          .views-field-field-further-articles-img {
+             margin-bottom: 25px;
+          }
+          .views-field-field-further-articles-tag {
+            margin-bottom: 10px;
+          }
+          .views-field-field-further-articles-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 50px;
+          }
+        }
+      }
+    }
+  }
+  #block-views-block-wristcheck-buyer-guide-block-1 {
+    >h2 {
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .view-wristcheck-buyer-guide {
+      .view-content {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 300px;
+        .views-row {
+          display: flex;
+          width: 40%;
+          padding-bottom: 50px;
+          .views-field-field-buyer-guide-title {
+            font-weight: bold;
+            color: #333;
+            //margin-bottom: 50px;
+            margin-left: 50px;
+            margin-top: 20px;
+          }
+          .views-field-field-buyer-guide-tag {
+            position: relative;
+            margin-top: 23%;
+            margin-left: -50px;
+          }
+        }
+      }
     }
   }
 }

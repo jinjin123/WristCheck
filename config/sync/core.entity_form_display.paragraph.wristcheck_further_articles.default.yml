@@ -1,0 +1,45 @@
+uuid: fbeedc49-7478-4c20-8856-02b830e9b6c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wristcheck_further_articles.field_further_articles_img
+    - field.field.paragraph.wristcheck_further_articles.field_further_articles_tag
+    - field.field.paragraph.wristcheck_further_articles.field_further_articles_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.wristcheck_further_articles
+  module:
+    - image
+    - imce
+id: paragraph.wristcheck_further_articles.default
+targetEntityType: paragraph
+bundle: wristcheck_further_articles
+mode: default
+content:
+  field_further_articles_img:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: false
+    type: image_image
+    region: content
+  field_further_articles_tag:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_further_articles_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,29 @@
+uuid: 967ecc81-84d7-4635-b825-4c448312b67e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_buyer_guide_tag
+    - paragraphs.paragraphs_type.wristcheck_buyer_guide
+    - taxonomy.vocabulary.tags
+id: paragraph.wristcheck_buyer_guide.field_buyer_guide_tag
+field_name: field_buyer_guide_tag
+entity_type: paragraph
+bundle: wristcheck_buyer_guide
+label: buyer_guide_tag
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
