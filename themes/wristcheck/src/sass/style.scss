@@ -7,6 +7,7 @@
 @import './component/header';
 @import './component/banner';
 @import "./component/breadcrumb";
+@import "./component/blog";
 @import './layout/panel';
 @import './layout/narrow';
 
@@ -19,7 +20,7 @@
   .views-element-container {
     width: 100%;
   }
-
+  .view-wristcheck-buy-news .view-content,
   .view-id-wristcheck_buy_magazine .view-content,
   .view-id-wristcheck_buy_news .view-content,
   .view-id-wristcheck_buy_popular_brands .view-content,
@@ -51,6 +52,7 @@
   }
 }
 
+//mobile
 @media (min-width: 1900px) {
   .container {
     max-width: 1800px;
