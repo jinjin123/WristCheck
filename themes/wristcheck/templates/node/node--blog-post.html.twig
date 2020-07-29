@@ -212,7 +212,7 @@
                     </div>
                     <!-- .entry-next end -->
                     <div class="clearfix"></div>
-                </div>              
+                </div>
                 <!-- .entry-prev-next end -->
                 <div class="entry-date text-center">
                     {{ date }}
@@ -297,7 +297,7 @@
                 <!-- .entry-comments-form end -->
             </div>
             <!-- .col-lg-8 end -->
-        </div>   
+        </div>
 	{% 	else %}
     		<div class="entry">
                 <div class="entry-featured">
@@ -405,3 +405,8 @@
             {{ content.field_blog_comments }}
 	{% 	endif %}
 {% endif %}
+
+<h1>{{ 'LATEST ARTICLES'|t }}</h1>
+<div>
+  {{ drupal_view('wristcheck_buy_news','latest_articles') }}
+</div>
