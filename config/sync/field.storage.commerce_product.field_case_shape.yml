@@ -1,0 +1,21 @@
+uuid: 6d92782d-a641-4c45-b269-17bf91047b3c
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_case_shape
+field_name: field_case_shape
+entity_type: commerce_product
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

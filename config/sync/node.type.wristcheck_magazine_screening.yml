@@ -1,0 +1,18 @@
+uuid: 0e8349f3-d78b-4d4c-b1df-45668ef61f47
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Wristcheck Magazine Screening'
+type: wristcheck_magazine_screening
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

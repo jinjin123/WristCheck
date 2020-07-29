@@ -1,0 +1,426 @@
+uuid: 92ae8bef-65f4-4b41-b766-f257cf1a1c2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.field.commerce_product.watch.body
+    - field.field.commerce_product.watch.field_bezel_material
+    - field.field.commerce_product.watch.field_case_back
+    - field.field.commerce_product.watch.field_case_back_width
+    - field.field.commerce_product.watch.field_case_band_color
+    - field.field.commerce_product.watch.field_case_band_length
+    - field.field.commerce_product.watch.field_case_band_material
+    - field.field.commerce_product.watch.field_case_band_width
+    - field.field.commerce_product.watch.field_case_diameter
+    - field.field.commerce_product.watch.field_case_face
+    - field.field.commerce_product.watch.field_case_number
+    - field.field.commerce_product.watch.field_case_shape
+    - field.field.commerce_product.watch.field_case_thickness
+    - field.field.commerce_product.watch.field_case_weight
+    - field.field.commerce_product.watch.field_clasp
+    - field.field.commerce_product.watch.field_clasp_material
+    - field.field.commerce_product.watch.field_crust_material
+    - field.field.commerce_product.watch.field_extras
+    - field.field.commerce_product.watch.field_manufacturer
+    - field.field.commerce_product.watch.field_others
+    - field.field.commerce_product.watch.field_power_time
+    - field.field.commerce_product.watch.field_shock
+    - field.field.commerce_product.watch.field_sku
+    - field.field.commerce_product.watch.field_watch_core
+    - field.field.commerce_product.watch.field_watch_core_num
+    - field.field.commerce_product.watch.field_watch_sex
+    - field.field.commerce_product.watch.field_watch_style
+    - field.field.commerce_product.watch.field_water_resistance
+    - field.field.commerce_product.watch.field_year
+  module:
+    - commerce_feeds
+    - commerce_product
+id: watch_feed
+label: 'watch  feed'
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:commerce_product'
+processor_configuration:
+  langcode: en
+  update_existing: 0
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: false
+  owner_id: 1
+  authorize: true
+  skip_hash_check: false
+  values:
+    type: watch
+custom_sources:
+  brand:
+    label: brand
+    value: brand
+    machine_name: brand
+  sku:
+    label: sku
+    value: sku
+    machine_name: sku
+  style:
+    label: style
+    value: style
+    machine_name: style
+  core:
+    label: core
+    value: core
+    machine_name: core
+  core_num:
+    label: core_num
+    value: core_num
+    machine_name: core_num
+  crust_material:
+    label: crust_material
+    value: crust_material
+    machine_name: crust_material
+  sex:
+    label: sex
+    value: sex
+    machine_name: sex
+  manufacturer_:
+    label: 'manufacturer '
+    value: 'manufacturer '
+    machine_name: manufacturer_
+  power_time:
+    label: power_time
+    value: power_time
+    machine_name: power_time
+  shock:
+    label: shock
+    value: shock
+    machine_name: shock
+  case_diameter:
+    label: case_diameter
+    value: case_diameter
+    machine_name: case_diameter
+  case_thickness:
+    label: case_thickness
+    value: case_thickness
+    machine_name: case_thickness
+  water_resistance:
+    label: water_resistance
+    value: water_resistance
+    machine_name: water_resistance
+  bezel_material:
+    label: bezel_material
+    value: bezel_material
+    machine_name: bezel_material
+  case_face:
+    label: case_face
+    value: case_face
+    machine_name: case_face
+  case_back:
+    label: case_back
+    value: case_back
+    machine_name: case_back
+  case_shape:
+    label: case_shape
+    value: case_shape
+    machine_name: case_shape
+  case_band_width:
+    label: case_band_width
+    value: case_band_width
+    machine_name: case_band_width
+  case_number:
+    label: case_number
+    value: case_number
+    machine_name: case_number
+  case_band_material:
+    label: case_band_material
+    value: case_band_material
+    machine_name: case_band_material
+  case_band_color:
+    label: case_band_color
+    value: case_band_color
+    machine_name: case_band_color
+  case_band_length:
+    label: case_band_length
+    value: case_band_length
+    machine_name: case_band_length
+  clasp:
+    label: clasp
+    value: clasp
+    machine_name: clasp
+  clasp_material:
+    label: clasp_material
+    value: clasp_material
+    machine_name: clasp_material
+  case_back_width:
+    label: case_back_width
+    value: case_back_width
+    machine_name: case_back_width
+  extras:
+    label: extras
+    value: extras
+    machine_name: extras
+  others:
+    label: others
+    value: others
+    machine_name: others
+  case_description:
+    label: case_description
+    value: case_description
+    machine_name: case_description
+  case_weight:
+    label: case_weight
+    value: case_weight
+    machine_name: case_weight
+  year:
+    label: year
+    value: year
+    machine_name: year
+  variations:
+    label: variations
+    value: variations
+    machine_name: variations
+  strore:
+    label: Strore
+    value: Strore
+    machine_name: strore
+mappings:
+  -
+    target: title
+    map:
+      value: brand
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_sku
+    map:
+      value: sku
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_watch_style
+    map:
+      value: style
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_watch_core
+    map:
+      value: core
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_watch_core_num
+    map:
+      value: core_num
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_crust_material
+    map:
+      value: crust_material
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_watch_sex
+    map:
+      value: sex
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_manufacturer
+    map:
+      value: manufacturer_
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_power_time
+    map:
+      value: power_time
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_shock
+    map:
+      value: shock
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_diameter
+    map:
+      value: case_diameter
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_thickness
+    map:
+      value: case_thickness
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_water_resistance
+    map:
+      value: water_resistance
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_bezel_material
+    map:
+      value: bezel_material
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_face
+    map:
+      value: case_face
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_back
+    map:
+      value: case_back
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_back
+    map:
+      value: ''
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_shape
+    map:
+      value: case_shape
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_number
+    map:
+      value: case_number
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_band_material
+    map:
+      value: case_band_material
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_band_width
+    map:
+      value: case_band_width
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_band_color
+    map:
+      value: case_band_color
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_band_length
+    map:
+      value: case_band_length
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_clasp
+    map:
+      value: clasp
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_clasp_material
+    map:
+      value: clasp_material
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_case_back_width
+    map:
+      value: case_back_width
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_extras
+    map:
+      value: extras
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_others
+    map:
+      value: others
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: body
+    map:
+      value: case_description
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_case_weight
+    map:
+      value: case_weight
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_year
+    map:
+      value: year
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: variations
+    map:
+      target_id: variations
+    settings:
+      reference_by: title
+      autocreate: '1'
+  -
+    target: stores
+    map:
+      target_id: strore
+    settings:
+      reference_by: name
+      autocreate: '1'
