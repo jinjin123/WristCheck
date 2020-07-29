@@ -35,6 +35,10 @@ wristcheck-lib:
     - core/drupalSettings
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev-mengwen
 wristcheck-global:
   version: VERSION
   css:
@@ -43,6 +47,7 @@ wristcheck-global:
       css/reset.css: { preprocess: 0, minified: true }
       css/style.css: { preprocess: 0, minified: true }
   js:
+    js/modernizr.min.js: { preprocess: 0, minified: true }
     src/js/global.js: { preprocess: 0, minified: true }
   dependencies:
     - core/jquery

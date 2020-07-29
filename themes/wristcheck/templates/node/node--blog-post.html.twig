@@ -122,7 +122,7 @@
           <!-- .entry end -->
       </div>
     {% elseif blog_layout == 'masonary' %}
-      <div class="entry">
+      <div class="entry wc-post-blog">
           <div class="entry-featured">
               <a href="blog-single-post-fullwidth.html">
                   <img src="{{ img_url }}" alt="entry title">
@@ -150,7 +150,7 @@
           <!-- .entry-meta end -->
       </div>
 	  {% else %}
-      <div class="entry">
+      <div class="entry wc-post-blog">
           <div class="entry-featured">
               <img src="{{ image770x516 }}" alt="entry title">
           </div>
@@ -192,7 +192,7 @@
 	  {% endif %}
 {% else %}
 	{% 	if blog_single_style == 'creative' %}
-	    <div class="entry">
+	    <div class="entry wc-post-blog">
             <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
                 <div class="entry-prev-next">
                     <div class="entry-prev">
@@ -299,7 +299,7 @@
             <!-- .col-lg-8 end -->
         </div>
 	{% 	else %}
-    		<div class="entry">
+    		<div class="entry wc-post-blog">
                 <div class="entry-featured">
                     <img src="{{ img_url }}" class="img-single" alt="entry title">
                 </div>
@@ -406,7 +406,7 @@
 	{% 	endif %}
 {% endif %}
 
-<h1>{{ 'LATEST ARTICLES'|t }}</h1>
-<div>
+<h1 class="wc-blog-title">{{ 'LATEST ARTICLES'|t }}</h1>
+<div class="wc-news">
   {{ drupal_view('wristcheck_buy_news','latest_articles') }}
 </div>
