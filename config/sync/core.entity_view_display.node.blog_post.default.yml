@@ -46,7 +46,7 @@ content:
       pager_id: 0
       view_mode: default
     third_party_settings: {  }
-    label: above
+    label: hidden
     region: content
   field_blog_tags:
     type: entity_reference_label

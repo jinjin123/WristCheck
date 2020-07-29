@@ -1,75 +1,44 @@
-uuid: 543d6a1f-b416-47ba-9b4b-0891d0083d69
+uuid: 06a4bee6-58ee-4284-b870-e85e363c047b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.testominals.field_comment_text
-    - field.field.node.testominals.field_company_name
-    - field.field.node.testominals.field_image
-    - field.field.node.testominals.field_occupation
-    - field.field.node.testominals.field_rate
-    - field.field.node.testominals.field_subject
+    - field.field.node.slick_page.body
+    - field.field.node.slick_page.field_slick_img
     - image.style.thumbnail
-    - node.type.testominals
+    - node.type.slick_page
   module:
     - image
     - path
-id: node.testominals.default
+    - text
+id: node.slick_page.default
 targetEntityType: node
-bundle: testominals
+bundle: slick_page
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_comment_text:
-    weight: 10
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_company_name:
-    weight: 26
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_image:
-    weight: 7
+  field_slick_img:
+    weight: 122
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
-    region: content
-  field_occupation:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_rate:
-    weight: 27
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_subject:
-    weight: 8
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   langcode:
     type: language_select
@@ -80,7 +49,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -88,26 +57,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 15
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 120
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 16
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: -5
     region: content
     settings:
       size: 60
@@ -115,7 +84,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60

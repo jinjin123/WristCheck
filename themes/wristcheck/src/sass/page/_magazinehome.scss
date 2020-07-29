@@ -1,4 +1,4 @@
-.path-wristcheck-magazine-home {
+.path-wristcheck-magazine {
   .views-field-field-page-title-image {
     margin-bottom: 50px;
     img {
@@ -6,50 +6,35 @@
     }
   }
   .container {
-    .field--name-body {
-      h2,
-      h4{
+    max-width: none !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    .views-row {
+      .views-field-title {
         text-align: center;
-        margin-bottom: 18px;
-      }
-      h2 {
-        font-size: 25px;
         text-decoration: underline;
-        margin-bottom: 18px;
+        margin-bottom: 25px;
         font-weight: bold;
       }
-      >div {
+      .views-field-body {
         text-align: center;
-        display: flow-root;
-        margin-bottom: 60px;
-        a {
-          padding: 30px
+        margin-bottom: 25px;
+        .field-content {
+          p {
+            color: #333;
+          }
         }
       }
-    }
-  }
-  .views-field-title {
-    text-align: center;
-    text-decoration: underline;
-    margin-bottom: 25px;
-    font-weight: bold;
-  }
-  .views-field-body {
-    text-align: center;
-    margin-bottom: 25px;
-    .field-content {
-      p {
-        color: #333;
+      .views-field-uid {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 10px;
       }
     }
   }
-  .views-field-uid {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 10px;
-  }
 
-  #block-views-block-latest-articles-block-1 {
+
+  #block-views-block-wristcheck-latest-articles-block-1 {
     width: 100%;
     >h2 {
       text-align: center;
@@ -57,7 +42,7 @@
       font-weight: bold;
       margin-bottom: 30px;
     }
-    .view-latest-articles {
+    .view-wristcheck-latest-articles {
       margin:0 6%;
       .view-content {
         display: flex;
@@ -65,12 +50,14 @@
         .views-row {
           padding: 0 30px;
           width: 50%;
-          .views-field-field-latest-title {
+          .views-field-title {
             .field-content {
-              h5 {
+              text-align: left;
+              h4 {
                 color: #999999;
                 font-size: 15px;
                 //text-decoration: none !important;
+                margin-bottom: 10px;
               }
               h2 {
                 color: #333;
@@ -118,13 +105,13 @@
           display: grid;
           padding: 0 20px;
           width: 40%;
-          .views-field-field-further-articles-img {
+          .views-field-field-image {
              margin-bottom: 25px;
           }
-          .views-field-field-further-articles-tag {
+          .views-field-field-tags {
             margin-bottom: 10px;
           }
-          .views-field-field-further-articles-title {
+          .views-field-title {
             font-weight: bold;
             color: #333;
             margin-bottom: 50px;
@@ -141,22 +128,30 @@
       margin-bottom: 30px;
     }
     .view-wristcheck-buyer-guide {
+      position: relative;
       .view-content {
+        position: relative;
         display: flex;
         flex-wrap: wrap;
-        padding: 0 300px;
+        padding: 0 150px;
         .views-row {
+          position: relative;
           display: flex;
           width: 40%;
           padding-bottom: 50px;
-          .views-field-field-buyer-guide-title {
+          margin-right: 10%;
+          .views-field-field-image {
+            position: relative;
+          }
+          .views-field-title {
+            position: relative;
             font-weight: bold;
             color: #333;
             //margin-bottom: 50px;
             margin-left: 50px;
             margin-top: 20px;
           }
-          .views-field-field-buyer-guide-tag {
+          .views-field-field-tags {
             position: relative;
             margin-top: 23%;
             margin-left: -50px;
