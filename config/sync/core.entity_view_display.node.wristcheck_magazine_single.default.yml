@@ -1,0 +1,32 @@
+uuid: 895c3060-fa42-490f-9e6f-2b4f5dd1416a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.wristcheck_magazine_single.field_magazine_single
+    - node.type.wristcheck_magazine_single
+  module:
+    - entity_reference_revisions
+    - user
+id: node.wristcheck_magazine_single.default
+targetEntityType: node
+bundle: wristcheck_magazine_single
+mode: default
+content:
+  field_magazine_single:
+    type: entity_reference_revisions_entity_view
+    weight: 101
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

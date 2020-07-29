@@ -1,0 +1,19 @@
+uuid: 4802c7da-86bf-4bb8-b6c9-186c94d7ae43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_further_articles_title
+    - paragraphs.paragraphs_type.wristcheck_further_articles
+id: paragraph.wristcheck_further_articles.field_further_articles_title
+field_name: field_further_articles_title
+entity_type: paragraph
+bundle: wristcheck_further_articles
+label: 'further articles title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

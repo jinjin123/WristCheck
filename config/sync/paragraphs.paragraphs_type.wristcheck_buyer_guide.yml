@@ -1,0 +1,10 @@
+uuid: 26662f15-f43a-4b01-b359-1989d6c8d164
+langcode: en
+status: true
+dependencies: {  }
+id: wristcheck_buyer_guide
+label: 'Wristcheck Buyer guide'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,21 @@
+uuid: d14b2d04-8b0d-455e-9b53-d47d1b60c440
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_case_back_width
+field_name: field_case_back_width
+entity_type: commerce_product
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
