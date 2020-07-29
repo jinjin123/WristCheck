@@ -1,0 +1,21 @@
+uuid: 4cf63bee-bec2-43a8-955d-dc077e6dcd71
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_contact_us
+  module:
+    - user
+id: node.wristcheck_contact_us.default
+targetEntityType: node
+bundle: wristcheck_contact_us
+mode: default
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

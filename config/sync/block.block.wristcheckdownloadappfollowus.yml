@@ -1,4 +1,4 @@
-uuid: 9d4509ef-87ce-4609-b126-ef6a2966939a
+uuid: 65503e1e-9d74-48ca-913f-00801c0b3abd
 langcode: en
 status: true
 dependencies:
@@ -21,17 +21,17 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: testlayoutbuilder
+id: wristcheckdownloadappfollowus
 theme: wristcheck
-region: secondary_menu
-weight: -44
+region: footer
+weight: -8
 provider: null
-plugin: 'block_content:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
+plugin: 'block_content:5b608d0c-4e3e-4050-8abe-e6d554678f31'
 settings:
-  id: 'block_content:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
-  label: 'Test Layout Builder'
+  id: 'block_content:5b608d0c-4e3e-4050-8abe-e6d554678f31'
+  label: 'WristCheck Download App & Follow US'
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full

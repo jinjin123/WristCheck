@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.wcshw.field_price
     - field.field.node.wcshw.field_product_integrity
     - field.field.node.wcshw.field_purchase_date
-    - field.field.node.wcshw.field_related_model
     - field.field.node.wcshw.field_year_of_issue
     - image.style.thumbnail
     - node.type.wcshw
@@ -89,16 +88,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_related_model:
-    weight: 26
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_year_of_issue:
     weight: 3

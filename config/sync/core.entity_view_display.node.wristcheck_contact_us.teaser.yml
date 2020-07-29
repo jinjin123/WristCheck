@@ -1,0 +1,22 @@
+uuid: cb96b246-4c7d-4219-8141-debb78436f2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.wristcheck_contact_us
+  module:
+    - user
+id: node.wristcheck_contact_us.teaser
+targetEntityType: node
+bundle: wristcheck_contact_us
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

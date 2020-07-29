@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.testominals.field_image
     - field.field.node.testominals.field_occupation
     - field.field.node.testominals.field_rate
-    - field.field.node.testominals.field_related_model
     - field.field.node.testominals.field_subject
     - node.type.testominals
   module:
@@ -30,7 +29,6 @@ hidden:
   field_image: true
   field_occupation: true
   field_rate: true
-  field_related_model: true
   field_subject: true
   langcode: true
   search_api_excerpt: true
