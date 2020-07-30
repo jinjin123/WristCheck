@@ -1,10 +1,11 @@
-uuid: 9d4509ef-87ce-4609-b126-ef6a2966939a
+uuid: 0e03bcd5-5ae3-42e8-b6a7-910f2d9f6bfb
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - block_attributes
     - ntv_block_background
+    - system
   theme:
     - wristcheck
 third_party_settings:
@@ -21,18 +22,15 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: testlayoutbuilder
+id: mainpagecontent
 theme: wristcheck
-region: secondary_menu
-weight: -44
+region: content
+weight: 0
 provider: null
-plugin: 'block_content:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
+plugin: system_main_block
 settings:
-  id: 'block_content:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
-  label: 'Test Layout Builder'
-  provider: block_content
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
   label_display: visible
-  status: true
-  info: ''
-  view_mode: full
 visibility: {  }
