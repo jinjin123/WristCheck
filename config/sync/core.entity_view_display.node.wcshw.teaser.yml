@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.wcshw.field_price
     - field.field.node.wcshw.field_product_integrity
     - field.field.node.wcshw.field_purchase_date
-    - field.field.node.wcshw.field_related_model
     - field.field.node.wcshw.field_year_of_issue
     - node.type.wcshw
   module:
@@ -44,7 +43,6 @@ hidden:
   field_price: true
   field_product_integrity: true
   field_purchase_date: true
-  field_related_model: true
   field_year_of_issue: true
   langcode: true
   search_api_excerpt: true

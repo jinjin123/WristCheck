@@ -12,3 +12,28 @@ var $ = jQuery;
       target.css("-webkit-transform","rotate(45deg)");
     }
 });
+  $('.view-faq-slick-img').slick({
+    dots: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    fade: false,
+    cssEase: 'ease',
+    arrows: false,
+    rows: 1,
+    responsive: [{
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }, {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
+  });

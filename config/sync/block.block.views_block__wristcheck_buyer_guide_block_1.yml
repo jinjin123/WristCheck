@@ -1,4 +1,4 @@
-uuid: 506ac3eb-3648-4d61-9784-413e6c29da0d
+uuid: 982a7b05-3a03-483d-a5f0-36bcaaa25fe6
 langcode: en
 status: true
 dependencies:
@@ -41,6 +41,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /wristcheck-magazine-home
+    pages: /wristcheck-magazine
     negate: false
     context_mapping: {  }
