@@ -54,6 +54,12 @@
   }
 }
 
+.wrapper {
+  .contextual-region{
+    position: static;
+  }
+}
+
 //mobile
 @media (min-width: 1900px) {
   .container {

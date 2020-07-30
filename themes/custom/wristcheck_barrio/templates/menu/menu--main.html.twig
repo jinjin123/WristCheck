@@ -1,0 +1,90 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ *
+ * @ingroup themeable
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul class="navbar-nav">
+      {% elseif menu_level == 1 or menu_level == 2 %}
+        {% if menu_level == 1%}
+          <ul class="dropdown-menu mega-dropdown-menu">
+          {% else %}
+            <ul class="navbar-submenus">
+            {% endif %}
+          {% else %}
+            <ul>
+            {% endif %}
+            {% for item in items %}
+              {%
+                set classes = [
+                  item.is_expanded ? '',
+                  item.is_collapsed ? '',
+                  item.in_active_trail ? 'active',
+                ]
+              %}
+              {% if menu_level == 0 %}
+              {%
+                set current_classes = [
+                  'has-dropdown',
+                  'mega-dropdown',
+                  item.in_active_trail ? 'active',
+                ]
+              %}
+                <li{{item.attributes.addClass(current_classes)}}>
+                  <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="{{ item.url }}">{{ item.title|raw }}<span class='dian'></span>
+                  </a>
+                  {% if item.below %}
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                  {% endif %}
+                </li>
+              {% elseif menu_level == 1 %}
+                <li{{item.attributes.addClass('dropdown-submenu col-md-4')}}>
+                  <a href="{{ item.url }}">{{ item.title|raw }}</a>
+                  {% if item.below %}
+
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                  {% endif %}
+                </li>
+              {% else %}
+                <li{{item.attributes.addClass(classes)}}>
+                  <a href="{{ item.url }}">{{ item.title|raw }}</a>
+                  {% if item.below %}
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                  {% endif %}
+                </li>
+              {% endif %}
+
+
+            {% endfor %}
+
+          </ul>
+        {% endif %}
+      {% endmacro %}

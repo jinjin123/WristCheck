@@ -1,0 +1,22 @@
+<div class="module-icon cart-icon">
+    <i class="fa fa-shopping-cart"></i>
+    <span class="title">shop cart</span>
+</div>
+<div class="module-content cart-box">
+    <div class="cart-overview">
+        <div class="list-unstyled">
+            {% if content %}
+                {{ content }}
+            {% else %}
+                <p class="text-center mar-em-cart">{{ 'Your shopping cart is empty.'|t }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="cart-total">
+    </div>
+    <div class="clearfix">
+    </div>
+    <div class="cart-control">
+        {{ links|render|replace({'<a ' : '<a class="btn btn-secondary pull-right" '})|t }}
+    </div>
+</div>

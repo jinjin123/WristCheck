@@ -5,7 +5,7 @@
         {% if item.url %}
           <li><a href="{{ item.url }}">{{ item.text }}</a></li>
         {% else %}
-          <li class="active">/ {{ item.text }}</li>
+          <li class="active">{{ item.text }}</li>
         {% endif %}
       {% endfor %}
     </ol>

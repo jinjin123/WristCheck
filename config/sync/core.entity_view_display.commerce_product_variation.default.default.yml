@@ -8,6 +8,7 @@ dependencies:
     - field.field.commerce_product_variation.default.attribute_color
     - field.field.commerce_product_variation.default.attribute_size
     - field.field.commerce_product_variation.default.attribute_year
+    - field.field.commerce_product_variation.default.weight
   module:
     - commerce_price
 id: commerce_product_variation.default.default
@@ -25,7 +26,7 @@ content:
       currency_display: symbol
     third_party_settings: {  }
   price:
-    label: hidden
+    label: above
     type: commerce_price_default
     weight: 1
     region: content
@@ -37,7 +38,7 @@ content:
     type: string
     weight: 2
     region: content
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -50,3 +51,4 @@ hidden:
   product_id: true
   search_api_excerpt: true
   title: true
+  weight: true
