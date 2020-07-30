@@ -1,0 +1,59 @@
+.path-wristcheck-faq {
+  .view-wristcheck {
+    padding: 0 200px;
+    .view-header {
+      h1 {
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 25px;
+        font-weight: bold;
+      }
+      h5 {
+        margin-bottom: 100px;
+        color: #333;
+      }
+    }
+    .view-content {
+      .views-row {
+        .views-field-title {
+          .field-content {
+            > div {
+              padding-bottom: 30px;
+              span {
+                color: black;
+                font-size: 20px;
+              }
+              i {
+                border: solid black;
+                border-width: 0 2px 2px 0;
+                display: inline-block;
+                padding: 3px;
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                margin-bottom: 5px;
+                margin-left: 50%;
+              }
+            }
+          }
+        }
+        .views-field-body {
+              display: none;
+          //.field-content {
+          //  p {
+          //    display: none;
+          //  }
+          //}
+        }
+        .views-field-field-faq-category {
+          padding-top: 50px;
+          padding-bottom: 50px;
+          font-size: 30px;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+
+

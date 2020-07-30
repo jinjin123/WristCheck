@@ -1,0 +1,37 @@
+uuid: 9698e6f4-a63d-4501-8939-0cede6efd609
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ntv_block_background
+    - search
+  theme:
+    - bootstrap_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: bootstrap_barrio_searchform
+theme: bootstrap_barrio
+region: header
+weight: 0
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+  page_id: ''
+visibility: {  }

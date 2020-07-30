@@ -47,51 +47,54 @@
 #}
 <div class="layout-container">
   {% include  "@wristcheck/header.html.twig" %}
-{#  {{ page.primary_menu }}#}
-  {{ page.secondary_menu }}
-  {{ page.breadcrumb }}
-  {{ page.highlighted }}
-  {{ page.help }}
+  {#  {{ page.primary_menu }}#}
+  <div class="pr" role="body">
+    <div class="body-modal"></div>
+    {{ page.secondary_menu }}
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
 
-  <main role="main">
-    <a id="main-content" tabindex="-1"></a>
-    <div class="container">
-      <div class="row">
-        {% if page.sidebar_first %}
-          <div class="col-md-3">
-            <aside class="layout-sidebar-first" role="complementary">
-              {{ page.sidebar_first }}
+    <main role="main">
+      <a id="main-content" tabindex="-1"></a>
+      <div class="container">
+        <div class="row">
+          {% if page.sidebar_first %}
+            <div class="col-md-3">
+              <aside class="layout-sidebar-first" role="complementary">
+                {{ page.sidebar_first }}
+              </aside>
+            </div>
+          {% endif %}
+          {% set classes = [
+            page.sidebar_first and page.sidebar_second ? 'col-md-6' : page.sidebar_first or page.sidebar_second ? 'col-md-9' : 'col-md-12',
+          ] %}
+          <div {{ attributes.addClass(classes) }}>
+            <div class="layout-content">
+              {{ page.content }}
+            </div>
+          </div>
+          {% if page.sidebar_second %}
+            <aside class="layout-sidebar-second" role="complementary">
+              {{ page.sidebar_second }}
             </aside>
-          </div>
-        {% endif %}
-        {% set classes = [
-          page.sidebar_first and page.sidebar_second ? 'col-md-6' : page.sidebar_first or page.sidebar_second ? 'col-md-9' : 'col-md-12',
-        ] %}
-        <div {{ attributes.addClass(classes) }}>
-          <div class="layout-content">
-            {{ page.content }}
-          </div>
+          {% endif %}
         </div>
-        {% if page.sidebar_second %}
-          <aside class="layout-sidebar-second" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endif %}
       </div>
-    </div>
-    {% if page.section %}
-      {{ page.section }}
+      {% if page.section %}
+        {{ page.section }}
+      {% endif %}
+    </main>
+
+    {% if page.footer %}
+      <footer role="contentinfo">
+        {{ page.footer }}
+      </footer>
     {% endif %}
-  </main>
 
-  {% if page.footer %}
-    <footer role="contentinfo">
-      {{ page.footer }}
-    </footer>
-  {% endif %}
-
-  {% if page.bottom_footer %}
-    {{ page.bottom_footer }}
-    {{ page.copyright }}
-  {% endif %}
+    {% if page.bottom_footer %}
+      {{ page.bottom_footer }}
+      {{ page.copyright }}
+    {% endif %}
+  </div>
 </div>
