@@ -1,13 +1,13 @@
-uuid: b15e21d4-9543-48e0-ab78-779660ed4611
+uuid: be37e7e2-f8fd-47d2-9ccd-3263c482bd13
 langcode: en
 status: true
 dependencies:
   theme:
-    - wristcheck
+    - bootstrap_barrio
 _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
-id: wristcheck_page_title
-theme: wristcheck
+id: bootstrap_barrio_page_title
+theme: bootstrap_barrio
 region: content
 weight: -8
 provider: null

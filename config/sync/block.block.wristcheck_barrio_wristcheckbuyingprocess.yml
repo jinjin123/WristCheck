@@ -1,4 +1,4 @@
-uuid: 5b18e79a-ad74-4fc6-84c1-05354f0e322c
+uuid: fbce4512-895c-4a66-b158-adb0f70a1255
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - block_attributes
     - ntv_block_background
   theme:
-    - wristcheck
+    - wristcheck_barrio
 third_party_settings:
   block_attributes:
     attr_class: ''
@@ -21,9 +21,9 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheckbuyingprocess
-theme: wristcheck
-region: section
+id: wristcheck_barrio_wristcheckbuyingprocess
+theme: wristcheck_barrio
+region: top_header
 weight: -7
 provider: null
 plugin: 'block_content:4fd5984f-da48-4157-af67-754b19b9a3b8'

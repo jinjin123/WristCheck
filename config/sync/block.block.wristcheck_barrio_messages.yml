@@ -1,0 +1,22 @@
+uuid: b7c413ef-b38e-4267-9539-b13e8c9d3ee6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wristcheck_barrio
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: wristcheck_barrio_messages
+theme: wristcheck_barrio
+region: top_header
+weight: -43
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -35,10 +35,6 @@ wristcheck-lib:
     - core/drupalSettings
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dev-mengwen
 wristcheck-global:
   version: VERSION
   css:
