@@ -1,14 +1,14 @@
-uuid: 982a7b05-3a03-483d-a5f0-36bcaaa25fe6
+uuid: 8d392264-5081-44ca-b4f3-94fc91951225
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.wristcheck_buyer_guide
+  content:
+    - 'block_content:basic:517328e8-a493-4af3-977d-f49daf98d983'
   module:
     - block_attributes
+    - block_content
     - ntv_block_background
     - system
-    - views
   theme:
     - wristcheck
 third_party_settings:
@@ -25,22 +25,23 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: views_block__wristcheck_buyer_guide_block_1
+id: faqsystemchecked
 theme: wristcheck
 region: section
-weight: -8
+weight: -14
 provider: null
-plugin: 'views_block:wristcheck_buyer_guide-block_1'
+plugin: 'block_content:517328e8-a493-4af3-977d-f49daf98d983'
 settings:
-  id: 'views_block:wristcheck_buyer_guide-block_1'
-  label: ''
-  provider: views
+  id: 'block_content:517328e8-a493-4af3-977d-f49daf98d983'
+  label: 'I check values at wristcheck'
+  provider: block_content
   label_display: visible
-  views_label: ''
-  items_per_page: none
+  status: true
+  info: ''
+  view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: /wristcheck-magazine
+    pages: /faq-authsystem-steps
     negate: false
     context_mapping: {  }

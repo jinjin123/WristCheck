@@ -1,0 +1,107 @@
+.path-faq-authsystem-steps {
+  #block-wristcheckprocessbutton {
+    h2 {
+      color: #333;
+      font-weight: bold;
+      font-size: 25px;
+      margin-bottom: 70px;
+      padding: 0 12px;
+    }
+
+    .field--name-body {
+      display: flex;
+      .text-center {
+        padding: 0 12px;
+        button {
+          background-color: #d0d0d0;
+          span {
+            color: #FFFBFCFC;
+          }
+        }
+      }
+    }
+  }
+
+  .view-wristcheck-process-steps {
+    .view-content {
+      .views-row {
+        .views-field-title {
+          color: #333;
+          font-weight: bold;
+          padding: 0 12px;
+        }
+        .views-field-field-wristcheck-process-steps {
+          .field-content {
+            .paragraph--type--wristcheck-process-steps {
+              .field--name-field-process-step {
+                display: flex;
+                flex-wrap: wrap;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #block-faqsystemchecked {
+    padding: 0 120px;
+    margin-bottom: 100px;
+    h2 {
+      color: #333;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 70px;
+    }
+    .field--name-body {
+      display: flex;
+      flex-wrap: wrap;
+      div {
+        margin-right: 100px;
+        h1 {
+          color: #333;
+          font-weight: bold;
+          font-size: 13px;
+          margin-bottom: 5px;
+        }
+        h5 {
+          font-weight: normal;
+          font-size: 5px;
+        }
+      }
+    }
+  }
+  #block-createanadsimpleinstrutions {
+    padding: 0 120px;
+    h2 {
+      color: #333;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+  #block-views-block-wristcheck-faq-system-news-block-1 {
+    padding: 0 120px;
+    h2 {
+      color: #333;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
+    .view-wristcheck-faq-system-news {
+      .view-content {
+        display: flex;
+        .views-row {
+          margin-right: 20px;
+          .views-field-field-image {
+            margin-bottom:  15px;
+          }
+          .views-field-title {
+            text-align:  center;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}
+

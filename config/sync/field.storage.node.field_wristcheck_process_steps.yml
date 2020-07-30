@@ -1,0 +1,21 @@
+uuid: 4684778d-aa29-4f4f-b9ac-49daf1203e7d
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_wristcheck_process_steps
+field_name: field_wristcheck_process_steps
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
