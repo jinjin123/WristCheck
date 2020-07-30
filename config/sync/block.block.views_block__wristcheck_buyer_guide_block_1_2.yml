@@ -1,13 +1,13 @@
-uuid: 6128d72e-89c7-4b87-9354-923876748892
+uuid: 7f89cdec-9695-45ad-824a-832396d01e95
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - views.view.wristcheck_buyer_guide
   module:
     - block_attributes
     - ntv_block_background
-    - system
+    - views
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -24,18 +24,17 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_barrio_mainnavigation
+id: views_block__wristcheck_buyer_guide_block_1_2
 theme: wristcheck_barrio
-region: primary_menu
-weight: -43
+region: section
+weight: 0
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'views_block:wristcheck_buyer_guide-block_1'
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
-  provider: system
+  id: 'views_block:wristcheck_buyer_guide-block_1'
+  label: ''
+  provider: views
   label_display: '0'
-  level: 1
-  depth: 0
-  expand_all_items: false
+  views_label: ''
+  items_per_page: none
 visibility: {  }

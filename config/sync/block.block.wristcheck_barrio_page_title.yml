@@ -1,4 +1,4 @@
-uuid: acab35ed-eb49-486b-b13d-bbc8d6ec254d
+uuid: b8f36890-5723-415e-a492-901c8f56bce4
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: wristcheck_barrio_page_title
 theme: wristcheck_barrio
 region: content
-weight: -8
+weight: -50
 provider: null
 plugin: page_title_block
 settings:

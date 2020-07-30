@@ -1,11 +1,13 @@
-uuid: 0e037c97-d2f7-4893-aec6-123b02d956df
+uuid: 2914584b-82e2-441d-9a2a-dfcfce8a2b12
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.wristcheck_latest_articles
   module:
     - block_attributes
     - ntv_block_background
-    - search
+    - views
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -22,16 +24,17 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_barrio_searchform
+id: views_block__wristcheck_latest_articles_block_1_3
 theme: wristcheck_barrio
-region: header
+region: section
 weight: 0
 provider: null
-plugin: search_form_block
+plugin: 'views_block:wristcheck_latest_articles-block_1'
 settings:
-  id: search_form_block
-  label: 'Search form'
-  provider: search
+  id: 'views_block:wristcheck_latest_articles-block_1'
+  label: ''
+  provider: views
   label_display: '0'
-  page_id: ''
+  views_label: ''
+  items_per_page: none
 visibility: {  }

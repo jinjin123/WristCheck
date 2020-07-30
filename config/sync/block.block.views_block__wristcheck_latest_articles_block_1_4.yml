@@ -1,10 +1,13 @@
-uuid: fbce4512-895c-4a66-b158-adb0f70a1255
+uuid: 31212850-d1a4-426e-bb0e-965d67c2129e
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.wristcheck_latest_articles
   module:
     - block_attributes
     - ntv_block_background
+    - views
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -21,18 +24,17 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_barrio_wristcheckbuyingprocess
+id: views_block__wristcheck_latest_articles_block_1_4
 theme: wristcheck_barrio
-region: top_header
-weight: -7
+region: section
+weight: 0
 provider: null
-plugin: 'block_content:4fd5984f-da48-4157-af67-754b19b9a3b8'
+plugin: 'views_block:wristcheck_latest_articles-block_1'
 settings:
-  id: 'block_content:4fd5984f-da48-4157-af67-754b19b9a3b8'
-  label: 'WristCheck Buying Process'
-  provider: core
+  id: 'views_block:wristcheck_latest_articles-block_1'
+  label: ''
+  provider: views
   label_display: '0'
-  status: true
-  info: ''
-  view_mode: full
+  views_label: ''
+  items_per_page: none
 visibility: {  }

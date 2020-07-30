@@ -1,12 +1,13 @@
-uuid: 28e80e13-3c34-4754-848c-61f7250ac99f
+uuid: afc8f405-57d8-4dc0-9388-719d2c0e3a89
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.wristcheck_further_articles
   module:
     - block_attributes
     - ntv_block_background
-    - system
-    - wristcheck_basic
+    - views
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -23,20 +24,17 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_barrio_wristcheckbannerblock
+id: views_block__wristcheck_further_articles_block_1_2
 theme: wristcheck_barrio
-region: highlighted
+region: section
 weight: 0
 provider: null
-plugin: wristcheck_banner_block
+plugin: 'views_block:wristcheck_further_articles-block_1'
 settings:
-  id: wristcheck_banner_block
-  label: 'Wristcheck banner block'
-  provider: wristcheck_basic
+  id: 'views_block:wristcheck_further_articles-block_1'
+  label: ''
+  provider: views
   label_display: '0'
-visibility:
-  request_path:
-    id: request_path
-    pages: /buy
-    negate: false
-    context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

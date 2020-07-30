@@ -1,4 +1,4 @@
-uuid: 1537034c-240e-4bff-947d-196d20aa8ffd
+uuid: 2a569ecc-959f-4969-90e9-b641b89cb345
 langcode: en
 status: true
 dependencies:
@@ -24,10 +24,10 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_barrio_wristcheckbottommenu
+id: wristcheckbottommenu_2
 theme: wristcheck_barrio
-region: top_header
-weight: 0
+region: bottom_footer
+weight: -10
 provider: null
 plugin: 'system_menu_block:wristcheck-bottom-menu'
 settings:

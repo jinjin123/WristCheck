@@ -1,13 +1,13 @@
-uuid: b44cc092-f44d-4c62-9d85-1561de3293e0
+uuid: a41b4243-cdfc-49b9-87b8-8bc453d756ee
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:6ef71f14-0db8-4e14-9b08-e09ea8058080'
+  config:
+    - views.view.faq_slick_img
   module:
     - block_attributes
-    - block_content
     - ntv_block_background
+    - views
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -24,18 +24,17 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_barrio_blockcopyright
+id: views_block__faq_slick_img_block_1_2
 theme: wristcheck_barrio
-region: top_header
+region: section
 weight: 0
 provider: null
-plugin: 'block_content:6ef71f14-0db8-4e14-9b08-e09ea8058080'
+plugin: 'views_block:faq_slick_img-block_1'
 settings:
-  id: 'block_content:6ef71f14-0db8-4e14-9b08-e09ea8058080'
-  label: 'Block - Copy Right'
-  provider: block_content
+  id: 'views_block:faq_slick_img-block_1'
+  label: ''
+  provider: views
   label_display: '0'
-  status: true
-  info: ''
-  view_mode: full
+  views_label: ''
+  items_per_page: none
 visibility: {  }
