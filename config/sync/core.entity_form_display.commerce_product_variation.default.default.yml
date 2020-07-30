@@ -8,8 +8,10 @@ dependencies:
     - field.field.commerce_product_variation.default.attribute_color
     - field.field.commerce_product_variation.default.attribute_size
     - field.field.commerce_product_variation.default.attribute_year
+    - field.field.commerce_product_variation.default.weight
   module:
     - commerce_price
+    - physical
 _core:
   default_config_hash: tPYXAFcoBHG1jtgfl021t-ns7EE7da_S-o2zfS7aLUQ
 id: commerce_product_variation.default.default
@@ -73,6 +75,14 @@ content:
     weight: 10
     settings:
       display_label: true
+    third_party_settings: {  }
+    region: content
+  weight:
+    type: physical_measurement_default
+    weight: 91
+    settings:
+      default_unit: ''
+      allow_unit_change: true
     third_party_settings: {  }
     region: content
 hidden:

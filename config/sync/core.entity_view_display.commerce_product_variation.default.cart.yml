@@ -9,6 +9,7 @@ dependencies:
     - field.field.commerce_product_variation.default.attribute_color
     - field.field.commerce_product_variation.default.attribute_size
     - field.field.commerce_product_variation.default.attribute_year
+    - field.field.commerce_product_variation.default.weight
   enforced:
     module:
       - commerce_cart
@@ -50,3 +51,4 @@ hidden:
   search_api_excerpt: true
   sku: true
   title: true
+  weight: true

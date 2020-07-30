@@ -9,6 +9,7 @@ dependencies:
     - field.field.commerce_product_variation.default.attribute_color
     - field.field.commerce_product_variation.default.attribute_size
     - field.field.commerce_product_variation.default.attribute_year
+    - field.field.commerce_product_variation.default.weight
   module:
     - commerce_price
     - layout_builder
@@ -56,3 +57,4 @@ hidden:
   product_id: true
   search_api_excerpt: true
   title: true
+  weight: true
