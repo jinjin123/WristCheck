@@ -19,9 +19,6 @@
  * @ingroup themeable
  */
 #}
-<article{{ attributes }}>
-  {{- product -}}
-</article>
 {% set img_uri = product_entity.field_images.entity.uri.value %}
 {% set img_url = file_url(img_uri) %}
 {% set comment_count =  product_entity.field_comments.comment_count %}
