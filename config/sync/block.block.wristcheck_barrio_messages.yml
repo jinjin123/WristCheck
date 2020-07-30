@@ -1,4 +1,4 @@
-uuid: b7c413ef-b38e-4267-9539-b13e8c9d3ee6
+uuid: 1a1c01c5-c9e6-4f4f-ab3d-130095ecf908
 langcode: en
 status: true
 dependencies:
@@ -10,8 +10,8 @@ _core:
   default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
 id: wristcheck_barrio_messages
 theme: wristcheck_barrio
-region: top_header
-weight: -43
+region: highlighted
+weight: 0
 provider: null
 plugin: system_messages_block
 settings:

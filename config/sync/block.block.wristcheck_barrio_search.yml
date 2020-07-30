@@ -1,0 +1,23 @@
+uuid: 9bdfc741-4660-456b-968a-e7caea3dbf8c
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - wristcheck_barrio
+_core:
+  default_config_hash: za-39d5WDUg6XvbyqSnuVYEeq6QM4qKJxW8MnoAha5A
+id: wristcheck_barrio_search
+theme: wristcheck_barrio
+region: sidebar_first
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+  page_id: ''
+visibility: {  }

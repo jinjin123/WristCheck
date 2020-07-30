@@ -1,13 +1,13 @@
-uuid: 33c27f56-d758-45ff-b4a2-09b4b5a530e0
+uuid: eb7c9e91-c40a-4cee-9764-bee272a2a196
 langcode: en
-status: false
+status: true
 dependencies:
-  content:
-    - 'block_content:clients:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
+  config:
+    - system.menu.account
   module:
     - block_attributes
-    - block_content
     - ntv_block_background
+    - system
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -24,18 +24,18 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheck_barrio_testlayoutbuilder
+id: wristcheckuseraccountmenu_2
 theme: wristcheck_barrio
-region: secondary_menu
-weight: -44
+region: header
+weight: 0
 provider: null
-plugin: 'block_content:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
+plugin: 'system_menu_block:account'
 settings:
-  id: 'block_content:2cbc0aeb-a609-44f1-bbce-b76ac0804b53'
-  label: 'Test Layout Builder'
-  provider: block_content
-  label_display: visible
-  status: true
-  info: ''
-  view_mode: full
+  id: 'system_menu_block:account'
+  label: 'Wristcheck user account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
 visibility: {  }

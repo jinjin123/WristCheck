@@ -1,4 +1,4 @@
-uuid: 8bab9221-a4a8-42c0-bc4d-4118cb8f9583
+uuid: a245c684-7cc9-4199-9541-129d04e34483
 langcode: en
 status: true
 dependencies:
@@ -10,8 +10,8 @@ _core:
   default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
 id: wristcheck_barrio_help
 theme: wristcheck_barrio
-region: top_header
-weight: -42
+region: content
+weight: -30
 provider: null
 plugin: help_block
 settings:
