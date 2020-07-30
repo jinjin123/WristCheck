@@ -9,6 +9,10 @@
   padding-bottom: 50px;
   color: $color-dark3;
   position: relative;
+  .region-header {
+    display: flex;
+    width: 100%;
+  }
 
   #block-wristcheck-branding,
   .wc-logo {
