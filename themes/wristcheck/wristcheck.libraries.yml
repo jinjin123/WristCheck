@@ -11,7 +11,6 @@ wristcheck-lib:
       assets/css/external.css: { preprocess: 0, minified: true }
       assets/css/style.css: { preprocess: 0, minified: true }
       assets/css/update.css: { preprocess: 0, minified: true }
-      assets/slick/slick.css: { preprocess: 0, minified: true }
   js:
     # assets/js/jquery-3.3.1.min.js: { preprocess: 0, minified: true }
     assets/js/plugins.js: { preprocess: 0, minified: true }
@@ -29,7 +28,6 @@ wristcheck-lib:
     assets/slider/js/extensions/revolution.extension.parallax.min.js: { preprocess: 0, minified: true }
     assets/js/rsconfig.js: { preprocess: 0, minified: true }
     assets/js/update.js: { preprocess: 0, minified: true }
-    assets/slick/slick.min.js: { preprocess: 0, minified: true }
   dependencies:
     - core/jquery
     - core/drupalSettings

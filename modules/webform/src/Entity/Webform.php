@@ -673,7 +673,8 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
    * {@inheritdoc}
    */
   public function hasRemoteAddr() {
-    return (!$this->isConfidential() && $this->getSetting('form_remote_addr')) ? TRUE : FALSE;
+    $disable_remote_addr = $this->getSetting('form_disable_remote_addr', TRUE);
+    return (!$this->isConfidential() && !$disable_remote_addr) ? TRUE : FALSE;
   }
 
   /**
@@ -1042,7 +1043,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
       'form_previous_submissions' => TRUE,
       'form_confidential' => FALSE,
       'form_confidential_message' => '',
-      'form_remote_addr' => TRUE,
+      'form_disable_remote_addr' => FALSE,
       'form_convert_anonymous' => FALSE,
       'form_prepopulate' => FALSE,
       'form_prepopulate_source_entity' => FALSE,
@@ -1094,6 +1095,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
       'wizard_progress_link' => FALSE,
       'wizard_progress_states' => FALSE,
       'wizard_auto_forward' => TRUE,
+      'wizard_auto_forward_hide_next_button' => FALSE,
       'wizard_start_label' => '',
       'wizard_preview_link' => FALSE,
       'wizard_confirmation' => TRUE,
@@ -1771,6 +1773,9 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
    */
   protected function setElementPropertiesRecursive(array &$elements, $key, array $properties, $parent_key = '') {
     foreach ($elements as $element_key => &$element) {
+      // Make sure the element key is a string.
+      $element_key = (string) $element_key;
+
       if (!WebformElementHelper::isElement($element, $element_key)) {
         continue;
       }
@@ -2281,8 +2286,8 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
       return;
     }
 
-    $page_submit_path = trim($this->settings['page_submit_path'], '/');
-    $default_page_base_path = trim(\Drupal::config('webform.settings')->get('settings.default_page_base_path'), '/');
+    $page_submit_path = $this->settings['page_submit_path'];
+    $default_page_base_path = \Drupal::config('webform.settings')->get('settings.default_page_base_path');
 
     // Skip generating paths if submit path and base path are empty.
     if (empty($page_submit_path) && empty($default_page_base_path)) {
@@ -2290,13 +2295,13 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
     }
 
     // Update webform base, confirmation, submissions and drafts paths.
-    $path_base_alias = '/' . ($page_submit_path ?: $default_page_base_path . '/' . str_replace('_', '-', $this->id()));
+    $path_base_alias = ($page_submit_path ?: $default_page_base_path . '/' . str_replace('_', '-', $this->id()));
     $path_suffixes = ['', '/confirmation', '/submissions', '/drafts'];
     foreach ($path_suffixes as $path_suffix) {
       $path_source = '/webform/' . $this->id() . $path_suffix;
       $path_alias = $path_base_alias . $path_suffix;
       if ($path_suffix === '/confirmation' && $this->settings['page_confirm_path']) {
-        $path_alias = '/' . trim($this->settings['page_confirm_path'], '/');
+        $path_alias = $this->settings['page_confirm_path'];
       }
       $this->updatePath($path_source, $path_alias, $this->langcode);
       $this->updatePath($path_source, $path_alias, LanguageInterface::LANGCODE_NOT_SPECIFIED);

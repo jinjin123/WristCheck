@@ -24,7 +24,7 @@ third_party_settings:
 id: wristcheckbuyingprocess
 theme: wristcheck
 region: section
-weight: -10
+weight: -9
 provider: null
 plugin: 'block_content:4fd5984f-da48-4157-af67-754b19b9a3b8'
 settings:

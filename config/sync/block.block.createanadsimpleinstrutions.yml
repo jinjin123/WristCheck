@@ -28,7 +28,7 @@ third_party_settings:
 id: createanadsimpleinstrutions
 theme: wristcheck
 region: section
-weight: -13
+weight: -12
 provider: null
 plugin: 'block_content:721c0b56-35c2-43b5-a0c0-eecde4912579'
 settings:
