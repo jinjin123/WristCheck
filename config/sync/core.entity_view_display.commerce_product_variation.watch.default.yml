@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_variation_type.watch
     - field.field.commerce_product_variation.watch.attribute_color
     - field.field.commerce_product_variation.watch.attribute_size
+    - field.field.commerce_product_variation.watch.weight
   module:
     - commerce_price
 id: commerce_product_variation.watch.default
@@ -85,4 +86,5 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  weight: true

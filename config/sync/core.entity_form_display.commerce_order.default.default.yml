@@ -38,10 +38,9 @@ content:
     third_party_settings: {  }
   field_do_you_need_a_gift_bag:
     weight: 22
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
-    type: boolean_checkbox
+    type: options_buttons
     region: content
   field_phone:
     weight: 21
@@ -61,6 +60,10 @@ content:
       match_operator: CONTAINS
       allow_existing: false
       form_mode: default
+      revision: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
     third_party_settings: {  }
     region: content
 hidden:
