@@ -1,6 +1,6 @@
 uuid: 5b18e79a-ad74-4fc6-84c1-05354f0e322c
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - block_attributes
@@ -23,7 +23,7 @@ third_party_settings:
     background_overlay: ''
 id: wristcheckbuyingprocess
 theme: wristcheck
-region: section
+region: ''
 weight: -7
 provider: null
 plugin: 'block_content:4fd5984f-da48-4157-af67-754b19b9a3b8'
