@@ -1,4 +1,4 @@
-uuid: a6122efa-d1d2-4298-bf77-4bd76271705d
+uuid: ed49f6a5-41eb-401b-a21c-0c29faf8f623
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
     - ntv_block_background
     - system
   theme:
-    - wristcheck
+    - wristcheck_barrio
 third_party_settings:
   block_attributes:
     attr_class: ''
@@ -26,9 +26,9 @@ third_party_settings:
     bg_image_size: ''
     background_overlay: ''
 id: benifsoftrustedcheckout
-theme: wristcheck
+theme: wristcheck_barrio
 region: section
-weight: 0
+weight: -8
 provider: null
 plugin: 'block_content:d61d8fce-b723-4480-b779-f84e120b2f79'
 settings:

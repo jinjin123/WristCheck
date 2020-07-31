@@ -1,4 +1,4 @@
-uuid: 7e7fb86b-b8ae-423f-81bb-f693fa805f28
+uuid: a22a9169-35d1-4499-9076-041387be835d
 langcode: en
 status: true
 dependencies:
@@ -25,13 +25,10 @@ settings:
     target_bundles:
       wristcheck_process_steps: wristcheck_process_steps
     target_bundles_drag_drop:
-      wristcheck_magazine_screening:
-        weight: 4
-        enabled: false
       wristcheck_process_steps:
         enabled: true
-        weight: 5
+        weight: 3
       wristcheck_product_specification:
-        weight: 6
+        weight: 4
         enabled: false
 field_type: entity_reference_revisions

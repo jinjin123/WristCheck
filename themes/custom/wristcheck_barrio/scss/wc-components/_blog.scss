@@ -54,6 +54,9 @@
 }
 
 .wc-news {
+  .wc-news-card{
+    overflow: hidden;
+  }
   .news-detail-card {
     .wc-news-title {
       font-size: 30px;

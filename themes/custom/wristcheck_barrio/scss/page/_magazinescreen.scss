@@ -1,0 +1,34 @@
+.path-wristcheck-magazine-screening {
+  .view-wristcheck-magazine {
+    .view-content {
+      .views-row {
+        margin: 0 20%;
+      }
+    }
+
+    .views-field-field-magazine-screening {
+      //margin: 0 20%;
+      .paragraph--type--wristcheck-magazine-screening {
+        display: flex;
+      }
+    }
+
+    .field--name-field-watch-magazine,
+    .field--name-field-classification,
+    .field--name-field-buy-able-agzine {
+      padding: 70px;
+
+      .field__label {
+        color: #333;
+      }
+
+      .field__item {
+        a {
+          line-height: 50px;
+          color: #999999;
+        }
+      }
+    }
+  }
+}
+

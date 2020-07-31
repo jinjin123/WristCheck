@@ -1,6 +1,6 @@
 uuid: bd95f555-dbe7-4a90-9084-0a034ca1c19f
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.wristcheck_latest_articles
@@ -27,8 +27,8 @@ third_party_settings:
     background_overlay: ''
 id: views_block__wristcheck_latest_articles_block_1_2
 theme: wristcheck
-region: section
-weight: -6
+region: ''
+weight: 0
 provider: null
 plugin: 'views_block:wristcheck_latest_articles-block_1'
 settings:

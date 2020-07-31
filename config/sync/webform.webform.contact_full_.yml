@@ -17,7 +17,7 @@ id: contact_full_
 title: 'Contact col-12'
 description: 'Basic email contact webform.'
 category: ''
-elements: "'#attributes':\n  class:\n    - row\nname:\n  '#type': textfield\n  '#title': 'Your Name'\n  '#title_display': invisible\n  '#placeholder': 'Your Name'\n  '#required': true\n  '#default_value': '[current-user:display-name]'\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\nsubject:\n  '#type': textfield\n  '#title': 'Your Phone'\n  '#title_display': invisible\n  '#placeholder': 'Your Phone'\n  '#required': true\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\n  '#test': 'Testing contact webform from [site:name]'\nemail:\n  '#type': email\n  '#title': 'Your Email'\n  '#title_display': invisible\n  '#placeholder': 'Your Email'\n  '#required': true\n  '#default_value': '[current-user:mail]'\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\nyour_website:\n  '#type': textfield\n  '#title': 'Your Website'\n  '#title_display': invisible\n  '#placeholder': 'Your Website'\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\nmessage:\n  '#type': textarea\n  '#title': Message\n  '#title_display': invisible\n  '#rows': 2\n  '#placeholder': message\n  '#required': true\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#attributes':\n    class:\n      - col-md-12\n  '#submit__label': 'Send Your Message'\n  '#submit__attributes':\n    class:\n      - 'btn btn-block btn-secondary btn-hover'\n  '#update__attributes':\n    class:\n      - 'btn btn-block btn-secondary btn-hover'"
+elements: "'#attributes':\n  class:\n    - row\nname:\n  '#type': textfield\n  '#title': 'Your Name'\n  '#title_display': invisible\n  '#placeholder': 'Your Name'\n  '#required': true\n  '#default_value': '[current-user:display-name]'\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\nsubject:\n  '#type': textfield\n  '#title': 'Your Phone'\n  '#title_display': invisible\n  '#placeholder': 'Your Phone'\n  '#required': true\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\n  '#test': 'Testing contact webform from [site:name]'\nemail:\n  '#type': email\n  '#title': 'Your Email'\n  '#title_display': invisible\n  '#placeholder': 'Your Email'\n  '#required': true\n  '#default_value': '[current-user:mail]'\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\nyour_website:\n  '#type': textfield\n  '#title': 'Your Website'\n  '#title_display': invisible\n  '#placeholder': 'Your Website'\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\nmessage:\n  '#type': textarea\n  '#title': Message\n  '#title_display': invisible\n  '#rows': 2\n  '#placeholder': message\n  '#required': true\n  '#wrapper_attributes':\n    class:\n      - col-md-12\n  '#attributes':\n    class:\n      - 'form-control mb-30'\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#attributes':\n    class:\n      - col-md-12\n  '#submit__label': 'Send Your Message'\n  '#submit__attributes':\n    class:\n      - 'btn btn-block btn-secondary btn-hover'\n  '#update__attributes':\n    class:\n      - 'btn btn-block btn-secondary btn-hover'\n"
 css: ''
 javascript: ''
 settings:
@@ -81,7 +81,7 @@ settings:
   submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
-  autofill: true
+  autofill: false
   autofill_message: ''
   autofill_excluded_elements: {  }
   wizard_progress_bar: true
@@ -97,10 +97,10 @@ settings:
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
-  wizard_toggle: true
+  wizard_toggle: false
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
-  preview: 2
+  preview: 0
   preview_label: ''
   preview_title: ''
   preview_message: ''
@@ -108,9 +108,9 @@ settings:
   preview_excluded_elements: {  }
   preview_exclude_empty: true
   preview_exclude_empty_checkbox: false
-  draft: authenticated
-  draft_multiple: true
-  draft_auto_save: true
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
   draft_pending_single_message: ''
@@ -138,15 +138,13 @@ settings:
   entity_limit_total_interval: null
   entity_limit_user: null
   entity_limit_user_interval: null
-  purge: completed
-  purge_days: 13
+  purge: none
+  purge_days: null
   results_disabled: false
   results_disabled_ignore: false
   results_customize: false
   token_view: false
   token_update: false
-  form_disable_remote_addr: false
-  wizard_auto_forward_hide_next_button: false
 access:
   create:
     roles:

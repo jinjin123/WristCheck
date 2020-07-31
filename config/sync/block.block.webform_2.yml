@@ -1,0 +1,47 @@
+uuid: 4ea080cb-54ee-46fc-a702-7f516d1e5d50
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.faq_price
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+    - webform
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: webform_2
+theme: wristcheck
+region: section
+weight: -3
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Webform
+  provider: webform
+  label_display: '0'
+  webform_id: faq_price
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: /faq-selling-step
+    negate: false
+    context_mapping: {  }

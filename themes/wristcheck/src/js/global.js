@@ -11,7 +11,7 @@ $(".path-wristcheck-faq .views-field-title .field-content i").click(function() {
     target.parent().parent().parent().parent().parent().children()[2].style.display = "block"
     target.css("-webkit-transform", "rotate(45deg)");
   }
-)}
+})
 // menu show hide
 $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
   if ($(this).find('.mega-dropdown-menu').length > 0) {

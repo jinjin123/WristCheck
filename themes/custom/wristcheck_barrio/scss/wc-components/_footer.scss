@@ -23,9 +23,16 @@
     font-weight: 300;
     color: rgba(255, 255, 255, 1);
     line-height: 49px;
-    li>a:hover{
-      font-weight: bold;
-      cursor: pointer;
+    padding-left: 0;
+
+    li {
+      list-style: none;
+      padding-left: 0;
+
+      > a:hover {
+        font-weight: bold;
+        cursor: pointer;
+      }
     }
   }
 
@@ -43,7 +50,9 @@
     margin-right: 19px;
   }
 }
+
 // footer-bottom
 .menu--wristcheck-bottom-menu {
   background-color: #1b1a1a;
+  width: 100%;
 }

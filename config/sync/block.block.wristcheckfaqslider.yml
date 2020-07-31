@@ -1,4 +1,4 @@
-uuid: 923592c9-2ffa-4531-94f5-b6626138dbe8
+uuid: 88c6566f-e13e-4453-85a0-6ac32dd32f2a
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
     - ntv_block_background
     - system
   theme:
-    - wristcheck
+    - wristcheck_barrio
 third_party_settings:
   block_attributes:
     attr_class: ''
@@ -24,7 +24,7 @@ third_party_settings:
     bg_image_size: ''
     background_overlay: ''
 id: wristcheckfaqslider
-theme: wristcheck
+theme: wristcheck_barrio
 region: section
 weight: -4
 provider: null
@@ -33,7 +33,7 @@ settings:
   id: 'md_slider_block:wristcheck_faq_slider_'
   label: 'Wristcheck faq slider '
   provider: md_slider
-  label_display: visible
+  label_display: '0'
 visibility:
   request_path:
     id: request_path

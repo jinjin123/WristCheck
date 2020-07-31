@@ -1,4 +1,4 @@
-uuid: 1dda1cd1-64e9-4313-92eb-0956207bdac8
+uuid: e6f63b11-38e9-462e-9ddb-e7982bf9ad8b
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
     - ntv_block_background
     - system
   theme:
-    - wristcheck
+    - wristcheck_barrio
 third_party_settings:
   block_attributes:
     attr_class: ''
@@ -26,9 +26,9 @@ third_party_settings:
     bg_image_size: ''
     background_overlay: ''
 id: wristcheckprocessbutton
-theme: wristcheck
+theme: wristcheck_barrio
 region: content
-weight: -12
+weight: -11
 provider: null
 plugin: 'block_content:9022c771-9077-458e-8d5f-92d7e29ed4ee'
 settings:
@@ -42,6 +42,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /faq-authsystem-steps
+    pages: /wristcheck-faq-auth-system
     negate: false
     context_mapping: {  }

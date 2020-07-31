@@ -68,21 +68,7 @@ settings:
   submission_log: false
   submission_views: {  }
   submission_views_replace: {  }
-  submission_user_columns:
-    - serial
-    - created
-    - remote_addr
-    - sid
-    - label
-    - completed
-    - changed
-    - langcode
-    - element__name
-    - element__subject
-    - element__email
-    - element__your_website
-    - element__message
-    - operations
+  submission_user_columns: {  }
   submission_user_duplicate: false
   submission_access_denied: default
   submission_access_denied_title: ''
@@ -156,7 +142,7 @@ settings:
   purge_days: null
   results_disabled: false
   results_disabled_ignore: false
-  results_customize: true
+  results_customize: false
   token_view: false
   token_update: false
 access:
@@ -167,9 +153,7 @@ access:
     users: {  }
     permissions: {  }
   view_any:
-    roles:
-      - anonymous
-      - authenticated
+    roles: {  }
     users: {  }
     permissions: {  }
   update_any:
@@ -197,9 +181,7 @@ access:
     users: {  }
     permissions: {  }
   administer:
-    roles:
-      - anonymous
-      - authenticated
+    roles: {  }
     users: {  }
     permissions: {  }
   test:

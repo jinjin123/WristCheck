@@ -1,12 +1,47 @@
 @import "layout/narrow";
 @import "layout/panel";
-
 @import "wc-components/banner";
 @import "wc-components/blog";
 @import "wc-components/breadcrumb";
 @import "wc-components/footer";
 @import "wc-components/header";
 @import "wc-components/menu";
+
+@import 'page/magazinehome';
+@import 'page/magazinesingle';
+@import 'page/magazinescreen';
+@import 'page/faq';
+@import 'page/faqauthsystemsteps';
+@import 'page/faqauthsystem';
+@import 'page/faqsellingstep';
+@import "wc-components/portfolio";
+
+.layout-container {
+  position: relative;
+
+  .header-box {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: #FFF;
+  }
+
+  .wc-page-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, .3);
+
+    &.show {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
 
 .bg-f9 {
   background-color: $bg_gray2;
@@ -17,6 +52,7 @@
   .views-element-container {
     width: 100%;
   }
+
   .view-wristcheck-buy-news .view-content,
   .view-id-wristcheck_buy_magazine .view-content,
   .view-id-wristcheck_buy_news .view-content,
@@ -29,23 +65,33 @@
     margin-right: -15px;
     margin-left: -15px;
   }
-  .news-detail-href{
+
+  .news-detail-href {
     display: block;
     width: 100%;
     height: 100%;
   }
 }
-.wc-testimdnials{
-  .views-element-container{
+
+.wc-testimdnials {
+  .views-element-container {
     display: flex;
   }
 }
-.view-id-wristcheck_testimdnials{
-  .view-content{
+
+.view-id-wristcheck_testimdnials {
+  .view-content {
     display: flex;
-    .flex-1-item{
+
+    .flex-1-item {
       width: 100%;
     }
+  }
+}
+
+.wrapper {
+  .contextual-region {
+    position: static;
   }
 }
 

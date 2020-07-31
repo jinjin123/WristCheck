@@ -1,0 +1,28 @@
+uuid: 56060672-72e4-4943-bafd-5e6f73aa28dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.node.field_related_model
+    - node.type.portfolio
+id: node.portfolio.field_related_model
+field_name: field_related_model
+entity_type: node
+bundle: portfolio
+label: 'Related Model'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      watch: watch
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -5,6 +5,8 @@
 @import './page/faq';
 @import './page/faqauthsystemsteps';
 @import './page/faqsellstep';
+@import './page/faqauthsystem';
+@import './page/faqsellingstep';
 @import './component/footer';
 @import './component/header';
 @import './component/banner';
@@ -26,7 +28,7 @@
   .view-id-wristcheck_buy_magazine .view-content,
   .view-id-wristcheck_buy_news .view-content,
   .view-id-wristcheck_buy_popular_brands .view-content,
-  .view-id-wristcheck_buy_explore .view-content {
+  .view-id-wristcheck_buy_explore .view-content webform-elements{
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
