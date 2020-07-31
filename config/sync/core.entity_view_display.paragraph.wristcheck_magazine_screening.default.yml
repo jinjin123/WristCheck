@@ -1,0 +1,54 @@
+uuid: 92d7fb00-4e8b-4ea4-a4b4-6a9f2044e660
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wristcheck_magazine_screening.field_buy_able_agzine
+    - field.field.paragraph.wristcheck_magazine_screening.field_classification
+    - field.field.paragraph.wristcheck_magazine_screening.field_watch_magazine
+    - paragraphs.paragraphs_type.wristcheck_magazine_screening
+  module:
+    - link
+id: paragraph.wristcheck_magazine_screening.default
+targetEntityType: paragraph
+bundle: wristcheck_magazine_screening
+mode: default
+content:
+  field_buy_able_agzine:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_classification:
+    weight: 0
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_watch_magazine:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  search_api_excerpt: true

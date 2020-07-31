@@ -1,9 +1,9 @@
-uuid: 7f89cdec-9695-45ad-824a-832396d01e95
+uuid: 5e6e5bd5-bb9d-4813-8745-ae546acf54b8
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.wristcheck_buyer_guide
+    - views.view.wristcheck_contact_us
   module:
     - block_attributes
     - ntv_block_background
@@ -25,22 +25,22 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: views_block__wristcheck_buyer_guide_block_1_2
+id: views_block__wristcheck_contact_us_block_1
 theme: wristcheck_barrio
 region: section
-weight: -10
+weight: -3
 provider: null
-plugin: 'views_block:wristcheck_buyer_guide-block_1'
+plugin: 'views_block:wristcheck_contact_us-block_1'
 settings:
-  id: 'views_block:wristcheck_buyer_guide-block_1'
-  label: 'Wristcheck Buyer guide'
+  id: 'views_block:wristcheck_contact_us-block_1'
+  label: ''
   provider: views
   label_display: visible
-  views_label: 'Wristcheck Buyer guide'
+  views_label: ''
   items_per_page: none
 visibility:
   request_path:
     id: request_path
-    pages: /wristcheck-magazine
+    pages: /faq-authsystem-steps
     negate: false
     context_mapping: {  }

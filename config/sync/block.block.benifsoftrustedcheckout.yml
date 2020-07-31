@@ -1,14 +1,14 @@
-uuid: 7f89cdec-9695-45ad-824a-832396d01e95
+uuid: ed49f6a5-41eb-401b-a21c-0c29faf8f623
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.wristcheck_buyer_guide
+  content:
+    - 'block_content:basic:d61d8fce-b723-4480-b779-f84e120b2f79'
   module:
     - block_attributes
+    - block_content
     - ntv_block_background
     - system
-    - views
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -25,22 +25,23 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: views_block__wristcheck_buyer_guide_block_1_2
+id: benifsoftrustedcheckout
 theme: wristcheck_barrio
 region: section
-weight: -10
+weight: -8
 provider: null
-plugin: 'views_block:wristcheck_buyer_guide-block_1'
+plugin: 'block_content:d61d8fce-b723-4480-b779-f84e120b2f79'
 settings:
-  id: 'views_block:wristcheck_buyer_guide-block_1'
-  label: 'Wristcheck Buyer guide'
-  provider: views
+  id: 'block_content:d61d8fce-b723-4480-b779-f84e120b2f79'
+  label: 'benifs of trusted checkout'
+  provider: block_content
   label_display: visible
-  views_label: 'Wristcheck Buyer guide'
-  items_per_page: none
+  status: true
+  info: ''
+  view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: /wristcheck-magazine
+    pages: /faq-selling-step
     negate: false
     context_mapping: {  }

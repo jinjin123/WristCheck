@@ -1,0 +1,11 @@
+uuid: 510c449f-3f10-4018-9fed-5d6eca7db66a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_process_steps
+id: node.wristcheck_process_steps
+target_entity_type_id: node
+target_bundle: wristcheck_process_steps
+default_langcode: site_default
+language_alterable: false

@@ -1,10 +1,14 @@
 .path-wristcheck-magazine {
-  .views-field-field-page-title-image {
-    margin-bottom: 50px;
-    img {
-      width: 100%;
+  .views-row {
+    width: 100%;
+    .views-field-field-page-title-image {
+      margin-bottom: 50px;
+      img {
+        width: 100%;
+      }
     }
   }
+
   .container {
     max-width: none !important;
     padding-right: 0 !important;
@@ -34,7 +38,7 @@
   }
 
 
-  #block-views-block-wristcheck-latest-articles-block-1 {
+  #block-views-block-wristcheck-latest-articles-block-1-3 {
     width: 100%;
     >h2 {
       text-align: center;
@@ -43,7 +47,7 @@
       margin-bottom: 30px;
     }
     .view-wristcheck-latest-articles {
-      margin:0 6%;
+      margin: 0 10%;
       .view-content {
         display: flex;
         flex-wrap: wrap;
@@ -89,7 +93,8 @@
       }
     }
   }
-  #block-views-block-wristcheck-further-articles-block-1 {
+  #block-views-block-wristcheck-further-articles-block-1-2 {
+    margin-left: 5%;
     >h2 {
       text-align: center;
       font-size: 25px;
@@ -100,10 +105,10 @@
       .view-content {
         display: flex;
         padding: 0 130px;
-        //flex-wrap: wrap;
+        flex-wrap: inherit;
         .views-row {
           display: grid;
-          padding: 0 20px;
+          padding-right: 200px;
           width: 40%;
           .views-field-field-image {
              margin-bottom: 25px;
@@ -120,7 +125,8 @@
       }
     }
   }
-  #block-views-block-wristcheck-buyer-guide-block-1 {
+  #block-views-block-wristcheck-buyer-guide-block-1-2{
+    margin: 0 10%;
     >h2 {
       text-align: center;
       font-size: 25px;

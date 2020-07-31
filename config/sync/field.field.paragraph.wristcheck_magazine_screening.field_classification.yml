@@ -1,0 +1,23 @@
+uuid: 0e1fa3b6-08ec-4644-98e5-3e6e4e46d2ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_classification
+    - paragraphs.paragraphs_type.wristcheck_magazine_screening
+  module:
+    - link
+id: paragraph.wristcheck_magazine_screening.field_classification
+field_name: field_classification
+entity_type: paragraph
+bundle: wristcheck_magazine_screening
+label: ClASSIFICATION
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

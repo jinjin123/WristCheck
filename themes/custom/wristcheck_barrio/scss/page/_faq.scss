@@ -1,5 +1,5 @@
 .path-wristcheck-faq {
-  .view-wristcheck {
+  .view-wristcheck-faq {
     padding: 0 200px;
     .view-header {
       h1 {
@@ -14,6 +14,7 @@
       }
     }
     .view-content {
+      display: block !important;
       .views-row {
         .views-field-title {
           .field-content {

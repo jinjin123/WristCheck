@@ -34,8 +34,8 @@
   console.log('js loaded success');
 
   //faq dropdown
-  $(".path-wristcheck-faq .views-field-title .field-content i").click(function() {
-    target = $(this);
+  $(".path-wristcheck-faq .view-content .views-row .views-field-title .field-content i").click(function() {
+    var target = $(this);
     if (target.parent().parent().parent().parent().parent().children()[2].style.display == "block") {
       target.parent().parent().parent().parent().parent().children()[2].style.display = "none"
       target.css("-webkit-transform", "rotate(-45deg)");
@@ -43,7 +43,7 @@
       target.parent().parent().parent().parent().parent().children()[2].style.display = "block"
       target.css("-webkit-transform", "rotate(45deg)");
     }
-  )}
+  })
 // menu show hide
   $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
     if ($(this).find('.mega-dropdown-menu').length > 0) {
@@ -53,7 +53,7 @@
     $('.body-modal').removeClass('show');
   });
 //faq system step
-  $('#faq-auth-system').css("background-color","#333")
+//   $('#faq-auth-system').css("background-color","#333")
   $(".view-wristcheck-contact-us .views-field-title .field-content i").click(function(){
     target = $(this);
     // console.log(target.parent().parent().parent().parent().parent().children()[1].style.display="block")

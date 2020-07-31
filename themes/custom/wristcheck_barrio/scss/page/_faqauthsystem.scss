@@ -21,7 +21,7 @@
     .block-webform-block {
       .webform-elements {
         display: -webkit-box;
-        div {
+        fieldset {
           margin-right: 30px;
         }
         #edit-actions-submit {
@@ -33,7 +33,7 @@
         }
       }
     }
-    #block-wristcheckprocessbutton-2 {
+    #block-wristcheckprocessbutton {
       margin-bottom: 100px;
       h2 {
         color: #333;
