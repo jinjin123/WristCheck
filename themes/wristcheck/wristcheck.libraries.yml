@@ -34,7 +34,6 @@ wristcheck-lib:
     - core/jquery
     - core/drupalSettings
 
-
 wristcheck-global:
   version: VERSION
   css:
