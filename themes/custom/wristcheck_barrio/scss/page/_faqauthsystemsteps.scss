@@ -128,6 +128,7 @@
 
     #block-views-block-wristcheck-contact-us-block-1 {
       text-align: center;
+      width: 100%;
       h2 {
         color: #333;
         font-weight: bold;
@@ -151,6 +152,7 @@
         }
       }
       .view-content {
+        display: block;
         .views-row {
           .views-field-title {
             margin-top: 20px;
