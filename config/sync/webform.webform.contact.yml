@@ -1,9 +1,12 @@
+uuid: 59d30cc2-6781-4fe0-aa18-1019a1085042
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: JZeh3DLInXc-TO9287_ymZbJLRbHZeEEBNdRx3GtZEU
 open: null
 close: null
 weight: 0
@@ -65,7 +68,21 @@ settings:
   submission_log: false
   submission_views: {  }
   submission_views_replace: {  }
-  submission_user_columns: {  }
+  submission_user_columns:
+    - serial
+    - created
+    - remote_addr
+    - sid
+    - label
+    - completed
+    - changed
+    - langcode
+    - element__name
+    - element__subject
+    - element__email
+    - element__your_website
+    - element__message
+    - operations
   submission_user_duplicate: false
   submission_access_denied: default
   submission_access_denied_title: ''
@@ -139,7 +156,7 @@ settings:
   purge_days: null
   results_disabled: false
   results_disabled_ignore: false
-  results_customize: false
+  results_customize: true
   token_view: false
   token_update: false
 access:
@@ -150,7 +167,9 @@ access:
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
+    roles:
+      - anonymous
+      - authenticated
     users: {  }
     permissions: {  }
   update_any:
@@ -178,7 +197,9 @@ access:
     users: {  }
     permissions: {  }
   administer:
-    roles: {  }
+    roles:
+      - anonymous
+      - authenticated
     users: {  }
     permissions: {  }
   test:
@@ -263,6 +284,3 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
-uuid: 59d30cc2-6781-4fe0-aa18-1019a1085042
-_core:
-  default_config_hash: JZeh3DLInXc-TO9287_ymZbJLRbHZeEEBNdRx3GtZEU

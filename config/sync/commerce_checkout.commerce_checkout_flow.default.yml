@@ -5,7 +5,6 @@ dependencies:
   module:
     - commerce_payment
     - commerce_promotion
-    - commerce_shipping
 _core:
   default_config_hash: wwkDVBiXUqSzRifJbb71ajFBklJdNJ_DgS67IF-_qgY
 id: default
@@ -46,8 +45,4 @@ configuration:
     coupon_redemption:
       allow_multiple: false
       step: _sidebar
-      weight: 10
-    shipping_information:
-      require_shipping_profile: false
-      step: order_information
       weight: 10

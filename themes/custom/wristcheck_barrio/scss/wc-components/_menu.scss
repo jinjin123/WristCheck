@@ -1,0 +1,200 @@
+/*------------------------------------*\
+    #Nav
+\*------------------------------------*/
+@import "../variables/color";
+
+.menu--main {
+  width: 100%;
+}
+
+.navbar {
+  margin-bottom: 0;
+  top: inherit;
+  padding: 0;
+}
+
+.navbar-collapse {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbar.affix {
+  background-color: $color-white;
+  padding-top: 0;
+  top: 0;
+}
+
+.navbar-nav {
+  margin-right: 0
+}
+
+.navbar-nav > li {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-nav li a {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $color-dark2;
+}
+
+.navbar-nav > li > a {
+  display: inline-block;
+  padding: 0;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: transparent;
+  border: none;
+}
+
+.navbar-nav > li.active > ul {
+  margin-top: 0;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  background-color: transparent
+}
+
+/* Menu Level #1 */
+.navbar-nav > li > a:before,
+.navbar-nav > li > a:after {
+  position: absolute;
+  background: #000;
+  content: ' ';
+  height: 2px;
+  width: 0;
+  bottom: -3px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav > li:hover > a:after {
+  width: 2px;
+  height: 2px;
+  bottom: 0;
+  right: 0;
+}
+
+.navbar-nav .dian {
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  background-color: #333;
+  right: 0;
+  bottom: -3px;
+  position: absolute;
+  opacity: 0;
+  transition: all .3s ease .2s;
+}
+
+.navbar-nav li {
+  &.active > a {
+    color: $color-black;
+  }
+  > a {
+    color: $color-dark9;
+    transition: all .2s ease;
+  }
+
+}
+
+.navbar-nav li.active .dian,
+.navbar-nav > li:hover .dian {
+  opacity: 1;
+}
+
+.navbar-nav li.active a:before,
+.navbar-nav > li:hover > a:before {
+  bottom: -3px;
+  width: 80%;
+  height: 2px;
+  left: 0;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.container-p0 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbar-nav li:hover a{
+  font-size: 26px;
+  color: $color-black;
+}
+
+/* Mega Menu Content */
+.mega-dropdown {
+  position: static !important;
+}
+
+.navbar-nav > li.has-dropdown > ul.dropdown-menu.mega-dropdown-menu {
+  padding: 0;
+  width: 100% !important;
+  background-color: transparent;
+  border: none !important;
+  margin-top: 0;
+  box-shadow: none;
+
+}
+
+.mega-dropdown-menu .container {
+  background-color: $color-white;
+  //border: 1px solid rgba(0,0,0,.15);
+}
+.mega-dropdown-menu .container div.col{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mega-dropdown-menu li ul {
+  padding:13px 0;
+  margin: 0;
+}
+
+.mega-dropdown-menu li ul li {
+  list-style: none;
+}
+
+.mega-dropdown-menu li ul li a {
+  padding: 0;
+  //border-bottom: 1px solid #f3f3f3;
+}
+.mega-dropdown-menu li ul li:last-child a{
+  border-bottom:none
+}
+.mega-dropdown-menu li ul li a i {
+  margin-right: 8px;
+}
+
+.mega-dropdown-menu .container div[class*='col-'] > a {
+  border-bottom: none;
+  padding-left: 0;
+  font-size: 14px;
+}
+
+.mega-dropdown-menu .container a[href='#'] {
+  color: $color-black;
+  cursor: default;
+  font-weight: 600;
+  border-bottom: none;
+  margin-top:15px;
+}
+.mega-dropdown-menu .container a[href='#'] + ul{
+  padding-top:0
+}

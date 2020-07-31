@@ -1,0 +1,37 @@
+uuid: 7e7fb86b-b8ae-423f-81bb-f693fa805f28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wristcheck_process_steps
+    - node.type.wristcheck_process_steps
+    - paragraphs.paragraphs_type.wristcheck_process_steps
+  module:
+    - entity_reference_revisions
+id: node.wristcheck_process_steps.field_wristcheck_process_steps
+field_name: field_wristcheck_process_steps
+entity_type: node
+bundle: wristcheck_process_steps
+label: 'process step'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      wristcheck_process_steps: wristcheck_process_steps
+    target_bundles_drag_drop:
+      wristcheck_magazine_screening:
+        weight: 4
+        enabled: false
+      wristcheck_process_steps:
+        enabled: true
+        weight: 5
+      wristcheck_product_specification:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions
