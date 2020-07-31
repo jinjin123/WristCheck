@@ -7,6 +7,10 @@
 
   'use strict';
 
+  Drupal.webform = Drupal.webform || {};
+  Drupal.webform.cards = Drupal.webform.cards || {};
+  Drupal.webform.cards.autoForwardDelay = Drupal.webform.cards.autoForwardDelay || 250; // 1/4 second delay.
+
   /**
    * Initialize webform cards.
    *
@@ -28,6 +32,7 @@
           progressStates: $form[0].hasAttribute('data-progress-states'),
           progressLink: $form[0].hasAttribute('data-progress-link'),
           autoForward: $form[0].hasAttribute('data-auto-forward'),
+          autoForwardHideNextButton: $form[0].hasAttribute('data-auto-forward-hide-next-button'),
           previewLink: $form[0].hasAttribute('data-preview-link'),
           confirmation: $form[0].hasAttribute('data-confirmation'),
           track: $form.data('track'),
@@ -179,6 +184,11 @@
           // Activate the card.
           $activeCard.addClass('webform-card--active');
 
+          // Hide the next button when auto-forwarding.
+          if (hideAutoForwardNextButton()) {
+            $nextButton.hide();
+          }
+
           // Show the active card.
           if (!initialize) {
             applyAjaxEffect($activeCard);
@@ -248,7 +258,7 @@
             var $cardStep = $progress.find(cardAttributeName);
 
             // Set card and page step.
-            $cardStep.find('[data-webform-progress-step]').html(card.step);
+            $cardStep.find('[data-webform-progress-step]').attr('data-text', card.step);
             if (card.type === 'page') {
               continue;
             }
@@ -560,7 +570,7 @@
          *   The event triggered.
          */
         function nextButtonClickEventHandler(event) {
-          var validator = $form.validate();
+          var validator = $form.validate(drupalSettings.cvJqueryValidateOptions);
           if (!$form.valid()) {
             // Focus first invalid input.
             validator.focusInvalid();
@@ -614,7 +624,7 @@
             if (this.type === 'radio' && this.checked) {
               inputValues[name] = true;
             }
-            else if (this.type === 'select' && this.selectedIndex !== -1) {
+            else if (this.type === 'select-one' && this.selectedIndex !== -1) {
               inputValues[name] = true;
             }
             else if (this.type === 'range' && this.value) {
@@ -631,7 +641,60 @@
             return value;
           });
           if (inputHasValue) {
-            $nextButton.click();
+            setTimeout(function () {$nextButton.click();}, Drupal.webform.cards.autoForwardDelay);
+          }
+        }
+
+        /**
+         * Determine if next button is hidden when auto-forwarding
+         */
+        function hideAutoForwardNextButton() {
+          if (!options.autoForwardHideNextButton) {
+            return false;
+          }
+
+          if ($form.hasClass('webform-cards-toggle-show')) {
+            return false;
+          }
+
+          var $activeCard = $allCards.filter('.webform-card--active');
+          var $allInputs = $activeCard.find('input:visible, select:visible, textarea:visible');
+          var $autoForwardInputs = $activeCard.find('input[type="radio"], select[data-images]:not([multiple]), input[type="range"].form-webform-rating');
+          if (!$autoForwardInputs.length || $allInputs.length !== $autoForwardInputs.length) {
+            return false;
+          }
+
+          var inputValues = [];
+          var name, type;
+          $autoForwardInputs.each(function () {
+            name = this.name;
+            type = this.type;
+            if (type === 'radio') {
+              inputValues[name] = 'radio';
+            }
+            else if (type === 'select-one') {
+              inputValues[name] = 'select-one';
+            }
+            else if (type === 'range') {
+              inputValues[name] = 'range';
+            }
+          });
+
+          // Only auto-forward when a single input is visible.
+          if (Object.keys(inputValues).length !== 1) {
+            return false;
+          }
+
+          // Determine if the auto-forward input has a value.
+          switch (type) {
+            case 'radio':
+              return $('[name="' + name + '"]:checked').length ? false : true;
+
+            case 'range':
+              return $('[name="' + name + '"]').val() !== '0' ? false : true;
+
+            case 'select-one':
+              return $('[name="' + name + '"]').val() ? false : true;
           }
         }
       });

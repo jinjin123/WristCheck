@@ -1,0 +1,41 @@
+uuid: b206a7c1-fe38-45dd-857e-ce0da0a9ce37
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wristcheck-user-sidebar-menu
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+  theme:
+    - bartik
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckusersidebarmenu
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:wristcheck-user-sidebar-menu'
+settings:
+  id: 'system_menu_block:wristcheck-user-sidebar-menu'
+  label: 'Wristcheck user sidebar menu'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

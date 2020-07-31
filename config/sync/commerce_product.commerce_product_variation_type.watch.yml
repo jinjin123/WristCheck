@@ -6,5 +6,6 @@ id: watch
 label: Watch
 orderItemType: default
 generateTitle: false
-traits: {  }
+traits:
+  - purchasable_entity_shippable
 locked: false

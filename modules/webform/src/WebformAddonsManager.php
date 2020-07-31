@@ -238,6 +238,14 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'element',
     ];
 
+    // Element: Webform noUiSlider Element.
+    $projects['webform_nouislider'] = [
+      'title' => $this->t('Webform noUiSlider Element'),
+      'description' => $this->t('A lightweight range slider with multi-touch support and a ton of features.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_nouislider'),
+      'category' => 'element',
+    ];
+
     // Element: Webform Promotion Code.
     $projects['webform_promotion_code'] = [
       'title' => $this->t('Webform Promotion Code'),
@@ -303,6 +311,15 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'title' => $this->t('Formset'),
       'description' => $this->t('Enables the creation of webform sets.'),
       'url' => Url::fromUri('https://github.com/simesy/formset'),
+      'category' => 'enhancement',
+    ];
+
+
+    // Enhancement: Webform Bulk Emails.
+    $projects['webform_bulk_email'] = [
+      'title' => $this->t('Webform Bulk Emails'),
+      'description' => $this->t('Provides a webform handler to send webform submission in bulk on a given time schedule.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_bulk_email'),
       'category' => 'enhancement',
     ];
 
@@ -1081,7 +1098,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
     // Submissions: Webform Views Integration.
     $projects['webform_views'] = [
       'title' => $this->t('Webform Views'),
-      'description' => $this->t('Integrates Webform 8.x-5.x and Views modules.'),
+      'description' => $this->t('Integrates Webform 8.x-5.x/6.x and Views modules.'),
       'url' => Url::fromUri('https://www.drupal.org/project/webform_views'),
       'category' => 'submission',
       'recommended' => TRUE,
