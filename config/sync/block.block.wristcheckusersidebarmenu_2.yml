@@ -1,6 +1,6 @@
 uuid: 0e7ff6f5-ef73-4a0d-86bc-2c7d317ac440
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.wristcheck-user-sidebar-menu
@@ -26,7 +26,7 @@ third_party_settings:
     background_overlay: ''
 id: wristcheckusersidebarmenu_2
 theme: wristcheck
-region: sidebar_first
+region: ''
 weight: 0
 provider: null
 plugin: 'system_menu_block:wristcheck-user-sidebar-menu'
