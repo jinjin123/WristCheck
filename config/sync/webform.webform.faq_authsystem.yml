@@ -1,4 +1,4 @@
-uuid: a4e5affb-a302-413a-bf82-1cde77208f70
+uuid: fe23381f-09f8-40a2-b2e9-f72038f7addf
 langcode: en
 status: open
 dependencies: {  }
@@ -8,11 +8,11 @@ weight: 0
 uid: 1
 template: false
 archive: false
-id: faq_auth_system
-title: 'faq auth system'
+id: faq_authsystem
+title: 'faq authsystem'
 description: ''
 category: ''
-elements: "brand:\n  '#type': textfield\n  '#title': brand\nstate:\n  '#type': textfield\n  '#title': state"
+elements: "brand:\n  '#type': textfield\n  '#title': brand\n  '#maxlength': 96\n  '#size': 50\n  '#placeholder': 'reference brand'\n  '#required': true\nstate:\n  '#type': textfield\n  '#title': state\n  '#size': 48\n  '#placeholder': 'selected state'\n  '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#states':\n    visible:\n      '':\n        '': ''\n  '#submit__label': '→ | check the value'\n  '#submit__attributes':\n    class:\n      - 'btn btn-default btn-lg wc-ex-btn'"
 css: ''
 javascript: ''
 settings:
@@ -25,7 +25,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: source_entity_webform
+  form_title: both
   form_submit_once: false
   form_exception_message: ''
   form_open_message: ''
@@ -63,7 +63,12 @@ settings:
   submission_log: false
   submission_views: {  }
   submission_views_replace: {  }
-  submission_user_columns: {  }
+  submission_user_columns:
+    - serial
+    - created
+    - remote_addr
+    - element__brand
+    - element__state
   submission_user_duplicate: false
   submission_access_denied: default
   submission_access_denied_title: ''
@@ -93,10 +98,10 @@ settings:
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
-  wizard_toggle: true
+  wizard_toggle: false
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
-  preview: 2
+  preview: 0
   preview_label: ''
   preview_title: ''
   preview_message: ''

@@ -1,14 +1,14 @@
-uuid: a5fda802-9ed7-4ea5-8588-59c4b289e4cc
+uuid: 6fb071f5-90a0-4e6d-b4a3-b73ab2bbc72a
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.wristcheck_contact_us
+    - webform.webform.faq_authsystem
   module:
     - block_attributes
     - ntv_block_background
     - system
-    - views
+    - webform
   theme:
     - wristcheck
 third_party_settings:
@@ -25,22 +25,23 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: views_block__wristcheck_contact_us_block_1
+id: webform
 theme: wristcheck
 region: section
-weight: -4
+weight: -15
 provider: null
-plugin: 'views_block:wristcheck_contact_us-block_1'
+plugin: webform_block
 settings:
-  id: 'views_block:wristcheck_contact_us-block_1'
-  label: 'Do you have any questions? contact us'
-  provider: views
-  label_display: visible
-  views_label: 'Do you have any questions? contact us'
-  items_per_page: none
+  id: webform_block
+  label: Webform
+  provider: webform
+  label_display: '0'
+  webform_id: faq_authsystem
+  default_data: ''
+  redirect: false
 visibility:
   request_path:
     id: request_path
-    pages: /faq-authsystem-steps
+    pages: /wristcheck-faq-auth-system
     negate: false
     context_mapping: {  }

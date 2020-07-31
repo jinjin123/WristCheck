@@ -28,7 +28,7 @@ third_party_settings:
 id: benifsoftrustedcheckout
 theme: wristcheck
 region: section
-weight: 0
+weight: -2
 provider: null
 plugin: 'block_content:d61d8fce-b723-4480-b779-f84e120b2f79'
 settings:

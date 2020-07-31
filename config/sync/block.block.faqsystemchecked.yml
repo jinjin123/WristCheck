@@ -28,7 +28,7 @@ third_party_settings:
 id: faqsystemchecked
 theme: wristcheck
 region: section
-weight: -13
+weight: -14
 provider: null
 plugin: 'block_content:517328e8-a493-4af3-977d-f49daf98d983'
 settings:
