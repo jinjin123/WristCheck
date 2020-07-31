@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.blog_post.field_blog_comments
     - field.field.node.blog_post.field_blog_tags
     - field.field.node.blog_post.field_images
-    - field.field.node.blog_post.field_magazine_screening
     - field.field.node.blog_post.field_page_title_image
     - field.field.node.blog_post.field_related_brand
     - image.style.thumbnail
@@ -16,7 +15,6 @@ dependencies:
   module:
     - comment
     - image
-    - paragraphs
     - path
     - text
 _core:
@@ -73,18 +71,6 @@ content:
       imce:
         enabled: true
     type: image_image
-    region: content
-  field_magazine_screening:
-    type: entity_reference_paragraphs
-    weight: 26
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
     region: content
   field_page_title_image:
     weight: 0

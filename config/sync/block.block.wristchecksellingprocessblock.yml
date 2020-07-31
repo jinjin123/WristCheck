@@ -1,0 +1,42 @@
+uuid: 4ad7fc8d-e97e-48cc-9be4-21e4473c72fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+    - wristcheck_basic
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristchecksellingprocessblock
+theme: wristcheck
+region: content
+weight: 0
+provider: null
+plugin: wristcheck_selling_process_block
+settings:
+  id: wristcheck_selling_process_block
+  label: 'Wristcheck selling process block'
+  provider: wristcheck_basic
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /buy
+    negate: false
+    context_mapping: {  }

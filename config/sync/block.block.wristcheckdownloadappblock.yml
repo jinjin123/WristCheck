@@ -1,0 +1,36 @@
+uuid: 76a930c5-5669-48f5-a58a-edcfb15396b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ntv_block_background
+    - wristcheck_basic
+  theme:
+    - wristcheck
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckdownloadappblock
+theme: wristcheck
+region: footer
+weight: 0
+provider: null
+plugin: wristcheck_download_app_block
+settings:
+  id: wristcheck_download_app_block
+  label: 'Wristcheck download app block'
+  provider: wristcheck_basic
+  label_display: '0'
+visibility: {  }

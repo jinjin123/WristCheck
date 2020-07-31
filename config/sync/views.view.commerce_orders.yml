@@ -13,7 +13,7 @@ dependencies:
 _core:
   default_config_hash: aZuHpmCug9xtPfZcCkS2TO7Jmgp63Rki0SVdLqetV1A
 id: commerce_orders
-label: Orders
+label: 'Wristcheck Orders'
 module: views
 description: ''
 tag: Commerce

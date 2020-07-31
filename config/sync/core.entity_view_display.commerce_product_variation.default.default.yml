@@ -25,7 +25,7 @@ content:
       currency_display: symbol
     third_party_settings: {  }
   price:
-    label: hidden
+    label: above
     type: commerce_price_default
     weight: 1
     region: content
@@ -37,7 +37,7 @@ content:
     type: string
     weight: 2
     region: content
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }

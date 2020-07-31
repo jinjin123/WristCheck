@@ -62,9 +62,9 @@ wristcheck_basic.category_controller_index:
     _permission: 'access content'
 
 wristcheck_basic.payment_controller_index:
-  path: '/wristcheck-payment-setting'
+  path: '/profile/payment'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::index'
     _title: 'Payment'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user'
