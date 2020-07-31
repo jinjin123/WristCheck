@@ -1,0 +1,8 @@
+uuid: b776881c-dc72-4e54-9a62-8f7cb89aaa67
+langcode: en
+status: true
+dependencies: {  }
+id: wristcheck-user-sidebar-menu
+label: 'Wristcheck user sidebar menu'
+description: ''
+locked: false
