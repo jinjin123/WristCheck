@@ -1,0 +1,113 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+<article{{ attributes }}>
+  {{- product -}}
+</article>
+{% set img_uri = product_entity.field_images.entity.uri.value %}
+{% set img_url = file_url(img_uri) %}
+{% set comment_count =  product_entity.field_comments.comment_count %}
+{% if comment_count <= 0  %}
+  {% set comment_count = 0 %}
+{% endif %}
+{% set image112x112 = getUrlByImageStyle(img_uri, 'image112x112')  %}
+
+
+<!-- .aret end -->
+<div class="product-img mb-50">
+  <img class="img-fluid img-full-width" src="{{ img_url }}" alt="product image">
+</div>
+<!-- .product-img end -->
+<div class="product-title">
+  <h3>{{ product.title }}</h3>
+</div>
+<!-- .product-title end -->
+<div class="product-meta mb-30">
+  <div class="col-md-10 product-price pull-left pull-none-xs">
+    {{ product.variation_price }}
+  </div>
+  <!-- .product-price end -->
+  <div class="commerce-votting product-review text-right text-center-xs">
+    {{ product.field_voting }}
+  </div>
+  <!--- .product-review end -->
+</div>
+<div class="product-desc">
+  {{ product.body }}
+</div>
+<!-- .product-desc end -->
+<hr>
+<div class="product-details">
+  <h5>Other Details :</h5>
+  <ul class="list-unstyled">
+    <li>Code : <span class='commerce-css'>{{ product.variation_sku }}</span></li>
+    <li>Availabiltity : <span>{{ product_entity.field_availabiltity.value }}</span></li>
+    <li>Brand : <span>{{ product_entity.field_brand.value }}</span></li>
+  </ul>
+</div>
+<!-- .product-details end -->
+<hr>
+<div class="product-action product-variation-css clearfix">
+
+  {{ product.variations }}
+</div>
+<hr>
+<!-- .product-action end -->
+<div class="product-share">
+  <h5 class="share-title">share product: </h5>
+  <!--  <a class="share-twitter" href="#">Twitter</a>
+   <a class="share-facebook" href="#">Facebook</a>
+   <a class="share-pinterest" href="#">Pinterest</a>
+   <a class="share-linkedin" href="#">Linkedin</a>
+   <a class="share-google" href="#">Google +</a> -->
+  <a target="_blank" href="http://www.facebook.com/sharer.php?u={{ pageURL }}" data-social="share-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">Facebook</a>
+  <a target="_blank" href="http://twitter.com/share?url={{ pageURL }}&amp;text={{ node.title.value }}" data-social="share-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">Twitter</a>
+  <a target="_blank" href="https://plus.google.com/share?url={{ pageURL }}" data-social="share-google" data-toggle="tooltip" data-placement="top" title="Google+">Google +</a>
+  <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ pageURL }}&amp;title={{ node.title.value }}" data-social="share-linkedin" data-toggle="tooltip" data-placement="top" title="LinkedIn">Linkedin</a>
+</div>
+<!-- .product-share end -->
+<div class="product-tabs mb-60">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li><a class="nav-item nav-link active" href="#description" role="tab" data-toggle="tab">{{'description'|t}}</a></li>
+    <li><a class="nav-item nav-link" href="#details" role="tab" data-toggle="tab">{{'details'|t}}</a></li>
+    <li><a class="nav-item nav-link" href="#reviews" role="tab" data-toggle="tab">{{'reviews'|t}}( {{ comment_count }} )</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="description">
+      {{ product.field_description }}
+    </div>
+    <!-- #description end -->
+    <div role="tabpanel" class="tab-pane" id="details">
+      <h5>{{'Technical Details'|t}}</h5>
+      {{ product.field_details }}
+    </div>
+    <!-- #details end -->
+    <div role="tabpanel" class="tab-pane reviews" id="reviews">
+      {{ product.field_comments }}
+    </div>
+    <!-- #reviews end -->
+  </div>
+  <!-- #tab-content end -->
+</div>
+
+{{ drupal_view('product_view', 'product_relative',product.field_categories.0['#options'].entity.tid.value) }}

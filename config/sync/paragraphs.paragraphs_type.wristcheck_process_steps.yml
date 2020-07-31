@@ -1,0 +1,10 @@
+uuid: 9175bdcd-2eb7-475f-bd1b-c90a337f83db
+langcode: en
+status: true
+dependencies: {  }
+id: wristcheck_process_steps
+label: 'Wristcheck Process Steps'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

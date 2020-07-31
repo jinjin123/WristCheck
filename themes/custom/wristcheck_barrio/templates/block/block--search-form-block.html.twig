@@ -1,0 +1,21 @@
+
+  <div{{ attributes.addClass('widget widget-search') }}>
+  {{ title_prefix }}
+  {% if region == 'blog_sidebar' %}
+	  	{% if label %}
+	  		<div class="widget-title">
+				<h5{{ title_attributes }}>{{ label }}</h5>
+			</div>
+	  	{% endif %}
+	{% else %}
+			{% if label %}
+	    	<h2{{ title_attributes }}>{{ label }}</h2>
+	  	{% endif %}
+	{% endif %}
+  {{ title_suffix }}
+  <div class="navbar-form search-input search-css">
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+  </div>
+</div>

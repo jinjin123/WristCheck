@@ -21,6 +21,7 @@
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
 sites/*/services*.yml
+sites/development.services.yml
 
 # Ignore paths that contain user-generated content.
 sites/*/files
@@ -49,3 +50,4 @@ themes/wristcheck/package-lock.json
 sites/default/default.services.yml
 sites/default/default.settings.php
 .idea
+themes/custom/wristcheck_barrio/node_modules

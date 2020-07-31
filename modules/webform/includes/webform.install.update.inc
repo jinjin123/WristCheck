@@ -911,7 +911,7 @@ function webform_update_8044() {
 }
 
 /**
- * Issue #2878307: webform example module disable causes a customised webform deleted.
+ * Issue #2878307: webform example module disable causes a customized webform deleted.
  */
 function webform_update_8045() {
   // Remove sub module dependencies copied to new forms.
@@ -3521,7 +3521,7 @@ function webform_update_8187() {
 }
 
 /**
- * Issue #3097101: Remote Post cast boolean and numer values.
+ * Issue #3097101: Remote Post cast boolean and number values.
  */
 function webform_update_8188() {
   _webform_update_webform_handler_settings();
@@ -3758,4 +3758,211 @@ function webform_update_8196() {
  */
 function webform_update_8197() {
   _webform_update_admin_settings();
+}
+
+/**
+ * Issue #3156982: Fix empty '#option_all_value' and '#option_all_text'.
+ */
+function webform_update_8198() {
+  $options_properties = [
+    '#options_all_value',
+    '#options_all_text',
+    '#options_none_value',
+    '#options_none_text',
+  ];
+
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $elements = $webform_config->get('elements');
+
+    // Try to decode elements.
+    try {
+      $elements = Yaml::decode($elements);
+    }
+    catch (\Exception $exception) {
+      continue;
+    }
+
+    // Make sure elements is an array.
+    if (!is_array($elements)) {
+      continue;
+    }
+
+    $has_options_property = FALSE;
+    $flattened_elements =& WebformFormHelper::flattenElements($elements);
+    foreach ($flattened_elements as &$element) {
+      foreach ($options_properties as $options_property) {
+        if (isset($element[$options_property]) && $element[$options_property] === '') {
+          unset($element[$options_property]);
+          $has_options_property = TRUE;
+        }
+      }
+    }
+    if ($has_options_property) {
+      $webform_config->set('elements', Yaml::encode($elements));
+      $webform_config->save(TRUE);
+    }
+  }
+}
+
+/**
+ * Issue #3157587: Hide the next button when auto-forwarding cards.
+ */
+function webform_update_8199() {
+  _webform_update_webform_settings();
+}
+
+/******************************************************************************/
+// Webform 6.x.
+/******************************************************************************/
+
+/**
+ * Issue #3087699: JQuery UI is being phased out from Drupal core.
+ */
+function webform_update_8600() {
+  // Make sure webform_editorial.module is manually uninstalled before
+  // installing any new modules.
+  webform_update_8604();
+
+  \Drupal::service('module_installer')->install([
+    'jquery_ui',
+    'jquery_ui_datepicker',
+    'jquery_ui_tabs',
+    'jquery_ui_tooltip',
+  ]);
+}
+
+/**
+ * Issue #3106961: [Webform 8.x-6.x] Improve token naming conventions.
+ */
+function webform_update_8601() {
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $yaml = Yaml::encode($webform_config->getRawData());
+    if (strpos($yaml, '[webform_submission:view-url]') !== FALSE
+      || strpos($yaml, '[webform_submission:update-url]') !== FALSE) {
+      $yaml = str_replace('[webform_submission:view-url]', '[webform_submission:token-view-url]', $yaml);
+      $yaml = str_replace('[webform_submission:update-url]', '[webform_submission:token-update-url]', $yaml);
+      $webform_config->setData(Yaml::decode($yaml));
+    }
+  }
+}
+
+/**
+ * Issue #3104392: Webform URL aliases should begin with a forward slash.
+ */
+function webform_update_8602() {
+  $config_factory = \Drupal::configFactory();
+
+  // Update admin default base path.
+  $admin_config = $config_factory->getEditable('webform.settings');
+  $default_page_base_path = $admin_config->get('settings.default_page_base_path');
+  if ($default_page_base_path) {
+    $default_page_base_path = '/' . trim($default_page_base_path, '/');
+  }
+  $admin_config->set('settings.default_page_base_path', $default_page_base_path)
+    ->save();
+
+  // Update webform custom base path.
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $data = $webform_config->getRawData();
+    if ($data['settings']['page_submit_path']) {
+      $data['settings']['page_submit_path'] = '/' . trim($data['settings']['page_submit_path'], '/');
+    }
+    if ($data['settings']['page_confirm_path']) {
+      $data['settings']['page_confirm_path'] = '/' . trim($data['settings']['page_confirm_path'], '/');
+    }
+    $webform_config->setData($data)->save();
+  }
+}
+
+/**
+ * Issue #3088780: Add the ability to disable user IP tracking for all forms.
+ */
+function webform_update_8603() {
+  _webform_update_admin_settings();
+  _webform_update_webform_settings();
+}
+
+/**
+ * Issue #3144019: Move webform_editorial to webform_test_editorial.
+ */
+function webform_update_8604() {
+  // Remove the webform_editorial.module which has changed to the
+  // webform_test_editorial.module, which is now a test module.
+
+  // Remove 'webform_editorial' from core.extensions.
+  $extension_config = \Drupal::configFactory()->getEditable('core.extension');
+  $module = $extension_config->get('module');
+  if (isset($module['webform_editorial'])) {
+    unset($module['webform_editorial']);
+    $extension_config->set('module', $module);
+    $extension_config->save();
+  }
+
+  // Remove 'webform_editorial' from system.schema.
+  \Drupal::keyValue('system.schema')->delete('webform_editorial');
+}
+
+/**
+ * Issue #3144962: Webform cards.
+ */
+function webform_update_8605() {
+  _webform_update_admin_settings();
+}
+
+/**
+ * Issue #3104392: Webform URL aliases should begin with a forward slash.
+ */
+function webform_update_8606() {
+  $config_factory = \Drupal::configFactory();
+
+  // Remove empty default page base path.
+  $admin_config = $config_factory->getEditable('webform.settings');
+  $default_page_base_path = $admin_config->get('settings.default_page_base_path');
+  if ($default_page_base_path === '/') {
+    $admin_config->set('settings.default_page_base_path', '')->save();
+  }
+
+  // Remove empty page paths.
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $data = $webform_config->getRawData();
+
+    $path_changed = FALSE;
+    if ($data['settings']['page_submit_path'] === '/') {
+      $data['settings']['page_submit_path'] = '';
+      $path_changed = TRUE;
+    }
+    if ($data['settings']['page_confirm_path'] === '/') {
+      $data['settings']['page_confirm_path'] = '';
+      $path_changed = TRUE;
+    }
+
+    if ($path_changed) {
+      $webform_config->setData($data)->save();
+      /** @var WebformInterface $webform */
+      $webform = Webform::load($data['id']);
+      $webform->setSetting('page_submit_path', $data['settings']['page_submit_path']);
+      $webform->setSetting('page_confirm_path', $data['settings']['page_confirm_path']);
+      $webform->updatePaths();
+    }
+  }
+}
+
+/**
+ * Issue #3156982: Fix empty '#option_all_value' and '#option_all_text'.
+ */
+function webform_update_8607() {
+  webform_update_8198();
+}
+
+/**
+ * Issue #3157587: Hide the next button when auto-forwarding cards.
+ */
+function webform_update_8608() {
+  _webform_update_webform_settings();
 }
