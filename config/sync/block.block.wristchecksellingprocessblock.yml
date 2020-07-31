@@ -1,6 +1,6 @@
 uuid: 4ad7fc8d-e97e-48cc-9be4-21e4473c72fb
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - block_attributes
@@ -25,7 +25,7 @@ third_party_settings:
     background_overlay: ''
 id: wristchecksellingprocessblock
 theme: wristcheck
-region: content
+region: ''
 weight: 0
 provider: null
 plugin: wristcheck_selling_process_block

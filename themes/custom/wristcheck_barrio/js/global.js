@@ -65,7 +65,5 @@
       target.parent().parent().parent().parent().parent().children()[1].style.display="block"
       target.css("-webkit-transform","rotate(45deg)");
     }
-  });
-
-
+  })
 })(jQuery, Drupal);
