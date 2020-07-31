@@ -5,7 +5,6 @@ dependencies:
   module:
     - commerce_payment
     - commerce_promotion
-    - commerce_shipping
 id: second_hands_watch_buying_flow
 label: 'Second Hands Watch Buying Flow'
 plugin: multistep_default
@@ -44,8 +43,4 @@ configuration:
     coupon_redemption:
       allow_multiple: false
       step: _sidebar
-      weight: 10
-    shipping_information:
-      require_shipping_profile: true
-      step: order_information
       weight: 10

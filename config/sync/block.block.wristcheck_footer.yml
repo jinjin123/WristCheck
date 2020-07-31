@@ -1,4 +1,4 @@
-uuid: de08c02e-8aee-4aa6-972e-d296196e9aeb
+uuid: adcf9ec6-e4df-4d7d-883d-bb69d3dc7169
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
   module:
     - system
   theme:
-    - wristcheck_barrio
+    - wristcheck
 _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
-id: wristcheck_barrio_footer
-theme: wristcheck_barrio
+id: wristcheck_footer
+theme: wristcheck
 region: footer
-weight: -10
+weight: -7
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

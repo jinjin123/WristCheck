@@ -6,10 +6,8 @@ dependencies:
     - commerce_product.commerce_product_variation_type.2_hands_watch_variation
     - field.field.commerce_product_variation.2_hands_watch_variation.attribute_box
     - field.field.commerce_product_variation.2_hands_watch_variation.attribute_year
-    - field.field.commerce_product_variation.2_hands_watch_variation.weight
   module:
     - commerce_price
-    - physical
 id: commerce_product_variation.2_hands_watch_variation.default
 targetEntityType: commerce_product_variation
 bundle: 2_hands_watch_variation
@@ -69,14 +67,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  weight:
-    type: physical_measurement_default
-    weight: 91
-    settings:
-      default_unit: ''
-      allow_unit_change: true
-    third_party_settings: {  }
-    region: content
 hidden:
   created: true
   uid: true

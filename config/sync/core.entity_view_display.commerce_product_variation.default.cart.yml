@@ -9,7 +9,6 @@ dependencies:
     - field.field.commerce_product_variation.default.attribute_color
     - field.field.commerce_product_variation.default.attribute_size
     - field.field.commerce_product_variation.default.attribute_year
-    - field.field.commerce_product_variation.default.weight
   enforced:
     module:
       - commerce_cart
@@ -33,12 +32,11 @@ content:
       currency_display: symbol
     third_party_settings: {  }
   product_id:
-    type: entity_reference_entity_view
+    type: entity_reference_label
     weight: 0
-    label: above
+    label: hidden
     settings:
       link: true
-      view_mode: default
     third_party_settings: {  }
     region: content
 hidden:
@@ -51,4 +49,3 @@ hidden:
   search_api_excerpt: true
   sku: true
   title: true
-  weight: true

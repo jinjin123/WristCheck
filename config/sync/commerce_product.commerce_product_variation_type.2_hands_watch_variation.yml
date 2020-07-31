@@ -6,6 +6,5 @@ id: 2_hands_watch_variation
 label: 'Second Hands Watch Variation'
 orderItemType: 2hw_order_item
 generateTitle: false
-traits:
-  - purchasable_entity_shippable
+traits: {  }
 locked: false

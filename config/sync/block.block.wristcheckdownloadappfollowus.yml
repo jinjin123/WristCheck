@@ -1,15 +1,12 @@
-uuid: 5da8db08-5be8-4af8-9801-cec949ea7497
+uuid: 65503e1e-9d74-48ca-913f-00801c0b3abd
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:6ef71f14-0db8-4e14-9b08-e09ea8058080'
   module:
     - block_attributes
-    - block_content
     - ntv_block_background
   theme:
-    - bootstrap_barrio
+    - wristcheck
 third_party_settings:
   block_attributes:
     attr_class: ''
@@ -24,15 +21,15 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: bootstrap_barrio_blockcopyright
-theme: bootstrap_barrio
-region: top_header
-weight: 0
+id: wristcheckdownloadappfollowus
+theme: wristcheck
+region: footer
+weight: -8
 provider: null
-plugin: 'block_content:6ef71f14-0db8-4e14-9b08-e09ea8058080'
+plugin: 'block_content:5b608d0c-4e3e-4050-8abe-e6d554678f31'
 settings:
-  id: 'block_content:6ef71f14-0db8-4e14-9b08-e09ea8058080'
-  label: 'Block - Copy Right'
+  id: 'block_content:5b608d0c-4e3e-4050-8abe-e6d554678f31'
+  label: 'WristCheck Download App & Follow US'
   provider: block_content
   label_display: '0'
   status: true

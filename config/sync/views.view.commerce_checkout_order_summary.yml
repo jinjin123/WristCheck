@@ -12,7 +12,7 @@ dependencies:
 _core:
   default_config_hash: ZMm_Yy4aujhFs_1hZAQ9maM_nBGEiODMRbCA9eHZUKc
 id: commerce_checkout_order_summary
-label: 'Wristcheck Checkout Order Summary'
+label: 'Checkout Order Summary'
 module: views
 description: ''
 tag: commerce_order_summary

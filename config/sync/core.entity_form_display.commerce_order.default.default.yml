@@ -4,12 +4,9 @@ status: true
 dependencies:
   config:
     - commerce_order.commerce_order_type.default
-    - field.field.commerce_order.default.field_do_you_need_a_gift_bag
-    - field.field.commerce_order.default.field_phone
   module:
     - commerce_order
     - inline_entity_form
-    - telephone
 _core:
   default_config_hash: 1NKrIQBqELStd0cyiuHeNArhuPvOZj36faDEG1dWqEA
 id: commerce_order.default.default
@@ -36,19 +33,6 @@ content:
     weight: 20
     region: content
     third_party_settings: {  }
-  field_do_you_need_a_gift_bag:
-    weight: 22
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_phone:
-    weight: 21
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
   order_items:
     type: inline_entity_form_complex
     weight: 1
@@ -60,10 +44,6 @@ content:
       match_operator: CONTAINS
       allow_existing: false
       form_mode: default
-      revision: false
-      collapsible: false
-      collapsed: false
-      allow_duplicate: false
     third_party_settings: {  }
     region: content
 hidden:

@@ -1,0 +1,15 @@
+uuid: 71630629-e035-49ef-9290-bf5f6755dd52
+langcode: en
+status: true
+dependencies: {  }
+name: cut_image
+label: 'crop image'
+effects:
+  428b5532-3f67-45a2-ab18-cc7ac90c06d2:
+    uuid: 428b5532-3f67-45a2-ab18-cc7ac90c06d2
+    id: image_crop
+    weight: 1
+    data:
+      width: 500
+      height: 500
+      anchor: center-center
