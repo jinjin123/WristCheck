@@ -1438,8 +1438,8 @@ display:
         fields: true
         style: false
         row: false
-        filters: false
-        filter_groups: false
+        filters: true
+        filter_groups: true
       style:
         type: table
         options:
@@ -1502,59 +1502,6 @@ display:
           separator: ''
           hide_empty: false
           default_field_elements: true
-      filters:
-        sid:
-          id: sid
-          table: webform_submission
-          field: sid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: faq_auth_system
-          group: 1
-          exposed: true
-          expose:
-            operator_id: sid_op
-            label: faq_auth_system
-            description: ''
-            use_operator: false
-            operator: sid_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: sid
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: webform_submission
-          entity_field: sid
-          plugin_id: numeric
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,6 +1,6 @@
 uuid: b15e21d4-9543-48e0-ab78-779660ed4611
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - wristcheck
@@ -9,7 +9,7 @@ _core:
 id: wristcheck_page_title
 theme: wristcheck
 region: content
-weight: -16
+weight: -8
 provider: null
 plugin: page_title_block
 settings:

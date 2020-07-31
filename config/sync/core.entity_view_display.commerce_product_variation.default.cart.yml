@@ -32,11 +32,12 @@ content:
       currency_display: symbol
     third_party_settings: {  }
   product_id:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     weight: 0
-    label: hidden
+    label: above
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
     region: content
 hidden:
