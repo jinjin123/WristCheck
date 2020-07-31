@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.portfolio.field_images
     - field.field.node.portfolio.field_link
     - field.field.node.portfolio.field_page_title_image
+    - field.field.node.portfolio.field_related_model
     - field.field.node.portfolio.field_skills
     - field.field.node.portfolio.field_style_single
     - field.field.node.portfolio.field_video
@@ -43,7 +44,9 @@ hidden:
   field_images: true
   field_link: true
   field_page_title_image: true
+  field_related_model: true
   field_skills: true
   field_style_single: true
   field_video: true
   langcode: true
+  search_api_excerpt: true
