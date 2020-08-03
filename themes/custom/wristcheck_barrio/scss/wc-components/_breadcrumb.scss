@@ -1,12 +1,19 @@
 // breadcrumb
-#block-wristcheck-breadcrumbs {
+#block-wristcheck-barrio-breadcrumbs {
   .breadcrumb {
     background-color: #FFF;
-
   }
 }
 
 .breadcrumb {
+  li {
+    list-style: none;
+    display: inline-block;
+    a{
+      color: $color-dark3
+    }
+  }
+
   .breadcrumb-container {
     margin: 0 auto !important;
     font-size: 18px;
@@ -14,11 +21,16 @@
     line-height: 24px;
     font-weight: bold;
 
-    li>a:hover{
+
+    li > a:hover {
       color: #888;
     }
 
-    li:before{
+    li:first-child:before {
+      content: ''
+    }
+
+    li:before {
       content: '>';
       color: #666;
       line-height: 22px;

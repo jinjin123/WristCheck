@@ -24,7 +24,7 @@ const paths = {
 }
 
 // Compile sass into CSS & auto-inject into browsers
-function styles () {
+function styles() {
   return gulp.src([paths.scss.bootstrap, paths.scss.src])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -43,22 +43,23 @@ function styles () {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.scss.dest))
     .pipe(cleanCss())
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(paths.scss.dest))
     .pipe(browserSync.stream())
 }
 
 // Move the javascript files into our js folder
-function js () {
+function js() {
   return gulp.src([paths.js.bootstrap, paths.js.jquery, paths.js.popper])
     .pipe(gulp.dest(paths.js.dest))
     .pipe(browserSync.stream())
 }
 
 // Static Server + watching scss/html files
-function serve () {
+function serve() {
   browserSync.init({
-    proxy: 'http://wristcheck.local'
+    proxy: 'http://wristcheck.local',
+    port: 9000
   })
   gulp.watch([paths.scss.watch, paths.scss.bootstrap], styles).on('change', browserSync.reload)
 }

@@ -1,6 +1,6 @@
 uuid: 0e03bcd5-5ae3-42e8-b6a7-910f2d9f6bfb
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - block_attributes
@@ -24,7 +24,7 @@ third_party_settings:
     background_overlay: ''
 id: mainpagecontent
 theme: wristcheck
-region: content
+region: ''
 weight: 0
 provider: null
 plugin: system_main_block
