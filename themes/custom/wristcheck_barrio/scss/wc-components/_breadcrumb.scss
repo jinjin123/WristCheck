@@ -9,7 +9,11 @@
   li {
     list-style: none;
     display: inline-block;
-    a{
+    padding-left: 17px;
+    padding-right: 11px;
+    position: relative;
+
+    a {
       color: $color-dark3
     }
   }
@@ -27,13 +31,23 @@
     }
 
     li:first-child:before {
-      content: ''
+      content: '';
+      background: none;
+      padding-left: 0;
     }
 
     li:before {
-      content: '>';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 4px;
+      content: ' ';
       color: #666;
       line-height: 22px;
+      background: url('../images/icons/arrow-right.png') no-repeat;
+      background-position: center;
+      background-size: contain;
     }
 
     li.active {
