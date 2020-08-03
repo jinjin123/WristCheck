@@ -1,0 +1,32 @@
+uuid: c71c3810-15cb-44bc-8c98-fef87d8da952
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.wristcheck_process_steps.field_wristcheck_process_steps
+    - node.type.wristcheck_process_steps
+  module:
+    - entity_reference_revisions
+    - user
+id: node.wristcheck_process_steps.default
+targetEntityType: node
+bundle: wristcheck_process_steps
+mode: default
+content:
+  field_wristcheck_process_steps:
+    type: entity_reference_revisions_entity_view
+    weight: 101
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

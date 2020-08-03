@@ -47,13 +47,36 @@
       .field--name-body {
         display: flex;
         div {
-         display: grid;
-         margin-right: 15%;
+          display: grid;
+          margin-right: 15%;
           span {
             position: relative;
             margin: 0 30%;
           }
         }
+      }
+    }
+  }
+  #block-webform-3 {
+    background-image: url("/sites/default/files/inline-images/offers_banner_sc_2.jpg");
+    width: 1300px;
+    height: 400px;
+    margin-bottom: 40px;
+  }
+  .webform-elements {
+    display: flex;
+    position: relative;
+    top: 250px;
+    margin: 0 10%;
+    .js-form-item-second-size {
+      margin-left: 40px;
+    }
+    div {
+      select {
+        margin-right: 30px;
+        background-color: #FFFBFCFC;
+        text-align: center;
+        text-align-last: center;
       }
     }
   }

@@ -1,9 +1,12 @@
+uuid: b0208b3b-2a8b-460c-a37a-50f4037ed0ea
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: JZeh3DLInXc-TO9287_ymZbJLRbHZeEEBNdRx3GtZEU
 open: null
 close: null
 weight: 0
@@ -263,6 +266,3 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
-uuid: b0208b3b-2a8b-460c-a37a-50f4037ed0ea
-_core:
-  default_config_hash: JZeh3DLInXc-TO9287_ymZbJLRbHZeEEBNdRx3GtZEU

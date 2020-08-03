@@ -1,0 +1,26 @@
+uuid: 3a063213-8b77-4591-a056-608a65720463
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wristcheck_process_steps.field_process_step
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.wristcheck_process_steps
+  module:
+    - image
+id: paragraph.wristcheck_process_steps.default
+targetEntityType: paragraph
+bundle: wristcheck_process_steps
+mode: default
+content:
+  field_process_step:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,44 +1,35 @@
-uuid: 06a4bee6-58ee-4284-b870-e85e363c047b
+uuid: 8d0eca76-058c-4ce5-a239-f79935e83079
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.slick_page.body
-    - field.field.node.slick_page.field_slick_img
-    - image.style.thumbnail
-    - node.type.slick_page
+    - field.field.node.wristcheck_process_steps.field_wristcheck_process_steps
+    - node.type.wristcheck_process_steps
   module:
-    - image
+    - paragraphs
     - path
-    - text
-id: node.slick_page.default
+id: node.wristcheck_process_steps.default
 targetEntityType: node
-bundle: slick_page
+bundle: wristcheck_process_steps
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 121
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_slick_img:
-    weight: 122
+  field_wristcheck_process_steps:
+    type: entity_reference_paragraphs
+    weight: 121
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
-    type: image_image
     region: content
   langcode:
     type: language_select

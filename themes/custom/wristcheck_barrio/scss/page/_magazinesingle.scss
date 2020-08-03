@@ -1,0 +1,93 @@
+.path-wristcheck-magazine-single {
+  .views-field-created {
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 0 250px;
+  }
+  .views-field-title {
+    text-align: left;
+    margin-bottom: 35px;
+    font-size: 25px;
+    color: #333;
+    padding: 0 250px;
+  }
+  //author
+  .views-field-uid {
+    text-align: left;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 20px;
+    padding: 0 250px;
+  }
+  .views-field-body{
+    padding: 0 150px;
+    .field-content {
+      img {
+        width: 100%;
+        margin-bottom: 25px;
+      }
+      p {
+        margin-bottom: 40px;
+        line-height: 1px;
+      }
+    }
+  }
+
+
+  #block-views-block-wristcheck-latest-articles-block-1-4 {
+    width: 100%;
+    > h2 {
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .view-wristcheck-latest-articles {
+      margin: 0 10%;
+      .view-content {
+        display: flex;
+        flex-wrap: wrap;
+        .views-row {
+          padding: 0 30px;
+          width: 50%;
+          .views-field-title {
+            padding: 0 !important;
+            .field-content {
+              text-align: left;
+              h4 {
+                color: #999999;
+                font-size: 15px;
+                //text-decoration: none !important;
+                margin-bottom: 10px;
+              }
+              h2 {
+                color: #333;
+                font-weight: bold;
+                margin-bottom: 25px;
+                //text-decoration: underline;
+                //padding-bottom: 5px;
+                //border-bottom: 1px solid #333;
+              }
+            }
+          }
+          .views-field-field-latest-img {
+            .field-content {
+              img {
+                width: 100%;
+              }
+            }
+          }
+          .views-field-uid {
+            text-align: left;
+            margin-bottom: 25px;
+            font-size: 15px;
+            padding: 0;
+            .field-content {
+              color: #999999;
+            }
+          }
+        }
+      }
+    }
+  }
+}

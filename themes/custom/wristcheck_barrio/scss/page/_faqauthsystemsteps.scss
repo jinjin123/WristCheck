@@ -6,7 +6,7 @@
         margin: 0 -30px;
       }
     }
-    #block-wristcheckprocessbutton {
+    #block-wristcheckprocessbutton-3 {
       h2 {
         color: #333;
         font-weight: bold;
@@ -28,7 +28,9 @@
         }
       }
     }
-
+    #faq-auth-system {
+      background-color: #333 !important;
+    }
     .view-wristcheck-process-steps {
       .view-content {
         .views-row {
@@ -90,7 +92,7 @@
       }
     }
 
-    #block-views-block-wristcheck-faq-system-news-block-1 {
+    #block-views-block-wristcheck-faq-system-news-block-1-2 {
       margin-bottom: 30px;
       //padding: 0 120px;
       h2 {
@@ -116,13 +118,17 @@
       }
     }
 
-    #block-views-block-faq-slick-img-block-1-2 {
+    #block-wristcheckfaqslider {
       //padding: 0 120px;
-      background-image: url("../../images/brand/1.jpg");
+      background-image: url("/sites/default/files/inline-images/offers_banner_sc_2.jpg");
+      width: 1300px;
+      //height: 400px;
+      margin-bottom: 40px;
     }
 
     #block-views-block-wristcheck-contact-us-block-1 {
       text-align: center;
+      width: 100%;
       h2 {
         color: #333;
         font-weight: bold;
@@ -146,6 +152,7 @@
         }
       }
       .view-content {
+        display: block;
         .views-row {
           .views-field-title {
             margin-top: 20px;
