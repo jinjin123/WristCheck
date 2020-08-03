@@ -79,7 +79,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<img class="img-responsive" src="{{ field_brand_logo }}" alt="{{ field_brand_logo__alt }}" title="{{ field_brand_logo__title }}"/>'
+            text: '<img class="img-fluid" src="{{ field_brand_logo }}" alt="{{ field_brand_logo__alt }}" title="{{ field_brand_logo__title }}"/>'
             make_link: false
             path: ''
             absolute: false

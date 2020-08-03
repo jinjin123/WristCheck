@@ -152,7 +152,7 @@ ul.wc-menu-container {
   transform-origin: center top;
   transition: all .3s ease;
   transform: scaleY(0);
-  padding: 90px 170px;
+  padding: 90px 20px;
   li{
     list-style: none;
   }
@@ -167,4 +167,7 @@ li.mega-dropdown {
       background-color: #FFF;
     }
   }
+}
+ul.navbar-submenus{
+  padding: 0;
 }

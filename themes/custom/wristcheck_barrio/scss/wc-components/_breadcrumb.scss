@@ -6,6 +6,18 @@
 }
 
 .breadcrumb {
+  li {
+    list-style: none;
+    display: inline-block;
+    padding-left: 17px;
+    padding-right: 11px;
+    position: relative;
+
+    a {
+      color: $color-dark3
+    }
+  }
+
   .breadcrumb-container {
     margin: 0 auto !important;
     font-size: 18px;
@@ -13,14 +25,29 @@
     line-height: 24px;
     font-weight: bold;
 
-    li>a:hover{
+
+    li > a:hover {
       color: #888;
     }
 
-    li:before{
-      content: '>';
+    li:first-child:before {
+      content: '';
+      background: none;
+      padding-left: 0;
+    }
+
+    li:before {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 4px;
+      content: ' ';
       color: #666;
       line-height: 22px;
+      background: url('../images/icons/arrow-right.png') no-repeat;
+      background-position: center;
+      background-size: contain;
     }
 
     li.active {
