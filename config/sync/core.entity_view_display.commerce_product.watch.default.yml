@@ -386,6 +386,11 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  flag_wristcheck_wishlist:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   title:
     label: hidden
     type: string
