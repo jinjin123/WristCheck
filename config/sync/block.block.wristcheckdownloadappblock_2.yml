@@ -1,11 +1,11 @@
-uuid: 13606717-b69d-4284-add0-d62ae17d99d5
+uuid: 137cbcc2-fe1f-4ddc-b0f8-d5bd88abfe11
 langcode: en
 status: true
 dependencies:
   module:
     - block_attributes
     - ntv_block_background
-    - system
+    - wristcheck_basic
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -22,23 +22,15 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: faqsystemchecked
+id: wristcheckdownloadappblock_2
 theme: wristcheck_barrio
-region: section
-weight: -7
+region: bottom_footer
+weight: -15
 provider: null
-plugin: 'block_content:517328e8-a493-4af3-977d-f49daf98d983'
+plugin: wristcheck_download_app_block
 settings:
-  id: 'block_content:517328e8-a493-4af3-977d-f49daf98d983'
-  label: 'I check values at wristcheck'
-  provider: block_content
-  label_display: visible
-  status: true
-  info: ''
-  view_mode: full
-visibility:
-  request_path:
-    id: request_path
-    pages: /faq-authsystem-steps
-    negate: false
-    context_mapping: {  }
+  id: wristcheck_download_app_block
+  label: 'Wristcheck download app block'
+  provider: wristcheck_basic
+  label_display: '0'
+visibility: {  }

@@ -1,9 +1,10 @@
-uuid: 1cdd9c20-1c99-4247-9df0-808f1948ea95
+uuid: 72673f45-068b-4000-883d-c897d17332e5
 langcode: en
 status: true
 dependencies:
   module:
     - block_attributes
+    - md_slider
     - ntv_block_background
     - system
   theme:
@@ -22,23 +23,20 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: createanadsimpleinstrutions_2
+id: wristcheckproductslider
 theme: wristcheck_barrio
-region: section
-weight: -6
+region: highlighted
+weight: 0
 provider: null
-plugin: 'block_content:721c0b56-35c2-43b5-a0c0-eecde4912579'
+plugin: 'md_slider_block:wristcheck_product_slider'
 settings:
-  id: 'block_content:721c0b56-35c2-43b5-a0c0-eecde4912579'
-  label: 'Create an AD, simple instrutions'
-  provider: block_content
-  label_display: visible
-  status: true
-  info: ''
-  view_mode: full
+  id: 'md_slider_block:wristcheck_product_slider'
+  label: 'Wristcheck product slider'
+  provider: md_slider
+  label_display: '0'
 visibility:
   request_path:
     id: request_path
-    pages: /faq-authsystem-steps
+    pages: /buy
     negate: false
     context_mapping: {  }

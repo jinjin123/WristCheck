@@ -1,6 +1,6 @@
 uuid: 6fb071f5-90a0-4e6d-b4a3-b73ab2bbc72a
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - webform.webform.faq_authsystem
@@ -27,7 +27,7 @@ third_party_settings:
     background_overlay: ''
 id: webform
 theme: wristcheck
-region: section
+region: ''
 weight: -15
 provider: null
 plugin: webform_block
