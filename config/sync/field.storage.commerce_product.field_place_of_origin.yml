@@ -1,0 +1,19 @@
+uuid: f0563295-8dd0-40d2-9996-a56a95291f53
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - commerce_product
+id: commerce_product.field_place_of_origin
+field_name: field_place_of_origin
+entity_type: commerce_product
+type: address_country
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

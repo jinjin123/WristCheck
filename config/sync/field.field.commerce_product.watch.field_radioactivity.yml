@@ -1,0 +1,24 @@
+uuid: 00ce2867-a9ca-443e-b273-8fd66368b254
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_radioactivity
+  module:
+    - radioactivity
+id: commerce_product.watch.field_radioactivity
+field_name: field_radioactivity
+entity_type: commerce_product
+bundle: watch
+label: 'View count'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    energy: !!float 0
+    timestamp: null
+default_value_callback: ''
+settings: {  }
+field_type: radioactivity

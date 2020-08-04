@@ -1,0 +1,23 @@
+uuid: 99a15b8e-56c9-4b93-bc9f-cc50780384df
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - radioactivity
+id: commerce_product.field_radioactivity
+field_name: field_radioactivity
+entity_type: commerce_product
+type: radioactivity
+settings:
+  profile: count
+  granularity: 900
+  halflife: 43200
+  cutoff: !!float 1
+module: radioactivity
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

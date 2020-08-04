@@ -1,0 +1,39 @@
+uuid: 4f7e012a-6b97-4c5c-a639-9b7c9a263092
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product.field_verified_dealer
+field_name: field_verified_dealer
+entity_type: commerce_product
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: '0'
+    -
+      value: 1
+      label: '1'
+    -
+      value: 2
+      label: '2'
+    -
+      value: 3
+      label: '3'
+    -
+      value: 4
+      label: '4'
+    -
+      value: 5
+      label: '5'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
