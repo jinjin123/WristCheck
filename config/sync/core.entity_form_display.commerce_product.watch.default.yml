@@ -29,7 +29,9 @@ dependencies:
     - field.field.commerce_product.watch.field_model_images
     - field.field.commerce_product.watch.field_model_tags
     - field.field.commerce_product.watch.field_others
+    - field.field.commerce_product.watch.field_place_of_origin
     - field.field.commerce_product.watch.field_power_time
+    - field.field.commerce_product.watch.field_radioactivity
     - field.field.commerce_product.watch.field_ref_number
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
@@ -37,6 +39,7 @@ dependencies:
     - field.field.commerce_product.watch.field_sku
     - field.field.commerce_product.watch.field_specifications
     - field.field.commerce_product.watch.field_subname
+    - field.field.commerce_product.watch.field_verified_dealer
     - field.field.commerce_product.watch.field_watch_core
     - field.field.commerce_product.watch.field_watch_core_num
     - field.field.commerce_product.watch.field_watch_sex
@@ -45,10 +48,12 @@ dependencies:
     - field.field.commerce_product.watch.field_year
     - image.style.thumbnail
   module:
+    - address
     - commerce
     - image
     - paragraphs
     - path
+    - radioactivity
     - text
 id: commerce_product.watch.default
 targetEntityType: commerce_product
@@ -257,6 +262,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_place_of_origin:
+    weight: 45
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
   field_power_time:
     weight: 24
     settings:
@@ -264,6 +275,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_radioactivity:
+    weight: 46
+    settings:
+      energy: !!float 0
+      timestamp: '1596519551'
+    third_party_settings: {  }
+    type: radioactivity_energy
     region: content
   field_ref_number:
     weight: 4
@@ -328,6 +347,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_verified_dealer:
+    weight: 47
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_watch_core:
     weight: 14

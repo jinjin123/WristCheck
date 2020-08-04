@@ -112,61 +112,57 @@
 {#</div>#}
 
 {#{{ drupal_view('product_view', 'product_relative',product.field_categories.0['#options'].entity.tid.value) }}#}
-
-
 <div class="row">
   <div class="col-md-6">
     {{ drupal_view('wristcheck_product_jcarousel','default') }}
   </div>
   <div class="col-md-6">
-    <div class="row">
-      <div class="col-md-12">
-        {{ product.title }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        {{ product.subname }}
-      </div>
-      <div class="col-md-6">
-        wishlist
-      </div>
-    </div>
+    <div class="wc-product-introduction">
+      <div class="wc-product-title">{{ product.subname }}123123</div>
+      <div class="wc-product--row">
+        <div class="wc-product-title bold">{{ product.title }}</div>
+        <a href="javascript:;" class="d-flex flex-column align-items-center">
+          <span class="fa fa-heart-o wc-product-wishlist">
 
-    <div class="row">
-      <div class="col-md-12">
+            {{- product.flag_wristcheck_wishlist -}}
+
+          </span>
+          <span class="wc-product-wishlist__title">wishlist</span>
+        </a>
+      </div>
+      <div class="wc-product-num">
         {{ product.field_ref_number }}
       </div>
-      <div class="col-md-12">
-        <button> add to wishlist</button>
+      <div class="wc-product-btn">
+        <a href="javascript:;" class="wc-product-add-wishlist">
+          <span class="fa fa-arrow-right"></span>
+          | ADD TO WISHLIST</a>
       </div>
-      <div class="col-md-12">
-        <div>{{ product.field_introduction }}</div>
+      <div>
+        {{- product.variations -}}
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <button>buy new from</button>
-      </div>
-      <div class="col-md-6">
-        <button>buy used from</button>
-        <div>
+      <div class="wc-product-content">{{ product.field_introduction }}</div>
+      <div class="wc-product--row">
+        <div class="wc-product-buy-new pr">
+          <a href="javascript:;">BUY NEW FROM</a>
+        </div>
+        <div class="wc-product-buy pr">
+          <a href="javascript:;">BUY USED FROM</a>
           {{ drupal_view('wristcheck_second_hands_watch') }}
         </div>
       </div>
     </div>
+    <div class="wc-shield">
+      <img src="/themes/custom/wristcheck_barrio/images/shield.png" alt="wristcheck guarantee" class="img-fluid"/>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-12">
-    <h1>{{ 'Specifications'|t }}</h1>
-  </div>
 
-  <div class="col-md-12">
+<div class="row">
+  <div class="col-md-12 wc-product-body">
     {{ product.body }}
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 wc-product-specifications">
     {{ product.field_specifications }}
   </div>
   <div class="col-md-12">

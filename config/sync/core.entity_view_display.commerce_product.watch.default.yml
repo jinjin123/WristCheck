@@ -29,7 +29,9 @@ dependencies:
     - field.field.commerce_product.watch.field_model_images
     - field.field.commerce_product.watch.field_model_tags
     - field.field.commerce_product.watch.field_others
+    - field.field.commerce_product.watch.field_place_of_origin
     - field.field.commerce_product.watch.field_power_time
+    - field.field.commerce_product.watch.field_radioactivity
     - field.field.commerce_product.watch.field_ref_number
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
@@ -37,6 +39,7 @@ dependencies:
     - field.field.commerce_product.watch.field_sku
     - field.field.commerce_product.watch.field_specifications
     - field.field.commerce_product.watch.field_subname
+    - field.field.commerce_product.watch.field_verified_dealer
     - field.field.commerce_product.watch.field_watch_core
     - field.field.commerce_product.watch.field_watch_core_num
     - field.field.commerce_product.watch.field_watch_sex
@@ -44,9 +47,12 @@ dependencies:
     - field.field.commerce_product.watch.field_water_resistance
     - field.field.commerce_product.watch.field_year
   module:
+    - address
     - commerce_product
     - entity_reference_revisions
     - image
+    - options
+    - radioactivity
     - text
 id: commerce_product.watch.default
 targetEntityType: commerce_product
@@ -54,7 +60,7 @@ bundle: watch
 mode: default
 content:
   body:
-    label: hidden
+    label: above
     type: text_default
     weight: 11
     settings: {  }
@@ -244,6 +250,13 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_place_of_origin:
+    weight: 49
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
   field_power_time:
     weight: 28
     label: above
@@ -251,6 +264,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_radioactivity:
+    weight: 50
+    label: above
+    settings:
+      energy: !!float 10
+      display: none
+    third_party_settings: {  }
+    type: radioactivity_emitter
     region: content
   field_ref_number:
     weight: 17
@@ -309,6 +331,13 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_verified_dealer:
+    weight: 51
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_watch_core:
     weight: 22
     label: above
@@ -356,6 +385,11 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  flag_wristcheck_wishlist:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
     region: content
   title:
     label: hidden

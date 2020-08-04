@@ -27,7 +27,7 @@ third_party_settings:
 id: wristcheckbottommenu_2
 theme: wristcheck_barrio
 region: bottom_footer
-weight: -10
+weight: -14
 provider: null
 plugin: 'system_menu_block:wristcheck-bottom-menu'
 settings:
