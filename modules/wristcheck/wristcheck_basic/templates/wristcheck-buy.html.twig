@@ -4,46 +4,67 @@
     <img src="/themes/custom/wristcheck_barrio/images/step-1.png" class='img-fluid'/>
   </div>
 </div>
-<div class="wc-panel">
-  <h1 class='wc-panel__title text-center'>{{ 'EXPLOER WRISTCHECK'|t }}</h1>
-  <div class='container portfolio'>
-    {{ drupal_view('wristcheck_buy_explore') }}
+<div>
+
+  <div class="wc-panel pt-100">
+    <h1 class='wc-panel__title text-center'>{{ 'HOT RECOMMENDED'|t }}</h1>
+    <div class='container'>
+      {{ drupal_view('wristcheck_products') }}
+    </div>
   </div>
-  <div class='text-center'>
-    <button type="button" class="btn btn-default btn-lg wc-ex-btn">
-      <span class="fa fa-plus"></span>
-      {{ 'EXPLORE MORE'|t }}
-    </button>
+  <div>
+
+  </div>
+  <div class="wc-panel">
+    <h1 class='wc-panel__title text-center'>{{ 'EXPLOER WRISTCHECK'|t }}</h1>
+    <div class='container portfolio'>
+      {{ drupal_view('wristcheck_buy_explore') }}
+    </div>
+    <div class='text-center'>
+      <button type="button" class="btn btn-default btn-lg wc-ex-btn">
+        <span class="fa fa-plus"></span>
+        {{ 'EXPLORE MORE'|t }}
+      </button>
+    </div>
+  </div>
+  <div class="wc-panel">
+    <h1 class='wc-panel__title text-center'>{{ 'POPULAR BRANDS'|t }}</h1>
+    <div class='container portfolio'>
+      {{ drupal_view('wristcheck_buy_popular_brands') }}
+    </div>
+    <div class='text-center'>
+      <button type="button" class="btn btn-default btn-lg wc-ex-btn">
+        <span class="fa fa-plus"></span>
+        {{ 'EXPLORE MORE'|t }}
+      </button>
+    </div>
   </div>
 </div>
-<div class="wc-panel">
-  <h1 class='wc-panel__title text-center'>{{ 'POPULAR BRANDS'|t }}</h1>
-  <div class='container portfolio'>
-    {{ drupal_view('wristcheck_buy_popular_brands') }}
-  </div>
-  <div class='text-center'>
-    <button type="button" class="btn btn-default btn-lg wc-ex-btn">
-      <span class="fa fa-plus"></span>
-      {{ 'EXPLORE MORE'|t }}
-    </button>
-  </div>
-</div>
-{{ drupal_view('wristcheck_selling_process_block') }}
-<div class="wc-panel wc-news">
-  <h1 class='wc-panel__title text-center'>{{ 'WRISTCHECK IN THE NEWS'|t }}</h1>
+<div class="wc-panel pt-100">
+  <h1 class='wc-panel__title text-center'>{{ 'HOT RECOMMENDED'|t }}</h1>
   <div class='container'>
-    {{ drupal_view('wristcheck_buy_news') }}
+    {{ drupal_view('wristcheck_products','more_products') }}
   </div>
 </div>
-<div class="wc-panel wc-rolex portfolio">
-  <h1 class='wc-panel__title text-center'>{{ 'FURTHER ARTICLES ABOUT ROLEX'|t }}</h1>
-  <div class='container pt-50'>
-    {{ drupal_view('wristcheck_buy_magazine') }}
-  </div>
-</div>
-<div class="wc-panel wc-testimdnials">
-  <h1 class='wc-panel__title text-center'>{{ 'TESTIMDNIALS'|t }}</h1>
-  <div class='container pt-50 pb-100'>
-    {{ drupal_view('wristcheck_testimdnials','default') }}
-  </div>
-</div>
+<div>
+
+
+  {#  {{ drupal_view('wristcheck_selling_process_block') }}#}
+  {#<div class="wc-panel wc-news">#}
+  {#  <h1 class='wc-panel__title text-center'>{{ 'WRISTCHECK IN THE NEWS'|t }}</h1>#}
+  {#  <div class='container'>#}
+  {#    {{ drupal_view('wristcheck_buy_news') }}#}
+  {#  </div>#}
+  {#</div>#}
+  {#<div class="wc-panel wc-rolex portfolio">#}
+  {#  <h1 class='wc-panel__title text-center'>{{ 'FURTHER ARTICLES ABOUT ROLEX'|t }}</h1>#}
+  {#  <div class='container pt-50'>#}
+  {#    {{ drupal_view('wristcheck_buy_magazine') }}#}
+  {#  </div>#}
+  {#</div>#}
+  {#<div class="wc-panel wc-testimdnials">#}
+  {#  <h1 class='wc-panel__title text-center'>{{ 'TESTIMDNIALS'|t }}</h1>#}
+  {#  <div class='container pt-50 pb-100'>#}
+  {#    {{ drupal_view('wristcheck_testimdnials','default') }}#}
+  {#  </div>#}
+{#</div>#}
