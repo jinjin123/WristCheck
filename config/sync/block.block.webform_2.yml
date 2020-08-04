@@ -1,6 +1,6 @@
 uuid: 4ea080cb-54ee-46fc-a702-7f516d1e5d50
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - webform.webform.faq_price
@@ -27,7 +27,7 @@ third_party_settings:
     background_overlay: ''
 id: webform_2
 theme: wristcheck
-region: section
+region: ''
 weight: -3
 provider: null
 plugin: webform_block
