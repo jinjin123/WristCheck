@@ -15,6 +15,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
     && install-php-extensions \
       bz2 \
       calendar \
+      iconv \
+      imagick \
       exif \
       gd \
       intl \
