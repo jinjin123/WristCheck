@@ -122,7 +122,11 @@
       <div class="wc-product--row">
         <div class="wc-product-title bold">{{ product.title }}</div>
         <a href="javascript:;" class="d-flex flex-column align-items-center">
-          <span class="fa fa-heart-o wc-product-wishlist"></span>
+          <span class="fa fa-heart-o wc-product-wishlist">
+
+            {{- product.flag_wristcheck_wishlist -}}
+
+          </span>
           <span class="wc-product-wishlist__title">wishlist</span>
         </a>
       </div>
@@ -133,6 +137,9 @@
         <a href="javascript:;" class="wc-product-add-wishlist">
           <span class="fa fa-arrow-right"></span>
           | ADD TO WISHLIST</a>
+      </div>
+      <div>
+        {{- product.variations -}}
       </div>
       <div class="wc-product-content">{{ product.field_introduction }}</div>
       <div class="wc-product--row">
