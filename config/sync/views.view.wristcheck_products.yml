@@ -525,9 +525,9 @@ display:
         - 'config:field.storage.commerce_product.field_place_of_origin'
         - 'config:field.storage.commerce_product.field_radioactivity'
         - 'config:field.storage.commerce_product.field_verified_dealer'
-  block_1:
+  more_products:
     display_plugin: block
-    id: block_1
+    id: more_products
     display_title: 'More Products'
     position: 1
     display_options:
