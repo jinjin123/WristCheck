@@ -1,0 +1,42 @@
+uuid: 72673f45-068b-4000-883d-c897d17332e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - md_slider
+    - ntv_block_background
+    - system
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckproductslider
+theme: wristcheck_barrio
+region: highlighted
+weight: 0
+provider: null
+plugin: 'md_slider_block:wristcheck_product_slider'
+settings:
+  id: 'md_slider_block:wristcheck_product_slider'
+  label: 'Wristcheck product slider'
+  provider: md_slider
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /buy
+    negate: false
+    context_mapping: {  }

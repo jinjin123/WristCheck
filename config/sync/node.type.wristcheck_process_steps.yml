@@ -1,4 +1,4 @@
-uuid: 2eaf2354-a89d-4e5f-b7df-8578a8a83888
+uuid: 154d4753-02d2-4263-bd47-e1a066e647f8
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: 'slick page'
-type: slick_page
+name: 'Wristcheck Process Steps'
+type: wristcheck_process_steps
 description: ''
 help: ''
 new_revision: true

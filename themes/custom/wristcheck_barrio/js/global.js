@@ -33,8 +33,8 @@
   console.log('js loaded success', $);
   $(function () {
     //faq dropdown
-    $(".path-wristcheck-faq .views-field-title .field-content i").click(function () {
-      target = $(this);
+    $(".path-wristcheck-faq .view-content .views-row .views-field-title .field-content i").click(function () {
+      var target = $(this);
       if (target.parent().parent().parent().parent().parent().children()[2].style.display == "block") {
         target.parent().parent().parent().parent().parent().children()[2].style.display = "none"
         target.css("-webkit-transform", "rotate(-45deg)");
@@ -53,9 +53,9 @@
       $('.wc-page-modal').removeClass('show');
     });
 //faq system step
-    $('#faq-auth-system').css("background-color", "#333")
+//   $('#faq-auth-system').css("background-color","#333")
     $(".view-wristcheck-contact-us .views-field-title .field-content i").click(function () {
-      target = $(this);
+      var target = $(this);
       // console.log(target.parent().parent().parent().parent().parent().children()[1].style.display="block")
       if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
         target.parent().parent().parent().parent().parent().children()[1].style.display = "none"
@@ -66,7 +66,7 @@
         target.css("-webkit-transform", "rotate(45deg)");
       }
     })
-  });
+  })
   // category page all brands
   // $('.wc-all-brands-header-list a').on('click', function(){
   //   console.log(this);

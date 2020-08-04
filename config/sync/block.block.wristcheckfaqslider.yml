@@ -1,0 +1,41 @@
+uuid: 88c6566f-e13e-4453-85a0-6ac32dd32f2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckfaqslider
+theme: wristcheck_barrio
+region: section
+weight: -4
+provider: null
+plugin: 'md_slider_block:wristcheck_faq_slider_'
+settings:
+  id: 'md_slider_block:wristcheck_faq_slider_'
+  label: 'Wristcheck faq slider '
+  provider: md_slider
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /faq-authsystem-steps
+    negate: false
+    context_mapping: {  }

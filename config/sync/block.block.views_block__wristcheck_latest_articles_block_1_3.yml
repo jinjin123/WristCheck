@@ -7,6 +7,7 @@ dependencies:
   module:
     - block_attributes
     - ntv_block_background
+    - system
     - views
   theme:
     - wristcheck_barrio
@@ -27,14 +28,19 @@ third_party_settings:
 id: views_block__wristcheck_latest_articles_block_1_3
 theme: wristcheck_barrio
 region: section
-weight: 0
+weight: -12
 provider: null
 plugin: 'views_block:wristcheck_latest_articles-block_1'
 settings:
   id: 'views_block:wristcheck_latest_articles-block_1'
-  label: ''
+  label: 'LATEST ARTICLES'
   provider: views
-  label_display: '0'
-  views_label: ''
+  label_display: visible
+  views_label: 'LATEST ARTICLES'
   items_per_page: none
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /wristcheck-magazine
+    negate: false
+    context_mapping: {  }

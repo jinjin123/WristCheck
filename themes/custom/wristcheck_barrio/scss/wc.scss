@@ -6,10 +6,16 @@
 @import "wc-components/footer";
 @import "wc-components/header";
 @import "wc-components/menu";
+
+@import 'page/magazinehome';
+@import 'page/magazinesingle';
+@import 'page/magazinescreen';
+@import 'page/faq';
+@import 'page/faqauthsystemsteps';
+@import 'page/faqauthsystem';
+@import 'page/faqsellingstep';
 @import "wc-components/portfolio";
 @import "wc-components/allBrands";
-@import "page/faqauthsystemsteps";
-@import "page/faqsellstep";
 
 .layout-container {
   position: relative;

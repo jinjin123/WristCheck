@@ -1,17 +1,17 @@
-uuid: 58004f5e-6a68-4290-ae14-87744cd39328
+uuid: 7f660c57-9bde-415e-8104-a256127d0745
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_slick_img
-    - node.type.slick_page
+    - field.storage.paragraph.field_process_step
+    - paragraphs.paragraphs_type.wristcheck_process_steps
   module:
     - image
-id: node.slick_page.field_slick_img
-field_name: field_slick_img
-entity_type: node
-bundle: slick_page
-label: 'slick img'
+id: paragraph.wristcheck_process_steps.field_process_step
+field_name: field_process_step
+entity_type: paragraph
+bundle: wristcheck_process_steps
+label: 'process step'
 description: ''
 required: false
 translatable: false

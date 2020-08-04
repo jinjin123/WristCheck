@@ -62,7 +62,9 @@ function wristcheck_basic_theme()
       'variables' => []
     ],
     'wristcheck_selling_process_block'=>[
-      'variables' => []
+      'variables' => [
+        'variables' => []
+      ]
     ]
   ];
 }
