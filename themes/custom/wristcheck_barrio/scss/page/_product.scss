@@ -88,16 +88,22 @@
   }
 
   .wc-product-wishlist {
-    color: $color-dark2;
-    font-size: 30px;
-    text-decoration: none;
-  }
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: $color-dark2;
 
-  .wc-product-wishlist__title {
-    font-size: 18px;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: $color-dark2;
+      span {
+        color: $color-dark2;
+        font-size: 30px;
+
+        &.fa-heart {
+          color: #FF6464;
+        }
+      }
+    }
   }
 
   .wc-product-num {

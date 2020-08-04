@@ -121,14 +121,7 @@
       <div class="wc-product-title">{{ product.subname }}123123</div>
       <div class="wc-product--row">
         <div class="wc-product-title bold">{{ product.title }}</div>
-        <a href="javascript:;" class="d-flex flex-column align-items-center">
-          <span class="fa fa-heart-o wc-product-wishlist">
-
-            {{- product.flag_wristcheck_wishlist -}}
-
-          </span>
-          <span class="wc-product-wishlist__title">wishlist</span>
-        </a>
+        {{- product.flag_wristcheck_wishlist -}}
       </div>
       <div class="wc-product-num">
         {{ product.field_ref_number }}
