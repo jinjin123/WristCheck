@@ -1,6 +1,6 @@
 uuid: 03e780dd-1726-4676-9b30-1d7a35ea1479
 langcode: en
-status: true
+status: false
 dependencies:
   content:
     - 'block_content:basic:9022c771-9077-458e-8d5f-92d7e29ed4ee'
@@ -27,7 +27,7 @@ third_party_settings:
     background_overlay: ''
 id: wristcheckprocessbutton_2
 theme: wristcheck
-region: content
+region: ''
 weight: -15
 provider: null
 plugin: 'block_content:9022c771-9077-458e-8d5f-92d7e29ed4ee'

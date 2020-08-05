@@ -230,9 +230,9 @@ function commerce_wishlist_form_commerce_order_item_add_to_cart_form_alter(&$for
   $display_content = $display->get('content');
   $settings = !empty($display_content['variations']['third_party_settings']['commerce_wishlist']) ? $display_content['variations']['third_party_settings']['commerce_wishlist'] : [];
 
-  $config = \Drupal::config('commerce_wishlist.settings');
+  $commerce_wishlist_config = \Drupal::config('commerce_wishlist.settings')->get('default_type') ?: 'default';
   /** @var \Drupal\commerce_wishlist\Entity\WishlistTypeInterface $default_wishlist_type */
-  $default_wishlist_type = WishlistType::load($config->get('default_type'));
+  $default_wishlist_type = WishlistType::load($commerce_wishlist_config);
 
   // Add the button.
   if (empty($settings['show_wishlist']) || !$default_wishlist_type) {

@@ -1,10 +1,19 @@
-uuid: a910264f-c5d4-4176-ba2a-17f74f230961
+uuid: fb334e12-1385-4e03-ad28-35240c3d63b9
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_description
     - paragraphs.paragraphs_type.wristcheck_product_specification
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    basic_html: '0'
+    restricted_html: '0'
+    plain_text: '0'
 id: paragraph.wristcheck_product_specification.field_description
 field_name: field_description
 entity_type: paragraph
@@ -16,4 +25,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: text

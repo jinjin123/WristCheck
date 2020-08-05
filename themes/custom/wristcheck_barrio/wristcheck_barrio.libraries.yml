@@ -9,6 +9,7 @@ global-styling:
   css:
     component:
       css/style.css: {}
+      libs/font-awesome-4.7.0/css/font-awesome.css: {}
   dependencies:
     - core/jquery
     - core/drupal

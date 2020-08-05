@@ -2,11 +2,8 @@ uuid: ed49f6a5-41eb-401b-a21c-0c29faf8f623
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:d61d8fce-b723-4480-b779-f84e120b2f79'
   module:
     - block_attributes
-    - block_content
     - ntv_block_background
     - system
   theme:

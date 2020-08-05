@@ -3,6 +3,9 @@
 \*------------------------------------*/
 .portfolio {
   overflow: visible;
+  a{
+    text-decoration: none;
+  }
 }
 
 .portfolio .portfolio-filter ul {
@@ -113,7 +116,7 @@
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 17px;
+  padding: 30px;
 }
 
 // .portfolio .portfolio-hover:before,
@@ -162,7 +165,7 @@
   font-weight: 600;
   line-height: 28px;
   text-transform: capitalize;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -175,6 +178,10 @@
   font-size: 25px;
   font-style: italic;
   font-family: 'Myriad Pro';
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
 }
 
 .portfolio .portfolio-sub-title {
@@ -188,8 +195,16 @@
 }
 
 .portfolio .portfolio-cat a {
-  //color: @color-body;
+  color: #FFF;
   font-size: 12px;
+  text-decoration: none;
+  p{
+    margin-bottom: 0;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .portfolio .portfolio-title h4 a:hover,

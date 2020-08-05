@@ -1,0 +1,15 @@
+uuid: b8e8f3ca-6c84-454f-8481-c2bd3cea1eee
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.wristcheck_wishlist
+  module:
+    - flag
+id: flag_action.wristcheck_wishlist_unflag
+label: 'Unflag this item'
+type: commerce_product
+plugin: 'flag_action:wristcheck_wishlist_unflag'
+configuration:
+  flag_id: wristcheck_wishlist
+  flag_action: unflag
