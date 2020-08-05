@@ -216,7 +216,7 @@ content:
     region: content
   field_introduction:
     weight: 13
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -414,7 +414,7 @@ content:
     type: commerce_add_to_cart
     weight: 10
     region: content
-    label: above
+    label: hidden
     settings:
       combine: true
     third_party_settings:
