@@ -1,0 +1,4 @@
+wristcheck_basic.user_settings_form:
+  route_name: wristcheck_basic.user_settings_form
+  base_route: entity.user.canonical
+  title: 'Settings'
