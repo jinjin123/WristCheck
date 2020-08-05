@@ -1,0 +1,20 @@
+uuid: 01fbe1a6-24f4-426e-943a-474ff33d47f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_banner
+  module:
+    - path
+id: node.wristcheck_banner.path
+field_name: path
+entity_type: node
+bundle: wristcheck_banner
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

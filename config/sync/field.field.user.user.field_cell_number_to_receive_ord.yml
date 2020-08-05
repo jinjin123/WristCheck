@@ -1,0 +1,22 @@
+uuid: 76508c1a-25ca-4a7e-8efe-970994a38b93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_cell_number_to_receive_ord
+  module:
+    - user
+id: user.user.field_cell_number_to_receive_ord
+field_name: field_cell_number_to_receive_ord
+entity_type: user
+bundle: user
+label: 'Cell number to receive order status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

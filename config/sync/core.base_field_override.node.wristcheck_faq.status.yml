@@ -1,0 +1,22 @@
+uuid: 098718ce-1446-4e6b-9c49-4b5e3bf4e281
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_faq
+id: node.wristcheck_faq.status
+field_name: status
+entity_type: node
+bundle: wristcheck_faq
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

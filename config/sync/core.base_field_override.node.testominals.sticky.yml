@@ -1,0 +1,22 @@
+uuid: 054edc33-125a-47ea-bea7-459c4621334a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.testominals
+id: node.testominals.sticky
+field_name: sticky
+entity_type: node
+bundle: testominals
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

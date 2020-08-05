@@ -1,0 +1,18 @@
+uuid: f3f4a38b-687a-417b-836d-4b15fce72824
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_faq
+id: node.wristcheck_faq.changed
+field_name: changed
+entity_type: node
+bundle: wristcheck_faq
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

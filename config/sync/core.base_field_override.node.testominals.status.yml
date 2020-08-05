@@ -1,0 +1,22 @@
+uuid: 2dfd0d7f-2444-4485-85d6-bb7f6ad24ee2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.testominals
+id: node.testominals.status
+field_name: status
+entity_type: node
+bundle: testominals
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,5 @@
+content:
+  order_items:
+    settings:
+      label_singular: 订单项
+      label_plural: 订单明细项

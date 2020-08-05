@@ -1,0 +1,20 @@
+uuid: d1957ff0-0c08-4a0e-9b98-c593997da583
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.portfolio
+id: node.portfolio.menu_link
+field_name: menu_link
+entity_type: node
+bundle: portfolio
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

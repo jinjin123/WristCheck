@@ -1,0 +1,22 @@
+uuid: ec63d862-ac1d-42b9-89f6-1f91d8f4a94a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_banner
+id: node.wristcheck_banner.sticky
+field_name: sticky
+entity_type: node
+bundle: wristcheck_banner
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

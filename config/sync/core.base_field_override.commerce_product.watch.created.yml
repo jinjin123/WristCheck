@@ -1,0 +1,18 @@
+uuid: d93cf26b-bd75-4346-950d-f5f01c2ca95b
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+id: commerce_product.watch.created
+field_name: created
+entity_type: commerce_product
+bundle: watch
+label: Created
+description: 'The time when the product was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

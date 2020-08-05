@@ -1,0 +1,18 @@
+uuid: 287e87e5-d730-43e6-8d4d-24476e36cfa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.wristcheck_process_steps
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.wristcheck_process_steps
+target_entity_type_id: paragraph
+target_bundle: wristcheck_process_steps
+default_langcode: site_default
+language_alterable: false

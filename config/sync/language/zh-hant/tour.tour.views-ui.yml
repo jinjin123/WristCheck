@@ -1,0 +1,17 @@
+tips:
+  views-ui-view-admin:
+    label: 'View 管理'
+  views-ui-format:
+    label: 輸出格式
+  views-ui-fields:
+    label: 欄位
+  views-ui-filter-operations:
+    label: 篩選
+    body: 新增、重排或移除過濾條件。
+  views-ui-sorts:
+    label: 排序的標準
+  views-ui-sorts-operations:
+    label: 排序動作
+    body: 新增、重排或移除規則。
+  views-ui-preview:
+    label: 預覽

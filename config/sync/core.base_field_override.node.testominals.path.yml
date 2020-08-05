@@ -1,0 +1,20 @@
+uuid: 1446dc78-8984-47c0-8b74-2fb784ab20bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.testominals
+  module:
+    - path
+id: node.testominals.path
+field_name: path
+entity_type: node
+bundle: testominals
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path
