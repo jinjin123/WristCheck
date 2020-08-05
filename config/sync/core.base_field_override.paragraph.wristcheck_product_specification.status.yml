@@ -1,0 +1,22 @@
+uuid: e6d3a62c-ec33-4a0b-a338-cd8dbcd5ee89
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.wristcheck_product_specification
+id: paragraph.wristcheck_product_specification.status
+field_name: status
+entity_type: paragraph
+bundle: wristcheck_product_specification
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

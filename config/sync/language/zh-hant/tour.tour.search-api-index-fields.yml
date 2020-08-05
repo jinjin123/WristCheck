@@ -1,0 +1,13 @@
+tips:
+  search-api-index-fields-label:
+    label: 標籤
+  search-api-index-fields-machine-name:
+    label: 機器可讀名稱
+  search-api-index-fields-type:
+    label: 類型
+  search-api-index-fields-edit:
+    label: 編輯欄位
+  search-api-index-fields-remove:
+    label: 移除欄位
+  search-api-index-fields-submit:
+    label: 儲存變更

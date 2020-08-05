@@ -1,0 +1,22 @@
+uuid: 3d3badbe-29a3-4722-8df9-1a064fd3ca9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+id: commerce_product.watch.status
+field_name: status
+entity_type: commerce_product
+bundle: watch
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

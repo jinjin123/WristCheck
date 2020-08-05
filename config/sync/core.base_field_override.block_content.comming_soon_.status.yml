@@ -1,0 +1,22 @@
+uuid: a8015d60-38c1-467f-8360-089c41281da4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comming_soon_
+id: block_content.comming_soon_.status
+field_name: status
+entity_type: block_content
+bundle: comming_soon_
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

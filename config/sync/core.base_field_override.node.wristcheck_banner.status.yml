@@ -1,0 +1,22 @@
+uuid: cea76bda-5d11-49d3-bc30-3b6de7de84d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_banner
+id: node.wristcheck_banner.status
+field_name: status
+entity_type: node
+bundle: wristcheck_banner
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

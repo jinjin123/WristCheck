@@ -1,0 +1,20 @@
+uuid: 7078bb61-5c71-4c0b-86e8-ae8d7b102a0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.faq_category
+  module:
+    - path
+id: taxonomy_term.faq_category.path
+field_name: path
+entity_type: taxonomy_term
+bundle: faq_category
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

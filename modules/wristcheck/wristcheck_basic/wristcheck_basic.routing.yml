@@ -68,3 +68,10 @@ wristcheck_basic.payment_controller_index:
     _title: 'Payment'
   requirements:
     _permission: 'access user'
+wristcheck_basic.user_settings_form:
+  path: '/wristcheck_basic/form/user_settings'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\UserSettingsForm'
+    _title: 'UserSettingsForm'
+  requirements:
+    _access: 'TRUE'

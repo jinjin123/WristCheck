@@ -1,0 +1,20 @@
+uuid: 427c0085-6218-4299-a941-c600d358c98f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.brand
+  module:
+    - path
+id: node.brand.path
+field_name: path
+entity_type: node
+bundle: brand
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,18 @@
+uuid: bbeee2b7-0936-49ca-87a2-ca01f3d7033d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.portfolio
+id: node.portfolio.created
+field_name: created
+entity_type: node
+bundle: portfolio
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

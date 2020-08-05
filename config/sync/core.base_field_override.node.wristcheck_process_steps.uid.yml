@@ -1,0 +1,20 @@
+uuid: 1560871f-cab4-4bb8-b702-2f89211df9a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_process_steps
+id: node.wristcheck_process_steps.uid
+field_name: uid
+entity_type: node
+bundle: wristcheck_process_steps
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

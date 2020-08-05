@@ -1,0 +1,22 @@
+uuid: ec3f18dc-6be3-4858-b867-961d59d6fea8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_banner
+id: node.wristcheck_banner.promote
+field_name: promote
+entity_type: node
+bundle: wristcheck_banner
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

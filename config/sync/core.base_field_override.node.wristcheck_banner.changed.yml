@@ -1,0 +1,18 @@
+uuid: 2281845c-dba2-4be1-add7-faa5e9bd4b34
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_banner
+id: node.wristcheck_banner.changed
+field_name: changed
+entity_type: node
+bundle: wristcheck_banner
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

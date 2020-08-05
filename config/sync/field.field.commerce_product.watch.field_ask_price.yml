@@ -1,10 +1,12 @@
-uuid: 54362c9e-b6ee-4117-a253-bae049212912
+uuid: 1fa5c884-a62c-4286-88cf-c12a781e943c
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.watch
     - field.storage.commerce_product.field_ask_price
+  module:
+    - commerce_price
 id: commerce_product.watch.field_ask_price
 field_name: field_ask_price
 entity_type: commerce_product
@@ -15,5 +17,9 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  available_currencies:
+    - CNY
+    - HKD
+    - USD
+field_type: commerce_price

@@ -1,0 +1,18 @@
+uuid: b88f9cc8-a075-4682-ab3f-acdade54030a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_process_steps
+id: node.wristcheck_process_steps.created
+field_name: created
+entity_type: node
+bundle: wristcheck_process_steps
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,22 @@
+uuid: 8c629984-e76a-43ac-a2ac-fd93a028244b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.clients
+id: block_content.clients.status
+field_name: status
+entity_type: block_content
+bundle: clients
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

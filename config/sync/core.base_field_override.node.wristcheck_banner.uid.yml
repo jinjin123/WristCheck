@@ -1,0 +1,20 @@
+uuid: b3d21f66-dfc3-4201-b315-31e8192aeffe
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_banner
+id: node.wristcheck_banner.uid
+field_name: uid
+entity_type: node
+bundle: wristcheck_banner
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

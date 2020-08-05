@@ -1,0 +1,22 @@
+uuid: bc870a15-4a64-4642-91eb-b6164a662c14
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.portfolio_tags
+id: taxonomy_term.portfolio_tags.status
+field_name: status
+entity_type: taxonomy_term
+bundle: portfolio_tags
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

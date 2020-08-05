@@ -1,0 +1,22 @@
+uuid: c2dce809-73b7-491b-841f-f22d2e5c90c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.wristcheck_magazine_screening
+id: paragraph.wristcheck_magazine_screening.status
+field_name: status
+entity_type: paragraph
+bundle: wristcheck_magazine_screening
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: 63fbfd4a-9ddb-4703-ab97-1c6c6a5d2209
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.portfolio_categories
+id: taxonomy_term.portfolio_categories.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: portfolio_categories
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

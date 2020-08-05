@@ -1,0 +1,22 @@
+uuid: 70b303be-ea67-495c-b135-87de0c4176e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_email_to_receive_order_sta
+  module:
+    - user
+id: user.user.field_email_to_receive_order_sta
+field_name: field_email_to_receive_order_sta
+entity_type: user
+bundle: user
+label: 'email to receive order status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

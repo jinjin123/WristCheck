@@ -4,12 +4,16 @@ status: true
 dependencies:
   config:
     - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_cell_number_to_receive_ord
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_description
+    - field.field.user.user.field_email_to_receive_order_sta
     - field.field.user.user.field_full_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_guide
     - field.field.user.user.field_newsletter
+    - field.field.user.user.field_pay_by_email_authenticatio
+    - field.field.user.user.field_pay_by_password
     - field.field.user.user.field_phone_number
     - field.field.user.user.field_price_warning
     - field.field.user.user.field_social
@@ -42,6 +46,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_cell_number_to_receive_ord:
+    weight: 22
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_date_of_birth:
     weight: 16
     settings: {  }
@@ -55,6 +66,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_email_to_receive_order_sta:
+    weight: 23
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_full_name:
     weight: 9
@@ -80,6 +98,20 @@ content:
     region: content
   field_newsletter:
     weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_pay_by_email_authenticatio:
+    weight: 21
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_pay_by_password:
+    weight: 20
     settings:
       display_label: true
     third_party_settings: {  }
