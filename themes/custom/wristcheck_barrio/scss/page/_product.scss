@@ -195,6 +195,14 @@
   line-height: 24px;
   padding-top: 60px;
   padding-bottom: 60px;
+
+  .field--name-body .field__label{
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: $color-dark2;
+    padding-bottom: 60px;
+  }
 }
 
 .wc-product-specifications {
