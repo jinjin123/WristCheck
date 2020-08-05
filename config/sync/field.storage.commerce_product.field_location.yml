@@ -1,0 +1,33 @@
+uuid: 5d2b3f3b-1afc-4f94-bfa1-b7231f14c293
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product.field_location
+field_name: field_location
+entity_type: commerce_product
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Mainland china'
+      label: 'Mainland china'
+    -
+      value: 'Hong Kong'
+      label: 'Hong Kong'
+    -
+      value: Macau
+      label: Macau
+    -
+      value: Taiwan
+      label: Taiwan
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

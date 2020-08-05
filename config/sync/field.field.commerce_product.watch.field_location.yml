@@ -1,0 +1,23 @@
+uuid: 236533b1-4c26-46f0-9618-367b56d992f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_location
+  module:
+    - options
+id: commerce_product.watch.field_location
+field_name: field_location
+entity_type: commerce_product
+bundle: watch
+label: Location
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Hong Kong'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

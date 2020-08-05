@@ -25,6 +25,7 @@ dependencies:
     - field.field.commerce_product.watch.field_crust_material
     - field.field.commerce_product.watch.field_extras
     - field.field.commerce_product.watch.field_introduction
+    - field.field.commerce_product.watch.field_location
     - field.field.commerce_product.watch.field_manufacturer
     - field.field.commerce_product.watch.field_model_images
     - field.field.commerce_product.watch.field_model_tags
@@ -218,6 +219,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_location:
+    weight: 53
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_manufacturer:
     weight: 27
