@@ -49,6 +49,7 @@ dependencies:
   module:
     - address
     - commerce_product
+    - commerce_wishlist
     - entity_reference_revisions
     - image
     - options
@@ -388,9 +389,9 @@ content:
     region: content
   flag_wristcheck_wishlist:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   title:
     label: hidden
     type: string
@@ -406,7 +407,11 @@ content:
     label: above
     settings:
       combine: true
-    third_party_settings: {  }
+    third_party_settings:
+      commerce_wishlist:
+        weight_wishlist: 99
+        label_wishlist: ''
+        show_wishlist: false
 hidden:
   created: true
   feeds_item: true
