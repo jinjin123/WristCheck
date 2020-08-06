@@ -55,7 +55,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: slick-demo
+          row_class: ''
           default_row_class: true
       row:
         type: fields
@@ -214,6 +214,22 @@ display:
     display_options:
       display_extenders: {  }
       path: test-page
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+      tags:
+        - 'config:field.storage.commerce_product.field_model_images'
+  top:
+    display_plugin: block
+    id: top
+    display_title: Top
+    position: 2
+    display_options:
+      display_extenders: {  }
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
