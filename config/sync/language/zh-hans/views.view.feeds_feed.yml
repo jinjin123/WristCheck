@@ -1,3 +1,4 @@
+label: Feeds
 display:
   default:
     display_title: 主
@@ -26,12 +27,18 @@ display:
           action_title: 对所选项目
         title:
           label: 标题
+          separator: ', '
         type:
           label: 类型
+          separator: ', '
         name:
           label: 作者
+          separator: ', '
         changed:
           label: 已更新
+          separator: ', '
+        imported:
+          separator: ', '
         operations:
           label: 操作
       filters:
@@ -41,5 +48,9 @@ display:
         type:
           expose:
             label: 类型
+      title: Feeds
   page_1:
     display_title: 页面
+    display_options:
+      menu:
+        title: Feeds

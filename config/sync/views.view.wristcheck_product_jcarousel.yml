@@ -5,12 +5,10 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.watch
     - field.storage.commerce_product.field_model_images
-    - image.style.image270x270
   module:
     - commerce
     - commerce_product
-    - slick
-    - slick_views
+    - image
 id: wristcheck_product_jcarousel
 label: 'Wristcheck product jcarousel'
 module: views
@@ -50,60 +48,15 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: none
         options:
-          items_per_page: 10
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       style:
-        type: slick
+        type: default
         options:
-          vanilla: true
-          optionset: default
-          skin: boxed
-          layout: ''
-          caption:
-            field_model_images: '0'
-          optionset_thumbnail: ''
-          skin_thumbnail: ''
-          thumbnail_position: ''
-          grid: null
-          grid_medium: null
-          grid_small: null
-          visible_items: null
-          preserve_keys: false
-          image: ''
-          thumbnail: ''
-          overlay: ''
-          title: ''
-          link: ''
-          class: ''
-          id: ''
-          override: true
-          overridables:
-            arrows: arrows
-            autoplay: autoplay
-            dots: '0'
-            draggable: '0'
-            infinite: '0'
-            mouseWheel: '0'
-            randomize: '0'
-            variableWidth: '0'
-          cache: 0
-          current_view_mode: default
-          thumbnail_effect: hover
+          grouping: {  }
+          row_class: slick-demo
+          default_row_class: true
       row:
         type: fields
         options:
@@ -155,48 +108,16 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: slick_image
+          type: image
           settings:
-            optionset: default
-            style: column
-            skin: ''
-            background: false
-            layout: ''
-            caption:
-              title: '0'
-              alt: '0'
-            optionset_thumbnail: ''
-            skin_thumbnail: ''
-            thumbnail_position: ''
-            thumbnail_caption: ''
-            image_style: image270x270
-            thumbnail_style: ''
-            thumbnail_effect: ''
-            media_switch: ''
-            ratio: '16:9'
-            grid: null
-            grid_medium: null
-            grid_small: null
-            visible_items: null
-            preserve_keys: false
-            override: false
-            overridables:
-              arrows: '0'
-              autoplay: '0'
-              dots: '0'
-              draggable: '0'
-              infinite: '0'
-              mouseWheel: '0'
-              randomize: '0'
-              variableWidth: '0'
-            cache: 0
-            current_view_mode: _custom
+            image_style: ''
+            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: false
@@ -239,14 +160,50 @@ display:
       footer: {  }
       empty: {  }
       relationships: {  }
-      arguments: {  }
+      arguments:
+        product_id:
+          id: product_id
+          table: commerce_product_field_data
+          field: product_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: product
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          entity_type: commerce_product
+          entity_field: product_id
+          plugin_id: numeric
       display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
+        - url
       tags:
         - 'config:field.storage.commerce_product.field_model_images'
   page_1:
@@ -262,6 +219,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
+        - url
       tags:
         - 'config:field.storage.commerce_product.field_model_images'
