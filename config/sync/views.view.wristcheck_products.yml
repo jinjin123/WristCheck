@@ -714,7 +714,7 @@ display:
           exposed: true
           expose:
             operator_id: field_ask_price_currency_code_op
-            label: 'Ask Price (field_ask_price:currency_code)'
+            label: Currency
             description: ''
             use_operator: false
             operator: field_ask_price_currency_code_op
@@ -801,7 +801,7 @@ display:
           2: AND
           3: AND
       relationships: {  }
-      title: 'Product Wishlist'
+      title: ''
       pager:
         type: full
         options:
@@ -833,7 +833,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -874,10 +874,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: image_url
           settings:
             image_style: ''
-            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -889,15 +888,15 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        title_1:
-          id: title_1
-          table: commerce_product_field_data
-          field: title
+        field_place_of_origin:
+          id: field_place_of_origin
+          table: commerce_product__field_place_of_origin
+          field: field_place_of_origin
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -938,9 +937,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
+          type: address_country_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -951,10 +949,324 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: commerce_product
-          entity_field: title
           plugin_id: field
-      sorts: {  }
+        field_radioactivity:
+          id: field_radioactivity
+          table: commerce_product__field_radioactivity
+          field: field_radioactivity
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: energy
+          type: radioactivity_value
+          settings:
+            decimals: !!float 1
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ask_price:
+          id: field_ask_price
+          table: commerce_product__field_ask_price
+          field: field_ask_price
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: number
+          type: commerce_price_default
+          settings:
+            strip_trailing_zeroes: false
+            currency_display: symbol
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_verified_dealer:
+          id: field_verified_dealer
+          table: commerce_product__field_verified_dealer
+          field: field_verified_dealer
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        view_commerce_product:
+          id: view_commerce_product
+          table: commerce_product
+          field: view_commerce_product
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+          entity_type: commerce_product
+          plugin_id: entity_link
+        body:
+          id: body
+          table: commerce_product__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"{{view_commerce_product}}\">            \r\n<div class=\"portfolio-img wc-ex-panel mb-20\">\r\n              <img src=\"{{field_model_images}}\" alt=\"\" typeof=\"Image\">\r\n            </div>\r\n            <div class=\"portfolio-sub-detail\">\r\n              <div class=\"profile-sub-country d-flex flex-row justify-content-start align-items-center\">\r\n                <div class=\"country__box d-flex flex-row align-items-center\">\r\n                  <div class=\"country__img\">\r\n                    <img class=\"img-fluid\" src=\"/themes/custom/wristcheck_barrio/images/icons/usa.png\" alt=\"\">\r\n                  </div>\r\n                  <span class=\"country__nam\">USA</span>\r\n                </div>\r\n                <div class=\"like-box d-flex flex-row align-items-center\">\r\n                  <img src=\"/themes/custom/wristcheck_barrio/images/icons/sheild.png\" alt=\"\"\r\n                       class=\"img-fluid like-icon\">\r\n                  <span class=\"like-count\">{{field_radioactivity}}</span>\r\n                </div>\r\n              </div>\r\n              <div class=\"profile-sub-content\">\r\n                {{body}}\r\n              </div>\r\n              <div class=\"profile-sub-price d-flex flex-row justify-content-between align-items-end\">\r\n                <div class=\"price__number\">{{field_ask_price }}</div>\r\n                <div class=\"price__star d-flex flex-column justify-content-center\">\r\n                  <img src=\"/themes/custom/wristcheck_barrio/images/icons/icon-star{{field_verified_dealer}}.png\" alt=\"\"\r\n                       class=\"price__star-img\">\r\n                  <span class=\"price__star-font\">VERIFIED DEALER</span>\r\n                </div>\r\n              </div>\r\n            </div>\r\n</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      sorts:
+        field_ask_price_number:
+          id: field_ask_price_number
+          table: commerce_product__field_ask_price
+          field: field_ask_price_number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       exposed_form:
         type: bef
         options:
@@ -999,7 +1311,12 @@ display:
         - url
         - url.query_args
       tags:
+        - 'config:field.storage.commerce_product.body'
+        - 'config:field.storage.commerce_product.field_ask_price'
         - 'config:field.storage.commerce_product.field_model_images'
+        - 'config:field.storage.commerce_product.field_place_of_origin'
+        - 'config:field.storage.commerce_product.field_radioactivity'
+        - 'config:field.storage.commerce_product.field_verified_dealer'
   product_wishlist:
     display_plugin: page
     id: product_wishlist
