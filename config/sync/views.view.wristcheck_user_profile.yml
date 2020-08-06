@@ -1,4 +1,4 @@
-uuid: 98205beb-2091-4e4a-9f8a-0371d294d444
+uuid: 69f26164-f548-4475-ae78-b0555370e0c0
 langcode: en
 status: true
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
     - datetime
     - profile
     - user
-id: profiles
+id: wristcheck_user_profile
 label: 'Wristcheck user profile'
 module: views
 description: ''

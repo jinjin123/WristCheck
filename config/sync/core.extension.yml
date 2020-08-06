@@ -8,6 +8,7 @@ module:
   automated_cron: 0
   better_exposed_filters: 0
   big_pipe: 0
+  blazy: 0
   block: 0
   block_attributes: 0
   block_content: 0
@@ -79,6 +80,7 @@ module:
   link: 0
   locale: 0
   md_slider: 0
+  media: 0
   menu_ui: 0
   naviteam_twig: 0
   node: 0
@@ -104,6 +106,9 @@ module:
   serialization: 0
   shortcut: 0
   simplenews: 0
+  slick: 0
+  slick_extras: 0
+  slick_views: 0
   state_machine: 0
   statistics: 0
   system: 0

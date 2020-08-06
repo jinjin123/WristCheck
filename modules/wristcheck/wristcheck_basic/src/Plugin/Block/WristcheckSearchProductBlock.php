@@ -6,6 +6,7 @@ use Drupal\commerce_price\Entity\Currency;
 use Drupal\commerce_product\Entity\ProductType;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\Entity\ConfigEntityType;
+use Drupal\Core\Field\FieldConfigInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -17,7 +18,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *  admin_label = @Translation("Wristcheck search product block"),
  * )
  */
-class WristcheckSearchProductBlock extends BlockBase implements ContainerFactoryPluginInterface {
+class WristcheckSearchProductBlock extends BlockBase implements ContainerFactoryPluginInterface
+{
 
   /**
    * Drupal\Core\Entity\EntityManagerInterface definition.
@@ -47,7 +49,8 @@ class WristcheckSearchProductBlock extends BlockBase implements ContainerFactory
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
+  {
     $instance = new static($configuration, $plugin_id, $plugin_definition);
     $instance->entityManager = $container->get('entity.manager');
     $instance->entityQuery = $container->get('entity.query');
@@ -60,15 +63,24 @@ class WristcheckSearchProductBlock extends BlockBase implements ContainerFactory
   /**
    * {@inheritdoc}
    */
-  public function build() {
+  public function build()
+  {
     $build = [];
     $build['#theme'] = 'wristcheck_search_product_block';
     $entityManager = \Drupal::service('entity_field.manager');
     $fields = $entityManager->getFieldDefinitions('commerce_product', 'watch');
 
-//    dd($fields['field_location']);
-     $build['wristcheck_search_product_block']['#markup'] = 'Implement WristcheckSearchProductBlock.';
+    $fieldLocationDefinition = $fields['field_location']->getFieldStorageDefinition();
+    $locations = $fieldLocationDefinition->getSettings()['allowed_values'];
 
+    $currencies = $this->commerceCurrencyRepository->getAll();
+
+    $variables = [
+      'locations' => $locations,
+      'currencies' => $currencies
+    ];
+
+    $build['#variables'] = $variables;
     return $build;
   }
 

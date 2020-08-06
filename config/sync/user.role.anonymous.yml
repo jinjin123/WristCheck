@@ -18,3 +18,4 @@ permissions:
   - 'subscribe to newsletters'
   - 'use text format restricted_html'
   - 'view commerce_product'
+  - 'view media'
