@@ -21,9 +21,6 @@ display:
             next: '下一个 ›'
             first: '« 首页'
             last: '末页 »'
-      fields:
-        title:
-          separator: ', '
       empty:
         area_text_custom:
           content: 没有创建日志
