@@ -1,0 +1,18 @@
+uuid: bc9e3d8b-e040-4069-afdc-396005410d7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comming_soon_
+id: block_content.comming_soon_.changed
+field_name: changed
+entity_type: block_content
+bundle: comming_soon_
+label: Changed
+description: 'The time that the custom block was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

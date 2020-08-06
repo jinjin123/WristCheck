@@ -1,18 +1,16 @@
-uuid: 8e190c11-e23e-49a5-be03-1e1c1885149c
+uuid: 3eacef3d-43b7-4e8a-bc22-b1e34d0d3381
 langcode: en
 status: true
 dependencies:
   module:
+    - commerce_price
     - commerce_product
 id: commerce_product.field_ask_price
 field_name: field_ask_price
 entity_type: commerce_product
-type: string
-settings:
-  max_length: 20
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: commerce_price
+settings: {  }
+module: commerce_price
 locked: false
 cardinality: 1
 translatable: true

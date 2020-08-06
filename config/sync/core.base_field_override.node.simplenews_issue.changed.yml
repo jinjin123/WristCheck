@@ -1,0 +1,18 @@
+uuid: 9cf290f7-fe44-4994-9eaf-3481080cbc6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.simplenews_issue
+id: node.simplenews_issue.changed
+field_name: changed
+entity_type: node
+bundle: simplenews_issue
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

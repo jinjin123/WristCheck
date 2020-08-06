@@ -30,7 +30,6 @@
     }
   };
 
-  console.log('js loaded success', $);
   $(function () {
     //faq dropdown
     $(".path-wristcheck-faq .view-content .views-row .views-field-title .field-content i").click(function () {
@@ -72,4 +71,20 @@
   //   console.log(this);
   //   $(this).parent().addClass('is-active').siblings().removeClass('is-active')
   // })
+  // open wishlist
+  $('.wc-product-add-wishlist').click(function (e) {
+    e.stopPropagation();
+    var panel = $(this).siblings('.wc-product-variations');
+    if (panel.hasClass('show')) {
+      panel.removeClass('show')
+    } else {
+      panel.addClass('show')
+    }
+  });
+  $('.wc-product-variations').click(function (e) {
+    e.stopPropagation()
+  });
+  $(document).click(function () {
+    $('.wc-product-variations').removeClass('show')
+  });
 })(jQuery, Drupal);

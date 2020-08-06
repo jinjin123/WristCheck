@@ -1,0 +1,20 @@
+uuid: 6903e38a-46fe-48ef-bfc6-4890c11d0306
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_faq
+id: node.wristcheck_faq.uid
+field_name: uid
+entity_type: node
+bundle: wristcheck_faq
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

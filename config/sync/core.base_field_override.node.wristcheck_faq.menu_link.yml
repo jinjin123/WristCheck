@@ -1,0 +1,20 @@
+uuid: 16db6c74-04f4-41b7-83f3-ff01b488a7f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_faq
+id: node.wristcheck_faq.menu_link
+field_name: menu_link
+entity_type: node
+bundle: wristcheck_faq
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,20 @@
+uuid: 67c41008-5b74-4008-93d8-473c42579dcf
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_promotion
+id: commerce_promotion.commerce_promotion.description
+field_name: description
+entity_type: commerce_promotion
+bundle: commerce_promotion
+label: Description
+description: 'Additional information about the promotion to show to the customer'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string_long

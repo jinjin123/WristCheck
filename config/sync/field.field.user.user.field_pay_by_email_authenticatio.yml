@@ -1,0 +1,24 @@
+uuid: 8590f74e-3294-43aa-9195-ee62777437c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_pay_by_email_authenticatio
+  module:
+    - user
+id: user.user.field_pay_by_email_authenticatio
+field_name: field_pay_by_email_authenticatio
+entity_type: user
+bundle: user
+label: 'Pay by email authentication'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

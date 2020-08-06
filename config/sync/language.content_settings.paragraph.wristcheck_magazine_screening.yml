@@ -1,0 +1,18 @@
+uuid: 3e53aba1-0a3a-4d21-b649-203cb173665b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.wristcheck_magazine_screening
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.wristcheck_magazine_screening
+target_entity_type_id: paragraph
+target_bundle: wristcheck_magazine_screening
+default_langcode: site_default
+language_alterable: false

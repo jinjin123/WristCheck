@@ -124,7 +124,28 @@
   }
 
   .wc-product-btn {
-    padding-bottom: 40px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .wc-product-variations {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    opacity: 0;
+    width: 100%;
+    transition: all .25s ease;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    background-color: #FFF;
+    box-shadow: 0 0 1px 3px rgba(0, 0, 0, .1);
+    padding: 20px;
+    margin-top: 10px;
+
+    &.show {
+      transform: scaleY(1);
+      opacity: 1;
+    }
   }
 
   .wc-product-add-wishlist {
@@ -145,7 +166,7 @@
 
   .wc-product-content {
     font-size: 14px;
-    height: 140px;
+    height: 150px;
     overflow: hidden;
     font-family: Source Han Sans CN;
     font-weight: 400;
@@ -195,6 +216,14 @@
   line-height: 24px;
   padding-top: 60px;
   padding-bottom: 60px;
+
+  .field--name-body .field__label {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: $color-dark2;
+    padding-bottom: 60px;
+  }
 }
 
 .wc-product-specifications {

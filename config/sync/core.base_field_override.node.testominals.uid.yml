@@ -1,0 +1,20 @@
+uuid: 32574e5e-5d2b-44df-98c4-39a61c7929ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.testominals
+id: node.testominals.uid
+field_name: uid
+entity_type: node
+bundle: testominals
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

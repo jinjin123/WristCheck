@@ -1,0 +1,18 @@
+uuid: 548d87a8-647d-4ef8-b1c0-9830b86875ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comming_soon_
+id: block_content.comming_soon_.info
+field_name: info
+entity_type: block_content
+bundle: comming_soon_
+label: 'Block description'
+description: 'A brief description of your block.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

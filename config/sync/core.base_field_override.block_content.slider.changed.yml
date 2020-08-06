@@ -1,0 +1,18 @@
+uuid: 8abdcb17-8bfe-4b6e-84ef-37d02711a246
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.slider
+id: block_content.slider.changed
+field_name: changed
+entity_type: block_content
+bundle: slider
+label: Changed
+description: 'The time that the custom block was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

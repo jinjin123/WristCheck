@@ -1,9 +1,12 @@
+uuid: 588b08fd-308a-4520-9257-bb28208269bf
 langcode: en
 status: closed
 dependencies:
   enforced:
     module:
       - webform_templates
+_core:
+  default_config_hash: _qhm63bsl200t4UeXBYseqeaFfoBIPsW8rYItnG4Kv4
 open: null
 close: null
 weight: 0
@@ -191,6 +194,3 @@ access:
     permissions: {  }
 handlers: {  }
 variants: {  }
-uuid: 588b08fd-308a-4520-9257-bb28208269bf
-_core:
-  default_config_hash: _qhm63bsl200t4UeXBYseqeaFfoBIPsW8rYItnG4Kv4

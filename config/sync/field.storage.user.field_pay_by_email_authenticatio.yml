@@ -1,0 +1,18 @@
+uuid: 0013d97b-66fb-4183-b3ec-b7c7397ce261
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_pay_by_email_authenticatio
+field_name: field_pay_by_email_authenticatio
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
