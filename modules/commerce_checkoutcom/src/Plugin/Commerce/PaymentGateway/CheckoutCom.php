@@ -75,6 +75,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   }
 
   /**
+  /**
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
@@ -102,7 +103,6 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  /*
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::validateConfigurationForm($form, $form_state);
 
@@ -113,15 +113,25 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
         // Validate the secret key and create payment capture webhook.
         $checkoutApi = new CheckoutApi($values['secret_key'], $expected_livemode, $values['public_key']);
         $webhook_response = $checkoutApi->webhooks()->load($this->configuration['webhook_capture_id']);
-        $form_state->setValue('webhook_capture_id', $webhook_response->getId());
-        if ($webhook_response instanceof Webhook) {
-          $form_state->setValue('webhook_capture_id', $webhook_response->getId());
-        }
-        else {
-          throw new CheckoutHttpException('Webhook not defined', '404');
-        }
+	      foreach ($webhook_response as $key => $value) {
+    		    $t1 = (array)$value;
+ 	    	    //var_export($t1[0]->{'id'});
+          if(isset($t1[0]->{'id'})){
+            if($t1[0]->{'id'} !=null){
+              $form_state->setValue('webhook_capture_id', $t1[0]->{'id'} );
+            }
+          }
+	      }
+//        if ($webhook_response instanceof Webhook) {
+//          $form_state->setValue('webhook_capture_id', $webhook_response->getId());
+//        }
+//        else {
+//          throw new CheckoutHttpException('Webhook not defined', '404');
+//        }
       }
       catch (CheckoutHttpException $e) {
+/*
+        //block to redirect
         if ($e->getCode() == '404') {
           $host = \Drupal::request()->getSchemeAndHttpHost();
           $catpure_url = Url::fromRoute('commerce_checkoutcom.webhook.capture');
@@ -132,10 +142,11 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
         else {
           $form_state->setError($form['secret_key'], $this->t('Invalid credintials.'));
         }
+*/
+          $form_state->setError($form['secret_key'], $this->t('Invalid credintials.'));
       }
     }
   }
-   */
 
   /**
    * {@inheritdoc}
@@ -278,6 +289,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       ErrorHelper::handleErrors($capture_response, 'capture');
     }
     catch (\Exception $e) {
+      var_dump($e);
       ErrorHelper::handleException($e);
     }
 
@@ -374,5 +386,22 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   public function deletePaymentMethod(PaymentMethodInterface $payment_method) {
     $payment_method->delete();
   }
+
+//  public function NoticeStatusMethod(PaymentInterface $payment ){
+//    $this->assertPaymentState($payment, ['authorization']);
+//    // Perform the void request here, throw an exception if it fails.
+//    try {
+//      $remote_id = $payment->getRemoteId();
+//      $void = new Voids($remote_id);
+//      $void_response = $this->CheckoutApi->payments()->void($void);
+//      ErrorHelper::handleErrors($void_response, 'void');
+//    }
+//    catch (\Exception $e) {
+//      ErrorHelper::handleException($e);
+//    }
+//
+////    $payment->setState('authorization_voided');
+////    $payment->save();
+//  }
 
 }
