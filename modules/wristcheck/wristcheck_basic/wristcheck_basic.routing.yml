@@ -77,3 +77,13 @@ wristcheck_basic.user_settings_form:
     _permission: 'access user'
   options:
     user: \d+
+
+wristcheck_basic.user_controller_dashboard:
+  path: '/user/{user}/dashboard'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::dashboard'
+    _title: 'User'
+  requirements:
+    _permission: 'access user'
+  options:
+    user: \d+

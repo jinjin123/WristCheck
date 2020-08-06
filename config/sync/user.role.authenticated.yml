@@ -21,4 +21,5 @@ permissions:
   - 'subscribe to newsletters'
   - 'use text format basic_html'
   - 'view commerce_product'
+  - 'view media'
   - 'view own commerce_order'
