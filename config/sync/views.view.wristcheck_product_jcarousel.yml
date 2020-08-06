@@ -222,3 +222,19 @@ display:
         - url
       tags:
         - 'config:field.storage.commerce_product.field_model_images'
+  top:
+    display_plugin: block
+    id: top
+    display_title: Top
+    position: 2
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+      tags:
+        - 'config:field.storage.commerce_product.field_model_images'
