@@ -102,6 +102,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
+  /*
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::validateConfigurationForm($form, $form_state);
 
@@ -134,6 +135,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       }
     }
   }
+   */
 
   /**
    * {@inheritdoc}

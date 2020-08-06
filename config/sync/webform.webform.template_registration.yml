@@ -1,9 +1,12 @@
+uuid: b3a53020-efec-4377-ab15-786cc55b499c
 langcode: en
 status: closed
 dependencies:
   enforced:
     module:
       - webform_templates
+_core:
+  default_config_hash: 0MPMA_5jirZY5pTgzS4iIncd2yqsMEw7045F2twPkA0
 open: null
 close: null
 weight: 0
@@ -227,6 +230,3 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
-uuid: b3a53020-efec-4377-ab15-786cc55b499c
-_core:
-  default_config_hash: 0MPMA_5jirZY5pTgzS4iIncd2yqsMEw7045F2twPkA0

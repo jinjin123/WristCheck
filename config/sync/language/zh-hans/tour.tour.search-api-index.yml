@@ -9,6 +9,7 @@ tips:
     label: 服务器
   search-api-index-server-index-status:
     label: 服务器索引状态
+    body: 'For enabled indexes, the number of items that can actually be retrieved from the server is listed here. For reasons why this number might differ from the number under "Index status", <a href="https://www.drupal.org/node/2009804#server-index-status">see the module''s documentation</a>.'
   search-api-index-cron-batch-size:
     label: 计划任务批次大小
   search-api-index-clear:
