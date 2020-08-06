@@ -1,0 +1,21 @@
+uuid: 0686a87f-ff3e-485d-b59d-e65cfe3fae1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_checkoutcom
+id: payment_checkout
+label: 'Payment checkout'
+weight: null
+plugin: checkoutcom
+configuration:
+  public_key: pk_test_75df7a1c-8218-480f-83a4-94a47055957d
+  secret_key: sk_test_4e4c28e9-3bd2-4729-b38e-6b1bc9d7e4bb
+  webhook_capture_id: null
+  display_label: Checkout.com
+  mode: test
+  payment_method_types:
+    - credit_card
+  collect_billing_information: true
+conditions: {  }
+conditionOperator: AND

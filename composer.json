@@ -21,7 +21,7 @@
         "drupal/address": "^1.8",
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/blog": "^3.0",
-        "drupal/commerce": "^2.11",
+        "drupal/commerce": "2.x-dev",
         "drupal/console": "~1.0",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
