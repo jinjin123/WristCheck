@@ -5,12 +5,14 @@ global-styling:
     js/plugins/popper.min.js: {}
     js/plugins/bootstrap.min.js: {}
     libs/slick/slick.js: {}
+    libs/noUiSlider-14.6.0/distribute/nouislider.js: {}
     js/global.js: {}
   css:
     component:
       css/style.css: {}
       libs/slick/slick.css: {}
       libs/font-awesome-4.7.0/css/font-awesome.css: {}
+      libs/noUiSlider-14.6.0/distribute/nouislider.css: {}
   dependencies:
     - core/jquery
     - core/drupal

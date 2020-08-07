@@ -16,12 +16,39 @@ class UserController extends ControllerBase
    * @return array
    *   Return Hello string.
    */
-  public function dashboard()
+  public function info()
   {
 //    dd(views_get_view_result('wristcheck_user_profile','settings'));
     $variables = [];
     return [
-      '#theme' => 'wristcheck_user_dashboard',
+      '#theme' => 'wristcheck_user_info',
+      '#variables' => $variables
+    ];
+  }
+
+  public function buy()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_user_buy',
+      '#variables' => $variables
+    ];
+  }
+
+  public function sell()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_user_sell',
+      '#variables' => $variables
+    ];
+
+  }
+
+  public function portfolio(){
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_user_portfolio',
       '#variables' => $variables
     ];
   }

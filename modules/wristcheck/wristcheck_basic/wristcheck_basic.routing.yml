@@ -62,12 +62,15 @@ wristcheck_basic.category_controller_index:
     _permission: 'access content'
 
 wristcheck_basic.payment_controller_index:
-  path: '/profile/payment'
+  path: '/user/{user}/payment'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::index'
     _title: 'Payment'
   requirements:
     _permission: 'access user'
+  options:
+    user: \d+
+
 wristcheck_basic.user_settings_form:
   path: '/user/{user}/settings'
   defaults:
@@ -78,12 +81,49 @@ wristcheck_basic.user_settings_form:
   options:
     user: \d+
 
-wristcheck_basic.user_controller_dashboard:
-  path: '/user/{user}/dashboard'
+wristcheck_basic.user_controller_info:
+  path: '/user/{user}/info'
   defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserController::dashboard'
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::info'
     _title: 'User'
   requirements:
     _permission: 'access user'
   options:
     user: \d+
+
+wristcheck_basic.user_controller_sell:
+  path: '/user/{user}/transactions/sell'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::sell'
+    _title: 'Sell'
+  requirements:
+    _permission: 'access user'
+  options:
+    user: \d+
+
+wristcheck_basic.user_controller_buy:
+  path: '/user/{user}/transactions/buy'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::buy'
+    _title: 'Buy'
+  requirements:
+    _permission: 'access user'
+  options:
+    user: \d+
+
+wristcheck_basic.user_controller_portfolio:
+  path: '/user/{user}/portfolio'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::portfolio'
+    _title: 'Portfolio'
+  requirements:
+    _permission: 'access user'
+  options:
+    user: \d+
+wristcheck_basic.user_login_form:
+  path: '/wristcheck_basic/form/user_login'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
+    _title: 'PLEASE LOG IN'
+  requirements:
+    _access: 'TRUE'

@@ -1,6 +1,5 @@
 @import "layout/narrow";
 @import "layout/panel";
-
 @import "wc-components/banner";
 @import "wc-components/blog";
 @import "wc-components/breadcrumb";
@@ -9,7 +8,8 @@
 @import "wc-components/menu";
 @import "wc-components/portfolio";
 @import "wc-components/allBrands";
-
+@import "wc-components/productSearch";
+@import "wc-components/dailogLogin";
 @import 'page/magazinehome';
 @import 'page/magazinesingle';
 @import 'page/magazinescreen';
@@ -19,6 +19,73 @@
 @import 'page/faqsellingstep';
 @import "page/product";
 @import "page/cart";
+
+.wc-btn-white {
+  border: 1px solid $color-dark3;
+  color: $color-dark3;
+  background-color: transparent;
+  font-size: 14px;
+  position: relative;
+  transition: all .25s ease;
+  padding: 10px 20px;
+  font-weight: normal;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: all .25s ease;
+  }
+
+  &:hover {
+    color: #FFF !important;
+
+    &:before {
+      width: 100%;
+      background-color: $color-dark3;
+    }
+  }
+}
+
+.wc-btn-dark {
+  border: 1px solid $color-dark3;
+  background-color: $color-dark3;
+  color: #FFF !important;
+  font-size: 14px;
+  position: relative;
+  transition: all .25s ease;
+  padding: 10px 20px;
+  font-weight: normal;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    width: 0;
+    transition: all .25s ease;
+  }
+
+  &:hover {
+    color: $color-dark3 !important;
+    &:before {
+      width: calc(100% - 2px);
+      background-color: #FFF;
+    }
+  }
+}
+.wc-btn-cont{
+  display: inline-block;
+  font-weight: normal;
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+}
 
 
 #block-wristcheckdownloadappblock-2 {
