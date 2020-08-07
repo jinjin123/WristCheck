@@ -32,5 +32,5 @@ settings:
   id: wristcheck_search_product_block
   label: 'Wristcheck search product block'
   provider: wristcheck_basic
-  label_display: visible
+  label_display: '0'
 visibility: {  }
