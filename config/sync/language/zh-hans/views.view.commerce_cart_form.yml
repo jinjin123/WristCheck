@@ -12,14 +12,17 @@ display:
       fields:
         purchased_entity:
           label: 项目
+          separator: ', '
         unit_price__number:
           label: 价格
+          separator: ', '
         edit_quantity:
           label: 数量
         remove_button:
           label: 移除
         total_price__number:
           label: 总计
+          separator: ', '
       arguments:
         order_id:
           exception:

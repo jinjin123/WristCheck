@@ -1,6 +1,6 @@
 uuid: fdaeafc2-e761-4282-823f-791eff6a111d
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - field.storage.node.field_page_title_image

@@ -114,11 +114,16 @@
 {#{{ drupal_view('product_view', 'product_relative',product.field_categories.0['#options'].entity.tid.value) }}#}
 <div class="row">
   <div class="col-md-6">
-    {{ drupal_view('wristcheck_product_jcarousel','default') }}
+    <div class="wc-product-imglist1">
+      {{ drupal_view('wristcheck_product_jcarousel','top') }}
+    </div>
+    <div class="wc-product-imglist2">
+      {{ drupal_view('wristcheck_product_jcarousel','page_1') }}
+    </div>
   </div>
   <div class="col-md-6">
     <div class="wc-product-introduction">
-      <div class="wc-product-title">{{ product.subname }}123123</div>
+      <div class="wc-product-title">{{ product.subname }}</div>
       <div class="wc-product--row">
         <div class="wc-product-title bold">{{ product.title }}</div>
         {{- product.flag_wristcheck_wishlist -}}
@@ -169,3 +174,5 @@
   </div>
 </div>
 
+{# In a Twig template we attach the library. #}
+{{ attach_library('wristcheck_barrio/product-styling') }}
