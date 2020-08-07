@@ -173,4 +173,62 @@ class CheckoutComController extends PaymentCheckoutController {
     return AccessResult::forbidden();
   }
 
+  public function NotificationStatus(Request $request, RouteMatchInterface $route_match)
+  {
+    $arr = json_decode($request->getContent(), true);
+    \Drupal::logger('commerce_checkoutcom')->notice('content' . json_encode($arr));
+    \Drupal::logger('commerce_checkoutcom')->notice('data' . json_encode($arr['data']['id']));
+    \Drupal::logger('commerce_checkoutcom')->notice('data' . json_encode($arr['data']['metadata']['order_id']));
+//    $existed_payment = \Drupal::entityTypeManager()
+//      ->getStorage('commerce_payment')
+//      ->loadMultiple();
+////      ->loadByRemoteId($arr['data']['id']);
+//    foreach($existed_payment as $payment_id) {
+//      \Drupal\commerce_order\Entity\Order::load($order_id);
+//    }
+//      \Drupal::logger('commerce_checkoutcom')->notice(  'commerce_payment' . json_encode($existed_payment));
+
+    $exits_order = \Drupal::entityTypeManager()
+      ->getStorage('commerce_order')
+      ->load('72');
+      \Drupal::logger('commerce_checkoutcom')->notice(  'exits_order' . json_encode($exits_order));
+
+//    $query = \Drupal::entityQuery('commerce_order')
+//      ->condition('order_id.value', 72);
+//    $order_ids = $query->execute();
+////    foreach($order_ids as $order_id) {
+//      \Drupal::logger('commerce_checkoutcom')->notice('orderid' . json_encode(json_decode(\Drupal\commerce_order\Entity\Order::load($order_ids)),true));
+////    }
+//      ->load($arr['data']['metadata']['order_id']);
+//    foreach($exits_order as $order_id) {
+//      \Drupal\commerce_order\Entity\Order::load($order_id);
+//      \Drupal::logger('commerce_checkoutcom')->notice(  'exits_order' . json_encode((array)\Drupal\commerce_order\Entity\Order::load($order_id)));
+//      \Drupal\commerce_order\Entity\Order::load($order_id);
+//    }
+//    \Drupal::logger('commerce_checkoutcom')->notice(  'exits_order' . json_encode($exits_order));
+//    $data = json_decode( json_encode($request->getContent()),true);
+//    if (isset($arr['id'])) {
+//      \Drupal::logger('commerce_checkoutcom')->notice('mesage' . $arr['id']);
+//      switch ($arr['type']) {
+//        case  "payment_approved":
+//
+//          break;
+//      }
+//    } else {
+//      \Drupal::logger('commerce_checkoutcom')->notice('null' . $arr);
+//    }
+//    $existed_payment = \Drupal::entityTypeManager()
+//      ->getStorage('commerce_payment')
+//      ->loadByRemoteId($data->data->id);
+//    if ($existed_payment->getState() != 'completed') {
+//      $existed_payment->setState('completed');
+//      $price = new Price(strval($data->data->amount / 100), $data->data->currency);
+//      $existed_payment->setAmount($price);
+//      $existed_payment->setState('completed');
+//      $existed_payment->save();
+//    }
+
+    return new Response();
+  }
+
 }
