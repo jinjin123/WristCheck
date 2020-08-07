@@ -1,6 +1,21 @@
 
 .wc-product-search {
   border-bottom: 1px solid $bg_gray3;
+
+  .noUi-connect {
+    background: $color-dark3
+  }
+
+  .noUi-horizontal .noUi-handle {
+    background-color: #fff;
+    border: 6px solid #04293a;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 24px !important;
+    margin: -3px 0 0 -12px;
+    outline: none;
+    width: 24px !important;
+  }
 }
 
 .wc-search-menu {
