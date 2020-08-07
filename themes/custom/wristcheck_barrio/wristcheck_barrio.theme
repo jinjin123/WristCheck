@@ -63,11 +63,3 @@ function wristcheck_barrio_preprocess_menu(array &$variables)
     }
   }
 }
-
-
-/**
- * Implements hook_preprocess().
- */
-function wristcheck_barrio_preprocess(&$variables) {
-  $variables['current_path'] = \Drupal::request()->getRequestUri();
-}
