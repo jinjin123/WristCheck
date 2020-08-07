@@ -67,7 +67,7 @@
         {% endblock %}
       </nav>
     {% else %}
-      User not Login
+      {{ drupal_block('wristcheck_ajax_user_login_block') }}
     {% endif %}
   </div>
 </div>
