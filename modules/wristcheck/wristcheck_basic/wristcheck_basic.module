@@ -46,7 +46,24 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-    'wristcheck_user_dashboard' => [
+    'wristcheck_user_info' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+
+    'wristcheck_user_buy' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+
+    'wristcheck_user_sell' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_user_portfolio' => [
       'variables' => [
         'variables' => []
       ]
@@ -56,7 +73,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-    'wristcheck_discover' => [],
+    'wristcheck_discover' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_eshop' => [],
     'wristcheck_faq' => [],
     'wristcheck_sell' => [],

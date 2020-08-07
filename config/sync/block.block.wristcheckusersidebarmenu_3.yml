@@ -1,0 +1,46 @@
+uuid: cba881ae-ea09-4f81-aa11-40346ac32cd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wristcheck-user-sidebar-menu
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckusersidebarmenu_3
+theme: wristcheck_barrio
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:wristcheck-user-sidebar-menu'
+settings:
+  id: 'system_menu_block:wristcheck-user-sidebar-menu'
+  label: 'Wristcheck user sidebar menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/*/settings\r\n/user/*/transactions/sell\r\n/user/*/transactions/buy\r\n/user/*/portfolio\r\n/user/*/payment"
+    negate: false
+    context_mapping: {  }

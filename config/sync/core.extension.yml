@@ -81,6 +81,7 @@ module:
   locale: 0
   md_slider: 0
   media: 0
+  menu_token: 0
   menu_ui: 0
   naviteam_twig: 0
   node: 0
@@ -111,6 +112,7 @@ module:
   slick_views: 0
   state_machine: 0
   statistics: 0
+  structure_sync: 0
   system: 0
   tablefield: 0
   taxonomy: 0
