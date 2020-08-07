@@ -1,33 +1,9 @@
 menus:
   -
     menu_name: main
-    title: blog
-    parent: null
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '0'
-    expanded: '1'
-    weight: '-45'
-    langcode: en
-    uuid: 1936b79c-ebb4-4c3f-93a8-912271fac792
-  -
-    menu_name: main
-    title: elements
-    parent: null
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '0'
-    expanded: '1'
-    weight: '-43'
-    langcode: en
-    uuid: 7abdfcdc-479e-495d-bb74-2c2f8f571b0b
-  -
-    menu_name: main
     title: Buy
     parent: null
-    uri: 'internal:#'
+    uri: 'internal:/buy'
     link_title: ''
     description: null
     enabled: '1'
@@ -39,7 +15,7 @@ menus:
     menu_name: main
     title: Sell
     parent: null
-    uri: 'internal:#'
+    uri: 'internal:/sell'
     link_title: ''
     description: null
     enabled: '1'
@@ -51,50 +27,26 @@ menus:
     menu_name: main
     title: Discover
     parent: null
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-47'
-    langcode: en
-    uuid: d1c40512-bc84-41e6-8164-3f3a0d1901c6
-  -
-    menu_name: main
-    title: FAQ
-    parent: null
-    uri: 'internal:#'
+    uri: 'internal:/discover'
     link_title: ''
     description: null
     enabled: '1'
     expanded: '1'
     weight: '-46'
     langcode: en
-    uuid: 76ace088-6bed-4922-9fb8-097aabf85f11
+    uuid: d1c40512-bc84-41e6-8164-3f3a0d1901c6
   -
     menu_name: main
-    title: shop
+    title: FAQ
     parent: null
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '0'
-    expanded: '1'
-    weight: '-44'
-    langcode: en
-    uuid: d3920776-df23-4c59-99c4-469d2121a67c
-  -
-    menu_name: main
-    title: col2
-    parent: 'menu_link_content:47dc53cc-647c-45e7-8c88-e33530365542'
-    uri: 'internal:#'
+    uri: 'internal:/faq'
     link_title: ''
     description: null
     enabled: '1'
     expanded: '1'
-    weight: '0'
+    weight: '-45'
     langcode: en
-    uuid: e0e18756-6346-4203-b28a-246f24e52b6a
+    uuid: 76ace088-6bed-4922-9fb8-097aabf85f11
   -
     menu_name: main
     title: col3
@@ -128,7 +80,7 @@ menus:
     description: null
     enabled: '1'
     expanded: '1'
-    weight: '-97'
+    weight: '-50'
     langcode: en
     uuid: 8e4043ab-abea-4368-b67f-332308a099ce
   -
@@ -140,7 +92,7 @@ menus:
     description: null
     enabled: '1'
     expanded: '1'
-    weight: '-96'
+    weight: '-49'
     langcode: en
     uuid: c0fd5c64-fee4-4c23-917b-47257cb7318a
   -
@@ -152,7 +104,7 @@ menus:
     description: null
     enabled: '1'
     expanded: '1'
-    weight: '-94'
+    weight: '-47'
     langcode: en
     uuid: 9a535203-1f85-461a-9f70-410cc8da6a64
   -
@@ -164,21 +116,9 @@ menus:
     description: null
     enabled: '1'
     expanded: '1'
-    weight: '-93'
+    weight: '-46'
     langcode: en
     uuid: ab5a0635-5720-404c-b971-3456e5ef429c
-  -
-    menu_name: main
-    title: 'portfolio grid'
-    parent: 'menu_link_content:76ace088-6bed-4922-9fb8-097aabf85f11'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-76'
-    langcode: en
-    uuid: 75f2f43f-3f39-43b2-a1ff-90d06876fafa
   -
     menu_name: main
     title: 'portfolio horizontal'
@@ -313,282 +253,6 @@ menus:
     uuid: a1567683-f6c3-444c-9755-a7d50442aa22
   -
     menu_name: main
-    title: 'Blog Grid'
-    parent: 'menu_link_content:1936b79c-ebb4-4c3f-93a8-912271fac792'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-80'
-    langcode: en
-    uuid: 3a47a65b-4619-4d48-9e39-6237e4838b57
-  -
-    menu_name: main
-    title: 'Blog Masonary'
-    parent: 'menu_link_content:1936b79c-ebb4-4c3f-93a8-912271fac792'
-    uri: 'internal:/blog?layout=masonary&sidebar=full'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-79'
-    langcode: en
-    uuid: 8c85e45f-6d20-40ec-8f5b-99880d6cdf63
-  -
-    menu_name: main
-    title: 'Blog Standrad'
-    parent: 'menu_link_content:1936b79c-ebb4-4c3f-93a8-912271fac792'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-78'
-    langcode: en
-    uuid: 897fc0d4-0870-43f0-a829-e953502279a8
-  -
-    menu_name: main
-    title: 'Blog Single'
-    parent: 'menu_link_content:1936b79c-ebb4-4c3f-93a8-912271fac792'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-77'
-    langcode: en
-    uuid: 62d6e21b-b0cf-496d-9e2d-4c0caa02e356
-  -
-    menu_name: main
-    title: '4 Columns '
-    parent: 'menu_link_content:3a47a65b-4619-4d48-9e39-6237e4838b57'
-    uri: 'internal:/blog?layout=grid-4-cols&sidebar=full'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 8950ee0c-9a48-45fb-9228-93a2abf795d0
-  -
-    menu_name: main
-    title: '3 Columns '
-    parent: 'menu_link_content:3a47a65b-4619-4d48-9e39-6237e4838b57'
-    uri: 'internal:/blog?layout=grid-3-cols&sidebar=full'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 2b94cd50-10fe-4438-824f-9922065e3966
-  -
-    menu_name: main
-    title: '2 Columns ( Right Sidebar )'
-    parent: 'menu_link_content:3a47a65b-4619-4d48-9e39-6237e4838b57'
-    uri: 'internal:/blog?layout=grid-2-cols&sidebar=right'
-    link_title: ''
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 239d0a8f-bbbc-4ce3-9b02-323b191264e9
-  -
-    menu_name: main
-    title: '2 Columns'
-    parent: 'menu_link_content:3a47a65b-4619-4d48-9e39-6237e4838b57'
-    uri: 'internal:/blog?layout=grid-2-cols&sidebar=left'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: d0a25ecb-6f7b-4b90-a3e4-6ac98401d06f
-  -
-    menu_name: main
-    title: '2 Columns'
-    parent: 'menu_link_content:3a47a65b-4619-4d48-9e39-6237e4838b57'
-    uri: 'internal:/blog?layout=grid-2-cols&sidebar=full'
-    link_title: ''
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: d9c5e336-cc5f-4b9a-aa83-d2b15ca89934
-  -
-    menu_name: main
-    title: 'Right Sidebar'
-    parent: 'menu_link_content:897fc0d4-0870-43f0-a829-e953502279a8'
-    uri: 'internal:/blog?layout=grid-1-col&sidebar=right'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: cbe5e0b5-c72e-44b7-a545-6923d70be4be
-  -
-    menu_name: main
-    title: 'Left Sidebar'
-    parent: 'menu_link_content:897fc0d4-0870-43f0-a829-e953502279a8'
-    uri: 'internal:/blog?layout=grid-1-col&sidebar=left'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 4aa0d851-9f56-4446-aaa8-a2f7f9984e4b
-  -
-    menu_name: main
-    title: Fullwidth
-    parent: 'menu_link_content:897fc0d4-0870-43f0-a829-e953502279a8'
-    uri: 'internal:/blog?layout=grid-1-col&sidebar=full'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 8d77884d-de86-4d35-b587-477c1f1c3325
-  -
-    menu_name: main
-    title: Single
-    parent: 'menu_link_content:d3920776-df23-4c59-99c4-469d2121a67c'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-96'
-    langcode: en
-    uuid: b2572252-2615-432c-af68-afbf14ddcf26
-  -
-    menu_name: main
-    title: 'Shop Cart'
-    parent: 'menu_link_content:d3920776-df23-4c59-99c4-469d2121a67c'
-    uri: 'internal:/cart'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '-95'
-    langcode: en
-    uuid: 6cd71851-a075-4fdc-8dfc-672936f5d98b
-  -
-    menu_name: main
-    title: Products
-    parent: 'menu_link_content:d3920776-df23-4c59-99c4-469d2121a67c'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-97'
-    langcode: en
-    uuid: f5bb6d25-4b42-40d9-83e7-91d89edafb1d
-  -
-    menu_name: main
-    title: 'Right Sidebar'
-    parent: 'menu_link_content:b2572252-2615-432c-af68-afbf14ddcf26'
-    uri: 'internal:/product/1?sidebar=right'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 285c1f89-f9bc-4cab-92ba-3f2d81feae1d
-  -
-    menu_name: main
-    title: 'Left Sidebar'
-    parent: 'menu_link_content:b2572252-2615-432c-af68-afbf14ddcf26'
-    uri: 'internal:/product/1?sidebar=left'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: b73fe5ee-f5ef-4328-9240-3ce656ab7439
-  -
-    menu_name: main
-    title: 'Right Sidebar'
-    parent: 'menu_link_content:f5bb6d25-4b42-40d9-83e7-91d89edafb1d'
-    uri: 'internal:/product?sidebar=right'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: b2d74d00-9815-4571-aa77-9ce50e20aae0
-  -
-    menu_name: main
-    title: 'Left Sidebar'
-    parent: 'menu_link_content:f5bb6d25-4b42-40d9-83e7-91d89edafb1d'
-    uri: 'internal:/product?sidebar=left'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: ebed16b2-e97c-4e5a-a7b4-49344f139857
-  -
-    menu_name: main
-    title: 'Interactive Elements '
-    parent: 'menu_link_content:7abdfcdc-479e-495d-bb74-2c2f8f571b0b'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '0'
-    langcode: en
-    uuid: c6bab527-4de1-41b3-8edf-953599cd901d
-  -
-    menu_name: main
-    title: 'Standard Elements '
-    parent: 'menu_link_content:7abdfcdc-479e-495d-bb74-2c2f8f571b0b'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '0'
-    langcode: en
-    uuid: 31ab5106-b7c7-4264-9271-ebe3e9daf1fb
-  -
-    menu_name: main
-    title: 'Infographics Elements  '
-    parent: 'menu_link_content:7abdfcdc-479e-495d-bb74-2c2f8f571b0b'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '0'
-    langcode: en
-    uuid: a01787e0-364e-4282-aca4-0086babad5ab
-  -
-    menu_name: main
-    title: Typography
-    parent: 'menu_link_content:7abdfcdc-479e-495d-bb74-2c2f8f571b0b'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '0'
-    langcode: en
-    uuid: 66a30b6d-3595-4da0-8400-7d636a7d80ff
-  -
-    menu_name: main
     title: Contact
     parent: 'menu_link_content:c9ce1ad0-9649-407c-bfac-0748942e619d'
     uri: 'internal:#'
@@ -596,7 +260,7 @@ menus:
     description: null
     enabled: '1'
     expanded: '1'
-    weight: '-95'
+    weight: '-48'
     langcode: en
     uuid: d6a883d1-62dc-445f-943f-e4a2dd6bdbb9
   -
@@ -875,3 +539,15 @@ menus:
     weight: '-50'
     langcode: en
     uuid: 1b82d5c9-75cc-4186-98cf-aa9d5bbec1ca
+  -
+    menu_name: main
+    title: Eshop
+    parent: null
+    uri: 'internal:/eshop'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-47'
+    langcode: en
+    uuid: a5e8faa6-5dee-4334-ab65-fb9a56543575
