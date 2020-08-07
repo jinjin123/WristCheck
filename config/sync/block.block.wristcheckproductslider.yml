@@ -26,7 +26,7 @@ third_party_settings:
 id: wristcheckproductslider
 theme: wristcheck_barrio
 region: highlighted
-weight: 0
+weight: -14
 provider: null
 plugin: 'md_slider_block:wristcheck_product_slider'
 settings:

@@ -1,0 +1,57 @@
+{% set titles = [
+  'BRAND',
+  'MODEL',
+  'PRICE',
+  'CASE DIAMETER',
+  'YEAR',
+  'LOCATION',
+  'MORE'
+] %}
+<div class="container-fluid wc-product-search">
+  <div class="container">
+    <div class="wc-search-menu">
+      <ul class="d-flex flex-row">
+        {% for title in titles %}
+          <li class="flex-grow-1">
+            <a href="javascript:;" class="wc-search-menu__title">{{ title }}</a>
+            <div class="container wc-search-dropdown-panel">
+              <div class="wc-search-dropdown-panel__body">
+                {% if title == 'BRAND' %}
+                  <div class="wc-search-panel__body"></div>
+                {% elseif title == 'MODEL' %}
+                  <div class="wc-search-panel__body"></div>
+                {% elseif title == 'PRICE' %}
+                  <form class="wc-search-panel__body row">
+                    <div class="col-md-6 col-md-offset-6">
+                      <div class="form-group">
+                        <label>Currency option</label>
+                        <select class="form-control">
+                          <option>1</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>from $</label>
+                        <input type="number" min="0" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                  </form>
+                {% elseif title == 'CASE DIAMETER' %}
+                  <div class="wc-search-panel__body"></div>
+                {% elseif title == 'YEAR' %}
+                  <div class="wc-search-panel__body"></div>
+                {% elseif title == 'LOCATION' %}
+                  <div class="wc-search-panel__body"></div>
+                {% elseif title == 'MORE' %}
+                  <div class="wc-search-panel__body"></div>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

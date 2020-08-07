@@ -24,13 +24,13 @@ third_party_settings:
     background_overlay: ''
 id: wristchecksearchproductblock_2
 theme: wristcheck_barrio
-region: content
-weight: 0
+region: highlighted
+weight: -13
 provider: null
 plugin: wristcheck_search_product_block
 settings:
   id: wristcheck_search_product_block
   label: 'Wristcheck search product block'
   provider: wristcheck_basic
-  label_display: visible
+  label_display: '0'
 visibility: {  }
