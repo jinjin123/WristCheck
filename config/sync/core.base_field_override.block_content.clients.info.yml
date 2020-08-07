@@ -1,0 +1,18 @@
+uuid: 652d62f1-224c-47e4-8431-96195a68a129
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.clients
+id: block_content.clients.info
+field_name: info
+entity_type: block_content
+bundle: clients
+label: 'Block description'
+description: 'A brief description of your block.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,84 @@
+.path-faq-selling-step {
+  main {
+    margin: 0 400px;
+    .container {
+      .row {
+        margin: 0 -30px;
+
+        #block-wristcheck-page-title {
+          h1 {
+            font-weight: bold;
+            margin-bottom: 50px;
+          }
+        }
+        .view-wristcheck-selling-process {
+          .view-content {
+            .views-row {
+              .views-field-title {
+                margin-bottom: 50px;
+                .field-content {
+                  color: #333;
+                  font-weight: bold;
+                }
+              }
+              .views-field-field-wristcheck-process-steps {
+                .field-content {
+                  .paragraph--type--wristcheck-process-steps {
+                    .field--name-field-process-step {
+                      display: flex;
+                      flex-wrap: wrap;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #block-benifsoftrustedcheckout {
+      h2 {
+        color: #333;
+        font-weight: bold;
+        font-size: 25px;
+        margin-bottom: 70px;
+        //padding: 0 12px;
+      }
+      .field--name-body {
+        display: flex;
+        div {
+          display: grid;
+          margin-right: 15%;
+          span {
+            position: relative;
+            margin: 0 30%;
+          }
+        }
+      }
+    }
+  }
+  #block-webform-3 {
+    background-image: url("/sites/default/files/inline-images/offers_banner_sc_2.jpg");
+    width: 1300px;
+    height: 400px;
+    margin-bottom: 40px;
+  }
+  .webform-elements {
+    display: flex;
+    position: relative;
+    top: 250px;
+    margin: 0 10%;
+    .js-form-item-second-size {
+      margin-left: 40px;
+    }
+    div {
+      select {
+        margin-right: 30px;
+        background-color: #FFFBFCFC;
+        text-align: center;
+        text-align-last: center;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,29 @@
+global-styling:
+  version: VERSION
+  js:
+    js/plugins/wow.min.js: { preprocess: 0, minified: true }
+    js/plugins/popper.min.js: {}
+    js/plugins/bootstrap.min.js: {}
+    libs/slick/slick.js: {}
+    js/global.js: {}
+  css:
+    component:
+      css/style.css: {}
+      libs/slick/slick.css: {}
+      libs/font-awesome-4.7.0/css/font-awesome.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+product-styling:
+  version: VERSION
+  js:
+    libs/slick/slick.js: {}
+    js/product.js: {}
+  css:
+    component:
+      libs/slick/slick.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+

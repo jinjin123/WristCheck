@@ -1,0 +1,18 @@
+uuid: 12cfd53d-2f2d-4538-a60f-c811a8c4f6f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.clients
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: block_content.clients
+target_entity_type_id: block_content
+target_bundle: clients
+default_langcode: site_default
+language_alterable: false

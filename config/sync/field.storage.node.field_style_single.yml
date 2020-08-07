@@ -1,0 +1,45 @@
+uuid: 8544e77f-65fa-4f91-9fa7-922d9064b7dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_style_single
+field_name: field_style_single
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: single-1
+      label: 'SINGLE 1'
+    -
+      value: single-2
+      label: 'SINGLE 2'
+    -
+      value: single-3
+      label: 'SINGLE 3'
+    -
+      value: single-4
+      label: 'SINGLE 4'
+    -
+      value: single-5
+      label: 'SINGLE 5'
+    -
+      value: single-6
+      label: 'SINGLE 6'
+    -
+      value: single-7
+      label: 'SINGLE 7'
+    -
+      value: image
+      label: Image
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

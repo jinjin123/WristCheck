@@ -1,0 +1,8 @@
+uuid: 80790083-1026-4b27-83ce-b1d110886500
+langcode: en
+status: true
+dependencies: {  }
+id: clients
+label: 'Layout Builder Block'
+revision: 0
+description: ''

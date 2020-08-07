@@ -1,0 +1,22 @@
+uuid: 33f88ccf-2b1e-4411-b16e-73d22ef72fdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_faq
+id: node.wristcheck_faq.promote
+field_name: promote
+entity_type: node
+bundle: wristcheck_faq
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

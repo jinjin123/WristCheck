@@ -1,0 +1,18 @@
+uuid: 86ef2981-9fbd-43fe-9e1e-133645d6b595
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_banner
+id: node.wristcheck_banner.title
+field_name: title
+entity_type: node
+bundle: wristcheck_banner
+label: 'Wristcheck Banner Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

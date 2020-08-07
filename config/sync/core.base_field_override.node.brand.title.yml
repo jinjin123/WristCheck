@@ -1,0 +1,18 @@
+uuid: 45040c03-2eb3-40ae-ae65-9176ca8547a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.brand
+id: node.brand.title
+field_name: title
+entity_type: node
+bundle: brand
+label: 'Watch Brand Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

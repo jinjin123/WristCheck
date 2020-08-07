@@ -1,0 +1,35 @@
+uuid: ca5c40cb-b0f1-4377-915d-96807694140e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.portfolio
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    full_html: full_html
+    restricted_html: '0'
+    plain_text: '0'
+    php_code: '0'
+id: node.portfolio.body
+field_name: body
+entity_type: node
+bundle: portfolio
+label: Body
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    summary: ''
+    value: "<p>LUTHIA was founded at the beginning of 2012 in Buenos Aires, Argentina. Handcrafted Backpacks and Handbags are the brand signature, where materials such as 100% cotton canvas and natural leather prevail.</p>\r\n\r\n<p>All product manufacturing processes are performed individually, with dedication and attention to details. One of our values in Luthia bags is “Beauty in Simplicity” because we love making things simple, intuitive and expertly crafted. The choice of materials, colors, the development of exclusive patterns and designs, make each backpack, handbag or accessory, a unique product.</p>\r\n\r\n<p>Product is the vital essence of what we do, and truly great products are born of meticulous planning and process. This is where we specialise, taking a lean &amp; agile approach to product creation.</p>\r\n\r\n<p>One of our values in Ceali agency is “Beauty in Simplicity” because we love making things simple, intuitive and expertly crafted.</p>\r\n\r\n<p><a href=\"#\">Visit Project</a></p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

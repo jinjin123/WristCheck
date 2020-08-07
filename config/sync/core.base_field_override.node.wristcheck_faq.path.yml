@@ -1,0 +1,20 @@
+uuid: f2e76ccb-ee4b-4767-885e-0e8cdc961915
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_faq
+  module:
+    - path
+id: node.wristcheck_faq.path
+field_name: path
+entity_type: node
+bundle: wristcheck_faq
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

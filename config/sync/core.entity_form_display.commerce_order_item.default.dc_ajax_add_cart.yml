@@ -1,0 +1,26 @@
+uuid: 1c7057f9-e4f3-42c1-8684-d8e1724e33e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.default
+    - core.entity_form_mode.commerce_order_item.dc_ajax_add_cart
+  module:
+    - commerce_order
+id: commerce_order_item.default.dc_ajax_add_cart
+targetEntityType: commerce_order_item
+bundle: default
+mode: dc_ajax_add_cart
+content:
+  quantity:
+    type: commerce_quantity
+    weight: 0
+    region: content
+    settings:
+      step: '1'
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  purchased_entity: true
+  unit_price: true

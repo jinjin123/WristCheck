@@ -1,0 +1,18 @@
+uuid: 6cfb10da-95e2-4ce7-8c78-ade1988ab43e
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+id: commerce_product.watch.changed
+field_name: changed
+entity_type: commerce_product
+bundle: watch
+label: Changed
+description: 'The time when the product was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

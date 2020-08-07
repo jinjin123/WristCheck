@@ -1,0 +1,8 @@
+uuid: af4b33ef-af28-41c1-96fd-375722a2b54b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Product Tags'
+vid: product_tags
+description: ''
+weight: 0

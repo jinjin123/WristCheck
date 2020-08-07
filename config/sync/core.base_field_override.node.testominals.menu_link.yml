@@ -1,0 +1,20 @@
+uuid: a0f1e496-9f79-424c-ada9-4e2497768e9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.testominals
+id: node.testominals.menu_link
+field_name: menu_link
+entity_type: node
+bundle: testominals
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,43 @@
+uuid: cb3711bd-2695-461d-b5b9-229c479d57f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_social
+  module:
+    - link
+    - user
+id: user.user.field_social
+field_name: field_social
+entity_type: user
+bundle: user
+label: Social
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://www.facebook.com/'
+    title: Facebook
+    options: {  }
+  -
+    attributes: {  }
+    uri: 'https://twitter.com/?lang=vi'
+    title: Twitter
+    options: {  }
+  -
+    attributes: {  }
+    uri: 'https://mail.google.com/mail/'
+    title: Gmail
+    options: {  }
+  -
+    attributes: {  }
+    uri: 'https://www.instagram.com/'
+    title: Instagram
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,15 @@
+uuid: 31aa37a0-95e3-4882-aa13-6beb05299e23
+langcode: en
+status: true
+dependencies: {  }
+name: image120x147
+label: image120x147
+effects:
+  d8092016-c5c2-4dfc-9019-12958276806b:
+    uuid: d8092016-c5c2-4dfc-9019-12958276806b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 120
+      height: 147
+      anchor: center-center

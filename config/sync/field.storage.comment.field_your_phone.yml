@@ -1,0 +1,19 @@
+uuid: 0724367f-32b8-4bd9-b679-db86504f7ed4
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - telephone
+id: comment.field_your_phone
+field_name: field_your_phone
+entity_type: comment
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

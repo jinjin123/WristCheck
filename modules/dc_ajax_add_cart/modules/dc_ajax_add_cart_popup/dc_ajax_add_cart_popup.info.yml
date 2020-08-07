@@ -1,0 +1,13 @@
+name: Commerce Ajax Add to Cart - Popup
+type: module
+description: Display a modal popup after a product is added to the cart with AJAX.
+# core: 8.x
+dependencies:
+  - dc_ajax_add_cart:dc_ajax_add_cart
+package: Commerce (contrib)
+
+# Information added by Drupal.org packaging script on 2018-03-26
+version: '8.x-1.0-beta1'
+core: '8.x'
+project: 'dc_ajax_add_cart'
+datestamp: 1522044510

@@ -1,0 +1,15 @@
+uuid: ee73d5f4-1954-441f-8fc6-05559c750720
+langcode: en
+status: true
+dependencies: {  }
+name: image320x326
+label: image320x326
+effects:
+  c906b851-545a-4207-b49b-b7a6d0907b0a:
+    uuid: c906b851-545a-4207-b49b-b7a6d0907b0a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 326
+      anchor: center-center

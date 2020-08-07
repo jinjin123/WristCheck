@@ -1,0 +1,20 @@
+uuid: 6e8b9dea-73c6-4dbb-9525-ac977db3f706
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_process_steps
+  module:
+    - path
+id: node.wristcheck_process_steps.path
+field_name: path
+entity_type: node
+bundle: wristcheck_process_steps
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

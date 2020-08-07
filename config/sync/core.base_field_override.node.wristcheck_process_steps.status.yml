@@ -1,0 +1,22 @@
+uuid: a0e9e640-ad9f-4fc1-a397-50ab467156ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_process_steps
+id: node.wristcheck_process_steps.status
+field_name: status
+entity_type: node
+bundle: wristcheck_process_steps
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

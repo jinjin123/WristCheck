@@ -1,0 +1,20 @@
+uuid: 0d527ba7-ff90-4f80-8293-818a04db2851
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.blog_tags
+  module:
+    - path
+id: taxonomy_term.blog_tags.path
+field_name: path
+entity_type: taxonomy_term
+bundle: blog_tags
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

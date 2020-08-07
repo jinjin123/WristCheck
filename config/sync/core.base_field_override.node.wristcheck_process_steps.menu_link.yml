@@ -1,0 +1,20 @@
+uuid: 740ac2b1-f099-4e94-8c9e-1cf1a450db83
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_process_steps
+id: node.wristcheck_process_steps.menu_link
+field_name: menu_link
+entity_type: node
+bundle: wristcheck_process_steps
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

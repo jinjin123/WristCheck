@@ -1,0 +1,22 @@
+uuid: 3a113b8d-e675-4b28-8044-6c77782ece89
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wristcheck
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: wristcheck_messages
+theme: wristcheck
+region: help
+weight: -43
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

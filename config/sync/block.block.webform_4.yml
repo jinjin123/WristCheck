@@ -1,0 +1,47 @@
+uuid: d3aa04d9-98c6-4527-a208-8a2f34b8c2fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.faq_authsystem
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+    - webform
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: webform_4
+theme: wristcheck_barrio
+region: section
+weight: -14
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Webform
+  provider: webform
+  label_display: '0'
+  webform_id: faq_authsystem
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: /wristcheck-faq-auth-system
+    negate: false
+    context_mapping: {  }

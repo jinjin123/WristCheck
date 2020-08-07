@@ -1,0 +1,23 @@
+uuid: a5bac8f4-d112-4595-a134-22779a02509b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.clients
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.clients.body
+field_name: body
+entity_type: block_content
+bundle: clients
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,22 @@
+uuid: df59c15e-d675-49a2-91d3-b97c17ceba2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wristcheck_process_steps
+id: node.wristcheck_process_steps.sticky
+field_name: sticky
+entity_type: node
+bundle: wristcheck_process_steps
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

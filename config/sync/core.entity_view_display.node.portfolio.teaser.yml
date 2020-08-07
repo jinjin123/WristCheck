@@ -1,0 +1,52 @@
+uuid: 1d9ceef5-a164-4c8d-9d2f-3e95b361b093
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.portfolio.body
+    - field.field.node.portfolio.field_awards
+    - field.field.node.portfolio.field_categories
+    - field.field.node.portfolio.field_client
+    - field.field.node.portfolio.field_images
+    - field.field.node.portfolio.field_link
+    - field.field.node.portfolio.field_page_title_image
+    - field.field.node.portfolio.field_related_model
+    - field.field.node.portfolio.field_skills
+    - field.field.node.portfolio.field_style_single
+    - field.field.node.portfolio.field_video
+    - node.type.portfolio
+  module:
+    - text
+    - user
+id: node.portfolio.teaser
+targetEntityType: node
+bundle: portfolio
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_awards: true
+  field_categories: true
+  field_client: true
+  field_images: true
+  field_link: true
+  field_page_title_image: true
+  field_related_model: true
+  field_skills: true
+  field_style_single: true
+  field_video: true
+  langcode: true
+  search_api_excerpt: true

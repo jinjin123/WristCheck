@@ -1,0 +1,44 @@
+uuid: ed49f6a5-41eb-401b-a21c-0c29faf8f623
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: benifsoftrustedcheckout
+theme: wristcheck_barrio
+region: section
+weight: -8
+provider: null
+plugin: 'block_content:d61d8fce-b723-4480-b779-f84e120b2f79'
+settings:
+  id: 'block_content:d61d8fce-b723-4480-b779-f84e120b2f79'
+  label: 'benifs of trusted checkout'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /faq-selling-step
+    negate: false
+    context_mapping: {  }

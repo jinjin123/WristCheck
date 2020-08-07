@@ -1,0 +1,21 @@
+uuid: 92fd576c-5d1b-437a-9304-2d0a9e15046e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_awards
+    - node.type.portfolio
+id: node.portfolio.field_awards
+field_name: field_awards
+entity_type: node
+bundle: portfolio
+label: Awards
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Branding Served, Behance'
+default_value_callback: ''
+settings: {  }
+field_type: string

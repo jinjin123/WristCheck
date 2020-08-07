@@ -1,0 +1,14 @@
+store_less_css.settings:
+  path: '/admin/config/development/less'
+  defaults:
+    _title: 'LESS'
+    _form: '\Drupal\store_less_css\Form\LessSettingsForm'
+  requirements:
+    _permission: 'LESS_PERMISSION'
+
+store_less_css.less_generate:
+  path: '/less_generate/{cache_id}/less.css'
+  defaults:
+    _controller: '\Drupal\store_less_css\Controller\LessGenerateController::get_less'
+  requirements:
+    _access: 'TRUE'

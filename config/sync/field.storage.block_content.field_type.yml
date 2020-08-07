@@ -1,0 +1,60 @@
+uuid: 07ad24c2-91fd-4c58-b35e-f9d204a9ab41
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_type
+field_name: field_type
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: type1
+      label: 'Type 1'
+    -
+      value: type2
+      label: 'Type 2'
+    -
+      value: type3
+      label: 'Type 3'
+    -
+      value: type4
+      label: 'Type 4'
+    -
+      value: type5
+      label: 'Type 5'
+    -
+      value: type6
+      label: 'Type 6'
+    -
+      value: type7
+      label: 'Type 7'
+    -
+      value: type8
+      label: 'Type 8'
+    -
+      value: type9
+      label: 'Type 9'
+    -
+      value: type10
+      label: 'Type 10'
+    -
+      value: type11
+      label: 'Type 11'
+    -
+      value: type12
+      label: 'Type 12'
+    -
+      value: type13
+      label: 'Type 13'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

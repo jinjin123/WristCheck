@@ -1,0 +1,21 @@
+uuid: 43a96f89-c1cd-4fbb-b8a7-5e9bebae8214
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.storage.comment.field_your_phone
+  module:
+    - telephone
+id: comment.comment.field_your_phone
+field_name: field_your_phone
+entity_type: comment
+bundle: comment
+label: 'Your Phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

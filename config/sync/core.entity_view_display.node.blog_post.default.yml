@@ -1,0 +1,103 @@
+uuid: f1bd8663-502d-4bf6-9b25-37104eafa529
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.blog_post.body
+    - field.field.node.blog_post.field_blog_categories
+    - field.field.node.blog_post.field_blog_comments
+    - field.field.node.blog_post.field_blog_tags
+    - field.field.node.blog_post.field_images
+    - field.field.node.blog_post.field_magazine_screening
+    - field.field.node.blog_post.field_page_title_image
+    - field.field.node.blog_post.field_related_brand
+    - node.type.blog_post
+  module:
+    - comment
+    - entity_reference_revisions
+    - image
+    - text
+    - user
+_core:
+  default_config_hash: xUUiZcj-EuaC4bX5euuLbtjp8IJB13zhTdOsL61avmM
+id: node.blog_post.default
+targetEntityType: node
+bundle: blog_post
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  field_blog_categories:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_blog_comments:
+    type: comment_default
+    weight: 3
+    settings:
+      pager_id: 0
+      view_mode: default
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  field_blog_tags:
+    type: entity_reference_label
+    weight: 4
+    settings:
+      link: true
+    third_party_settings: {  }
+    label: above
+    region: content
+  field_images:
+    weight: 6
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_magazine_screening:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_page_title_image:
+    weight: 0
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_related_brand:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

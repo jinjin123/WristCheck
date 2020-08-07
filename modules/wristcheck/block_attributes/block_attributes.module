@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains block_attributes.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function block_attributes_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the block_attributes module.
+    case 'help.page.block_attributes':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Placeholder for block attribute module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function block_attributes_theme() {
+  return [
+    'block_attributes' => [
+      'render element' => 'children',
+    ],
+  ];
+}

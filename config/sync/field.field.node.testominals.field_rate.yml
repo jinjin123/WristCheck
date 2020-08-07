@@ -1,0 +1,23 @@
+uuid: 908ce019-a206-41a5-8f2a-fbb84dd30131
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rate
+    - node.type.testominals
+  module:
+    - options
+id: node.testominals.field_rate
+field_name: field_rate
+entity_type: node
+bundle: testominals
+label: Rate
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

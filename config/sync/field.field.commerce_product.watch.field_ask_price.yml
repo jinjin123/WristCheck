@@ -1,0 +1,25 @@
+uuid: 1fa5c884-a62c-4286-88cf-c12a781e943c
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_ask_price
+  module:
+    - commerce_price
+id: commerce_product.watch.field_ask_price
+field_name: field_ask_price
+entity_type: commerce_product
+bundle: watch
+label: 'Ask Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - CNY
+    - HKD
+    - USD
+field_type: commerce_price

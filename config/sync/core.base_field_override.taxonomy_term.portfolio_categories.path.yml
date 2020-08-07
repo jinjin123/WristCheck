@@ -1,0 +1,20 @@
+uuid: fda562c0-6da5-4230-a405-d16d59faf9d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.portfolio_categories
+  module:
+    - path
+id: taxonomy_term.portfolio_categories.path
+field_name: path
+entity_type: taxonomy_term
+bundle: portfolio_categories
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

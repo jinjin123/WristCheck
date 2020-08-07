@@ -1,0 +1,22 @@
+uuid: 38e2200f-f3c7-488a-b713-6d4be4ef22e8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wristcheck_barrio
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: wristcheck_barrio_breadcrumbs
+theme: wristcheck_barrio
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

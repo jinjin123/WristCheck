@@ -1,0 +1,84 @@
+<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+	<div class="row">
+		<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+			<div class="post-thumbnail">
+				<img src="<?php print base_path() . drupal_get_path('theme','futures') ?>/images/blog/blog-single-1/blog-single-2.jpg" alt="Image">
+			</div>
+			<!-- /.post-thumbnail -->
+		</div>
+		<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+			<div class="blog-content">
+				<div class="entry-content">
+					<p>Duis et nibh blat, eifend liberost amet, suscipit enim. Sed rutrum suere orci. Lorem ipsum dolor sitt amet.  This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqet. Aenean sollicitudin, lorem quis bibendum.</p>
+					<ul>
+						<li>
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+							<a href="#">
+								Sollicitudin, lorem quis bibendum auctor, nisi elit consequat
+							</a>
+						</li>
+						<li>
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+							<a href="#">
+								Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin
+							</a>
+						</li>
+						<li>
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+							<a href="#">
+								Duis sed odio sit amet nibh vulputate cursus a sit mauris.
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.entry-content -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+	<div class="blog-content">
+		<div class="entry-content">
+			<p>Duis et nibh blat, eifend liberost amet, suscipit enim. Sed rutrum suere orci. Lorem ipsum dolor sitt amet.  This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqet. Aenean sollicitudin, lorem quis bibendum.</p>
+			<ul>
+				<li>
+					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+					<a href="#">
+						Sollicitudin, lorem quis bibendum auctor, nisi elit consequat
+					</a>
+				</li>
+				<li>
+					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+					<a href="#">
+						Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin
+					</a>
+				</li>
+				<li>
+					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+					<a href="#">
+						Duis sed odio sit amet nibh vulputate cursus a sit mauris.
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- /.entry-content -->
+	</div>
+</div>
+<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+	<div class="post-thumbnail">
+		<img src="<?php print base_path() . drupal_get_path('theme','futures') ?>/images/blog/blog-single-1/blog-single-3.jpg" alt="Image">
+	</div>
+	<!-- /.post-thumbnail -->
+</div>
+
+
+
+<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+	<div class="blog-content">
+		<div class="entry-content">
+			<p>Estibulum vitae fringilla in, rhoncus luctus ante. Integer porttitor fringilla vestibulum. Phasellus curs our tinnt nulla, ut ttis augue finibus ac. Vivamus elementum enim ac enim ultrices rhoncus. Duis et nibh blat, eifend liberost amet, suscipit enim. Sed rutrum posuere orci.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor lacinia pellentesque. Vivamus et tellus in urna us porttitor. Sed auctor ut nunc in pulvinar. Fusce lacinia, velit vitae pharetra porttitor, nunc libero sollicitudin odio, quis iaculis tortor ligula feugiat ex. Nam ut cursus mi. Nullam eu erat in justo euismod ultrices ut id enim. Morbi non tempor ante, eget molestie mauris. Cras gravida, lacus nec sollicitn euismod, ipsum nisl tempor leo, in volutpat sapien ex ac erat. In sit amet dolor ut erat fermentum tincidut. Maecenas sd pque ex.</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+uuid: 8c385d1e-5704-4372-bb55-f4ee5dddc0db
+langcode: en
+status: true
+dependencies: {  }
+name: image770x330
+label: image770x330
+effects:
+  3e4f832a-25c8-40c6-8706-b3061686b8c7:
+    uuid: 3e4f832a-25c8-40c6-8706-b3061686b8c7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 770
+      height: 330
+      anchor: center-center

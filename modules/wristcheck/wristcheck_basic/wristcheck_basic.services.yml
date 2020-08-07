@@ -1,0 +1,20 @@
+services:
+  logger.channel.wristcheck_basic:
+    parent: logger.channel_base
+    arguments: ['wristcheck_basic']
+  wristcheck_basic.base:
+    class: Drupal\wristcheck_basic\Service\BaseService
+    arguments: ['@entity_type.manager']
+  wristcheck_basic.banner:
+    parent: wristcheck_basic.base
+    class: Drupal\wristcheck_basic\Service\BannerService
+    arguments: []
+  wristcheck_basic.brand:
+    parent: wristcheck_basic.base
+    class: Drupal\wristcheck_basic\Service\BrandService
+    arguments: []
+  wristcheck_basic_commerce_wishlist.twig.extension:
+    class: Drupal\wristcheck_basic\TwigExtension\CommerceWishlistExtension
+    arguments: []
+    tags:
+      - { name: twig.extension }

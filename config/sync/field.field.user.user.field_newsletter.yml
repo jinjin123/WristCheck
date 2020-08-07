@@ -1,0 +1,24 @@
+uuid: f03b0884-4f23-4cfd-9867-70d78cd370a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_newsletter
+  module:
+    - user
+id: user.user.field_newsletter
+field_name: field_newsletter
+entity_type: user
+bundle: user
+label: Newsletter
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: e617438e-30e7-4178-9196-6e4802f17cdf
+langcode: en
+status: true
+dependencies:
+  theme:
+    - wristcheck
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: wristcheck_local_actions
+theme: wristcheck
+region: primary_menu
+weight: -42
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

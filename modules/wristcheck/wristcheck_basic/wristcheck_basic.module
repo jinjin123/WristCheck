@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Contains wristcheck_basic.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function wristcheck_basic_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    // Main module help for the wristcheck_basic module.
+    case 'help.page.wristcheck_basic':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('WristCheck Basic functions &amp; forms &amp; configurations &amp; pages.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function wristcheck_basic_theme()
+{
+  return [
+    'wristcheck_basic' => [
+      'render element' => 'children',
+    ],
+    'wristcheck_homepage' => [
+      'variables' => ['test_var' => NULL],
+    ],
+    'wristcheck_buy' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_category' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_user_dashboard' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_profile_payment_main' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_discover' => [],
+    'wristcheck_eshop' => [],
+    'wristcheck_faq' => [],
+    'wristcheck_sell' => [],
+    'wristcheck_banner_block' => [
+      'variables' => []
+    ],
+    'wristcheck_download_app_block' => [
+      'variables' => []
+    ],
+    'wristcheck_selling_process_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_search_product_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+
+  ];
+}

@@ -1,0 +1,65 @@
+uuid: 565d9744-0795-4f2e-9f43-f37de41dddc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.wristcheck_banner.body
+    - field.field.node.wristcheck_banner.field_wc_banner_enable
+    - field.field.node.wristcheck_banner.field_wc_banner_file
+    - field.field.node.wristcheck_banner.field_wc_banner_link
+    - node.type.wristcheck_banner
+  module:
+    - file
+    - link
+    - text
+    - user
+id: node.wristcheck_banner.default
+targetEntityType: node
+bundle: wristcheck_banner
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_wc_banner_enable:
+    weight: 102
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_wc_banner_file:
+    weight: 103
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_wc_banner_link:
+    weight: 104
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,21 @@
+uuid: 4c7fd5b8-00cd-4600-9330-092cfa1747f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_style_contact
+    - node.type.webform
+  module:
+    - options
+id: node.webform.field_style_contact
+field_name: field_style_contact
+entity_type: node
+bundle: webform
+label: 'Style Contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

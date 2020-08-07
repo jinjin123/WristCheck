@@ -1,0 +1,18 @@
+uuid: 838ee5b2-3ca2-4822-8a55-b0c18a6486c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.testominals
+id: node.testominals.title
+field_name: title
+entity_type: node
+bundle: testominals
+label: 'User name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

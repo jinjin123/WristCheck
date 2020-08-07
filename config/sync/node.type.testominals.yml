@@ -1,0 +1,17 @@
+uuid: 1e281f59-ef9b-428a-95d5-5627dbe7048f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Wristcheck Testimonials'
+type: testominals
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

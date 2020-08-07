@@ -1,0 +1,23 @@
+uuid: ca36f1d6-5058-4aeb-8cad-d784956c7961
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comming_soon_
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.comming_soon_.body
+field_name: body
+entity_type: block_content
+bundle: comming_soon_
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

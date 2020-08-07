@@ -1,0 +1,23 @@
+uuid: c31251cb-65d5-4193-a31b-156790fa702a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_have_box
+    - node.type.wcshw
+id: node.wcshw.field_have_box
+field_name: field_have_box
+entity_type: node
+bundle: wcshw
+label: 'Have Box'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

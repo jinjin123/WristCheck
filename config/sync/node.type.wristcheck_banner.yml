@@ -1,0 +1,18 @@
+uuid: 88597fd0-f666-4293-8afa-c79b470144eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Wristcheck Banner'
+type: wristcheck_banner
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

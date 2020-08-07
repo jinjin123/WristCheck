@@ -1,0 +1,18 @@
+uuid: 126f20f3-ca45-47ed-a3e7-12e59a733155
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.portfolio_categories
+id: taxonomy_term.portfolio_categories.name
+field_name: name
+entity_type: taxonomy_term
+bundle: portfolio_categories
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

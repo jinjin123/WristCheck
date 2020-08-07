@@ -1,0 +1,151 @@
+<?php
+require_once __DIR__ . '/less.php/Less.php';
+
+use Drupal\Core\Asset\AttachedAssetsInterface;
+
+/**
+ * Implements hook_css_alter().
+ */
+function store_less_css_css_alter(&$css, AttachedAssetsInterface $assets) {
+//  \Drupal::moduleHandler()
+//    ->loadInclude('store_less_css', 'php', 'vendor/less.php/Less');
+  $cache_id = \Drupal::state()->get('system.css_js_query_string');
+  $config = \Drupal::config('store_less_css.less.settings');
+
+  foreach ($css AS &$style) {
+    if ($style['type'] == 'file' && substr($style['data'], -5) == '.less') {
+      $less_patch = $style['data'];
+      if ($config->get('less_devel')) {
+        //print_r($config->get('less_devel'));
+        //less_devel on
+        $css_patch = '/less_generate/' . $cache_id . '/less.css?less_file=' . $style['data'];
+      }else{
+        //less_devel off
+        $css_patch = _store_less_css_generateCSS($less_patch, $cache_id);
+      }
+
+      if ($css_patch) {
+        $style['data'] = $css_patch;
+      }
+      else {
+       unset($style);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_cache_flush().
+ */
+function store_less_css_cache_flush() {
+  _store_less_css_deletefiles();
+}
+
+/**
+ * Delete parsed LESS styles and cache directories
+ */
+function _store_less_css_deletefiles() {
+  // Delete parsed LESS styles and cache directories.
+  // Wrap this into condition to avoid dblog entries
+  // for non-existing directory.
+  $path = 'public://less';
+  if (is_dir($path)) {
+    file_unmanaged_delete_recursive($path);
+  }
+}
+
+/**
+ * Return css patch or FALSE
+ */
+function _store_less_css_generateCSS($less_patch, $cache_id, $regenerate = FALSE) {
+
+  $public_path = \Drupal::service('stream_wrapper.public')->getDirectoryPath();
+  $file_path = FALSE;
+  if (substr($less_patch, -5) == '.less') {
+    // Remove the '.less' extension.
+    $file_name = substr($less_patch, 0, -5);
+    // If there is '.css' extension left, remove it for hashing purposes.
+    if (substr($file_name, -4) == '.css') {
+      $file_name = substr($file_name, 0, -4);
+    }
+    // Create full path to the new file.
+    $file_path = $public_path . '/less/' . $cache_id . '/' . hash('md5', $file_name) . '.css';
+
+    if($regenerate && file_exists($file_path)){
+      file_unmanaged_delete($file_path);
+    }
+
+    // If the file does not exist, process the original LESS file and output
+    // the data into the temporary file.
+    if (!file_exists($file_path)) {
+      // Make sure the 'less' subdirectory exists.
+      if (!file_exists($public_path . '/less')) {
+        \Drupal::service('file_system')->mkDir($public_path . '/less');
+      }
+      // Make sure the subdirectory for the current cache key exists.
+      if (!file_exists($public_path . '/less/' . $cache_id)) {
+        \Drupal::service('file_system')
+          ->mkDir($public_path . '/less/' . $cache_id);
+      }
+      // Parse the original LESS file.
+      $source_directory = explode('/', $less_patch);
+      array_pop($source_directory);
+      $source_directory = '/' . implode('/', $source_directory);
+      $less = new \Less_Parser();
+
+      //navisystem
+      $theme_name = \Drupal::service('theme.manager')->getActiveTheme()->getName();
+      ///
+     /* $layout_style = theme_get_setting('layout_style','revitt');
+      $outer_background_style = theme_get_setting('outer_background_style', 'revitt');
+      $background_color = theme_get_setting('background_color','revitt');
+      $primary_color = theme_get_setting('color_primary','matri');
+      $secondary_color = theme_get_setting('secondary_color','revitt');*/
+      //image
+      //var_dump($outer_background_style);die;
+      /*$revitt_background_image = [];
+      if($outer_background_style == 'image'){
+        $background_image = theme_get_setting('background_image','revitt');
+        if(!empty($background_image) && is_array($background_image)){
+          $files = file_load_multiple($background_image);
+          foreach($files as $fid => $file){
+            $file_uri = $file->getFileUri();
+            $revitt_background_image[$fid] = file_create_url($file_uri);
+          }
+        }   
+      }elseif($outer_background_style == 'pattern'){
+        $background_image = theme_get_setting('background_image_pattern','revitt');
+        if(!empty($background_image) && is_array($background_image)){
+          $files = file_load_multiple($background_image);
+          foreach($files as $fid => $file){
+            $file_uri = $file->getFileUri();
+            $revitt_background_image[$fid] = file_create_url($file_uri);
+          }
+        }           
+      }else{
+        $revitt_background_image[0] = "";
+      }*/
+
+      $less->ModifyVars(
+        array(
+          //logo
+          /*'revitt_layout_style' => '"'.$layout_style.'"',
+          'revitt_outer_background_style' => '"'.$outer_background_style.'"',
+          'revitt_background_image' => '"'.reset($revitt_background_image).'"',
+          'revitt_background_color' => $background_color,*/
+          /*'matri_primary_color' => $primary_color,*/
+          /*'revitt_secondary_color' => $secondary_color,*/
+          //logo 2
+        )
+      );
+
+      //navisystem
+      $less->parseFile($less_patch, $source_directory);
+
+      
+      
+      file_put_contents($file_path, $less->getCss(), FILE_USE_INCLUDE_PATH);
+    }
+  }
+  return $file_path;
+}

@@ -1,0 +1,7 @@
+name: 'NaviTeam Block Settings'
+type: module
+description: 'Allows settings attributes block advanced.'
+package: NaviTeam
+core: 8.x
+dependencies:
+  - block

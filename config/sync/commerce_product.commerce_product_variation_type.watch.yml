@@ -1,0 +1,11 @@
+uuid: d6c07893-6d1d-420e-a41a-b8f198b47b0f
+langcode: en
+status: true
+dependencies: {  }
+id: watch
+label: Watch
+orderItemType: default
+generateTitle: false
+traits:
+  - purchasable_entity_shippable
+locked: false

@@ -1,0 +1,11 @@
+uuid: c587da44-7562-462e-83d5-991cffac59ab
+langcode: en
+status: true
+dependencies: {  }
+id: 2_hands_watch_variation
+label: 'Second Hands Watch Variation'
+orderItemType: 2hw_order_item
+generateTitle: false
+traits:
+  - purchasable_entity_shippable
+locked: false

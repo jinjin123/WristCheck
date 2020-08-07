@@ -1,0 +1,38 @@
+uuid: 83b70391-e555-4eb5-90be-5c6b0c47d292
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_model_images
+  module:
+    - image
+id: commerce_product.watch.field_model_images
+field_name: field_model_images
+entity_type: commerce_product
+bundle: watch
+label: 'Model Images'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '20 MB'
+  max_resolution: ''
+  min_resolution: 200x400
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
