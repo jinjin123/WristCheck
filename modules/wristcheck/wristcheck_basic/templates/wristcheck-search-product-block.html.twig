@@ -21,23 +21,45 @@
                 {% elseif title == 'MODEL' %}
                   <div class="wc-search-panel__body"></div>
                 {% elseif title == 'PRICE' %}
-                  <form class="wc-search-panel__body row">
-                    <div class="col-md-6 col-md-offset-6">
+                  <form class="wc-search-panel__body row wc-search-form-line">
+                    <div class="col-md-6 wc-search__item">
                       <div class="form-group">
                         <label>Currency option</label>
                         <select class="form-control">
-                          <option>1</option>
+                          {% for option in variables['locations'] %}
+                            <option value="{{ option }}">{{ option }}</option>
+                          {% endfor %}
                         </select>
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 wc-search__item"></div>
+                    <div class="col-md-6 wc-search__item">
                       <div class="form-group">
                         <label>from $</label>
                         <input type="number" min="0" class="form-control">
                       </div>
                     </div>
-                    <div class="col-md-6"></div>
+                    <div class="col-md-6 wc-search__item">
+                      <div class="form-group">
+                        <label>from $</label>
+                        <input type="number" min="0" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-12 wc-search__item">
+                      <input type="range" class="form-control-range">
+                    </div>
                   </form>
+                  <div class="d-flex justify-content-between wc-search__price">
+                    <a href="javascript:;" class="wc-btn-white">
+                      <div class="wc-btn-cont"><span class="fa fa-download"></span> SAVE THIS SEARCH</div>
+                    </a>
+                    <div>
+                      <a href="javascript:;">CANCEL</a>
+                      <a href="javascript:;" class="wc-btn-dark">
+                        <div class="wc-btn-cont"><span class="fa fa-arrow-right"></span>SHOW RESULTS(79)</div>
+                      </a>
+                    </div>
+                  </div>
                 {% elseif title == 'CASE DIAMETER' %}
                   <div class="wc-search-panel__body"></div>
                 {% elseif title == 'YEAR' %}

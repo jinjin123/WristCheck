@@ -41,7 +41,7 @@
 
     > li {
       list-style: none;
-      height: 130px;
+      height: 100px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -72,4 +72,30 @@
 
 .wc-search-dropdown-panel__body {
   padding: 60px;
+
+  .wc-search__item {
+    margin-bottom: 60px;
+  }
 }
+
+.wc-search__item {
+  select, input[type='number'] {
+    border: 0;
+    background-color: $bg_gray3;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      background-color: $bg_gray3;
+    }
+  }
+}
+
+.wc-search-form-line {
+  border-bottom: 1px solid $bg_gray3;
+}
+
+.wc-search__price {
+  padding-top: 60px;
+}
+
