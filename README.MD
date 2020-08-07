@@ -32,3 +32,10 @@ $databases['default']['default'] = array (
 );
 ```
 
+```shell script
+  export:all (ea)                                                                 Export menu links, Taxonomy and Blocks
+  export:menus (em)                                                               Export menu links
+  import:all (ia)                                                                 Import menu links, Taxonomy and Blocks
+  import:menus (im)                                                               Import menu links
+```
+
