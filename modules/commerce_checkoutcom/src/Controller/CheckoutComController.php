@@ -176,9 +176,10 @@ class CheckoutComController extends PaymentCheckoutController {
   public function NotificationStatus(Request $request, RouteMatchInterface $route_match)
   {
     $arr = json_decode($request->getContent(), true);
+//    $arr = json_decode($request->getContent());
     \Drupal::logger('commerce_checkoutcom')->notice('content' . json_encode($arr));
-    \Drupal::logger('commerce_checkoutcom')->notice('data' . json_encode($arr['data']['id']));
-    \Drupal::logger('commerce_checkoutcom')->notice('data' . json_encode($arr['data']['metadata']['order_id']));
+//    \Drupal::logger('commerce_checkoutcom')->notice('data' . json_encode($arr['data']['id']));
+//    \Drupal::logger('commerce_checkoutcom')->notice('data' . json_encode($arr['data']['metadata']['order_id']));
 //    $existed_payment = \Drupal::entityTypeManager()
 //      ->getStorage('commerce_payment')
 //      ->loadMultiple();
@@ -189,9 +190,13 @@ class CheckoutComController extends PaymentCheckoutController {
 //      \Drupal::logger('commerce_checkoutcom')->notice(  'commerce_payment' . json_encode($existed_payment));
 
     $exits_order = \Drupal::entityTypeManager()
-      ->getStorage('commerce_order')
-      ->load('72');
-      \Drupal::logger('commerce_checkoutcom')->notice(  'exits_order' . json_encode($exits_order));
+      ->getStorage('commerce_payment')
+      ->loadByProperties(["order_id" =>$arr['data']['id'] ]);
+    foreach($exits_order as $key => $value){
+      dpm($value->toArray()['remote_id'][0]['value']);
+    }
+//    \Drupal::logger('commerce_checkoutcom')->notice(  'array' .$exits_order->toArray()['remote_id'][0]['value']);
+//    \Drupal::logger('commerce_checkoutcom')->notice(  'state' . json_encode($exits_order->toArray()['state']));
 
 //    $query = \Drupal::entityQuery('commerce_order')
 //      ->condition('order_id.value', 72);
