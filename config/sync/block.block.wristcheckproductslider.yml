@@ -26,7 +26,7 @@ third_party_settings:
 id: wristcheckproductslider
 theme: wristcheck_barrio
 region: highlighted
-weight: -14
+weight: 0
 provider: null
 plugin: 'md_slider_block:wristcheck_product_slider'
 settings:
@@ -37,6 +37,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/buy\r\n/discover\r\n/eshop\r\n/sell\r\n"
+    pages: /buy
     negate: false
     context_mapping: {  }
