@@ -7,19 +7,21 @@ use Drupal\Core\Controller\ControllerBase;
 /**
  * Class DiscoverController.
  */
-class DiscoverController extends ControllerBase {
+class DiscoverController extends ControllerBase
+{
 
   /**
    * Index.
    *
-   * @return string
+   * @return string[]
    *   Return Hello string.
    */
-  public function index() {
+  public function index()
+  {
+    $variables = [];
     return [
       '#theme' => 'wristcheck_discover',
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: index')
+      '#variables' => $variables
     ];
   }
 

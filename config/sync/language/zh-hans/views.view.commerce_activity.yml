@@ -13,12 +13,10 @@ display:
       fields:
         created:
           label: 日期
-          separator: ', '
         rendered_entity:
           label: 消息
         uid:
           label: 用户
-          separator: ', '
       arguments:
         source_entity_id:
           exception:

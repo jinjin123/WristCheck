@@ -48,6 +48,7 @@ module:
   dc_ajax_add_cart_views: 0
   devel: 0
   devel_generate: 0
+  devel_php: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0

@@ -65,11 +65,31 @@
         target.css("-webkit-transform", "rotate(45deg)");
       }
     })
+
+    var range = document.getElementById('wc-range');
+
+    noUiSlider.create(range, {
+      range: {
+        'min': 0,
+        'max': 1500000
+      },
+      // Handles start at ...
+      start: [0, 1500000],
+      tooltip: true,
+      connect: true,
+      pips: {
+        mode: 'positions',
+        values: [0, 20000, 500000, 200000, 1500000],
+        density: 4
+      }
+    });
+
   })
   // category page all brands
   // $('.wc-all-brands-header-list a').on('click', function(){
   //   console.log(this);
   //   $(this).parent().addClass('is-active').siblings().removeClass('is-active')
   // })
+
 
 })(jQuery, Drupal);
