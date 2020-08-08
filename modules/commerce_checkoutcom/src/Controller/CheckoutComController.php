@@ -162,17 +162,23 @@ class CheckoutComController extends PaymentCheckoutController {
       $data = $request->getContent();
       $data_object = json_decode($data);
       $order = Order::load($data_object->data->metadata->order_id);
-      $payment_gateway = $order->get('payment_gateway')->entity;
-      $secret_key = $payment_gateway->getPluginConfiguration()['secret_key'];
-      $hased_data = hash_hmac('sha256', $data, $secret_key);
-      if (hash_equals($hased_data, $header_cko)) {
-        return AccessResult::allowed();
+      // has other unknow msg send this route that will happen get null error bug
+      if(!empty($order)){
+        //      \Drupal::logger('commerce_checkoutcom')->notice('orderexits'. json_encode($order->toArray()));
+        $payment_gateway = $order->get('payment_gateway')->entity;
+        $secret_key = $payment_gateway->getPluginConfiguration()['secret_key'];
+        $hased_data = hash_hmac('sha256', $data, $secret_key);
+        if (hash_equals($hased_data, $header_cko)) {
+          return AccessResult::allowed();
+        }
       }
     }
-
     return AccessResult::forbidden();
   }
 
+  /**
+   *  hook&checkout order status
+   */
   public function NotificationStatus(Request $request, RouteMatchInterface $route_match)
   {
     $arr = json_decode($request->getContent(), true);
@@ -193,7 +199,8 @@ class CheckoutComController extends PaymentCheckoutController {
       ->getStorage('commerce_payment')
       ->loadByProperties(["order_id" =>$arr['data']['id'] ]);
     foreach($exits_order as $key => $value){
-      dpm($value->toArray()['remote_id'][0]['value']);
+//      dpm($value->toArray()['remote_id'][0]['value']);
+    \Drupal::logger('commerce_checkoutcom')->notice(  'array' . $value->toArray()['remote_id'][0]['value']);
     }
 //    \Drupal::logger('commerce_checkoutcom')->notice(  'array' .$exits_order->toArray()['remote_id'][0]['value']);
 //    \Drupal::logger('commerce_checkoutcom')->notice(  'state' . json_encode($exits_order->toArray()['state']));
