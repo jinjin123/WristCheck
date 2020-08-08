@@ -190,7 +190,7 @@ class CheckoutComController extends PaymentCheckoutController {
         case "payment_refunded":
           $database = \Drupal::database();
           $database->update('commerce_payment')
-            ->fields(["refunded_amount__number"=> $arr->data->amount,"state"=>'refunded'])
+            ->fields(["refunded_amount__number"=> $arr->data->amount / 100,"state"=>'refunded'])
             ->condition("order_id",$arr->data->metadata->order_id )
             ->execute();
           break;
