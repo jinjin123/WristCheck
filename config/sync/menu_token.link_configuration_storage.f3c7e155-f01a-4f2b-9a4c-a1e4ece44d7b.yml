@@ -1,8 +1,0 @@
-uuid: 0723aedf-2187-499d-a89a-213898eb5307
-langcode: en
-status: true
-dependencies: {  }
-id: f3c7e155-f01a-4f2b-9a4c-a1e4ece44d7b
-label: 'Menu token link configuration'
-linkid: 'internal:/user/[current-user:uid]/info'
-configurationSerialized: 'a:15:{s:18:"menu_token_enabled";i:1;s:36:"remove_if_replacement_is_not_present";i:0;s:4:"node";a:2:{i:0;s:4:"none";i:1;i:0;}s:4:"user";a:2:{i:0;s:7:"context";i:1;i:0;}s:5:"asset";a:2:{i:0;s:4:"none";i:1;i:0;}s:13:"block_content";a:2:{i:0;s:4:"none";i:1;i:0;}s:7:"comment";a:2:{i:0;s:4:"none";i:1;i:0;}s:15:"contact_message";a:2:{i:0;s:4:"none";i:1;i:0;}s:4:"file";a:2:{i:0;s:4:"none";i:1;i:0;}s:8:"flagging";a:2:{i:0;s:4:"none";i:1;i:0;}s:5:"media";a:2:{i:0;s:4:"none";i:1;i:0;}s:8:"shortcut";a:2:{i:0;s:4:"none";i:1;i:0;}s:13:"taxonomy_term";a:2:{i:0;s:4:"none";i:1;i:0;}s:17:"menu_link_content";a:2:{i:0;s:4:"none";i:1;i:0;}s:9:"paragraph";a:2:{i:0;s:4:"none";i:1;i:0;}}'
