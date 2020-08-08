@@ -3,9 +3,11 @@
 namespace Drupal\commerce_checkoutcom\Controller;
 
 use Drupal\commerce_payment\Controller\PaymentCheckoutController;
+use Drupal\commerce_payment\Entity\PaymentInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\commerce_checkoutcom\Plugin\Commerce\PaymentGateway\CheckoutComInterface;
 use Drupal\Core\Access\AccessException;
+use Drupal\facets\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Checkout\CheckoutApi;
@@ -179,67 +181,25 @@ class CheckoutComController extends PaymentCheckoutController {
   /**
    *  hook&checkout order status
    */
-  public function NotificationStatus(Request $request, RouteMatchInterface $route_match)
+  public function NotificationStatus(Request $request, RouteMatchInterface $route_match )
   {
-    $arr = json_decode($request->getContent(), true);
-//    $arr = json_decode($request->getContent());
+    $arr = json_decode($request->getContent());
     \Drupal::logger('commerce_checkoutcom')->notice('content' . json_encode($arr));
-//    \Drupal::logger('commerce_checkoutcom')->notice('data' . json_encode($arr['data']['id']));
-//    \Drupal::logger('commerce_checkoutcom')->notice('data' . json_encode($arr['data']['metadata']['order_id']));
-//    $existed_payment = \Drupal::entityTypeManager()
-//      ->getStorage('commerce_payment')
-//      ->loadMultiple();
-////      ->loadByRemoteId($arr['data']['id']);
-//    foreach($existed_payment as $payment_id) {
-//      \Drupal\commerce_order\Entity\Order::load($order_id);
-//    }
-//      \Drupal::logger('commerce_checkoutcom')->notice(  'commerce_payment' . json_encode($existed_payment));
-
-    $exits_order = \Drupal::entityTypeManager()
-      ->getStorage('commerce_payment')
-      ->loadByProperties(["order_id" =>$arr['data']['id'] ]);
-    foreach($exits_order as $key => $value){
-//      dpm($value->toArray()['remote_id'][0]['value']);
-    \Drupal::logger('commerce_checkoutcom')->notice(  'array' . $value->toArray()['remote_id'][0]['value']);
+    try {
+      switch ($arr->type) {
+        case "payment_refunded":
+          $database = \Drupal::database();
+          $database->update('commerce_payment')
+            ->fields(["refunded_amount__number"=> $arr->data->amount,"state"=>'refunded'])
+            ->condition("order_id",$arr->data->metadata->order_id )
+            ->execute();
+          break;
+        default:
+          break;
+      }
+    }catch (\Exception $e){
+      ErrorHelper::handleException($e);
     }
-//    \Drupal::logger('commerce_checkoutcom')->notice(  'array' .$exits_order->toArray()['remote_id'][0]['value']);
-//    \Drupal::logger('commerce_checkoutcom')->notice(  'state' . json_encode($exits_order->toArray()['state']));
-
-//    $query = \Drupal::entityQuery('commerce_order')
-//      ->condition('order_id.value', 72);
-//    $order_ids = $query->execute();
-////    foreach($order_ids as $order_id) {
-//      \Drupal::logger('commerce_checkoutcom')->notice('orderid' . json_encode(json_decode(\Drupal\commerce_order\Entity\Order::load($order_ids)),true));
-////    }
-//      ->load($arr['data']['metadata']['order_id']);
-//    foreach($exits_order as $order_id) {
-//      \Drupal\commerce_order\Entity\Order::load($order_id);
-//      \Drupal::logger('commerce_checkoutcom')->notice(  'exits_order' . json_encode((array)\Drupal\commerce_order\Entity\Order::load($order_id)));
-//      \Drupal\commerce_order\Entity\Order::load($order_id);
-//    }
-//    \Drupal::logger('commerce_checkoutcom')->notice(  'exits_order' . json_encode($exits_order));
-//    $data = json_decode( json_encode($request->getContent()),true);
-//    if (isset($arr['id'])) {
-//      \Drupal::logger('commerce_checkoutcom')->notice('mesage' . $arr['id']);
-//      switch ($arr['type']) {
-//        case  "payment_approved":
-//
-//          break;
-//      }
-//    } else {
-//      \Drupal::logger('commerce_checkoutcom')->notice('null' . $arr);
-//    }
-//    $existed_payment = \Drupal::entityTypeManager()
-//      ->getStorage('commerce_payment')
-//      ->loadByRemoteId($data->data->id);
-//    if ($existed_payment->getState() != 'completed') {
-//      $existed_payment->setState('completed');
-//      $price = new Price(strval($data->data->amount / 100), $data->data->currency);
-//      $existed_payment->setAmount($price);
-//      $existed_payment->setState('completed');
-//      $existed_payment->save();
-//    }
-
     return new Response();
   }
 
