@@ -26,10 +26,8 @@ display:
           action_title: 对所选项目
         name:
           label: 名称
-          separator: ', '
         type:
           label: 类型
-          separator: ', '
         operations:
           label: 操作
       filters:

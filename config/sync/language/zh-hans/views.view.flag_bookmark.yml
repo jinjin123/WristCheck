@@ -30,7 +30,5 @@ display:
           label: 标题
         name:
           label: 作者
-        created:
-          separator: ', '
   page_1:
     display_title: 页面

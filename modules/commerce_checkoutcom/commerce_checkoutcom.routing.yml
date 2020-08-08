@@ -29,3 +29,11 @@ commerce_checkoutcom.webhook.capture:
   methods: [POST]
   requirements:
     _custom_access: '\Drupal\commerce_checkoutcom\Controller\CheckoutComController::webhookAuthentication'
+
+commerce_checkoutcom.webhook.notice:
+  path: '/checkoutcom/webhook/notice'
+  defaults:
+    _controller: '\Drupal\commerce_checkoutcom\Controller\CheckoutComController::NotificationStatus'
+  methods: [POST]
+  requirements:
+    _custom_access: '\Drupal\commerce_checkoutcom\Controller\CheckoutComController::webhookAuthentication'
