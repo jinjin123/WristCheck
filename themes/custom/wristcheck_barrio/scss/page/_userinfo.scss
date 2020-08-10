@@ -1,0 +1,103 @@
+.wc-userinfo-card {
+  padding: 30px;
+  border: 2px solid $bg_gray0;
+  .wc-userinfo-padding{
+    padding: 30px 70px;
+  }
+
+  .title, h1 {
+    font-size: 30px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 1);
+  }
+
+  .sub_title, h2 {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 1);
+  }
+
+  .p {
+    font-size: 17px;
+    font-family: Myriad Pro;
+    font-weight: 400;
+    color: rgba(71, 71, 71, 1);
+  }
+
+  .pp {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(97, 97, 97, 1);
+  }
+
+  .wc-userinfo-photo {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 25px;
+
+    img {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .wc-userinfo-item {
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: rgba(97, 97, 97, 1);
+
+    label {
+      font-weight: 400;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .wc-userinfo-flag {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.wc-userinfo__body {
+  margin-top: 30px;
+}
+
+.actions {
+  .action-link {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(23, 107, 164, 1);
+    cursor: pointer;
+  }
+}
+
+.wc-userinfo__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
