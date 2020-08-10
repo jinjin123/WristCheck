@@ -1,9 +1,7 @@
-uuid: e97f7a6a-4158-4a48-a71c-f4594d29d18c
+uuid: b91ae001-d84b-4508-aff7-4893b0c23ca6
 langcode: en
 status: true
 dependencies:
-  config:
-    - node.type.wcshw
   module:
     - content_moderation
 _core:
@@ -61,7 +59,5 @@ type_settings:
       from:
         - draft
         - published
-  entity_types:
-    node:
-      - wcshw
+  entity_types: {  }
   default_moderation_state: draft

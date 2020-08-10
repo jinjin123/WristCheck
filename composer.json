@@ -27,6 +27,7 @@
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/core-vendor-hardening": "^8.8",
+        "drupal/devel_php": "^1.2",
         "drupal/entity": "^1.0",
         "drupal/flag": "^4.0@beta",
         "drupal/maintenance200": "^1.0",
