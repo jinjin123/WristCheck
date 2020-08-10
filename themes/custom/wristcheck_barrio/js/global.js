@@ -29,6 +29,18 @@
 
     }
   };
+  Drupal.behaviors.loadBgImg = {
+    attach: function(context, settings) {
+      console.log($('.lazyload[data-original]').length);
+      $('.lazyload[data-original]').each(function(){
+        var el = $(this);
+        var img = el.data('original');
+        el.css({
+          'background-image': 'url("'+img+'")'
+        })
+      })
+    }
+  };
 
   $(function () {
     //faq dropdown
