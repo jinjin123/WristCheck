@@ -1,16 +1,19 @@
 
-.contextual-region.block-wristcheck-search-product-block{
+.contextual-region.block-wristcheck-search-product-block {
   position: initial;
 }
+
 .wc-product-search {
-  border-bottom: 1px solid $bg_gray3;
-  .wc-product-search-modal{
+  background-color: #FFF;
+  height: 100px;
+
+  .wc-product-search-modal {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.53);
+    background: rgba(0, 0, 0, .53);
     z-index: 2;
     display: none;
   }
@@ -30,20 +33,24 @@
     width: 24px !important;
   }
 }
-.wc-product-search-menu{
+
+.wc-product-search-menu {
   height: 100px;
   position: relative;
   z-index: 3;
   background-color: #FFF;
-  &.fixed-top{
+  border-bottom: 1px solid $bg_gray3;
+
+  &.fixed-top {
     position: fixed;
   }
 
 }
+
 .wc-search-menu {
-  background-color: #FFF;
   position: relative;
   z-index: 3;
+
   .wc-search-menu__title {
     position: relative;
 

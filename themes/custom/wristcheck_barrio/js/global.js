@@ -116,6 +116,7 @@
   // product search bar event
   $('.wc-search-menu>ul>li').on('click', function () {
     var _self = $(this);
+    var _wTop = $(window).scrollTop();
     var _box = $('.wc-product-search');
     var _modal = $('.wc-product-search-modal');
     var _menu = _self.parents('.wc-product-search-menu');
@@ -125,13 +126,17 @@
     if (_self.hasClass('active')) {
       _self.removeClass('active');
       _modal.hide();
-      _menu.removeClass(('fixed-top'))
+
+      if (_wTop <= _box.offset().top) {
+        _menu.removeClass(('fixed-top')).css({
+          top: 0
+        })
+      }
     } else {
       $('html, body').animate({scrollTop: _box.offset().top}, 300, 'linear', function () {
-        _menu.addClass(('fixed-top'));
-        _menu.css({
+        _menu.addClass(('fixed-top')).css({
           top: _admin_toolbar + _admin_subToobar + 'px'
-        })
+        });
       });
       _modal.show();
       _self.addClass('active').siblings('.active').removeClass(('active'))
@@ -151,8 +156,8 @@
       _menu.addClass(('fixed-top')).css({
         top: _admin_toolbar + _admin_subToobar + 'px'
       });
-    } else if(_menu.hasClass('fixed-top')){
-      _menu.removeClass(('fixed-top'));
+    } else if (_menu.hasClass('fixed-top')) {
+      _menu.removeClass(('fixed-top')).css({top: 0});
     }
   })
 
