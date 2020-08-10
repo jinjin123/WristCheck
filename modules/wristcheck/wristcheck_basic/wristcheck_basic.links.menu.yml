@@ -1,0 +1,6 @@
+wristcheck_basic.wristcheck_sell_video_config_form:
+  title: 'Wristcheck sell video config'
+  route_name: wristcheck_basic.wristcheck_sell_video_config_form
+  description: 'A description for the menu entry'
+  parent: system.admin_config_system
+  weight: 99

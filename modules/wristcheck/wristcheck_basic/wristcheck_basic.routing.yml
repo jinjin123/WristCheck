@@ -127,3 +127,12 @@ wristcheck_basic.user_login_form:
     _title: 'PLEASE LOG IN'
   requirements:
     _access: 'TRUE'
+wristcheck_basic.wristcheck_sell_video_config_form:
+  path: '/admin/config/wristcheck_basic/wristchecksellvideoconfig'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\WristcheckSellVideoConfigForm'
+    _title: 'WristcheckSellVideoConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

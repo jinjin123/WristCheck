@@ -97,6 +97,20 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-
+    'wristcheck_free_advertising_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_sell_video_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_selling_process_single_image_block'=>[
+      'variables' => [
+        'variables' => []
+      ]
+    ]
   ];
 }
