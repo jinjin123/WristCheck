@@ -396,12 +396,6 @@ display:
           destination: false
           entity_type: node
           plugin_id: entity_operations
-        moderation_state_1:
-          id: moderation_state_1
-          table: node_field_revision
-          field: moderation_state
-          entity_type: node
-          plugin_id: moderation_state_field
         name:
           id: name
           table: users_field_data
@@ -699,6 +693,7 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: standard
+      exposed_block: false
     cache_metadata:
       max-age: -1
       contexts:
