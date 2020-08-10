@@ -2,6 +2,8 @@
 
 namespace Drupal\wristcheck_basic\Form;
 
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\RedirectCommand;
@@ -69,7 +71,24 @@ class UserLoginForm extends FormBase
    */
   public function buildForm(array $form, FormStateInterface $form_state)
   {
-    global $base_url;
+    // get user login form.
+    $form = \Drupal::formBuilder()->getForm('Drupal\user\Form\UserLoginForm');
+
+    // add register class.
+    $register = Link::fromTextAndUrl($this->t('No user account yet?'), Url::fromRoute('user.register'))->toRenderable();
+    $register['#attributes'] = ['class' => 'register'];
+
+    // add forget class.
+    $forget = Link::fromTextAndUrl($this->t('No user account yet?'), Url::fromRoute('user.pass'))->toRenderable();
+    $forget['#attributes'] = ['class' => 'forget'];
+
+    $form['links'] = [
+      '#type' => 'markup',
+      '#markup' => '<div class="links">'. render($register) . render($forget) .'</div>',
+      '#suffix'=>'<div class="form-footer text-center"><p class="form-footer-title">' . $this->t('Do you not currently have a user account?') . '</p><div><a class="wc-btn-dark"><div class="wc-btn-cont"><span class="fa fa-arrow-right"></span> | <span>' . $this->t('IN THE CONTINUE') . '</span></div></a></div></div>',
+      '#weight' => 1000,
+    ];
+    return $form;
     $config = $this->config('system.site');
     $form['message'] = [
       '#type' => 'markup',
