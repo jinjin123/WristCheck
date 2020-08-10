@@ -6,6 +6,10 @@
 .wc-product-search {
   background-color: #FFF;
   height: 100px;
+  .noUi-handle:before, .noUi-handle:after{
+    width: 0;
+    height: 0;
+  }
 
   .wc-product-search-modal {
     position: absolute;
@@ -28,7 +32,7 @@
     border-radius: 50%;
     cursor: pointer;
     height: 24px !important;
-    margin: -3px 0 0 -12px;
+    margin: 1px 0 0 -12px;
     outline: none;
     width: 24px !important;
   }
@@ -57,11 +61,11 @@
     &:after {
       position: absolute;
       top: 7px;
-      right: -15px;
+      right: -18px;
       content: '';
       background: url("/themes/custom/wristcheck_barrio/images/icons/arrow-right.png") no-repeat center;
       background-size: contain;
-      width: 7px;
+      width: 13px;
       height: 13px;
       transform: rotate(90deg);
       transform-origin: center center;
@@ -95,6 +99,9 @@
           opacity: 1;
           transform: scaleY(1);
           border-top-color: $bg_gray3;
+        }
+        .wc-search-menu__title:after{
+          background-image: url("/themes/custom/wristcheck_barrio/images/icons/close.png");
         }
       }
     }

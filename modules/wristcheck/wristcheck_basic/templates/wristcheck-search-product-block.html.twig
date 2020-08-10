@@ -15,7 +15,9 @@
         <ul class="d-flex flex-row">
           {% for title in titles %}
             <li class="flex-grow-1">
-              <a href="javascript:;" class="wc-search-menu__title">{{ title }}</a>
+              <a href="javascript:;" class="wc-search-menu__title">
+                {{ title }}
+              </a>
               <div class="container wc-search-dropdown-panel">
                 <div class="wc-search-dropdown-panel__body">
                   {% if title == 'BRAND' %}
