@@ -71,10 +71,10 @@ wristcheck_basic.faqsellstep_controller_index:
     _permission: 'access content'
 
 wristcheck_basic.faqauthsystemstep_controller_index:
-  path: '/faq_sell_step'
+  path: '/faq_authsystem_step'
   defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\FaqSellStepController::index'
-    _title: 'Faq_selling_step'
+    _controller: '\Drupal\wristcheck_basic\Controller\FaqAuthSystemStepController::index'
+    _title: 'Faq_authsystem_step'
   requirements:
     _permission: 'access content'
 
