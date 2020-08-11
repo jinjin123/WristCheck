@@ -27,3 +27,17 @@ product-styling:
     - core/jquery
     - core/drupal
 
+comingsoon-styling:
+  version: VERSION
+  js:
+    js/plugins/jquery.min.js: {}
+    js/plugins/html5shiv.min.js: {}
+    js/plugins/respond.min.js: {}
+    libs/sweetalert/sweetalert.min.js: {}
+    js/comingsoon.js: {}
+  css:
+    component:
+      libs/bootstrap3/bootstrap.min.css: {}
+      css/comingsoon.css: {}
+  dependencies:
+
