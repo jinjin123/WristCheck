@@ -62,6 +62,22 @@ wristcheck_basic.faq_controller_index:
   requirements:
     _permission: 'access content'
 
+wristcheck_basic.faqsellstep_controller_index:
+  path: '/faq_sell_step'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\FaqSellStepController::index'
+    _title: 'Faq_selling_step'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.faqauthsystemstep_controller_index:
+  path: '/faq_sell_step'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\FaqSellStepController::index'
+    _title: 'Faq_selling_step'
+  requirements:
+    _permission: 'access content'
+
 wristcheck_basic.category_controller_index:
   path: '/category'
   defaults:

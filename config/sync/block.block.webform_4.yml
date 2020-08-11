@@ -28,7 +28,7 @@ third_party_settings:
 id: webform_4
 theme: wristcheck_barrio
 region: section
-weight: -14
+weight: -12
 provider: null
 plugin: webform_block
 settings:

@@ -9,7 +9,7 @@ _core:
 id: wristcheck_barrio_local_actions
 theme: wristcheck_barrio
 region: content
-weight: -7
+weight: -9
 provider: null
 plugin: local_actions_block
 settings:
