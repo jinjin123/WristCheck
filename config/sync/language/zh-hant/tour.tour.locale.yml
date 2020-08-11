@@ -1,0 +1,19 @@
+label: Translation
+tips:
+  locale-overview:
+    label: 'User interface translation'
+  locale-language:
+    label: 'Translation language'
+    body: 'Choose the language you want to translate.'
+  locale-search:
+    label: Search
+  locale-filter:
+    label: 'Filter the search'
+  locale-submit:
+    label: 'Apply your search criteria'
+  locale-translate:
+    label: Translate
+  locale-validate:
+    label: 'Validate the translation'
+  locale-continue:
+    label: 'Continuing on'
