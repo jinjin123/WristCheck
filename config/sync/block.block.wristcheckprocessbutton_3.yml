@@ -28,7 +28,7 @@ third_party_settings:
 id: wristcheckprocessbutton_3
 theme: wristcheck_barrio
 region: content
-weight: -12
+weight: -13
 provider: null
 plugin: 'block_content:9022c771-9077-458e-8d5f-92d7e29ed4ee'
 settings:

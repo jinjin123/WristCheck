@@ -6,7 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
+use Drupal\Core\Render\Markup;
 /**
  * Implements hook_help().
  */
@@ -24,6 +24,17 @@ function wristcheck_basic_help($route_name, RouteMatchInterface $route_match)
   }
 }
 
+
+//function wristcheck_basic_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+//  if ($block->getBaseId() === 'wristcheck_faq_checkout_block') {
+//    $build['#pre_render'][] = 'wristcheck_basic_block_poweredby_prerender';
+//  }
+//}
+//
+//function wristcheck_basic_block_poweredby_prerender(array $build) {
+//  $build['content']['#markup'] = Markup::create('Your text');
+//  return $build;
+//}
 /**
  * Implements hook_theme().
  */
@@ -83,11 +94,18 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_faq_sellstep' => [],
+    'wristcheck_faq_authsystemstep' => [],
     'wristcheck_eshop' => [],
     'wristcheck_faq' => [],
     'wristcheck_sell' => [],
     'wristcheck_banner_block' => [
       'variables' => []
+    ],
+    'wristcheck_faq_checkout_block' => [
+      'variables' => [
+           'variables' => []
+      ]
     ],
     'wristcheck_download_app_block' => [
       'variables' => []

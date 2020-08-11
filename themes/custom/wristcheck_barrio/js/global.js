@@ -31,14 +31,18 @@
   };
 
   $(function () {
+    //faq index
+   $(".view-content").removeClass("row");
+   $(".card-body").css("display","none");
     //faq dropdown
-    $(".path-wristcheck-faq .view-content .views-row .views-field-title .field-content i").click(function () {
+    $(".path-faq .view-wristcheck-faq .views-field-body .field-content .card .card-header  h2 div span i").click(function () {
       var target = $(this);
-      if (target.parent().parent().parent().parent().parent().children()[2].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[2].style.display = "none"
+      // console.log(target.parent().parent().parent().parent().parent().parent().children().children().children()[1])
+      if (target.parent().parent().parent().parent().parent().parent().children().children().children()[1].style.display == "block") {
+        target.parent().parent().parent().parent().parent().parent().children().children().children()[1].style.display = "none"
         target.css("-webkit-transform", "rotate(-45deg)");
       } else {
-        target.parent().parent().parent().parent().parent().children()[2].style.display = "block"
+        target.parent().parent().parent().parent().parent().parent().children().children().children()[1].style.display = "block"
         target.css("-webkit-transform", "rotate(45deg)");
       }
     })
