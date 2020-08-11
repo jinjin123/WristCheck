@@ -31,6 +31,7 @@ comingsoon-styling:
   version: VERSION
   js:
     js/plugins/jquery.min.js: {}
+    js/plugins/bootstrap.min.js: {}
     js/plugins/html5shiv.min.js: {}
     js/plugins/respond.min.js: {}
     libs/sweetalert/sweetalert.min.js: {}
@@ -39,5 +40,8 @@ comingsoon-styling:
     component:
       libs/bootstrap3/bootstrap.min.css: {}
       css/comingsoon.css: {}
+      css/style.css: {}
   dependencies:
+    - core/jquery
+    - core/drupal
 
