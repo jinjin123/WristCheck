@@ -54,8 +54,11 @@
   Drupal.$wc = {};
 
   $(function () {
+    //todo: dynamic webform price request
     //faq index
-   $(".view-content").removeClass("row");
+    $(".view-content").removeClass("row");
+    //faq auth system
+    $(".path-faq-authsystemstep .view-content")[0].style.display="none");
     //faq dropdown
     $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
       var target = $(this);
