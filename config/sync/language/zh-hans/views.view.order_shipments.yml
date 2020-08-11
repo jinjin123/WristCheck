@@ -1,0 +1,31 @@
+display:
+  default:
+    display_title: 主
+    display_options:
+      exposed_form:
+        options:
+          submit_button: 应用
+          reset_button_label: 重置
+          exposed_sorts_label: 排序依据
+          sort_asc_label: 升序
+          sort_desc_label: 降序
+      fields:
+        title:
+          label: 标题
+          separator: ', '
+        amount__number:
+          label: 总额
+          separator: ', '
+        tracking_code:
+          separator: ', '
+        state:
+          label: 状态
+          separator: ', '
+        operations:
+          label: 操作链接
+      arguments:
+        order_id:
+          exception:
+            title: 全部
+  page_1:
+    display_title: 页面
