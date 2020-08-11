@@ -12,6 +12,7 @@ const paths = {
     src: './scss/style.scss',
     dest: './css',
     watch: './scss/**/*.scss',
+    comingsoon: './scss/comingsoon.scss',
     bootstrap: './libs/bootstrap/scss/**/*.scss'
   },
   js: {
@@ -25,7 +26,7 @@ const paths = {
 
 // Compile sass into CSS & auto-inject into browsers
 function styles() {
-  return gulp.src([paths.scss.bootstrap, paths.scss.src])
+  return gulp.src([paths.scss.bootstrap, paths.scss.src, paths.scss.comingsoon])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer({
