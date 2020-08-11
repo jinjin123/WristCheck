@@ -8,19 +8,22 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Class MaintenanceForm.
  */
-class MaintenanceForm extends FormBase {
+class MaintenanceForm extends FormBase
+{
 
   /**
    * {@inheritdoc}
    */
-  public function getFormId() {
+  public function getFormId()
+  {
     return 'maintenance_form';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state)
+  {
     $form['register_for_email_update'] = [
       '#type' => 'email',
       '#title' => $this->t('Email'),
@@ -38,11 +41,12 @@ class MaintenanceForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
+  public function validateForm(array &$form, FormStateInterface $form_state)
+  {
     foreach ($form_state->getValues() as $key => $value) {
       // @TODO: Validate fields.
 
-      
+
     }
     parent::validateForm($form, $form_state);
   }
@@ -50,7 +54,9 @@ class MaintenanceForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state)
+  {
+
     // Display result.
     foreach ($form_state->getValues() as $key => $value) {
       \Drupal::messenger()->addMessage($key . ': ' . ($key === 'text_format'?$value['value']:$value));
