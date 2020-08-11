@@ -87,6 +87,9 @@
   position: relative;
   display: block;
   overflow: hidden;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .portfolio .portfolio-img img {

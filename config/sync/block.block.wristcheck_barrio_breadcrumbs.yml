@@ -3,9 +3,25 @@ langcode: en
 status: false
 dependencies:
   module:
+    - block_attributes
+    - ntv_block_background
     - system
   theme:
     - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
 _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
 id: wristcheck_barrio_breadcrumbs
@@ -19,4 +35,9 @@ settings:
   label: Breadcrumbs
   provider: system
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/buy\r\n/sell\r\n/eshop\r\n/discover\r\n/faq"
+    negate: true
+    context_mapping: {  }

@@ -8,8 +8,6 @@
 @import "wc-components/menu";
 @import "wc-components/portfolio";
 @import "wc-components/allBrands";
-@import "wc-components/productSearch";
-@import "wc-components/dailogLogin";
 @import 'page/magazinehome';
 @import 'page/magazinesingle';
 @import 'page/magazinescreen';
@@ -19,6 +17,9 @@
 @import 'page/faqsellingstep';
 @import "page/product";
 @import "page/cart";
+@import "page/login";
+@import "page/userinfo";
+@import "page/userinfoSidebar";
 
 .wc-btn-white {
   border: 1px solid $color-dark3;
