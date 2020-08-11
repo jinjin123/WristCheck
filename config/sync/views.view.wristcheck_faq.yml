@@ -46,7 +46,7 @@ display:
       exposed_form:
         type: bef
         options:
-          submit_button: Apply
+          submit_button: STEPS
           reset_button: true
           reset_button_label: SYSTEMS
           exposed_sorts_label: 'Sort by'
@@ -66,7 +66,7 @@ display:
               secondary_label: 'Advanced options'
               secondary_open: false
             filter:
-              nid:
+              title:
                 plugin_id: default
                 advanced:
                   collapsible: false
@@ -74,10 +74,13 @@ display:
       pager:
         type: mini
         options:
-          items_per_page: 10
+          items_per_page: 5
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -86,9 +89,6 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       style:
         type: default
         options:
@@ -319,6 +319,49 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Title
+            description: ''
+            use_operator: false
+            operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
       sorts:
         created:
           id: created
@@ -342,11 +385,13 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
@@ -579,21 +624,26 @@ display:
             max: ''
             value: '150'
           group: 1
-          exposed: true
+          exposed: false
           expose:
+            operator_id: nid_op
+            label: ID
+            description: ''
             use_operator: false
             operator: nid_op
             operator_limit_selection: false
             operator_list: {  }
             identifier: nid
-            label: ID
-            description: null
+            required: false
             remember: false
             multiple: false
-            required: false
-            min_placeholder: null
-            max_placeholder: null
-            placeholder: null
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -616,11 +666,11 @@ display:
       exposed_form:
         type: bef
         options:
-          submit_button: Apply
+          submit_button: STEPS
           reset_button: true
           reset_button_label: SYSTEMS
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
           text_input_required: 'Select any filter and click on Apply to see results'
@@ -636,7 +686,7 @@ display:
               secondary_label: 'Advanced options'
               secondary_open: false
             filter:
-              nid:
+              title:
                 plugin_id: default
                 advanced:
                   collapsible: false
@@ -646,7 +696,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
