@@ -27,8 +27,11 @@ display:
           action_title: 对所选项目
         title:
           label: 发行
+        simplenews_issue:
+          separator: ', '
         status:
           label: 已发布
+          separator: ', '
         created:
           label: 已更新
         operations:

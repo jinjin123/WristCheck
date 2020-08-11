@@ -1,26 +1,117 @@
 <main role="main">
   <a id="main-content" tabindex="-1"></a>
   <div class="container">
-    <div class="row">
-      <h1>PERSONAL INFORMATION</h1>
-      {{ drupal_view('wristcheck_user_profile','personal_information') }}
+    <div class="row mb-lg-5 mb-5">
+      <div class="col-md-12">
+        <div class="wc-userinfo-card">
+          <div class="wc-userinfo-padding">
+            <div class="wc-userinfo__header">
+              <h1>PERSONAL INFORMATION</h1>
+              <div class="actions">
+                <a class="action-link">EDIT</a>
+              </div>
+            </div>
+            <div class="wc-userinfo__body">
+              <div class="row">
+                <div class="col-md-4 d-flex flex-row align-items-center">
+                  <div class="d-flex flex-row align-items-center">
+                    <div class="wc-userinfo-photo">
+                      <img src="/themes/custom/wristcheck_barrio/images/photo.png" alt="">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <h2 class="mb-1">Markflyy@163. com</h2>
+                      <a href="/cart" class="mt-1"><img src="/themes/custom/wristcheck_barrio/images/icons/icon-cart.png" alt=""></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="wc-userinfo-item">
+                    <label>name:</label>
+                    <span>KAHFAFHFL</span>
+                  </div>
+                  <div class="wc-userinfo-item">
+                    <label>surnames:</label>
+                    <span>ASDFASDF</span>
+                  </div>
+                  <div class="wc-userinfo-item">
+                    <label>gender:</label>
+                    <span>male</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="wc-userinfo-item">
+                    <label>Date of birth:</label>
+                    <span>2020/02/20</span>
+                  </div>
+                  <div class="wc-userinfo-item">
+                    <label>The email address:</label>
+                    <span>markflyy@163.com</span>
+                  </div>
+                  <div class="wc-userinfo-item">
+                    <label>phone:</label>
+                    <span>86+10086 <span class="wc-userinfo-flag"><img src="/themes/custom/wristcheck_barrio/images/icons/usa.png" alt=""></span></span>
+                  </div>
+                </div>
+              </div>
+{#              {{ drupal_view('wristcheck_user_profile','personal_information') }}#}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h1>PORTFOLIO</h1>
-        {{ drupal_view('wristcheck_portfolio') }}
+        <div class="wc-userinfo__header">
+          <h2>PORTFOLIO</h2>
+          <div class="actions">
+            <a class="action-link">details</a>
+          </div>
+        </div>
+        <div class="wc-userinfo-card mb-lg-5">
+          <div class="wc-userinfo__body">
+            <p class="ppp">How many watches do you have?</p>
+            <p class="p">The purchase was made on May 28, 2020, with the last notice on May 28, 2020</p>
+
+            {{ drupal_view('wristcheck_portfolio') }}
+          </div>
+
+        </div>
+        <div class="wc-userinfo__header">
+          <h2>TRANSACTIONS</h2>
+          <div class="actions">
+            <a class="action-link">details</a>
+          </div>
+        </div>
+        <div class="wc-userinfo-card mb-lg-5">
+          <div class="wc-userinfo__body">
+            <p class="ppp">Easily bid on your watch by wristwatch check</p>
+          </div>
+        </div>
       </div>
       <div class="col-md-6">
-        <h1>PAYMENT</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>TRANSACTIONS</h1>
-      </div>
-      <div class="col-md-6">
-        <h1>SETTINGS</h1>
-        {{ drupal_view('wristcheck_user_profile','settings') }}
+        <div class="wc-userinfo__header">
+          <h2>PAYMENT</h2>
+          <div class="actions">
+            <a class="action-link">details</a>
+          </div>
+        </div>
+        <div class="wc-userinfo-card mb-lg-5">
+          <div class="wc-userinfo__body">
+            <p class="ppp">I checked values at WRISTCHECK</p>
+          </div>
+        </div>
+        <div class="wc-userinfo__header">
+          <h2>SETTINGS</h2>
+          <div class="actions">
+            <a class="action-link">details</a>
+          </div>
+        </div>
+        <div class="wc-userinfo-card mb-lg-5">
+          <div class="wc-userinfo__body">
+            <p class="ppp">Newsletter</p>
+            {{ drupal_view('wristcheck_user_profile','settings') }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
