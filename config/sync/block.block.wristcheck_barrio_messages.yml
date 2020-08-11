@@ -11,7 +11,7 @@ _core:
 id: wristcheck_barrio_messages
 theme: wristcheck_barrio
 region: highlighted
-weight: -15
+weight: 0
 provider: null
 plugin: system_messages_block
 settings:

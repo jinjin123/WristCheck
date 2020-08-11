@@ -1,4 +1,4 @@
-uuid: cba881ae-ea09-4f81-aa11-40346ac32cd8
+uuid: 0fb52e2a-6086-4979-b855-46583df4fa6d
 langcode: en
 status: true
 dependencies:
@@ -41,6 +41,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/user/*/settings\r\n/user/*/transactions/sell\r\n/user/*/transactions/buy\r\n/user/*/portfolio\r\n/user/*/payment"
+    pages: "/user/*/settings\r\n/user/*/payment\r\n/user/*/transactions/sell\r\n/user/*/transactions/buy\r\n/user/*/portfolio"
     negate: false
     context_mapping: {  }

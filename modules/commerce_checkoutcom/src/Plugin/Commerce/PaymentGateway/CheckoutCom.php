@@ -36,7 +36,8 @@ use Drupal\Core\Url;
  *   display_label = @Translation("Checkout.com"),
  * )
  */
-class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterface {
+class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterface
+{
 
   /**
    * The Checkout.com client.
@@ -48,7 +49,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, PaymentTypeManager $payment_type_manager, PaymentMethodTypeManager $payment_method_type_manager, TimeInterface $time) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, PaymentTypeManager $payment_type_manager, PaymentMethodTypeManager $payment_method_type_manager, TimeInterface $time)
+  {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_type_manager, $payment_type_manager, $payment_method_type_manager, $time);
 
     $mode = $this->configuration['mode'] == 'live' ? 1 : -1;
@@ -58,7 +60,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * Sets the API key after the plugin is unserialized.
    */
-  public function __wakeup() {
+  public function __wakeup()
+  {
     $mode = $this->configuration['mode'] == 'live' ? 1 : -1;
     $this->CheckoutApi = new CheckoutApi($this->configuration['secret_key'], $mode, $this->configuration['public_key']);
   }
@@ -66,18 +69,20 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  public function defaultConfiguration() {
+  public function defaultConfiguration()
+  {
     return [
-      'public_key' => '',
-      'secret_key' => '',
-      'webhook_capture_id' => '',
-    ] + parent::defaultConfiguration();
+        'public_key' => '',
+        'secret_key' => '',
+        'webhook_capture_id' => '',
+      ] + parent::defaultConfiguration();
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state)
+  {
     $form = parent::buildConfigurationForm($form, $form_state);
 
     $form['secret_key'] = [
@@ -102,8 +107,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  /*
-  public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
+  public function validateConfigurationForm(array &$form, FormStateInterface $form_state)
+  {
     parent::validateConfigurationForm($form, $form_state);
 
     if (!$form_state->getErrors()) {
@@ -113,34 +118,45 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
         // Validate the secret key and create payment capture webhook.
         $checkoutApi = new CheckoutApi($values['secret_key'], $expected_livemode, $values['public_key']);
         $webhook_response = $checkoutApi->webhooks()->load($this->configuration['webhook_capture_id']);
-        $form_state->setValue('webhook_capture_id', $webhook_response->getId());
-        if ($webhook_response instanceof Webhook) {
-          $form_state->setValue('webhook_capture_id', $webhook_response->getId());
+        foreach ($webhook_response as $key => $value) {
+          $t1 = (array)$value;
+          //var_export($t1[0]->{'id'});
+          if (isset($t1[0]->{'id'})) {
+            if ($t1[0]->{'id'} != null) {
+              $form_state->setValue('webhook_capture_id', $t1[0]->{'id'});
+            }
+          }
         }
-        else {
-          throw new CheckoutHttpException('Webhook not defined', '404');
-        }
-      }
-      catch (CheckoutHttpException $e) {
-        if ($e->getCode() == '404') {
-          $host = \Drupal::request()->getSchemeAndHttpHost();
-          $catpure_url = Url::fromRoute('commerce_checkoutcom.webhook.capture');
-          $webhook = new Webhook($host . $catpure_url->toString());
-          $webhook_response = $checkoutApi->webhooks()->register($webhook, ['payment_captured']);
-          $form_state->setValue('webhook_capture_id', $webhook_response->getId());
-        }
-        else {
-          $form_state->setError($form['secret_key'], $this->t('Invalid credintials.'));
-        }
+//        if ($webhook_response instanceof Webhook) {
+//          $form_state->setValue('webhook_capture_id', $webhook_response->getId());
+//        }
+//        else {
+//          throw new CheckoutHttpException('Webhook not defined', '404');
+//        }
+      } catch (CheckoutHttpException $e) {
+        /*
+                //block to redirect
+                if ($e->getCode() == '404') {
+                  $host = \Drupal::request()->getSchemeAndHttpHost();
+                  $catpure_url = Url::fromRoute('commerce_checkoutcom.webhook.capture');
+                  $webhook = new Webhook($host . $catpure_url->toString());
+                  $webhook_response = $checkoutApi->webhooks()->register($webhook, ['payment_captured']);
+                  $form_state->setValue('webhook_capture_id', $webhook_response->getId());
+                }
+                else {
+                  $form_state->setError($form['secret_key'], $this->t('Invalid credintials.'));
+                }
+        */
+        $form_state->setError($form['secret_key'], $this->t('Invalid credintials.'));
       }
     }
   }
-   */
 
   /**
    * {@inheritdoc}
    */
-  public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
+  public function submitConfigurationForm(array &$form, FormStateInterface $form_state)
+  {
     parent::submitConfigurationForm($form, $form_state);
     $values = $form_state->getValue($form['#parents']);
     $this->configuration['public_key'] = $values['public_key'];
@@ -151,7 +167,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  public function createPayment(PaymentInterface $payment, $capture = TRUE) {
+  public function createPayment(PaymentInterface $payment, $capture = TRUE)
+  {
     $this->assertPaymentState($payment, ['new']);
     $payment_method = $payment->getPaymentMethod();
     $order = $payment->getOrder();
@@ -160,8 +177,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
     if (substr($payment_method->getRemoteId(), 0, 3) == 'tok') {
       // Create a payment method instance with card details.
       $source = new TokenSource($payment_method->getRemoteId());
-    }
-    else {
+    } else {
       $source = new IdSource($payment_method->getRemoteId());
     }
     // Prepare the payment parameters.
@@ -185,8 +201,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       if ($remote_customer_id = $this->getRemoteCustomerId($customer)) {
         $checkout_payment->customer->id = $remote_customer_id;
       }
-    }
-    else {
+    } else {
       $checkout_payment->customer->email = $order->getEmail();
     }
 
@@ -194,11 +209,9 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
     try {
       $payment_response = $this->CheckoutApi->payments()->request($checkout_payment);
       ErrorHelper::handleErrors($payment_response, 'payment');
-    }
-    catch (NeedsRedirectException $e) {
+    } catch (NeedsRedirectException $e) {
       throw $e;
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       if (in_array('token_expired', json_decode($e->getBody())->error_codes)) {
         ErrorHelper::handleTokenExpiration($e, $payment_method);
       }
@@ -217,8 +230,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
     $payment->setRemoteState($payment_response->status);
     if ($payment_response->status == "Captured") {
       $payment_state = 'completed';
-    }
-    elseif ($payment_response->status == "Authorized") {
+    } elseif ($payment_response->status == "Authorized") {
       $payment_state = 'authorization';
     }
     $payment->setState($payment_state);
@@ -229,7 +241,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  public function refundPayment(PaymentInterface $payment, Price $amount = NULL) {
+  public function refundPayment(PaymentInterface $payment, Price $amount = NULL)
+  {
     $this->assertPaymentState($payment, ['completed', 'partially_refunded']);
     // If not specified, refund the entire amount.
     $amount = $amount ?: $payment->getAmount();
@@ -241,8 +254,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       $refund->amount = $amount->getNumber() * 100;
       $refund_response = $this->CheckoutApi->payments()->refund($refund);
       ErrorHelper::handleErrors($refund_response, 'refund');
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       ErrorHelper::handleException($e);
     }
 
@@ -251,8 +263,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
     $new_refunded_amount = $old_refunded_amount->add($amount);
     if ($new_refunded_amount->lessThan($payment->getAmount())) {
       $payment->setState('partially_refunded');
-    }
-    else {
+    } else {
       $payment->setState('refunded');
     }
 
@@ -263,7 +274,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  public function capturePayment(PaymentInterface $payment, Price $amount = NULL) {
+  public function capturePayment(PaymentInterface $payment, Price $amount = NULL)
+  {
     $this->assertPaymentState($payment, ['authorization']);
     // If not specified, capture the entire amount.
     $amount = $amount ?: $payment->getAmount();
@@ -276,8 +288,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       $capture->amount = $decimal_amount;
       $capture_response = $this->CheckoutApi->payments()->capture($capture);
       ErrorHelper::handleErrors($capture_response, 'capture');
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
+      var_dump($e);
       ErrorHelper::handleException($e);
     }
 
@@ -289,7 +301,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  public function voidPayment(PaymentInterface $payment) {
+  public function voidPayment(PaymentInterface $payment)
+  {
     $this->assertPaymentState($payment, ['authorization']);
     // Perform the void request here, throw an exception if it fails.
     try {
@@ -297,8 +310,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       $void = new Voids($remote_id);
       $void_response = $this->CheckoutApi->payments()->void($void);
       ErrorHelper::handleErrors($void_response, 'void');
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       ErrorHelper::handleException($e);
     }
 
@@ -309,7 +321,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  public function createPaymentMethod(PaymentMethodInterface $payment_method, array $payment_details) {
+  public function createPaymentMethod(PaymentMethodInterface $payment_method, array $payment_details)
+  {
     $required_keys = [
       'type', 'number', 'expiration', 'security_code',
     ];
@@ -325,8 +338,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
     try {
       $token_response = $this->CheckoutApi->tokens()->request($card);
       ErrorHelper::handleErrors($token_response, 'token');
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       ErrorHelper::handleException($e);
     }
 
@@ -347,15 +359,13 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       try {
         $verification_response = $this->CheckoutApi->payments()->request($checkout_payment);
         ErrorHelper::handleErrors($verification_response, 'payment');
-      }
-      catch (\Exception $e) {
+      } catch (\Exception $e) {
         ErrorHelper::handleException($e);
       }
 
       $payment_method->setRemoteId($verification_response->getSourceId());
       $expires = CreditCard::calculateExpirationTimestamp($verification_response->source['expiry_month'], $verification_response->source['expiry_year']);
-    }
-    else {
+    } else {
       $payment_method->setRemoteId($token_response->token);
       $expires = CreditCard::calculateExpirationTimestamp($token_response->expiry_month, $token_response->expiry_year);
     }
@@ -371,7 +381,8 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
   /**
    * {@inheritdoc}
    */
-  public function deletePaymentMethod(PaymentMethodInterface $payment_method) {
+  public function deletePaymentMethod(PaymentMethodInterface $payment_method)
+  {
     $payment_method->delete();
   }
 

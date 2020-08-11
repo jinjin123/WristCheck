@@ -1,0 +1,36 @@
+uuid: d3aeb546-96eb-4d9b-95bf-1c54964b5a5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ntv_block_background
+    - wristcheck_basic
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristchecksearchproductblock
+theme: wristcheck_barrio
+region: highlighted
+weight: 0
+provider: null
+plugin: wristcheck_search_product_block
+settings:
+  id: wristcheck_search_product_block
+  label: 'Wristcheck search product block'
+  provider: wristcheck_basic
+  label_display: '0'
+visibility: {  }
