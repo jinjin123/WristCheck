@@ -115,6 +115,7 @@ module:
   slick_views: 0
   state_machine: 0
   statistics: 0
+  structure_sync: 0
   system: 0
   tablefield: 0
   taxonomy: 0
