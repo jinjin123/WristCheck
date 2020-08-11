@@ -1,41 +1,43 @@
 .path-faq {
   .view-wristcheck-faq {
     .view-content {
-      div {
-        margin-bottom: 50px;
-        margin-top: 10px;
-        .views-field-body {
+      .views-row {
+        .views-field-title {
           .field-content {
-            .card {
-              .card-header {
-                h2 {
-                  display: flex;
-                  >div {
-                    span {
-                      color: black;
-                      font-size: 20px;
-                    }
-                    i {
-                      border: solid black;
-                      border-width: 0 2px 2px 0;
-                      display: inline-block;
-                      padding: 3px;
-                      transform: rotate(-45deg);
-                      -webkit-transform: rotate(-45deg);
-                      margin-top: 25px;
-                      //margin-left: 50%;
-                      float: right;
-                    }
-                  }
-                }
+            display: flex;
+            > div {
+              padding-bottom: 30px;
+                color: black;
+                font-size: 20px;
+              i {
+                border: solid black;
+                border-width: 0 2px 2px 0;
+                display: inline-block;
+                padding: 3px;
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                margin-bottom: 5px;
+                margin-left: 50%;
               }
             }
           }
+        }
+        .views-field-body {
+          display: none;
+          //.field-content {
+          //  p {
+          //    display: none;
+          //  }
+          //}
+        }
+        .views-field-field-faq-category {
+          //padding-top: 50px;
+          //padding-bottom: 50px;
+          font-size: 30px;
+          color: #333;
         }
       }
     }
   }
 }
-
-
 
