@@ -1,0 +1,13 @@
+diff --git a/modules/contrib/commerce/modules/price/commerce_price.module b/modules/contrib/commerce/modules/price/commerce_price.module
+index 79c62d1..33a4f9e 100644
+--- a/modules/contrib/commerce/modules/price/commerce_price.module
++++ b/modules/contrib/commerce/modules/price/commerce_price.module
+@@ -56,7 +56,7 @@ function commerce_price_form_views_ui_config_item_form_alter(&$form, FormStateIn
+     $field_manager = \Drupal::service('entity_field.manager');
+     $field_definitions = $field_manager->getFieldStorageDefinitions($entity_type_id);
+     $field_definition = $field_definitions[$field_name];
+-    if ($field_definition->getType() != 'commerce_price') {
++    if ($field_definition && $field_definition->getType() != 'commerce_price') {
+       return;
+     }
+     // Remove the formatter from configurable fields, and non-applicable ones.
