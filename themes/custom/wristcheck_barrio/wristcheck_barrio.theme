@@ -12,8 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * Replace Barrio setting options with subtheme ones.
  */
-function wristcheck_barrio_form_system_theme_settings_alter(&$form, FormStateInterface $form_state)
-{
+function wristcheck_barrio_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
   $form['components']['navbar']['bootstrap_barrio_navbar_top_background']['#options'] = array(
     'bg-primary' => t('Primary'),
     'bg-secondary' => t('Secondary'),
@@ -37,29 +36,26 @@ function wristcheck_barrio_form_system_theme_settings_alter(&$form, FormStateInt
  *
  * &$variables
  */
-function wristcheck_barrio_preprocess_maintenance_page(&$variables)
-{
+function wristcheck_barrio_preprocess_maintenance_page(&$variables) {
   $maintenance_form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\MaintenanceForm');
   $variables['maintenance_form'] = $maintenance_form;
 }
 
-function wristcheck_barrio_preprocess_breadcrumb(&$variables)
-{
+function wristcheck_barrio_preprocess_breadcrumb(&$variables) {
   global $head_title;
   if ($variables['breadcrumb'] && isset($head_title['title'])) {
-    $variables['breadcrumb'][] = array(
-      'text' => $head_title['title'],
-    );
+      $variables['breadcrumb'][] = array(
+          'text' => $head_title['title'],
+      );
   }
 }
 
-function wristcheck_barrio_preprocess_menu(array &$variables)
-{
+function wristcheck_barrio_preprocess_menu(array &$variables) {
   if ($variables['theme_hook_original'] == 'menu__main') {
-    $items = $variables['items'];
-    $variables['logo'] = theme_get_setting('logo.url', 'wristcheck');
-    foreach ($items as $key => $item) {
-      $variables['items'][$key]['logo'] = $variables['logo'];
-    }
+  $items = $variables['items'];
+  $variables['logo'] = theme_get_setting('logo.url','wristcheck');
+  foreach ($items as $key => $item) {
+          $variables['items'][$key]['logo'] = $variables['logo'];
+      }
   }
 }
