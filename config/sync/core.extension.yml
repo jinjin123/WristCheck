@@ -30,6 +30,7 @@ module:
   commerce_price: 0
   commerce_product: 0
   commerce_promotion: 0
+  commerce_shipping: 0
   commerce_store: 0
   commerce_tax: 0
   commerce_wishlist: 0
@@ -48,6 +49,7 @@ module:
   dc_ajax_add_cart_views: 0
   devel: 0
   devel_generate: 0
+  devel_php: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0
@@ -93,6 +95,7 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  physical: 0
   profile: 0
   quickedit: 0
   radioactivity: 0
@@ -112,7 +115,6 @@ module:
   slick_views: 0
   state_machine: 0
   statistics: 0
-  structure_sync: 0
   system: 0
   tablefield: 0
   taxonomy: 0
