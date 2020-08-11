@@ -1,0 +1,152 @@
+
+.contextual-region.block-wristcheck-search-product-block {
+  position: initial;
+}
+
+.wc-product-search {
+  background-color: #FFF;
+  height: 100px;
+  .noUi-handle:before, .noUi-handle:after{
+    width: 0;
+    height: 0;
+  }
+
+  .wc-product-search-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .53);
+    z-index: 2;
+    display: none;
+  }
+
+  .noUi-connect {
+    background: $color-dark3
+  }
+
+  .noUi-horizontal .noUi-handle {
+    background-color: #fff;
+    border: 6px solid #04293a;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 24px !important;
+    margin: 1px 0 0 -12px;
+    outline: none;
+    width: 24px !important;
+  }
+}
+
+.wc-product-search-menu {
+  height: 100px;
+  position: relative;
+  z-index: 3;
+  background-color: #FFF;
+  border-bottom: 1px solid $bg_gray3;
+
+  &.fixed-top {
+    position: fixed;
+  }
+
+}
+
+.wc-search-menu {
+  position: relative;
+  z-index: 3;
+
+  .wc-search-menu__title {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      top: 7px;
+      right: -18px;
+      content: '';
+      background: url("/themes/custom/wristcheck_barrio/images/icons/arrow-right.png") no-repeat center;
+      background-size: contain;
+      width: 13px;
+      height: 13px;
+      transform: rotate(90deg);
+      transform-origin: center center;
+    }
+  }
+
+  a {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  > ul {
+    padding: 0;
+    margin: 0;
+
+    > li {
+      list-style: none;
+      height: 100px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      &.active {
+        .wc-search-dropdown-panel {
+          opacity: 1;
+          transform: scaleY(1);
+          border-top-color: $bg_gray3;
+        }
+        .wc-search-menu__title:after{
+          background-image: url("/themes/custom/wristcheck_barrio/images/icons/close.png");
+        }
+      }
+    }
+  }
+
+  .wc-search-dropdown-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+    transition: all .3s ease;
+    z-index: 1;
+    background-color: #FFF;
+    border-top: 1px solid transparent;
+  }
+}
+
+.wc-search-dropdown-panel__body {
+  padding: 60px;
+
+  .wc-search__item {
+    margin-bottom: 60px;
+  }
+}
+
+.wc-search__item {
+  select, input[type='number'] {
+    border: 0;
+    background-color: $bg_gray3;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      background-color: $bg_gray3;
+    }
+  }
+}
+
+.wc-search-form-line {
+  border-bottom: 1px solid $bg_gray3;
+}
+
+.wc-search__price {
+  padding-top: 60px;
+}
+
