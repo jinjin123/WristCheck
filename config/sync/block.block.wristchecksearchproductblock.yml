@@ -5,6 +5,7 @@ dependencies:
   module:
     - block_attributes
     - ntv_block_background
+    - system
     - wristcheck_basic
   theme:
     - wristcheck_barrio
@@ -33,4 +34,9 @@ settings:
   label: 'Wristcheck search product block'
   provider: wristcheck_basic
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /aaaa
+    negate: false
+    context_mapping: {  }
