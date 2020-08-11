@@ -123,6 +123,7 @@
     var _menu = _self.parents('.wc-product-search-menu');
     var _admin_toolbar = $('#toolbar-bar .toolbar-tab').height() || 0;
     var _admin_subToobar = $('#toolbar-item-administration-tray.toolbar-tray-horizontal').height() || 0;
+    var _top = _admin_toolbar + _admin_subToobar;
 
     if (_self.hasClass('active')) {
       _self.removeClass('active');
@@ -136,7 +137,7 @@
     } else {
       $('html, body').animate({scrollTop: _box.offset().top}, 300, 'linear', function () {
         _menu.addClass(('fixed-top')).css({
-          top: _admin_toolbar + _admin_subToobar + 'px'
+          top: _top + 'px'
         });
       });
       _modal.show();
@@ -152,10 +153,11 @@
     var _menu = $('.wc-product-search .wc-product-search-menu');
     var _admin_toolbar = $('#toolbar-bar .toolbar-tab').height() || 0;
     var _admin_subToobar = $('#toolbar-item-administration-tray.toolbar-tray-horizontal').height() || 0;
+    var _top = _admin_toolbar + _admin_subToobar;
 
     if (_wTop > _box.offset().top) {
       _menu.addClass(('fixed-top')).css({
-        top: _admin_toolbar + _admin_subToobar + 'px'
+        top: _top + 'px'
       });
     } else if (_menu.hasClass('fixed-top')) {
       _menu.removeClass(('fixed-top')).css({top: 0});

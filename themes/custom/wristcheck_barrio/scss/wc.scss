@@ -23,6 +23,10 @@
 @import "page/userinfo";
 @import "page/userinfoSidebar";
 
+.views-infinite-scroll-content-wrapper{
+  display: block;
+  width: 100%;
+}
 .wc-btn-white {
   border: 1px solid $color-dark3;
   color: $color-dark3;
