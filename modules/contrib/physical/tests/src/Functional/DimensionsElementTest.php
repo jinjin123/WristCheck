@@ -23,11 +23,6 @@ class DimensionsElementTest extends BrowserTestBase {
   ];
 
   /**
-   * {@inheritdoc}
-   */
-  protected $defaultTheme = 'stark';
-
-  /**
    * Tests the element with a single unit.
    */
   public function testSingleUnit() {

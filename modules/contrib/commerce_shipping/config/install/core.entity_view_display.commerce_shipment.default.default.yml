@@ -77,5 +77,5 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
-  original_amount: true
+  adjustments: true
   weight: true
