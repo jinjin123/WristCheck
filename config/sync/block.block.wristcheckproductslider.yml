@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - block_attributes
+    - md_slider
     - ntv_block_background
     - system
   theme:
@@ -36,6 +37,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /buy
+    pages: "/buy\r\n/discover\r\n/eshop\r\n/sell\r\n"
     negate: false
     context_mapping: {  }

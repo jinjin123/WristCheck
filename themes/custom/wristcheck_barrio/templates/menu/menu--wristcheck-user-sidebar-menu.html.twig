@@ -1,0 +1,168 @@
+{% import _self as menus %}
+{% if 'menu-circle' in menu_name or 'menu-cube' in menu_name or 'menu-hexagon' in menu_name %}
+  {{ menus.menu_links1(items, attributes, 0) }}
+  {% macro menu_links1(items, attributes, menu_level) %}
+    {% import _self as menus %}
+    {% if items %}
+      {% if menu_level == 0 %}
+        <ul  id="menu" class="nav navbar-nav one-page-menu">
+      {% else %}
+        <ul>
+      {% endif %}
+      {% for item in items %}
+        <li>
+          <a href="{{ item.url }} ">{{ item.title|raw }}</a>
+          {% if item.below %}
+            {{ menus.menu_links1(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endmacro %}
+{% elseif 'menuellipse' in menu_name or 'menu-line' in menu_name %}
+  {{ menus.menu_links2(items, attributes, 0) }}
+  {% macro menu_links2(items, attributes, menu_level) %}
+    {% import _self as menus %}
+    {% if items %}
+      {% if menu_level == 0 %}
+        <ul id="menu" class="side-menu ms-simple">
+      {% else %}
+        <ul>
+      {% endif %}
+      {% for item in items %}
+        <li>
+          <a href="{{ item.url }} ">{{ item.title|raw }}</a>
+          {% if item.below %}
+            {{ menus.menu_links2(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endmacro %}
+{% elseif 'menu-parallelogram' in menu_name or 'menu-rectangle' in menu_name %}
+  {{ menus.menu_links3(items, attributes, 0) }}
+  {% macro menu_links3(items, attributes, menu_level) %}
+    {% import _self as menus %}
+    {% if items %}
+      {% if menu_level == 0 %}
+        <ul id="menu" class="nav navbar-nav inner">
+      {% else %}
+        <ul>
+      {% endif %}
+      {% for item in items %}
+        <li>
+          <a href="{{ item.url }} ">{{ item.title|raw }}</a>
+          {% if item.below %}
+            {{ menus.menu_links3(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endmacro %}
+{% elseif 'menu-pentagon' in menu_name %}
+  {{ menus.menu_links4(items, attributes, 0) }}
+  {% macro menu_links4(items, attributes, menu_level) %}
+    {% import _self as menus %}
+    {% if items %}
+      {% if menu_level == 0 %}
+        <ul id="menu" class="nav navbar-nav inner nav-center">
+      {% else %}
+        <ul>
+      {% endif %}
+      {% for item in items %}
+        <li>
+          <a href="{{ item.url }} ">{{ item.title|raw }}</a>
+          {% if item.below %}
+            {{ menus.menu_links4(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endmacro %}
+{% elseif 'msquare' in menu_name %}
+  {{ menus.menu_links5(items, attributes, 0) }}
+  {% macro menu_links5(items, attributes, menu_level) %}
+    {% import _self as menus %}
+    {% if items %}
+      {% if menu_level == 0 %}
+        <ul id="menu" class="nav navbar-nav inner ms-minimal">
+      {% else %}
+        <ul>
+      {% endif %}
+      {% for item in items %}
+        <li>
+          <a href="{{ item.url }} ">{{ item.title|raw }}</a>
+          {% if item.below %}
+            {{ menus.menu_links5(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endmacro %}
+{% elseif 'menu-triangle' in menu_name %}
+  {{ menus.menu_links6(items, attributes, 0) }}
+  {% macro menu_links6(items, attributes, menu_level) %}
+    {% import _self as menus %}
+    {% if items %}
+      {% if menu_level == 0 %}
+        <ul id="menu" class="nav navbar-nav inner ms-rounded nav-center">
+      {% else %}
+        <ul>
+      {% endif %}
+      {% for item in items %}
+        <li>
+          <a href="{{ item.url }} ">{{ item.title|raw }}</a>
+          {% if item.below %}
+            {{ menus.menu_links6(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endmacro %}
+{% else %}
+  {{ menus.menu_links(items, attributes, 0) }}
+  {% macro menu_links(items, attributes, menu_level) %}
+    {% import _self as menus %}
+    {% if items %}
+      {% if menu_level == 0 %}
+        <ul class="wc-userinfo-sidebar">
+          {% for item in items %}
+            {% set classes = [
+              item.is_expanded ? 'menu-item--expanded',
+              item.is_collapsed ? 'menu-item--collapsed',
+              item.in_active_trail ? 'menu-item--active-trail',
+            ] %}
+            <li{{ item.attributes.addClass(classes) }}>
+              <a href="{{ item.url }} ">
+                {{ item.title }}
+                {% if item.below %}
+                  <span class="fa fa-angle-down"></span>
+                {% endif %}
+              </a>
+              {% if item.below %}
+                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <ul class="wc-userinfo-sub_sidebar">
+          {% for item in items %}
+            <li>
+              <a href="{{ item.url }} ">{{ item.title }}</a>
+              {% if item.below %}
+                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endif %}
+  {% endmacro %}
+{% endif %}

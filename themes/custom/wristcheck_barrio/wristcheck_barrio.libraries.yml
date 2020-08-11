@@ -4,13 +4,11 @@ global-styling:
     js/plugins/wow.min.js: { preprocess: 0, minified: true }
     js/plugins/popper.min.js: {}
     js/plugins/bootstrap.min.js: {}
-    libs/slick/slick.js: {}
     libs/noUiSlider-14.6.0/distribute/nouislider.js: {}
     js/global.js: {}
   css:
     component:
       css/style.css: {}
-      libs/slick/slick.css: {}
       libs/font-awesome-4.7.0/css/font-awesome.css: {}
       libs/noUiSlider-14.6.0/distribute/nouislider.css: {}
   dependencies:
@@ -25,6 +23,24 @@ product-styling:
   css:
     component:
       libs/slick/slick.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+comingsoon-styling:
+  version: VERSION
+  js:
+    js/plugins/jquery.min.js: {}
+    js/plugins/bootstrap.min.js: {}
+    js/plugins/html5shiv.min.js: {}
+    js/plugins/respond.min.js: {}
+    libs/sweetalert/sweetalert.min.js: {}
+    js/comingsoon.js: {}
+  css:
+    component:
+      libs/bootstrap3/bootstrap.min.css: {}
+      css/comingsoon.css: {}
+      css/style.css: {}
   dependencies:
     - core/jquery
     - core/drupal
