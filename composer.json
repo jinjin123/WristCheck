@@ -33,6 +33,7 @@
         "drupal/maintenance200": "^1.0",
         "drupal/menu_token": "^1.0@alpha",
         "drupal/paragraphs": "^1.12",
+        "drupal/restui": "^1.18",
         "drupal/slick_extras": "^1.0@RC",
         "drupal/slick_views": "^2.3",
         "drupal/structure_sync": "^1.16",

@@ -1,8 +1,0 @@
-tips:
-  search-api-server-form-name:
-    label: 'Server name'
-  search-api-server-form-description:
-    label: 'Server description'
-  search-api-server-form-backend:
-    label: 'Server backend'
-    body: 'Servers can be based on different technologies. These are called "backends". A server uses exactly one backend and cannot change it later. You can make the "Database" backend available by enabling the "Database Search" module. Another very common backend is <a href="https://www.drupal.org/project/search_api_solr">"Solr"</a>, which requires to be set up separately.'

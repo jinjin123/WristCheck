@@ -3,9 +3,11 @@
 namespace Drupal\commerce_checkoutcom\Controller;
 
 use Drupal\commerce_payment\Controller\PaymentCheckoutController;
+use Drupal\commerce_payment\Entity\PaymentInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\commerce_checkoutcom\Plugin\Commerce\PaymentGateway\CheckoutComInterface;
 use Drupal\Core\Access\AccessException;
+use Drupal\facets\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Checkout\CheckoutApi;
@@ -162,15 +164,43 @@ class CheckoutComController extends PaymentCheckoutController {
       $data = $request->getContent();
       $data_object = json_decode($data);
       $order = Order::load($data_object->data->metadata->order_id);
-      $payment_gateway = $order->get('payment_gateway')->entity;
-      $secret_key = $payment_gateway->getPluginConfiguration()['secret_key'];
-      $hased_data = hash_hmac('sha256', $data, $secret_key);
-      if (hash_equals($hased_data, $header_cko)) {
-        return AccessResult::allowed();
+      // has other unknow msg send this route that will happen get null error bug
+      if(!empty($order)){
+        //      \Drupal::logger('commerce_checkoutcom')->notice('orderexits'. json_encode($order->toArray()));
+        $payment_gateway = $order->get('payment_gateway')->entity;
+        $secret_key = $payment_gateway->getPluginConfiguration()['secret_key'];
+        $hased_data = hash_hmac('sha256', $data, $secret_key);
+        if (hash_equals($hased_data, $header_cko)) {
+          return AccessResult::allowed();
+        }
       }
     }
-
     return AccessResult::forbidden();
+  }
+
+  /**
+   *  hook&checkout order status
+   */
+  public function NotificationStatus(Request $request, RouteMatchInterface $route_match )
+  {
+    $arr = json_decode($request->getContent());
+    \Drupal::logger('commerce_checkoutcom')->notice('content' . json_encode($arr));
+    try {
+      switch ($arr->type) {
+        case "payment_refunded":
+          $database = \Drupal::database();
+          $database->update('commerce_payment')
+            ->fields(["refunded_amount__number"=> $arr->data->amount / 100,"state"=>'refunded'])
+            ->condition("order_id",$arr->data->metadata->order_id )
+            ->execute();
+          break;
+        default:
+          break;
+      }
+    }catch (\Exception $e){
+      ErrorHelper::handleException($e);
+    }
+    return new Response();
   }
 
 }
