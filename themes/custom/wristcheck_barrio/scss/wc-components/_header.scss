@@ -201,7 +201,8 @@
     }
 
     .navbar-submenus > li > a {
-      font-size: 18px;
+      display: inline-block;
+      font-size: 17px;
       font-weight: bold;
       color: $color-dark9;
       line-height: 1;

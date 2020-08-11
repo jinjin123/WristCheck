@@ -67,8 +67,8 @@
     })
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
-      console.log($(this).find('.mega-dropdown').length)
-      if ($(this).find('.mega-dropdown').length > 0) {
+      console.log($(this).children('.wc-menu-container'))
+      if ($(this).children('.wc-menu-container').length > 0) {
         $('.wc-page-modal').addClass('show');
       }
     }, function () {
