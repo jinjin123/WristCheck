@@ -9,7 +9,6 @@
         }
       }
     }
-
     .views-field-field-wristcheck-process-steps {
       .field-content {
         .paragraph--type--wristcheck-process-steps {
@@ -21,7 +20,6 @@
         }
       }
     }
-
     //#block-benifsoftrustedcheckout {
     //  h2 {
     //    color: #333;
@@ -42,30 +40,44 @@
     //    }
     //  }
     //}
-    #block-webform-3 {
-      background-image: url("/themes/custom/wristcheck_barrio/images/step-1.png");
-      width: 1300px;
-      height: 400px;
-      margin-bottom: 40px;
-      //margin: 0 300px;
-    }
-    .webform-elements {
-      display: flex;
-      position: relative;
-      top: 250px;
-      margin: 0 10%;
-      .js-form-item-second-size {
-        margin-left: 40px;
-      }
-      div {
-        select {
-          margin-right: 30px;
-          background-color: #FFFBFCFC;
-          text-align: center;
-          text-align-last: center;
-        }
-      }
-    }
+     .block-wristcheck-basic {
+       .content {
+         .faq_checkout {
+           display: flex;
+           > div {
+             margin-right: 15%;
+           }
+         }
+       }
+     }
+
+     .webform-submission-faq-price-form {
+         background-image: url("/themes/custom/wristcheck_barrio/images/step-1.png");
+         width: 1300px;
+         height: 400px;
+         margin-bottom: 40px;
+       .webform-elements {
+         display: flex;
+         position: relative;
+         top: 250px;
+         margin: 0 10%;
+         .js-form-item-second-size {
+           margin-left: 40px;
+         }
+         div {
+           select {
+             margin-right: 30px;
+             background-color: #FFFBFCFC;
+             text-align: center;
+             text-align-last: center;
+           }
+         }
+         .js-form-required[for="edit-first-unit"],
+         .js-form-required[for="edit-second-unit"]{
+           color: transparent;
+         }
+       }
+     }
   }
 }
 
