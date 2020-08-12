@@ -53,7 +53,6 @@ wristcheck_basic.magazine_controller_index:
   requirements:
     _permission: 'access content'
 
-
 wristcheck_basic.faq_controller_index:
   path: '/faq'
   defaults:
@@ -62,37 +61,39 @@ wristcheck_basic.faq_controller_index:
   requirements:
     _permission: 'access content'
 
-wristcheck_basic.user_supplement_controller_index:
+wristcheck_basic.user_controller_supplementform:
   path: '/SupplementForm'
   defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserSupplementFormController::index'
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::usersupplement'
     _title: 'SupplementForm'
   requirements:
     _permission: 'access content'
 
-wristcheck_basic.faqsellstep_controller_index:
+wristcheck_basic.faq_controller_faqsellstep:
   path: '/faq_sell_step'
   defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\FaqSellStepController::index'
+    _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqsellstep'
     _title: 'Faq_selling_step'
   requirements:
     _permission: 'access content'
 
-wristcheck_basic.faqauthsystemstep_controller_index:
+wristcheck_basic.faq_controller_faqauthsystemstep:
   path: '/faq_authsystemstep'
   defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\FaqAuthSystemStepController::index'
+    _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqauthsystemstep'
     _title: 'faq_authsystemstep'
   requirements:
     _permission: 'access content'
 
-wristcheck_basic.faqauthsystem_controller_index:
+
+wristcheck_basic.faq_controller_faqauthsystem:
   path: '/faq_authsystem'
   defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\FaqAuthSystemController::index'
+    _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqauthsystem'
     _title: 'faq_authsystem'
   requirements:
     _permission: 'access content'
+
 
 wristcheck_basic.category_controller_index:
   path: '/category'
@@ -161,6 +162,7 @@ wristcheck_basic.user_controller_portfolio:
     _permission: 'access user'
   options:
     user: \d+
+
 wristcheck_basic.user_login_form:
   path: '/wristcheck_basic/form/user_login'
   defaults:
@@ -168,6 +170,7 @@ wristcheck_basic.user_login_form:
     _title: 'PLEASE LOG IN'
   requirements:
     _access: 'TRUE'
+
 wristcheck_basic.wristcheck_sell_video_config_form:
   path: '/admin/config/wristcheck_basic/wristchecksellvideoconfig'
   defaults:
