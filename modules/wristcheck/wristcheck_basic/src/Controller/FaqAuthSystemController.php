@@ -1,0 +1,25 @@
+<?php
+
+namespace Drupal\wristcheck_basic\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+
+/**
+ * Class FaqController.
+ */
+class FaqAuthSystemController extends ControllerBase {
+
+  /**
+   * Index.
+   *
+   * @return string
+   *   Return Hello string.
+   */
+  public function index() {
+    return [
+      '#theme' => 'wristcheck_faq_authsystem',
+      '#type' => 'markup',
+    ];
+  }
+
+}
