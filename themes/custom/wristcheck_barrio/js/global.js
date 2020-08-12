@@ -127,7 +127,9 @@
 
     if (_self.hasClass('active')) {
       _self.removeClass('active');
-      _modal.hide();
+      _modal.removeClass('show');
+      _menu.css({'z-index': 2});
+
 
       if (_wTop <= _box.offset().top) {
         _menu.removeClass(('fixed-top')).css({
@@ -140,7 +142,8 @@
           top: _top + 'px'
         });
       });
-      _modal.show();
+      _modal.addClass('show');
+      _menu.css({'z-index': 5})
       _self.addClass('active').siblings('.active').removeClass(('active'))
     }
   });

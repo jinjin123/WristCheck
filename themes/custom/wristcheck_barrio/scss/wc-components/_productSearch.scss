@@ -3,23 +3,30 @@
   position: initial;
 }
 
+.wc-product-search-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.43);
+  z-index: 2;
+  display: none;
+
+  &.show {
+    z-index: 4;
+    display: block;
+  }
+}
+
 .wc-product-search {
   background-color: #FFF;
   height: 100px;
-  .noUi-handle:before, .noUi-handle:after{
+  position: relative;
+
+  .noUi-handle:before, .noUi-handle:after {
     width: 0;
     height: 0;
-  }
-
-  .wc-product-search-modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .53);
-    z-index: 2;
-    display: none;
   }
 
   .noUi-connect {
@@ -39,14 +46,18 @@
 }
 
 .wc-product-search-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100px;
-  position: relative;
   z-index: 3;
   background-color: #FFF;
   border-bottom: 1px solid $bg_gray3;
 
   &.fixed-top {
     position: fixed;
+    z-index: 5;
   }
 
 }
@@ -100,7 +111,8 @@
           transform: scaleY(1);
           border-top-color: $bg_gray3;
         }
-        .wc-search-menu__title:after{
+
+        .wc-search-menu__title:after {
           background-image: url("/themes/custom/wristcheck_barrio/images/icons/close.png");
         }
       }
