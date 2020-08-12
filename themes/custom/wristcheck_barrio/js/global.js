@@ -54,21 +54,23 @@
   Drupal.$wc = {};
 
   $(function () {
+    //todo: dynamic webform price request
     //faq index
-   $(".view-content").removeClass("row");
-   $(".card-body").css("display","none");
+    $(".view-content").removeClass("row");
+    //faq auth system
+    $(".path-faq-authsystemstep .view-content")[0].style.display="none";
     //faq dropdown
-    $(".path-faq .view-wristcheck-faq .views-field-body .field-content .card .card-header  h2 div span i").click(function () {
+    $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
       var target = $(this);
-      // console.log(target.parent().parent().parent().parent().parent().parent().children().children().children()[1])
-      if (target.parent().parent().parent().parent().parent().parent().children().children().children()[1].style.display == "block") {
-        target.parent().parent().parent().parent().parent().parent().children().children().children()[1].style.display = "none"
+      if (target.parent().parent().parent().parent().parent().children()[2].style.display == "block") {
+        target.parent().parent().parent().parent().parent().children()[2].style.display = "none"
         target.css("-webkit-transform", "rotate(-45deg)");
       } else {
-        target.parent().parent().parent().parent().parent().parent().children().children().children()[1].style.display = "block"
+        target.parent().parent().parent().parent().parent().children()[2].style.display = "block"
         target.css("-webkit-transform", "rotate(45deg)");
       }
     })
+
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
       console.log($(this).find('.mega-dropdown').length)
@@ -78,20 +80,6 @@
     }, function () {
       $('.wc-page-modal').removeClass('show');
     });
-//faq system step
-//   $('#faq-auth-system').css("background-color","#333")
-    $(".view-wristcheck-contact-us .views-field-title .field-content i").click(function () {
-      var target = $(this);
-      // console.log(target.parent().parent().parent().parent().parent().children()[1].style.display="block")
-      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "none"
-        // target.parent().parent().parent().parent().parent().children()[1].css("margin-bottom","30px")
-        target.css("-webkit-transform", "rotate(-45deg)");
-      } else {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "block"
-        target.css("-webkit-transform", "rotate(45deg)");
-      }
-    })
 
     var range = document.getElementById('wc-range');
     if (noUiSlider && range) {
