@@ -57,7 +57,7 @@
     //todo: dynamic webform price request
     //faq index
     $(".view-content").removeClass("row");
-    //faq auth system
+    //faq auth system expose filter
     $(".path-faq-authsystemstep .view-content")[0].style.display="none";
     //faq dropdown
     $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
@@ -70,7 +70,18 @@
         target.css("-webkit-transform", "rotate(45deg)");
       }
     })
-
+    //faq authsystem
+    $(".path-faq-authsystemstep .view-content .views-row .views-field-title .field-content i").click(function () {
+      var target = $(this);
+      // console.log(target.parent().parent().parent().parent().parent().children()[1]);
+      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "none"
+        target.css("-webkit-transform", "rotate(-45deg)");
+      } else {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "block"
+        target.css("-webkit-transform", "rotate(45deg)");
+      }
+    })
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
       console.log($(this).find('.mega-dropdown').length)

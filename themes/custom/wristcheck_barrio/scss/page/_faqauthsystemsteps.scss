@@ -79,6 +79,45 @@
       //height: 400px;
       margin-bottom: 40px;
     }
+    .view-display-id-faq_contact_us {
+      .view-header {
+        .span {
+          display: flex;
+        }
+      }
+      .view-content {
+        .views-row {
+          .views-field-title {
+            .field-content {
+              >div {
+                color: #333;
+                font-weight: bold;
+                i {
+                  border: solid black;
+                  border-width: 0 2px 2px 0;
+                  display: inline-block;
+                  padding: 3px;
+                  transform: rotate(-45deg);
+                  -webkit-transform: rotate(-45deg);
+                  margin-bottom: 5px;
+                  margin-left: 50%;
+                }
+              }
+            }
+          }
+         .views-field-body {
+           display: none;
+            //.field-content {
+            //  >p {
+            //    //display:  none;
+            //  }
+            //}
+           margin-bottom: 50px;
+          }
+        }
+
+      }
+    }
   }
   //main {
 
@@ -120,33 +159,6 @@
     //    margin-bottom: 30px;
     //  }
     //}
-
-    //#block-views-block-wristcheck-faq-system-news-block-1-2 {
-    //  margin-bottom: 30px;
-    //  //padding: 0 120px;
-    //  h2 {
-    //    color: #333;
-    //    font-weight: bold;
-    //    font-size: 20px;
-    //    margin-bottom: 50px;
-    //  }
-    //  .view-wristcheck-faq-system-news {
-    //    .view-content {
-    //      display: flex;
-    //      .views-row {
-    //        margin-right: 20px;
-    //        .views-field-field-image {
-    //          margin-bottom: 15px;
-    //        }
-    //        .views-field-title {
-    //          text-align: center;
-    //          color: #333;
-    //        }
-    //      }
-    //    }
-    //  }
-    //}
-    //
 
 
     //#block-views-block-wristcheck-contact-us-block-1 {
