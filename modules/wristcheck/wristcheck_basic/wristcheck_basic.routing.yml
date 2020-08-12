@@ -78,6 +78,14 @@ wristcheck_basic.faqauthsystemstep_controller_index:
   requirements:
     _permission: 'access content'
 
+wristcheck_basic.faqauthsystem_controller_index:
+  path: '/faq_authsystem'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\FaqAuthSystemController::index'
+    _title: 'faq_authsystem'
+  requirements:
+    _permission: 'access content'
+
 wristcheck_basic.category_controller_index:
   path: '/category'
   defaults:

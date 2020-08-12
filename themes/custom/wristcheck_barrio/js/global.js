@@ -58,7 +58,14 @@
     //faq index
     $(".view-content").removeClass("row");
     //faq auth system expose filter
-    $(".path-faq-authsystemstep .view-content")[0].style.display="none";
+    // alert(window.location.pathname)
+    if(window.location.pathname === "/faq_authsystemstep"){
+      $(".path-faq-authsystemstep .view-content")[0].style.display="none";
+    }
+    if(window.location.pathname === "/faq_authsystem"){
+      $(".path-faq-authsystem .view-content")[0].style.display="none";
+    }
+    // console.log($(".path-faq-authsystem .view-content")[0])
     //faq dropdown
     $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
       var target = $(this);
