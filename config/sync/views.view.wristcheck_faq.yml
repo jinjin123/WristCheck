@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - field.storage.node.field_image
     - field.storage.node.field_images
     - field.storage.node.field_wristcheck_process_steps
+    - node.type.article
     - node.type.blog_post
     - node.type.wristcheck_faq
     - node.type.wristcheck_process_steps
@@ -367,7 +369,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            blog_post: blog_post
+            article: article
           group: 1
           exposed: false
           expose:
@@ -407,11 +409,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: between
           value:
-            min: ''
-            max: ''
-            value: '152'
+            min: '153'
+            max: '156'
+            value: ''
           group: 1
           exposed: false
           expose:
@@ -456,6 +458,70 @@ display:
         groups:
           1: AND
       fields:
+        field_image:
+          id: field_image
+          table: node__field_image
+          field: field_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: ''
+            image_link: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -521,70 +587,6 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-        field_images:
-          id: field_images
-          table: node__field_images
-          field: field_images
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_style: ''
-            image_link: ''
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
       title: 'create an AD simple one'
     cache_metadata:
       max-age: -1
@@ -595,7 +597,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_images'
+        - 'config:field.storage.node.field_image'
   faq_ad_simple_one_pic:
     display_plugin: block
     id: faq_ad_simple_one_pic

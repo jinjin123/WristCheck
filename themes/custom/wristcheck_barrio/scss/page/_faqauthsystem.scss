@@ -1,24 +1,23 @@
-.path-wristcheck-faq-auth-system {
-  main {
-    margin: 0 400px;
-    .container {
-      .row {
-        margin: 0 -30px;
-        .view-wristcheck-faq-auth-system {
-          .view-content {
-            .views-row {
-              .views-field-title {
-                color: #333;
-                font-weight: bold;
-                font-size: 25px;
-                margin-bottom: 50px;
+.path-faq-authsystem {
+    .views-element-container {
+      .view-wristcheck-faq {
+        .view-filters {
+          .views-exposed-form {
+            .form-row {
+              > fieldset {
+                display: none;
               }
             }
           }
         }
       }
-    }
+  }
+  #edit-reset {
+    background-color: #d0d0d0;
+    border: 0;
+  }
     .block-webform-block {
+      margin: 0 300px;
       .webform-elements {
         display: -webkit-box;
         fieldset {
@@ -33,30 +32,4 @@
         }
       }
     }
-    #block-wristcheckprocessbutton {
-      margin-bottom: 100px;
-      h2 {
-        color: #333;
-        font-weight: bold;
-        font-size: 25px;
-        margin-bottom: 70px;
-        //padding: 0 12px;
-      }
-      .field--name-body {
-        display: flex;
-        .text-center {
-          padding-right: 12px;
-          button {
-            background-color: #d0d0d0;
-            span {
-              color: #FFFBFCFC;
-            }
-          }
-        }
-      }
-    }
-    #faq-auth-step {
-      background-color: #333 !important;
-    }
-  }
 }
