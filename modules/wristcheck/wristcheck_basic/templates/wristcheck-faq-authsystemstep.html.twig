@@ -1,0 +1,12 @@
+<div class="wc-panel bg-f9">
+  <h1 class='wc-panel__title text-left'>{{ 'WRISTCHECK'|t }}</h1>
+  {{ drupal_view('wristcheck_faq') }}
+     {{ drupal_view('wristcheck_faq','process_step') }}
+    {{ drupal_block('wristcheck_faq_checkvalue_block') }}
+  {{ drupal_view('wristcheck_faq','faq_ad_simple_one_pic') }}
+  {{ drupal_view('wristcheck_faq','faq_ad_simple_four_pic') }}
+  <div >
+    <h1>Contact US</h1>
+  {{ drupal_view('wristcheck_faq','faq_contact_us') }}
+  </div>
+</div>

@@ -7,12 +7,12 @@ base theme: false
 
 libraries:
   - bootstrap_barrio/global-styling
+  - bootstrap_barrio/file
 
 libraries-extend:
   core/drupal.dropbutton:
     - bootstrap_barrio/dropbutton
-  file/drupal.file:
-    - bootstrap_barrio/file
+
   views/views.ajax:
     - bootstrap_barrio/views.ajax
 

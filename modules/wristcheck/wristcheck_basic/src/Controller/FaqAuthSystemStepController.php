@@ -17,7 +17,7 @@ class FaqAuthSystemStepController extends ControllerBase {
    */
   public function index() {
     return [
-      '#theme' => 'wristcheck_faqauthsystem_step',
+      '#theme' => 'wristcheck_faq_authsystemstep',
       '#type' => 'markup',
     ];
   }

@@ -21,6 +21,7 @@ dependencies:
     - image
     - path
     - text
+    - wristcheck_basic
 id: node.wcshw.default
 targetEntityType: node
 bundle: wcshw
@@ -102,6 +103,12 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: custom_moderation_state_button
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path
