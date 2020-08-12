@@ -75,11 +75,11 @@
     //faq dropdown
     $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
       var target = $(this);
-      if (target.parent().parent().parent().parent().parent().children()[2].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[2].style.display = "none";
+      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
         target.css("-webkit-transform", "rotate(-45deg)");
       } else {
-        target.parent().parent().parent().parent().parent().children()[2].style.display = "block";
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
         target.css("-webkit-transform", "rotate(45deg)");
       }
     });
