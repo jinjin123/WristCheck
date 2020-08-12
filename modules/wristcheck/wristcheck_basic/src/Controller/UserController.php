@@ -53,4 +53,13 @@ class UserController extends ControllerBase
     ];
   }
 
+  public function usersupplement()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_user_supplement_form',
+      '#variables' => $variables
+    ];
+  }
+
 }
