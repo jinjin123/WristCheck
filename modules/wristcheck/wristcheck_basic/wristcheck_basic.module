@@ -107,6 +107,11 @@ function wristcheck_basic_theme()
            'variables' => []
       ]
     ],
+    'wristcheck_faq_checkvalue_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_download_app_block' => [
       'variables' => []
     ],
