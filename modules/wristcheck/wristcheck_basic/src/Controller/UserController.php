@@ -62,4 +62,13 @@ class UserController extends ControllerBase
     ];
   }
 
+  public function useractivate()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_user_useractivate',
+      '#variables' => $variables
+    ];
+  }
+
 }

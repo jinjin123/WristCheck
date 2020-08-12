@@ -99,6 +99,12 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_user_useractivate' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+
     'wristcheck_faq_sellstep' => [],
     'wristcheck_faq_authsystem' => [],
     'wristcheck_faq_authsystemstep' => [],
