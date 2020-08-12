@@ -23,4 +23,25 @@ class FaqController extends ControllerBase {
     ];
   }
 
+  public function faqauthsystem() {
+    return [
+      '#theme' => 'wristcheck_faq_authsystem',
+      '#type' => 'markup',
+    ];
+  }
+
+  public function faqsellstep() {
+    return [
+      '#theme' => 'wristcheck_faq_sellstep',
+      '#type' => 'markup',
+    ];
+  }
+
+  public function faqauthsystemstep() {
+    return [
+      '#theme' => 'wristcheck_faq_authsystemstep',
+      '#type' => 'markup',
+    ];
+  }
+
 }

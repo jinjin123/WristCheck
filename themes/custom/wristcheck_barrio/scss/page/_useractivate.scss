@@ -1,0 +1,41 @@
+.path-useractivate {
+  main {
+    .wc-panel {
+      .direction {
+        //margin-bottom: 100px;
+        h5 {
+          img {
+            height: 30px;
+          }
+        }
+      }
+      hr {
+        border:1px groove ;
+        margin-bottom: 100px !important;
+      }
+      .row {
+        h5 {
+          margin-bottom: 30px;
+        }
+      }
+      .note-start {
+        h5 {
+          font-weight: bold;
+        }
+        margin-bottom: 100px;
+      }
+      .re-email {
+        a {
+          color: blue;
+        }
+        margin-bottom: 100px;
+      }
+      .user_act_footer {
+        display: flex;
+        >div {
+          margin-right: 600px;
+        }
+      }
+    }
+  }
+}

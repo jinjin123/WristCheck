@@ -54,11 +54,17 @@
   Drupal.$wc = {};
 
   $(function () {
-    //todo: dynamic webform price request
+    //faq currency
+    $(document).ready(function () {
+      $("#edit-first-size").on('input',function (){
+          var src = $("#edit-first-size")[0].value;
+
+          $("#edit-second-size")[0].value = src;
+      });
+    })
     //faq index
     $(".view-content").removeClass("row");
     //faq auth system expose filter
-    // alert(window.location.pathname)
     if(window.location.pathname === "/faq_authsystemstep"){
       $(".path-faq-authsystemstep .view-content")[0].style.display="none";
     }
@@ -69,26 +75,26 @@
     //faq dropdown
     $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
       var target = $(this);
-      if (target.parent().parent().parent().parent().parent().children()[2].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[2].style.display = "none"
+      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
         target.css("-webkit-transform", "rotate(-45deg)");
       } else {
-        target.parent().parent().parent().parent().parent().children()[2].style.display = "block"
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
         target.css("-webkit-transform", "rotate(45deg)");
       }
-    })
+    });
     //faq authsystem
     $(".path-faq-authsystemstep .view-content .views-row .views-field-title .field-content i").click(function () {
       var target = $(this);
       // console.log(target.parent().parent().parent().parent().parent().children()[1]);
       if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "none"
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
         target.css("-webkit-transform", "rotate(-45deg)");
       } else {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "block"
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
         target.css("-webkit-transform", "rotate(45deg)");
       }
-    })
+    });
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
       console.log($(this).find('.mega-dropdown').length)

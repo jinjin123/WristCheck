@@ -1,9 +1,9 @@
-uuid: 78b93188-f4f5-443b-89c4-ca4dd0702ae2
+uuid: baa10e7a-d436-40b3-8872-5a77236ea2f6
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - webform.webform.faq_price
+    - webform.webform.user_info
   module:
     - block_attributes
     - ntv_block_background
@@ -25,23 +25,23 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: webform_3
+id: webform_5
 theme: wristcheck_barrio
 region: content
-weight: -7
+weight: 0
 provider: null
 plugin: webform_block
 settings:
   id: webform_block
-  label: faq_sell-step_price_webform
+  label: 'User SupplementForm Webform'
   provider: webform
   label_display: '0'
-  webform_id: faq_price
+  webform_id: user_info
   default_data: ''
   redirect: false
 visibility:
   request_path:
     id: request_path
-    pages: /faq_sell_step
+    pages: /SupplementForm
     negate: false
     context_mapping: {  }

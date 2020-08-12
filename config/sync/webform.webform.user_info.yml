@@ -1,4 +1,4 @@
-uuid: 72140124-e915-41f5-ae02-e2d0acfcd409
+uuid: 8bc9508a-dac4-4ed1-b04e-394cc5064067
 langcode: en
 status: open
 dependencies: {  }
@@ -8,11 +8,11 @@ weight: 0
 uid: 1
 template: false
 archive: false
-id: faq_price
-title: 'faq Price'
+id: user_info
+title: 'user info'
 description: ''
 category: ''
-elements: "first_size:\n  '#type': textfield\n  '#title': 'Your selling price'\n  '#size': 25\n  '#required': true\nfirst_unit:\n  '#type': webform_term_select\n  '#title': _\n  '#required': true\n  '#default_value': '23'\n  '#vocabulary': unit_tags\n  '#breadcrumb_delimiter': ''\nsecond_size:\n  '#type': textfield\n  '#title': 'Sales Commission'\n  '#size': 25\n  '#required': true\nsecond_unit:\n  '#type': webform_term_select\n  '#title': _\n  '#required': true\n  '#default_value': '24'\n  '#vocabulary': unit_tags\n  '#breadcrumb_delimiter': ''\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit_hide': true"
+elements: "names:\n  '#type': textfield\n  '#title': names\n  '#size': 20\n  '#placeholder': names\nlast_name:\n  '#type': textfield\n  '#title': 'last name'\n  '#size': 30\n  '#placeholder': 'last name'\nsex_selection:\n  '#type': textfield\n  '#title': 'sex selection'\n  '#size': 19\n  '#placeholder': 'sex selection'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit_hide': true"
 css: ''
 javascript: ''
 settings:
