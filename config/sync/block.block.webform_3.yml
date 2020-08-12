@@ -1,6 +1,6 @@
 uuid: 78b93188-f4f5-443b-89c4-ca4dd0702ae2
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - webform.webform.faq_price
