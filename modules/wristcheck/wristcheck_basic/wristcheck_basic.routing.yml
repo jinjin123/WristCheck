@@ -62,6 +62,14 @@ wristcheck_basic.faq_controller_index:
   requirements:
     _permission: 'access content'
 
+wristcheck_basic.user_supplement_controller_index:
+  path: '/SupplementForm'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserSupplementFormController::index'
+    _title: 'SupplementForm'
+  requirements:
+    _permission: 'access content'
+
 wristcheck_basic.faqsellstep_controller_index:
   path: '/faq_sell_step'
   defaults:

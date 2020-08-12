@@ -104,6 +104,7 @@ function wristcheck_basic_theme()
     'wristcheck_faq_authsystemstep' => [],
     'wristcheck_eshop' => [],
     'wristcheck_faq' => [],
+    'wristcheck_user_supplement_form' => [],
     'wristcheck_sell' => [],
     'wristcheck_banner_block' => [
       'variables' => []
