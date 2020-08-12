@@ -58,7 +58,7 @@
     //faq index
     $(".view-content").removeClass("row");
     //faq auth system
-    $(".path-faq-authsystemstep .view-content")[0].style.display="none");
+    $(".path-faq-authsystemstep .view-content")[0].style.display="none";
     //faq dropdown
     $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
       var target = $(this);
@@ -80,20 +80,6 @@
     }, function () {
       $('.wc-page-modal').removeClass('show');
     });
-//faq system step
-//   $('#faq-auth-system').css("background-color","#333")
-    $(".view-wristcheck-contact-us .views-field-title .field-content i").click(function () {
-      var target = $(this);
-      // console.log(target.parent().parent().parent().parent().parent().children()[1].style.display="block")
-      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "none"
-        // target.parent().parent().parent().parent().parent().children()[1].css("margin-bottom","30px")
-        target.css("-webkit-transform", "rotate(-45deg)");
-      } else {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "block"
-        target.css("-webkit-transform", "rotate(45deg)");
-      }
-    })
 
     var range = document.getElementById('wc-range');
     if (noUiSlider && range) {
