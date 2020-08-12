@@ -12,7 +12,7 @@ id: faq_price
 title: 'faq Price'
 description: ''
 category: ''
-elements: "first_size:\n  '#type': textfield\n  '#title': 'first size'\n  '#size': 25\n  '#required': true\nfirst_unit:\n  '#type': webform_term_select\n  '#title': 'first unit'\n  '#required': true\n  '#default_value': '23'\n  '#vocabulary': unit_tags\n  '#breadcrumb_delimiter': ''\nsecond_size:\n  '#type': textfield\n  '#title': 'second size'\n  '#size': 25\n  '#required': true\nsecond_unit:\n  '#type': webform_term_select\n  '#title': 'second unit'\n  '#required': true\n  '#default_value': '24'\n  '#vocabulary': unit_tags\n  '#breadcrumb_delimiter': ''\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit_hide': true"
+elements: "first_size:\n  '#type': textfield\n  '#title': 'Your selling price'\n  '#size': 25\n  '#required': true\nfirst_unit:\n  '#type': webform_term_select\n  '#title': _\n  '#required': true\n  '#default_value': '23'\n  '#vocabulary': unit_tags\n  '#breadcrumb_delimiter': ''\nsecond_size:\n  '#type': textfield\n  '#title': 'Sales Commission'\n  '#size': 25\n  '#required': true\nsecond_unit:\n  '#type': webform_term_select\n  '#title': _\n  '#required': true\n  '#default_value': '24'\n  '#vocabulary': unit_tags\n  '#breadcrumb_delimiter': ''\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit_hide': true"
 css: ''
 javascript: ''
 settings:

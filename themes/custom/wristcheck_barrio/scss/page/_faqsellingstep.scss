@@ -65,6 +65,10 @@
           text-align-last: center;
         }
       }
+      .js-form-required[for="edit-first-unit"],
+      .js-form-required[for="edit-second-unit"]{
+        color: transparent;
+      }
     }
   }
 }
