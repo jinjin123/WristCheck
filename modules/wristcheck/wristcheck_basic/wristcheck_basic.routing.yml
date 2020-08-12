@@ -69,6 +69,14 @@ wristcheck_basic.user_controller_supplementform:
   requirements:
     _permission: 'access content'
 
+wristcheck_basic.user_controller_useractivate:
+  path: '/useractivate'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::useractivate'
+    _title: 'useractivate'
+  requirements:
+    _permission: 'access content'
+
 wristcheck_basic.faq_controller_faqsellstep:
   path: '/faq_sell_step'
   defaults:
