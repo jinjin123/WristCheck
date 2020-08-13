@@ -26,22 +26,16 @@ display:
           action_title: 对所选项目
         type:
           label: 类型
-          separator: ', '
         store_id:
           label: 店铺
-          separator: ', '
         uid:
           label: 顾客
-          separator: ', '
         mail:
           label: 电子邮件
-          separator: ', '
         total_price__number:
           label: 总计
-          separator: ', '
         changed:
           label: 已更新
-          separator: ', '
         operations:
           label: 操作
       filters:
