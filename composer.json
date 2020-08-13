@@ -37,6 +37,7 @@
         "drupal/restui": "^1.18",
         "drupal/slick_extras": "^1.0@RC",
         "drupal/slick_views": "^2.3",
+        "drupal/smtp": "^1.0",
         "drupal/structure_sync": "^1.16",
         "drupal/views_infinite_scroll": "^1.5",
         "drupal/views_slideshow": "^4.7",

@@ -8,11 +8,11 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
+use Drupal\Core\Ajax\HtmlCommand;
 /**
  * Class UserLoginForm.
  */
-class UserLoginForm extends FormBase
+class UserRegisterForm extends FormBase
 {
 
   /**
@@ -66,27 +66,52 @@ class UserLoginForm extends FormBase
   public function buildForm(array $form, FormStateInterface $form_state)
   {
     // get user login form.
-    $form = \Drupal::formBuilder()->getForm('Drupal\user\Form\UserLoginForm');
+//    $form = \Drupal::formBuilder()->getForm('Drupal\user\Form\UserLoginForm');
+     $form['Email'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Email'),
+      '#size' => 60,
+      '#maxlength' => USERNAME_MAX_LENGTH,
+      '#description' => $this->t('Enter your  Email.') ,
+      '#required' => TRUE,
+      '#attributes' => [
+        'autocorrect' => 'none',
+        'autocapitalize' => 'none',
+        'spellcheck' => 'false',
+        'autofocus' => 'autofocus',
+        'placeholder' => $this->t('Email'),
+      ],
+    ];
 
-    // add register class.
-    $register = Link::fromTextAndUrl($this->t('No user account yet?'), Url::fromRoute("wristcheck_basic.user_register_form"))->toRenderable();
-    $register['#attributes'] = array(
-      'class' => array(
-        'use-ajax',
-        'register-popup-form'
+    $form['Name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Username'),
+      '#size' => 60,
+      '#maxlength' => USERNAME_MAX_LENGTH,
+      '#description' => $this->t('Enter your username.' ),
+      '#required' => TRUE,
+      '#attributes' => [
+        'autocorrect' => 'none',
+        'autocapitalize' => 'none',
+        'spellcheck' => 'false',
+        'autofocus' => 'autofocus',
+        'placeholder' => $this->t('Username'),
+      ],
+    ];
+
+    $form['actions'] = [
+      '#type' => 'button',
+      '#value' => $this->t('register'),
+      '#ajax' => array(
+//        'callback' => array($this, 'validateAjax'),
+//        'callback' => '::submitForm',
+        'event' => 'click',
+        'url' => Url::fromRoute('wristcheck_basic.user_register'),
+        'progress' => array(
+          'type' => 'throbber',
+          'message' => t('Verifying...'),
         ),
-      'data-dialog-type' => 'modal',
-    );
-
-    // add forget class.
-    $forget = Link::fromTextAndUrl($this->t('No user account yet?'), Url::fromRoute('user.pass'))->toRenderable();
-    $forget['#attributes'] = ['class' => 'forget'];
-
-    $form['links'] = [
-      '#type' => 'markup',
-      '#markup' => '<div class="links">'. render($register) . render($forget) .'</div>',
-      '#suffix'=>'<div class="form-footer text-center"><p class="form-footer-title">' . $this->t('Do you not currently have a user account?') . '</p><div><a class="wc-btn-dark"><div class="wc-btn-cont"><span class="fa fa-arrow-right"></span> | <span>' . $this->t('IN THE CONTINUE') . '</span></div></a></div></div>',
-      '#weight' => 1000,
+      ),
     ];
     return $form;
 //    $config = $this->config('system.site');
@@ -95,47 +120,6 @@ class UserLoginForm extends FormBase
 //      '#markup' => '<div class="result_message"></div>'
 //    ];
 //
-//    // Display login form:
-//    $form['name'] = [
-//      '#type' => 'textfield',
-//      '#title' => $this->t('Username'),
-//      '#size' => 60,
-//      '#maxlength' => USERNAME_MAX_LENGTH,
-//      '#description' => $this->t('Enter your @s username.', ['@s' => $config->get('name')]),
-//      '#required' => TRUE,
-//      '#attributes' => [
-//        'autocorrect' => 'none',
-//        'autocapitalize' => 'none',
-//        'spellcheck' => 'false',
-//        'autofocus' => 'autofocus',
-//        'placeholder' => $this->t('Username'),
-//      ],
-//    ];
-//
-//    $form['pass'] = [
-//      '#type' => 'password',
-//      '#title' => $this->t('Password'),
-//      '#size' => 60,
-//      '#description' => $this->t('Enter the password that accompanies your username.'),
-//      '#required' => TRUE,
-//      '#attributes' => [
-//        'placeholder' => $this->t('Password'),
-//      ],
-//    ];
-//
-//    $form['actions'] = [
-//      '#type' => 'button',
-//      '#value' => $this->t('Log in'),
-//      '#ajax' => array(
-//        'callback' => array($this, 'validateAjax'),
-//        'event' => 'click',
-//        'progress' => array(
-//          'type' => 'throbber',
-//          'message' => t('Verifying...'),
-//        ),
-//      ),
-//
-//    ];
 //    $form['links'] = [
 //      '#type' => 'markup',
 //      '#markup' => '<div class="links"><a class="register" href="' . $base_url . '/user/register">' . $this->t('No user account yet?') . '</a><a class="forget" href="' . $base_url . '/user/password">' . $this->t('Forget Password?') . '</a></div>',
@@ -159,64 +143,6 @@ class UserLoginForm extends FormBase
 //  }
 
 
-  /**
-   * Ajax callback to validate the email field.
-   * @param array $form
-   * @param FormStateInterface $form_state
-   * @param $account
-   * @return AjaxResponse
-   */
-  public function validateAjax(array &$form, FormStateInterface $form_state, $account)
-  {
-//    $error = '';
-//    $link_name = \Drupal::config('redirection_config_form.settings')->get('link');
-//    // validate fields
-//    if ($form_state->isValueEmpty('name') || $form_state->isValueEmpty('pass')) {
-//      // Blocked in user administration.
-//      $error = $this->t('The username and password is required')->render();
-//      $response = new AjaxResponse();
-//      $response->addCommand(
-//        new HtmlCommand(
-//          '.result_message',
-//          '<div class="my_top_message">' . $error . '</div>')
-//      );
-//
-//      return $response;
-//    } // validateName
-//    elseif (user_is_blocked($form_state->getValue('name'))) {
-//      // Blocked in user administration.
-//      $error = $this->t('The username %name has not been activated or is blocked.', ['%name' => $form_state->getValue('name')])->render();
-//      $response = new AjaxResponse();
-//      $response->addCommand(
-//        new HtmlCommand(
-//          '.result_message',
-//          '<div class="my_top_message">' . $error . '</div>')
-//      );
-//
-//      return $response;
-//    } //validateFinal
-//    elseif ($error == '') {
-//      //validateAuthentication
-//      $this->validateAuthentication($form, $form_state);
-//      $error = $this->validateFinal($form, $form_state);
-//      if (empty($error)) {
-//        // Login success
-//        $this->submitForm($form, $form_state);
-//        $response = new AjaxResponse();
-//        global $base_url;
-//        $response->addCommand(new RedirectCommand($base_url . '/' . $link_name));
-//      } else {
-//        $msg = implode('<br>', $error);
-//        $response = new AjaxResponse();
-//        $response->addCommand(
-//          new HtmlCommand(
-//            '.result_message',
-//            '<div class="my_top_message">' . $msg . '</div>')
-//        );
-//      }
-//      return $response;
-//    }
-  }
 
   /**
    * {@inheritdoc}
@@ -235,6 +161,13 @@ class UserLoginForm extends FormBase
 //    }
 //
 //    user_login_finalize($account);
+    $response = new AjaxResponse();
+    $response->addCommand(
+      new HtmlCommand(
+        'wc-header',
+        '<div class="head wc-header">The result is ' . t('The results is ') . ($form_state->getValue('Email') + $form_state->getValue('Name')) . '</div>')
+    );
+    return $response;
   }
 
 
