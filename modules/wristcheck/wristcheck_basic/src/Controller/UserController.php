@@ -3,7 +3,6 @@
 namespace Drupal\wristcheck_basic\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-
 /**
  * Class UserController.
  */
@@ -55,7 +54,8 @@ class UserController extends ControllerBase
 
   public function usersupplement()
   {
-    $variables = [];
+    $user = \Drupal\user\Entity\User::load('1');
+    $variables['mail'] = $user->getEmail();
     return [
       '#theme' => 'wristcheck_user_supplement_form',
       '#variables' => $variables
