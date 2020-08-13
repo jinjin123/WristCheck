@@ -179,6 +179,23 @@ wristcheck_basic.user_login_form:
   requirements:
     _access: 'TRUE'
 
+wristcheck_basic.user_register_form:
+  path: '/wristcheck_basic/form/user_register'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
+    _title: 'PLEASE REGISTER'
+  requirements:
+    _access: 'TRUE'
+
+wristcheck_basic.user_register:
+  path: '/wristcheck/user_register'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::Register'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+
+
 wristcheck_basic.wristcheck_sell_video_config_form:
   path: '/admin/config/wristcheck_basic/wristchecksellvideoconfig'
   defaults:
