@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.wcshw.field_price
     - field.field.node.wcshw.field_product_integrity
     - field.field.node.wcshw.field_purchase_date
+    - field.field.node.wcshw.field_sell_item
     - field.field.node.wcshw.field_year_of_issue
     - node.type.wcshw
   module:
@@ -30,6 +31,11 @@ content:
     label: hidden
     type: text_default
     weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -90,6 +96,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_sell_item:
+    weight: 110
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_year_of_issue:
     weight: 105
