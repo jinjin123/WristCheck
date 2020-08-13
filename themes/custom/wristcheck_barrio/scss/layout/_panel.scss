@@ -1,4 +1,5 @@
 @import '../variables/color';
+
 .wc-panel {
   padding: 50px 0;
 
@@ -8,6 +9,10 @@
     color: rgba(51, 51, 51, 1);
     margin: 0;
     padding: 50px 0;
+
+    &.pb-100 {
+      padding-bottom: 100px;
+    }
   }
 
   .wc-panel__sub {
@@ -242,7 +247,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      p{
+
+      p {
         margin-bottom: 0;
       }
     }

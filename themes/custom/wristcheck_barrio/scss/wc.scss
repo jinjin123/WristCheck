@@ -23,10 +23,15 @@
 @import "page/userinfo";
 @import "page/userinfoSidebar";
 
-.views-infinite-scroll-content-wrapper{
+a:focus {
+  outline: none;
+}
+
+.views-infinite-scroll-content-wrapper {
   display: block;
   width: 100%;
 }
+
 .wc-btn-white {
   border: 1px solid $color-dark3;
   color: $color-dark3;
@@ -36,6 +41,10 @@
   transition: all .25s ease;
   padding: 10px 20px;
   font-weight: normal;
+
+  &.wc-btn-large {
+    padding: 16px 40px;
+  }
 
   &:before {
     content: '';
@@ -68,6 +77,10 @@
   padding: 10px 20px;
   font-weight: normal;
 
+  &.wc-btn-large {
+    padding: 16px 40px;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -80,13 +93,15 @@
 
   &:hover {
     color: $color-dark3 !important;
+
     &:before {
       width: calc(100% - 2px);
       background-color: #FFF;
     }
   }
 }
-.wc-btn-cont{
+
+.wc-btn-cont {
   display: inline-block;
   font-weight: normal;
   position: relative;

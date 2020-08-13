@@ -66,6 +66,14 @@
   position: relative;
   z-index: 3;
 
+  .wc-search-menu-cancel {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(153, 153, 153, 1);
+    margin-right: 30px;
+  }
+
   .wc-search-menu__title {
     position: relative;
 
