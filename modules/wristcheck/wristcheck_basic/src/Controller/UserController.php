@@ -56,6 +56,11 @@ class UserController extends ControllerBase
   {
     $user = \Drupal\user\Entity\User::load('1');
     $variables['mail'] = $user->getEmail();
+    if (!$user->user_picture->isEmpty()) {
+      $variables['picture'] = file_create_url($user->user_picture->entity->getFileUri());
+    }else{
+      $variables['picture']  = '';
+    }
     return [
       '#theme' => 'wristcheck_user_supplement_form',
       '#variables' => $variables
