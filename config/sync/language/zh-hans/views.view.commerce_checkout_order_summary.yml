@@ -10,13 +10,6 @@ display:
           exposed_sorts_label: 排序依据
           sort_asc_label: 升序
           sort_desc_label: 降序
-      fields:
-        quantity:
-          separator: ', '
-        purchased_entity:
-          separator: ', '
-        total_price__number:
-          separator: ', '
       arguments:
         order_id:
           exception:

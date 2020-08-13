@@ -1,30 +1,6 @@
 display:
   default:
     display_options:
-      exposed_form:
-        options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       fields:
-        title:
-          label: Title
-          separator: ', '
         amount__number:
           label: 總額
-          separator: ', '
-        tracking_code:
-          separator: ', '
-        state:
-          label: State
-          separator: ', '
-        operations:
-          label: 'Operations links'
-      arguments:
-        order_id:
-          exception:
-            title: All
-  page_1:
-    display_title: Page
