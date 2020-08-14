@@ -1,11 +1,11 @@
 smtp_on: true
-smtp_host: smtp.gmail.com
+smtp_host: smtp.126.com
 smtp_hostbackup: ''
-smtp_port: '465'
-smtp_protocol: ssl
+smtp_port: '25'
+smtp_protocol: standard
 smtp_autotls: false
 smtp_timeout: 30
-smtp_username: hanzijinjin123@gmail.com
+smtp_username: jimmy_jinjin@126.com
 smtp_password: jinjin123
 smtp_from: ''
 smtp_fromname: ''
