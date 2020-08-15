@@ -79,7 +79,6 @@ class UserRegisterForm extends FormBase
 
     $form['#prefix'] = '<div id="reg-form">';
     $form['#suffix'] = '</div>';
-//    @TODO: return notice mssage for user when login faild
     return $form;
   }
 
@@ -87,8 +86,9 @@ class UserRegisterForm extends FormBase
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $form_state->setError($form['Name'], $this->t('hello dfsfs.'));
-    $form_state->setError($form['Email'], $this->t('hello dsfs.'));
+    $form_state->setError($form['errors'], $this->t('Please change email!'));
+    \Drupal::logger('User_Register')->error('user register faild' . json_decode($form_state));
+//    $form_state->setError($form['Email'], $this->t('hello dsfs.'));
   }
 
   /**
@@ -103,13 +103,20 @@ class UserRegisterForm extends FormBase
       $error_output = '';
       foreach($errors as $error) {
         $err = $error->__toString();
-        $error_output .= '<div class="messages error">' . $err .'</div>';
+        $error_output .= '<div class="messages error" >' . $err .'</div>';
       }
       $form['errors'] = [
         '#markup' => $error_output,
       ];
     }
     return $form;
+//    else {
+//      $response = new AjaxResponse();
+//      $url = Url::fromRoute('wristcheck_basic.user_controller_useractivate)');
+//      $command = new RedirectCommand($url->toString());
+//      $response->addCommand($command);
+//      return $response;
+//    }
   }
 
 
