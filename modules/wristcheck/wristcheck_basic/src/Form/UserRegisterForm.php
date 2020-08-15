@@ -24,6 +24,8 @@ class UserRegisterForm extends FormBase
    */
   public function buildForm(array $form, FormStateInterface $form_state)
   {
+
+    $form['errors'] = [];
      $form['Email'] = [
       '#type' => 'textfield',
       '#title' => 'Email',
@@ -55,27 +57,61 @@ class UserRegisterForm extends FormBase
         'placeholder' => 'Username',
       ],
     ];
-    $form['message'] = [
-      '#type' => 'markup',
-      '#markup' => '<div class="result_message"></div>'
-    ];
     $form['actions'] = [
       '#type' => 'button',
       '#value' => $this->t('register'),
+      '#submit' => ['::submitForm'],
+      '#validate' => ['::validateForm'],
       '#ajax' => array(
+        'callback' => '::ajaxRebuildForm',
 //        'callback' => array($this, 'validateAjax'),
 //        'callback' => 'Drupal\wristcheck_basic\Form\UserRegisterForm::submitForm',
         'event' => 'click',
-        'url' => Url::fromRoute('wristcheck_basic.user_register'),
+//        'url' => Url::fromRoute('wristcheck_basic.user_register'),
+        'wrapper' => 'reg-form',
+        'method' => 'replace',
         'progress' => array(
           'type' => 'throbber',
           'message' => t('Verifying...'),
         ),
       ),
     ];
+
+    $form['#prefix'] = '<div id="reg-form">';
+    $form['#suffix'] = '</div>';
 //    @TODO: return notice mssage for user when login faild
     return $form;
   }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    $form_state->setError($form['Name'], $this->t('hello dfsfs.'));
+    $form_state->setError($form['Email'], $this->t('hello dsfs.'));
+  }
+
+  /**
+   * @param array                                $form
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *
+   * @return array
+   */
+  public function ajaxRebuildForm(array $form, FormStateInterface $form_state) {
+    $errors = $form_state->getErrors();
+    if ($errors) {
+      $error_output = '';
+      foreach($errors as $error) {
+        $err = $error->__toString();
+        $error_output .= '<div class="messages error">' . $err .'</div>';
+      }
+      $form['errors'] = [
+        '#markup' => $error_output,
+      ];
+    }
+    return $form;
+  }
+
 
 
 //  /**
@@ -96,6 +132,7 @@ class UserRegisterForm extends FormBase
    */
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
+    return $form;
 
 //    $response = new AjaxResponse();
 //    $url = '/my_module/my_controller?selected_value=' . $selectedValue;
