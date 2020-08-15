@@ -58,19 +58,26 @@
     $(document).ready(function () {
       $("#edit-first-size").on('input',function (){
           var src = $("#edit-first-size")[0].value;
+          var funit = $('#edit-first-unit option:selected')[0].textContent;
+          var sunit = $('#edit-second-unit option:selected')[0].textContent;
+        // console.log(funit,sunit)
+          // console.log($('#edit-first-unit option:selected')[0].textContent)
+        $.getJSON("/currency-price?search="+funit,(function (data){
+          $("#edit-second-size")[0].value = (src * JSON.parse(data)[sunit]).toFixed(2);
+        }))
 
-          $("#edit-second-size")[0].value = src;
       });
     })
     //faq index
     $(".view-content").removeClass("row");
     //faq auth system expose filter
-    if(window.location.pathname === "/faq_authsystemstep"){
+    if(window.location.pathname === "/faq-authsystemstep"){
       $(".path-faq-authsystemstep .view-content")[0].style.display="none";
     }
-    if(window.location.pathname === "/faq_authsystem"){
+    if(window.location.pathname === "/faq-authsystem"){
       $(".path-faq-authsystem .view-content")[0].style.display="none";
     }
+
     // console.log($(".path-faq-authsystem .view-content")[0])
     //faq dropdown
     $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {

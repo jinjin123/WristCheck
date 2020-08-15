@@ -62,7 +62,7 @@ wristcheck_basic.faq_controller_index:
     _permission: 'access content'
 
 wristcheck_basic.user_controller_supplementform:
-  path: '/SupplementForm'
+  path: '/user-supplementForm'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::usersupplement'
     _title: 'SupplementForm'
@@ -70,7 +70,7 @@ wristcheck_basic.user_controller_supplementform:
     _permission: 'access content'
 
 wristcheck_basic.user_controller_useractivate:
-  path: '/useractivate'
+  path: '/user-activate'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::useractivate'
     _title: 'useractivate'
@@ -78,15 +78,15 @@ wristcheck_basic.user_controller_useractivate:
     _permission: 'access content'
 
 wristcheck_basic.faq_controller_faqsellstep:
-  path: '/faq_sell_step'
+  path: '/faq-sellstep'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqsellstep'
-    _title: 'Faq_selling_step'
+    _title: 'Faq-selling-step'
   requirements:
     _permission: 'access content'
 
 wristcheck_basic.faq_controller_faqauthsystemstep:
-  path: '/faq_authsystemstep'
+  path: '/faq-authsystemstep'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqauthsystemstep'
     _title: 'faq_authsystemstep'
@@ -95,7 +95,7 @@ wristcheck_basic.faq_controller_faqauthsystemstep:
 
 
 wristcheck_basic.faq_controller_faqauthsystem:
-  path: '/faq_authsystem'
+  path: '/faq-authsystem'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqauthsystem'
     _title: 'faq_authsystem'

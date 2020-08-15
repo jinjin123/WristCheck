@@ -1,11 +1,18 @@
 .path-faq {
+  .wc-panel {
+    .text-description {
+      margin-bottom: 100px;
+    }
+  }
   .view-wristcheck-faq {
     .view-filters {
       display: none;
     }
+
     .view-content {
       .views-row {
         .views-field-title {
+          font-weight: bold;
           .field-content {
             display: flex;
             > div {
