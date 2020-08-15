@@ -1,6 +1,7 @@
 .path-faq-authsystemstep {
   main {
     margin: 0 250px;
+
     .views-element-container {
       .view-wristcheck-faq {
         .view-filters {
@@ -13,14 +14,16 @@
           }
         }
       }
+
       .view-content {
-        >div {
+        > div {
           .views-field-field-wristcheck-process-steps {
             .field-content {
               .paragraph--type--wristcheck-process-steps {
                 .field--name-field-process-step {
                   display: flex;
                   flex-wrap: wrap;
+                  margin-bottom: 50px;
                 }
               }
             }
@@ -28,53 +31,95 @@
         }
       }
     }
-    #edit-submit-wristcheck-faq {
-      background-color: #d0d0d0;
-      border: 0;
+
+    #edit-actions {
+      #edit-submit-wristcheck-faq {
+        background-color: #d0d0d0;
+        border: 0;
+        height: 40px;
+        width: 150px;
+      }
+
+      #edit-reset {
+        height: 40px;
+        width: 150px;
+      }
+
+      button {
+        margin-right: 15px;
+      }
+
+      margin-bottom: 80px;
     }
+
     .block-wristcheck-faq-checkvalue-block {
       margin-bottom: 100px;
+
       .content {
+        h1 {
+          margin-bottom: 50px;
+        }
+
         .row {
-          >div {
-            margin-right: 100px;
+          > div {
+            margin-right: 250px;
           }
         }
       }
     }
+
     .view-display-id-faq_ad_simple_one_pic {
       margin-bottom: 100px;
+
       .view-content {
         .views-row {
           .views-field-title {
             .field-content {
-              >div {
-                   color: #333;
-                   font-weight: bold;
+              > div {
+                color: #333;
+                font-weight: bold;
+                font-size: 25px;
+                margin-bottom: 30px;
               }
             }
           }
         }
       }
     }
+
     .view-display-id-faq_ad_simple_four_pic {
       margin-bottom: 100px;
+
       .view-content {
         display: flex;
         flex-wrap: wrap;
+
         .views-row {
           margin-right: 30px;
+
+          .views-field-field-image {
+            margin-bottom: 30px;
+          }
+
           .views-field-title {
             .field-content {
-              >div {
+              > div {
                 color: #333;
                 font-weight: bold;
+                text-align: center;
               }
             }
           }
         }
       }
     }
+
+    .ad_four {
+      h1 {
+        margin-bottom: 30px;
+      }
+    }
+
     #block-wristcheckfaqslider {
       //padding: 0 120px;
       background-image: url("/themes/custom/wristcheck_barrio/images/watch.png");
@@ -82,43 +127,66 @@
       //height: 400px;
       margin-bottom: 40px;
     }
-    .view-display-id-faq_contact_us {
-      .view-header {
-        .span {
-          display: flex;
-        }
+
+    .contact {
+      h1 {
+        text-align: center;
       }
-      .view-content {
-        .views-row {
-          .views-field-title {
-            .field-content {
-              >div {
-                color: #333;
-                font-weight: bold;
-                i {
-                  border: solid black;
-                  border-width: 0 2px 2px 0;
-                  display: inline-block;
-                  padding: 3px;
-                  transform: rotate(-45deg);
-                  -webkit-transform: rotate(-45deg);
-                  margin-bottom: 5px;
-                  margin-left: 50%;
+      .views-element-container {
+        .view-display-id-faq_contact_us {
+          text-align: center;
+          .view-header {
+             div {
+               display: inline-flex;
+               //text-align: center;
+              h5 {
+                margin-right: 20px;
+              }
+               a {
+                 color: #82b1d0;
+                 font-weight: bold;
+               }
+            }
+          }
+          .view-content {
+            .views-row {
+              .views-field-title {
+                .field-content {
+                  > div {
+                    color: #333;
+                    font-weight: bold;
+
+                    i {
+                      border: solid grey;
+                      border-width: 0 1px 1px 0;
+                      display: inline-block;
+                      padding: 2px;
+                      transform: rotate(-45deg);
+                      -webkit-transform: rotate(-45deg);
+                      margin-bottom: 5px;
+                      margin-left: 50%;
+                    }
+                  }
                 }
+              }
+
+              .views-field-body {
+                display: none;
+                >div {
+                  >p {
+                    color: #898989;
+                  }
+                }
+                //.field-content {
+                //  >p {
+                //    //display:  none;
+                //  }
+                //}
+                margin-bottom: 50px;
               }
             }
           }
-         .views-field-body {
-           display: none;
-            //.field-content {
-            //  >p {
-            //    //display:  none;
-            //  }
-            //}
-           margin-bottom: 50px;
-          }
         }
-
       }
     }
   }

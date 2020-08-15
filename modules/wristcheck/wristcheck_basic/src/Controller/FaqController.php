@@ -31,6 +31,7 @@ class FaqController extends ControllerBase {
   }
 
   public function faqsellstep() {
+
     return [
       '#theme' => 'wristcheck_faq_sellstep',
       '#type' => 'markup',

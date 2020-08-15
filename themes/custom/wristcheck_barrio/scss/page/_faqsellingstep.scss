@@ -1,4 +1,4 @@
-.path-faq-sell-step {
+.path-faq-sellstep {
    main {
     margin: 0 250px;
     .views-field-title {
@@ -9,37 +9,29 @@
         }
       }
     }
-    .views-field-field-wristcheck-process-steps {
+    .sales_prices {
+      h1 {
+        margin-bottom: 30px;
+      }
+    }
+     .faq_checkout {
+       >div {
+         h5 {
+           text-align: center;
+         }
+       }
+     }
+     .views-field-field-wristcheck-process-steps {
       .field-content {
         .paragraph--type--wristcheck-process-steps {
           .field--name-field-process-step {
             display: flex;
             flex-wrap: wrap;
-            //margin: 0 250px;
+            margin-bottom:20px;
           }
         }
       }
     }
-    //#block-benifsoftrustedcheckout {
-    //  h2 {
-    //    color: #333;
-    //    font-weight: bold;
-    //    font-size: 25px;
-    //    margin-bottom: 70px;
-    //    //padding: 0 12px;
-    //  }
-    //  .field--name-body {
-    //    display: flex;
-    //    div {
-    //      display: grid;
-    //      margin-right: 15%;
-    //      span {
-    //        position: relative;
-    //        margin: 0 30%;
-    //      }
-    //    }
-    //  }
-    //}
      .block-wristcheck-basic {
        .content {
          .faq_checkout {
@@ -55,7 +47,7 @@
          background-image: url("/themes/custom/wristcheck_barrio/images/step-1.png");
          width: 1300px;
          height: 400px;
-         margin-bottom: 40px;
+         margin-bottom: 100px;
        .webform-elements {
          display: flex;
          position: relative;
