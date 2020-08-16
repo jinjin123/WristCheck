@@ -2,24 +2,19 @@
 
 namespace Drupal\wristcheck_basic\Controller;
 
-use Drupal\Component\Utility\EmailValidatorInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Mail\MailManagerInterface;
-use Drupal\Core\Messenger\Messenger;
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
 use Drupal\facets\Exception\Exception;
-use Drupal\Component\Utility\Html;
 use Drupal\user\UserAuthInterface;
 use Drupal\user\UserStorageInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Drupal\profile\Entity\Profile;
 
 /**
  * Class UserController.
@@ -99,9 +94,29 @@ class UserController extends ControllerBase
   public function  userprofile()
   {
     try{
-      \Drupal::messenger()->addMessage(\Drupal::request()->request);
-    }catch (Exception $e){
+      $name = \Drupal::request()->request->get('names');
+      $last_name = \Drupal::request()->request->get('last_name');
+      $sex = \Drupal::request()->request->get('sex_selection');
+      $profile = Profile::create([
+        'type' => 'customer',
+        'uid' => $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id()),
+        'address' => [
+          'country_code' => '--',
+          'address_line1' => '--',
+          'locality' => '--',
+          'administrative_area' => '--',
+          'postal_code' => '--',
+          'family_name' => $name,
+          'given_name' => $last_name,
+        ],
+        'field_sex'=>$sex,
+      ]);
+      $profile->save();
 
+//      \Drupal::logger('User_profile')->error('user profile save faild' . $name.$last_name.$sex);
+      return new Response("ok");
+    }catch (Exception $e){
+      return new Response("faild",403);
     }
   }
 
