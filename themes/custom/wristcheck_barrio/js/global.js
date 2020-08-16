@@ -55,7 +55,17 @@
 
   $(function () {
     //usersupplementform
-
+    $("#profile_button").click(function(){
+      // console.log($("#webform-submission-user-info-add-form").serialize())
+      $.post("/user-profile",$("#webform-submission-user-info-add-form").serialize(),function(data){
+        if(data == "ok"){
+          $("#webform-submission-user-info-add-form")[0].reset();
+          $(".alert-success").css("display","block");
+        }else{
+          $(".alert-danger").css("display","block");
+        }
+      })
+    })
     //faq currency
     $(document).ready(function () {
       $("#edit-first-size").on('input',function (){
