@@ -6,6 +6,7 @@ use Drupal\commerce_price\Price;
 use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
  * Class SellAddToCartForm.
@@ -25,7 +26,7 @@ class SellAddToCartForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Add to cart'),
+      '#value' => $this->t('Buy'),
     ];
 
     return $form;
@@ -62,11 +63,6 @@ class SellAddToCartForm extends FormBase {
     $cart_provider = \Drupal::service('commerce_cart.cart_provider');
 
     if ($product_var) {
-//      $productVarEntity = ProductVariation::load($product_var);
-//      $productVarEntity->set('price', $entity->get('field_price')->getValue());
-//      $productVarEntity->set('title', $entity->get('title')->value);
-//      $productVarEntity->save();
-
       $order_type = '2hw_order';
       $order_item_type = '2hw_order_item';
       $store_id = 1;
@@ -80,11 +76,14 @@ class SellAddToCartForm extends FormBase {
         $cart = $cart_provider->createCart($order_type, $store);
       }
 
+      $cart->setItems([]);
+
       $order_item = $entity_manager->getStorage('commerce_order_item')->create([
         'type' => $order_item_type,
         'purchased_entity' => (string) $product_var,
         'quantity' => 1, // Amount or quantity to be added to the cart.
         'unit_price' => New Price($price, $currency_code),
+        'overridden_unit_price' => New Price($price, $currency_code),
         'title' => $entity->get('title')->value,
         'checkout_flow' => 'default',
         'field_accessories_description' => $entity->get('field_accessories_description')->getValue(),
@@ -99,11 +98,14 @@ class SellAddToCartForm extends FormBase {
       ]);
 
       $cart_manager->addOrderItem($cart, $order_item);
+      $order_id = $cart->get('order_id')->value;
 
+      $url = Url::fromRoute('commerce_checkout.form', [
+        'commerce_order' => $order_id,
+        'step' => 'order_information'
+      ]);
       \Drupal::messenger()->deleteAll();
-      \Drupal::messenger()->addMessage($this->t('@title added to your cart', [
-        '@title' => $entity->get('title')->value
-      ]));
+      return $form_state->setRedirectUrl($url);
     }
   }
 
