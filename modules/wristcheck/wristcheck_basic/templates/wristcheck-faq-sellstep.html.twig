@@ -1,6 +1,11 @@
-<div class="wc-panel bg-f9">
+<div class="wc-panel ">
   <h1 class='wc-panel__title text-left'>{{ 'SELL'|t }}</h1>
      {{ drupal_view('wristcheck_faq','selling_step') }}
-  {{ drupal_entity("webform","faq_price") }}
-  {{ drupal_block('wristcheck_faq_checkout_block') }}
+  <div class="sales_prices">
+    <h1>low sales commission</h1>
+    {{ drupal_entity("webform","faq_price") }}
+  </div>
+  <div class="faq_checkout">
+    {{ drupal_block('wristcheck_faq_checkout_block') }}
+  </div>
 </div>

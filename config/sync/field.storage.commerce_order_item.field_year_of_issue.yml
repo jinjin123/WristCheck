@@ -1,0 +1,20 @@
+uuid: 9fac4ab5-0f5a-4c46-8e9a-cfc6ee52c3de
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+id: commerce_order_item.field_year_of_issue
+field_name: field_year_of_issue
+entity_type: commerce_order_item
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

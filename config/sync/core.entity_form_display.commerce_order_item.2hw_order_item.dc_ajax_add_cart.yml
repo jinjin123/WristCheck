@@ -5,6 +5,15 @@ dependencies:
   config:
     - commerce_order.commerce_order_item_type.2hw_order_item
     - core.entity_form_mode.commerce_order_item.dc_ajax_add_cart
+    - field.field.commerce_order_item.2hw_order_item.field_accessories_description
+    - field.field.commerce_order_item.2hw_order_item.field_body
+    - field.field.commerce_order_item.2hw_order_item.field_have_box
+    - field.field.commerce_order_item.2hw_order_item.field_material_pictures
+    - field.field.commerce_order_item.2hw_order_item.field_owner_location
+    - field.field.commerce_order_item.2hw_order_item.field_product_integrity
+    - field.field.commerce_order_item.2hw_order_item.field_purchase_date
+    - field.field.commerce_order_item.2hw_order_item.field_second_hand_watch_content
+    - field.field.commerce_order_item.2hw_order_item.field_year_of_issue
   module:
     - commerce_order
 id: commerce_order_item.2hw_order_item.dc_ajax_add_cart
@@ -39,3 +48,12 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_accessories_description: true
+  field_body: true
+  field_have_box: true
+  field_material_pictures: true
+  field_owner_location: true
+  field_product_integrity: true
+  field_purchase_date: true
+  field_second_hand_watch_content: true
+  field_year_of_issue: true

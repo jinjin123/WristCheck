@@ -21,14 +21,6 @@ wristcheck_basic.buy_controller_index:
   requirements:
     _permission: 'access content'
 
-wristcheck_basic.sell_controller_index:
-  path: '/sell'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\SellController::index'
-    _title: 'Sell'
-  requirements:
-    _permission: 'access content'
-
 wristcheck_basic.e_shop_controller_index:
   path: '/eshop'
   defaults:
@@ -62,7 +54,7 @@ wristcheck_basic.faq_controller_index:
     _permission: 'access content'
 
 wristcheck_basic.user_controller_supplementform:
-  path: '/SupplementForm'
+  path: '/user-supplementform'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::usersupplement'
     _title: 'SupplementForm'
@@ -70,7 +62,7 @@ wristcheck_basic.user_controller_supplementform:
     _permission: 'access content'
 
 wristcheck_basic.user_controller_useractivate:
-  path: '/useractivate'
+  path: '/user-activate'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::useractivate'
     _title: 'useractivate'
@@ -78,15 +70,15 @@ wristcheck_basic.user_controller_useractivate:
     _permission: 'access content'
 
 wristcheck_basic.faq_controller_faqsellstep:
-  path: '/faq_sell_step'
+  path: '/faq-sellstep'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqsellstep'
-    _title: 'Faq_selling_step'
+    _title: 'Faq-selling-step'
   requirements:
     _permission: 'access content'
 
 wristcheck_basic.faq_controller_faqauthsystemstep:
-  path: '/faq_authsystemstep'
+  path: '/faq-authsystemstep'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqauthsystemstep'
     _title: 'faq_authsystemstep'
@@ -95,7 +87,7 @@ wristcheck_basic.faq_controller_faqauthsystemstep:
 
 
 wristcheck_basic.faq_controller_faqauthsystem:
-  path: '/faq_authsystem'
+  path: '/faq-authsystem'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\FaqController::faqauthsystem'
     _title: 'faq_authsystem'
@@ -161,6 +153,15 @@ wristcheck_basic.user_controller_buy:
   options:
     user: \d+
 
+wristcheck_basic.user_controller_userprofile:
+  path: '/user-profile'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::userprofile'
+    _title: 'userprofile'
+  methods: [POST]
+  requirements:
+    _permission: 'access user'
+
 wristcheck_basic.user_controller_portfolio:
   path: '/user/{user}/portfolio'
   defaults:
@@ -176,6 +177,14 @@ wristcheck_basic.user_login_form:
   defaults:
     _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
     _title: 'PLEASE LOG IN'
+  requirements:
+    _access: 'TRUE'
+
+wristcheck_basic.user_register_form:
+  path: '/wristcheck_basic/form/user_register'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
+    _title: 'PLEASE REGISTER'
   requirements:
     _access: 'TRUE'
 

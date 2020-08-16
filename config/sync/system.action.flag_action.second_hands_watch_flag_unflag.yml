@@ -1,0 +1,15 @@
+uuid: b5fe313d-c64b-4699-adfb-176de8809d9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.second_hands_watch_flag
+  module:
+    - flag
+id: flag_action.second_hands_watch_flag_unflag
+label: 'Unflag this item'
+type: node
+plugin: 'flag_action:second_hands_watch_flag_unflag'
+configuration:
+  flag_id: second_hands_watch_flag
+  flag_action: unflag

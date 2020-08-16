@@ -2,13 +2,31 @@
 
 namespace Drupal\wristcheck_basic\Controller;
 
+use Drupal\Component\Utility\EmailValidatorInterface;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Core\Messenger\Messenger;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\Url;
+use Drupal\facets\Exception\Exception;
+use Drupal\Component\Utility\Html;
+use Drupal\user\UserAuthInterface;
+use Drupal\user\UserStorageInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class UserController.
  */
 class UserController extends ControllerBase
 {
+
 
   /**
    * Dashboard.
@@ -55,7 +73,14 @@ class UserController extends ControllerBase
 
   public function usersupplement()
   {
-    $variables = [];
+    $user = \Drupal\user\Entity\User::load('1');
+    $variables['mail'] = $user->getEmail();
+    if (!$user->user_picture->isEmpty()) {
+//      $variables['picture'] = file_create_url($user->user_picture->entity->getFileUri());
+      $variables['picture'] = $user->user_picture->view('large');
+    }else{
+      $variables['picture']  = '';
+    }
     return [
       '#theme' => 'wristcheck_user_supplement_form',
       '#variables' => $variables
@@ -69,6 +94,15 @@ class UserController extends ControllerBase
       '#theme' => 'wristcheck_user_useractivate',
       '#variables' => $variables
     ];
+  }
+
+  public function  userprofile()
+  {
+    try{
+      \Drupal::messenger()->addMessage(\Drupal::request()->request);
+    }catch (Exception $e){
+
+    }
   }
 
 }

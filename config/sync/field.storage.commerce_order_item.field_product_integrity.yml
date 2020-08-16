@@ -1,0 +1,42 @@
+uuid: c01619b4-4c94-48e2-bed7-5da27e4383f4
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - options
+id: commerce_order_item.field_product_integrity
+field_name: field_product_integrity
+entity_type: commerce_order_item
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '10'
+      label: 10%
+    -
+      value: '20'
+      label: 20%
+    -
+      value: '30'
+      label: 30%
+    -
+      value: '50'
+      label: 50%
+    -
+      value: '70'
+      label: 70%
+    -
+      value: '90'
+      label: 90%
+    -
+      value: '95'
+      label: 95%
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

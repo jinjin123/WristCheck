@@ -12,7 +12,7 @@ id: faq_authsystem
 title: 'faq authsystem'
 description: ''
 category: ''
-elements: "brand:\n  '#type': textfield\n  '#title': brand\n  '#maxlength': 96\n  '#size': 50\n  '#placeholder': 'reference brand'\n  '#required': true\nstate:\n  '#type': textfield\n  '#title': state\n  '#size': 48\n  '#placeholder': 'selected state'\n  '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#states':\n    visible:\n      '':\n        '': ''\n  '#submit__label': '→ | check the value'\n  '#submit__attributes':\n    class:\n      - 'btn btn-default btn-lg wc-ex-btn'"
+elements: "brand:\n  '#type': textfield\n  '#title': brand\n  '#maxlength': 96\n  '#size': 50\n  '#placeholder': 'reference brand'\n  '#required': true\nstate:\n  '#type': textfield\n  '#title': state\n  '#size': 48\n  '#placeholder': 'selected state'\n  '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#states':\n    visible:\n      '':\n        '': ''\n  '#submit__label': 'CHECK THE VALUE'\n  '#submit__attributes':\n    class:\n      - 'fa fa-arrow-right'"
 css: ''
 javascript: ''
 settings:

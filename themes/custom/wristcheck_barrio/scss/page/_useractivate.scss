@@ -1,4 +1,4 @@
-.path-useractivate {
+.path-user-activate {
   main {
     .wc-panel {
       .direction {
@@ -29,12 +29,25 @@
           color: blue;
         }
         margin-bottom: 100px;
+        div {
+          float: right;
+          margin-top: -200px;
+        }
       }
       .user_act_footer {
         display: flex;
         >div {
           margin-right: 600px;
         }
+      }
+      .user-active-title {
+        h1 {
+          margin-bottom: 10px ;
+        }
+        h5 {
+          margin-bottom: 20px ;
+        }
+        margin-bottom: 100px ;
       }
     }
   }
