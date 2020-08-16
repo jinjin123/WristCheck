@@ -62,7 +62,7 @@ wristcheck_basic.faq_controller_index:
     _permission: 'access content'
 
 wristcheck_basic.user_controller_supplementform:
-  path: '/user-supplementForm'
+  path: '/user-supplementform'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::usersupplement'
     _title: 'SupplementForm'
@@ -186,15 +186,6 @@ wristcheck_basic.user_register_form:
     _title: 'PLEASE REGISTER'
   requirements:
     _access: 'TRUE'
-
-wristcheck_basic.user_register:
-  path: '/wristcheck/user_register'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserController::Register'
-  methods: [POST]
-  requirements:
-    _access: 'TRUE'
-
 
 wristcheck_basic.wristcheck_sell_video_config_form:
   path: '/admin/config/wristcheck_basic/wristchecksellvideoconfig'

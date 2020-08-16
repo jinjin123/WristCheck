@@ -68,6 +68,11 @@
          .js-form-required[for="edit-second-unit"]{
            color: transparent;
          }
+         fieldset {
+           .form-select {
+             margin-top: 4px;
+           }
+         }
        }
      }
   }

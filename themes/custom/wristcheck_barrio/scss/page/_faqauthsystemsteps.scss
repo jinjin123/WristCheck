@@ -131,14 +131,21 @@
     .contact {
       h1 {
         text-align: center;
+        margin-bottom: 20px;
       }
       .views-element-container {
         .view-display-id-faq_contact_us {
           text-align: center;
           .view-header {
-             div {
-               display: inline-flex;
+            margin-bottom: 30px;
+             //div {
+             //  display: inline-flex;
                //text-align: center;
+              span {
+                display: flex;
+                position: relative;
+                margin: 0 40%;
+              }
               h5 {
                 margin-right: 20px;
               }
@@ -146,12 +153,19 @@
                  color: #82b1d0;
                  font-weight: bold;
                }
+            hr {
+              width:50%;
             }
+            //}
           }
           .view-content {
             .views-row {
               .views-field-title {
+                margin-bottom: 20px;
                 .field-content {
+                  .faq-arrow {
+                    margin-top: -20px;
+                  }
                   > div {
                     color: #333;
                     font-weight: bold;

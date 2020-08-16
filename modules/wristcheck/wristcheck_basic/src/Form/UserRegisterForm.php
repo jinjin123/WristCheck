@@ -8,8 +8,11 @@ use Drupal\Core\Url;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\facets\Exception\Exception;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Ajax\HtmlCommand;
+use Symfony\Component\HttpFoundation\Response;
+
 /**
  * Class UserLoginForm.
  */
@@ -86,11 +89,60 @@ class UserRegisterForm extends FormBase
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $form_state->setError($form['errors'], $this->t('Please change email!'));
-    \Drupal::logger('User_Register')->error('user register faild' . json_decode($form_state));
-//    $form_state->setError($form['Email'], $this->t('hello dsfs.'));
+    try {
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $email = $form_state->getValues()['Email'];
+      $name = $form_state->getValues()['Name'];
+      $pwd = $this->randompwd();
+      if($email !="" && $name !="")  {
+        $query = \Drupal::entityQuery('user');
+        $orGroup1 = $query->orConditionGroup();
+        $orGroup1->condition('mail', $email);
+        $orGroup1->condition('name', $name);
+        $ids = $query->condition($orGroup1)
+          ->execute();
+        if (!empty($ids)) {
+          $form_state->setError($form['errors'],$this->t('Please change email!'));
+        } else {
+           //  create user
+          $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+          $user = \Drupal\user\Entity\User::create();
+          $user->setUsername($name);
+          $user->setPassword($pwd);
+          $user->setEmail($email);
+          $user->set("init",  $email);
+          $user->set("langcode", $langcode);
+          $user->set("preferred_langcode", $langcode);
+          $user->set("preferred_admin_langcode", $langcode);
+          $user->activate();
+          $user->save();
+//        $sys_mail  = \Drupal::config('system.site')->get('mail');
+          $params['subject'] = t('Wristcheck Username & Password Email');
+          $params['body'] = t('You Username is: @user , Your  password is: @pass', ['@user' => $name, '@pass'=> $pwd]);
+          $params['headers'] = [
+            'content-type' => 'text/plain',
+          ];
+          $mailManager->mail('wristcheck_basic', 'smtp-test', $email, $langcode, $params,NULL,true);
+        }
+      }
+    }catch (Exception $e){
+      \Drupal::logger('User_Register')->error('user register faild' . json_encode($e));
+      $form_state->setError($form['errors'],$this->t('system error, wait a moment '));
+    }
   }
 
+  /**
+   * @param int $pw_length
+   * @return string
+   */
+  private function randompwd($pw_length=8){
+    $randpwd ='';
+    for ($i= 0; $i < $pw_length; $i++)
+    {
+      $randpwd .=chr(mt_rand(33, 126));
+    }
+    return $randpwd;
+  }
   /**
    * @param array                                $form
    * @param \Drupal\Core\Form\FormStateInterface $form_state
@@ -99,6 +151,7 @@ class UserRegisterForm extends FormBase
    */
   public function ajaxRebuildForm(array $form, FormStateInterface $form_state) {
     $errors = $form_state->getErrors();
+    $response = new AjaxResponse();
     if ($errors) {
       $error_output = '';
       foreach($errors as $error) {
@@ -108,15 +161,14 @@ class UserRegisterForm extends FormBase
       $form['errors'] = [
         '#markup' => $error_output,
       ];
+      return $form;
     }
-    return $form;
-//    else {
-//      $response = new AjaxResponse();
-//      $url = Url::fromRoute('wristcheck_basic.user_controller_useractivate)');
-//      $command = new RedirectCommand($url->toString());
-//      $response->addCommand($command);
-//      return $response;
-//    }
+    else {
+      $url = Url::fromRoute('wristcheck_basic.user_controller_useractivate');
+      $command = new RedirectCommand($url->toString());
+      $response->addCommand($command);
+    }
+      return $response;
   }
 
 
