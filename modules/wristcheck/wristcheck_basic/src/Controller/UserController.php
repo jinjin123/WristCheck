@@ -76,6 +76,7 @@ class UserController extends ControllerBase
     }else{
       $variables['picture']  = '';
     }
+
     return [
       '#theme' => 'wristcheck_user_supplement_form',
       '#variables' => $variables

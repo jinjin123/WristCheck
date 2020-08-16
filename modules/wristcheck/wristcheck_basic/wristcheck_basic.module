@@ -37,7 +37,17 @@ function wristcheck_basic_mail($key, &$message, $params) {
   }
 }
 
-
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ * faq authsystem
+ */
+function wristcheck_basic_form_alter(&$form, &$form_state, $form_id){
+  if($form_id == "webform_submission_faq_authsystem_add_form"){
+    $form['actions']['submit']['#type'] = 'button';
+  }
+}
 //function wristcheck_basic_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
 ////  exit('hello');
 //  var_dump($build);
@@ -119,11 +129,19 @@ function wristcheck_basic_theme()
     ],
 
     'wristcheck_faq_sellstep' => [],
-    'wristcheck_faq_authsystem' => [],
+    'wristcheck_faq_authsystem' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_faq_authsystemstep' => [],
     'wristcheck_eshop' => [],
     'wristcheck_faq' => [],
-    'wristcheck_user_supplement_form' => [],
+    'wristcheck_user_supplement_form' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_sell' => [],
     'wristcheck_banner_block' => [
       'variables' => []
