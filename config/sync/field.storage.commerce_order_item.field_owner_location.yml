@@ -1,0 +1,19 @@
+uuid: dc92cc37-9fbc-4f70-85ec-e9cc4589d8d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - commerce_order
+id: commerce_order_item.field_owner_location
+field_name: field_owner_location
+entity_type: commerce_order_item
+type: address_country
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

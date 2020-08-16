@@ -1,0 +1,111 @@
+uuid: a18480b8-6239-4d86-9749-8bec642a195f
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.2hw_order_item
+    - field.field.commerce_order_item.2hw_order_item.field_accessories_description
+    - field.field.commerce_order_item.2hw_order_item.field_body
+    - field.field.commerce_order_item.2hw_order_item.field_have_box
+    - field.field.commerce_order_item.2hw_order_item.field_material_pictures
+    - field.field.commerce_order_item.2hw_order_item.field_owner_location
+    - field.field.commerce_order_item.2hw_order_item.field_product_integrity
+    - field.field.commerce_order_item.2hw_order_item.field_purchase_date
+    - field.field.commerce_order_item.2hw_order_item.field_year_of_issue
+    - image.style.thumbnail
+  module:
+    - address
+    - commerce_order
+    - datetime
+    - image
+    - text
+id: commerce_order_item.2hw_order_item.default
+targetEntityType: commerce_order_item
+bundle: 2hw_order_item
+mode: default
+content:
+  field_accessories_description:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_body:
+    weight: 4
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_have_box:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_material_pictures:
+    weight: 6
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_owner_location:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
+  field_product_integrity:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_purchase_date:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_year_of_issue:
+    weight: 10
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  purchased_entity:
+    type: entity_reference_autocomplete
+    weight: -1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  quantity:
+    type: commerce_quantity
+    weight: 1
+    region: content
+    settings:
+      step: '1'
+      placeholder: ''
+    third_party_settings: {  }
+  unit_price:
+    type: commerce_unit_price
+    weight: 2
+    settings:
+      require_confirmation: true
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
