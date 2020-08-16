@@ -27,16 +27,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 class UserController extends ControllerBase
 {
 
-  /**
-   * The mail manager service.
-   *
-   * @var \Drupal\Core\Mail\MailManagerInterface
-   */
-//  protected $mailManager;
-//
-//  public function __construct(MailManagerInterface $mail_manager) {
-//    $this->mailManager = $mail_manager;
-//  }
 
   /**
    * Dashboard.
@@ -104,6 +94,15 @@ class UserController extends ControllerBase
       '#theme' => 'wristcheck_user_useractivate',
       '#variables' => $variables
     ];
+  }
+
+  public function  userprofile()
+  {
+    try{
+      \Drupal::messenger()->addMessage(\Drupal::request()->request);
+    }catch (Exception $e){
+
+    }
   }
 
 }

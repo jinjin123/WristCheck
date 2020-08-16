@@ -54,6 +54,8 @@
   Drupal.$wc = {};
 
   $(function () {
+    //usersupplementform
+
     //faq currency
     $(document).ready(function () {
       $("#edit-first-size").on('input',function (){

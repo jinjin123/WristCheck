@@ -161,6 +161,15 @@ wristcheck_basic.user_controller_buy:
   options:
     user: \d+
 
+wristcheck_basic.user_controller_userprofile:
+  path: '/user-profile'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::userprofile'
+    _title: 'userprofile'
+  methods: [POST]
+  requirements:
+    _permission: 'access user'
+
 wristcheck_basic.user_controller_portfolio:
   path: '/user/{user}/portfolio'
   defaults:
