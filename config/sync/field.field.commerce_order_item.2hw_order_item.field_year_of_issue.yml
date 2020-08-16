@@ -1,0 +1,23 @@
+uuid: 4cd5d07b-b270-4f31-99b6-831095e451d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.2hw_order_item
+    - field.storage.commerce_order_item.field_year_of_issue
+id: commerce_order_item.2hw_order_item.field_year_of_issue
+field_name: field_year_of_issue
+entity_type: commerce_order_item
+bundle: 2hw_order_item
+label: 'Year of issue'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
