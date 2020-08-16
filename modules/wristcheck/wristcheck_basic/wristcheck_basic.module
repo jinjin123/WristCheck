@@ -24,6 +24,19 @@ function wristcheck_basic_help($route_name, RouteMatchInterface $route_match)
   }
 }
 
+/**
+ * @param $key
+ * @param $message
+ * @param $params
+ *  hook_mail
+ */
+function wristcheck_basic_mail($key, &$message, $params) {
+  if ($key == 'smtp-test') {
+    $message['subject'] = $params['subject'];
+    $message['body'][] = $params['body'];
+  }
+}
+
 
 //function wristcheck_basic_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
 ////  exit('hello');

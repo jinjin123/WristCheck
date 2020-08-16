@@ -1,16 +1,28 @@
-<div class="wc-panel bg-f9">
+<div class="wc-panel">
   <div class="top-box">
     <img src="/themes/custom/wristcheck_barrio/images/icons/help.png"/>
-    <div>
+    <div >
         <h1>VERIFY YOUR EMAIL ADDRESS</h1>
         <h5>VERIFY YOUR EMAIL ADDRESSVERIFY YOUR EMAIL ADDRESSVFY YOUR EMAIL ADDRAIL ADDRESSVERIFY YOUR EMAIL ADDRESS</h5>
     </div>
   </div>
-  <div>
-    <h1>STORAGE SEARCH</h1>
-    <h1>SEARCH RESULTS NOT YET STORED?</h1>
-    <h5>LET us inpsire you with our incomparable luxury watch series</h5>
-    {{ drupal_view('wristcheck_user_data','user_supplementform') }}
+  <div class="user_content">
+    <div>
+      <h1>PERSIONNAL DATA</h1>
+      <div class="persional_data">
+{#        <img src="/themes/custom/wristcheck_barrio/images/icons/help.png"/>#}
+        <img src="{{ variables['pictures'] }}"/>
+        <h5>{{ variables['mail'] }}</h5>
+      </div>
+      <h5>fdsfsadfsafsaf</h5>
+      {{ drupal_entity('webform','user_info') }}
+    </div>
+    <div>
+      <h1>STORAGE SEARCH</h1>
+      <h1>SEARCH RESULTS NOT YET STORED?</h1>
+      <h5>LET us inpsire you with our incomparable luxury watch series</h5>
+      {{ drupal_view('wristcheck_user_data','user_supplementform') }}
+    </div>
   </div>
   <div>
     <h1>PERSONAL DATA</h1>
@@ -19,13 +31,5 @@
     <a href="javascript:;" class="wc-btn-dark">
       <div class="wc-btn-cont"><span class="fa fa-arrow-right"></span>CONTACT THE SELLER</div>
     </a>
-  </div>
-  <div>
-    <h1>PERSIONNAL DATA</h1>
-    <div class="persional_data">
-        <img src="/themes/custom/wristcheck_barrio/images/icons/help.png"/>
-        <h5>qq@qq.com</h5>
-    </div>
-    <h5>fdsfsadfsafsaf</h5>
   </div>
 </div>

@@ -878,7 +878,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<span><h5>CALL : 123456</h5> <a href="/aaa">EMAIL: Contact </a></span>'
+          content: "<span><h5>CALL : 123456</h5> <a href=\"/aaa\">EMAIL: Contact </a></span>\r\n<hr>"
           plugin_id: text_custom
       defaults:
         header: false
@@ -927,7 +927,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div>{{ title }} </div> <div> <span> <i></i></span></div>'
+            text: '<div>{{ title }} </div> <div class="faq-arrow"> <span> <i></i></span></div>'
             make_link: false
             path: ''
             absolute: false
