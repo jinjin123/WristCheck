@@ -6,7 +6,6 @@ use Drupal\commerce_price\Price;
 use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\Entity\Node;
 
 /**
  * Class SellAddToCartForm.
@@ -63,8 +62,11 @@ class SellAddToCartForm extends FormBase {
     $cart_provider = \Drupal::service('commerce_cart.cart_provider');
 
     if ($product_var) {
-      $productVarEntity = ProductVariation::load($product_var);
-      $productVarEntity->set('price', $entity->get('field_price')->getValue());
+//      $productVarEntity = ProductVariation::load($product_var);
+//      $productVarEntity->set('price', $entity->get('field_price')->getValue());
+//      $productVarEntity->set('title', $entity->get('title')->value);
+//      $productVarEntity->save();
+
       $order_type = '2hw_order';
       $order_item_type = '2hw_order_item';
       $store_id = 1;
@@ -83,7 +85,17 @@ class SellAddToCartForm extends FormBase {
         'purchased_entity' => (string) $product_var,
         'quantity' => 1, // Amount or quantity to be added to the cart.
         'unit_price' => New Price($price, $currency_code),
-        'title' => $entity->get('title')->value
+        'title' => $entity->get('title')->value,
+        'checkout_flow' => 'default',
+        'field_accessories_description' => $entity->get('field_accessories_description')->getValue(),
+        'field_body' => $entity->get('body')->getValue(),
+        'field_have_box' => $entity->get('field_have_box')->getValue(),
+        'field_owner_location' => $entity->get('field_owner_location')->getValue(),
+        'field_material_pictures' => $entity->get('field_material_pictures')->getValue(),
+        'field_product_integrity' => $entity->get('field_product_integrity')->getValue(),
+        'field_purchase_date' => $entity->get('field_purchase_date')->getValue(),
+        'field_year_of_issue' => $entity->get('field_year_of_issue')->getValue(),
+        'field_second_hand_watch_content' => $entity->id()
       ]);
 
       $cart_manager->addOrderItem($cart, $order_item);

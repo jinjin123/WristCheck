@@ -11,6 +11,7 @@ dependencies:
     - field.field.commerce_order_item.2hw_order_item.field_owner_location
     - field.field.commerce_order_item.2hw_order_item.field_product_integrity
     - field.field.commerce_order_item.2hw_order_item.field_purchase_date
+    - field.field.commerce_order_item.2hw_order_item.field_second_hand_watch_content
     - field.field.commerce_order_item.2hw_order_item.field_year_of_issue
     - image.style.thumbnail
   module:
@@ -74,6 +75,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_second_hand_watch_content:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_year_of_issue:
     weight: 10

@@ -12,6 +12,7 @@ dependencies:
     - field.field.commerce_order_item.2hw_order_item.field_owner_location
     - field.field.commerce_order_item.2hw_order_item.field_product_integrity
     - field.field.commerce_order_item.2hw_order_item.field_purchase_date
+    - field.field.commerce_order_item.2hw_order_item.field_second_hand_watch_content
     - field.field.commerce_order_item.2hw_order_item.field_year_of_issue
   module:
     - commerce_order
@@ -54,4 +55,5 @@ hidden:
   field_owner_location: true
   field_product_integrity: true
   field_purchase_date: true
+  field_second_hand_watch_content: true
   field_year_of_issue: true
