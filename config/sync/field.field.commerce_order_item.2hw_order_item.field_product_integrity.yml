@@ -1,0 +1,21 @@
+uuid: 4e48db9b-b0fd-40ad-adb7-2729155fcb96
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.2hw_order_item
+    - field.storage.commerce_order_item.field_product_integrity
+  module:
+    - options
+id: commerce_order_item.2hw_order_item.field_product_integrity
+field_name: field_product_integrity
+entity_type: commerce_order_item
+bundle: 2hw_order_item
+label: 'Product integrity'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
