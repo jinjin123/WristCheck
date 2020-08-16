@@ -1,9 +1,14 @@
-.path-supplementform {
+.path-user-supplementform {
   main {
     .wc-panel {
       .top-box {
+        text-align: center;
         margin-bottom: 100px;
         border-style: groove;
+        display: flex;
+        div {
+          margin: 100px 100px;
+        }
         img {
           width: 100px;
         }
