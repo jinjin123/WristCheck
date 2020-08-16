@@ -30,24 +30,24 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
   content_moderation_control:
-    weight: -20
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_accessories_description:
-    weight: 108
+    weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_have_box:
-    weight: 106
+    weight: 7
     label: above
     settings:
       format: default
@@ -57,7 +57,7 @@ content:
     type: boolean
     region: content
   field_material_pictures:
-    weight: 103
+    weight: 4
     label: above
     settings:
       image_style: ''
@@ -66,14 +66,14 @@ content:
     type: image
     region: content
   field_owner_location:
-    weight: 107
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
     type: address_country_default
     region: content
   field_price:
-    weight: 104
+    weight: 5
     label: above
     settings:
       strip_trailing_zeroes: false
@@ -82,14 +82,14 @@ content:
     type: commerce_price_default
     region: content
   field_product_integrity:
-    weight: 109
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_purchase_date:
-    weight: 102
+    weight: 3
     label: above
     settings:
       format_type: medium
@@ -97,16 +97,8 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_sell_item:
-    weight: 110
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_year_of_issue:
-    weight: 105
+    weight: 6
     label: above
     settings:
       thousand_separator: ''
@@ -115,10 +107,11 @@ content:
     type: number_integer
     region: content
   links:
-    weight: 100
+    weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
+  field_sell_item: true
   langcode: true
   search_api_excerpt: true

@@ -1,0 +1,28 @@
+uuid: 99006bc1-05d9-4778-84fe-209643bf31ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.2hw_order_item
+    - field.storage.commerce_order_item.field_accessories_description
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    basic_html: '0'
+    restricted_html: '0'
+    plain_text: '0'
+id: commerce_order_item.2hw_order_item.field_accessories_description
+field_name: field_accessories_description
+entity_type: commerce_order_item
+bundle: 2hw_order_item
+label: 'Accessories Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

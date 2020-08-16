@@ -1,0 +1,20 @@
+uuid: b84ec63c-e40e-4850-ad1c-4d919303fbbd
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - datetime
+id: commerce_order_item.field_purchase_date
+field_name: field_purchase_date
+entity_type: commerce_order_item
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
