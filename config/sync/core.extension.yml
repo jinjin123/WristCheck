@@ -104,6 +104,7 @@ module:
   realistic_dummy_content: 0
   realistic_dummy_content_api: 0
   rest: 0
+  restui: 0
   search: 0
   search_api: 0
   search_api_db: 0

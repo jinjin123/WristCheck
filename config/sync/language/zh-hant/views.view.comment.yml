@@ -1,14 +1,11 @@
-label: Orders
 display:
   default:
     display_options:
       fields:
         operations:
           label: 操作
-      title: Orders
-  page_1:
+  page_unapproved:
     display_options:
-      menu:
-        title: Orders
-      tab_options:
-        title: Orders
+      fields:
+        operations:
+          label: 操作

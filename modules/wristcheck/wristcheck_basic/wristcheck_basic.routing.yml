@@ -160,7 +160,8 @@ wristcheck_basic.user_controller_userprofile:
     _title: 'userprofile'
   methods: [POST]
   requirements:
-    _permission: 'access user'
+#    _permission: 'access user'
+    _access: 'TRUE'
 
 wristcheck_basic.user_controller_portfolio:
   path: '/user/{user}/portfolio'
