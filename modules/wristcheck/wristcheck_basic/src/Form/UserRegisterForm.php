@@ -118,7 +118,7 @@ class UserRegisterForm extends FormBase
           $user->save();
 //        $sys_mail  = \Drupal::config('system.site')->get('mail');
           $params['subject'] = t('Wristcheck Username & Password Email');
-          $params['body'] = t('You Username is: @user , Your  password is: @pass', ['@user' => $name, '@pass'=> $pwd]);
+          $params['body'] = t('You Username is: @user , Your  Password is: @pass', ['@user' => $name, '@pass'=> $pwd]);
           $params['headers'] = [
             'content-type' => 'text/plain',
           ];
