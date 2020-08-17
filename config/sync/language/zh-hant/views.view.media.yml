@@ -5,6 +5,8 @@ display:
       fields:
         thumbnail__target_id:
           label: 縮圖
+        operations:
+          label: 操作
       title: 媒體
   media_page_list:
     display_title: 媒體
