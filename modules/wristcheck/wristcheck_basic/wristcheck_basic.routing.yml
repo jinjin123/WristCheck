@@ -197,3 +197,11 @@ wristcheck_basic.wristcheck_sell_video_config_form:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+
+admin.wristcheck:
+  path: '/admin/wristcheck'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Wristcheck'
+  requirements:
+    _permission: 'access wristcheck administration pages'
