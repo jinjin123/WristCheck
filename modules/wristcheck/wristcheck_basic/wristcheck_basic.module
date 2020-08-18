@@ -6,7 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
+use Drupal\Core\Render\Markup;
 /**
  * Implements hook_help().
  */
@@ -24,6 +24,45 @@ function wristcheck_basic_help($route_name, RouteMatchInterface $route_match)
   }
 }
 
+/**
+ * @param $key
+ * @param $message
+ * @param $params
+ *  hook_mail
+ */
+function wristcheck_basic_mail($key, &$message, $params) {
+  if ($key == 'smtp-test') {
+    $message['subject'] = $params['subject'];
+    $message['body'][] = $params['body'];
+  }
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ * faq authsystem
+ */
+function wristcheck_basic_form_alter(&$form, &$form_state, $form_id){
+  if($form_id == "webform_submission_faq_authsystem_add_form"){
+    $form['actions']['submit']['#type'] = 'button';
+  }
+}
+//function wristcheck_basic_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+////  exit('hello');
+//  var_dump($build);
+//  var_dump($block);
+//  exit('hello');
+////  if ($block->getBaseId() === 'faq_contact_us') {
+////    $build['#pre_render'][] = 'wristcheck_basic_block_poweredby_prerender';
+////  }
+//}
+//
+//function wristcheck_basic_block_poweredby_prerender(array $build) {
+////  exit('hello');
+//  $build['content']['#markup'] = Markup::create('Your text');
+//  return $build;
+//}
 /**
  * Implements hook_theme().
  */
@@ -83,11 +122,39 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_user_useractivate' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+
+    'wristcheck_faq_sellstep' => [],
+    'wristcheck_faq_authsystem' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_faq_authsystemstep' => [],
     'wristcheck_eshop' => [],
     'wristcheck_faq' => [],
+    'wristcheck_user_supplement_form' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_sell' => [],
     'wristcheck_banner_block' => [
       'variables' => []
+    ],
+    'wristcheck_faq_checkout_block' => [
+      'variables' => [
+           'variables' => []
+      ]
+    ],
+    'wristcheck_faq_checkvalue_block' => [
+      'variables' => [
+        'variables' => []
+      ]
     ],
     'wristcheck_download_app_block' => [
       'variables' => []

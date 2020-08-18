@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.wcshw.field_price
     - field.field.node.wcshw.field_product_integrity
     - field.field.node.wcshw.field_purchase_date
+    - field.field.node.wcshw.field_sell_item
     - field.field.node.wcshw.field_year_of_issue
     - node.type.wcshw
   module:
@@ -30,6 +31,16 @@ content:
       trim_length: 600
     third_party_settings: {  }
     region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_second_hands_watch_flag:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     settings: {  }
@@ -43,6 +54,7 @@ hidden:
   field_price: true
   field_product_integrity: true
   field_purchase_date: true
+  field_sell_item: true
   field_year_of_issue: true
   langcode: true
   search_api_excerpt: true

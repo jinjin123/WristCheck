@@ -1,62 +1,72 @@
-.path-wristcheck-faq-auth-system {
+.path-faq-authsystem {
   main {
-    margin: 0 400px;
-    .container {
-      .row {
-        margin: 0 -30px;
-        .view-wristcheck-faq-auth-system {
-          .view-content {
-            .views-row {
-              .views-field-title {
-                color: #333;
-                font-weight: bold;
-                font-size: 25px;
-                margin-bottom: 50px;
+    margin:0 300px;
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .views-element-container {
+      .view-wristcheck-faq {
+        .view-filters {
+          .views-exposed-form {
+            .form-row {
+              > fieldset {
+                display: none;
               }
             }
           }
         }
       }
     }
-    .block-webform-block {
+
+    #edit-actions {
+      #edit-submit-wristcheck-faq {
+        //background-color: #d0d0d0;
+        border: 0;
+        height: 40px;
+        width: 150px;
+      }
+
+      #edit-reset {
+        background-color: #d0d0d0;
+        height: 40px;
+        border: 0;
+        width: 150px;
+      }
+
+      button {
+        margin-right: 15px;
+      }
+
+      margin-bottom: 80px;
+    }
+
+    //#edit-reset {
+    //  background-color: #d0d0d0;
+    //  border: 0;
+    //}
+    .webform-submission-faq-authsystem-form {
       .webform-elements {
-        display: -webkit-box;
+        display: flex;
+        margin-bottom: 100px;
+
         fieldset {
           margin-right: 30px;
         }
-        #edit-actions-submit {
+        .form-actions {
+          padding-top: 100px;
           position: relative;
-          margin-top: 60%;
-          background-color: #333;
-          color: #FFFBFCFC;
-          font-weight: bold;
-        }
-      }
-    }
-    #block-wristcheckprocessbutton {
-      margin-bottom: 100px;
-      h2 {
-        color: #333;
-        font-weight: bold;
-        font-size: 25px;
-        margin-bottom: 70px;
-        //padding: 0 12px;
-      }
-      .field--name-body {
-        display: flex;
-        .text-center {
-          padding-right: 12px;
+          width: 200px;
+          left: -212px;
           button {
-            background-color: #d0d0d0;
-            span {
-              color: #FFFBFCFC;
-            }
+            height: 40px
           }
         }
       }
     }
-    #faq-auth-step {
-      background-color: #333 !important;
+
+    label {
+      display: none;
     }
   }
 }

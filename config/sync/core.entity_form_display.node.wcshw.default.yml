@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.wcshw.field_price
     - field.field.node.wcshw.field_product_integrity
     - field.field.node.wcshw.field_purchase_date
+    - field.field.node.wcshw.field_sell_item
     - field.field.node.wcshw.field_year_of_issue
     - image.style.thumbnail
     - node.type.wcshw
@@ -21,6 +22,7 @@ dependencies:
     - image
     - path
     - text
+    - wristcheck_basic
 id: node.wcshw.default
 targetEntityType: node
 bundle: wcshw
@@ -89,6 +91,16 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_sell_item:
+    weight: 101
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_year_of_issue:
     weight: 3
     settings:
@@ -102,6 +114,12 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: custom_moderation_state_button
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path

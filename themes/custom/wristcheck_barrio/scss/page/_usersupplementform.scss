@@ -1,0 +1,55 @@
+.path-user-supplementform {
+  main {
+    margin: 0 300px;
+    .wc-panel {
+      .alert {
+        display: none;
+      }
+      .top-box {
+        text-align: center;
+        margin-bottom: 100px;
+        border-style: groove;
+        display: flex;
+        div {
+          margin: 100px 100px;
+        }
+        img {
+          width: 100px;
+        }
+      }
+      .persional_data {
+        display: flex;
+        img {
+          width: 100px;
+        }
+      }
+      .user_content {
+        margin-bottom: 80px;
+        display: flex;
+        h1 {
+          font-size: 20px;
+        }
+        >div {
+          margin-right: 30%;
+        }
+      }
+      .view-wristcheck-user-data {
+        .view-content {
+          .views-row {
+            display: flex;
+            .views-field-title {
+              margin-top: 100px;
+              margin-left: 30px;
+            }
+          }
+        }
+      }
+    }
+    #block-webform-5 {
+      width: 25%;
+    }
+    label {
+      display: none;
+    }
+  }
+}

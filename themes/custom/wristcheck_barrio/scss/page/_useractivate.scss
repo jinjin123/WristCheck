@@ -1,0 +1,55 @@
+.path-user-activate {
+  main {
+    .wc-panel {
+      .direction {
+        margin-left: 5px;
+        h5 {
+          i {
+            margin-right: 10px;
+            font-size: 30px;
+          }
+        }
+      }
+      hr {
+        border:1px groove ;
+        margin-bottom: 100px !important;
+      }
+      .row {
+        h5 {
+          margin-bottom: 30px;
+        }
+      }
+      .note-start {
+        h5 {
+          font-weight: bold;
+        }
+        margin-bottom: 100px;
+      }
+      .re-email {
+        a {
+          color: blue;
+        }
+        margin-bottom: 100px;
+        div {
+          float: right;
+          margin-top: -200px;
+        }
+      }
+      .user_act_footer {
+        display: flex;
+        >div {
+          margin-right: 600px;
+        }
+      }
+      .user-active-title {
+        h1 {
+          margin-bottom: 10px ;
+        }
+        h5 {
+          margin-bottom: 20px ;
+        }
+        margin-bottom: 100px ;
+      }
+    }
+  }
+}

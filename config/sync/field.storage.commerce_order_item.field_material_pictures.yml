@@ -1,0 +1,30 @@
+uuid: ef2a5e42-3027-4c28-aed9-297b503ca2bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - file
+    - image
+id: commerce_order_item.field_material_pictures
+field_name: field_material_pictures
+entity_type: commerce_order_item
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

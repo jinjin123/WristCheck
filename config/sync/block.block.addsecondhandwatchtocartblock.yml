@@ -1,0 +1,44 @@
+uuid: bb13a793-940b-4d87-998b-a306cfe4d30a
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ctools
+    - ntv_block_background
+    - wristcheck_basic
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: addsecondhandwatchtocartblock
+theme: wristcheck_barrio
+region: content
+weight: 0
+provider: null
+plugin: add_second_hand_watch_to_cart_block
+settings:
+  id: add_second_hand_watch_to_cart_block
+  label: 'Add second hand watch to cart block'
+  provider: wristcheck_basic
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      wcshw: wcshw
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

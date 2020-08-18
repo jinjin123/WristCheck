@@ -1,0 +1,57 @@
+uuid: 20e76945-5b1b-4344-828b-e7533a5767db
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wcshw
+  module:
+    - content_moderation
+id: content_workflow
+label: 'Content workflow'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      published: false
+      default_revision: false
+      label: Draft
+      weight: -2
+    need_approve:
+      published: false
+      default_revision: false
+      label: 'Need Approve'
+      weight: -1
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 0
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: -2
+      from:
+        - draft
+    need_approve:
+      label: 'Need Approve'
+      from:
+        - draft
+      to: need_approve
+      weight: -1
+    publish:
+      label: Publish
+      to: published
+      weight: 0
+      from:
+        - need_approve
+    reject:
+      label: Reject
+      from:
+        - need_approve
+      to: draft
+      weight: 1
+  entity_types:
+    node:
+      - wcshw
+  default_moderation_state: draft

@@ -69,8 +69,14 @@ class UserLoginForm extends FormBase
     $form = \Drupal::formBuilder()->getForm('Drupal\user\Form\UserLoginForm');
 
     // add register class.
-    $register = Link::fromTextAndUrl($this->t('No user account yet?'), Url::fromRoute('user.register'))->toRenderable();
-    $register['#attributes'] = ['class' => 'register'];
+    $register = Link::fromTextAndUrl($this->t('No user account yet?'), Url::fromRoute("wristcheck_basic.user_register_form"))->toRenderable();
+    $register['#attributes'] = array(
+      'class' => array(
+        'use-ajax',
+        'register-popup-form'
+        ),
+      'data-dialog-type' => 'modal',
+    );
 
     // add forget class.
     $forget = Link::fromTextAndUrl($this->t('No user account yet?'), Url::fromRoute('user.pass'))->toRenderable();
@@ -155,7 +161,7 @@ class UserLoginForm extends FormBase
 
   /**
    * Ajax callback to validate the email field.
-   * @param array $form
+   * @param array $for$floodm
    * @param FormStateInterface $form_state
    * @param $account
    * @return AjaxResponse
