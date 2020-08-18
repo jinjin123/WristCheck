@@ -198,3 +198,10 @@ wristcheck_basic.wristcheck_sell_video_config_form:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+wristcheck_basic.wristcheck_user_register_form:
+  path: '/wristcheck_basic/form/wristcheck_user_register'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\WristcheckUserRegisterForm'
+    _title: 'WristcheckUserRegisterForm'
+  requirements:
+    _access: 'TRUE'
