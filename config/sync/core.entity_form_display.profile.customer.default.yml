@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.profile.customer.address
+    - field.field.profile.customer.field_sex
     - field.field.profile.customer.tax_number
     - profile.type.customer
   enforced:
@@ -23,6 +24,14 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_sex:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   is_default: true

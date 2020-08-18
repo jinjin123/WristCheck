@@ -12,16 +12,12 @@ display:
       fields:
         title:
           label: 标题
-          separator: ', '
         unit_price__number:
           label: 单价
-          separator: ', '
         quantity:
           label: 数量
-          separator: ', '
         total_price__number:
           label: 总价
-          separator: ', '
       arguments:
         order_id:
           exception:

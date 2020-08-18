@@ -1,0 +1,19 @@
+uuid: a98fc07a-8a5f-4bea-a71a-79cc2a09f17f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_sex
+    - profile.type.customer
+id: profile.customer.field_sex
+field_name: field_sex
+entity_type: profile
+bundle: customer
+label: sex
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

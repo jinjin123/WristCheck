@@ -5,15 +5,16 @@ dependencies:
   module:
     - commerce_cart
     - commerce_checkout
+    - commerce_shipping
 third_party_settings:
   commerce_cart:
     cart_form_view: commerce_cart_form
     cart_block_view: commerce_cart_block
-    cart_expiration:
-      unit: day
-      number: 15
+    cart_expiration: {  }
   commerce_checkout:
-    checkout_flow: second_hands_watch_buying_flow
+    checkout_flow: default
+  commerce_shipping:
+    shipment_type: ''
 label: '2 Hands Watch Order'
 id: 2hw_order
 workflow: order_default

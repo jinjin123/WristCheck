@@ -54,17 +54,66 @@
   Drupal.$wc = {};
 
   $(function () {
+    //usersupplementform
+    $("#profile_button").click(function(){
+      // console.log($("#webform-submission-user-info-add-form").serialize())
+      $.post("/user-profile",$("#webform-submission-user-info-add-form").serialize(),function(data){
+        if(data == "ok"){
+          $("#webform-submission-user-info-add-form")[0].reset();
+          $(".alert-success").css("display","block");
+        }else{
+          $(".alert-danger").css("display","block");
+        }
+      })
+    })
+    //faq currency
+    $(document).ready(function () {
+      $("#edit-first-size").on('input',function (){
+          var src = $("#edit-first-size")[0].value;
+          var funit = $('#edit-first-unit option:selected')[0].textContent;
+          var sunit = $('#edit-second-unit option:selected')[0].textContent;
+        // console.log(funit,sunit)
+          // console.log($('#edit-first-unit option:selected')[0].textContent)
+        $.getJSON("/currency-price?search="+funit,(function (data){
+          $("#edit-second-size")[0].value = (src * JSON.parse(data)[sunit]).toFixed(2);
+        }))
+
+      });
+    })
+    //faq index
+    $(".view-content").removeClass("row");
+    //faq auth system expose filter
+    if(window.location.pathname === "/faq-authsystemstep"){
+      $(".path-faq-authsystemstep .view-content")[0].style.display="none";
+    }
+    if(window.location.pathname === "/faq-authsystem"){
+      $(".path-faq-authsystem .view-content")[0].style.display="none";
+    }
+
+    // console.log($(".path-faq-authsystem .view-content")[0])
     //faq dropdown
-    $(".path-wristcheck-faq .view-content .views-row .views-field-title .field-content i").click(function () {
+    $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
       var target = $(this);
-      if (target.parent().parent().parent().parent().parent().children()[2].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[2].style.display = "none"
+      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
         target.css("-webkit-transform", "rotate(-45deg)");
       } else {
-        target.parent().parent().parent().parent().parent().children()[2].style.display = "block"
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
         target.css("-webkit-transform", "rotate(45deg)");
       }
-    })
+    });
+    //faq authsystem
+    $(".path-faq-authsystemstep .view-content .views-row .views-field-title .field-content i").click(function () {
+      var target = $(this);
+      // console.log(target.parent().parent().parent().parent().parent().children()[1]);
+      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
+        target.css("-webkit-transform", "rotate(-45deg)");
+      } else {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
+        target.css("-webkit-transform", "rotate(45deg)");
+      }
+    });
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
       console.log($(this).find('.mega-dropdown').length)
@@ -74,20 +123,6 @@
     }, function () {
       $('.wc-page-modal').removeClass('show');
     });
-//faq system step
-//   $('#faq-auth-system').css("background-color","#333")
-    $(".view-wristcheck-contact-us .views-field-title .field-content i").click(function () {
-      var target = $(this);
-      // console.log(target.parent().parent().parent().parent().parent().children()[1].style.display="block")
-      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "none"
-        // target.parent().parent().parent().parent().parent().children()[1].css("margin-bottom","30px")
-        target.css("-webkit-transform", "rotate(-45deg)");
-      } else {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "block"
-        target.css("-webkit-transform", "rotate(45deg)");
-      }
-    })
 
     var range = document.getElementById('wc-range');
     if (noUiSlider && range) {

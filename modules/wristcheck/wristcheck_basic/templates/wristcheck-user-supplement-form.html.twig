@@ -1,0 +1,53 @@
+<div class="wc-panel">
+  <div class="top-box">
+    <img src="/themes/custom/wristcheck_barrio/images/icons/help.png"/>
+    <div >
+        <h1>VERIFY YOUR EMAIL ADDRESS</h1>
+        <h5>VERIFY YOUR EMAIL ADDRESSVERIFY YOUR EMAIL ADDRESSVFY YOUR EMAIL ADDRAIL ADDRESSVERIFY YOUR EMAIL ADDRESS</h5>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <div class="alert alert-danger">
+          <a class="close" data-dismiss="alert">×</a>
+          <strong>
+            Error
+          </strong>
+        </div>
+        <div class="alert alert-success">
+          <a class="close" data-dismiss="alert">×</a>
+          <strong>
+            Success
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="user_content">
+    <div>
+      <h1>PERSIONNAL DATA</h1>
+      <div class="persional_data">
+{#        <img src="/themes/custom/wristcheck_barrio/images/icons/help.png"/>#}
+        <img src="{{ variables['pictures'] }}"/>
+        <h5>{{ variables['mail'] }}</h5>
+      </div>
+      <h5>fdsfsadfsafsaf</h5>
+      {{ drupal_entity('webform','user_info') }}
+    </div>
+    <div>
+      <h1>STORAGE SEARCH</h1>
+      <h1>SEARCH RESULTS NOT YET STORED?</h1>
+      <h5>LET us inpsire you with our incomparable luxury watch series</h5>
+      {{ drupal_view('wristcheck_user_data','user_supplementform') }}
+    </div>
+  </div>
+  <div>
+    <h1>PERSONAL DATA</h1>
+    <h2>SELL YOUR WATCH</h2>
+    <h5>fdsajfldsjaflksaj</h5>
+    <a href="javascript:;" class="wc-btn-dark">
+      <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span>CONTACT THE SELLER</div>
+    </a>
+  </div>
+</div>
