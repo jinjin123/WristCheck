@@ -1,0 +1,15 @@
+uuid: 5507f4b7-de61-4ced-a47a-432ea9882dd6
+langcode: en
+status: true
+dependencies: {  }
+name: wc_350x230
+label: wc-350x230
+effects:
+  65833ee5-de44-4e1e-b9b0-141de38aacf2:
+    uuid: 65833ee5-de44-4e1e-b9b0-141de38aacf2
+    id: image_scale
+    weight: 1
+    data:
+      width: 350
+      height: 230
+      upscale: false

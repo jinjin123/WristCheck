@@ -1,0 +1,15 @@
+uuid: 45a30bf3-eb5e-40ae-bf63-0b7000e33d13
+langcode: en
+status: true
+dependencies: {  }
+name: wc_340x250
+label: wc-340x250
+effects:
+  3f4faae6-4625-435f-a2d6-662f6c504392:
+    uuid: 3f4faae6-4625-435f-a2d6-662f6c504392
+    id: image_scale
+    weight: 1
+    data:
+      width: 340
+      height: 250
+      upscale: false

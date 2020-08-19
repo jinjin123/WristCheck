@@ -1,0 +1,15 @@
+uuid: 6546dd1c-8be0-4e4e-babb-2e76326317cf
+langcode: en
+status: true
+dependencies: {  }
+name: wc_180x130
+label: wc-180x130
+effects:
+  cf73240d-40e3-4a05-a7ce-b24cc9e43f0a:
+    uuid: cf73240d-40e3-4a05-a7ce-b24cc9e43f0a
+    id: image_scale
+    weight: 1
+    data:
+      width: 180
+      height: 130
+      upscale: false
