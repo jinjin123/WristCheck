@@ -67,12 +67,15 @@
     })
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
-      console.log($(this).children('.wc-menu-container'))
       if ($(this).children('.wc-menu-container').length > 0) {
         $('.wc-page-modal').addClass('show');
       }
     }, function () {
       $('.wc-page-modal').removeClass('show');
+    }).children('a[href]').click(function(){
+      if(/((http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?)/.test(this.href) && location.href != this.href){
+        location.href = this.href;
+      }
     });
 //faq system step
 //   $('#faq-auth-system').css("background-color","#333")
@@ -87,7 +90,7 @@
         target.parent().parent().parent().parent().parent().children()[1].style.display = "block"
         target.css("-webkit-transform", "rotate(45deg)");
       }
-    })
+    });
 
     var range = document.getElementById('wc-range');
     if (noUiSlider && range) {
