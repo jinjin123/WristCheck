@@ -28,7 +28,6 @@ display:
           label: 用户名
         subscriptions:
           label: 订阅
-          separator: ', '
         status:
           label: 有效
         created:

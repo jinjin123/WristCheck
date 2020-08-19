@@ -1,0 +1,17 @@
+uuid: 747c82fb-977a-49c6-8a1b-64fcb945592c
+langcode: en
+status: true
+dependencies:
+  module:
+    - serialization
+    - user
+    - wristcheck_basic
+id: api_rest_resource
+plugin_id: api_rest_resource
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie

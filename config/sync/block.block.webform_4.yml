@@ -28,12 +28,12 @@ third_party_settings:
 id: webform_4
 theme: wristcheck_barrio
 region: section
-weight: -14
+weight: -12
 provider: null
 plugin: webform_block
 settings:
   id: webform_block
-  label: Webform
+  label: 'faq authsystem Webform'
   provider: webform
   label_display: '0'
   webform_id: faq_authsystem
@@ -42,6 +42,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /wristcheck-faq-auth-system
+    pages: /faq_authsystem
     negate: false
     context_mapping: {  }
