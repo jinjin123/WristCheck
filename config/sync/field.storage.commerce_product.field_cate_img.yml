@@ -1,18 +1,16 @@
-uuid: 8c8ced3a-74d7-4a5d-99bf-cca8df489ae0
+uuid: 4f295eb0-7c20-454a-b4d3-7ef147acbe52
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_product
-id: commerce_product.field_watch_core_num
-field_name: field_watch_core_num
+    - remote_image
+id: commerce_product.field_cate_img
+field_name: field_cate_img
 entity_type: commerce_product
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: remote_image
+settings: {  }
+module: remote_image
 locked: false
 cardinality: 1
 translatable: true
