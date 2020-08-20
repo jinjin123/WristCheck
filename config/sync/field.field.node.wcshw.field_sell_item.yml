@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_variation_type.2_hands_watch_variation
     - field.storage.node.field_sell_item
     - node.type.wcshw
 id: node.wcshw.field_sell_item
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:commerce_product_variation'
   handler_settings:
-    target_bundles:
-      2_hands_watch_variation: 2_hands_watch_variation
+    target_bundles: {  }
     sort:
       field: _none
     auto_create: false

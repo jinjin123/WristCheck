@@ -1,13 +1,11 @@
-uuid: 4f92521f-6cb5-4fb8-9123-615c8260f8db
+uuid: 385a1be5-748e-438e-9851-74de88760d38
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: 3vA4FKQ1Qu8B1R8UdGPnmMfJrYO6Y6uMqeNgDgXxods
 id: default
 label: Default
 orderItemType: default
-generateTitle: true
+generateTitle: false
 traits:
   - purchasable_entity_shippable
 locked: false

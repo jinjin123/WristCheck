@@ -5,45 +5,50 @@ dependencies:
   module:
     - commerce_payment
     - commerce_promotion
+    - commerce_shipping
 id: default
 label: Default
 plugin: multistep_default
 configuration:
   display_checkout_progress: true
   panes:
-    review:
-      step: review
-      weight: 10
     login:
       allow_guest_checkout: true
       allow_registration: false
       step: login
-      weight: 10
-    order_summary:
-      view: ''
-      step: _sidebar
-      weight: 10
+      weight: 0
     contact_information:
       double_entry: false
       step: order_information
-      weight: 10
+      weight: 1
+    payment_information:
+      step: order_information
+      weight: 2
+    review:
+      step: review
+      weight: 4
+    payment_process:
+      capture: true
+      step: payment
+      weight: 5
     completion_register:
       step: complete
-      weight: 10
+      weight: 6
     completion_message:
       message:
         value: "Your order number is [commerce_order:order_number].\r\nYou can view your order on your account page when logged in."
         format: plain_text
       step: complete
-      weight: 10
-    payment_process:
-      capture: true
-      step: payment
-      weight: 10
-    payment_information:
-      step: order_information
-      weight: 10
+      weight: 7
+    order_summary:
+      view: ''
+      step: _sidebar
+      weight: 8
     coupon_redemption:
       allow_multiple: false
       step: _sidebar
-      weight: 10
+      weight: 9
+    shipping_information:
+      require_shipping_profile: true
+      step: order_information
+      weight: 3

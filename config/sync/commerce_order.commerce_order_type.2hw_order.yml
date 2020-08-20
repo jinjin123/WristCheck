@@ -14,10 +14,10 @@ third_party_settings:
   commerce_checkout:
     checkout_flow: default
   commerce_shipping:
-    shipment_type: ''
+    shipment_type: default
 label: '2 Hands Watch Order'
 id: 2hw_order
-workflow: order_default
+workflow: order_fulfillment
 numberPattern: null
 refresh_mode: customer
 refresh_frequency: 300
