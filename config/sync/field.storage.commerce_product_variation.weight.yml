@@ -1,17 +1,18 @@
-uuid: ce03cb7d-af3a-49a9-a0ae-84d5773a79e1
+uuid: fed3a3ea-9c39-4b63-8a30-327946fdd442
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_product
-id: commerce_product_variation.attribute_size
-field_name: attribute_size
+    - physical
+id: commerce_product_variation.weight
+field_name: weight
 entity_type: commerce_product_variation
-type: entity_reference
+type: physical_measurement
 settings:
-  target_type: commerce_product_attribute_value
-module: core
-locked: false
+  measurement_type: weight
+module: physical
+locked: true
 cardinality: 1
 translatable: false
 indexes: {  }
