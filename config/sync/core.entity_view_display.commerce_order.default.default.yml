@@ -6,6 +6,7 @@ dependencies:
     - commerce_order.commerce_order_type.default
     - field.field.commerce_order.default.field_do_you_need_a_gift_bag
     - field.field.commerce_order.default.field_phone
+    - field.field.commerce_order.default.shipments
   module:
     - commerce_order
     - state_machine
@@ -113,5 +114,6 @@ hidden:
   billing_profile: true
   order_number: true
   search_api_excerpt: true
+  shipments: true
   store_id: true
   total_paid: true

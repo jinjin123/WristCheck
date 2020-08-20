@@ -1,4 +1,4 @@
-uuid: a0ff9e8d-8df2-4c38-a6d6-9c72bdb1f926
+uuid: 40d2acd6-78e6-4aed-a595-a48dc8d1790c
 langcode: en
 status: true
 dependencies:
@@ -6,8 +6,10 @@ dependencies:
     - commerce_product.commerce_product_variation_type.watch
     - field.field.commerce_product_variation.watch.attribute_color
     - field.field.commerce_product_variation.watch.attribute_size
+    - field.field.commerce_product_variation.watch.weight
   module:
     - commerce_price
+    - physical
 id: commerce_product_variation.watch.default
 targetEntityType: commerce_product_variation
 bundle: watch
@@ -67,6 +69,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  weight:
+    type: physical_measurement_default
+    weight: 91
+    settings:
+      default_unit: ''
+      allow_unit_change: true
+    third_party_settings: {  }
+    region: content
 hidden:
   created: true
   uid: true

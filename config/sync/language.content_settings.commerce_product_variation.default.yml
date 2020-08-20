@@ -1,16 +1,9 @@
-uuid: b0316fe5-4d41-468d-8db5-34d5528e3ada
+uuid: 8309aafb-2ab4-4f1e-b7a9-bb7bb01b4c96
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
-  module:
-    - content_translation
-third_party_settings:
-  content_translation:
-    enabled: false
-    bundle_settings:
-      untranslatable_fields_hide: '0'
 id: commerce_product_variation.default
 target_entity_type_id: commerce_product_variation
 target_bundle: default
