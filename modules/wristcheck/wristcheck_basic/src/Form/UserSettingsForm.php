@@ -154,7 +154,6 @@ class UserSettingsForm extends FormBase
     $fname = $entitys->address->family_name;
     $lname = $entitys->address->given_name;
 
-    \Drupal::service(" wristcheck_basic.mailchamp")->MailChampSubscript($mail,$fname,$lname);
 
     $values = $form_state->getValues();
 

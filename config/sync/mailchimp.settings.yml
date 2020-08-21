@@ -1,0 +1,11 @@
+api_key: 1058086cdc282b8a8caad4d7ce3e5a5d-us17
+cron: true
+batch_limit: 100
+api_classname: Mailchimp\Mailchimp
+test_mode: false
+_core:
+  default_config_hash: x8k6uOqmSHPqpp71jYGxHF3_SAs3U-Pha3YCntQIhPU
+enable_connected: true
+connected_id: 5be06dcdd4b3217
+connected_paths: '<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/43b8e35a776759d93e2996ee2/14d2d0a5da3dc3938e24525d7.js");</script>'
+webhook_hash: 87a94950f9e496b70ba4f7ab37063a8f

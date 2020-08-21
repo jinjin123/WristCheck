@@ -4,8 +4,11 @@ namespace Drupal\wristcheck_basic\Service;
 
 use Drupal\Core\Site\Settings;
 
-class MailChampSubscript extends BaseService implements  MailChampSubcriptServiceInterface {
+class MailChampService {
 
+  public function __construct() {
+
+  }
 
   public function MailChampSubscript ($email,$first_name,$last_name){
     $url = Settings::get('mailchamp_api', '');
@@ -32,11 +35,11 @@ class MailChampSubscript extends BaseService implements  MailChampSubcriptServic
     $response = curl_exec($ch);
     $readable_response = json_decode($response);
     if(!$readable_response) {
-      \Drupal::logger('Mailchimp_subscriber')->error($readable_response->title.': '.$readable_response->detail .'. Raw values:'.print_r($values));
+      \Drupal::logger('Mailchimp_subscriber')->error($readable_response->title.': '.$readable_response->detail);
       \Drupal::messenger()->addError('Something went wrong. Please contact your webmaster.');
     }
     if($readable_response->status == 403) {
-      \Drupal::logger('Mailchimp_subscriber')->error($readable_response->title.': '.$readable_response->detail .'. Raw values:'.print_r($values));
+      \Drupal::logger('Mailchimp_subscriber')->error($readable_response->title.': '.$readable_response->detail);
       \Drupal::messenger()->addError('Something went wrong. Please contact your webmaster.');
     }
     if($readable_response->status == 'subscribed') {
