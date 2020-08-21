@@ -113,6 +113,7 @@ class UserSettingsForm extends FormBase
       '#type' => 'submit',
       '#value' => $this->t('Save'),
     ];
+    $form['#redirect'] = FALSE;
 
     return $form;
   }
@@ -147,15 +148,29 @@ class UserSettingsForm extends FormBase
 
     $existUser = User::load($this->currentUser->id());
 
+    $entityTypeManager = \Drupal::entityTypeManager()->getStorage('profile');
+    $entitys = $entityTypeManager->load(\Drupal::currentUser()->id());
+    $mail = $existUser->get("mail")->value;
+    $fname = $entitys->address->family_name;
+    $lname = $entitys->address->given_name;
+
+    \Drupal::service(" wristcheck_basic.mailchamp")->MailChampSubscript($mail,$fname,$lname);
+
     $values = $form_state->getValues();
 
-    array_walk($map, function ($value, $key) use ($existUser, $values) {
+
+    array_walk($map, function ($value, $key) use ($lname, $fname, $mail, $existUser, $values) {
       if (isset($values[$key])) {
         $existUser->$value->value = $values[$key];
+        if($values['newsletter'] == 1){
+          \Drupal::service("wristcheck_basic.mailchamp")->MailChampSubscript($mail,$fname,$lname);
+        }
       }
     });
 
     $existUser->save();
+    $form_state->disableRedirect();
+    return $form;
   }
 
 }
