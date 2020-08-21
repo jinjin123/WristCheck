@@ -1,17 +1,14 @@
-uuid: 77df8f27-0924-449e-a688-8df26fc71a8f
+uuid: 215f11ae-bc8a-42ff-a03e-a9b7b7687815
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_box
-    - field.field.commerce_product_variation.default.attribute_color
-    - field.field.commerce_product_variation.default.attribute_size
-    - field.field.commerce_product_variation.default.attribute_year
+    - field.field.commerce_product_variation.default.weight
   module:
     - commerce_price
-_core:
-  default_config_hash: tPYXAFcoBHG1jtgfl021t-ns7EE7da_S-o2zfS7aLUQ
+    - physical
 id: commerce_product_variation.default.default
 targetEntityType: commerce_product_variation
 bundle: default
@@ -19,25 +16,7 @@ mode: default
 content:
   attribute_box:
     type: options_select
-    weight: 4
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  attribute_color:
-    type: options_select
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  attribute_size:
-    type: options_select
     weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  attribute_year:
-    type: options_select
-    weight: 5
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -57,22 +36,38 @@ content:
   price:
     type: commerce_price_default
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   sku:
     type: string_textfield
     weight: -4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
   status:
     type: boolean_checkbox
-    weight: 10
     settings:
       display_label: true
+    weight: 90
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  weight:
+    type: physical_measurement_default
+    weight: 91
+    settings:
+      default_unit: ''
+      allow_unit_change: true
     third_party_settings: {  }
     region: content
 hidden:
