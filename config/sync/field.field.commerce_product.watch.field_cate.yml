@@ -1,0 +1,29 @@
+uuid: 41760f50-69e7-4bc7-a88b-1f4c8b2fff90
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_cate
+    - taxonomy.vocabulary.product_tags
+id: commerce_product.watch.field_cate
+field_name: field_cate
+entity_type: commerce_product
+bundle: watch
+label: cate
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      product_tags: product_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

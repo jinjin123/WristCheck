@@ -1,0 +1,26 @@
+uuid: d025761d-fd8b-4cd0-bbf6-4f6abdd65150
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_detailimg
+  module:
+    - remote_image
+id: commerce_product.watch.field_detailimg
+field_name: field_detailimg
+entity_type: commerce_product
+bundle: watch
+label: detailimg
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: '17'
+  alt_field: 0
+  alt_field_required: 0
+  title_field: 0
+  title_field_required: 0
+field_type: remote_image
