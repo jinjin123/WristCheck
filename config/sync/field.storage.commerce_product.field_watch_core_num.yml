@@ -9,7 +9,7 @@ field_name: field_watch_core_num
 entity_type: commerce_product
 type: string
 settings:
-  max_length: 255
+  max_length: 50
   is_ascii: false
   case_sensitive: false
 module: core

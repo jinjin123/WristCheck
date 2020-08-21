@@ -26,6 +26,9 @@ display:
           action_title: 对所选项目
         subject:
           label: 主题
+          separator: ', '
+        name:
+          separator: ', '
         contact_form_label:
           label: 联络表单
         created:

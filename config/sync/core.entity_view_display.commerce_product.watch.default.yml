@@ -59,7 +59,6 @@ dependencies:
     - image
     - options
     - radioactivity
-    - remote_image
     - text
 id: commerce_product.watch.default
 targetEntityType: commerce_product
@@ -194,13 +193,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_cate_img:
-    weight: 55
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: remote_image
-    region: content
   field_clasp:
     weight: 42
     label: above
@@ -224,13 +216,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_detailimg:
-    weight: 56
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: remote_image
     region: content
   field_extras:
     weight: 44
@@ -376,11 +361,12 @@ content:
     type: list_default
     region: content
   field_watch_core:
-    weight: 57
+    weight: 22
     label: above
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: basic_string
+    type: string
     region: content
   field_watch_core_num:
     weight: 23
@@ -450,6 +436,8 @@ content:
 hidden:
   created: true
   feeds_item: true
+  field_cate_img: true
+  field_detailimg: true
   langcode: true
   search_api_excerpt: true
   stores: true

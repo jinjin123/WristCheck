@@ -1,4 +1,4 @@
-uuid: 576df521-0586-4548-ae76-6573374bcd5a
+uuid: 9f73f64b-1417-4569-9873-40956ef7550a
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ id: commerce_product.watch.field_cate_img
 field_name: field_cate_img
 entity_type: commerce_product
 bundle: watch
-label: cateimg
+label: 'cate img'
 description: ''
 required: false
 translatable: false
