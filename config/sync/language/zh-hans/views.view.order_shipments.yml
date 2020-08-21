@@ -12,10 +12,15 @@ display:
       fields:
         title:
           label: 标题
+          separator: ', '
         amount__number:
           label: 总额
+          separator: ', '
+        tracking_code:
+          separator: ', '
         state:
           label: 状态
+          separator: ', '
         operations:
           label: 操作链接
       arguments:

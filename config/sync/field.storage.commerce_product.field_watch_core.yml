@@ -1,4 +1,4 @@
-uuid: ddd0b521-2b2b-49a4-803f-2f28abc0d8bf
+uuid: 0b8cb03b-52ac-4a30-bc55-b776ea500324
 langcode: en
 status: true
 dependencies:
@@ -7,8 +7,10 @@ dependencies:
 id: commerce_product.field_watch_core
 field_name: field_watch_core
 entity_type: commerce_product
-type: string_long
+type: string
 settings:
+  max_length: 50
+  is_ascii: false
   case_sensitive: false
 module: core
 locked: false
