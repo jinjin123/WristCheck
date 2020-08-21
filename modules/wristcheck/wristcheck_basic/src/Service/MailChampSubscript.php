@@ -4,16 +4,12 @@ namespace Drupal\wristcheck_basic\Service;
 
 use Drupal\Core\Site\Settings;
 
-class MailChampSubscript  {
+class MailChampSubscript extends BaseService implements  MailChampSubcriptServiceInterface {
 
-  protected  $url;
-  protected  $key;
 
-  function __construct($url,$key) {
-    $this->$url = Settings::get('mailchamp_api', '');
-    $this->$key = Settings::get('mailchamp_key', '');
-  }
   public function MailChampSubscript ($email,$first_name,$last_name){
+    $url = Settings::get('mailchamp_api', '');
+    $key = Settings::get('mailchamp_key', '');
     $postData = array(
       "email_address" => "$email",
       "status" => "subscribed",
