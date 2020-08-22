@@ -13,8 +13,16 @@ services:
     parent: wristcheck_basic.base
     class: Drupal\wristcheck_basic\Service\BrandService
     arguments: []
+  wristcheck_basic.mailchamp:
+    class: Drupal\wristcheck_basic\Service\MailChampService
+    arguments: []
   wristcheck_basic_commerce_wishlist.twig.extension:
     class: Drupal\wristcheck_basic\TwigExtension\CommerceWishlistExtension
     arguments: []
     tags:
       - { name: twig.extension }
+  wrist_basic.shipping.rates:
+    class: Drupal\wristcheck_basic\EventSubscriber\ShippingRateSubscriber
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,16 @@
+name: 'Mailchimp eCommerce Ubercart'
+description: 'Integrates Ubercart with Mailchimp eCommerce.'
+package: Mailchimp
+core: 8.x
+dependencies:
+  - ubercart:uc_cart
+  - ubercart:uc_order
+  - ubercart:uc_product
+  - ubercart:uc_store
+  - mailchimp_ecommerce:mailchimp_ecommerce
+type: module
+
+# Information added by Drupal.org packaging script on 2019-12-19
+version: '8.x-1.6'
+project: 'mailchimp_ecommerce'
+datestamp: 1576794815

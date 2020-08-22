@@ -15,6 +15,7 @@
         }
     ],
     "require": {
+        "ext-curl": "^7.3",
         "checkout/checkout-sdk-php": "^1.0",
         "commerceguys/intl": "^1.0",
         "composer/installers": "^1.2",
@@ -31,6 +32,8 @@
         "drupal/devel_php": "^1.2",
         "drupal/entity": "^1.0",
         "drupal/flag": "^4.0@beta",
+        "drupal/mailchimp": "^1.11",
+        "drupal/mailchimp_ecommerce": "^1.6",
         "drupal/maintenance200": "^1.0",
         "drupal/menu_token": "^1.0@alpha",
         "drupal/paragraphs": "^1.12",
