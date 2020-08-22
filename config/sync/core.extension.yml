@@ -82,6 +82,10 @@ module:
   layout_discovery: 0
   link: 0
   locale: 0
+  mailchimp: 0
+  mailchimp_ecommerce: 0
+  mailchimp_ecommerce_commerce: 0
+  mailchimp_lists: 0
   md_slider: 0
   media: 0
   menu_token: 0

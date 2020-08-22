@@ -46,8 +46,6 @@ class SellAddToCartForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    ob_end_clean();
-    ob_end_flush();
 
     $parameters = \Drupal::routeMatch()->getParameters();
     $entity = $parameters->get('node');
