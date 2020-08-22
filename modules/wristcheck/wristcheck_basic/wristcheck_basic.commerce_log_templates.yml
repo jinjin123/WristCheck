@@ -1,0 +1,8 @@
+order_finalize:
+  category: commerce_order
+  label: 'Finalize shipment'
+  template: '<p>The order was finalize shipment.</p>'
+order_ship:
+  category: commerce_order
+  label: 'Send shipment'
+  template: '<p>The order was send shipment.</p>'

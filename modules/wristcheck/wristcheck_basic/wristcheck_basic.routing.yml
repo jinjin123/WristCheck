@@ -214,3 +214,11 @@ admin.wristcheck:
     _title: 'Wristcheck'
   requirements:
     _permission: 'access wristcheck administration pages'
+
+wristcheck_basic.order_status_controller_index:
+  path: '/user/{user}/orders/{commerce_order}/status'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\OrderStatusController::index'
+    _title: 'User order status'
+  requirements:
+    _permission: 'access content'
