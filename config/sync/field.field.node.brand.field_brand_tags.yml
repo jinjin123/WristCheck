@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_brand_tags
     - node.type.brand
-    - taxonomy.vocabulary.watch_brand_categories
 id: node.brand.field_brand_tags
 field_name: field_brand_tags
 entity_type: node
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      watch_brand_categories: watch_brand_categories
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

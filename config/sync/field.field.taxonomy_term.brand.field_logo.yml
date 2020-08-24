@@ -1,17 +1,17 @@
-uuid: 7ab559d2-5495-4fea-b659-77f119538fdb
+uuid: f165837f-93c5-4dfe-81c9-853b903223d1
 langcode: en
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_type.default
-    - field.storage.commerce_product.field_images
+    - field.storage.taxonomy_term.field_logo
+    - taxonomy.vocabulary.brand
   module:
     - image
-id: commerce_product.default.field_images
-field_name: field_images
-entity_type: commerce_product
-bundle: default
-label: Images
+id: taxonomy_term.brand.field_logo
+field_name: field_logo
+entity_type: taxonomy_term
+bundle: brand
+label: Logo
 description: ''
 required: false
 translatable: false

@@ -1,14 +1,14 @@
-uuid: 1f053b97-8e68-4470-abf4-32cc63542155
+uuid: e1349c79-2585-4084-9b7c-312775b6ba8b
 langcode: en
 status: true
 dependencies:
   module:
-    - commerce_product
     - file
     - image
-id: commerce_product.field_images
-field_name: field_images
-entity_type: commerce_product
+    - taxonomy
+id: taxonomy_term.field_logo
+field_name: field_logo
+entity_type: taxonomy_term
 type: image
 settings:
   uri_scheme: public
@@ -23,7 +23,7 @@ settings:
   display_default: false
 module: image
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
