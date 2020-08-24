@@ -1,0 +1,16 @@
+uuid: b5a7361b-93c0-4c30-acce-5d12033a0a0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+    - taxonomy.vocabulary.brand
+id: brand
+label: Brand
+vocabulary: brand
+menu: main
+expanded: true
+depth: 0
+menu_parent: 'main:menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+description_field_name: ''
+use_term_weight_order: true
