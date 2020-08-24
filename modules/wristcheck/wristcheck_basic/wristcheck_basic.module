@@ -134,7 +134,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-    'wristcheck_faq_authsystemstep' => [],
+    'wristcheck_faq_authsystemstep' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_eshop' => [],
     'wristcheck_faq' => [],
     'wristcheck_user_supplement_form' => [
