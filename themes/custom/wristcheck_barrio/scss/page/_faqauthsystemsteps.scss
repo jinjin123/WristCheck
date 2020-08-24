@@ -133,31 +133,32 @@
         text-align: center;
         margin-bottom: 20px;
       }
+      .view-header {
+        margin-bottom: 30px;
+        //div {
+        //  display: inline-flex;
+        //text-align: center;
+        span {
+          display: flex;
+          position: relative;
+          margin: 0 36%;
+          left: 40px
+        }
+        h5 {
+          margin-right: 20px;
+        }
+        a {
+          color: #82b1d0;
+          font-weight: bold;
+        }
+        hr {
+          width:50%;
+        }
+        //}
+      }
       .views-element-container {
         .view-display-id-faq_contact_us {
           text-align: center;
-          .view-header {
-            margin-bottom: 30px;
-             //div {
-             //  display: inline-flex;
-               //text-align: center;
-              span {
-                display: flex;
-                position: relative;
-                margin: 0 40%;
-              }
-              h5 {
-                margin-right: 20px;
-              }
-               a {
-                 color: #82b1d0;
-                 font-weight: bold;
-               }
-            hr {
-              width:50%;
-            }
-            //}
-          }
           .view-content {
             .views-row {
               .views-field-title {
