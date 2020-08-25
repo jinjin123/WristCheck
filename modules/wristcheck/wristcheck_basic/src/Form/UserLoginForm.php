@@ -79,7 +79,7 @@ class UserLoginForm extends FormBase
     );
 
     // add forget class.
-    $forget = Link::fromTextAndUrl($this->t('No user account yet?'), Url::fromRoute('user.pass'))->toRenderable();
+    $forget = Link::fromTextAndUrl($this->t(' Forget your password?'), Url::fromRoute('user.pass'))->toRenderable();
     $forget['#attributes'] = ['class' => 'forget'];
 
     $form['links'] = [
