@@ -1,0 +1,67 @@
+<div class="wc-panel payment-success">
+  <div class="row direction">
+    <h5><i class="fa fa-angle-left"></i>      So let's go back to the list </h5>
+  </div>
+  <h3>PAYMENT</h3>
+  {{ drupal_block("wristcheck_paymentstep_block") }}
+    <div class="pay-title">
+      <h1>PAYMENT STATUS</h1>
+    </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="wc-product-imglist1">
+        <img class="pay-location-icon" src="{{  variables["pic"] }}"/>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="wc-product-introduction">
+        <div class="wc-product-title bold">PAY FOR SUCCESS!</div>
+        <div class="wc-product--row">
+          {{ 'Your order number is'|t }} {{ variables['order_id'] }}
+        </div>
+        <br/>
+        <div class="wc-product--row">
+          Your order is being processed. We will arrange shipment for you as sooon as possible later.
+          Please continue to wait patiently and it is expected to be delivered within 3 working days.
+          <br/>
+          <br/>
+          Bai has a complete protection plan and first-class high-quality service in the future. Your
+          policy will be sorted out within five days,and Then I will send it to you.
+        </div>
+        <br/>
+        <br/>
+        <div class="wc-product--row">
+          <div class="wc-product-buy-new pr">
+            <a href="javascript:;" class="wc-btn-dark">
+              <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span> | THE DELIVERY STATUS
+              </div>
+            </a>
+          </div>
+          <div class="wc-product-buy pr">
+            <a href="javascript:;" class="wc-btn-dark">
+              <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span> | TO VIEW THE ORDER
+              </div>
+            </a>
+            {{ drupal_view('wristcheck_second_hands_watch') }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="wc-product--row">
+        <div class="wc-product-title bold">Patek Philippe Perpetual CalendarChronograph</div>
+       <h5>Time Solution(HK)Ltd <img class="pay-location-icon" src="/themes/custom/wristcheck_barrio/images/icons/usa.png"/></h5>
+      </div>
+      <div  class="cs-box">
+        <div class="wc-product-title bold">CUSTOMER SERVICE</div>
+        <div class="wc-product--row">
+          Contact our staff to inform you of the buying and selling  process
+          <br/>
+          <br/>
+          <h5><img class="pay-location-icon" src="/themes/custom/wristcheck_barrio/images/icons/icon-phone2.png"/>CALL:{{ variables['phone'] }} </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

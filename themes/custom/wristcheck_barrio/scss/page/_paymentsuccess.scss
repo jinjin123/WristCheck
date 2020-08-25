@@ -1,0 +1,60 @@
+main {
+  .pay-title {
+    margin-bottom:  30px;
+    h1 {
+      font-size:  20px;
+      font-weight: bold;
+    }
+  }
+  .wc-product-title {
+    //margin: 20px 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .wc-product--row {
+    h5 {
+      font-size:  15px;
+    }
+  }
+  margin: 0 300px;
+  .payment-success {
+    .pay-location-icon {
+      width: 15px;
+    }
+    .direction {
+      margin-bottom:  70px;
+      margin-left: 3px;
+    }
+
+    .cs-box {
+      border: 1px dashed #000;
+      height: 150px;
+      margin-top: 50px;
+
+      .wc-product-title {
+        margin: 20px 20px;
+        font-weight: bold;
+      }
+
+      .wc-product--row {
+        margin: 20px 20px;
+
+        h5 {
+          font-size: 15px;
+          font-weight: bold;
+
+          img {
+            width: 25px;
+          }
+        }
+      }
+    }
+
+    .block-wristcheck-paymentstep-block {
+      img {
+        //width: 108%;
+        margin-left: -77px;
+      }
+    }
+  }
+}

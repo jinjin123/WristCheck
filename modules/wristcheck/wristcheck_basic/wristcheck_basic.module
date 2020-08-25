@@ -112,6 +112,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_payment_success' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_discover' => [
       'variables' => [
         'variables' => []
@@ -161,6 +166,9 @@ function wristcheck_basic_theme()
       ]
     ],
     'wristcheck_download_app_block' => [
+      'variables' => []
+    ],
+    'wristcheck_paymentstep_block' => [
       'variables' => []
     ],
     'wristcheck_selling_process_block' => [

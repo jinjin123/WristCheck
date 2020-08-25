@@ -42,4 +42,12 @@ class PaymentController extends ControllerBase
     ];
   }
 
+  public function paysuccess()
+  {
+    return [
+      '#theme' => 'wristcheck_payment_success',
+      '#type' => 'markup'
+    ];
+  }
+
 }

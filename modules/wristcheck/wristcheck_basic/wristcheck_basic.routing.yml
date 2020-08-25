@@ -113,6 +113,16 @@ wristcheck_basic.payment_controller_index:
   options:
     user: \d+
 
+wristcheck_basic.payment_controller_success:
+  path: '/user/{user}/payment-success'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::paysuccess'
+    _title: 'Payment'
+  requirements:
+    _permission: 'access user'
+  options:
+    user: \d+
+
 wristcheck_basic.user_settings_form:
   path: '/user/{user}/settings'
   defaults:
