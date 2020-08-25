@@ -1,18 +1,20 @@
-uuid: 2810de01-3566-4882-8eef-509cf2e1e813
+uuid: 12c5545a-7da0-4770-aade-0feb70c1f202
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.taxonomy_term.full
     - field.field.taxonomy_term.brand.field_logo
     - field.field.taxonomy_term.brand.layout_builder__layout
     - taxonomy.vocabulary.brand
   module:
     - image
     - layout_builder
+    - layout_discovery
     - text
 third_party_settings:
   layout_builder:
-    allow_custom: false
+    allow_custom: true
     enabled: true
     sections:
       -
@@ -20,8 +22,8 @@ third_party_settings:
         layout_settings:
           label: ''
         components:
-          deabf6aa-7615-42a8-807b-1e771e371239:
-            uuid: deabf6aa-7615-42a8-807b-1e771e371239
+          0c3a14e4-239d-4447-a098-a196cc7c23aa:
+            uuid: 0c3a14e4-239d-4447-a098-a196cc7c23aa
             region: content
             configuration:
               label_display: '0'
@@ -35,8 +37,8 @@ third_party_settings:
                 third_party_settings: {  }
             additional: {  }
             weight: 0
-          5eef085d-9433-4ea9-89f8-a2d1784464f7:
-            uuid: 5eef085d-9433-4ea9-89f8-a2d1784464f7
+          18d47ffc-0ba2-49ee-b764-93dddf719152:
+            uuid: 18d47ffc-0ba2-49ee-b764-93dddf719152
             region: content
             configuration:
               label_display: '0'
@@ -53,10 +55,10 @@ third_party_settings:
             additional: {  }
             weight: 1
         third_party_settings: {  }
-id: taxonomy_term.brand.default
+id: taxonomy_term.brand.full
 targetEntityType: taxonomy_term
 bundle: brand
-mode: default
+mode: full
 content:
   description:
     label: hidden

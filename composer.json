@@ -43,6 +43,7 @@
         "drupal/smtp": "^1.0",
         "drupal/structure_sync": "^1.16",
         "drupal/taxonomy_menu": "^3.4",
+        "drupal/views_contextual_filters_or": "^1.2",
         "drupal/views_infinite_scroll": "^1.5",
         "drupal/views_slideshow": "^4.7",
         "drupal/views_slideshow_jcarousel": "^1.0@alpha",

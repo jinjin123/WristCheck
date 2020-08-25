@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.brand.field_logo
+    - field.field.taxonomy_term.brand.layout_builder__layout
     - image.style.thumbnail
     - taxonomy.vocabulary.brand
   module:
@@ -59,4 +60,5 @@ content:
     weight: 5
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  layout_builder__layout: true
