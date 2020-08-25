@@ -44,10 +44,23 @@ class PaymentController extends ControllerBase
 
   public function paysuccess()
   {
+    $variables = [];
     return [
       '#theme' => 'wristcheck_payment_success',
-      '#type' => 'markup'
+      '#type' => 'markup',
+      'variables' => $variables
     ];
   }
+
+  public function paystep()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_payment_step',
+      '#type' => 'markup',
+      'variables' => $variables
+    ];
+  }
+
 
 }
