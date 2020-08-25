@@ -1,7 +1,7 @@
 <main role="main">
   <a id="main-content" tabindex="-1"></a>
   <div class="container">
-    <div class="row mb-lg-5 mb-5">
+    <div class="row mb-lg-5 mb-5 mt-3">
       <div class="col-md-12">
         <div class="wc-userinfo-card">
           <div class="wc-userinfo-padding">
@@ -11,7 +11,7 @@
                 <a class="action-link">EDIT</a>
               </div>
             </div>
-            <div class="wc-userinfo__body">
+            <div class="wc-userinfo__body mt-lg-3">
               <div class="row">
                 <div class="col-md-4 d-flex flex-row align-items-center">
                   <div class="d-flex flex-row align-items-center">
@@ -20,7 +20,8 @@
                     </div>
                     <div class="d-flex flex-column">
                       <h2 class="mb-1">Markflyy@163. com</h2>
-                      <a href="/cart" class="mt-1"><img src="/themes/custom/wristcheck_barrio/images/icons/icon-cart.png" alt=""></a>
+                      <a href="/cart" class="mt-1"><img
+                          src="/themes/custom/wristcheck_barrio/images/icons/icon-cart.png" alt=""></a>
                     </div>
                   </div>
                 </div>
@@ -49,11 +50,12 @@
                   </div>
                   <div class="wc-userinfo-item">
                     <label>phone:</label>
-                    <span>86+10086 <span class="wc-userinfo-flag"><img src="/themes/custom/wristcheck_barrio/images/icons/usa.png" alt=""></span></span>
+                    <span>86+10086 <span class="wc-userinfo-flag"><img
+                          src="/themes/custom/wristcheck_barrio/images/icons/usa.png" alt=""></span></span>
                   </div>
                 </div>
               </div>
-{#              {{ drupal_view('wristcheck_user_profile','personal_information') }}#}
+              {#              {{ drupal_view('wristcheck_user_profile','personal_information') }}#}
             </div>
           </div>
         </div>
@@ -71,7 +73,24 @@
           <div class="wc-userinfo__body">
             <p class="ppp">How many watches do you have?</p>
             <p class="p">The purchase was made on May 28, 2020, with the last notice on May 28, 2020</p>
-
+            <div class="wc-userinfo-list">
+              <div class="wc-userinfo-list__item">
+                <div class="wc-userinfo-list__item-img"></div>
+                <div class="wc-userinfo-list__item-cont">
+                  <p class="pp bold">Brand: patek philippe</p>
+                  <p class="p">The purchase was made on May 28, 2020, </p>
+                  <p class="pp bold">RMB 192888</p>
+                </div>
+              </div>
+              <div class="wc-userinfo-list__item">
+                <div class="wc-userinfo-list__item-img"></div>
+                <div class="wc-userinfo-list__item-cont">
+                  <p class="pp bold">Brand: patek philippe</p>
+                  <p class="p">The purchase was made on May 28, 2020, </p>
+                  <p class="pp bold">RMB 192888</p>
+                </div>
+              </div>
+            </div>
             {{ drupal_view('wristcheck_portfolio') }}
           </div>
 
@@ -85,6 +104,12 @@
         <div class="wc-userinfo-card mb-lg-5">
           <div class="wc-userinfo__body">
             <p class="ppp">Easily bid on your watch by wristwatch check</p>
+            <div class="wc-userinfo-list">
+              <p class="wc-userinfo-list_num"> <span class="list_num">1</span>Please click "offer" in the menu.</p>
+              <p class="wc-userinfo-list_num"> <span class="list_num">2</span>Our form takes you through the bidding process step by step.</p>
+              <p class="wc-userinfo-list_num"> <span class="list_num">3</span>Here you can buy the watch you like by the price you like</p>
+              <p class="wc-userinfo-list_num"> <span class="list_num">4</span>By bidding to enter the auction page, the highest bidder gets the product.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -98,6 +123,20 @@
         <div class="wc-userinfo-card mb-lg-5">
           <div class="wc-userinfo__body">
             <p class="ppp">I checked values at WRISTCHECK</p>
+            <div class="wc-userinfo-list">
+              <p class="pp bold">100% free</p>
+              <p class="p">Learn the value of your watch for free. Simply select the model, status, and send.</p>
+            </div>
+            <div class="wc-userinfo-list">
+              <p class="pp bold">Click on the mouse and you get an expert review</p>
+              <p class="p">
+                Leading the luxury watch market, we compareyour watch with 475,000 advertisements from
+                around the world.</p>
+            </div>
+            <div class="wc-userinfo-list">
+              <p class="pp bold">Greater success at the right price</p>
+              <p class="p">We know the market price and can advise you the best selling price.</p>
+            </div>
           </div>
         </div>
         <div class="wc-userinfo__header">
@@ -109,7 +148,28 @@
         <div class="wc-userinfo-card mb-lg-5">
           <div class="wc-userinfo__body">
             <p class="ppp">Newsletter</p>
-            {{ drupal_view('wristcheck_user_profile','settings') }}
+            <div class="wc-userinfo-list">
+              <p class="wc-userinfo-list_p">
+                <span class="p bold">newsletter</span>
+                <span class="p">(All information about WRISTCHECK will be sent to your mailbox)</span>
+              </p>
+              <p class="wc-userinfo-list_p">
+                <span class="p bold">We cooperate in advertising</span>
+                <span class="p">(We will receive products from our partners one after another)</span>
+              </p>
+              <p class="wc-userinfo-list_p">
+                <span class="p bold">guide</span>
+                <span class="p">(Tips and tricks to help you make the most of the site)</span>
+              </p>
+              <p class="wc-userinfo-list_p">
+                <span class="p bold">Price warning</span>
+                <span class="p">(Information about price changes in the goods you store)</span>
+              </p>
+            </div>
+            <div class="p d-flex flex-row">
+              <span class="bold pr-4">Select the language:</span>
+              <div class="flex-grow-1"> {{ drupal_view('wristcheck_user_profile','settings') }}</div>
+            </div>
           </div>
         </div>
       </div>

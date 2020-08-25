@@ -205,10 +205,11 @@
 
     .navbar-submenus > li > a {
       font-size: 14px;
+      display: inline-block;
       font-weight: bold;
       color: $color-dark9;
       line-height: 1;
-      padding-bottom: 30px;
+      //padding-bottom: 30px;
       text-align: left;
     }
   }

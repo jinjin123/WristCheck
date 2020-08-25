@@ -116,12 +116,15 @@
     });
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
-      console.log($(this).find('.mega-dropdown').length)
-      if ($(this).find('.mega-dropdown').length > 0) {
+      if ($(this).children('.wc-menu-container').length > 0) {
         $('.wc-page-modal').addClass('show');
       }
     }, function () {
       $('.wc-page-modal').removeClass('show');
+    }).children('a[href]').click(function(){
+      if(/((http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?)/.test(this.href) && location.href != this.href){
+        location.href = this.href;
+      }
     });
 
     var range = document.getElementById('wc-range');
@@ -158,10 +161,13 @@
     var _menu = _self.parents('.wc-product-search-menu');
     var _admin_toolbar = $('#toolbar-bar .toolbar-tab').height() || 0;
     var _admin_subToobar = $('#toolbar-item-administration-tray.toolbar-tray-horizontal').height() || 0;
+    var _top = _admin_toolbar + _admin_subToobar;
 
     if (_self.hasClass('active')) {
       _self.removeClass('active');
-      _modal.hide();
+      _modal.removeClass('show');
+      _menu.css({'z-index': 2});
+
 
       if (_wTop <= _box.offset().top) {
         _menu.removeClass(('fixed-top')).css({
@@ -171,10 +177,11 @@
     } else {
       $('html, body').animate({scrollTop: _box.offset().top}, 300, 'linear', function () {
         _menu.addClass(('fixed-top')).css({
-          top: _admin_toolbar + _admin_subToobar + 'px'
+          top: _top + 'px'
         });
       });
-      _modal.show();
+      _modal.addClass('show');
+      _menu.css({'z-index': 5})
       _self.addClass('active').siblings('.active').removeClass(('active'))
     }
   });
@@ -187,10 +194,11 @@
     var _menu = $('.wc-product-search .wc-product-search-menu');
     var _admin_toolbar = $('#toolbar-bar .toolbar-tab').height() || 0;
     var _admin_subToobar = $('#toolbar-item-administration-tray.toolbar-tray-horizontal').height() || 0;
+    var _top = _admin_toolbar + _admin_subToobar;
 
     if (_wTop > _box.offset().top) {
       _menu.addClass(('fixed-top')).css({
-        top: _admin_toolbar + _admin_subToobar + 'px'
+        top: _top + 'px'
       });
     } else if (_menu.hasClass('fixed-top')) {
       _menu.removeClass(('fixed-top')).css({top: 0});

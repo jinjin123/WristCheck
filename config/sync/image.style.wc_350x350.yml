@@ -1,0 +1,15 @@
+uuid: d8be710d-4e59-447f-a12d-2665a46d0df2
+langcode: en
+status: true
+dependencies: {  }
+name: wc_350x350
+label: wc-350x350
+effects:
+  9e109ecc-b16d-416b-8451-8fbf9799bb39:
+    uuid: 9e109ecc-b16d-416b-8451-8fbf9799bb39
+    id: image_scale
+    weight: 1
+    data:
+      width: 350
+      height: 350
+      upscale: false

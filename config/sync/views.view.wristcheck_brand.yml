@@ -122,7 +122,7 @@ display:
             preserve_tags: ''
             html: false
           element_type: ''
-          element_class: ''
+          element_class: img-fluid
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -134,9 +134,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image_url
+          type: image
           settings:
             image_style: ''
+            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
