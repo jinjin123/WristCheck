@@ -62,6 +62,13 @@
 {#{{ attach_library('bootstrap_barrio/node') }}#}
 {{ drupal_view('wristcheck_brand','default') }}
 {{ drupal_view('wristcheck_brand','description') }}
-{{ drupal_view('wristcheck_products','brand_product') }}
-<h1>Brand</h1>
-{{ drupal_view('wristcheck_brand','logo') }}
+<div class="wc-panel">
+  {{ drupal_view('wristcheck_products','brand_product') }}
+</div>
+<div class="wc-panel wc-brand-product">
+  <h1 class="wc-panel__title text-center">BRAND</h1>
+  <div class="container portfolio">
+    {{ drupal_view('wristcheck_brand','logo') }}
+  </div>
+</div>
+
