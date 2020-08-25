@@ -94,7 +94,6 @@ module:
   node: 0
   ntv_block_background: 0
   nvs_func: 0
-  nvs_geolocation: 0
   nvt_block_settings: 0
   options: 0
   page_cache: 0
