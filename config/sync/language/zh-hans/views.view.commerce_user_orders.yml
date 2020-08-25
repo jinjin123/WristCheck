@@ -21,14 +21,21 @@ display:
             items_per_page_options_all_label: '- 全部 -'
             offset_label: 偏移量
       fields:
+        order_id:
+          label: ID
+          separator: ', '
         order_number:
           label: 订单号码
+          separator: ', '
         placed:
           label: 日期
+          separator: ', '
         total_price__number:
           label: 总计
+          separator: ', '
         state:
           label: 状态
+          separator: ', '
       title: 订单
       empty:
         area:

@@ -1,3 +1,4 @@
+label: 'Moderated content'
 display:
   default:
     display_title: 主
@@ -23,12 +24,19 @@ display:
       fields:
         title:
           label: 标题
+          separator: ', '
         type:
           label: 内容类型
+          separator: ', '
         name:
           label: 作者
+          separator: ', '
+        moderation_state:
+          label: 'Moderation state'
+          separator: ', '
         changed:
           label: 已更新
+          separator: ', '
         operations:
           label: 操作
       filters:
@@ -38,6 +46,12 @@ display:
         type:
           expose:
             label: 内容类型
+        moderation_state:
+          expose:
+            label: 'Moderation state'
         langcode:
           expose:
             label: 语言
+      title: 'Moderated content'
+  moderated_content:
+    display_title: 'Moderated content'

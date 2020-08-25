@@ -82,6 +82,10 @@ module:
   layout_discovery: 0
   link: 0
   locale: 0
+  mailchimp: 0
+  mailchimp_ecommerce: 0
+  mailchimp_ecommerce_commerce: 0
+  mailchimp_lists: 0
   md_slider: 0
   media: 0
   menu_token: 0
@@ -103,6 +107,7 @@ module:
   rdf: 0
   realistic_dummy_content: 0
   realistic_dummy_content_api: 0
+  remote_image: 0
   rest: 0
   restui: 0
   search: 0

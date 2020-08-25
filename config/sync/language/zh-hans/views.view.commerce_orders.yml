@@ -24,20 +24,30 @@ display:
       fields:
         commerce_order_bulk_form:
           action_title: 对所选项目
+        order_number:
+          label: '#'
+          separator: ', '
         placed:
           label: 日期
+          separator: ', '
         type:
           label: 类型
+          separator: ', '
         store_id:
           label: 店铺
+          separator: ', '
         uid:
           label: 顾客
+          separator: ', '
         mail:
           label: 电子邮件
+          separator: ', '
         state:
           label: 状态
+          separator: ', '
         total_price__number:
           label: 总计
+          separator: ', '
         operations:
           label: 操作
       filters:
