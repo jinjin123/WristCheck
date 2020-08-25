@@ -177,7 +177,7 @@ wristcheck_basic.user_login_form:
   path: '/wristcheck_basic/form/user_login'
   defaults:
     _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
-    _title: 'PLEASE LOG IN'
+    _title: 'PLEASE LOGIN'
   requirements:
     _access: 'TRUE'
 
