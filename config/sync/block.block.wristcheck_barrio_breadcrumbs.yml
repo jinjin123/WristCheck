@@ -1,6 +1,6 @@
 uuid: 38e2200f-f3c7-488a-b713-6d4be4ef22e8
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - block_attributes
@@ -27,7 +27,7 @@ _core:
 id: wristcheck_barrio_breadcrumbs
 theme: wristcheck_barrio
 region: breadcrumb
-weight: 0
+weight: -11
 provider: null
 plugin: system_breadcrumb_block
 settings:
@@ -38,6 +38,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/buy\r\n/sell\r\n/eshop\r\n/discover\r\n/faq"
-    negate: true
+    pages: /magazine-single
+    negate: false
     context_mapping: {  }

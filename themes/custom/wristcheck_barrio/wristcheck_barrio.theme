@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 
 /**
  * Implements hook_form_system_theme_settings_alter() for settings form.
@@ -45,11 +46,17 @@ function wristcheck_barrio_preprocess_maintenance_page(&$variables) {
 }
 
 function wristcheck_barrio_preprocess_breadcrumb(&$variables) {
+  $view = \Drupal\views\Views::getView('wristcheck_magazine');
+  $view->execute('page_2');
   global $head_title;
+  foreach($view->result as $row){
+    $head_title['title'] = $row->_entity->get('title')->value;
+  }
+  global $head_title;
+  $result = [];
+  array_push($result,array('text' => 'HOME','url'=>'/'),array('text' => 'MAGAZINE'),array('text'=>$head_title['title']));
   if ($variables['breadcrumb'] && isset($head_title['title'])) {
-      $variables['breadcrumb'][] = array(
-          'text' => $head_title['title'],
-      );
+      $variables['breadcrumb'] = $result;
   }
 }
 
@@ -78,4 +85,7 @@ function wristcheck_barrio_preprocess_html(array &$variables)
     }
   }
 }
+
+
+
 
