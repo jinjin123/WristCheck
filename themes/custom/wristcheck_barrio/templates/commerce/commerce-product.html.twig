@@ -162,15 +162,16 @@
     {{ product.body }}
   </div>
   <div class="col-md-12 wc-product-specifications">
+    <h3>SPECIFICATIONS</h3>
     {{ product.field_specifications }}
   </div>
-  <div class="col-md-12">
-    <h1>RELATED WATCHES</h1>
+  <div class="col-md-12 wc-related-model">
+    <h3>RELATED WATCHES</h3>
     {#    {{ product.field_related_model }}#}
     {{ drupal_view('wristcheck_models') }}
   </div>
   <div class="col-md-12">
-    {{ drupal_view('wristcheck_testimdnials','product_testimdnials') }}
+    {{ drupal_view('wristcheck_testimdnials') }}
   </div>
 </div>
 

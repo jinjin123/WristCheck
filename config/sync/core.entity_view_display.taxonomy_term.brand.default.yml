@@ -52,6 +52,38 @@ third_party_settings:
                 type: image
             additional: {  }
             weight: 1
+          5b066f2f-3c45-4970-9970-15dd6e808039:
+            uuid: 5b066f2f-3c45-4970-9970-15dd6e808039
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:taxonomy_term:brand:description'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 2
+          ee0679af-d871-4361-9335-6ad467b54c0f:
+            uuid: ee0679af-d871-4361-9335-6ad467b54c0f
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:taxonomy_term:brand:field_logo'
+              formatter:
+                label: above
+                settings:
+                  image_style: ''
+                  image_link: ''
+                third_party_settings: {  }
+                type: image
+            additional: {  }
+            weight: 3
         third_party_settings: {  }
 id: taxonomy_term.brand.default
 targetEntityType: taxonomy_term
