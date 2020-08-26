@@ -45,6 +45,14 @@ wristcheck_basic.magazine_controller_index:
   requirements:
     _permission: 'access content'
 
+wristcheck_basic.magazine_controller_single:
+  path: '/magazine-single'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\MagazineController::single'
+    _title: 'Magazine-single'
+  requirements:
+    _permission: 'access content'
+
 wristcheck_basic.faq_controller_index:
   path: '/faq'
   defaults:

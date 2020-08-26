@@ -135,6 +135,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_single' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_useractivate' => [
       'variables' => [
         'variables' => []

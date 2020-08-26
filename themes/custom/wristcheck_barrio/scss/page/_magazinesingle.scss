@@ -1,4 +1,4 @@
-.path-wristcheck-magazine-single {
+.path-magazine-single {
   .views-field-created {
     text-align: left;
     margin-bottom: 20px;
@@ -10,6 +10,7 @@
     font-size: 25px;
     color: #333;
     padding: 0 250px;
+    font-weight: bold;
   }
   //author
   .views-field-uid {
@@ -32,62 +33,61 @@
       }
     }
   }
-
-
-  #block-views-block-wristcheck-latest-articles-block-1-4 {
-    width: 100%;
-    > h2 {
-      text-align: center;
-      font-size: 25px;
-      font-weight: bold;
-      margin-bottom: 30px;
+  .views-field-field-page-title-image {
+    margin-right:  5%;
+    margin-left:  5%;
+    margin-bottom:  50px;
+  }
+  .wc-latest-art {
+    img {
+      width: 100%;
     }
-    .view-wristcheck-latest-articles {
-      margin: 0 10%;
-      .view-content {
-        display: flex;
-        flex-wrap: wrap;
-        .views-row {
-          padding: 0 30px;
-          width: 50%;
-          .views-field-title {
-            padding: 0 !important;
-            .field-content {
-              text-align: left;
-              h4 {
-                color: #999999;
-                font-size: 15px;
-                //text-decoration: none !important;
-                margin-bottom: 10px;
-              }
-              h2 {
-                color: #333;
-                font-weight: bold;
-                margin-bottom: 25px;
-                //text-decoration: underline;
-                //padding-bottom: 5px;
-                //border-bottom: 1px solid #333;
-              }
-            }
-          }
-          .views-field-field-latest-img {
-            .field-content {
-              img {
-                width: 100%;
-              }
-            }
-          }
-          .views-field-uid {
-            text-align: left;
-            margin-bottom: 25px;
+  }
+
+  .wc-latest-title {
+    text-align: center;
+    font-size:25px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  .view-display-id-latest_articles {
+    margin:  0 2%;
+    .view-content {
+      display: flex;
+      flex-wrap: wrap;
+      .views-row {
+        width: 800px;
+        margin-right: 45px;
+        .wc-magazine-item {
+          margin-bottom: 50px;
+        }
+      }
+    }
+    .wc-latest-art {
+      img {
+        width: 800px;
+        height: 500px;
+      }
+      .wc-rolex-modal {
+        margin-top: 20px;
+        .wc-rolex-action {
+          .wc-rolex-sub {
+            color:grey;
             font-size: 15px;
-            padding: 0;
-            .field-content {
-              color: #999999;
-            }
+          }
+          .wc-rolex-title {
+            //border-bottom: 1px solid #333;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          h3 {
+            color:grey;
+            font-size: 15px;
           }
         }
       }
     }
   }
+
 }
