@@ -217,23 +217,25 @@ function wristcheck_basic_views_query_alter(ViewExecutable $view, QueryPluginBas
   if ($term_id && $view->id() == 'product_list') {
     $term = \Drupal\taxonomy\Entity\Term::load($term_id);
     $type = $term->getVocabularyId();
-
     foreach ($query->where as $windex => &$condition_group) {
       foreach ($condition_group['conditions'] as $index => &$condition) {
         if ($type === 'brand' && $condition['field'] === 'commerce_product__field_cate.field_cate_target_id = :commerce_product__field_cate_field_cate_target_id') {
           unset($query->where[$windex]['conditions'][$index]);
         }
-
         if ($type === 'brand' && $condition['field'] === 'commerce_product__field_brand.field_brand_target_id = :commerce_product__field_brand_field_brand_target_id') {
-          $query->where[$windex]['conditions'][$index]['value'] = $term_id;
+          $query->where[$windex]['conditions'][$index]['value'] =
+            [
+              ':commerce_product__field_brand_field_brand_target_id' => $term_id
+            ];
         }
-
         if ($type === 'product_tags' && $condition['field'] === 'commerce_product__field_brand.field_brand_target_id = :commerce_product__field_brand_field_brand_target_id') {
           unset($query->where[$windex]['conditions'][$index]);
         }
 
         if ($type === 'product_tags' && $condition['field'] === 'commerce_product__field_cate.field_cate_target_id = :commerce_product__field_cate_field_cate_target_id') {
-          $query->where[$windex]['conditions'][$index]['value'] = $term_id;
+          $query->where[$windex]['conditions'][$index]['value'] = [
+            ':commerce_product__field_cate_field_cate_target_id' => $term_id
+          ];
         }
       }
     }

@@ -13,78 +13,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     allow_custom: false
-    enabled: true
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          deabf6aa-7615-42a8-807b-1e771e371239:
-            uuid: deabf6aa-7615-42a8-807b-1e771e371239
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:taxonomy_term:brand:description'
-              formatter:
-                label: hidden
-                type: text_default
-                settings: {  }
-                third_party_settings: {  }
-            additional: {  }
-            weight: 0
-          5eef085d-9433-4ea9-89f8-a2d1784464f7:
-            uuid: 5eef085d-9433-4ea9-89f8-a2d1784464f7
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:taxonomy_term:brand:field_logo'
-              formatter:
-                label: above
-                settings:
-                  image_style: ''
-                  image_link: ''
-                third_party_settings: {  }
-                type: image
-            additional: {  }
-            weight: 1
-          5b066f2f-3c45-4970-9970-15dd6e808039:
-            uuid: 5b066f2f-3c45-4970-9970-15dd6e808039
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:taxonomy_term:brand:description'
-              formatter:
-                label: hidden
-                type: text_default
-                settings: {  }
-                third_party_settings: {  }
-            additional: {  }
-            weight: 2
-          ee0679af-d871-4361-9335-6ad467b54c0f:
-            uuid: ee0679af-d871-4361-9335-6ad467b54c0f
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:taxonomy_term:brand:field_logo'
-              formatter:
-                label: above
-                settings:
-                  image_style: ''
-                  image_link: ''
-                third_party_settings: {  }
-                type: image
-            additional: {  }
-            weight: 3
-        third_party_settings: {  }
+    enabled: false
 id: taxonomy_term.brand.default
 targetEntityType: taxonomy_term
 bundle: brand
