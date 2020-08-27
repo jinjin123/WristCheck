@@ -60,13 +60,26 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables) {
   }
 }
 
-function wristcheck_barrio_preprocess_menu(array &$variables) {
+function wristcheck_barrio_preprocess_menu(array &$variables,$hook) {
+//user info slider
+    if($hook == "menu__wristcheck_user_sidebar_menu"){
+        $current_path = \Drupal::request()->getRequestUri();
+        $path_args = explode('/', $current_path);
+        $items = $variables['items'];
+        foreach ($items as $key => $item) {
+          $urlString = $item['url']->toString();
+          if ($item['url']->toString() == $current_path) {
+            // Add active link.
+            $variables['items'][$key]['attributes']['class'] = 'active';
+          }
+        }
+    }
   if ($variables['theme_hook_original'] == 'menu__main') {
-  $items = $variables['items'];
-  $variables['logo'] = theme_get_setting('logo.url','wristcheck');
-  foreach ($items as $key => $item) {
+    $items = $variables['items'];
+    $variables['logo'] = theme_get_setting('logo.url','wristcheck');
+    foreach ($items as $key => $item) {
           $variables['items'][$key]['logo'] = $variables['logo'];
-      }
+    }
   }
 }
 
