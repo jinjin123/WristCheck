@@ -16,14 +16,23 @@
     color: $color-dark3;
     line-height: 53px;
   }
-
-  .ui-widget-content {
-    padding: 20px;
-
+  .user-register-form {
+    margin: 0 150px;
     .form-item-email {
       padding: 0 20px;
       color: $color-dark9;
     }
+    .form-item-name {
+      padding: 0 20px;
+      color: $color-dark9;
+      width: 100% ;
+    }
+  }
+
+  .ui-widget-content {
+    padding: 20px;
+
+
 
     .form-item-name,
     .form-item-pass {
