@@ -213,7 +213,7 @@ wristcheck_basic.user_register_form:
   path: '/wristcheck_basic/form/user_register'
   defaults:
     _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
-    _title: 'PLEASE REGISTER'
+    _title: 'Welcome to register'
   requirements:
     _access: 'TRUE'
 

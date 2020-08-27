@@ -20,7 +20,13 @@
   .ui-widget-content {
     padding: 20px;
 
-    .form-item-name, .form-item-pass {
+    .form-item-email {
+      padding: 0 20px;
+      color: $color-dark9;
+    }
+
+    .form-item-name,
+    .form-item-pass {
       display: inline-block;
       width: 49%;
       padding: 0 20px;
