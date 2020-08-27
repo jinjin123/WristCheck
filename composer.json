@@ -48,6 +48,7 @@
         "drupal/views_slideshow": "^4.7",
         "drupal/views_slideshow_jcarousel": "^1.0@alpha",
         "drush/drush": "^10.3",
+        "ifsnop/mysqldump-php": "^2.9",
         "twig/twig": "1.42.5",
         "wikimedia/composer-merge-plugin": "^1.4"
     },
