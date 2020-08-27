@@ -868,7 +868,18 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<span><h5>CALL : 123456</h5> <a href=\"/aaa\">EMAIL: Contact </a></span>\r\n<hr>"
+          plugin_id: text_custom
       defaults:
         header: false
         filters: false

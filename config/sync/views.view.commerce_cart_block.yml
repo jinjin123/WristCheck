@@ -1,20 +1,25 @@
-uuid: 7435fa05-5848-4feb-8e3a-c5e9b13af88d
+uuid: 67192c74-0125-41a1-bbee-9cf9445faf45
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.commerce_product.field_model_images
+    - field.storage.commerce_product.field_images
     - image.style.image70x70
+  enforced:
+    module:
+      - commerce_cart
   module:
     - commerce_order
     - commerce_price
     - commerce_product
     - image
+_core:
+  default_config_hash: 0pypGQG2TREX-wxVfjDho9qLmky33bbKFt-kFTLWM9I
 id: commerce_cart_block
-label: 'cart block'
+label: 'Cart block'
 module: views
 description: ''
-tag: ''
+tag: commerce_cart_block
 base_table: commerce_order
 base_field: order_id
 display:
@@ -76,15 +81,17 @@ display:
           default: '-1'
           empty_table: false
       row:
-        type: 'entity:commerce_order'
+        type: fields
         options:
-          relationship: none
-          view_mode: default
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
       fields:
-        field_model_images:
-          id: field_model_images
-          table: commerce_product__field_model_images
-          field: field_model_images
+        field_images:
+          id: field_images
+          table: commerce_product__field_images
+          field: field_images
           relationship: product_id
           group_type: group
           admin_label: ''
@@ -133,7 +140,7 @@ display:
           type: image
           settings:
             image_style: image70x70
-            image_link: content
+            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -149,7 +156,7 @@ display:
           id: quantity
           table: commerce_order_item
           field: quantity
-          relationship: order_items_target_id
+          relationship: order_items
           group_type: group
           admin_label: ''
           label: ''
@@ -197,9 +204,9 @@ display:
           type: number_decimal
           settings:
             thousand_separator: ''
-            prefix_suffix: true
+            prefix_suffix: false
             decimal_separator: .
-            scale: 2
+            scale: 0
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -217,7 +224,7 @@ display:
           id: title
           table: commerce_order_item
           field: title
-          relationship: order_items_target_id
+          relationship: order_items
           group_type: group
           admin_label: ''
           label: ''
@@ -282,7 +289,7 @@ display:
           id: total_price__number
           table: commerce_order_item
           field: total_price__number
-          relationship: order_items_target_id
+          relationship: order_items
           group_type: group
           admin_label: ''
           label: ''
@@ -362,14 +369,14 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -390,7 +397,7 @@ display:
           id: order_item_id
           table: commerce_order_item
           field: order_item_id
-          relationship: order_items_target_id
+          relationship: order_items
           group_type: group
           admin_label: ''
           order: ASC
@@ -400,7 +407,6 @@ display:
           entity_type: commerce_order_item
           entity_field: order_item_id
           plugin_id: standard
-      title: None
       header: {  }
       footer:
         commerce_order_total:
@@ -414,22 +420,22 @@ display:
           plugin_id: commerce_order_total
       empty: {  }
       relationships:
-        order_items_target_id:
-          id: order_items_target_id
+        order_items:
+          id: order_items
           table: commerce_order__order_items
           field: order_items_target_id
           relationship: none
           group_type: group
           admin_label: 'order_items: Order Item'
           required: true
+          plugin_id: standard
           entity_type: commerce_order
           entity_field: order_items
-          plugin_id: standard
         commerce_product_variation:
           id: commerce_product_variation
           table: commerce_order_item
           field: commerce_product_variation
-          relationship: order_items_target_id
+          relationship: order_items
           group_type: group
           admin_label: 'Product variation'
           required: true
@@ -492,4 +498,4 @@ display:
         - 'languages:language_interface'
         - url
       tags:
-        - 'config:field.storage.commerce_product.field_model_images'
+        - 'config:field.storage.commerce_product.field_images'

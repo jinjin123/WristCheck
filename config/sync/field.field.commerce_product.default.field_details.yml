@@ -1,0 +1,56 @@
+uuid: 3b0ce488-38ae-4359-ac9f-abe4d3402252
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_details
+  module:
+    - tablefield
+id: commerce_product.default.field_details
+field_name: field_details
+entity_type: commerce_product
+bundle: default
+label: Details
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    rebuild:
+      cols: '2'
+      rows: '7'
+    value:
+      -
+        - 'Part Number'
+        - 60-MCTE
+      -
+        - 'Item Weight'
+        - '54 pounds'
+      -
+        - 'Product Dimensions'
+        - '92.8 x 92.8 x 92.8 inches'
+      -
+        - 'Item model number'
+        - 60-MCTE
+      -
+        - 'Item Package Quantity'
+        - '1'
+      -
+        - 'Number of Handles'
+        - '1'
+      -
+        - 'Batteries Required?'
+        - 'No'
+    format: null
+default_value_callback: ''
+settings:
+  export: 0
+  restrict_rebuild: 1
+  restrict_import: 1
+  lock_values: 0
+  cell_processing: '0'
+  empty_rules:
+    ignore_table_structure: 0
+    ignore_table_header: 0
+field_type: tablefield

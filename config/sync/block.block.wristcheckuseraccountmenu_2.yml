@@ -6,7 +6,6 @@ dependencies:
     - system.menu.account
   module:
     - block_attributes
-    - language
     - ntv_block_background
     - system
   theme:
@@ -39,11 +38,4 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility:
-  language:
-    id: language
-    langcodes:
-      en: en
-    negate: false
-    context_mapping:
-      language: '@language.current_language_context:language_interface'
+visibility: {  }

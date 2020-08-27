@@ -83,6 +83,8 @@ module:
   link: 0
   locale: 0
   mailchimp: 0
+  mailchimp_ecommerce: 0
+  mailchimp_ecommerce_commerce: 0
   mailchimp_lists: 0
   md_slider: 0
   media: 0
@@ -92,6 +94,7 @@ module:
   node: 0
   ntv_block_background: 0
   nvs_func: 0
+  nvs_geolocation: 0
   nvt_block_settings: 0
   options: 0
   page_cache: 0
@@ -124,7 +127,6 @@ module:
   system: 0
   tablefield: 0
   taxonomy: 0
-  taxonomy_menu: 0
   telephone: 0
   text: 0
   token: 0
@@ -133,7 +135,6 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
-  views_contextual_filters_or: 0
   views_infinite_scroll: 0
   views_slideshow: 0
   views_slideshow_cycle: 0

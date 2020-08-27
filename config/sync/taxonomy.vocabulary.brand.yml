@@ -1,8 +1,0 @@
-uuid: f5332e7b-cfcc-4d67-897f-48e075e6926a
-langcode: en
-status: true
-dependencies: {  }
-name: Brand
-vid: brand
-description: Brand
-weight: 0

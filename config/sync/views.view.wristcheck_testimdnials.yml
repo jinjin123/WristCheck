@@ -206,7 +206,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<img class=\"wc-testimdnials-img\" src=\"/themes/custom/wristcheck_barrio/images/icons/icon-star{{ field_rate }}.png\"/>\r\n        <h3>{{ title }}</h3>\r\n        <div class=\"wc-testimdnials-content\">\r\n          {{ field_subject__value }}\r\n        </div>"
+            text: "<img class=\"wc-testimdnials-img\" src=\"/themes/custom/wristcheck_barrio/images/icons/icon-star{{ field_rate }}.png\"/>\r\n        <h1>{{ title }}</h1>\r\n        <div class=\"wc-testimdnials-content\">\r\n          {{ field_subject__value }}\r\n        </div>"
             make_link: false
             path: ''
             absolute: false

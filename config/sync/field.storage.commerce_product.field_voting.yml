@@ -1,0 +1,22 @@
+uuid: 22879f2f-3b5b-47fc-bab7-f7643a796c26
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - votingapi_widgets
+id: commerce_product.field_voting
+field_name: field_voting
+entity_type: commerce_product
+type: voting_api_field
+settings:
+  vote_type: vote
+  vote_plugin: fivestar
+  status: ''
+module: votingapi_widgets
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

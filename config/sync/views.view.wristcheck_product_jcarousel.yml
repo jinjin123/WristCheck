@@ -5,7 +5,7 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.watch
     - field.storage.commerce_product.field_model_images
-    - image.style.image540x494
+    - image.style.large
     - image.style.medium
   module:
     - commerce
@@ -351,7 +351,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: image540x494
+            image_style: large
             image_link: ''
           group_column: ''
           group_columns: {  }
