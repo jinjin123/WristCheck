@@ -4,16 +4,19 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_ask_price
     - field.storage.commerce_product.field_model_images
     - image.style.image120x147
     - image.style.product_list
     - taxonomy.vocabulary.brand
     - taxonomy.vocabulary.product_tags
   content:
-    - 'taxonomy_term:brand:71f42a41-4031-4da4-9b12-3d6b78e4e272'
+    - 'taxonomy_term:brand:a36861ef-9b0a-4964-8b70-41f6db7f04ea'
     - 'taxonomy_term:product_tags:9c6a518c-40d4-49db-8518-c7855fc6a1e7'
   module:
+    - blazy
     - commerce
+    - commerce_price
     - commerce_product
     - image
     - taxonomy
@@ -77,7 +80,7 @@ display:
         type: grid
         options:
           grouping: {  }
-          columns: 3
+          columns: 4
           automatic_width: true
           alignment: horizontal
           col_class_default: true
@@ -273,6 +276,8 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        style: false
+        row: false
       query:
         type: views_query
         options:
@@ -412,6 +417,70 @@ display:
           entity_type: null
           entity_field: title
           plugin_id: field
+        field_ask_price:
+          id: field_ask_price
+          table: commerce_product__field_ask_price
+          field: field_ask_price
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div class=\"wc-pd-label\">\r\n    <label> <h5>{{ field_ask_price }}</h5><div ><img src=\"/themes/custom/wristcheck_barrio/images/icons/commenticon.png\"/></div> </label>\r\n</div>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: number
+          type: commerce_price_default
+          settings:
+            strip_trailing_zeroes: false
+            currency_display: symbol
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -534,6 +603,16 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: blazy
+        options:
+          style: column
+          grid: 4
+          grid_medium: 3
+          grid_small: 3
+      row:
+        type: fields
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -542,4 +621,5 @@ display:
         - url.query_args
         - user
       tags:
+        - 'config:field.storage.commerce_product.field_ask_price'
         - 'config:field.storage.commerce_product.field_model_images'

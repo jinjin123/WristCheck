@@ -1,6 +1,13 @@
 .payment-success {
   main {
     margin: 0 300px;
+    .wc-product-imglist1 {
+      img {
+        width: 620px !important;
+        height: 400px !important;
+      }
+      margin-bottom: 40px;
+    }
 
     .pay-title {
       margin-bottom: 30px;

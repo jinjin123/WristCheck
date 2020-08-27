@@ -60,13 +60,26 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables) {
   }
 }
 
-function wristcheck_barrio_preprocess_menu(array &$variables) {
+function wristcheck_barrio_preprocess_menu(array &$variables,$hook) {
+//user info slider
+    if($hook == "menu__wristcheck_user_sidebar_menu"){
+        $current_path = \Drupal::request()->getRequestUri();
+        $path_args = explode('/', $current_path);
+        $items = $variables['items'];
+        foreach ($items as $key => $item) {
+          $urlString = $item['url']->toString();
+          if ($item['url']->toString() == $current_path) {
+            // Add active link.
+            $variables['items'][$key]['attributes']['class'] = 'active';
+          }
+        }
+    }
   if ($variables['theme_hook_original'] == 'menu__main') {
-  $items = $variables['items'];
-  $variables['logo'] = theme_get_setting('logo.url','wristcheck');
-  foreach ($items as $key => $item) {
+    $items = $variables['items'];
+    $variables['logo'] = theme_get_setting('logo.url','wristcheck');
+    foreach ($items as $key => $item) {
           $variables['items'][$key]['logo'] = $variables['logo'];
-      }
+    }
   }
 }
 
@@ -76,16 +89,17 @@ function wristcheck_barrio_preprocess_html(array &$variables)
 {
   $path      = \Drupal::service('path.current')->getPath();
   $path_args = explode('/', $path);
-  if(count($path_args)>2){
-    if($path_args[3] == "payment-success"){
-      $variables['attributes']['class'][] = 'payment-success';
-    }
-    if($path_args[3] == "payment-step"){
-      $variables['attributes']['class'][] = 'payment-step';
-    }
+  if(in_array("payment-success",$path_args) || in_array("payment-step",$path_args)){
+     if(count($path_args)>2){
+       if($path_args[3] == "payment-success"){
+         $variables['attributes']['class'][] = 'payment-success';
+       }
+       if($path_args[3] == "payment-step"){
+         $variables['attributes']['class'][] = 'payment-step';
+       }
+     }
   }
 }
-
 
 
 

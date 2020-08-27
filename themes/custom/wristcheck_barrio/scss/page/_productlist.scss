@@ -1,0 +1,47 @@
+.page-view-product-list {
+  main {
+    margin: 0 150px;
+    //.view-product-list {
+    //
+    //}
+    .blazy--view--product-list {
+      .list-group-item {
+        border:0 !important;
+         .grid__content {
+            width: 56%  ;
+           .views-field-field-model-images {
+             margin-bottom: 15px;
+           }
+           .views-field-title {
+             margin-bottom: 15px;
+             .field-content {
+               a {
+                 color: grey;
+                 font-size: 15px;
+               }
+             }
+           }
+           .views-field-field-ask-price {
+              .field-content {
+                .wc-pd-label {
+                  //display: flex;
+                  h5 {
+                    font-weight: bold;
+                    //padding-right: 100px;
+                  }
+                  div {
+                    float: right;
+                    margin-top: -35px;
+                    margin-right: -60px;
+                    img {
+                      width: 90px;
+                    }
+                  }
+                }
+              }
+           }
+         }
+      }
+    }
+  }
+}

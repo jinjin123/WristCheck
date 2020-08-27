@@ -45,6 +45,10 @@
           'background-image': 'url("' + img + '")'
         })
       })
+      //register title
+      $(".links>a.register-popup-form").click(function(){
+        $(".ui-dialog-title").css("margin","0 150px");
+      })
     }
   };
   /**
@@ -79,6 +83,7 @@
         }))
 
       });
+
     })
     //faq index
     $(".view-content").removeClass("row");
