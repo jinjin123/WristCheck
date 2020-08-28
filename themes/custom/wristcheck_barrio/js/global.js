@@ -51,6 +51,18 @@
       })
     }
   };
+
+  Drupal.behaviors.customDatepicker = {
+    attach: function (context, settings) {
+      jQuery(function () {
+        jQuery("#datepicker").datepicker({
+          dateFormat: "dd-mm-yy",
+          altField: "input[data-drupal-selector=edit-created]",
+          altFormat: "yy/mm/dd 23:59:59"
+        });
+      });
+    }
+  };
   /**
    * all global common function handler
    * @type {{}}

@@ -4,11 +4,13 @@ global-styling:
     js/plugins/wow.min.js: { preprocess: 0, minified: true }
     js/plugins/popper.min.js: {}
     js/plugins/bootstrap.min.js: {}
+    js/plugins/bootstrap-datepicker.min.js: {}
     libs/noUiSlider-14.6.0/distribute/nouislider.js: {}
     js/global.js: {}
   css:
     component:
       css/style.css: {}
+      css/bootstrap-datepicker.min.css: {}
       libs/font-awesome-4.7.0/css/font-awesome.css: {}
       libs/noUiSlider-14.6.0/distribute/nouislider.css: {}
   dependencies:

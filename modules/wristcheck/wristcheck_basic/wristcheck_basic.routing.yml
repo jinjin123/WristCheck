@@ -29,6 +29,14 @@ wristcheck_basic.sell_controller_index:
   requirements:
     _permission: 'access content'
 
+wristcheck_basic.sell_controller_person:
+  path: '/sellperson'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::sellperson'
+    _title: 'sellperson'
+  requirements:
+    _permission: 'access content'
+
 wristcheck_basic.e_shop_controller_index:
   path: '/eshop'
   defaults:

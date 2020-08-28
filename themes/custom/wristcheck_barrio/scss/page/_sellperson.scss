@@ -1,0 +1,48 @@
+.path-sellperson {
+  main {
+    .wc-panel {
+      margin: 0 7%;
+
+      .text-center {
+        button {
+          width: 50%;
+        }
+
+        .direction {
+          //margin-left: 7%;
+          h5 {
+            i {
+              margin-right: 10px;
+              font-size: 30px;
+            }
+          }
+        }
+
+        .person_img {
+          margin-bottom: 50px;
+        }
+
+        .person_info {
+          h1 {
+            margin-bottom: 20px;
+          }
+
+          #datepicker {
+            border: transparent;
+            color: #495057;
+            background-color: #fff;
+            width: 100%;
+            height: calc(1.5em + 0.75rem + 2px);
+            margin-bottom: 50px;
+          }
+        }
+
+        .address_info {
+          h1 {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
