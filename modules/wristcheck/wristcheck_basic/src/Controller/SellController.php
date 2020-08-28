@@ -36,4 +36,12 @@ class SellController extends ControllerBase
     ];
   }
 
+  public function sellwatchinput()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_sellwatchinput',
+      '#variables' => $variables,
+    ];
+  }
 }

@@ -125,6 +125,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_sellwatchinput' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_payment_step' => [
       'variables' => [
         'variables' => []

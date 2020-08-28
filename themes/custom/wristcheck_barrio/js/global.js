@@ -60,6 +60,11 @@
           altField: "input[data-drupal-selector=edit-created]",
           altFormat: "yy/mm/dd 23:59:59"
         });
+        jQuery("#watch_year").datepicker({
+          dateFormat: "yyyy",
+          altField: "input[data-drupal-selector=edit-created]",
+          altFormat: "yyyy"
+        });
       });
     }
   };

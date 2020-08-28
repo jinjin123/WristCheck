@@ -37,6 +37,14 @@ wristcheck_basic.sell_controller_person:
   requirements:
     _permission: 'access content'
 
+wristcheck_basic.sell_controller_watchinput:
+  path: '/sellwatchinput'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::sellwatchinput'
+    _title: 'sellwatchinput'
+  requirements:
+    _permission: 'access content'
+
 wristcheck_basic.e_shop_controller_index:
   path: '/eshop'
   defaults:

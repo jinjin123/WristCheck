@@ -1,0 +1,56 @@
+<div class="wc-panel">
+  <div class="row direction">
+    <h5><i class="fa fa-angle-left"></i>So Let's go back to the list </h5>
+  </div>
+  <hr/>
+  <div class="person_img">
+    <img src="/themes/custom/wristcheck_barrio/images/watchfeaturestep.png">
+  </div>
+  <div class="row">
+    <div class="w_quo col-md-6">
+      <h1>FEATURES OF WATCHES </h1><h5>(* required fields)</h5>
+      {{ drupal_entity('webform','watch_input_quotation') }}
+    </div>
+    <div class="col-md-6 w_des">
+      <label>title</label>
+      <input class="watch_title" placeholder="watch title"/>
+      <label>price</label>
+      <input class="watch_price" placeholder="Ask price 0.00"/>
+      <div class="watch_des">
+        <h4>Low commission on sales -- high yield</h4>
+        <h5>Only 6.5% commission on sales </h5>
+        <h5>Up to 90 percent of sales</h5>
+      </div>
+    </div>
+  </div>
+    <div class="basic_info">
+      <h1>Basic information </h1><h5>(* required fields)</h5>
+      {{ drupal_entity('webform','watch_basic_info') }}
+      <div class="w_year">
+        <label>Year of the factory</label>
+        <input id="watch_year"  data-date-format="yyyy" placeholder="year 2019"/>
+      </div>
+      <div class="w_dimeter">
+        <label>diameter of</label>
+        <span>
+        <input id="di_one" placeholder="mm"/> X <input id="di_two" placeholder="mm"/>
+      </span>
+      </div>
+    </div>
+    <div class="Price">
+      <h1>Price</h1><h5>(* required fields)</h5>
+      {{ drupal_entity('webform','watch_input_price') }}
+    </div>
+    <div class="option_info">
+      <h1>Additional information</h1><h5>(* required fields)</h5>
+      {{ drupal_entity('webform','watch_additional_information') }}
+    </div>
+</div>
+<div class="wc-panel">
+  <div class='text-center'>
+    <button type="button" class="btn btn-default btn-lg wc-ex-btn">
+      <span class="fa  fa-arrow-right"></span>
+      {{ '| REUSE CHARACTERISTICS'|t }}
+    </button>
+  </div>
+</div>
