@@ -14,6 +14,7 @@ dependencies:
   module:
     - address
     - better_exposed_filters
+    - blazy
     - commerce
     - commerce_price
     - commerce_product
@@ -63,16 +64,16 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: some
+        type: none
         options:
-          items_per_page: 4
           offset: 0
       style:
-        type: default
+        type: blazy
         options:
-          grouping: {  }
-          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print portfolio'
-          default_row_class: true
+          style: column
+          grid: 4
+          grid_medium: 4
+          grid_small: 4
       row:
         type: fields
         options:
