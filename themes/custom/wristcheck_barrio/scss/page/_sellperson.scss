@@ -7,6 +7,7 @@
         button {
           width: 50%;
         }
+      }
 
         .direction {
           //margin-left: 7%;
@@ -23,26 +24,29 @@
         }
 
         .person_info {
+          margin-bottom: 50px;
           h1 {
             margin-bottom: 20px;
           }
-
-          #datepicker {
-            border: transparent;
-            color: #495057;
-            background-color: #fff;
-            width: 100%;
-            height: calc(1.5em + 0.75rem + 2px);
-            margin-bottom: 50px;
+          .birth {
+            display: grid;
+            input {
+              border: transparent;
+              color: #495057;
+              background-color: #fff;
+              width: 100%;
+              height: calc(1.5em + 0.75rem + 2px);
+            }
           }
         }
 
         .address_info {
+          margin-bottom: 50px;
           h1 {
             margin-bottom: 20px;
           }
         }
-      }
+
     }
   }
 }
