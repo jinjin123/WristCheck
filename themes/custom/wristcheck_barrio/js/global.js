@@ -119,6 +119,19 @@
         target.css("-webkit-transform", "rotate(45deg)");
       }
     });
+
+    //faq authsystem
+    $(".path-sell .view-content .views-row .views-field-title .field-content i").click(function () {
+      var target = $(this);
+      // console.log(target.parent().parent().parent().parent().parent().children()[1]);
+      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
+        target.css("-webkit-transform", "rotate(-45deg)");
+      } else {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
+        target.css("-webkit-transform", "rotate(45deg)");
+      }
+    })
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
       if ($(this).children('.wc-menu-container').length > 0) {

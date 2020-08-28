@@ -14,7 +14,14 @@
   <div class="contact">
     <h1>Contact US</h1>
     <div class="view-header">
-      <span><h5>CALL : {{ variables['phone'] }}</h5> <a href="/aaa">EMAIL: {{ variables['mail'] }} </a></span>
+      <span>
+      {% if variables['phone'] %}
+        <h5>CALL : {{ variables['phone'] }}</h5>
+      {% else %}
+        <h5>CALL : +0012 987654</h5>
+      {% endif %}
+      <a href="/aaa">EMAIL: {{ variables['mail'] }} </a>
+       </span>
       <hr>
     </div>
   {{ drupal_view('wristcheck_faq','faq_contact_us') }}

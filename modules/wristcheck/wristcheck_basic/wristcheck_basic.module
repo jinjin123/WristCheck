@@ -120,6 +120,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_sellperson' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_payment_step' => [
       'variables' => [
         'variables' => []
@@ -164,7 +169,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-    'wristcheck_sell' => [],
+    'wristcheck_sell' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_banner_block' => [
       'variables' => []
     ],
