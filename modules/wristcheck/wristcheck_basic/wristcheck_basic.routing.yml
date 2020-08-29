@@ -10,7 +10,7 @@ wristcheck_basic.home_page_controller_index:
   path: '/homepage'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\HomePageController::index'
-    _title: 'homepageindex'
+    _title: 'Home'
   requirements:
     _permission: 'access content'
 wristcheck_basic.buy_controller_index:
