@@ -33,12 +33,17 @@
     }
     .views-field-total-price__number {
       margin-top: 130px;
-      margin-left: -32%;
+      margin-left: -20%;
       margin-right: 50px;
       font-weight: bold;
     }
     .views-field-view-commerce-order {
       margin-top: 130px;
+      .field-content {
+        a {
+          color: blue;
+        }
+      }
       //margin-left: -8%;
     }
   }
