@@ -11,6 +11,7 @@ dependencies:
     - field.storage.commerce_product.field_radioactivity
     - field.storage.commerce_product.field_verified_dealer
     - flag.flag.wristcheck_wishlist
+    - image.style.medium
   module:
     - address
     - better_exposed_filters
@@ -2474,8 +2475,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<img src="{{ field_model_images }} "/>'
             make_link: false
             path: ''
             absolute: false
@@ -2513,10 +2514,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: image_url
           settings:
-            image_style: ''
-            image_link: ''
+            image_style: medium
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -2535,7 +2535,7 @@ display:
           relationship: field_related_brand
           group_type: group
           admin_label: ''
-          label: ''
+          label: brand
           exclude: false
           alter:
             alter_text: false
@@ -2600,7 +2600,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Model
           exclude: false
           alter:
             alter_text: false
@@ -2665,7 +2665,7 @@ display:
           relationship: flag_relationship
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Place Time'
           exclude: false
           alter:
             alter_text: false
@@ -2725,6 +2725,56 @@ display:
           entity_type: flagging
           entity_field: created
           plugin_id: field
+        link_flag:
+          id: link_flag
+          table: flagging
+          field: link_flag
+          relationship: flag_relationship
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: '<a hreft class="fa fa-times" aria-hidden="true">{{ link_flag }} </i>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          entity_type: flagging
+          plugin_id: flag_link
       sorts: {  }
       style:
         type: table

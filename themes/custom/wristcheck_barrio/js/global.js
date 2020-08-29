@@ -73,8 +73,18 @@
    * @type {{}}
    */
   Drupal.$wc = {};
-
   $(function () {
+    //user wishlist flag
+    if((window.location.pathname).split("/").length>3){
+      if ((window.location.pathname).split("/")[3] == "wishlist"){
+        $(".align-items-center")[0].childNodes[1].remove()
+        $(".fa-heart-o")[0].className = "fa fa-times"
+        $(".use-ajax").click(function(){
+          var target = $(this);
+          target.parent().parent().parent().parent().remove()
+        })
+      }
+    }
     //usersupplementform
     $("#profile_button").click(function(){
       // console.log($("#webform-submission-user-info-add-form").serialize())
