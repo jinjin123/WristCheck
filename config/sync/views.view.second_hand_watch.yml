@@ -227,7 +227,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: user/my-second-hand-watch
+      path: user/%user/my-second-hand-watch
       filters:
         type:
           id: type
@@ -435,6 +435,15 @@ display:
             value: '<a href="[site:url]/node/add/wcshw" class="button button--primary">Create</a>'
             format: full_html
           plugin_id: text
+      menu:
+        type: tab
+        title: 'My second watch'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: account
     cache_metadata:
       max-age: -1
       contexts:
