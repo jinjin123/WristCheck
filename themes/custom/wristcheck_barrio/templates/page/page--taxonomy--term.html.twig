@@ -1,0 +1,32 @@
+<div>
+  <div class="layout-container">
+    <div class="header-box">
+      <div class="container">
+        <div class="header-top">
+          <a href="/" title="Home" rel="home" class="navbar-brand" tabindex="-1">
+            <img src="/themes/custom/wristcheck_barrio/logo.svg" alt="Home" class="img-fluid align-top">
+            <span class="ml-2 d-none d-md-inline">Wristcheck</span>
+          </a>
+          {{ drupal_entity('block','searchform_2') }}
+          <div class="header-top__right flex-row align-center">
+            {{ drupal_entity('block','wristcheckuseraccountmenu_2') }}
+          </div>
+        </div>
+        <header id="navbar-spy" class="header wc-header">
+          <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav">
+              {{ drupal_entity('block','wristcheck_barrio_main_menu') }}
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div class="wc-panel pt-100">
+      <div class='container portfolio'>
+        {{ drupal_view('wristcheck_products','page_1') }}
+      </div>
+    </div>
+    <div class="wc-page-modal"></div>
+  </div>
+</div>

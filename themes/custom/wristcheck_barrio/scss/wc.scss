@@ -32,6 +32,7 @@
 @import "page/sell";
 @import "page/sellperson";
 @import "page/watchinput";
+@import "page/brandproductnode";
 
 a:focus {
   outline: none;
@@ -119,6 +120,19 @@ a:focus {
   font-size: 14px;
 }
 
+.views-field-field-brand-logo {
+  .field-content {
+    .portfolio-img {
+      margin-top: 10px !important;
+    }
+  }
+}
+//home
+.view-wristcheck-buy-explore {
+    .portfolio-img {
+      width: 425px !important;
+    }
+}
 
 #block-wristcheckdownloadappblock-2 {
   width: 100%;

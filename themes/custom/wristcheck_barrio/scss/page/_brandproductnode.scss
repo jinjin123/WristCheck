@@ -1,0 +1,42 @@
+.node--type-brand {
+  main {
+    .container {
+      max-width: none !important;
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+
+      .row {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+
+        .col-md-12 {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+      .view-id-wristcheck_brand {
+        .views-field-field-introduction {
+          .field-content {
+            div {
+              margin-bottom: 100px;
+              img {
+                width: 100%;
+              }
+            }
+            h1 {
+               text-align: center;
+               font-weight: bold;
+            }
+            p {
+              text-align: center;
+              font-szie: 15px;
+            }
+          }
+        }
+      }
+      .wc-panel {
+        padding:  50px 100px;
+      }
+    }
+  }
+}

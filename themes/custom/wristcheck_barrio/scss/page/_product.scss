@@ -138,7 +138,16 @@
         font-size: 30px;
 
         &.fa-heart {
+          color: $color-dark2;
+        }
+        &.fa-heart:before {
+          content: "\f08a" !important;
+        }
+        &.fa-heart-o {
           color: #FF6464;
+        }
+        &.fa-heart-o:before {
+          content: "\f004" !important;
         }
       }
     }

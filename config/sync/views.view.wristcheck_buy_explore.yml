@@ -8,6 +8,7 @@ dependencies:
     - field.storage.commerce_product.field_model_images
     - field.storage.commerce_product.field_subname
   module:
+    - blazy
     - commerce
     - commerce_product
     - image
@@ -56,11 +57,12 @@ display:
           items_per_page: 8
           offset: 0
       style:
-        type: default
+        type: blazy
         options:
-          grouping: {  }
-          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print portfolio'
-          default_row_class: true
+          style: column
+          grid: 4
+          grid_medium: 4
+          grid_small: 4
       row:
         type: fields
         options:
@@ -253,7 +255,7 @@ display:
           group_columns: {  }
           group_rows: true
           delta_limit: 1
-          delta_offset: 1
+          delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
@@ -271,7 +273,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: " <div class=\"portfolio-img wc-ex-panel mb-20 \" data-original=\"{{field_model_images}}\">\r\n  <div class=\"portfolio-hover\">\r\n    <div class=\"portfolio-hover-content\">\r\n      <div class=\"portfolio-meta\">\r\n        <div class=\"portfolio-title\">\r\n          <h4>\r\n            <a href=\"portfolio-single-2.html\">{{ field_subname }}</a>\r\n          </h4>\r\n        </div>\r\n        <div class=\"portfolio-cat\">\r\n          <a href=\"#\">{{ field_introduction }} </a>\r\n        </div>\r\n      </div>\r\n      <div class=\"portfolio-action\">\r\n        <div class=\"portfolio-zoom\">\r\n          <a class=\"img-popup zoom\" href=\"javascript:;\" title=\"Branding Mockup\">\r\n            <img src=\"/themes/custom/wristcheck_barrio/images/icons/icon-add.png\" class=\"icon-add\"/>\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class='portfolio-sub-title'>{{ title }}</div>"
+            text: " <div class=\"portfolio-img wc-ex-panel mb-20 lazyload\"  data-original=\"{{field_model_images}}\">\r\n  <div class=\"portfolio-hover\">\r\n    <div class=\"portfolio-hover-content\">\r\n      <div class=\"portfolio-meta\">\r\n        <div class=\"portfolio-title\">\r\n          <h4>\r\n            <a href=\"portfolio-single-2.html\">{{ field_subname }}</a>\r\n          </h4>\r\n        </div>\r\n        <div class=\"portfolio-cat\">\r\n          <a href=\"#\">{{ field_introduction }} </a>\r\n        </div>\r\n      </div>\r\n      <div class=\"portfolio-action\">\r\n        <div class=\"portfolio-zoom\">\r\n          <a class=\"img-popup zoom\" href=\"javascript:;\" title=\"Branding Mockup\">\r\n            <img src=\"/themes/custom/wristcheck_barrio/images/icons/icon-add.png\" class=\"icon-add\"/>\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class='portfolio-sub-title'>{{ title }}</div>"
             make_link: false
             path: ''
             absolute: false
