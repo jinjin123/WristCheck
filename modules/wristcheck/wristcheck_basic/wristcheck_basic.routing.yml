@@ -274,3 +274,11 @@ wristcheck_basic.order_status_controller_index:
     _title: 'User order status'
   requirements:
     _permission: 'access content'
+
+wristcheck_basic.product_variation_form_controller_index:
+  path: '/product_variation_form/{type}/{product_id}'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\ProductVariationFormController::index'
+    _title: 'Product variation Form'
+  requirements:
+    _permission: 'access content'

@@ -7,6 +7,43 @@
 
   'use strict';
 
+  Drupal.behaviors.ProductVariationLoad = {
+    attach: function (context, settings) {
+      var display = $(".wc-product-variations");
+      var url = window.location.pathname.split('/'); console.log();
+      var product_id = url[url.length-1];
+
+      if (url[url.length-2] == 'product' && product_id) {
+        $('#wc-product-buy-new').off('click').on("click", function() {
+          var self = $(this);
+          $.get(Drupal.url("product_variation_form/buy_new/" + product_id), function(data) {
+            if (data.status == 1) {
+              $("#wc-product-buy-used").removeClass('active');
+              self.addClass('active');
+              display.html(data.data);
+            } else {
+              alert(data.message);
+            }
+          });
+        });
+
+        $("#wc-product-buy-used").off('click').on("click", function() {
+          var self = $(this);
+          $.get(Drupal.url("product_variation_form/buy_used/" + product_id), function(data) {
+            if (data.status == 1) {
+              $("#wc-product-buy-new").removeClass('active');
+              self.addClass('active');
+              display.html(data.data);
+            } else {
+              alert(data.message + 'hello world');
+            }
+          });
+        });
+      }
+    }
+  };
+
+
   Drupal.behaviors.bootstrap_barrio_subtheme = {
     attach: function (context, settings) {
       var position = $(window).scrollTop();

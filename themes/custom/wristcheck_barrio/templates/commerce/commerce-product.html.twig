@@ -142,10 +142,10 @@
 
       <div class="wc-product-content">{{ product.field_introduction }}</div>
       <div class="wc-product--row">
-        <div class="wc-product-buy-new pr">
+        <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">
           <a href="javascript:;">BUY NEW FROM</a>
         </div>
-        <div class="wc-product-buy pr">
+        <div class="wc-product-buy pr" id="wc-product-buy-used" product_id="{{ product.id }}">
           <a href="javascript:;">BUY USED FROM</a>
           {{ drupal_view('wristcheck_second_hands_watch') }}
         </div>
