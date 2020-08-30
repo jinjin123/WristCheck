@@ -54,7 +54,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 8
+          items_per_page: 9
           offset: 0
       style:
         type: blazy
@@ -62,7 +62,7 @@ display:
           style: column
           grid: 6
           grid_medium: 6
-          grid_small: 6
+          grid_small: 8
       row:
         type: fields
         options:
