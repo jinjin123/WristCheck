@@ -46,8 +46,8 @@ function wristcheck_barrio_preprocess_maintenance_page(&$variables) {
 }
 
 function wristcheck_barrio_preprocess_breadcrumb(&$variables) {
-  $view = \Drupal\views\Views::getView('wristcheck_magazine');
-  $view->execute('page_2');
+  $view = \Drupal\views\Views::getView('wristcheck_buy_magazine');
+  $view->execute('page_1');
   global $head_title;
   foreach($view->result as $row){
     $head_title['title'] = $row->_entity->get('title')->value;
