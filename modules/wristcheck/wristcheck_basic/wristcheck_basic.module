@@ -260,7 +260,7 @@ function wristcheck_basic_form_node_wcshw_form_alter(&$form, FormStateInterface 
       }
     }
 
-    $path = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => $userid])->toString();
+    $path = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => $userid], ['query' => \Drupal::destination()->getAsArray()])->toString();
 
     if (!$infoisfull) {
       // goto user edit page.
