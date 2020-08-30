@@ -72,9 +72,9 @@ display:
         type: blazy
         options:
           style: column
-          grid: 4
-          grid_medium: 4
-          grid_small: 4
+          grid: 6
+          grid_medium: 6
+          grid_small: 6
       row:
         type: fields
         options:

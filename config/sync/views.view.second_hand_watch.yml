@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - node.type.wcshw
-    - system.menu.admin
     - user.role.administrator
     - user.role.authenticated
     - workflows.workflow.content_workflow
@@ -454,7 +453,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      path: admin/wristcheck/second_hand_watch_approval
+      path: admin/second_hand_watch/approval
       access:
         type: role
         options:
@@ -707,15 +706,6 @@ display:
           destination: false
           entity_type: node
           plugin_id: entity_operations
-      menu:
-        type: normal
-        title: 'Second-hand watch approval'
-        description: ''
-        expanded: true
-        parent: wristcheck.admin
-        weight: 0
-        context: '0'
-        menu_name: admin
     cache_metadata:
       max-age: -1
       contexts:
