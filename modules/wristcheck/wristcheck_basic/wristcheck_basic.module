@@ -5,10 +5,13 @@
  * Contains wristcheck_basic.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
+use Drupal\user\Entity\User;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Implements hook_help().
@@ -226,32 +229,43 @@ function wristcheck_basic_theme()
   ];
 }
 
-function wristcheck_basic_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
-  $term_id = \Drupal::routeMatch()->getParameter('taxonomy_term');
-  if ($term_id && $view->id() == 'product_list') {
-    $term = \Drupal\taxonomy\Entity\Term::load($term_id);
-    $type = $term->getVocabularyId();
-    foreach ($query->where as $windex => &$condition_group) {
-      foreach ($condition_group['conditions'] as $index => &$condition) {
-        if ($type === 'brand' && $condition['field'] === 'commerce_product__field_cate.field_cate_target_id = :commerce_product__field_cate_field_cate_target_id') {
-          unset($query->where[$windex]['conditions'][$index]);
-        }
-        if ($type === 'brand' && $condition['field'] === 'commerce_product__field_brand.field_brand_target_id = :commerce_product__field_brand_field_brand_target_id') {
-          $query->where[$windex]['conditions'][$index]['value'] =
-            [
-              ':commerce_product__field_brand_field_brand_target_id' => $term_id
-            ];
-        }
-        if ($type === 'product_tags' && $condition['field'] === 'commerce_product__field_brand.field_brand_target_id = :commerce_product__field_brand_field_brand_target_id') {
-          unset($query->where[$windex]['conditions'][$index]);
-        }
+/**
+ * Implements hook_form_FORM_ID_form_alter().
+ *
+ * @param                                      $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param                                      $form_id
+ */
+function wristcheck_basic_form_node_wcshw_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // is create 2 watch.
+  $userid = \Drupal::currentUser()->id();
+  if ($form_state->getFormObject()->getEntity()->isNew()) {
+    $user = User::load($userid);
 
-        if ($type === 'product_tags' && $condition['field'] === 'commerce_product__field_cate.field_cate_target_id = :commerce_product__field_cate_field_cate_target_id') {
-          $query->where[$windex]['conditions'][$index]['value'] = [
-            ':commerce_product__field_cate_field_cate_target_id' => $term_id
-          ];
-        }
+    $check_field = [
+      'field_surnames',
+      'field_full_name',
+      'field_phone_number',
+    ];
+
+    $infoisfull = TRUE;
+
+    foreach($check_field as $field) {
+      if ($user->get($field)->isEmpty()) {
+        \Drupal::messenger()->addError(t('User information must be completed to create a second-hand watch: @userinfo', [
+          '@userinfo' => implode(',', ['Surnames', 'Full name', 'Phone number']),
+        ]));
+        $infoisfull = FALSE;
+        break;
       }
+    }
+
+    $path = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => $userid])->toString();
+
+    if (!$infoisfull) {
+      // goto user edit page.
+      $response = new RedirectResponse($path);
+      $response->send();
     }
   }
 }
