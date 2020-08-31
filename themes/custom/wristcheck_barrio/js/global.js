@@ -112,8 +112,11 @@
   Drupal.$wc = {};
   $(function () {
     // handle second hand price to update cart form
-    $("#swt").css("display","none");
-    $("#swt").css("color","transparent");
+    // $("#swt").css("display","none");
+    // $("#swt").css("display","none");
+    // $("#swt").css("color","transparent");
+    // console.log($("#wc-product-buy-new >a>div>div")[1].textContent.slice(1))
+    $("#wc-product-buy-new >a>div>div")[1].textContent = $("#wc-product-buy-new >a>div>div")[1].textContent.slice(1)
     var flag = true;
     $('#wc-product-buy-used').click(function(){
       if (flag ){

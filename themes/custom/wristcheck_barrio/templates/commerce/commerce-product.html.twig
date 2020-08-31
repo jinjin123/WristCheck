@@ -112,6 +112,7 @@
 {#</div>#}
 
 {#{{ drupal_view('product_view', 'product_relative',product.field_categories.0['#options'].entity.tid.value) }}#}
+{#{{ dump(product.variation_price[0]) }}#}
 <div class="row">
   <div class="col-md-6">
     <div class="wc-product-imglist1">
@@ -143,7 +144,10 @@
       <div class="wc-product-content">{{ product.field_introduction }}</div>
       <div class="wc-product--row">
         <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">
-          <a href="javascript:;">BUY NEW FROM</a>
+          <a href="javascript:;">BUY NEW FROM
+            {{  product.variation_price  }}
+          </a>
+{#          {{  product.variation_price|slice(1)  }}#}
         </div>
         <div class="wc-product-buy pr" id="wc-product-buy-used" product_id="{{ product.id }}">
           <a href="javascript:;">BUY USED FROM
