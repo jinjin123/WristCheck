@@ -64,7 +64,11 @@ class CartEventSubscriber implements EventSubscriberInterface {
   public function addToCart(CartEntityAddEvent $event) {
     /** @var \Drupal\commerce_product\Entity\ProductVariationInterface $product_variation */
     $order_item             = $event->getOrderItem();
-//    \Drupal::logger('cart')->error('CART'  . json_encode($order_item->toArray()['']));
+    foreach($order_item->toArray()['unit_price'] as $value){
+      $unit =  $value['currency_code'];
+//      \Drupal::logger('cart')->error('CART'  . json_encode($unit));
+    }
+//    \Drupal::logger('cart')->error('CART'  . $order_item->toArray()['unit_price']);
     $database = \Drupal::database();
     $result = $database->select('tmpsecondhandproduct','t')
       ->condition('t.uid',\Drupal::currentUser()->id())
@@ -73,7 +77,7 @@ class CartEventSubscriber implements EventSubscriberInterface {
       ->execute()
       ->fetchCol();
     if(count($result)>0){
-      $unit_price = new Price( $result[0], 'USD' );
+      $unit_price = new Price( $result[0], $unit );
       $order_item->setUnitPrice($unit_price, TRUE);
       $order_item->save();
       $cart = $event->getCart();
