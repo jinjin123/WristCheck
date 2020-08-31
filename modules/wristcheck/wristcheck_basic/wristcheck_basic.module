@@ -53,6 +53,9 @@ function wristcheck_basic_form_alter(&$form, &$form_state, $form_id){
   if($form_id == "webform_submission_faq_authsystem_add_form"){
     $form['actions']['submit']['#type'] = 'button';
   }
+//  if($form_id =="commerce-order-item-add-to-cart-form-commerce-product-20"){
+//    $form['actions']['submit']['#type'] = 'button';
+//  }
 }
 //function wristcheck_basic_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
 ////  exit('hello');
@@ -269,3 +272,4 @@ function wristcheck_basic_form_node_wcshw_form_alter(&$form, FormStateInterface 
     }
   }
 }
+

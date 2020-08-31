@@ -111,6 +111,39 @@
    */
   Drupal.$wc = {};
   $(function () {
+    // handle second hand price to update cart form
+    $("#swt").css("display","none");
+    $("#swt").css("color","transparent");
+    var flag = true;
+    $('#wc-product-buy-used').click(function(){
+      if (flag ){
+        $("#wc-product-buy-used>a").css("background-color","grey");
+        var data={"model":$("#swt")[0].textContent, "price": ($('.views-field-field-price-number>span')[0].textContent).trim()}
+        $.post("/second-hand-update",JSON.stringify(data),function(data){
+          if(data == "ok"){
+            // $(".alert-success").css("display","block");
+            console.log("update cahrt")
+          }else{
+            console.log("update errorr")
+          }
+        })
+        flag=false;
+      }else {
+        var data={"model":$("#swt")[0].textContent,"price": ($('.views-field-field-price-number>span')[0].textContent).trim(),"tag":"del"}
+        $.post("/second-hand-update",JSON.stringify(data),function(data){
+          if(data == "ok"){
+            // $(".alert-success").css("display","block");
+            console.log("update cahrt")
+          }else{
+            console.log("update errorr")
+          }
+        })
+        $("#wc-product-buy-used>a").css("background-color", "#222222");
+        flag = true
+      }
+      // console.log(($('.views-field-field-price-number>span')[0].textContent).trim());
+      // console.log($("#swt")[0].textContent)
+    })
     //user wishlist flag
     if((window.location.pathname).split("/").length>3){
       if ((window.location.pathname).split("/")[3] == "wishlist"){

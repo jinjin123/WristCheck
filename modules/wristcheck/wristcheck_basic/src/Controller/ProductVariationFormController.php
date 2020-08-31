@@ -10,6 +10,7 @@ use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormState;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -144,4 +145,29 @@ class ProductVariationFormController extends ControllerBase {
     return $this->formBuilder->buildForm($form_object, $form_state);
   }
 
+
+  public function secondhandtmp(){
+    $content = \Drupal::request()->getContent();
+    $params = json_decode($content, TRUE);
+    $model = $params['model'];
+    $price = $params['price'];
+    $database = \Drupal::database();
+    if(!isset($params['tag'])){
+      $result = $database->insert('tmpsecondhandproduct')
+        ->fields([
+          'model' => $model,
+          'price'=> $price,
+          'uid' =>\Drupal::currentUser()->id(),
+        ])
+        ->execute();
+    }else{
+      $result = $database->delete('tmpsecondhandproduct')
+        ->condition('model' ,$model)
+        ->condition('price',$price)
+        ->condition('uid',\Drupal::currentUser()->id())
+        ->execute();
+    }
+//    \Drupal::logger('CART')->error('CART'  . json_encode($params['model']));
+    return new Response("ok");
+  }
 }

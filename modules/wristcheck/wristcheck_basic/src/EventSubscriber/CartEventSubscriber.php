@@ -59,34 +59,21 @@ class CartEventSubscriber implements EventSubscriberInterface {
    */
   public function addToCart(CartEntityAddEvent $event) {
     /** @var \Drupal\commerce_product\Entity\ProductVariationInterface $product_variation */
-//    echo("aaaaa");
-    $product_variation = $event->getEntity();
-    if ($product_variation->getSku() === '213') {
-      var_dump($event->getEntity());
-      $product_variation = $event->getEntity();
+    $order_item             = $event->getOrderItem();
+//    \Drupal::logger('cart')->error('CART'  . json_encode($order_item->toArray()['']));
+    $database = \Drupal::database();
+    $result = $database->select('tmpsecondhandproduct','t')
+      ->condition('t.uid',\Drupal::currentUser()->id())
+      ->fields('t',['price'])
+      ->orderBy('t.date','DESC')
+      ->execute()
+      ->fetchCol();
+    if(count($result)>0){
+      $unit_price = new Price( $result[0], 'USD' );
+      $order_item->setUnitPrice($unit_price, TRUE);
+      $order_item->save();
       $cart = $event->getCart();
-      $entity_manager = \Drupal::entityTypeManager();
-      // Load a known other product variation.
-//      $variation =\Drupal::entityManager()->getStorage('commerce_product_variation')->load(20);
-//      $variation = \Drupal::entityTypeManager()->getStorage('commerce_product_variation')->load(15)->toArray();
-      $variation = \Drupal::entityTypeManager()->getStorage('commerce_product_variation')->load(15);
-
-      $order_item_option_2 = $entity_manager->getStorage('commerce_order_item')->create([
-        'type' => 'default', // Also, Commerce 2.x have a feature to define custom "line item types".
-        'purchased_entity' => $variation ,
-        'quantity' => 3, // Amount or quantity to be added to the cart.
-        'unit_price' => new Price(66,"USD"),
-      ]);
-      $order_item_option_2 ->save();
-//      $this->cart_manager->addOrderItem($cart, $order_item_option_2);
-//      $this->cartManager->addEntity($cart, $variation);
-      // Create a new order item based on the loaded variation.
-//      $new_order_item = $this->cartManager->createOrderItem($variation);
-//      $new_order_item->setQuantity(1);
-
-      // Add it to the cart.
-      $this->cartManager->addOrderItem($cart, $order_item_option_2);
-
+      $this->cartManager->updateOrderItem($cart,$order_item);
     }
   }
 

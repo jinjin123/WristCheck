@@ -100,7 +100,7 @@ class UserController extends ControllerBase
       $sex = \Drupal::request()->request->get('sex_selection');
       $profile = Profile::create([
         'type' => 'customer',
-        'uid' => $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id()),
+        'uid' => \Drupal::currentUser()->id(),
         'address' => [
           'country_code' => '--',
           'address_line1' => '--',

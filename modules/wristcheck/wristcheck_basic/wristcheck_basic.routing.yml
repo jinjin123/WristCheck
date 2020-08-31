@@ -282,3 +282,13 @@ wristcheck_basic.product_variation_form_controller_index:
     _title: 'Product variation Form'
   requirements:
     _permission: 'access content'
+
+
+wristcheck_basic.product_variation_form_controller_tmpproduct:
+  path: '/second-hand-update'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\ProductVariationFormController::secondhandtmp'
+    _title: 'second hand save'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
