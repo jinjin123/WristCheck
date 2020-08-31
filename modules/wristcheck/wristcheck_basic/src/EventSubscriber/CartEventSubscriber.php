@@ -3,8 +3,11 @@
 namespace Drupal\wristcheck_basic\EventSubscriber;
 
 use Drupal\commerce_cart\CartManagerInterface;
+use Drupal\commerce_cart\Event\CartEmptyEvent;
 use Drupal\commerce_cart\Event\CartEntityAddEvent;
 use Drupal\commerce_cart\Event\CartEvents;
+use Drupal\commerce_cart\Event\CartOrderItemRemoveEvent;
+use Drupal\commerce_cart\Event\CartOrderItemUpdateEvent;
 use Drupal\commerce_price\Price;
 use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\Core\Messenger\MessengerInterface;
@@ -45,7 +48,8 @@ class CartEventSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     return [
-      CartEvents::CART_ENTITY_ADD => [['addToCart', 100]]
+      CartEvents::CART_ENTITY_ADD => [['addToCart', 100]],
+      CartEvents::CART_ORDER_ITEM_REMOVE => [['removeOrderItem', 100]]
     ];
   }
 
@@ -77,4 +81,23 @@ class CartEventSubscriber implements EventSubscriberInterface {
     }
   }
 
+  public function removeOrderItem(CartOrderItemRemoveEvent $event){
+//    \Drupal::logger('cart')->error('CART'  . json_encode($event->getOrderItem()->getUnitPrice()->toArray()['number']));
+    $unit_price = $event->getOrderItem()->getUnitPrice()->toArray()['number'];
+    $database = \Drupal::database();
+    $result = $database->select('tmpsecondhandproduct','t')
+      ->condition('t.uid',\Drupal::currentUser()->id())
+      ->fields('t',['price'])
+      ->orderBy('t.date','DESC')
+      ->execute()
+      ->fetchCol();
+    if(count($result)>0){
+      if(($unit_price== $result[0]) ==1){
+        $result = $database->delete('tmpsecondhandproduct')
+          ->condition('price', $result[0])
+          ->condition('uid',\Drupal::currentUser()->id())
+          ->execute();
+      }
+    }
+  }
 }

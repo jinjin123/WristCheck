@@ -122,9 +122,9 @@
         $.post("/second-hand-update",JSON.stringify(data),function(data){
           if(data == "ok"){
             // $(".alert-success").css("display","block");
-            console.log("update cahrt")
+            // console.log("update cahrt")
           }else{
-            console.log("update errorr")
+            // console.log("update errorr")
           }
         })
         flag=false;
@@ -133,9 +133,9 @@
         $.post("/second-hand-update",JSON.stringify(data),function(data){
           if(data == "ok"){
             // $(".alert-success").css("display","block");
-            console.log("update cahrt")
+            // console.log("update cahrt")
           }else{
-            console.log("update errorr")
+            // console.log("update errorr")
           }
         })
         $("#wc-product-buy-used>a").css("background-color", "#222222");
