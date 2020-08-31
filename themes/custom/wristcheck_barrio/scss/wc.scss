@@ -26,6 +26,14 @@
 @import "page/usersupplementform";
 @import "page/useractivate";
 @import "page/payment";
+@import "page/settings";
+@import "page/transactions_buy";
+@import "page/protfolio";
+
+.page-user-container{
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
 
 a:focus {
   outline: none;
