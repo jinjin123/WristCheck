@@ -26,7 +26,7 @@ class HomePageController extends ControllerBase {
     # Call a Views
     // $custom_views = views_embed_view('blog', 'blog_all');
 
-    
+
 
 
     // return [
@@ -36,7 +36,7 @@ class HomePageController extends ControllerBase {
 
     return [
       '#theme' => 'wristcheck_homepage',
-      '#test_var' => $this->t('Test Value123321'),
+//      '#test_var' => $this->t('Test Value123321'),
       // '#test_basic_bolgs' => drupal_render($custom_views),
       // '#test_custom_block' => $custom_block
     ];
