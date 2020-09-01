@@ -16,10 +16,10 @@ class EShopController extends ControllerBase {
    *   Return Hello string.
    */
   public function index() {
+    $variables = [];
     return [
       '#theme' => 'wristcheck_eshop',
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: index')
+      '#variables' => $variables
     ];
   }
 
