@@ -94,36 +94,41 @@ class UserRegisterForm extends FormBase
       $email = $form_state->getValues()['Email'];
       $name = $form_state->getValues()['Name'];
       $pwd = $this->randompwd();
-      if($email !="" && $name !="")  {
-        $query = \Drupal::entityQuery('user');
-        $orGroup1 = $query->orConditionGroup();
-        $orGroup1->condition('mail', $email);
-        $orGroup1->condition('name', $name);
-        $ids = $query->condition($orGroup1)
-          ->execute();
-        if (!empty($ids)) {
-          $form_state->setError($form['errors'],$this->t('Please change email!'));
-        } else {
-           //  create user
-          $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-          $user = \Drupal\user\Entity\User::create();
-          $user->setUsername($name);
-          $user->setPassword($pwd);
-          $user->setEmail($email);
-          $user->set("init",  $email);
-          $user->set("langcode", $langcode);
-          $user->set("preferred_langcode", $langcode);
-          $user->set("preferred_admin_langcode", $langcode);
-          $user->activate();
-          $user->save();
+      $result = trim($email);
+      if (filter_var($result, FILTER_VALIDATE_EMAIL)) {
+        if($email !="" && $name !="")  {
+          $query = \Drupal::entityQuery('user');
+          $orGroup1 = $query->orConditionGroup();
+          $orGroup1->condition('mail', $email);
+          $orGroup1->condition('name', $name);
+          $ids = $query->condition($orGroup1)
+            ->execute();
+          if (!empty($ids)) {
+            $form_state->setError($form['errors'],$this->t('Please change email!'));
+          } else {
+            //  create user
+            $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+            $user = \Drupal\user\Entity\User::create();
+            $user->setUsername($name);
+            $user->setPassword($pwd);
+            $user->setEmail($email);
+            $user->set("init",  $email);
+            $user->set("langcode", $langcode);
+            $user->set("preferred_langcode", $langcode);
+            $user->set("preferred_admin_langcode", $langcode);
+            $user->activate();
+            $user->save();
 //        $sys_mail  = \Drupal::config('system.site')->get('mail');
-          $params['subject'] = t('Wristcheck Username & Password Email');
-          $params['body'] = t('You Username is: @user , Your  Password is: @pass', ['@user' => $name, '@pass'=> $pwd]);
-          $params['headers'] = [
-            'content-type' => 'text/plain',
-          ];
-          $mailManager->mail('wristcheck_basic', 'smtp-test', $email, $langcode, $params,NULL,true);
+            $params['subject'] = t('Wristcheck Username & Password Email');
+            $params['body'] = t('Your Username is: @user , Your  Password is: @pass', ['@user' => $name, '@pass'=> $pwd]);
+            $params['headers'] = [
+              'content-type' => 'text/plain',
+            ];
+            $mailManager->mail('wristcheck_basic', 'smtp-test', $email, $langcode, $params,NULL,true);
+          }
         }
+      } else {
+        $form_state->setError($form['errors'],$this->t('Email Error '));
       }
     }catch (Exception $e){
       \Drupal::logger('User_Register')->error('user register faild' . json_encode($e));

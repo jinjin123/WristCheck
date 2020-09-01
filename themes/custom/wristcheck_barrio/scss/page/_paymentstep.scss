@@ -1,0 +1,116 @@
+.payment-step {
+  main {
+    margin: 0 200px;
+
+    .pay-right-box {
+      padding-left: 250px;
+    }
+
+    .pay-step-position-box {
+      height: 300px;
+    }
+
+    .pay-step-acc {
+      display: flex;
+
+      .pay-acc {
+        padding-right: 200px;
+      }
+    }
+
+    .pay-step-card {
+      display: flex;
+
+      .pay-card {
+        padding-right: 192px;
+      }
+    }
+
+    .pay-title {
+      margin-bottom: 30px;
+
+      h1 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+
+    .wc-product-title {
+      //margin: 20px 20px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .wc-step--row {
+      margin-top: 50px;
+      display: flex;
+
+      h5 {
+        font-size: 15px;
+      }
+
+      .pay-step-bu1 {
+        padding-right: 80px;
+      }
+
+      .pay-step-bu2 {
+        padding-right: 60px
+      }
+
+      i {
+        margin-left: 20px;
+      }
+    }
+
+    .wc-product--row {
+      h5 {
+        font-size: 15px;
+      }
+    }
+
+    .payment-step {
+      .pay-location-icon {
+        width: 15px;
+        margin-left: 200px;
+      }
+
+      .direction {
+        margin-bottom: 70px;
+        margin-left: 3px;
+      }
+
+      .cs-box {
+        border: 1px dashed #000;
+        height: 150px;
+        margin-top: 50px;
+
+        .wc-product-title {
+          margin: 20px 20px;
+          font-weight: bold;
+        }
+
+        .wc-product--row {
+          margin: 20px 20px;
+
+          h5 {
+            font-size: 15px;
+            font-weight: bold;
+
+            img {
+              width: 25px;
+            }
+          }
+        }
+      }
+
+      .block-wristcheck-paymentstep-block {
+        margin-bottom: 50px;
+
+        img {
+          //width: 108%;
+          margin-left: -77px;
+        }
+      }
+    }
+  }
+}

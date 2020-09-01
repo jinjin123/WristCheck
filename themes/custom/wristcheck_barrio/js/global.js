@@ -7,6 +7,43 @@
 
   'use strict';
 
+  // Drupal.behaviors.ProductVariationLoad = {
+  //   attach: function (context, settings) {
+  //     var display = $(".wc-product-variations");
+  //     var url = window.location.pathname.split('/'); console.log();
+  //     var product_id = url[url.length-1];
+  //
+  //     if (url[url.length-2] == 'product' && product_id) {
+  //       $('#wc-product-buy-new').off('click').on("click", function() {
+  //         var self = $(this);
+  //         $.get(Drupal.url("product_variation_form/buy_new/" + product_id), function(data) {
+  //           if (data.status == 1) {
+  //             $("#wc-product-buy-used").removeClass('active');
+  //             self.addClass('active');
+  //             display.html(data.data);
+  //           } else {
+  //             alert(data.message);
+  //           }
+  //         });
+  //       });
+  //
+  //       $("#wc-product-buy-used").off('click').on("click", function() {
+  //         var self = $(this);
+  //         $.get(Drupal.url("product_variation_form/buy_used/" + product_id), function(data) {
+  //           if (data.status == 1) {
+  //             $("#wc-product-buy-new").removeClass('active');
+  //             self.addClass('active');
+  //             display.html(data.data);
+  //           } else {
+  //             alert(data.message + 'hello world');
+  //           }
+  //         });
+  //       });
+  //     }
+  //   }
+  // };
+
+
   Drupal.behaviors.bootstrap_barrio_subtheme = {
     attach: function (context, settings) {
       var position = $(window).scrollTop();
@@ -45,6 +82,27 @@
           'background-image': 'url("' + img + '")'
         })
       })
+      //register title
+      $(".links>a.register-popup-form").click(function(){
+        $(".ui-dialog-title").css("margin","0 150px");
+      })
+    }
+  };
+
+  Drupal.behaviors.customDatepicker = {
+    attach: function (context, settings) {
+      jQuery(function () {
+        jQuery("#datepicker").datepicker({
+          dateFormat: "dd-mm-yy",
+          altField: "input[data-drupal-selector=edit-created]",
+          altFormat: "yy/mm/dd 23:59:59"
+        });
+        jQuery("#watch_year").datepicker({
+          dateFormat: "yyyy",
+          altField: "input[data-drupal-selector=edit-created]",
+          altFormat: "yyyy"
+        });
+      });
     }
   };
   /**
@@ -52,8 +110,55 @@
    * @type {{}}
    */
   Drupal.$wc = {};
-
   $(function () {
+    // handle second hand price to update cart form
+    // $("#swt").css("display","none");
+    // $("#swt").css("color","transparent");
+    // console.log($("#wc-product-buy-new >a>div>div")[1].textContent.slice(1))
+    if((window.location.pathname).split("/").length>2 && (window.location.pathname).split("/")[1] == "product"){
+         $("#wc-product-buy-new >a>div>div")[1].textContent = $("#wc-product-buy-new >a>div>div")[1].textContent.slice(1);
+    }
+    var flag = true;
+    $('#wc-product-buy-used').click(function(){
+      if (flag ){
+        $("#wc-product-buy-used>a").css("background-color","grey");
+        var data={"model":$("#swt")[0].textContent, "price": ($('.views-field-field-price-number>span')[0].textContent).trim()}
+        $.post("/second-hand-update",JSON.stringify(data),function(data){
+          if(data == "ok"){
+            // $(".alert-success").css("display","block");
+            // console.log("update cahrt")
+          }else{
+            // console.log("update errorr")
+          }
+        })
+        flag=false;
+      }else {
+        var data={"model":$("#swt")[0].textContent,"price": ($('.views-field-field-price-number>span')[0].textContent).trim(),"tag":"del"}
+        $.post("/second-hand-update",JSON.stringify(data),function(data){
+          if(data == "ok"){
+            // $(".alert-success").css("display","block");
+            // console.log("update cahrt")
+          }else{
+            // console.log("update errorr")
+          }
+        })
+        $("#wc-product-buy-used>a").css("background-color", "#222222");
+        flag = true
+      }
+      // console.log(($('.views-field-field-price-number>span')[0].textContent).trim());
+      // console.log($("#swt")[0].textContent)
+    })
+    //user wishlist flag
+    if((window.location.pathname).split("/").length>3){
+      if ((window.location.pathname).split("/")[3] == "wishlist"){
+        $(".align-items-center")[0].childNodes[1].remove()
+        $(".fa-heart-o")[0].className = "fa fa-times"
+        $(".use-ajax").click(function(){
+          var target = $(this);
+          target.parent().parent().parent().parent().remove()
+        })
+      }
+    }
     //usersupplementform
     $("#profile_button").click(function(){
       // console.log($("#webform-submission-user-info-add-form").serialize())
@@ -79,6 +184,7 @@
         }))
 
       });
+
     })
     //faq index
     $(".view-content").removeClass("row");
@@ -114,14 +220,30 @@
         target.css("-webkit-transform", "rotate(45deg)");
       }
     });
+
+    //faq authsystem
+    $(".path-sell .view-content .views-row .views-field-title .field-content i").click(function () {
+      var target = $(this);
+      // console.log(target.parent().parent().parent().parent().parent().children()[1]);
+      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
+        target.css("-webkit-transform", "rotate(-45deg)");
+      } else {
+        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
+        target.css("-webkit-transform", "rotate(45deg)");
+      }
+    })
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
-      console.log($(this).find('.mega-dropdown').length)
-      if ($(this).find('.mega-dropdown').length > 0) {
+      if ($(this).children('.wc-menu-container').length > 0) {
         $('.wc-page-modal').addClass('show');
       }
     }, function () {
       $('.wc-page-modal').removeClass('show');
+    }).children('a[href]').click(function(){
+      if(/((http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?)/.test(this.href) && location.href != this.href){
+        location.href = this.href;
+      }
     });
 
     var range = document.getElementById('wc-range');
@@ -158,10 +280,13 @@
     var _menu = _self.parents('.wc-product-search-menu');
     var _admin_toolbar = $('#toolbar-bar .toolbar-tab').height() || 0;
     var _admin_subToobar = $('#toolbar-item-administration-tray.toolbar-tray-horizontal').height() || 0;
+    var _top = _admin_toolbar + _admin_subToobar;
 
     if (_self.hasClass('active')) {
       _self.removeClass('active');
-      _modal.hide();
+      _modal.removeClass('show');
+      _menu.css({'z-index': 2});
+
 
       if (_wTop <= _box.offset().top) {
         _menu.removeClass(('fixed-top')).css({
@@ -171,10 +296,11 @@
     } else {
       $('html, body').animate({scrollTop: _box.offset().top}, 300, 'linear', function () {
         _menu.addClass(('fixed-top')).css({
-          top: _admin_toolbar + _admin_subToobar + 'px'
+          top: _top + 'px'
         });
       });
-      _modal.show();
+      _modal.addClass('show');
+      _menu.css({'z-index': 5})
       _self.addClass('active').siblings('.active').removeClass(('active'))
     }
   });
@@ -187,10 +313,11 @@
     var _menu = $('.wc-product-search .wc-product-search-menu');
     var _admin_toolbar = $('#toolbar-bar .toolbar-tab').height() || 0;
     var _admin_subToobar = $('#toolbar-item-administration-tray.toolbar-tray-horizontal').height() || 0;
+    var _top = _admin_toolbar + _admin_subToobar;
 
     if (_wTop > _box.offset().top) {
       _menu.addClass(('fixed-top')).css({
-        top: _admin_toolbar + _admin_subToobar + 'px'
+        top: _top + 'px'
       });
     } else if (_menu.hasClass('fixed-top')) {
       _menu.removeClass(('fixed-top')).css({top: 0});

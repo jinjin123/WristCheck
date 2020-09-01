@@ -1,0 +1,70 @@
+.path-sellwatchinput  {
+  main {
+    .wc-panel {
+      margin: 0 7%;
+
+      .text-center {
+        button {
+          width: 50%;
+        }
+      }
+
+      .direction {
+        //margin-left: 7%;
+        h5 {
+          i {
+            margin-right: 10px;
+            font-size: 30px;
+          }
+        }
+      }
+
+      .person_img {
+        margin-bottom: 50px;
+      }
+      .row {
+        .w_des {
+          margin-bottom: 50px;
+          margin-top: 20%;
+          .watch_title {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+          .watch_price {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .basic_info {
+        margin-bottom: 100px;
+        .w_year {
+          input {
+            width: 100%;
+            border: transparent;
+            color: #495057;
+            background-color: #fff;
+            height: calc(1.5em + 0.75rem + 2px);
+          }
+          margin-bottom: 20px;
+        }
+        .w_dimeter {
+          label {
+            width: 100%;
+          }
+          input {
+            border: transparent;
+            color: #495057;
+            background-color: #fff;
+            width: 100%;
+            height: calc(1.5em + 0.75rem + 2px);
+          }
+        }
+      }
+      .Price {
+        margin-bottom: 60px;
+      }
+    }
+
+  }
+}

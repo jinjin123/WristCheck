@@ -16,11 +16,26 @@
     color: $color-dark3;
     line-height: 53px;
   }
+  .user-register-form {
+    margin: 0 150px;
+    .form-item-email {
+      padding: 0 20px;
+      color: $color-dark9;
+    }
+    .form-item-name {
+      padding: 0 20px;
+      color: $color-dark9;
+      width: 100% !important ;
+    }
+  }
 
   .ui-widget-content {
     padding: 20px;
 
-    .form-item-name, .form-item-pass {
+
+
+    .form-item-name,
+    .form-item-pass {
       display: inline-block;
       width: 49%;
       padding: 0 20px;
@@ -65,6 +80,7 @@
   }
 
   .form-submit {
+    display: block;
     width: 320px;
     border: 1px solid $color-dark3;
     background: $color-dark3;
@@ -74,9 +90,8 @@
     transition: all .25s ease;
     padding: 10px 20px;
     font-weight: normal;
-    margin: 0 auto;
+    margin: 0 auto 30px;
     border-radius: 0;
-    margin-bottom: 30px;
     height: 50px;
     box-sizing: border-box;
 

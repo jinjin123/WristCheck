@@ -6,8 +6,9 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
 name: 'Wristcheck Watch Brand'
 type: brand
 description: 'Watch brand witch will be used to other entity.'

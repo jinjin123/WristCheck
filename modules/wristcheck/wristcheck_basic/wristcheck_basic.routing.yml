@@ -10,7 +10,7 @@ wristcheck_basic.home_page_controller_index:
   path: '/homepage'
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\HomePageController::index'
-    _title: 'homepageindex'
+    _title: 'Home'
   requirements:
     _permission: 'access content'
 wristcheck_basic.buy_controller_index:
@@ -18,6 +18,30 @@ wristcheck_basic.buy_controller_index:
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\BuyController::index'
     _title: 'Buy'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.sell_controller_index:
+  path: '/sell'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::index'
+    _title: 'Sell'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.sell_controller_person:
+  path: '/sellperson'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::sellperson'
+    _title: 'sellperson'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.sell_controller_watchinput:
+  path: '/sellwatchinput'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::sellwatchinput'
+    _title: 'sellwatchinput'
   requirements:
     _permission: 'access content'
 
@@ -42,6 +66,14 @@ wristcheck_basic.magazine_controller_index:
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\MagazineController::index'
     _title: 'Magazine'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.magazine_controller_single:
+  path: '/magazine-single'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\MagazineController::single'
+    _title: 'Magazine-single'
   requirements:
     _permission: 'access content'
 
@@ -113,6 +145,26 @@ wristcheck_basic.payment_controller_index:
   options:
     user: \d+
 
+wristcheck_basic.payment_controller_success:
+  path: '/user/{user}/payment-success'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::paysuccess'
+    _title: 'Payment'
+  requirements:
+    _permission: 'access user'
+  options:
+    user: \d+
+
+wristcheck_basic.payment_controller_step:
+  path: '/user/{user}/payment-step'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::paystep'
+    _title: 'Payment'
+  requirements:
+    _permission: 'access user'
+  options:
+    user: \d+
+
 wristcheck_basic.user_settings_form:
   path: '/user/{user}/settings'
   defaults:
@@ -177,7 +229,7 @@ wristcheck_basic.user_login_form:
   path: '/wristcheck_basic/form/user_login'
   defaults:
     _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
-    _title: 'PLEASE LOG IN'
+    _title: 'PLEASE LOGIN'
   requirements:
     _access: 'TRUE'
 
@@ -185,7 +237,7 @@ wristcheck_basic.user_register_form:
   path: '/wristcheck_basic/form/user_register'
   defaults:
     _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
-    _title: 'PLEASE REGISTER'
+    _title: 'Welcome to register'
   requirements:
     _access: 'TRUE'
 
@@ -220,5 +272,23 @@ wristcheck_basic.order_status_controller_index:
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\OrderStatusController::index'
     _title: 'User order status'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.product_variation_form_controller_index:
+  path: '/product_variation_form/{type}/{product_id}'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\ProductVariationFormController::index'
+    _title: 'Product variation Form'
+  requirements:
+    _permission: 'access content'
+
+
+wristcheck_basic.product_variation_form_controller_tmpproduct:
+  path: '/second-hand-update'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\ProductVariationFormController::secondhandtmp'
+    _title: 'second hand save'
+  methods: [POST]
   requirements:
     _permission: 'access content'

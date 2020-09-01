@@ -1,0 +1,16 @@
+uuid: 8bab9920-4608-4ab0-b033-cb68e3d02828
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+    - taxonomy.vocabulary.product_tags
+id: product_category
+label: 'Product category'
+vocabulary: product_tags
+menu: main
+expanded: true
+depth: 0
+menu_parent: 'main:menu_link_content:aaf6f71f-d9e4-426c-9cbe-1bcdbf672221'
+description_field_name: ''
+use_term_weight_order: true

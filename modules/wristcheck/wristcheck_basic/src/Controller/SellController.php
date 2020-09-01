@@ -18,9 +18,30 @@ class SellController extends ControllerBase
    */
   public function index()
   {
+    $user = \Drupal\user\Entity\User::load('1');
+    $variables['mail'] = $user->getEmail();
+    $variables['phone'] = $user->get('field_phone_number')->value;
     return [
       '#theme' => 'wristcheck_sell',
+      '#variables' => $variables,
     ];
   }
 
+  public function sellperson()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_sellperson',
+      '#variables' => $variables,
+    ];
+  }
+
+  public function sellwatchinput()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_sellwatchinput',
+      '#variables' => $variables,
+    ];
+  }
 }

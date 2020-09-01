@@ -7,8 +7,8 @@
   'LOCATION',
   'MORE'
 ] %}
+<div class="wc-product-search-modal"></div>
 <div class="wc-product-search">
-  <div class="wc-product-search-modal"></div>
   <div class="container-fluid wc-product-search-menu">
     <div class="container">
       <div class="wc-search-menu">
@@ -55,21 +55,60 @@
                     </form>
                     <div class="d-flex justify-content-between wc-search__price">
                       <a href="javascript:;" class="wc-btn-white">
-                        <div class="wc-btn-cont"><span class="fa fa-download"></span> SAVE THIS SEARCH</div>
+                        <div class="wc-btn-cont"><span class="fa fa-download mr-2"></span> SAVE THIS SEARCH</div>
                       </a>
                       <div>
-                        <a href="javascript:;">CANCEL</a>
+                        <a href="javascript:;" class="wc-search-menu-cancel">CANCEL</a>
                         <a href="javascript:;" class="wc-btn-dark">
-                          <div class="wc-btn-cont"><span class="fa fa-arrow-right"></span>SHOW RESULTS(79)</div>
+                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS(79)</div>
                         </a>
                       </div>
                     </div>
                   {% elseif title == 'CASE DIAMETER' %}
                     <div class="wc-search-panel__body"></div>
                   {% elseif title == 'YEAR' %}
-                    <div class="wc-search-panel__body"></div>
+                    <div class="wc-search-panel__body">
+
+                    </div>
                   {% elseif title == 'LOCATION' %}
-                    <div class="wc-search-panel__body"></div>
+                    <form class="wc-search-panel__body row wc-search-form-line wc-search-location">
+                      <div class="col-md-6 wc-search__item">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h2 class="wc-location-col__title">YOUR SELECTION</h2>
+                            <p class="wc-clear-font">Clear selection</p>
+                          </div>
+                          <div class="col-md-6">
+                            <h2 class="wc-location-col__title">YOUR SELECTION</h2>
+                            <h3 class="wc-location-col__title_sub">GREATER CHINA</h3>
+                            <ul class="wc-location-col__list">
+                              <li><label><input type="checkbox"> Mainland china</label></li>
+                              <li><label><input type="checkbox"> Hong kong</label></li>
+                              <li><label><input type="checkbox"> Macau</label></li>
+                              <li><label><input type="checkbox"> Taiwan</label></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 wc-search__item">
+                        <input class="form-control wc-location-input"/>
+                        <ul class="wc-location-col__list">
+                          <li><label><input type="checkbox"> Mainland china</label></li>
+                          <li><label><input type="checkbox"> Hong kong</label></li>
+                        </ul>
+                      </div>
+                    </form>
+                    <div class="d-flex justify-content-between wc-search__price">
+                      <a href="javascript:;" class="wc-btn-white">
+                        <div class="wc-btn-cont"><span class="fa fa-download mr-2"></span> SAVE THIS SEARCH</div>
+                      </a>
+                      <div>
+                        <a href="javascript:;" class="wc-search-menu-cancel">CANCEL</a>
+                        <a href="javascript:;" class="wc-btn-dark">
+                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS(79)</div>
+                        </a>
+                      </div>
+                    </div>
                   {% elseif title == 'MORE' %}
                     <div class="wc-search-panel__body"></div>
                   {% endif %}

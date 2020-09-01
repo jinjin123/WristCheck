@@ -1,9 +1,35 @@
 {{ drupal_block('wristcheck_free_advertising_block') }}
 {{ drupal_block('wristcheck_sell_video_block') }}
 {{ drupal_block('wristcheck_selling_process_single_image_block') }}
-<h1>LOW SALES COMMISSION</h1>
-<p>{{ 'If you succeed in selling the watch,the sales commission will be 6.5% of the selling price'|t }}</p>
-<h1>BENEFITS OF TRUSTED CHECKOUT</h1>
-<h1>CREATE AND AD,SIMPLE DESCRIPTION</h1>
+<h1 class="sell-csn">LOW SALES COMMISSION</h1>
+<p class="sell-csn-des"> {{ 'If you succeed in selling the watch,the sales commission will be 6.5% of the selling price'|t }}</p>
+{{ drupal_entity("webform","faq_price") }}
+{#<h1 class="sell-checkout">BENEFITS OF TRUSTED CHECKOUT</h1cl>#}
+{{ drupal_block('wristcheck_faq_checkout_block') }}
+<h1 class="sell-vid">CREATE AND AD,SIMPLE DESCRIPTION</h1>
+<h1>put video on this position</h1>
 <p>{{ 'In this video,we step-by-step show you how to easily and freely advertise your watch on the Wrist Check'|t }}</p>
-{{ drupal_view('wristcheck_faq') }}
+<div class="wc-panel">
+  <div class='text-center'>
+    <button type="button" class="btn btn-default btn-lg wc-ex-btn">
+      <span class="fa  fa-arrow-right"></span>
+      {{ '| GET STARTED'|t }}
+    </button>
+  </div>
+</div>
+<h1>put customer reviews block on this position</h1>
+<div class="contact">
+  <h1>Contact US</h1>
+  <div class="view-header">
+    <span>
+      {% if variables['phone'] %}
+        <h5>CALL : {{ variables['phone'] }}</h5>
+      {% else %}
+        <h5>CALL : +0012 987654</h5>
+      {% endif %}
+      <a href="/aaa">EMAIL: {{ variables['mail'] }} </a>
+    </span>
+    <hr>
+  </div>
+  {{ drupal_view('wristcheck_faq','faq_contact_us') }}
+</div>

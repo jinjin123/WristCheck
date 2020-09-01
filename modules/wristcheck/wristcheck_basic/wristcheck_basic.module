@@ -5,8 +5,14 @@
  * Contains wristcheck_basic.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
+use Drupal\user\Entity\User;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 /**
  * Implements hook_help().
  */
@@ -47,6 +53,9 @@ function wristcheck_basic_form_alter(&$form, &$form_state, $form_id){
   if($form_id == "webform_submission_faq_authsystem_add_form"){
     $form['actions']['submit']['#type'] = 'button';
   }
+//  if($form_id =="commerce-order-item-add-to-cart-form-commerce-product-20"){
+//    $form['actions']['submit']['#type'] = 'button';
+//  }
 }
 //function wristcheck_basic_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
 ////  exit('hello');
@@ -112,12 +121,37 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_payment_success' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_sellperson' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_sellwatchinput' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_payment_step' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_discover' => [
       'variables' => [
         'variables' => []
       ]
     ],
     'wristcheck_magazine' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_single' => [
       'variables' => [
         'variables' => []
       ]
@@ -134,7 +168,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-    'wristcheck_faq_authsystemstep' => [],
+    'wristcheck_faq_authsystemstep' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_eshop' => [],
     'wristcheck_faq' => [],
     'wristcheck_user_supplement_form' => [
@@ -142,7 +180,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-    'wristcheck_sell' => [],
+    'wristcheck_sell' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_banner_block' => [
       'variables' => []
     ],
@@ -157,6 +199,9 @@ function wristcheck_basic_theme()
       ]
     ],
     'wristcheck_download_app_block' => [
+      'variables' => []
+    ],
+    'wristcheck_paymentstep_block' => [
       'variables' => []
     ],
     'wristcheck_selling_process_block' => [
@@ -186,3 +231,45 @@ function wristcheck_basic_theme()
     ]
   ];
 }
+
+/**
+ * Implements hook_form_FORM_ID_form_alter().
+ *
+ * @param                                      $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param                                      $form_id
+ */
+function wristcheck_basic_form_node_wcshw_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // is create 2 watch.
+  $userid = \Drupal::currentUser()->id();
+  if ($form_state->getFormObject()->getEntity()->isNew()) {
+    $user = User::load($userid);
+
+    $check_field = [
+      'field_surnames',
+      'field_full_name',
+      'field_phone_number',
+    ];
+
+    $infoisfull = TRUE;
+
+    foreach($check_field as $field) {
+      if ($user->get($field)->isEmpty()) {
+        \Drupal::messenger()->addError(t('User information must be completed to create a second-hand watch: @userinfo', [
+          '@userinfo' => implode(',', ['Surnames', 'Full name', 'Phone number']),
+        ]));
+        $infoisfull = FALSE;
+        break;
+      }
+    }
+
+    $path = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => $userid], ['query' => \Drupal::destination()->getAsArray()])->toString();
+
+    if (!$infoisfull) {
+      // goto user edit page.
+      $response = new RedirectResponse($path);
+      $response->send();
+    }
+  }
+}
+

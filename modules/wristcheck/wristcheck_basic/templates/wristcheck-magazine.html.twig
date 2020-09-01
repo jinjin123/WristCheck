@@ -1,27 +1,24 @@
-<div class="row">
-  {{ drupal_view('wristcheck_magazine') }}
-</div>
-<div class="row">
-  <h1>LATEST ARTICLES</h1>
-</div>
-<div class="row">
-  {{ drupal_view('wristcheck_magazine','latest_articles') }}
-</div>
-<div class="row">
-  <h1>FURTHER ARTICLES ABOUT ROLEX</h1>
-</div>
-<div class="row">
-  {{ drupal_view('wristcheck_magazine','further_articles') }}
-</div>
-<div class="row">
-  <h1>WRISTCHECK BUYER'S GUIDE</h1>
-</div>
-<div class="row">
-  {{ drupal_view('wristcheck_magazine','buyer_guide') }}
-</div>
-<div class="row">
-  <h1>FURTHER ARTICLES ABOUT ROLEX</h1>
-</div>
-<div class="row">
-  {{ drupal_view('wristcheck_magazine','further_articles_3') }}
-</div>
+{#<div class="row">#}
+  {{ drupal_view('wristcheck_buy_magazine') }}
+{#</div>#}
+  <h1 class="wc-latest-title">LATEST ARTICLES</h1>
+  {{ drupal_view('wristcheck_buy_magazine','latest_articles') }}
+{#<div class="row">#}
+{#  {{ drupal_view('wristcheck_buy_magazine','latest_articles') }}#}
+{#</div>#}
+  <h1 class="wc-further-title">FURTHER ARTICLES ABOUT ROLEX</h1>
+{#<div class="row">#}
+  {{ drupal_view('wristcheck_buy_magazine','further_articles') }}
+{#</div>#}
+{#<div class="row">#}
+  <h1 class="wc-buygui-title">WRISTCHECK BUYER'S GUIDE</h1>
+{#</div>#}
+{#<div class="row">#}
+  {{ drupal_view('wristcheck_buy_magazine','buy_guide') }}
+{#</div>#}
+{#<div class="row">#}
+  <h1 class="wc-further-title-3">FURTHER ARTICLES ABOUT ROLEX</h1>
+{#</div>#}
+{#<div class="row">#}
+  {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
+{#</div>#}

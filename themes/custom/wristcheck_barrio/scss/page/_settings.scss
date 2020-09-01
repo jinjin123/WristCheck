@@ -1,0 +1,29 @@
+.user-settings-form {
+  max-width: 750px;
+
+  > div {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+  }
+
+  .custom-control {
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #474747;
+  }
+
+  .description.text-muted {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #474747;
+  }
+  #edit-submit{
+    display: inline-block;
+    width: 236px;
+    height: 50px;
+  }
+}

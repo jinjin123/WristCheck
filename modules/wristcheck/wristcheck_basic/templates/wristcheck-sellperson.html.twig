@@ -1,0 +1,42 @@
+<div class="wc-panel">
+  <div class="row direction">
+    {#    <h5> <img src="/themes/custom/wristcheck_barrio/images/icons/arrow-right.png"/>So Let's go back to the list </h5>#}
+    <h5><i class="fa fa-angle-left"></i>So Let's go back to the list </h5>
+  </div>
+  <hr/>
+  <div class="person_img">
+    <img src="/themes/custom/wristcheck_barrio/images/personstep.png">
+  </div>
+  <div class="person_info">
+    <h1>THE PERSONAL DATA </h1>
+    {{ drupal_entity('webform','sell_person_info') }}
+    <div class="birth">
+      <label class="">Date of birth</label>
+      <input id="datepicker" placeholder="day/month/year" type="text">
+      </divw>
+    </div>
+  </div>
+  <div class="address_info">
+    <h1>ADDRESS INFORMATION </h1>
+    {{ drupal_entity('webform','sell_person_address') }}
+  </div>
+
+  <div class="person_des">
+    <h1>Your information will be handled securely</h1>
+    <br/>
+    <p>We strictly abide by the relevant privacy protection regulations.</p>
+    <br/>
+    <p>Anything you write in WRISTCHECK will be transmitted entrypted (SSL) over a secure
+      network connection (HTTPS).</p>
+    <br/>
+    <p>Your personal information is registered and sold on wristcheck only and will not be disclosed to the public</p>
+  </div>
+</div>
+<div class="wc-panel">
+  <div class='text-center'>
+    <button type="button" class="btn btn-default btn-lg wc-ex-btn">
+      <span class="fa  fa-arrow-right"></span>
+      {{ '| CONTINUE'|t }}
+    </button>
+  </div>
+</div>

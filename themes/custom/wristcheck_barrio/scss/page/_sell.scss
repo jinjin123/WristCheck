@@ -1,0 +1,148 @@
+.path-sell {
+  .sell-csn {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  .sell-csn-des {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+  .block-wristcheck-basic {
+    .content {
+      h1 {
+        text-align: center;
+      }
+      .faq_checkout {
+        display: flex;
+        > div {
+          margin-right: 15%;
+        }
+      }
+    }
+    margin-bottom: 50px;
+  }
+  .wc-panel {
+    .text-center {
+      button {
+        width: 50%;
+      }
+    }
+  }
+  .sell-vid {
+    text-align: center;
+  }
+  .contact {
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .view-header {
+      margin-bottom: 30px;
+      //div {
+      //  display: inline-flex;
+      //text-align: center;
+      span {
+        display: flex;
+        position: relative;
+        margin: 0 36%;
+        left: 40px
+      }
+      h5 {
+        margin-right: 20px;
+      }
+      a {
+        color: #82b1d0;
+        font-weight: bold;
+      }
+      hr {
+        width:50%;
+      }
+      //}
+    }
+    .views-element-container {
+      .view-display-id-faq_contact_us {
+        text-align: center;
+        .view-content {
+          .views-row {
+            .views-field-title {
+              margin-bottom: 20px;
+              .field-content {
+                .faq-arrow {
+                  margin-top: -20px;
+                }
+                > div {
+                  color: #333;
+                  font-weight: bold;
+
+                  i {
+                    border: solid grey;
+                    border-width: 0 1px 1px 0;
+                    display: inline-block;
+                    padding: 5px;
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                    margin-bottom: 5px;
+                    margin-left: 50%;
+                  }
+                }
+              }
+            }
+
+            .views-field-body {
+              display: none;
+              >div {
+                >p {
+                  color: #898989;
+                }
+              }
+              //.field-content {
+              //  >p {
+              //    //display:  none;
+              //  }
+              //}
+              margin-bottom: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .webform-submission-faq-price-form {
+    background-image: url("/themes/custom/wristcheck_barrio/images/step-1.png");
+    //width: 1300px;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 100px;
+    //margin-right: 15%;
+    //margin-left: 15%;
+    .webform-elements {
+      display: flex;
+      position: relative;
+      top: 250px;
+      margin: 0 25%;
+      .js-form-item-second-size {
+        margin-left: 40px;
+      }
+      div {
+        select {
+          margin-right: 30px;
+          background-color: #FFFBFCFC;
+          text-align: center;
+          text-align-last: center;
+        }
+      }
+      .js-form-required[for="edit-first-unit"],
+      .js-form-required[for="edit-second-unit"]{
+        color: transparent;
+      }
+      fieldset {
+        .form-select {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+}

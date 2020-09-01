@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.wcshw
+    - system.menu.admin
     - user.role.administrator
     - user.role.authenticated
     - workflows.workflow.content_workflow
@@ -226,7 +227,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: user/my-second-hand-watch
+      path: user/%user/my-second-hand-watch
       filters:
         type:
           id: type
@@ -434,6 +435,15 @@ display:
             value: '<a href="[site:url]/node/add/wcshw" class="button button--primary">Create</a>'
             format: full_html
           plugin_id: text
+      menu:
+        type: tab
+        title: 'My second watch'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: account
     cache_metadata:
       max-age: -1
       contexts:
@@ -453,7 +463,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      path: admin/second_hand_watch/approval
+      path: admin/wristcheck/second_hand_watch_approval
       access:
         type: role
         options:
@@ -706,6 +716,15 @@ display:
           destination: false
           entity_type: node
           plugin_id: entity_operations
+      menu:
+        type: normal
+        title: 'Second-hand watch approval'
+        description: ''
+        expanded: true
+        parent: wristcheck.admin
+        weight: 0
+        context: '0'
+        menu_name: admin
     cache_metadata:
       max-age: -1
       contexts:

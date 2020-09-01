@@ -10,7 +10,7 @@ label: 'Taxonomy '
 type: 'canonical_entities:taxonomy_term'
 pattern: '[term:vocabulary:name]/[term:name]'
 selection_criteria:
-  9860ed82-aa39-49b0-a9cd-dddc5ccfd75d:
+  78768677-0b29-4b57-8f4e-b7e7843b8a20:
     id: 'entity_bundle:taxonomy_term'
     bundles:
       blog: blog
@@ -18,12 +18,11 @@ selection_criteria:
       portfolio_categories: portfolio_categories
       portfolio_tags: portfolio_tags
       product_categories: product_categories
-      product_tags: product_tags
       tags: tags
     negate: false
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: 9860ed82-aa39-49b0-a9cd-dddc5ccfd75d
+    uuid: 78768677-0b29-4b57-8f4e-b7e7843b8a20
 selection_logic: and
 weight: -5
 relationships: {  }

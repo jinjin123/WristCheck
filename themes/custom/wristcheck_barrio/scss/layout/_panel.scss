@@ -8,7 +8,11 @@
     font-weight: bold;
     color: rgba(51, 51, 51, 1);
     margin: 0;
-    padding: 50px 0;
+    padding: 5px 0;
+
+    &.pb-100 {
+      padding-bottom: 100px;
+    }
   }
 
   .wc-panel__sub {
@@ -59,9 +63,12 @@
 
 .wc-ex-panel {
   display: inline-block;
-  width: 100%;
-  height: 490px;
-  margin-bottom: 20px;
+  //width: 100%;
+  //height: 490px;
+  width: 288px;
+  height: 288px;
+  //margin-bottom: -15px;
+  margin-top: -25px;
 }
 
 // testimdnials
@@ -248,7 +255,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      p{
+
+      p {
         margin-bottom: 0;
       }
     }
@@ -315,6 +323,8 @@
   }
 }
 
+.wc-brand-product,
+.view-wristcheck-products,
 .view-id-wristcheck_popular_watch_brands {
   .view-content {
     display: flex;
@@ -327,6 +337,10 @@
 
       .field-content {
         transition: all .3s ease-in;
+        a>img{
+          display: inline-block;
+          width: 100%;
+        }
 
         &:hover {
           box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);

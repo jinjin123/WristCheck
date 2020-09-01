@@ -8,6 +8,8 @@
 @import "wc-components/menu";
 @import "wc-components/portfolio";
 @import "wc-components/allBrands";
+@import "wc-components/dailogLogin";
+@import "wc-components/productSearch";
 @import 'page/magazinehome';
 @import 'page/magazinesingle';
 @import 'page/magazinescreen';
@@ -22,6 +24,31 @@
 @import "page/userinfoSidebar";
 @import "page/usersupplementform";
 @import "page/useractivate";
+@import "page/paymentsuccess";
+@import "page/paymentstep";
+@import "page/payment";
+@import "page/userbuyhistory";
+@import "page/sell";
+@import "page/sellperson";
+@import "page/watchinput";
+@import "page/brandproductnode";
+@import "page/settings";
+@import "page/transactions_buy";
+@import "page/protfolio";
+
+.page-user-container{
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+a:focus {
+  outline: none;
+}
+
+.views-infinite-scroll-content-wrapper {
+  display: block;
+  width: 100%;
+}
 
 .wc-btn-white {
   border: 1px solid $color-dark3;
@@ -32,6 +59,10 @@
   transition: all .25s ease;
   padding: 10px 20px;
   font-weight: normal;
+
+  &.wc-btn-large {
+    padding: 16px 40px;
+  }
 
   &:before {
     content: '';
@@ -64,6 +95,10 @@
   padding: 10px 20px;
   font-weight: normal;
 
+  &.wc-btn-large {
+    padding: 16px 40px;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -76,13 +111,15 @@
 
   &:hover {
     color: $color-dark3 !important;
+
     &:before {
       width: calc(100% - 2px);
       background-color: #FFF;
     }
   }
 }
-.wc-btn-cont{
+
+.wc-btn-cont {
   display: inline-block;
   font-weight: normal;
   position: relative;
@@ -90,6 +127,19 @@
   font-size: 14px;
 }
 
+.views-field-field-brand-logo {
+  .field-content {
+    .portfolio-img {
+      margin-top: 10px !important;
+    }
+  }
+}
+//home
+.view-wristcheck-buy-explore {
+    .portfolio-img {
+      //width: 425px !important;
+    }
+}
 
 #block-wristcheckdownloadappblock-2 {
   width: 100%;
@@ -103,7 +153,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 4;
     background-color: #FFF;
   }
 
@@ -118,6 +168,7 @@
     &.show {
       width: 100%;
       height: 100%;
+      z-index: 3;
     }
   }
 }
@@ -163,7 +214,13 @@
     display: flex;
 
     .flex-1-item {
-      width: 100%;
+      width:20%;
+      div {
+        .wc-testimdnials-img {
+          //width:150px;
+          height: 25px;
+        }
+      }
     }
   }
 }
@@ -174,10 +231,16 @@
   }
 }
 
+.widget-search {
+  position: relative;
+}
 .messages {
   color: red;
 }
 
+.md-slide-wrap {
+  z-index:0 !important;
+}
 
 @media (min-width: 1460px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {

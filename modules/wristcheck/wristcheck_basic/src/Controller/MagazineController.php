@@ -25,5 +25,21 @@ class MagazineController extends ControllerBase
     ];
   }
 
+  /**
+   * Index.
+   *
+   * @return string[]
+   *   Return Hello string.
+   */
+  public function single()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_single',
+      '#variables' => $variables
+    ];
+  }
+
+
 }
 

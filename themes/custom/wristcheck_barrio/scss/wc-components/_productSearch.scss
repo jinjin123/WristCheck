@@ -3,23 +3,30 @@
   position: initial;
 }
 
+.wc-product-search-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.43);
+  z-index: 2;
+  display: none;
+
+  &.show {
+    z-index: 4;
+    display: block;
+  }
+}
+
 .wc-product-search {
   background-color: #FFF;
   height: 100px;
-  .noUi-handle:before, .noUi-handle:after{
+  position: relative;
+
+  .noUi-handle:before, .noUi-handle:after {
     width: 0;
     height: 0;
-  }
-
-  .wc-product-search-modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .53);
-    z-index: 2;
-    display: none;
   }
 
   .noUi-connect {
@@ -39,14 +46,18 @@
 }
 
 .wc-product-search-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100px;
-  position: relative;
   z-index: 3;
   background-color: #FFF;
   border-bottom: 1px solid $bg_gray3;
 
   &.fixed-top {
     position: fixed;
+    z-index: 5;
   }
 
 }
@@ -54,6 +65,14 @@
 .wc-search-menu {
   position: relative;
   z-index: 3;
+
+  .wc-search-menu-cancel {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(153, 153, 153, 1);
+    margin-right: 30px;
+  }
 
   .wc-search-menu__title {
     position: relative;
@@ -100,7 +119,8 @@
           transform: scaleY(1);
           border-top-color: $bg_gray3;
         }
-        .wc-search-menu__title:after{
+
+        .wc-search-menu__title:after {
           background-image: url("/themes/custom/wristcheck_barrio/images/icons/close.png");
         }
       }
@@ -150,3 +170,87 @@
   padding-top: 60px;
 }
 
+.wc-search-location {
+  .wc-location-col__title {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 1);
+    margin-bottom: 30px;
+  }
+
+  .wc-location-col__title_sub {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 1);
+    margin-bottom: 20px;
+  }
+
+  .wc-clear-font {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(154, 154, 154, 1);
+  }
+
+  .form-control.wc-location-input {
+    background: rgba(223, 223, 223, 0.24);
+    margin-bottom: 20px;
+    border: 0;
+
+    &:active,
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .wc-location-col__list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: rgba(34, 34, 34, 1);
+
+    input[type=checkbox] {
+      margin-right: 10px;
+    }
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 14px;
+      position: relative;
+    }
+
+    input[type="checkbox"]::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #d9d9d9
+    }
+
+    input[type="checkbox"]:checked::before {
+      content: "\2713";
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border: 1px solid #333;
+      color: #333;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+}
