@@ -68,8 +68,10 @@ function wristcheck_barrio_preprocess_menu(array &$variables,$hook) {
         $items = $variables['items'];
         foreach ($items as $key => $item) {
           $urlString = $item['url']->toString();
-          if ($item['url']->toString() == $current_path) {
+          if ($item['url']->toString() == $current_path  ) {
             // Add active link.
+            $variables['items'][$key]['attributes']['class'] = 'active';
+          }elseif ($item['url']->toString() == "" && $path_args[3] == "transactions")  {
             $variables['items'][$key]['attributes']['class'] = 'active';
           }
         }
