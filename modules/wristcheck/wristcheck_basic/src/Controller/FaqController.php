@@ -31,8 +31,9 @@ class FaqController extends ControllerBase {
     $query->condition('title', $brand);
 //    $query->condition('state', $state );
     $product_ids = $query->execute();
-    $productObj = \Drupal\commerce_product\Entity\Product::load(array_values($product_ids)[0]);
-//    \Drupal::logger('faq_Check_brand_price')->error('price' . $brand.$state);
+    if(count(array_values($product_ids))>0){
+      $productObj = \Drupal\commerce_product\Entity\Product::load(array_values($product_ids)[0]);
+    }
     if(!empty($productObj)){
       $price = t('Price is: '. round($productObj->toArray()['field_ask_price'][0]['number'],2));
     }else{

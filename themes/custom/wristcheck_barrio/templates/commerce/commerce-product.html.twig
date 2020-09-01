@@ -174,8 +174,15 @@
     {#    {{ product.field_related_model }}#}
     {{ drupal_view('wristcheck_models') }}
   </div>
-  <div class="col-md-12">
-    {{ drupal_view('wristcheck_testimdnials') }}
+{#  <div class="col-md-12">#}
+{#    {{ drupal_view('wristcheck_testimdnials') }}#}
+{#  </div>#}
+</div>
+
+<div class="wc-panel wc-testimdnials">
+  <h1 class='wc-panel__title text-center'>{{ 'TESTIMDNIALS'|t }}</h1>
+  <div class='container pt-50 pb-100'>
+    {{ drupal_view('wristcheck_testimdnials','default') }}
   </div>
 </div>
 
