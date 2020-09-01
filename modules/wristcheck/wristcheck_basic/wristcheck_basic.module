@@ -173,8 +173,16 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-    'wristcheck_eshop' => [],
-    'wristcheck_faq' => [],
+    'wristcheck_eshop' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_faq' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_supplement_form' => [
       'variables' => [
         'variables' => []
