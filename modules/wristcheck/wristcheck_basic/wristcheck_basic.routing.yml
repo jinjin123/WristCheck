@@ -29,6 +29,14 @@ wristcheck_basic.sell_controller_index:
   requirements:
     _permission: 'access content'
 
+wristcheck_basic.sell_controller_second:
+  path: '/second-hand-watch'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::sellsecond'
+    _title: 'Sell second'
+  requirements:
+    _permission: 'access content'
+
 wristcheck_basic.sell_controller_person:
   path: '/sellperson'
   defaults:

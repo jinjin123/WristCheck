@@ -197,6 +197,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_sellsecond' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_banner_block' => [
       'variables' => []
     ],

@@ -44,4 +44,14 @@ class SellController extends ControllerBase
       '#variables' => $variables,
     ];
   }
+
+  public function sellsecond()
+  {
+    $variables = [];
+    return [
+      '#theme' => 'wristcheck_sellsecond',
+      '#variables' => $variables,
+    ];
+  }
+
 }
