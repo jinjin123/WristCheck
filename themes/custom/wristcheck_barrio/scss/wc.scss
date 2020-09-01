@@ -27,12 +27,19 @@
 @import "page/paymentsuccess";
 @import "page/paymentstep";
 @import "page/payment";
-//@import "page/productlist";
 @import "page/userbuyhistory";
 @import "page/sell";
 @import "page/sellperson";
 @import "page/watchinput";
 @import "page/brandproductnode";
+@import "page/settings";
+@import "page/transactions_buy";
+@import "page/protfolio";
+
+.page-user-container{
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
 
 a:focus {
   outline: none;

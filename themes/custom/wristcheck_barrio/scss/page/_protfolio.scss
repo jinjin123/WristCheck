@@ -1,0 +1,41 @@
+.wc-user-info {
+  .wc-user-info__title {
+    font-size: 30px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 60px;
+  }
+
+  .wc-protfolio-empty-box {
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7F7F7;
+
+    .wc-protfolio-empty-box__font1 {
+      font-size: 24px;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: #222222;
+      margin-bottom: 40px
+    }
+
+    .wc-protfolio-empty-box__font2 {
+
+      font-size: 24px;
+      font-family: Source Han Sans CN;
+      font-weight: bold;
+      color: #222222;
+      margin-bottom: 80px
+    }
+
+    .wc-protfolio-empty-box__btn {
+      display: inline-block;
+      width: 300px;
+      height:50px;
+    }
+  }
+}
