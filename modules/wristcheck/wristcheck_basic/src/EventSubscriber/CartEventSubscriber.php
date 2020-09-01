@@ -49,7 +49,8 @@ class CartEventSubscriber implements EventSubscriberInterface {
   public static function getSubscribedEvents() {
     return [
       CartEvents::CART_ENTITY_ADD => [['addToCart', 100]],
-      CartEvents::CART_ORDER_ITEM_REMOVE => [['removeOrderItem', 100]]
+      CartEvents::CART_ORDER_ITEM_REMOVE => [['removeOrderItem', 100]],
+      CartEvents::CART_EMPTY => [['ClearWatchTmp', 100]]
     ];
   }
 
@@ -103,5 +104,13 @@ class CartEventSubscriber implements EventSubscriberInterface {
           ->execute();
       }
     }
+  }
+  
+  public function ClearWatchTmp(CartEmptyEvent $event)
+  {
+    $database = \Drupal::database();
+    $result = $database->delete('tmpsecondhandproduct')
+      ->condition('uid', \Drupal::currentUser()->id())
+      ->execute();
   }
 }
