@@ -8,7 +8,6 @@ dependencies:
     - field.storage.commerce_product.field_model_images
     - field.storage.commerce_product.field_subname
   module:
-    - blazy
     - commerce
     - commerce_product
     - image
@@ -54,15 +53,14 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 9
+          items_per_page: 8
           offset: 0
       style:
-        type: blazy
+        type: default
         options:
-          style: column
-          grid: 6
-          grid_medium: 6
-          grid_small: 8
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print'
+          default_row_class: true
       row:
         type: fields
         options:
