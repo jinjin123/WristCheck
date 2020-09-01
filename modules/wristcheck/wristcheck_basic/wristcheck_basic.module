@@ -162,7 +162,11 @@ function wristcheck_basic_theme()
       ]
     ],
 
-    'wristcheck_faq_sellstep' => [],
+    'wristcheck_faq_sellstep' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_faq_authsystem' => [
       'variables' => [
         'variables' => []

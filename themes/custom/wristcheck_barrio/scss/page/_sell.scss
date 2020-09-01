@@ -18,7 +18,11 @@
       .faq_checkout {
         display: flex;
         > div {
-          margin-right: 15%;
+          //margin-right: 15%;
+          width:100%;
+          > img {
+            width:100%;
+          }
         }
       }
     }
