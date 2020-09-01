@@ -1,4 +1,4 @@
-# This file contains default .gitignore rules. To use it, copy it to .gitignore,
+sites# This file contains default .gitignore rules. To use it, copy it to .gitignore,
 # and it will cause files like your settings.php and user-uploaded files to be
 # excluded from Git version control. This is a common strategy to avoid
 # accidentally including private information in public repositories and patch
@@ -22,6 +22,7 @@
 sites/*/settings*.php
 sites/*/services*.yml
 sites/development.services.yml
+sites/*
 
 # Ignore paths that contain user-generated content.
 sites/*/files
