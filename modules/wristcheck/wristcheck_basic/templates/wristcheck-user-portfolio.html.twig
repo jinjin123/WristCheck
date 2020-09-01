@@ -1,3 +1,19 @@
+
+{% if variables["total"] %}
+{{ drupal_view("wristcheck_portfolio") }}
+ <div class="row">
+   <div class="wc-panel-protfolio">
+   <div class="wc-protfolio__total col-xs-6 col-sm-6 col-md-12">{{ variables["total"] }}</div>
+     <div class="wc-product-introduction">
+       <div class="wc-product-btn"  >
+         <a href="javascript:;" class="wc-product-add-wishlist ">
+           <span class="fa fa-arrow-right"></span>
+           | ADD A NEW TABLE</a>
+       </div>
+     </div>
+   </div>
+ </div>
+{% else %}
 <div class="wc-user-info">
   <div class="wc-user-info__title">PORTFOLIO</div>
   <div class="row">
@@ -15,5 +31,6 @@
     </div>
   </div>
 </div>
+{% endif %}
 
-{#{{ drupal_view("wristcheck_portfolio") }}#}
+

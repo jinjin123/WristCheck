@@ -77,7 +77,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "       <img src=\"{{field_page_title_image}}\"  alt=\"{{ field_page_title_image__alt }}\" title=\"{{ field_page_title_image__title }}\" class=\"img-bg\" />\r\n"
@@ -140,7 +140,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "            <h2 class='mag-title'>{{ title }}</h2>\r\n"

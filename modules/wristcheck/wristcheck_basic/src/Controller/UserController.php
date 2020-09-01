@@ -59,7 +59,25 @@ class UserController extends ControllerBase
   }
 
   public function portfolio(){
-    $variables = [];
+//    $query = \Drupal::entityQuery('node')
+//      ->condition('status', 1)
+//      ->condition('uid', 1)
+//      ->condition('type', 'portfolio');
+//    $entity_ids = $query->execute();
+    $entity_ids = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadByProperties(['type' => 'portfolio','uid'=>\Drupal::currentUser()->id()]);
+    if(count($entity_ids)>0){
+      $total = 0;
+      $unit = "";
+      foreach($entity_ids as $v){
+        $total += array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['number'];
+        $unit = array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['currency_code'];
+      }
+      $variables["total"] = "VALUE: ".$unit."".strval($total);
+    }else{
+      $variables = [];
+    }
     return [
       '#theme' => 'wristcheck_user_portfolio',
       '#variables' => $variables
