@@ -105,7 +105,7 @@ class CartEventSubscriber implements EventSubscriberInterface {
       }
     }
   }
-  
+
   public function ClearWatchTmp(CartEmptyEvent $event)
   {
     $database = \Drupal::database();
