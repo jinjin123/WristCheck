@@ -61,16 +61,16 @@ function jQueryVersionSince( version ) {
 
 	// Need jQuery 3.0.0+ and no older Migrate loaded
 	if ( !jQuery || !jQueryVersionSince( "3.0.0" ) ) {
-		window.console.log( "JQMIGRATE: jQuery 3.0.0+ REQUIRED" );
+		//window.console.log( "JQMIGRATE: jQuery 3.0.0+ REQUIRED" );
 	}
 	if ( jQuery.migrateWarnings ) {
-		window.console.log( "JQMIGRATE: Migrate plugin loaded multiple times" );
+		//window.console.log( "JQMIGRATE: Migrate plugin loaded multiple times" );
 	}
 
 	// Show a message on the console so devs know we're active
-	window.console.log( "JQMIGRATE: Migrate is installed" +
-		( jQuery.migrateMute ? "" : " with logging active" ) +
-		", version " + jQuery.migrateVersion );
+	//window.console.log( "JQMIGRATE: Migrate is installed" +
+	//	( jQuery.migrateMute ? "" : " with logging active" ) +
+	//	", version " + jQuery.migrateVersion );
 
 } )();
 
@@ -96,9 +96,9 @@ function migrateWarn( msg ) {
 		warnedAbout[ msg ] = true;
 		jQuery.migrateWarnings.push( msg );
 		if ( console && console.warn && !jQuery.migrateMute ) {
-			console.warn( "JQMIGRATE: " + msg );
+			//console.warn( "JQMIGRATE: " + msg );
 			if ( jQuery.migrateTrace && console.trace ) {
-				console.trace();
+				//console.trace();
 			}
 		}
 	}
