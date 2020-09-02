@@ -71,7 +71,20 @@ class PaymentController extends ControllerBase
 
   public function paystep()
   {
-    $variables = [];
+    $entity_ids = \Drupal::entityTypeManager()
+      ->getStorage('commerce_payment_method')
+      ->loadMultiple();
+    $variables =[];
+    foreach($entity_ids as $v){
+      if(isset($v->card_type)){
+         $cp = array_values($v->card_type->getValue()[0])[0];
+         $cn = array_values($v->card_number->getValue()[0])[0];
+         $variables["card"]= $cp."(".$cn.")";
+         break;
+      }
+    }
+    $account = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $variables['acc'] = array_values($account->name->getValue()[0])[0];
     return [
       '#theme' => 'wristcheck_payment_step',
       '#type' => 'markup',
