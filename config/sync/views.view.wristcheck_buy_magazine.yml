@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.body
     - field.storage.node.field_page_title_image
+    - field.storage.user.user_picture
     - node.type.blog_post
   module:
     - image
@@ -1356,9 +1357,9 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_page_title_image'
-  page_1:
-    display_plugin: page
-    id: page_1
+  single:
+    display_plugin: block
+    id: single
     display_title: 'magazine single'
     position: 5
     display_options:
@@ -1379,7 +1380,8 @@ display:
       defaults:
         relationships: false
         fields: false
-      path: wristcheck-magazine-single
+        style: false
+        row: false
       fields:
         created:
           id: created
@@ -1389,10 +1391,10 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
-            text: '{{ created }} Minutes'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1456,7 +1458,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -1574,10 +1576,10 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
-            text: 'BY {{ uid }} '
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1639,12 +1641,75 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
-            text: "<div class=\"wc-latest-art\">\r\n       <img src=\"{{field_page_title_image}}\"  alt=\"{{ field_page_title_image__alt }}\" title=\"{{ field_page_title_image__title }}\" class=\"img-bg\" />\r\n</div>"
-            make_link: true
+            alter_text: false
+            text: ''
+            make_link: false
             path: '{{ view_node }}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
@@ -1704,8 +1769,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "<div class=\"wc-magazine-single\">\r\n    <a href=\"{{ view_node }}\"> \r\n        <div class=\"wc-magazine-singleheader\">\r\n            <div class=\"wc-magazine-single__created\">{{ created }} MINUTES</div>\r\n            <div class=\"wc-magazine-single__title\">{{ title }}</div>\r\n            <div class=\"wc-magazine-single__author\">\r\n                 <span><img src=\"{{ user_picture }}\"/></span>\r\n                 <span>BY {{ uid }}</span>\r\n             </div> \r\n        </div>\r\n    </a>\r\n\r\n    <div class=\"wc-magazine-single-body\">\r\n        <div class=\"wc-magazine-privew__img\"><img  class=\"wc-magazine-privew__img\" src=\"{{field_page_title_image}}\"/></div>\r\n        <div class=\"wc-magazine-single-describe\">{{ body__summary }}</div>\r\n    </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -1757,6 +1822,19 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-4 col-lg-12 portfolio-item filter-Packaging filter-Print portfolio'
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -1768,3 +1846,4 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
