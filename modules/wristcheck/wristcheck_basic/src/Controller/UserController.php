@@ -71,8 +71,10 @@ class UserController extends ControllerBase
       $total = 0;
       $unit = "";
       foreach($entity_ids as $v){
-        $total += array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['number'];
-        $unit = array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['currency_code'];
+        if (count(array_values($v->field_related_model->entity->field_ask_price->getValue()))>0){
+          $total += array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['number'];
+          $unit = array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['currency_code'];
+        }
       }
       $variables["total"] = "VALUE: ".$unit."".strval($total);
     }else{
