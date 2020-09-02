@@ -19,7 +19,7 @@
                       <img src="/themes/custom/wristcheck_barrio/images/photo.png" alt="">
                     </div>
                     <div class="d-flex flex-column">
-                      <h2 class="mb-1">Markflyy@163. com</h2>
+                      <h2 class="mb-1">{{ variables["mail"] }}</h2>
                       <a href="/cart" class="mt-1"><img
                           src="/themes/custom/wristcheck_barrio/images/icons/icon-cart.png" alt=""></a>
                     </div>
@@ -28,29 +28,33 @@
                 <div class="col-md-4">
                   <div class="wc-userinfo-item">
                     <label>name:</label>
-                    <span>KAHFAFHFL</span>
+                    <span>{{ variables["name"] }}</span>
                   </div>
                   <div class="wc-userinfo-item">
                     <label>surnames:</label>
-                    <span>ASDFASDF</span>
+                    <span>{{ variables["surname"] }}</span>
                   </div>
                   <div class="wc-userinfo-item">
                     <label>gender:</label>
+                    {% if variablesp["gender"] == 0 %}
                     <span>male</span>
+                    {% else %}
+                    <span>women</span>
+                    {% endif %}
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="wc-userinfo-item">
                     <label>Date of birth:</label>
-                    <span>2020/02/20</span>
+                    <span>{{ variables["birth"] }}</span>
                   </div>
                   <div class="wc-userinfo-item">
                     <label>The email address:</label>
-                    <span>markflyy@163.com</span>
+                    <span>{{ variables["mail"] }}</span>
                   </div>
                   <div class="wc-userinfo-item">
                     <label>phone:</label>
-                    <span>86+10086 <span class="wc-userinfo-flag"><img
+                    <span>{{ variables["phone"] }} <span class="wc-userinfo-flag"><img
                           src="/themes/custom/wristcheck_barrio/images/icons/usa.png" alt=""></span></span>
                   </div>
                 </div>
@@ -73,24 +77,24 @@
           <div class="wc-userinfo__body">
             <p class="ppp">How many watches do you have?</p>
             <p class="p">The purchase was made on May 28, 2020, with the last notice on May 28, 2020</p>
-            <div class="wc-userinfo-list">
-              <div class="wc-userinfo-list__item">
-                <div class="wc-userinfo-list__item-img"></div>
-                <div class="wc-userinfo-list__item-cont">
-                  <p class="pp bold">Brand: patek philippe</p>
-                  <p class="p">The purchase was made on May 28, 2020, </p>
-                  <p class="pp bold">RMB 192888</p>
-                </div>
-              </div>
-              <div class="wc-userinfo-list__item">
-                <div class="wc-userinfo-list__item-img"></div>
-                <div class="wc-userinfo-list__item-cont">
-                  <p class="pp bold">Brand: patek philippe</p>
-                  <p class="p">The purchase was made on May 28, 2020, </p>
-                  <p class="pp bold">RMB 192888</p>
-                </div>
-              </div>
-            </div>
+{#            <div class="wc-userinfo-list">#}
+{#              <div class="wc-userinfo-list__item">#}
+{#                <div class="wc-userinfo-list__item-img"></div>#}
+{#                <div class="wc-userinfo-list__item-cont">#}
+{#                  <p class="pp bold">Brand: patek philippe</p>#}
+{#                  <p class="p">The purchase was made on May 28, 2020, </p>#}
+{#                  <p class="pp bold">RMB 192888</p>#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="wc-userinfo-list__item">#}
+{#                <div class="wc-userinfo-list__item-img"></div>#}
+{#                <div class="wc-userinfo-list__item-cont">#}
+{#                  <p class="pp bold">Brand: patek philippe</p>#}
+{#                  <p class="p">The purchase was made on May 28, 2020, </p>#}
+{#                  <p class="pp bold">RMB 192888</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
             {{ drupal_view('wristcheck_portfolio',"user_summary_portfolio") }}
           </div>
 

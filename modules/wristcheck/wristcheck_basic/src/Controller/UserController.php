@@ -31,8 +31,17 @@ class UserController extends ControllerBase
    */
   public function info()
   {
-//    dd(views_get_view_result('wristcheck_user_profile','settings'));
-    $variables = [];
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $variables['mail'] = $user->getEmail();
+    $variables['phone'] = $user->get('field_phone_number')->value;
+    if(count($user->field_surnames->getValue())>0){
+      $variables['surname'] = array_values($user->field_surnames->getValue()[0])[0];
+    }
+    $variables['gender']  = array_values($user->field_gender->getValue()[0])[0];
+    if(count($user->field_date_of_birth->getValue())>0){
+      $variables['birth']  = date("Y/m/d",strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
+    }
+    $variables['name'] =$user->getUsername();
     return [
       '#theme' => 'wristcheck_user_info',
       '#variables' => $variables
