@@ -17,8 +17,14 @@
   {{ drupal_view('wristcheck_buy_magazine','buy_guide') }}
 {#</div>#}
 {#<div class="row">#}
-  <h1 class="wc-further-title-3">FURTHER ARTICLES ABOUT ROLEX</h1>
+{#  <h1 class="wc-further-title-3">FURTHER ARTICLES ABOUT ROLEX</h1>#}
 {#</div>#}
 {#<div class="row">#}
-  {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
+<div class="wc-panel wc-rolex portfolio">
+  <h1 class='wc-panel__title text-center'>{{ 'FURTHER ARTICLES ABOUT ROLEX'|t }}</h1>
+  <div class='container pt-50'>
+    {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
+  </div>
+</div>
+{#  {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}#}
 {#</div>#}
