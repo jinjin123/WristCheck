@@ -229,42 +229,207 @@
 //}
 //
 //
-//main {
-//  .container {
-//    max-width: none !important;
-//    padding-right: 0 !important;
-//    padding-left: 0 !important;
-//
-//    .row {
-//      margin-right: 0 !important;
-//      margin-left: 0 !important;
-//
-//      .col-md-12 {
-//        padding-right: 0;
-//        padding-left: 0;
-//      }
-//    }
-//    .view-wristcheck-buy-magazine {
-//      .view-content {
-//        > div {
-//          padding-right: 0 !important;
-//          padding-left: 0 !important;
-//          max-width: 100% !important;
-//        }
-//      }
-//    }
-//  }
-//  .wc-magazine-privew__img {
-//            width: 100%;
-//
-//  }
-//  //.wc-magazine {
-//  //  .wc-buy-product-privew__img {
-//  //    .wc-magazine-privew__img {
-//  //      img {
-//  //        width: 100%;
-//  //      }
-//  //    }
-//  //  }
-//  //}
-//}
+main {
+  .container {
+    //    max-width: none !important;
+    //    padding-right: 0 !important;
+    //    padding-left: 0 !important;
+    //
+    //    .row {
+    //      margin-right: 0 !important;
+    //      margin-left: 0 !important;
+    //
+    //      .col-md-12 {
+    //        padding-right: 0;
+    //        padding-left: 0;
+    //      }
+    //    }
+    .view-display-id-default {
+      .view-content {
+        > div {
+          padding-right: 0 !important;
+          padding-left: 0 !important;
+          max-width: 100% !important;
+        }
+      }
+    }
+  }
+
+    .wc-further-title,
+    .wc-latest-title,
+    .wc-further-title-3,
+    .wc-buygui-title {
+      text-align: center;
+      font-size:25px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+  .view-display-id-latest_articles {
+    margin-right: 14%;
+    margin-left:  14%;
+    margin-bottom: 60px;
+    .view-content {
+      flex-wrap: wrap;
+      display: flex;
+      > div {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .wc-latest-art {
+        margin-bottom: 30px;
+        img {
+          margin-bottom: 20px;
+          //width: 100%;
+          width: 600px;
+          height: 300px;
+        }
+
+        .wc-rolex-modal {
+          margin-top: 20px;
+
+          .wc-rolex-action {
+            .wc-rolex-sub {
+              color: grey;
+              font-size: 15px;
+              margin-bottom: 10px;
+            }
+
+            .wc-rolex-title {
+              border-bottom: 1px solid #333;
+              margin-bottom: 10px;
+              font-size: 20px;
+              font-weight: bold;
+            }
+
+            h3 {
+              color: grey;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .view-display-id-further_articles {
+    margin-right:  10%;
+    margin-left:  10%;
+    margin-bottom:  80px;
+    .view-content {
+      display: flex;
+      flex-wrap:  wrap;
+       >div {
+         max-width: 25%!important;
+      }
+    }
+   .wc-further-art {
+      img {
+        width: 320px;
+        height: 400px;
+        margin-bottom:  25px;
+      }
+     .wc-rolex-modal {
+        .wc-rolex-action {
+          .wc-rolex-sub {
+            color: grey;
+          }
+          .wc-rolex-title {
+            font-weight: bold;
+            font-size: 18px;
+          }
+        }
+     }
+    }
+  }
+  .view-display-id-buy_guide {
+    margin-right:  10%;
+    margin-left:  10%;
+    margin-bottom:  80px;
+    .view-content {
+      display: flex;
+      flex-wrap: wrap;
+      >div {
+        //max-width: 60%!important;
+        margin-bottom:  40px;
+      }
+    }
+    .wc-buygui-art {
+      display: flex;
+      img {
+        width: 400px;
+        margin-right: 50px;
+      }
+      .wc-rolex-modal {
+        .wc-rolex-action {
+          .wc-rolex-title {
+            margin-bottom:  70px;
+            font-size: 20px;
+          }
+          .wc-rolex-sub {
+            color: grey;
+          }
+        }
+      }
+    }
+  }
+  .view-display-id-further_articles_3 {
+    .view-content {
+      display: flex;
+      flex-wrap: wrap;
+      >div {
+
+      }
+    }
+    .wc-further-three-art {
+      .wc-rolex-modal {
+        img {
+          width: 100%;
+          height: 500px;
+        }
+        .wc-rolex-action {
+          position: absolute;
+          margin-top: -80px;
+          padding: 0 10px;
+          .wc-rolex-title {
+            font-size:  18px;
+          }
+        }
+      }
+    }
+  }
+
+  .wc-buy-product-privew__img {
+    margin-bottom: 40px;
+
+    .wc-magazine-privew__img {
+      width: 100%;
+    }
+  }
+
+  .wc-magazine-body {
+    margin-bottom: 50px;
+
+    .wc-magazine__title {
+      text-align: center;
+      border-bottom: 1px solid #333;
+      margin-bottom: 20px;
+    }
+
+    .wc-magazine__describe {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .wc-magazine-owner {
+      text-align: center;
+      color: gray;
+
+      .wc-magazine__cate {
+        padding-right: 50px;
+      }
+    }
+  }
+
+}
