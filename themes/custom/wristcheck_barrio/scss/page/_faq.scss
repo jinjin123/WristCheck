@@ -13,3 +13,16 @@
     display: none;
   }
 }
+.wc-faq__item {
+  background-image: none;
+}
+
+.wc-faq__item__titile {
+  font-size: 18px;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #222222;
+  background: url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png) no-repeat;
+  background-size: 15px auto;
+  background-position: 100% 30%;
+}

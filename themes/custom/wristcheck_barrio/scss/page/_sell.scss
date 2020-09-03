@@ -139,3 +139,113 @@
     text-align: center;
   }
 }
+
+.wc-sell-customer-box {
+  background: url("/themes/custom/wristcheck_barrio/images/sell-customer-bg.png") no-repeat;
+  background-size: 100%;
+  background-position: top center;
+  background-color: #4a736f;
+
+  .wc-panel__sub,
+  .wc-panel__title {
+    color: #FFF;
+  }
+}
+
+.wc-sell-get-started {
+  width: 30%;
+}
+
+.wc-swiper-title {
+  margin: 30px auto 50px;
+
+  .wc-swiper-title__top {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
+
+  .wc-swiper-title__star {
+    height: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      display: inline-block;
+      height: 20px;
+    }
+  }
+
+  .wc-swiper-title__bottom {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
+}
+
+.wc-sell-swiper {
+  width: 60%;
+  margin: 0 auto;
+  padding-bottom: 80px;
+
+  .swiper-slide {
+    padding: 0 30px;
+    box-sizing: border-box;
+
+    .wc-swiper-slide {
+      background-color: #FFF;
+      width: 90%;
+      height: 100%;
+      padding: 20px;
+      margin: 0 auto;
+
+      .wc-swiper-slide-box {
+        width: 100%;
+        height: 100%;
+        background-color: #F9F9F9;
+      }
+    }
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-wrapper {
+    height: 310px;
+  }
+}
+
+.wc-do-you-have-any-questions {
+  margin: 0 auto;
+
+  .wc-panel__sub {
+    a {
+      font-size: 18px;
+      font-family: Source Han Sans CN;
+      font-weight: bold;
+      color: #333333;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      &.email {
+        color: #176BA4;
+      }
+    }
+
+
+  }
+
+  .wc-faq {
+    margin: 0 auto;
+  }
+}
