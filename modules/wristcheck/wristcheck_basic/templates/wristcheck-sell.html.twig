@@ -42,7 +42,15 @@
   </div>
 </div>
 
-<h1>put customer reviews block on this position</h1>
+{#TESTIMDNIALS#}
+<div class="wc-panel wc-testimdnials">
+  <h1 class='wc-panel__title text-center'>{{ 'TESTIMDNIALS'|t }}</h1>
+  <div class='container pt-50 pb-100'>
+    {{ drupal_view('wristcheck_testimdnials','default') }}
+  </div>
+</div>
+{#TESTIMDNIALS end#}
+
 <div class="contact">
   <h1>Contact US</h1>
   <div class="view-header">
