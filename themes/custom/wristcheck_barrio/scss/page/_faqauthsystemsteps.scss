@@ -133,6 +133,7 @@
         text-align: center;
         margin-bottom: 20px;
       }
+
       .view-header {
         margin-bottom: 30px;
         //div {
@@ -144,68 +145,95 @@
           margin: 0 36%;
           left: 40px
         }
+
         h5 {
           margin-right: 20px;
           font-size: 14px;
           margin-top: 2px;
         }
+
         a {
           font-size: 14px;
           color: #82b1d0;
           font-weight: bold;
         }
+
         hr {
-          width:50%;
-        }
-        //}
-      }
-      .views-element-container {
-        .view-display-id-faq_contact_us {
-          text-align: center;
-          .view-content {
-            .views-row {
-              .views-field-title {
-                margin-bottom: 20px;
-                .field-content {
-                  .faq-arrow {
-                    margin-top: -20px;
-                  }
-                  > div {
-                    color: #333;
-                    font-weight: bold;
-
-                    i {
-                      border: solid grey;
-                      border-width: 0 1px 1px 0;
-                      display: inline-block;
-                      padding: 5px;
-                      transform: rotate(-45deg);
-                      -webkit-transform: rotate(-45deg);
-                      margin-bottom: 5px;
-                      margin-left: 50%;
-                    }
-                  }
-                }
-              }
-
-              .views-field-body {
-                display: none;
-                >div {
-                  >p {
-                    color: #898989;
-                  }
-                }
-                //.field-content {
-                //  >p {
-                //    //display:  none;
-                //  }
-                //}
-                margin-bottom: 50px;
-              }
-            }
-          }
+          width: 50%;
         }
       }
+    }
+  }
+}
+
+
+.wc-faq {
+  padding: 20px;
+  margin: 0 20%;
+
+  .wc-faq__title {
+    font-size: 30px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 1);
+    margin-bottom: 50px;
+  }
+
+  .wc-faq__item {
+    //padding: 20px 0;
+    border-bottom: 1px solid rgba(223, 223, 223, 0.24);
+    background: url("/themes/custom/wristcheck_barrio/images/icons/arrow-down.png") no-repeat;
+    background-size: 15px auto;
+    background-position: 100% 30%;
+  }
+
+  .wc-faq__item__titile {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 1);
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    font-family: Myriad Pro;
+    font-weight: 400;
+    color: rgba(72, 72, 72, 1);
+  }
+
+  a {
+    font-size: 16px;
+    font-family: Myriad Pro;
+    font-weight: 400;
+    color: rgba(24, 108, 164, 1);
+  }
+
+  .wc-faq__item__body {
+    //display: none;
+  }
+}
+
+.wc-step {
+  .wc-step-body {
+    .wc-step-body__title {
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.wc-faq-ad {
+  .wc-faq-ad-body {
+    .wc-faq-ad__img {
+      img {
+        width:300px;
+      }
+      margin-bottom: 30px;
+    }
+    .wc-faq-ad__title {
+      text-align: center;
+      position: relative;
     }
   }
 }

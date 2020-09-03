@@ -1,62 +1,15 @@
-.path-faq {
-  main {
-    margin: 0 300px;
-    .wc-panel {
-      .text-description {
-        margin-bottom: 100px;
-      }
-    }
-
-    .view-wristcheck-faq {
-      .view-filters {
-        display: none;
-      }
-
-      .view-content {
-        .views-row {
-          .views-field-title {
-            font-weight: bold;
-
-            .field-content {
-              display: flex;
-
-              > div {
-                padding-bottom: 30px;
-                color: black;
-                font-size: 20px;
-
-                i {
-                  border: solid black;
-                  border-width: 0 2px 2px 0;
-                  display: inline-block;
-                  padding: 3px;
-                  transform: rotate(-45deg);
-                  -webkit-transform: rotate(-45deg);
-                  margin-bottom: 5px;
-                  margin-left: 50%;
-                }
-              }
-            }
-          }
-
-          .views-field-body {
-            display: none;
-            //.field-content {
-            //  p {
-            //    display: none;
-            //  }
-            //}
-          }
-
-          .views-field-field-faq-category {
-            //padding-top: 50px;
-            //padding-bottom: 50px;
-            font-size: 30px;
-            color: #333;
-          }
-        }
-      }
-    }
+.wc-faq-panel {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 21%;
+  margin-left: 21%;
+  .wc-panel-faq__title {
+    //margin-bottom: 100px;
   }
 }
 
+.view-wristcheck-faq {
+  .view-filters {
+    display: none;
+  }
+}

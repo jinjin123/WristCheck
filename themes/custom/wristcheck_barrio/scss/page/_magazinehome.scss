@@ -31,12 +31,12 @@
       text-align: center;
       font-size:25px;
       font-weight: bold;
-      margin-bottom: 40px;
+      margin-bottom: 70px;
     }
 
   .view-display-id-latest_articles {
-    margin-right: 10%;
-    margin-left:  10%;
+    //margin-right: 10%;
+    //margin-left:  10%;
     margin-bottom: 60px;
     .view-content {
       flex-wrap: wrap;
@@ -51,9 +51,10 @@
         margin-bottom: 30px;
         img {
           margin-bottom: 20px;
-          //width: 100%;
-          width: 600px;
-          height: 300px;
+          width: 100%;
+          height: 100%;
+          //width: 600px;
+          //height: 300px;
         }
 
         .wc-rolex-modal {
@@ -71,8 +72,8 @@
               margin-bottom: 10px;
               font-size: 20px;
               font-weight: bold;
+              width: 100%;
             }
-
             h3 {
               color: grey;
               font-size: 15px;
@@ -83,8 +84,8 @@
     }
   }
   .view-display-id-further_articles {
-    margin-right:  10%;
-    margin-left:  10%;
+    //margin-right:  8%;
+    //margin-left:  8%;
     margin-bottom:  80px;
     .view-content {
       display: flex;
@@ -95,7 +96,8 @@
     }
    .wc-further-art {
       img {
-        width: 320px;
+        //width: 320px;
+        width: 100%;
         height: 400px;
         margin-bottom:  25px;
       }
@@ -113,8 +115,8 @@
     }
   }
   .view-display-id-buy_guide {
-    margin-right:  10%;
-    margin-left:  10%;
+    //margin-right:  10%;
+    //margin-left:  10%;
     margin-bottom:  80px;
     .view-content {
       display: flex;

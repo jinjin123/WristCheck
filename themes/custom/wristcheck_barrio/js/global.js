@@ -196,43 +196,24 @@
       $(".path-faq-authsystem .view-content")[0].style.display="none";
     }
 
-    // console.log($(".path-faq-authsystem .view-content")[0])
-    //faq dropdown
-    $(".path-faq .view-content .views-row .views-field-title .field-content i").click(function () {
-      var target = $(this);
-      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
-        target.css("-webkit-transform", "rotate(-45deg)");
-      } else {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
-        target.css("-webkit-transform", "rotate(45deg)");
-      }
+    $(".wc-faq__item__body").css("display","none")
+    var faqflag = true;
+    $(".wc-faq .row .wc-faq__item").click(function(){
+        var target = $(this);
+      if(faqflag){
+             target.children()[1].style.display="block";
+              target.css("background","url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ");
+              target.css("background-size","15px auto");
+              target.css("background-position","100% 30%");
+              faqflag = false;
+        }else{
+              target.children()[1].style.display="none";
+              target.css("background","url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png)no-repeat ");
+              target.css("background-size","15px auto");
+              target.css("background-position","100% 30%");
+            faqflag = true;
+        }
     });
-    //faq authsystem
-    $(".path-faq-authsystemstep .view-content .views-row .views-field-title .field-content i").click(function () {
-      var target = $(this);
-      // console.log(target.parent().parent().parent().parent().parent().children()[1]);
-      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
-        target.css("-webkit-transform", "rotate(-45deg)");
-      } else {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
-        target.css("-webkit-transform", "rotate(45deg)");
-      }
-    });
-
-    //faq authsystem
-    $(".path-sell .view-content .views-row .views-field-title .field-content i").click(function () {
-      var target = $(this);
-      // console.log(target.parent().parent().parent().parent().parent().children()[1]);
-      if (target.parent().parent().parent().parent().parent().children()[1].style.display == "block") {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "none";
-        target.css("-webkit-transform", "rotate(-45deg)");
-      } else {
-        target.parent().parent().parent().parent().parent().children()[1].style.display = "block";
-        target.css("-webkit-transform", "rotate(45deg)");
-      }
-    })
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
       if ($(this).children('.wc-menu-container').length > 0) {
