@@ -1,28 +1,8 @@
-//main {
-  .container {
-    //    max-width: none !important;
-    //    padding-right: 0 !important;
-    //    padding-left: 0 !important;
-    //
-    //    .row {
-    //      margin-right: 0 !important;
-    //      margin-left: 0 !important;
-    //
-    //      .col-md-12 {
-    //        padding-right: 0;
-    //        padding-left: 0;
-    //      }
-    //    }
-    .view-id-wristcheck_buy_magazine {
-      .view-content {
-        > div {
+    .magazine-home {
           padding-right: 0 !important;
           padding-left: 0 !important;
           max-width: 100% !important;
-        }
-      }
     }
-  }
 
     .wc-further-title,
     .wc-latest-title,
@@ -203,4 +183,3 @@
     }
   }
 
-//}

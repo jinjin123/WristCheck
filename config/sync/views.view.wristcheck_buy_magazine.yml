@@ -60,7 +60,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'col-sm-12 col-md-4 col-lg-6 portfolio-item filter-Packaging filter-Print portfolio'
+          row_class: 'col-sm-12 col-md-4 col-lg-6 portfolio-item filter-Packaging filter-Print portfolio magazine-home'
           default_row_class: true
       row:
         type: fields
@@ -638,11 +638,26 @@ display:
       defaults:
         fields: false
         pager: false
+        style: false
+        row: false
       pager:
         type: some
         options:
           items_per_page: 6
           offset: 0
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-4 col-lg-6 portfolio-item filter-Packaging filter-Print portfolio'
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -846,11 +861,26 @@ display:
       defaults:
         fields: false
         pager: false
+        style: false
+        row: false
       pager:
         type: some
         options:
           items_per_page: 4
           offset: 0
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-4 col-lg-6 portfolio-item filter-Packaging filter-Print portfolio'
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -1342,11 +1372,26 @@ display:
       defaults:
         fields: false
         pager: false
+        style: false
+        row: false
       pager:
         type: some
         options:
           items_per_page: 4
           offset: 0
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-4 col-lg-6 portfolio-item filter-Packaging filter-Print portfolio'
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
