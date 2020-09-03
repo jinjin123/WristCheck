@@ -83,8 +83,8 @@
         })
       })
       //register title
-      $(".links>a.register-popup-form").click(function(){
-        $(".ui-dialog-title").css("margin","0 150px");
+      $(".links>a.register-popup-form").click(function () {
+        $(".ui-dialog-title").css("margin", "0 150px");
       })
     }
   };
@@ -115,30 +115,37 @@
     // $("#swt").css("display","none");
     // $("#swt").css("color","transparent");
     // console.log($("#wc-product-buy-new >a>div>div")[1].textContent.slice(1))
-    if((window.location.pathname).split("/").length>2 && (window.location.pathname).split("/")[1] == "product"){
-         $("#wc-product-buy-new >a>div>div")[1].textContent = $("#wc-product-buy-new >a>div>div")[1].textContent.slice(1);
+    if ((window.location.pathname).split("/").length > 2 && (window.location.pathname).split("/")[1] == "product") {
+      $("#wc-product-buy-new >a>div>div")[1].textContent = $("#wc-product-buy-new >a>div>div")[1].textContent.slice(1);
     }
     var flag = true;
-    $('#wc-product-buy-used').click(function(){
-      if (flag ){
-        $("#wc-product-buy-used>a").css("background-color","grey");
-        var data={"model":$("#swt")[0].textContent, "price": ($('.views-field-field-price-number>span')[0].textContent).trim()}
-        $.post("/second-hand-update",JSON.stringify(data),function(data){
-          if(data == "ok"){
+    $('#wc-product-buy-used').click(function () {
+      if (flag) {
+        $("#wc-product-buy-used>a").css("background-color", "grey");
+        var data = {
+          "model": $("#swt")[0].textContent,
+          "price": ($('.views-field-field-price-number>span')[0].textContent).trim()
+        }
+        $.post("/second-hand-update", JSON.stringify(data), function (data) {
+          if (data == "ok") {
             // $(".alert-success").css("display","block");
             // console.log("update cahrt")
-          }else{
+          } else {
             // console.log("update errorr")
           }
         })
-        flag=false;
-      }else {
-        var data={"model":$("#swt")[0].textContent,"price": ($('.views-field-field-price-number>span')[0].textContent).trim(),"tag":"del"}
-        $.post("/second-hand-update",JSON.stringify(data),function(data){
-          if(data == "ok"){
+        flag = false;
+      } else {
+        var data = {
+          "model": $("#swt")[0].textContent,
+          "price": ($('.views-field-field-price-number>span')[0].textContent).trim(),
+          "tag": "del"
+        }
+        $.post("/second-hand-update", JSON.stringify(data), function (data) {
+          if (data == "ok") {
             // $(".alert-success").css("display","block");
             // console.log("update cahrt")
-          }else{
+          } else {
             // console.log("update errorr")
           }
         })
@@ -149,37 +156,37 @@
       // console.log($("#swt")[0].textContent)
     })
     //user wishlist flag
-    if((window.location.pathname).split("/").length>3){
-      if ((window.location.pathname).split("/")[3] == "wishlist"){
+    if ((window.location.pathname).split("/").length > 3) {
+      if ((window.location.pathname).split("/")[3] == "wishlist") {
         $(".align-items-center")[0].childNodes[1].remove()
         $(".fa-heart-o")[0].className = "fa fa-times"
-        $(".use-ajax").click(function(){
+        $(".use-ajax").click(function () {
           var target = $(this);
           target.parent().parent().parent().parent().remove()
         })
       }
     }
     //usersupplementform
-    $("#profile_button").click(function(){
+    $("#profile_button").click(function () {
       // console.log($("#webform-submission-user-info-add-form").serialize())
-      $.post("/user-profile",$("#webform-submission-user-info-add-form").serialize(),function(data){
-        if(data == "ok"){
+      $.post("/user-profile", $("#webform-submission-user-info-add-form").serialize(), function (data) {
+        if (data == "ok") {
           $("#webform-submission-user-info-add-form")[0].reset();
-          $(".alert-success").css("display","block");
-        }else{
-          $(".alert-danger").css("display","block");
+          $(".alert-success").css("display", "block");
+        } else {
+          $(".alert-danger").css("display", "block");
         }
       })
     })
     //faq currency
     $(document).ready(function () {
-      $("#edit-first-size").on('input',function (){
-          var src = $("#edit-first-size")[0].value;
-          var funit = $('#edit-first-unit option:selected')[0].textContent;
-          var sunit = $('#edit-second-unit option:selected')[0].textContent;
+      $("#edit-first-size").on('input', function () {
+        var src = $("#edit-first-size")[0].value;
+        var funit = $('#edit-first-unit option:selected')[0].textContent;
+        var sunit = $('#edit-second-unit option:selected')[0].textContent;
         // console.log(funit,sunit)
-          // console.log($('#edit-first-unit option:selected')[0].textContent)
-        $.getJSON("/currency-price?search="+funit,(function (data){
+        // console.log($('#edit-first-unit option:selected')[0].textContent)
+        $.getJSON("/currency-price?search=" + funit, (function (data) {
           $("#edit-second-size")[0].value = (src * JSON.parse(data)[sunit]).toFixed(2);
         }))
 
@@ -189,30 +196,34 @@
     //faq index
     $(".view-content").removeClass("row");
     //faq auth system expose filter
-    if(window.location.pathname === "/faq-authsystemstep"){
-      $(".path-faq-authsystemstep .view-content")[0].style.display="none";
+    if (window.location.pathname === "/faq-authsystemstep") {
+      $(".path-faq-authsystemstep .view-content")[0].style.display = "none";
     }
-    if(window.location.pathname === "/faq-authsystem"){
-      $(".path-faq-authsystem .view-content")[0].style.display="none";
+    if (window.location.pathname === "/faq-authsystem") {
+      $(".path-faq-authsystem .view-content")[0].style.display = "none";
     }
 
-    $(".wc-faq__item__body").css("display","none")
+    $(".wc-faq__item__body").css("display", "none")
     var faqflag = true;
-    $(".wc-faq .row .wc-faq__item").click(function(){
-        var target = $(this);
-      if(faqflag){
-             target.children()[1].style.display="block";
-              target.css("background","url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ");
-              target.css("background-size","15px auto");
-              target.css("background-position","100% 30%");
-              faqflag = false;
-        }else{
-              target.children()[1].style.display="none";
-              target.css("background","url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png)no-repeat ");
-              target.css("background-size","15px auto");
-              target.css("background-position","100% 30%");
-            faqflag = true;
-        }
+    $(".wc-faq .row .wc-faq__item").click(function () {
+      var target = $(this);
+      if (faqflag) {
+        target.find('.wc-faq__item__body ').show();
+        target.find('.wc-faq__item__titile').css({
+          "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ",
+          "background-size": "15px auto",
+          "background-position": "100% 30%",
+        });
+        faqflag = false;
+      } else {
+        target.find('.wc-faq__item__body ').hide();
+        target.find('.wc-faq__item__titile').css({
+          "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png)no-repeat ",
+          "background-size": "15px auto",
+          "background-position": "100% 30%",
+        });
+        faqflag = true;
+      }
     });
 // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
@@ -221,8 +232,8 @@
       }
     }, function () {
       $('.wc-page-modal').removeClass('show');
-    }).children('a[href]').click(function(){
-      if(/((http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?)/.test(this.href) && location.href != this.href){
+    }).children('a[href]').click(function () {
+      if (/((http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?)/.test(this.href) && location.href != this.href) {
         location.href = this.href;
       }
     });

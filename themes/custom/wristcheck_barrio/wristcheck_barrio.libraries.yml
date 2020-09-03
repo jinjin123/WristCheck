@@ -47,3 +47,15 @@ comingsoon-styling:
     - core/jquery
     - core/drupal
 
+sell-styling:
+  version: VERSION
+  js:
+    libs/swiper/js/swiper.js: {}
+    js/sell.js: {}
+  css:
+    component:
+      libs/swiper/css/swiper.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
