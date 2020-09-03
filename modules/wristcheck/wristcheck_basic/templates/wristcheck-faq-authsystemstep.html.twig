@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="contact">
-    <h1>Contact US</h1>
+    <h1>DO YOU HAVE ANY QUESTIONS? CONTACT US!</h1>
     <div class="view-header">
       <span>
       {% if variables['phone'] %}
@@ -27,6 +27,7 @@
        </span>
       <hr>
     </div>
-  {{ drupal_view('wristcheck_faq','faq_contact_us') }}
+{#  {{ drupal_view('wristcheck_faq','faq_contact_us') }}#}
   </div>
 </div>
+{{ drupal_view('wristcheck_faq','faq_contact_us') }}
