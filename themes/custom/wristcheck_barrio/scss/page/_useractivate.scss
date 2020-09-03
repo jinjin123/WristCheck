@@ -1,9 +1,12 @@
-.path-user-activate {
-  .pay-location-icon {
-    width:15px
-  }
-  main {
-    .wc-panel {
+//.path-user-activate {
+//  .pay-location-icon {
+//    width:15px
+//  }
+//  main {
+//    .wc-panel {
+        .pay-location-icon {
+          width:15px
+        }
       .direction {
         margin-left: 5px;
         h5 {
@@ -17,11 +20,11 @@
         border:1px groove ;
         margin-bottom: 100px !important;
       }
-      .row {
-        h5 {
-          margin-bottom: 30px;
-        }
-      }
+      //.row {
+      //  h5 {
+      //    margin-bottom: 30px;
+      //  }
+      //}
       .note-start {
         h5 {
           font-weight: bold;
@@ -30,7 +33,7 @@
       }
       .re-email {
         a {
-          color: blue;
+          color: #5353e7;
         }
         margin-bottom: 100px;
         div {
@@ -53,6 +56,6 @@
         }
         margin-bottom: 100px ;
       }
-    }
-  }
-}
+    //}
+  //}
+//}
