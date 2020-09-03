@@ -1,14 +1,38 @@
 {{ drupal_block('wristcheck_free_advertising_block') }}
 {{ drupal_block('wristcheck_sell_video_block') }}
 {{ drupal_block('wristcheck_selling_process_single_image_block') }}
-<h1 class="sell-csn">LOW SALES COMMISSION</h1>
-<p class="sell-csn-des"> {{ 'If you succeed in selling the watch,the sales commission will be 6.5% of the selling price'|t }}</p>
-{{ drupal_entity("webform","faq_price") }}
-{#<h1 class="sell-checkout">BENEFITS OF TRUSTED CHECKOUT</h1cl>#}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="wc-panel">
+      <div class="wc-panel2__title text-center">LOW SALES COMMISSION</div>
+      <div
+        class="wc-panel2__sub text-center"> {{ 'If you succeed in selling the watch,the sales commission will be 6.5% of the selling price'|t }}</div>
+      <div class="wc-low-sales">
+        <div class="wc-panel__title text-center text-white">Calculate your payoffs now</div>
+        {{ drupal_entity("webform","faq_price") }}
+      </div>
+    </div>
+  </div>
+</div>
+
 {{ drupal_block('wristcheck_faq_checkout_block') }}
-<h1 class="sell-vid">CREATE AND AD,SIMPLE DESCRIPTION</h1>
-<h1>put video on this position</h1>
-<p>{{ 'In this video,we step-by-step show you how to easily and freely advertise your watch on the Wrist Check'|t }}</p>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="wc-panel">
+      <div class="wc-panel2__title text-center">{{ 'CREATE AND AD,SIMPLE DESCRIPTION'|t }}</div>
+      <div
+        class="wc-panel2__sub text-center">{{ 'In this video,we step-by-step show you how to easily and freely advertise your watch on the Wrist Check'|t }}</div>
+    </div>
+    <div class="container">
+      <div class="wc-video-box">
+        <video></video>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="wc-panel">
   <div class='text-center'>
     <button type="button" class="btn btn-default btn-lg wc-ex-btn">
@@ -17,6 +41,7 @@
     </button>
   </div>
 </div>
+
 <h1>put customer reviews block on this position</h1>
 <div class="contact">
   <h1>Contact US</h1>
