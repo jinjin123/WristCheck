@@ -103,9 +103,9 @@ class UserController extends ControllerBase
   {
     $user = \Drupal\user\Entity\User::load('1');
     $variables['mail'] = $user->getEmail();
-    if (!$user->user_picture->isEmpty()) {
-//      $variables['picture'] = file_create_url($user->user_picture->entity->getFileUri());
-      $variables['picture'] = $user->user_picture->view('large');
+    if (!$user->user_picture->isEmpty() !="") {
+      $variables['picture'] = file_create_url($user->user_picture->entity->getFileUri());
+//      $variables['picture'] = $user->user_picture->view('large');
     }else{
       $variables['picture']  = '';
     }
@@ -118,7 +118,8 @@ class UserController extends ControllerBase
 
   public function useractivate()
   {
-    $variables = [];
+    $user = \Drupal\user\Entity\User::load('1');
+    $variables['mail'] = $user->getEmail();
     return [
       '#theme' => 'wristcheck_user_useractivate',
       '#variables' => $variables
