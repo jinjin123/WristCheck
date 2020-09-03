@@ -127,118 +127,42 @@
       //height: 400px;
       margin-bottom: 40px;
     }
+
     .contact {
       h1 {
         text-align: center;
         margin-bottom: 20px;
       }
 
-        .view-header {
-          margin-bottom: 30px;
-          //div {
-          //  display: inline-flex;
-          //text-align: center;
-          span {
-            display: flex;
-            position: relative;
-            margin: 0 36%;
-            left: 40px
-          }
-          h5 {
-            margin-right: 20px;
-            font-size: 14px;
-            margin-top: 2px;
-          }
-          a {
-            font-size: 14px;
-            color: #82b1d0;
-            font-weight: bold;
-          }
-          hr {
-            width:50%;
-          }
-          //}
+      .view-header {
+        margin-bottom: 30px;
+        //div {
+        //  display: inline-flex;
+        //text-align: center;
+        span {
+          display: flex;
+          position: relative;
+          margin: 0 36%;
+          left: 40px
         }
+
+        h5 {
+          margin-right: 20px;
+          font-size: 14px;
+          margin-top: 2px;
+        }
+
+        a {
+          font-size: 14px;
+          color: #82b1d0;
+          font-weight: bold;
+        }
+
+        hr {
+          width: 50%;
+        }
+      }
     }
-    //.contact {
-    //  h1 {
-    //    text-align: center;
-    //    margin-bottom: 20px;
-    //  }
-    //  .view-header {
-    //    margin-bottom: 30px;
-    //    //div {
-    //    //  display: inline-flex;
-    //    //text-align: center;
-    //    span {
-    //      display: flex;
-    //      position: relative;
-    //      margin: 0 36%;
-    //      left: 40px
-    //    }
-    //    h5 {
-    //      margin-right: 20px;
-    //      font-size: 14px;
-    //      margin-top: 2px;
-    //    }
-    //    a {
-    //      font-size: 14px;
-    //      color: #82b1d0;
-    //      font-weight: bold;
-    //    }
-    //    hr {
-    //      width:50%;
-    //    }
-    //    //}
-    //  }
-    //  .views-element-container {
-    //    .view-display-id-faq_contact_us {
-    //      text-align: center;
-    //      .view-content {
-    //        .views-row {
-    //          .views-field-title {
-    //            margin-bottom: 20px;
-    //            .field-content {
-    //              .faq-arrow {
-    //                margin-top: -20px;
-    //              }
-    //              > div {
-    //                color: #333;
-    //                font-weight: bold;
-    //
-    //                i {
-    //                  border: solid grey;
-    //                  border-width: 0 1px 1px 0;
-    //                  display: inline-block;
-    //                  padding: 5px;
-    //                  transform: rotate(-45deg);
-    //                  -webkit-transform: rotate(-45deg);
-    //                  margin-bottom: 5px;
-    //                  margin-left: 50%;
-    //                }
-    //              }
-    //            }
-    //          }
-    //
-    //          .views-field-body {
-    //            display: none;
-    //            >div {
-    //              >p {
-    //                color: #898989;
-    //              }
-    //            }
-    //            //.field-content {
-    //            //  >p {
-    //            //    //display:  none;
-    //            //  }
-    //            //}
-    //            margin-bottom: 50px;
-    //          }
-    //        }
-    //      }
-    //    }
-    //  }
-    //}
   }
 }
 
@@ -246,6 +170,7 @@
 .wc-faq {
   padding: 20px;
   margin: 0 20%;
+
   .wc-faq__title {
     font-size: 30px;
     font-family: Source Han Sans CN;
@@ -283,7 +208,32 @@
     font-weight: 400;
     color: rgba(24, 108, 164, 1);
   }
+
   .wc-faq__item__body {
     //display: none;
+  }
+}
+
+.wc-step {
+  .wc-step-body {
+    .wc-step-body__title {
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.wc-faq-ad {
+  .wc-faq-ad-body {
+    .wc-faq-ad__img {
+      img {
+        width:300px;
+      }
+      margin-bottom: 30px;
+    }
+    .wc-faq-ad__title {
+      text-align: center;
+      position: relative;
+    }
   }
 }
