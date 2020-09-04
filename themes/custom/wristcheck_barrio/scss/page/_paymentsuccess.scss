@@ -1,34 +1,71 @@
 .payment-success {
   main {
-    &.page-user-container{
+    &.page-user-container {
       padding-top: 0;
     }
+
     .wc-product-imglist1 {
-      img {
-        width: 620px !important;
-        height: 400px !important;
-      }
-      margin-bottom: 40px;
-    }
-
-    .pay-title {
-      margin-bottom: 30px;
-
-      h1 {
-        font-size: 20px;
-        font-weight: bold;
-      }
+      margin-bottom: 70px;
     }
 
     .wc-product-title {
-      //margin: 20px 20px;
-      margin-bottom: 20px;
+      font-size: 24px;
+      font-family: Source Han Sans CN;
       font-weight: bold;
+      color: #222222;
+      margin-bottom: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .wc-product--row {
-      h5 {
-        font-size: 15px;
+    .wc-product__sub {
+      font-size: 14px;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: #222222;
+    }
+
+    .pay-location-icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-left: 20px;
+    }
+
+    .wc-product-call {
+      display: block;
+      margin-top: 30px;
+      font-size: 16px;
+      font-family: Source Han Sans CN;
+      font-weight: 500;
+      color: #222222;
+
+      .pay-call-icon {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        vertical-align: inherit;
+        margin-right: 5px;
+      }
+    }
+
+    .cs-box {
+      border: 1px dashed #000;
+      margin-top: 50px;
+      padding: 30px 20px;
+
+      .wc-product--row {
+        margin: 20px 20px;
+
+        h5 {
+          font-size: 15px;
+          font-weight: bold;
+
+          img {
+            width: 25px;
+          }
+        }
       }
     }
 
@@ -36,7 +73,6 @@
       .pay-location-icon {
         width: 15px;
       }
-
       .direction {
         display: flex;
         flex-direction: row;
@@ -44,37 +80,17 @@
         align-items: center;
         height: 70px;
       }
+    }
+  }
 
-      .cs-box {
-        border: 1px dashed #000;
-        height: 150px;
-        margin-top: 50px;
-
-        .wc-product-title {
-          margin: 20px 20px;
-          font-weight: bold;
-        }
-
-        .wc-product--row {
-          margin: 20px 20px;
-
-          h5 {
-            font-size: 15px;
-            font-weight: bold;
-
-            img {
-              width: 25px;
-            }
-          }
-        }
-      }
-
-      .block-wristcheck-paymentstep-block {
-        img {
-          //width: 108%;
-          margin-left: -77px;
-        }
-      }
+  .wc-product-introduction {
+    p {
+      font-size: 18px;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: #222222;
+      margin-bottom: 20px;
+      line-height: 36px;
     }
   }
 }
