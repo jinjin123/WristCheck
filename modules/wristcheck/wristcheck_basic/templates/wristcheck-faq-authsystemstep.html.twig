@@ -17,19 +17,23 @@
       {{ drupal_view('wristcheck_testimdnials','default') }}
     </div>
   </div>
-  <div class="contact">
-    <h1>DO YOU HAVE ANY QUESTIONS? CONTACT US!</h1>
-    <div class="view-header">
-      <span>
-      {% if variables['phone'] %}
-        <h5>CALL : {{ variables['phone'] }}</h5>
-      {% else %}
-        <h5>CALL : +0012 987654</h5>
-      {% endif %}
-      <a href="{{ variables['mail'] }}">EMAIL: CONTACT </a>
-       </span>
-      <hr>
+  <div class="row">
+    <div class="col-md-8 wc-do-you-have-any-questions">
+      <div class="wc-panel">
+        <div class="wc-panel__title text-center">Do you have any questions? Contact us!</div>
+        <div class="wc-panel__sub text-center">
+          {% if variables['phone'] %}
+            <a href="tel:{{ variables['phone'] }}">CALL : {{ variables['phone'] }}</a>
+          {% else %}
+            <a href="tel:+0012 987654">CALL : +0012 987654</a>
+          {% endif %}
+          <a class="email" href="tomail:{{ variables['mail'] }}">EMAIL : CONTACT</a>
+        </div>
+      </div>
+      <div class="divider"></div>
+      {{ drupal_view('wristcheck_faq','faq_contact_us') }}
     </div>
-  {{ drupal_view('wristcheck_faq','faq_contact_us') }}
   </div>
+
 </div>
+
