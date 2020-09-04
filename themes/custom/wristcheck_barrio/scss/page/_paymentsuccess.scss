@@ -1,96 +1,93 @@
 .payment-success {
-  main {
-    &.page-user-container {
-      padding-top: 0;
-    }
+  .page-user-container {
+    padding-top: 0;
+  }
 
-    .wc-product-imglist1 {
-      margin-bottom: 70px;
-    }
+  .wc-product-imglist1 {
+    margin-bottom: 70px;
+  }
 
-    .wc-product-title {
-      font-size: 24px;
-      font-family: Source Han Sans CN;
-      font-weight: bold;
-      color: #222222;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  .wc-product-title {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-    .wc-product__sub {
-      font-size: 14px;
-      font-family: Source Han Sans CN;
-      font-weight: 400;
-      color: #222222;
-    }
+  .wc-product__sub {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #222222;
+  }
 
-    .pay-location-icon {
+  .pay-location-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 20px;
+  }
+
+  .wc-product-call {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: #222222;
+
+    .pay-call-icon {
       display: inline-block;
-      width: 16px;
-      height: 16px;
-      margin-left: 20px;
+      width: 12px;
+      height: 12px;
+      vertical-align: inherit;
+      margin-right: 5px;
     }
+  }
 
-    .wc-product-call {
-      display: block;
-      margin-top: 30px;
-      font-size: 16px;
-      font-family: Source Han Sans CN;
-      font-weight: 500;
-      color: #222222;
+  .cs-box {
+    border: 1px dashed #000;
+    margin-top: 50px;
+    padding: 30px 20px;
 
-      .pay-call-icon {
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        vertical-align: inherit;
-        margin-right: 5px;
-      }
-    }
+    .wc-product--row {
+      margin: 20px 20px;
 
-    .cs-box {
-      border: 1px dashed #000;
-      margin-top: 50px;
-      padding: 30px 20px;
+      h5 {
+        font-size: 15px;
+        font-weight: bold;
 
-      .wc-product--row {
-        margin: 20px 20px;
-
-        h5 {
-          font-size: 15px;
-          font-weight: bold;
-
-          img {
-            width: 25px;
-          }
+        img {
+          width: 25px;
         }
-      }
-    }
-
-    .payment-success {
-      .pay-location-icon {
-        width: 15px;
-      }
-      .direction {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        height: 70px;
       }
     }
   }
 
-  .wc-product-introduction {
-    p {
-      font-size: 18px;
-      font-family: Source Han Sans CN;
-      font-weight: 400;
-      color: #222222;
-      margin-bottom: 20px;
-      line-height: 36px;
-    }
+  .pay-location-icon {
+    width: 15px;
+  }
+
+  .direction {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 70px;
+  }
+}
+
+.wc-product-introduction {
+  p {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #222222;
+    margin-bottom: 20px;
+    line-height: 36px;
   }
 }
