@@ -1,6 +1,8 @@
 .payment-success {
   main {
-    margin: 0 300px;
+    &.page-user-container{
+      padding-top: 0;
+    }
     .wc-product-imglist1 {
       img {
         width: 620px !important;
@@ -36,8 +38,11 @@
       }
 
       .direction {
-        margin-bottom: 70px;
-        margin-left: 3px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 70px;
       }
 
       .cs-box {
