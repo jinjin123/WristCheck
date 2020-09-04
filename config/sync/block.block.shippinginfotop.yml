@@ -1,9 +1,12 @@
-uuid: 88c6566f-e13e-4453-85a0-6ac32dd32f2a
+uuid: eeb621e2-01e7-4a92-9f20-77b0caf232e0
 langcode: en
-status: false
+status: true
 dependencies:
+  content:
+    - 'block_content:basic:195f467f-0e14-4131-b3f9-00f002a510fd'
   module:
     - block_attributes
+    - block_content
     - ntv_block_background
     - system
   theme:
@@ -22,20 +25,23 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheckfaqslider
+id: shippinginfotop
 theme: wristcheck_barrio
-region: section
-weight: -7
+region: content
+weight: -12
 provider: null
-plugin: 'md_slider_block:wristcheck_faq_slider_'
+plugin: 'block_content:195f467f-0e14-4131-b3f9-00f002a510fd'
 settings:
-  id: 'md_slider_block:wristcheck_faq_slider_'
-  label: 'Wristcheck faq slider '
-  provider: md_slider
+  id: 'block_content:195f467f-0e14-4131-b3f9-00f002a510fd'
+  label: 'shipping info top'
+  provider: block_content
   label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: /faq_authsystemstep
+    pages: '/checkout/*/order_information'
     negate: false
     context_mapping: {  }

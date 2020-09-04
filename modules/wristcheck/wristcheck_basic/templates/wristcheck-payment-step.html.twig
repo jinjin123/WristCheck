@@ -1,67 +1,65 @@
-<div class="wc-panel payment-step">
+<div class="payment-success payment-step">
   <div class="row direction">
-    <h5><i class="fa fa-angle-left"></i>      So let's go back to the list </h5>
+    <a class="wc-back-nav" onclick="javascript:history.back();"><i class="fa fa-angle-left"></i> So let's go back to the
+      list</a>
   </div>
-  <h3>PAYMENT</h3>
-  {{ drupal_block("wristcheck_paymentstep_block") }}
-    <div class="pay-title">
-      <h1>PAYMENT STATUS</h1>
-    </div>
-  <div class="row">
-{#    <div class="col-md-6">#}
-{#      <div class="wc-product-imglist1">#}
-{#        <img class="pay-location-icon" src="{{  variables["pic"] }}"/>#}
-{#      </div>#}
-{#    </div>#}
-    <div class="col-md-6">
-      <div class="wc-product-introduction">
-        <br/>
-        <div class="wc-product--row">
-          <label class="pay-step-acc"><h4 class="pay-acc">Payment account</h4> <h5>{{ variables['acc'] }}</h5></label>
+  <div class="wc-panel">
+    <div class="wc-panel__title">PAYMENT</div>
+    {{ drupal_block("wristcheck_paymentstep_block") }}
+  </div>
+  <div class="wc-panel">
+    <div class="wc-panel__sub">PAYMENT STATUS</div>
+    <div class="row pt-50">
+      <div class="col-md-7">
+        <div class="wc-payment-key-value">
+          <label>Payment account</label>
+          <span>{{ variables['acc'] }}</span>
         </div>
-        <div class="wc-product--row">
-          <label class="pay-step-card"><h4 class="pay-card">Terms of payment</h4><h5> {{ variables['card'] }}  <i class="fa fa-angle-right"></i></h5></label>
+        <div class="wc-payment-key-value">
+          <label>Terms of payment</label>
+          <span>{{ variables['card'] }} <img class="wc-arrow-right"
+                                             src="/themes/custom/wristcheck_barrio/images/icons/arrow-right.png"/></span>
         </div>
-        <br/>
-        <br/>
-        <div class="wc-product--row">
-          <div class="wc-product-buy-new pr">
-            <a href="javascript:;" class="wc-btn-dark">
-              <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span> | PAYMENT BY INSTALLMENT
-              </div>
-            </a>
-          </div>
-          <div class="wc-product-buy pr">
-            <a href="javascript:;" class="wc-btn-dark">
-              <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span> | IMMEDIATE PAYMENT
-              </div>
-            </a>
+        <div class="wc-product-introduction pt-50">
+          <div class="wc-product--row">
+            <div class="wc-product-buy-new pr">
+              <a class="wc-btn-white">
+                <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span> | PAYMENT BY
+                  INSTALLMENT
+                </div>
+              </a>
+            </div>
+            <div class="wc-product-buy pr">
+              <a class="wc-btn-dark">
+                <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span> | IMMEDIATE PAYMENT
+                </div>
+              </a>
+            </div>
           </div>
         </div>
+        <div class="wc-shield">
+          <img src="/themes/custom/wristcheck_barrio/images/shield.png" alt="wristcheck guarantee" class="img-fluid">
+        </div>
       </div>
-      <div  class="wc-shield">
-        <img src="/themes/custom/wristcheck_barrio/images/shield.png" alt="wristcheck guarantee" class="img-fluid">
+      <div class="col-md-5  pay-right-box">
+        <div class="pay-step-position-box">
+          <div class="pay-step-thumb-img-box">
+            <img src="" alt="">
+          </div>
+          <div class="wc-product--row ">
+            <div class="wc-product-title bold">Patek Philippe Perpetual CalendarChronograph</div>
+            <h5>Time Solution(HK)Ltd <img class="pay-location-icon"
+                                          src="/themes/custom/wristcheck_barrio/images/icons/usa.png"/></h5>
+          </div>
+          <div class="wc-step--row">
+            <h5 class="pay-step-bu1"> Provide buyers with shopping security</h5><i class="fa fa-angle-right"></i>
+          </div>
+          <div class="wc-step--row">
+            <h5 class="pay-step-bu2"> Your information will be handled securely</h5><i class="fa fa-angle-right"></i>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-6  pay-right-box">
-      <div class="pay-step-position-box">
-      </div>
-      <div class="wc-product--row">
-        <div class="wc-product-title bold">Patek Philippe Perpetual CalendarChronograph</div>
-        <h5>Time Solution(HK)Ltd <img class="pay-location-icon" src="/themes/custom/wristcheck_barrio/images/icons/usa.png"/></h5>
-      </div>
-      <div class="wc-step--row">
-        <h5 class="pay-step-bu1"> Provide buyers with shopping security</h5><i class="fa fa-angle-right"></i>
-      </div>
-      <div class="wc-step--row">
-        <h5 class="pay-step-bu2"> Your information will be handled securely</h5><i class="fa fa-angle-right"></i>
-      </div>
-    </div>
-{#    <div class="col-md-6">#}
-{#      <div  class="wc-shield">#}
-{#        <img src="/themes/custom/wristcheck_barrio/images/shield.png" alt="wristcheck guarantee" class="img-fluid">#}
-{#      </div>#}
-{#    </div>#}
   </div>
 </div>
 
