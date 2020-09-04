@@ -1,72 +1,67 @@
-.path-faq-authsystem {
-  main {
-    margin:0 300px;
-    h1 {
-      margin-bottom: 30px;
+.wc-faqsystem {
+  margin:0 120px;
+  .view-wristcheck-faq {
+    .view-filters {
+      //display: none;
     }
-
-    .views-element-container {
-      .view-wristcheck-faq {
-        .view-filters {
-          .views-exposed-form {
-            .form-row {
-              > fieldset {
-                display: none;
-              }
-            }
+  }
+  .view-wristcheck-faq {
+    .view-filters {
+      .views-exposed-form {
+        .form-row {
+          > fieldset {
+            display: none;
           }
         }
       }
     }
-
-    #edit-actions {
-      #edit-submit-wristcheck-faq {
-        //background-color: #d0d0d0;
-        border: 0;
-        height: 40px;
-        width: 150px;
-      }
-
-      #edit-reset {
-        background-color: #d0d0d0;
-        height: 40px;
-        border: 0;
-        width: 150px;
-      }
-
-      button {
-        margin-right: 15px;
-      }
-
-      margin-bottom: 80px;
+  }
+  #edit-actions {
+    #edit-submit-wristcheck-faq {
+      //background-color: #d0d0d0;
+      border: 0;
+      height: 40px;
+      width: 150px;
     }
 
-    //#edit-reset {
-    //  background-color: #d0d0d0;
-    //  border: 0;
-    //}
-    .webform-submission-faq-authsystem-form {
-      .webform-elements {
-        display: flex;
-        margin-bottom: 100px;
+    #edit-reset {
+      background-color: #d0d0d0;
+      height: 40px;
+      border: 0;
+      width: 150px;
+    }
 
-        fieldset {
-          margin-right: 30px;
+    button {
+      margin-right: 15px;
+    }
+
+    margin-bottom: 80px;
+  }
+
+  //#edit-reset {
+  //  background-color: #d0d0d0;
+  //  border: 0;
+  //}
+  .webform-submission-faq-authsystem-form {
+    .webform-elements {
+      display: flex;
+      margin-bottom: 100px;
+
+      fieldset {
+        margin-right: 30px;
+      }
+      .form-actions {
+        padding-top: 100px;
+        position: relative;
+        //width: 200px;
+        left: -212px;
+        button {
+          height: 40px
         }
-        .form-actions {
-          padding-top: 100px;
-          position: relative;
-          //width: 200px;
-          left: -212px;
-          button {
-            height: 40px
-          }
-        }
       }
     }
-
-    label {
-      display: none;
-    }
+  }
+  label {
+    display: none;
   }
 }
