@@ -85,9 +85,9 @@ display:
       style:
         type: default
         options:
-          row_class: accordion
+          grouping: {  }
+          row_class: ''
           default_row_class: true
-          uses_fields: false
       row:
         type: fields
         options:
@@ -396,6 +396,8 @@ display:
         fields: false
         title: false
         pager: false
+        style: false
+        row: false
       filter_groups:
         operator: AND
         groups:
@@ -535,6 +537,19 @@ display:
         options:
           items_per_page: 4
           offset: 0
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-4 col-lg-3 portfolio-item filter-Packaging filter-Print portfolio wc-ad-four'
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -728,6 +743,8 @@ display:
         filter_groups: false
         fields: false
         pager: false
+        style: false
+        row: false
       filters:
         status:
           value: '1'
@@ -891,6 +908,19 @@ display:
         options:
           items_per_page: 5
           offset: 0
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-4 col-lg-12 portfolio-item filter-Packaging filter-Print portfolio'
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:

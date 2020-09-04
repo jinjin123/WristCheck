@@ -1,18 +1,18 @@
 .wc-faq-panel {
   margin-top: 100px;
   margin-bottom: 100px;
-  margin-right: 21%;
-  margin-left: 21%;
+  //margin-right: 21%;
+  //margin-left: 21%;
   .wc-panel-faq__title {
     //margin-bottom: 100px;
   }
-}
-
-.view-wristcheck-faq {
-  .view-filters {
-    display: none;
+  .view-wristcheck-faq {
+    .view-filters {
+      display: none;
+    }
   }
 }
+
 .wc-faq__item {
   background-image: none;
 }
@@ -25,4 +25,11 @@
   background: url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png) no-repeat;
   background-size: 15px auto;
   background-position: 100% 30%;
+}
+
+.wc-faq-header {
+  margin-bottom: 100px;
+  .wc-panel__title {
+    margin-bottom: 30px;
+  }
 }
