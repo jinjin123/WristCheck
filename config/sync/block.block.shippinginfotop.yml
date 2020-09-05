@@ -1,9 +1,9 @@
-uuid: eeb621e2-01e7-4a92-9f20-77b0caf232e0
+uuid: dadda204-31af-4d13-ad8f-c53c9a7f2e1b
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:195f467f-0e14-4131-b3f9-00f002a510fd'
+    - 'block_content:basic:d6c5d009-e138-4a30-9c3a-801e1dabc253'
   module:
     - block_attributes
     - block_content
@@ -28,11 +28,11 @@ third_party_settings:
 id: shippinginfotop
 theme: wristcheck_barrio
 region: content
-weight: -12
+weight: 0
 provider: null
-plugin: 'block_content:195f467f-0e14-4131-b3f9-00f002a510fd'
+plugin: 'block_content:d6c5d009-e138-4a30-9c3a-801e1dabc253'
 settings:
-  id: 'block_content:195f467f-0e14-4131-b3f9-00f002a510fd'
+  id: 'block_content:d6c5d009-e138-4a30-9c3a-801e1dabc253'
   label: 'shipping info top'
   provider: block_content
   label_display: '0'
