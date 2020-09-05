@@ -367,6 +367,13 @@
 //    display: none;
 //  }
 //}
+.wc-product-buy-new {
+  .field--name-price {
+      .field__label {
+        display: none;
+      }
+  }
+}
 #swt {
   display: none;
 }
