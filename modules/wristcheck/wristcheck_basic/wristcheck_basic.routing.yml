@@ -292,11 +292,19 @@ wristcheck_basic.product_variation_form_controller_index:
     _permission: 'access content'
 
 
-wristcheck_basic.product_variation_form_controller_tmpproduct:
-  path: '/second-hand-update'
+#wristcheck_basic.product_variation_form_controller_tmpproduct:
+#  path: '/second-hand-update'
+#  defaults:
+#    _controller: '\Drupal\wristcheck_basic\Controller\ProductVariationFormController::secondhandtmp'
+#    _title: 'second hand save'
+#  methods: [POST]
+#  requirements:
+#    _permission: 'access content'
+
+wristcheck_basic.wristcheck_custom_cart:
+  path: '/custom/product/{type}/{product_id}'
   defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\ProductVariationFormController::secondhandtmp'
-    _title: 'second hand save'
-  methods: [POST]
+    _controller: '\Drupal\wristcheck_basic\Controller\ProductVariationFormController::custom'
+    _title: 'customcart'
   requirements:
-    _permission: 'access content'
+    _access: 'TRUE'

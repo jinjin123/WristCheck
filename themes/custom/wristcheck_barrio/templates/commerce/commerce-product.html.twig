@@ -144,13 +144,15 @@
       <div class="wc-product-content">{{ product.field_introduction }}</div>
       <div class="wc-product--row">
         <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">
-          <a href="javascript:;">BUY NEW FROM
+          {% set url = url('<current>')['#markup'] %}
+          <a href="/custom/product/new/{{ url|split('/')|last }}">BUY NEW FROM
             {{  product.variation_price  }}
           </a>
 {#          {{  product.variation_price|slice(1)  }}#}
         </div>
         <div class="wc-product-buy pr" id="wc-product-buy-used" product_id="{{ product.id }}">
-          <a href="javascript:;">BUY USED FROM
+          {% set url = url('<current>')['#markup'] %}
+          <a href="/custom/product/old/{{ url|split('/')|last }}">BUY USED FROM
             {{ drupal_view('wristcheck_second_hands_watch') }}
             </a>
         </div>
