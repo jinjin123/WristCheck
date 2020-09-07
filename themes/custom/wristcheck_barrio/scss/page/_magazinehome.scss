@@ -2,6 +2,11 @@
           padding-right: 0 !important;
           padding-left: 0 !important;
           max-width: 100% !important;
+      .wc-magazine {
+        .wc-buy-product-privew__img {
+          margin-bottom: 20px;
+        }
+      }
     }
 
     .wc-further-title,
@@ -151,13 +156,13 @@
     }
   }
 
-  .wc-buy-product-privew__img {
-    margin-bottom: 40px;
+  //.wc-buy-product-privew__img {
+  //  margin-bottom: 40px;
 
     .wc-magazine-privew__img {
       width: 100%;
     }
-  }
+  //}
 
   .wc-magazine-body {
     margin-bottom: 50px;

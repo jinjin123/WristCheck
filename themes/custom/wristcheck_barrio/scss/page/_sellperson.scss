@@ -1,52 +1,106 @@
 .path-sellperson {
   main {
     .wc-panel {
-      margin: 0 7%;
-
       .text-center {
         button {
           width: 50%;
         }
       }
 
-        .direction {
-          //margin-left: 7%;
-          h5 {
-            i {
-              margin-right: 10px;
-              font-size: 30px;
-            }
+      .direction {
+        //margin-left: 7%;
+        h5 {
+          i {
+            margin-right: 10px;
+            font-size: 30px;
           }
         }
+      }
 
-        .person_img {
-          margin-bottom: 50px;
-        }
+      .person_img {
+        margin-bottom: 50px;
+      }
 
-        .person_info {
-          margin-bottom: 50px;
-          h1 {
-            margin-bottom: 20px;
-          }
-          .birth {
-            display: grid;
-            input {
-              border: transparent;
-              color: #495057;
-              background-color: #fff;
-              width: 100%;
-              height: calc(1.5em + 0.75rem + 2px);
-            }
-          }
-        }
+      .person_info {
+        margin-bottom: 50px;
 
-        .address_info {
-          margin-bottom: 50px;
-          h1 {
-            margin-bottom: 20px;
-          }
+        h1 {
+          margin-bottom: 20px;
         }
+      }
+
+      .address_info {
+        margin-bottom: 50px;
+
+        h1 {
+          margin-bottom: 20px;
+        }
+      }
 
     }
   }
+}
+
+.wc-sell-person {
+  .birth, form {
+    input, select {
+      display: block;
+      width: 100%;
+      height: 38px;
+      background-color: rgba(223, 223, 223, .24);
+      border: none;
+      margin-bottom: 30px;
+      padding: 0.375rem 0.75rem;
+
+      &:hover, &:active, &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .wc-sell-watch-input-right-box {
+    width: 340px;
+    margin: 150px auto 0;
+    border-bottom: 1px solid #dddddd;
+
+
+    .wc-sell-watch-input-img-box {
+      width: 340px;
+      height: 250px;
+      background-color: rgba(223, 223, 223, .24);
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: #666666;
+      margin: 0;
+    }
+
+    input {
+      display: block;
+      background-color: #fff;
+      font-size: 18px;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: #222222;
+      padding: 0;
+      border: none;
+      width: 100%;
+      margin-bottom: 20px;
+
+      &::placeholder {
+        color: #222;
+      }
+
+      &:hover, &:active, &:focus {
+        outline: none;
+      }
+    }
+  }
+
+
 }

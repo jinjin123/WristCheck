@@ -82,6 +82,14 @@
         margin-left: -15px;
       }
     }
+    .webform-submission-user-info-form {
+      fieldset {
+        margin-bottom: 50px;
+        label {
+          display: none;
+        }
+      }
+    }
 
     .views-field-field-brand-logo {
       margin-bottom: 16px;
@@ -154,10 +162,6 @@
       }
     }
   }
-}
-
-#block-webform-5 {
-  width: 25%;
 }
 
 .wc-user-search-brand {
