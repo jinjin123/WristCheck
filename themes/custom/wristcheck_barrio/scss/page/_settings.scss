@@ -1,11 +1,14 @@
 .user-settings-form {
   max-width: 750px;
+  margin-top: -30px;
+  padding-left: 20px;
 
   > div {
     font-size: 24px;
     font-family: Source Han Sans CN;
     font-weight: bold;
     color: #222222;
+    margin-top: 30px;
   }
 
   .custom-control {
@@ -13,6 +16,7 @@
     font-family: Source Han Sans CN;
     font-weight: bold;
     color: #474747;
+    margin-top: 10px;
   }
 
   .description.text-muted {
@@ -21,9 +25,23 @@
     font-weight: 400;
     color: #474747;
   }
-  #edit-submit{
+
+  #edit-submit {
     display: inline-block;
     width: 236px;
     height: 50px;
+    margin-top: 50px;
   }
+
+  label[for="edit-select-the-language"] {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+    margin-top: 30px;
+  }
+}
+
+.path-user .page-user-container nav.tabs[role="navigation"] {
+  display: none;
 }
