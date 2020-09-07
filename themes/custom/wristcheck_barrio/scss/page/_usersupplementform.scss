@@ -19,6 +19,7 @@
       }
       .wc-persional_data {
         display: flex;
+        margin-bottom: 20px;
         img {
           width: 100px;
           border-radius: 50%;
@@ -41,6 +42,7 @@
           }
           .wc-person-short-desc {
             margin-top: 10px;
+            margin-bottom: 50px;
           }
         }
 
@@ -57,9 +59,17 @@
         }
       }
     }
-    #block-webform-5 {
-      width: 25%;
+    .webform-submission-user-info-form {
+      fieldset {
+        margin-bottom: 50px;
+        label {
+          display: none;
+        }
+      }
     }
+    //#block-webform-5 {
+    //  width: 25%;
+    //}
     //label {
     //  display: none;
     //}
@@ -77,6 +87,9 @@
 
         .wc-user-bottom-header__desc {
           margin-bottom: 45px;
+          h5 {
+            font-size: 15px;
+          }
         }
       }
       a {
