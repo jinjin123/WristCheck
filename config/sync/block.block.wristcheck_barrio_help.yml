@@ -11,7 +11,7 @@ _core:
 id: wristcheck_barrio_help
 theme: wristcheck_barrio
 region: content
-weight: -10
+weight: -8
 provider: null
 plugin: help_block
 settings:
