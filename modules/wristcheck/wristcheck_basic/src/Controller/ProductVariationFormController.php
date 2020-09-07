@@ -16,7 +16,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\commerce_price\Price;
 use Drupal\commerce_order\Entity\OrderItem;
 use Drupal\commerce_order\Entity\Order;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * Class ProductVariationFormController.
  */
@@ -183,7 +183,6 @@ class ProductVariationFormController extends ControllerBase {
       \Drupal::messenger()->addError("not allow opeation");
       return $this->redirect("/product/".$product_id);
     }
-    sleep(2);
     $store_id = 1;
     $order_type = 'default';
 
@@ -197,7 +196,15 @@ class ProductVariationFormController extends ControllerBase {
       $cart = $cart_provider->createCart($order_type, $store);
     }
 
+
     $product = \Drupal\commerce_product\Entity\Product::load($product_id);
+    if(!$product->getDefaultVariation()){
+      \Drupal::messenger()->addError("not allow opeation");
+      $url = Url::fromUri('internal:/product/'.$product_id); // choose a path
+      $destination = $url->toString();
+      $response = new RedirectResponse($destination, 301);
+      return $response->send();
+    }
     $d_id = $product->getDefaultVariation()->Id();
     $ids = $product->getVariationIds();
     if($type == "old"){
@@ -211,12 +218,17 @@ class ProductVariationFormController extends ControllerBase {
           }
         }
       }else{
-        return $this->redirect("/product/".$product_id);
+        \Drupal::messenger()->addError("not allow opeation");
+        $url = Url::fromUri('internal:/product/'.$product_id); // choose a path
+        $destination = $url->toString();
+        $response = new RedirectResponse($destination, 301);
+        return $response->send();
       }
     }elseif($type == "new"){
       $product_variation = $entity_manager->getStorage('commerce_product_variation')->load($d_id);
       $order = $cart_manager->addEntity($cart, $product_variation);
     }
+    sleep(2);
     return $this->redirect('commerce_cart.page');
   }
 }
