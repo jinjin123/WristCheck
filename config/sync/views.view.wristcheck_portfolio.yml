@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.commerce_product.field_ask_price
+    - field.storage.commerce_product.field_cate
     - field.storage.commerce_product.field_watch_core
     - field.storage.node.body
     - field.storage.node.field_page_title_image
@@ -517,6 +518,69 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link_delete
+        field_cate:
+          id: field_cate
+          table: commerce_product__field_cate
+          field: field_cate
+          relationship: field_related_model
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         body:
           id: body
           table: node__body
@@ -528,7 +592,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n    <div class=\"wc-buy-product-privew__img\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_page_title_image }}\"/></div>\r\n    <div class=\"wc-buy-product-body\">\r\n        <div class=\"wc-protfolio-product__title\"><span class=\"col-md-4\">Brand: {{ title }} | model: {{ field_watch_core }}</span><a class=\"col-md-4 fa fa-close\" href=\"{{ delete_node }}\"></a></div>\r\n        <div class=\"wc-buy-product__sub\"><span>The purchase was make on {{ created }}</span></div>\r\n        <div class=\"row wc-buy-product-footer\">\r\n            <div class=\"col-md-1\"><strong class=\"wc-protfolio__price\">{{ field_ask_price }}</strong> </div>\r\n            <div class=\"col-md-6\"><a class=\"btn btn-default wc-protfolio_sold \" href=\"#\">SOLD FOR CASH </a> </div>\r\n            <div class=\"col-md-4\"><a class=\" wc-protfolio-product__link\" href=\"{{ view_commerce_product }}\">Sell it for money</a> </div>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n    <div class=\"wc-buy-product-privew__img\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_page_title_image }}\"/></div>\r\n    <div class=\"wc-buy-product-body\">\r\n        <div class=\"wc-protfolio-product__title\"><span class=\"col-md-4\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</span><a class=\"col-md-4 fa fa-close\" href=\"{{ delete_node }}\"></a></div>\r\n        <div class=\"wc-buy-product__sub\"><span>The purchase was make on {{ created }}</span></div>\r\n        <div class=\"row wc-buy-product-footer\">\r\n            <div class=\"col-md-1\"><strong class=\"wc-protfolio__price\">{{ field_ask_price }}</strong> </div>\r\n            <div class=\"col-md-6\"><a class=\"btn btn-default wc-protfolio_sold \" href=\"#\">SOLD FOR CASH </a> </div>\r\n            <div class=\"col-md-4\"><a class=\" wc-protfolio-product__link\" href=\"{{ view_commerce_product }}\">Sell it for money</a> </div>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -684,6 +748,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.commerce_product.field_ask_price'
+        - 'config:field.storage.commerce_product.field_cate'
         - 'config:field.storage.commerce_product.field_watch_core'
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_page_title_image'
