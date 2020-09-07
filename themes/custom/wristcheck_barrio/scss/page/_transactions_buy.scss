@@ -66,4 +66,33 @@
     color: #999999;
     margin-bottom: 30px;
   }
+  .wc-wishlist-product-footer {
+    display: flex;
+    div {
+      .wc-wishlist-footer__notice {
+        color: grey;
+        &:before{
+          content: "";
+          position: absolute;
+          top: 7px;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          border: 1px solid ;
+        }
+      }
+      .wc-wishlist-footer__process {
+        color: grey;
+        &:before{
+          content: "";
+          position: absolute;
+          top: 7px;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          border: 1px solid ;
+        }
+      }
+    }
+  }
 }
