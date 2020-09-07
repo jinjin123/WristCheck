@@ -1,9 +1,15 @@
 <div class="wc-panel">
   <div class="top-box">
-    <img src="/themes/custom/wristcheck_barrio/images/icons/help.png"/>
-    <div >
-        <h1>VERIFY YOUR EMAIL ADDRESS</h1>
-        <h5>VERIFY YOUR EMAIL ADDRESSVERIFY YOUR EMAIL ADDRESSVFY YOUR EMAIL ADDRAIL ADDRESSVERIFY YOUR EMAIL ADDRESS</h5>
+    <div class="top-box-img">
+      <img src="/themes/custom/wristcheck_barrio/images/icons/info.jpg"/>
+    </div>
+    <div class="top-box-info">
+      <h1>VERIFY YOUR EMAIL ADDRESS</h1>
+      <p>
+        You haven't confirmed your email address, markflyy@163.com. Please click the confirmation link in the email we
+        sent you to complete the registration. You can then use all the features of the Wrlst Check. You didn't get the
+        e-mail? Please send the confirmation link again.
+      </p>
     </div>
   </div>
   <div class="container">
@@ -27,32 +33,39 @@
   <div class="row">
     <div class="wc-user_content col-md-6">
       <div class="wc-supple-form-body">
-        <h1 class="wc-supple__title"><strong>PERSIONNAL DATA</strong></h1>
+        <h1 class="wc-supple__title">PERSIONNAL DATA</h1>
         <div class="wc-persional_data">
-          <img src="{{ variables['picture'] }}"/>
+          <img src="{{ variables['picture'] }}"
+               onerror="javascript:this.src='/themes/custom/wristcheck_barrio/images/photo.png'"/>
           <h5>{{ variables['mail'] }}</h5>
         </div>
         <h5 class="wc-person-short-desc">Before We Begin, We'd Like to get to know you better.</h5>
         {{ drupal_entity('webform','user_info') }}
       </div>
     </div>
-    <div class="col-md-4 wc-supple-user-bottom">
-      <div class="wc-user-bottom-header">
-        <div class="wc-user-bottom-header__title"><h1><strong>STORAGE SEARCH</strong></h1></div>
-        <div class="wc-user-bottom-header__sub__title"><h3><strong>SEARCH RESULTS NOT YET STORED?</strong></h3></div>
-        <div class="wc-user-bottom-header__desc"><h5>LET us inpsire you with our incomparable luxury watch series</h5></div>
+    <div class="wc-user_content col-md-6">
+      <div class="wc-supple-form-body">
+        <h1 class="wc-supple__title">STORAGE SEARCH</h1>
+        <div class="wc-persional_data">SEARCH RESULTS NOT YET STORED?</div>
+        <div class="wc-person-short-desc">LET us inpsire you with our incomparable luxury watch series</div>
+        {{ drupal_view('wristcheck_user_data','user_supplementform') }}
       </div>
-      {{ drupal_view('wristcheck_user_data','user_supplementform') }}
     </div>
-  </div>
-  <div class="col-md-4 wc-supple-user-bottom">
-    <div class="wc-user-bottom-header">
-      <div class="wc-user-bottom-header__title"><h1><strong>PERSONAL DATA</strong></h1></div>
-      <div class="wc-user-bottom-header__sub__title"><h2><strong>SELL YOUR WATCH</strong></h2></div>
-      <div class="wc-user-bottom-header__desc"><h5>More than 9 million watch enthusiasts are looking forward to seeing your watch each month</h5></div>
+    <div class="wc-user_content col-md-6">
+      <div class="wc-supple-form-body">
+        <h1 class="wc-supple__title">PERSONAL DATA</h1>
+        <div class="wc-persional_data justify-content-center">SELL YOUR WATCH</div>
+        <div class="wc-person-short-desc text-center">More than 9 million watch enthusiasts are looking forward to
+          seeing your watch
+          each month
+        </div>
+        <div class="text-center">
+          <a href="javascript:;" class="wc-btn-dark">
+            <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span> | CONTACT THE SELLER
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
-    <a href="javascript:;" class="wc-btn-dark">
-      <div class="wc-btn-cont" id="profile_button"><span class="fa fa-arrow-right"></span> | CONTACT THE SELLER</div>
-    </a>
   </div>
 </div>
