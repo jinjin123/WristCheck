@@ -1,18 +1,19 @@
-<div class="wc-panel">
-  <div class="row direction">
+<div class="wc-panel wc-useractive">
+  <div class="row direction col-md-12">
 {#    <h5> <img src="/themes/custom/wristcheck_barrio/images/icons/arrow-right.png"/>So Let's go back to the list </h5>#}
     <h5> <i class="fa fa-angle-left"></i>So Let's go back to the list </h5>
   </div>
   <hr />
-  <div class="user-active-title col-md-12">
-    <h1 class="note-title">ENABLE YOUR USER ACCOUNT TO COMPLETE THE ORDER</h1>
+  <div class="user-active-title col-md-8">
+    <div class='wc-panel__title text-left'>{{ 'ENABLE YOUR USER ACCOUNT TO COMPLETE THE ORDER'|t }}</div>
     <h5>After your user account has been successfully enabled,we will forward your order to the seller. To this end, we have sent you
       an email to <strong>{{ variables['mail'] }}</strong>.Please click the following link in your email to enable youruseraccount:</h5>
     <span class="note-start"><h5>please note: without enabling your user account, the seller will not be able to reserve your order for you</h5></span>
   </div>
-  <div class="re-email">
-    <h1>Did you not receive the email?</h1>
-    <a href="/fsdfasfsdf">Re-send to enable the link</a>
+  <div class="re-email col-md-12">
+{#    <div class='wc-panel__title text-left'>{{ 'Did you not receive the email?'|t }}</div>#}
+    <h1>{{ 'Did you not receive the email?'|t }}</h1>
+    <a href="javascript;">Re-send to enable the link</a>
     <div>
       <img src="/themes/custom/wristcheck_barrio/images/watch.png"/>
       <h5>Patek Philippe Perpetual CalendarChronograph</h5>
@@ -20,7 +21,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="col-md-12">
     <div class="user_act_footer">
         <div>
             <h1>Next steps:</h1>
