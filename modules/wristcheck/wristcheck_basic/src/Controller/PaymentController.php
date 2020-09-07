@@ -48,6 +48,7 @@ class PaymentController extends ControllerBase
     $id = \Drupal::currentUser()->id();
     $query = \Drupal::entityQuery('commerce_order')
       ->condition('uid', $id)
+      ->condition('state','fulfillment')
       ->sort('created','DESC')
       ->range(0,1);
     $order_ids = $query->execute();
@@ -62,6 +63,8 @@ class PaymentController extends ControllerBase
         $variables['order_id'] = $order_id;
       }
     }
+    $user = \Drupal\user\Entity\User::load('1');
+    $variables['phone'] = $user->get('field_phone_number')->value;
     return [
       '#theme' => 'wristcheck_payment_success',
       '#type' => 'markup',
