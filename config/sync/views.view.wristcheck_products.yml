@@ -2418,6 +2418,7 @@ display:
         sorts: false
         style: false
         row: false
+        footer: false
       filter_groups:
         operator: AND
         groups:
@@ -2770,7 +2771,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print portfolio'
+          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print portfolio wc-userwishlist'
           default_row_class: true
       row:
         type: fields
@@ -2779,6 +2780,18 @@ display:
           separator: ''
           hide_empty: false
           default_field_elements: true
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<div class=\"row\">\r\n   <div class=\"wc-panel-protfolio\">\r\n     <div class=\"wc-protfolio__total col-xs-6 col-sm-6 col-md-12\"></div>\r\n     <div class=\"wc-product-introduction\">\r\n       <div class=\"wc-product-btn\">\r\n         <a href=\"javascript:;\" class=\"wc-product-add-wishlist \">\r\n           <span class=\"fa fa-arrow-right\"></span>\r\n           | THE LIQUIDATION</a>\r\n       </div>\r\n     </div>\r\n   </div>\r\n </div>"
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
