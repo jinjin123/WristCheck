@@ -154,14 +154,61 @@
     background-color: transparent;
   }
 
-  //label {
-  //  display: none;
-  //}
+  label {
+    display: none;
+  }
+
+  label.custom-control-label {
+    display: inline-block;
+  }
+
+  .user-register-form {
+    .custom-switch {
+      margin-left: 10px !important;
+      font-size: 14px;
+      font-family: Myriad Pro;
+      font-weight: 400;
+      color: #484848;
+
+      .custom-control-label:before {
+        position: absolute;
+        top: 0.1rem;
+        left: -1.5rem;
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        pointer-events: none;
+        content: "";
+        background-color: #fff;
+        border: #adb5bd solid 1px;
+        border-radius: 0;
+      }
+
+      .custom-control-label::after {
+        position: absolute;
+        top: 0.1rem;
+        left: -1.5rem;
+        width: 1rem;
+        height: 1rem;
+        content: "";
+        display: none;
+        transition: none;
+        transform: none;
+      }
+
+      input:checked ~ .custom-control-label::after {
+        display: block;
+        background: no-repeat 50% / 100% 100%;
+        background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
+      }
+    }
+  }
 
   .form-submit {
     margin-top: 50px;
   }
-  .alert-danger::before{
+
+  .alert-danger::before {
     width: 16px;
     height: 16px;
     margin-right: 10px;
