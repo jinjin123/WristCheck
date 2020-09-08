@@ -2,6 +2,7 @@
 
 namespace Drupal\wristcheck_basic\Plugin\rest\resource;
 
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\rest\ModifiedResourceResponse;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
