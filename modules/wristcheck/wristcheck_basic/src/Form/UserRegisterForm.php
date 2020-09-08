@@ -60,6 +60,15 @@ class UserRegisterForm extends FormBase
         'placeholder' => 'Username',
       ],
     ];
+    $form['condtion'] = [
+      '#type' => 'checkbox',
+      '#title' => t("I ACCEPT WRIST CHECK'S PRIVACY POLICY"),
+      '#size' => 10,
+      '#maxlength' => 255,
+      '#default_value' => 1,
+      '#required' => TRUE,
+      '#description' =>  t(""),
+    ];
     $form['actions'] = [
       '#type' => 'button',
       '#value' => $this->t('register'),
