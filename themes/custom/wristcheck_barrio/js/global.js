@@ -170,11 +170,20 @@
     $("#profile_button").click(function () {
       // console.log($("#webform-submission-user-info-add-form").serialize())
       $.post("/user-profile", $("#webform-submission-user-info-add-form").serialize(), function (data) {
+        const messages = new Drupal.Message();
+        // messages.add("Save your profile successful!",{"type":"status"});
         if (data == "ok") {
-          $("#webform-submission-user-info-add-form")[0].reset();
-          $(".alert-success").css("display", "block");
-        } else {
-          $(".alert-danger").css("display", "block");
+          // $(".alert-success").css("display", "block");
+          messages.add("Save your profile successful!",{"type":"status"});
+          $('.messages').css("color","green")
+          $('.messages').css("border","1px solid ")
+          $('.messages').css("font-size","20px")
+        }else{
+          messages.add("Save your profile Faild! Please try again!",{"type":"error"});
+          $('.messages').css("border","1px solid #red")
+          $('.messages').css("font-size","20px")
+          // $('.messages').css("color","green")
+          // $(".alert-danger").css("display", "block");
         }
       })
     })

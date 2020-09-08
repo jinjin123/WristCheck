@@ -2,6 +2,7 @@
 
 namespace Drupal\wristcheck_basic\Controller;
 
+use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -147,7 +148,7 @@ class UserController extends ControllerBase
         'field_sex'=>$sex,
       ]);
       $profile->save();
-
+//      \Drupal::messenger()->addStatus("Save your profile successful!");
 //      \Drupal::logger('User_profile')->error('user profile save faild' . $name.$last_name.$sex);
       return new Response("ok");
     }catch (Exception $e){
