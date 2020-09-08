@@ -29,28 +29,14 @@
               <div class="swiper-slide">
                 <div class="wc-swiper-slide">
                   <div class="wc-swiper-slide-box">
-                    1
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="wc-swiper-slide">
-                  <div class="wc-swiper-slide-box">
-                    2
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="wc-swiper-slide">
-                  <div class="wc-swiper-slide-box">
-                    3
+                    {{ drupal_view("wristcheck_testimdnials","customer_review") }}
                   </div>
                 </div>
               </div>
             </div>
             <!-- 如果需要导航按钮 -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+{#            <div class="swiper-button-prev"></div>#}
+{#            <div class="swiper-button-next"></div>#}
           </div>
         </div>
       </div>
@@ -75,3 +61,4 @@
   </div>
 </div>
 
+{{ attach_library('wristcheck_barrio/sell-styling') }}

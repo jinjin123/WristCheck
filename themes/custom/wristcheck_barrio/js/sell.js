@@ -2,6 +2,7 @@
   $(function () {
     if (Swiper) {
       var mySwiper = new Swiper('.sell-swiper-container', {
+      //   var mySwiper = new Swiper('.swiper-container', {
         // 如果需要分页器
         pagination: {
           el: '.swiper-pagination',
