@@ -2,6 +2,7 @@
 
 namespace Drupal\wristcheck_basic\Plugin\Block;
 
+use Drupal\Component\Serialization\Json;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
@@ -27,7 +28,12 @@ class WristcheckAjaxUserLoginBlock extends BlockBase {
           'use-ajax',
           'login-popup-form',
         ),
-        'data-dialog-type' => 'modal',
+        'data-dialog-options' => Json::encode([
+          'width' => 730,
+          'padding' => 20,
+          'dialogClass' => 'wc-login-dialog'
+        ]),
+        'data-dialog-type' => 'modal'
       ),
     );
     $url->setOptions($link_options);

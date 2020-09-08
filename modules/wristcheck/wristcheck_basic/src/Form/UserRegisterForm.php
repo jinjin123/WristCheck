@@ -161,7 +161,7 @@ class UserRegisterForm extends FormBase
       $error_output = '';
       foreach($errors as $error) {
         $err = $error->__toString();
-        $error_output .= '<div class="messages error" >' . $err .'</div>';
+        $error_output .= '<div class="alert alert-danger" role="alert" >' . $err .'</div>';
       }
       $form['errors'] = [
         '#markup' => $error_output,
