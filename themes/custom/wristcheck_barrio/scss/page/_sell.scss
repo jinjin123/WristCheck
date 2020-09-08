@@ -20,6 +20,15 @@
 
     .form-control {
       background-color: transparent;
+      color: #FFF;
+
+      &::placeholder{
+        color: #FFF;
+      }
+      &:focus{
+        outline: none;
+        border-color: #FFF;
+      }
     }
 
     div {
@@ -37,9 +46,6 @@
     }
 
     fieldset {
-      .form-text {
-        color: white;
-      }
       .form-select {
         margin-top: 4px;
       }

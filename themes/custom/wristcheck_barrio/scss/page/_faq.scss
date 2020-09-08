@@ -1,11 +1,32 @@
 .wc-faq-panel {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  //margin-right: 21%;
-  //margin-left: 21%;
-  .wc-panel-faq__title {
-    //margin-bottom: 100px;
+  width: 90%;
+  margin: 100px auto;
+
+  .wc-faq-header {
+    margin-bottom: 100px;
+    padding: 20px;
   }
+
+  .wc-faq__title {
+    font-size: 30px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 30px;
+  }
+
+  .wc-faq__sub {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #222222;
+  }
+
+  .wc-faq {
+    margin: 0;
+    text-align: left;
+  }
+
   .view-wristcheck-faq {
     .view-filters {
       display: none;
@@ -27,9 +48,3 @@
   background-position: 100% 30%;
 }
 
-.wc-faq-header {
-  margin-bottom: 100px;
-  .wc-panel__title {
-    margin-bottom: 30px;
-  }
-}
