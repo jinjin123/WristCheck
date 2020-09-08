@@ -78,7 +78,6 @@ class UserLoginForm extends FormBase
         ),
       'data-dialog-options' => Json::encode([
         'width' => 730,
-        'padding' => 20,
         'dialogClass' => 'wc-register-dialog'
       ]),
       'data-dialog-type' => 'modal',
