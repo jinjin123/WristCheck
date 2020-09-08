@@ -10,6 +10,7 @@ module:
   better_exposed_filters: 0
   big_pipe: 0
   blazy: 0
+  blazy_ui: 0
   block: 0
   block_attributes: 0
   block_content: 0
@@ -117,6 +118,7 @@ module:
   simplenews: 0
   slick: 0
   slick_extras: 0
+  slick_ui: 0
   slick_views: 0
   smtp: 0
   state_machine: 0
