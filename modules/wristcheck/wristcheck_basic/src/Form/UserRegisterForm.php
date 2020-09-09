@@ -64,6 +64,7 @@ class UserRegisterForm extends FormBase
       '#type' => 'checkbox',
       '#title' => t("I ACCEPT WRIST CHECK'S PRIVACY POLICY"),
       '#size' => 10,
+      '#disabled' => TRUE,
       '#maxlength' => 255,
       '#default_value' => 1,
       '#required' => TRUE,
