@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_brand_logo
     - node.type.brand
   module:
-    - blazy
     - image
     - node
     - user
@@ -55,12 +54,11 @@ display:
           items_per_page: 8
           offset: 0
       style:
-        type: blazy
+        type: default
         options:
-          style: column
-          grid: 6
-          grid_medium: null
-          grid_small: null
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print'
+          default_row_class: true
       row:
         type: fields
         options:
@@ -145,7 +143,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"portfolio-img wc-ex-panel mb-40\">\r\n              {{ field_brand_logo }}\r\n            <!-- .Portfolio-hover end -->\r\n            </div>\r\n            <div class='portfolio-sub-title'>{{ title }}</div>\r\n            <!-- .Portfolio-img end -->"
+            text: "<div class=\"portfolio-img wc-ex-panel mb-40 lazyload\" data-original=\"{{field_brand_logo}}\"></div>\r\n<div class='portfolio-sub-title'>{{ title }}</div>"
             make_link: false
             path: ''
             absolute: false
@@ -183,10 +181,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: image_url
           settings:
             image_style: ''
-            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: true

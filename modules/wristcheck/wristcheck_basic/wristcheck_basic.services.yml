@@ -26,8 +26,8 @@ services:
     arguments: ['@entity_type.manager']
     tags:
       - { name: event_subscriber }
-  wristcheck_basic.cart.price:
-    class: Drupal\wristcheck_basic\EventSubscriber\CartEventSubscriber
-    arguments: ['@messenger', '@commerce_cart.cart_manager']
-    tags:
-      - { name: event_subscriber }
+#  wristcheck_basic.cart.price:
+#    class: Drupal\wristcheck_basic\EventSubscriber\CartEventSubscriber
+#    arguments: ['@messenger', '@commerce_cart.cart_manager']
+#    tags:
+#      - { name: event_subscriber }

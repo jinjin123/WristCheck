@@ -1,35 +1,128 @@
 {{ drupal_block('wristcheck_free_advertising_block') }}
 {{ drupal_block('wristcheck_sell_video_block') }}
 {{ drupal_block('wristcheck_selling_process_single_image_block') }}
-<h1 class="sell-csn">LOW SALES COMMISSION</h1>
-<p class="sell-csn-des"> {{ 'If you succeed in selling the watch,the sales commission will be 6.5% of the selling price'|t }}</p>
-{{ drupal_entity("webform","faq_price") }}
-{#<h1 class="sell-checkout">BENEFITS OF TRUSTED CHECKOUT</h1cl>#}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="wc-panel">
+      <div class="wc-panel2__title text-center">LOW SALES COMMISSION</div>
+      <div
+        class="wc-panel2__sub text-center"> {{ 'If you succeed in selling the watch,the sales commission will be 6.5% of the selling price'|t }}</div>
+      <div class="wc-low-sales">
+        <div class="wc-panel__title text-center text-white">Calculate your payoffs now</div>
+        {{ drupal_entity("webform","faq_price") }}
+      </div>
+    </div>
+  </div>
+</div>
+
 {{ drupal_block('wristcheck_faq_checkout_block') }}
-<h1 class="sell-vid">CREATE AND AD,SIMPLE DESCRIPTION</h1>
-<h1>put video on this position</h1>
-<p>{{ 'In this video,we step-by-step show you how to easily and freely advertise your watch on the Wrist Check'|t }}</p>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="wc-panel">
+      <div class="wc-panel2__title text-center">{{ 'CREATE AND AD,SIMPLE DESCRIPTION'|t }}</div>
+      <div
+        class="wc-panel2__sub text-center">{{ 'In this video,we step-by-step show you how to easily and freely advertise your watch on the Wrist Check'|t }}</div>
+    </div>
+    <div class="container">
+      <div class="wc-video-box">
+        <video></video>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="wc-panel">
   <div class='text-center'>
-    <button type="button" class="btn btn-default btn-lg wc-ex-btn">
-      <span class="fa  fa-arrow-right"></span>
-      {{ '| GET STARTED'|t }}
+    <button type="button" class="wc-btn-dark wc-btn-large wc-sell-get-started">
+      <span class="wc-btn-cont">
+        <span class="fa  fa-arrow-right"></span>
+        {{ '| GET STARTED'|t }}
+      </span>
     </button>
   </div>
 </div>
-<h1>put customer reviews block on this position</h1>
-<div class="contact">
-  <h1>Contact US</h1>
-  <div class="view-header">
-    <span>
-      {% if variables['phone'] %}
-        <h5>CALL : {{ variables['phone'] }}</h5>
-      {% else %}
-        <h5>CALL : +0012 987654</h5>
-      {% endif %}
-      <a href="/aaa">EMAIL: {{ variables['mail'] }} </a>
-    </span>
-    <hr>
+
+<div class="wc-panel">
+  <div class="wc-sell-customer-box">
+    <div class="wc-panel__title text-center">CUSTOMER REVIEWS</div>
+    <div class="wc-panel__sub text-center">That's what our client said</div>
+    <div class="wc-swiper-title text-center">
+      <div class="wc-swiper-title__top">Excellent</div>
+      <div class="wc-swiper-title__star">
+        <img src="/themes/custom/wristcheck_barrio/images/icons/icon-star3.png"/>
+      </div>
+      <div class="wc-swiper-title__bottom">37,841 reviews from around the globe</div>
+    </div>
+    <div class="wc-sell-swiper">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="wc-swiper-slide">
+              <div class="wc-swiper-slide-box">
+                {{ drupal_view("wristcheck_testimdnials","customer_review") }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 如果需要导航按钮 -->
+{#        <div class="swiper-button-prev"></div>#}
+{#        <div class="swiper-button-next"></div>#}
+      </div>
+{#      <div class="swiper-container">#}
+{#        <div class="swiper-wrapper">#}
+{#          <div class="swiper-slide">#}
+{#            <div class="wc-swiper-slide">#}
+{#              <div class="wc-swiper-slide-box">#}
+{#                1#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="swiper-slide">#}
+{#            <div class="wc-swiper-slide">#}
+{#              <div class="wc-swiper-slide-box">#}
+{#                2#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="swiper-slide">#}
+{#            <div class="wc-swiper-slide">#}
+{#              <div class="wc-swiper-slide-box">#}
+{#                3#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <!-- 如果需要导航按钮 -->#}
+{#        <div class="swiper-button-prev"></div>#}
+{#        <div class="swiper-button-next"></div>#}
+{#      </div>#}
+    </div>
   </div>
-  {{ drupal_view('wristcheck_faq','faq_contact_us') }}
 </div>
+
+
+{#TESTIMDNIALS#}
+{#{{ drupal_view('wristcheck_testimdnials','default') }}#}
+{#TESTIMDNIALS end#}
+
+<div class="row">
+  <div class="col-md-8 wc-do-you-have-any-questions">
+    <div class="wc-panel">
+      <div class="wc-panel__title text-center">Do you have any questions? Contact us!</div>
+      <div class="wc-panel__sub text-center">
+        {% if variables['phone'] %}
+          <a href="tel:{{ variables['phone'] }}">CALL : {{ variables['phone'] }}</a>
+        {% else %}
+          <a href="tel:+0012 987654">CALL : +0012 987654</a>
+        {% endif %}
+        <a class="email" href="tomail:{{ variables['mail'] }}">EMAIL : CONTACT</a>
+      </div>
+    </div>
+    <div class="divider"></div>
+    {{ drupal_view('wristcheck_faq','faq_contact_us') }}
+  </div>
+</div>
+
+{{ attach_library('wristcheck_barrio/sell-styling') }}

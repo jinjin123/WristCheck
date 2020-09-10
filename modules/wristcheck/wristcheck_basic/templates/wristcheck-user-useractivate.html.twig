@@ -1,31 +1,45 @@
-<div class="wc-panel">
+<div class="payment-success payment-step">
   <div class="row direction">
-{#    <h5> <img src="/themes/custom/wristcheck_barrio/images/icons/arrow-right.png"/>So Let's go back to the list </h5>#}
-    <h5> <i class="fa fa-angle-left"></i>So Let's go back to the list </h5>
+    <a class="wc-back-nav" onclick="javascript:history.back();"><i class="fa fa-angle-left"></i> So let's go back to the
+      list</a>
   </div>
-  <hr />
-  <div class="user-active-title">
-    <h1 class="note-title">ENABLE YOUR USER ACCOUNT TO COMPLETE THE ORDER</h1>
-    <h5>afsadfklsajflsajfslafjdslakfjsaklfjsadklfjdsaklfjsalkfj</h5>
-    <span class="note-start"><h5>please note: without enabling your user account, the seller will not be able to reserve your order for you</h5></span>
-  </div>
-  <div class="re-email">
-    <h1>Did you not receive the email?</h1>
-    <a href="/fsdfasfsdf">Re-send to enable the link</a>
-    <div>
-      <img src="/themes/custom/wristcheck_barrio/images/watch.png"/>
-      <h5>fdsfsafsafdsafsafsafsf</h5>
-      <h5>Time Solution(HK)Ltd <img class="pay-location-icon" src="/themes/custom/wristcheck_barrio/images/icons/usa.png"/></h5>
-    </div>
-  </div>
-
+</div>
+<div class="wc-panel">
   <div class="row">
-    <div class="user_act_footer">
-        <div>
-            <h1>Next steps:</h1>
-            <h5>fdslfdsjaflksajfkldjsafklsajfklsdajfklsajflkasjfk</h5>
+    <div class="col-md-7">
+      <div class="note-start">
+        <div class="wc-panel__title">ENABLE YOUR USER ACCOUNT TO COMPLETE THE ORDER</div>
+        <p>
+          After your user account has been successfully enabled,we will forward your order to the seller. To this end,
+          we
+          have sent you
+          an email to <strong>{{ variables['mail'] }}</strong>.Please click the following link in your email to enable
+          youruseraccount:
+        </p>
+        <p><strong>please note: without enabling your user account, the seller will not be able to reserve your order
+            for
+            you</strong></p>
+      </div>
+      <div class="re-email">
+        <div class="wc-panel__sub">Did you not receive the email?</div>
+        <a href="javascript;">Re-send to enable the link</a>
+      </div>
+      <div class="user_act_footer">
+        <div class="wc-panel__sub">
+          Next steps:
         </div>
+        <p>After you successfully enable the user account, we will send you the confirmation of your order Transaction
+          dc-2337818 via email.</p>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="wc-user-active-right-box">
+        <div class="wc-user-active-img-box"
+             style="background-image: url('/themes/custom/wristcheck_barrio/images/watch.png')"></div>
+        <p>Patek Philippe Perpetual CalendarChronograph</p>
+        <p>Time Solution(HK)Ltd <img class="pay-location-icon"
+                                     src="/themes/custom/wristcheck_barrio/images/icons/usa.png"/></p>
+      </div>
     </div>
   </div>
 </div>
-

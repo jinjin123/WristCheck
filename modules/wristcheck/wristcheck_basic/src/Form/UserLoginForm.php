@@ -2,6 +2,7 @@
 
 namespace Drupal\wristcheck_basic\Form;
 
+use Drupal\Component\Serialization\Json;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\Core\Ajax\AjaxResponse;
@@ -75,6 +76,10 @@ class UserLoginForm extends FormBase
         'use-ajax',
         'register-popup-form'
         ),
+      'data-dialog-options' => Json::encode([
+        'width' => 730,
+        'dialogClass' => 'wc-register-dialog'
+      ]),
       'data-dialog-type' => 'modal',
     );
 

@@ -37,44 +37,16 @@
          .faq_checkout {
            display: flex;
            > div {
-             margin-right: 15%;
+             //margin-right: 15%;
+             width:100%;
+             > img {
+               width:100%;
+             }
            }
          }
        }
      }
 
-     .webform-submission-faq-price-form {
-         background-image: url("/themes/custom/wristcheck_barrio/images/step-1.png");
-         width: 1300px;
-         height: 400px;
-         margin-bottom: 100px;
-       .webform-elements {
-         display: flex;
-         position: relative;
-         top: 250px;
-         margin: 0 10%;
-         .js-form-item-second-size {
-           margin-left: 40px;
-         }
-         div {
-           select {
-             margin-right: 30px;
-             background-color: #FFFBFCFC;
-             text-align: center;
-             text-align-last: center;
-           }
-         }
-         .js-form-required[for="edit-first-unit"],
-         .js-form-required[for="edit-second-unit"]{
-           color: transparent;
-         }
-         fieldset {
-           .form-select {
-             margin-top: 4px;
-           }
-         }
-       }
-     }
   }
 }
 

@@ -37,5 +37,56 @@
       width: 300px;
       height:50px;
     }
+
+  }
+}
+.wc-protfolio__price {
+  color:#222330;
+}
+.wc-protfolio_sold {
+  border: 1px solid !important;
+  font-weight: bold !important;
+  position: relative;
+  top: -10px;
+}
+.wc-protfolio-product__link {
+  color:#003cc5;
+}
+.wc-protfolio-product__title {
+  line-height: 1;
+  font-size: 24px;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #222222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  >span {
+    padding: 0 !important;
+  }
+  >a {
+    position: relative;
+    padding: 0 300px;
+  }
+}
+.wc-panel-protfolio {
+  display: flex;
+  padding: 50px 0;
+  .wc-protfolio__total {
+    padding-right: 450px;
+    font-weight: bold;
+  }
+  .wc-product-introduction {
+    .wc-product-btn {
+      top: -25px;
+      .wc-product-add-wishlist {
+        background-color: #333 !important;
+        color: white;
+        >span {
+          color: white;
+        }
+      }
+    }
   }
 }

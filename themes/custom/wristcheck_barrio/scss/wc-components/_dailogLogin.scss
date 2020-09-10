@@ -1,7 +1,5 @@
 .ui-dialog {
-  padding: 20px;
-  width: 730px !important;
-  .result_message{
+  .result_message {
     height: 30px;
     padding: 0 20px;
     color: $red;
@@ -16,22 +14,22 @@
     color: $color-dark3;
     line-height: 53px;
   }
+
   .user-register-form {
-    margin: 0 150px;
     .form-item-email {
       padding: 0 20px;
       color: $color-dark9;
     }
+
     .form-item-name {
       padding: 0 20px;
       color: $color-dark9;
-      width: 100% !important ;
+      width: 100% !important;
     }
   }
 
   .ui-widget-content {
     padding: 20px;
-
 
 
     .form-item-name,
@@ -61,10 +59,12 @@
     .links {
       text-align: center;
       padding-bottom: 40px;
-      .register{
+
+      .register {
         margin-right: 20px;
         color: $color-dark9;
       }
+
       .forget {
         color: $color-link;
       }
@@ -100,16 +100,19 @@
     }
 
   }
-  .form-footer{
+
+  .form-footer {
     padding-top: 40px;
     border-top: 1px solid $bg_gray;
-    .form-footer-title{
-      font-size:24px;
-      font-family:Source Han Sans CN;
-      font-weight:bold;
-      color:rgba(34,34,34,1);
+
+    .form-footer-title {
+      font-size: 24px;
+      font-family: Source Han Sans CN;
+      font-weight: bold;
+      color: rgba(34, 34, 34, 1);
     }
-    .wc-btn-dark{
+
+    .wc-btn-dark {
       display: flex;
       width: 320px;
       height: 50px;
@@ -118,5 +121,103 @@
       align-items: center;
     }
   }
+}
 
+.wc-login-dialog {
+  padding: 20px;
+}
+
+.ui-widget.ui-widget-content.wc-register-dialog {
+  padding: 50px 100px 20px;
+
+  .form-group input {
+    background-color: transparent;
+    border-width: 0 0 1px 0 !important;
+    border-color: #ddd !important;
+    border-style: solid !important;
+    padding-left: 0;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    background-color: transparent;
+  }
+
+  label {
+    display: none;
+  }
+
+  label.custom-control-label {
+    display: inline-block;
+  }
+
+  .user-register-form {
+    .custom-switch {
+      margin-left: 10px !important;
+      font-size: 14px;
+      font-family: Myriad Pro;
+      font-weight: 400;
+      color: #484848;
+
+      .custom-control-label:before {
+        position: absolute;
+        top: 0.1rem;
+        left: -1.5rem;
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        pointer-events: none;
+        content: "";
+        background-color: #fff;
+        border: #adb5bd solid 1px;
+        border-radius: 0;
+      }
+
+      .custom-control-label::after {
+        position: absolute;
+        top: 0.1rem;
+        left: -1.5rem;
+        width: 1rem;
+        height: 1rem;
+        content: "";
+        display: none;
+        transition: none;
+        transform: none;
+      }
+
+      input:checked ~ .custom-control-label::after {
+        display: block;
+        background: no-repeat 50% / 100% 100%;
+        background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
+      }
+    }
+  }
+
+  .form-submit {
+    margin-top: 50px;
+  }
+
+  .alert-danger::before {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    background-position: 0 0;
+    background-size: contain;
+  }
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+  border-color: #202127;
+  background-color: #202127;
 }

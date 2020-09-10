@@ -11,7 +11,7 @@ plugin: checkoutcom
 configuration:
   public_key: pk_test_75df7a1c-8218-480f-83a4-94a47055957d
   secret_key: sk_test_4e4c28e9-3bd2-4729-b38e-6b1bc9d7e4bb
-  webhook_capture_id: null
+  webhook_capture_id: wh_buyfoofapulevnciyg2xzqdmv4
   display_label: Checkout.com
   mode: test
   payment_method_types:

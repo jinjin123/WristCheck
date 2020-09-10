@@ -1,29 +1,64 @@
 <div class="wc-panel ">
-  <h1 class='wc-panel__title text-left'>{{ 'WRISTCHECK'|t }}</h1>
-  {{ drupal_view('wristcheck_faq') }}
-     {{ drupal_view('wristcheck_faq','process_step') }}
+  <div class="wc-faqsystemstep">
+    <h1 class='wc-panel__title text-left'>{{ 'WRISTCHECK'|t }}</h1>
+    {{ drupal_view('wristcheck_faq') }}
+    {{ drupal_view('wristcheck_faq','process_step') }}
     {{ drupal_block('wristcheck_faq_checkvalue_block') }}
-  {{ drupal_view('wristcheck_faq','faq_ad_simple_one_pic') }}
-  <div class="ad_four">
-    <h1>create ad an simple</h1>
-   {{ drupal_view('wristcheck_faq','faq_ad_simple_four_pic') }}
-  </div>
-  <div class="row">
-    {{ drupal_view('wristcheck_faq','faq_user_comments') }}
-  </div>
-  <div class="contact">
-    <h1>Contact US</h1>
-    <div class="view-header">
-      <span>
-      {% if variables['phone'] %}
-        <h5>CALL : {{ variables['phone'] }}</h5>
-      {% else %}
-        <h5>CALL : +0012 987654</h5>
-      {% endif %}
-      <a href="/aaa">EMAIL: {{ variables['mail'] }} </a>
-       </span>
-      <hr>
+    <div class="ad_four col-md-12">
+      <div class='wc-panel__title text-left'>{{ 'Create an AD, simple instructions '|t }}</div>
+      {{ drupal_view('wristcheck_faq','faq_ad_simple_one_pic') }}
     </div>
-  {{ drupal_view('wristcheck_faq','faq_contact_us') }}
+    <div class="ad_four col-md-12">
+      <div class='wc-panel__title text-left'>{{ 'Create an AD, simple instructions'|t }}</div>
+      {{ drupal_view('wristcheck_faq','faq_ad_simple_four_pic') }}
+    </div>
+    <div class="wc-panel">
+      <div class="wc-sell-customer-box">
+        <div class="wc-panel__title text-center">CUSTOMER REVIEWS</div>
+        <div class="wc-panel__sub text-center">That's what our client said</div>
+        <div class="wc-swiper-title text-center">
+          <div class="wc-swiper-title__top">Excellent</div>
+          <div class="wc-swiper-title__star">
+            <img src="/themes/custom/wristcheck_barrio/images/icons/icon-star3.png"/>
+          </div>
+          <div class="wc-swiper-title__bottom">37,841 reviews from around the globe</div>
+        </div>
+        <div class="wc-sell-swiper">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="wc-swiper-slide">
+                  <div class="wc-swiper-slide-box">
+                    {{ drupal_view("wristcheck_testimdnials","customer_review") }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 如果需要导航按钮 -->
+{#            <div class="swiper-button-prev"></div>#}
+{#            <div class="swiper-button-next"></div>#}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 wc-do-you-have-any-questions">
+        <div class="wc-panel">
+          <div class="wc-panel__title text-center">Do you have any questions? Contact us!</div>
+          <div class="wc-panel__sub text-center">
+            {% if variables['phone'] %}
+              <a href="tel:{{ variables['phone'] }}">CALL : {{ variables['phone'] }}</a>
+            {% else %}
+              <a href="tel:+0012 987654">CALL : +0012 987654</a>
+            {% endif %}
+            <a class="email" href="tomail:{{ variables['mail'] }}">EMAIL : CONTACT</a>
+          </div>
+        </div>
+        <div class="divider"></div>
+        {{ drupal_view('wristcheck_faq','faq_contact_us') }}
+      </div>
+    </div>
   </div>
 </div>
+
+{{ attach_library('wristcheck_barrio/sell-styling') }}

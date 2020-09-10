@@ -2,6 +2,7 @@
 
 namespace Drupal\wristcheck_basic\Controller;
 
+use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -31,8 +32,21 @@ class UserController extends ControllerBase
    */
   public function info()
   {
-//    dd(views_get_view_result('wristcheck_user_profile','settings'));
-    $variables = [];
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $variables['mail'] = $user->getEmail();
+    $variables['phone'] = $user->get('field_phone_number')->value;
+    if(count($user->field_surnames->getValue())>0){
+      $variables['surname'] = array_values($user->field_surnames->getValue()[0])[0];
+    }
+    $variables['gender']  = array_values($user->field_gender->getValue()[0])[0];
+    if(count($user->field_date_of_birth->getValue())>0){
+      $variables['birth']  = date("Y/m/d",strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
+    }
+    $variables['name'] =$user->getUsername();
+    $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
+    $variables['news'] = $user->get('field_newsletter')->value;
+    $variables['cooperate'] = $user->get('field_we_cooperate_in')->value;
+    $variables['guide'] = $user->get('field_guide')->value;
     return [
       '#theme' => 'wristcheck_user_info',
       '#variables' => $variables
@@ -59,7 +73,31 @@ class UserController extends ControllerBase
   }
 
   public function portfolio(){
-    $variables = [];
+//    $query = \Drupal::entityQuery('node')
+//      ->condition('status', 1)
+//      ->condition('uid', 1)
+//      ->condition('type', 'portfolio');
+//    $entity_ids = $query->execute();
+    $entity_ids = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadByProperties(['type' => 'portfolio','uid'=>\Drupal::currentUser()->id()]);
+    if(count($entity_ids)>0){
+      $total = 0;
+      $unit = "";
+      foreach($entity_ids as $v){
+        if (count(array_values($v->field_related_model->entity->field_ask_price->getValue()))>0){
+          $total += array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['number'];
+          $unit = array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['currency_code'];
+        }
+        if($unit !=""){
+          $variables["total"] = "VALUE: ".$unit."".strval($total);
+        }else {
+          $variables = [];
+        }
+      }
+    }else{
+      $variables = [];
+    }
     return [
       '#theme' => 'wristcheck_user_portfolio',
       '#variables' => $variables
@@ -70,9 +108,9 @@ class UserController extends ControllerBase
   {
     $user = \Drupal\user\Entity\User::load('1');
     $variables['mail'] = $user->getEmail();
-    if (!$user->user_picture->isEmpty()) {
-//      $variables['picture'] = file_create_url($user->user_picture->entity->getFileUri());
-      $variables['picture'] = $user->user_picture->view('large');
+    if (!$user->user_picture->isEmpty() !="") {
+      $variables['picture'] = file_create_url($user->user_picture->entity->getFileUri());
+//      $variables['picture'] = $user->user_picture->view('large');
     }else{
       $variables['picture']  = '';
     }
@@ -85,7 +123,8 @@ class UserController extends ControllerBase
 
   public function useractivate()
   {
-    $variables = [];
+    $user = \Drupal\user\Entity\User::load('1');
+    $variables['mail'] = $user->getEmail();
     return [
       '#theme' => 'wristcheck_user_useractivate',
       '#variables' => $variables
@@ -113,7 +152,7 @@ class UserController extends ControllerBase
         'field_sex'=>$sex,
       ]);
       $profile->save();
-
+//      \Drupal::messenger()->addStatus("Save your profile successful!");
 //      \Drupal::logger('User_profile')->error('user profile save faild' . $name.$last_name.$sex);
       return new Response("ok");
     }catch (Exception $e){

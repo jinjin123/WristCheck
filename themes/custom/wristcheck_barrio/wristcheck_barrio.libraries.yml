@@ -16,6 +16,7 @@ global-styling:
   dependencies:
     - core/jquery
     - core/drupal
+    - core/drupal.message
 
 product-styling:
   version: VERSION
@@ -43,6 +44,18 @@ comingsoon-styling:
       libs/bootstrap3/bootstrap.min.css: {}
       css/comingsoon.css: {}
       css/style.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+sell-styling:
+  version: VERSION
+  js:
+    libs/swiper/js/swiper.js: {}
+    js/sell.js: {}
+  css:
+    component:
+      libs/swiper/css/swiper.css: {}
   dependencies:
     - core/jquery
     - core/drupal

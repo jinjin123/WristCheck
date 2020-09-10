@@ -1,231 +1,190 @@
-.path-magazine {
-  .wc-further-title,
-  .wc-latest-title,
-  .wc-further-title-3,
-  .wc-buygui-title {
-    text-align: center;
-    font-size:25px;
-    font-weight: bold;
-    margin-bottom: 40px;
-  }
-  .wc-magazine-top {
-    div {
-      img {
-          width:100%;
-      }
-    }
-    margin-bottom: 30px;
-  }
-  .views-field-body {
-    text-align: center;
-  }
-
-  .mag-title {
-    text-align: center;
-    border-bottom: 1px solid #333;
-    font-weight: bold;
-    width:70%;
-    margin-right: 15%;
-    margin-bottom: 25px;
-    margin-left: 15%;
-  }
-  .view-footer {
-    .wc-rolex-item {
-      .wc-rolex-action {
-        display: flex;
-        text-align: center;
-        margin: 0 42%;
-        h5 {
-          padding-right: 30px;
-          font-size: 15px;
-          color:gray;
+    .magazine-home {
+          padding-right: 0 !important;
+          padding-left: 0 !important;
+          max-width: 100% !important;
+      .wc-magazine {
+        .wc-buy-product-privew__img {
+          margin-bottom: 20px;
         }
       }
     }
-    margin-bottom:  50px;
-    margin-left: 30px;
-  }
+
+    .wc-further-title,
+    .wc-latest-title,
+    .wc-further-title-3,
+    .wc-buygui-title {
+      text-align: center;
+      font-size:25px;
+      font-weight: bold;
+      margin-bottom: 70px;
+    }
 
   .view-display-id-latest_articles {
-    margin:  0 20%;
+    //margin-right: 10%;
+    //margin-left:  10%;
+    margin-bottom: 60px;
     .view-content {
-      display: flex;
       flex-wrap: wrap;
-      .views-row {
-        width: 550px;
-        margin-right: 21px;
-        .wc-magazine-item {
-          margin-bottom: 50px;
+      display: flex;
+      > div {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .wc-latest-art {
+        margin-bottom: 30px;
+        img {
+          margin-bottom: 20px;
+          width: 100%;
+          height: 100%;
+          //width: 600px;
+          //height: 300px;
         }
-      }
-    }
-    .wc-latest-art {
-      img {
-        width: 550px;
-        height: 500px;
-      }
-      .wc-rolex-modal {
-        margin-top: 20px;
-        .wc-rolex-action {
-          .wc-rolex-sub {
-            color:grey;
-            font-size: 15px;
-          }
-          .wc-rolex-title {
-            border-bottom: 1px solid #333;
-            margin-bottom: 20px;
-            font-size: 20px;
-            font-weight: bold;
-          }
-          h3 {
-            color:grey;
-            font-size: 15px;
+
+        .wc-rolex-modal {
+          margin-top: 20px;
+
+          .wc-rolex-action {
+            .wc-rolex-sub {
+              color: grey;
+              font-size: 15px;
+              margin-bottom: 10px;
+            }
+
+            .wc-rolex-title {
+              border-bottom: 1px solid #333;
+              margin-bottom: 10px;
+              font-size: 20px;
+              font-weight: bold;
+              width: 100%;
+            }
+            h3 {
+              color: grey;
+              font-size: 15px;
+            }
           }
         }
       }
     }
   }
   .view-display-id-further_articles {
-    margin:  0 20%;
+    //margin-right:  8%;
+    //margin-left:  8%;
+    margin-bottom:  80px;
     .view-content {
       display: flex;
-      //flex-wrap: wrap;
-      .views-row {
-        width: 290px;
-        //margin-right: 10px;
-        .wc-magazine-item {
-          margin-bottom: 50px;
-        }
+      flex-wrap:  wrap;
+       >div {
+         max-width: 25%!important;
       }
     }
-    .wc-latest-art {
+   .wc-further-art {
       img {
-        width: 250px;
-        height: 500px;
+        //width: 320px;
+        width: 100%;
+        height: 400px;
+        margin-bottom:  25px;
       }
-      .wc-rolex-modal {
-        margin-top: 20px;
+     .wc-rolex-modal {
         .wc-rolex-action {
           .wc-rolex-sub {
-            color:grey;
-            font-size: 15px;
+            color: grey;
           }
           .wc-rolex-title {
-            //border-bottom: 1px solid #333;
-            margin-bottom: 20px;
-            font-size: 20px;
             font-weight: bold;
+            font-size: 18px;
           }
-          h3 {
-            color:grey;
-            font-size: 15px;
+        }
+     }
+    }
+  }
+  .view-display-id-buy_guide {
+    //margin-right:  10%;
+    //margin-left:  10%;
+    margin-bottom:  80px;
+    .view-content {
+      display: flex;
+      flex-wrap: wrap;
+      >div {
+        //max-width: 60%!important;
+        margin-bottom:  40px;
+      }
+    }
+    .wc-buygui-art {
+      display: flex;
+      img {
+        width: 400px;
+        margin-right: 50px;
+      }
+      .wc-rolex-modal {
+        .wc-rolex-action {
+          .wc-rolex-title {
+            margin-bottom:  70px;
+            font-size: 20px;
+          }
+          .wc-rolex-sub {
+            color: grey;
           }
         }
       }
     }
   }
   .view-display-id-further_articles_3 {
-    margin:  0 20%;
-    .view-content {
-      display: flex;
-      //flex-wrap: wrap;
-      .views-row {
-        width: 350px;
-        margin-right: 30px;
-        .wc-magazine-item {
-          margin-bottom: 50px;
-        }
-      }
-    }
-    .wc-latest-art {
-      img {
-        width: 320px;
-        height: 500px;
-      }
-      .wc-rolex-modal {
-        margin-top: 20px;
-        .wc-rolex-action {
-          .wc-rolex-sub {
-            color:grey;
-            font-size: 15px;
-          }
-          .wc-rolex-title {
-            //border-bottom: 1px solid #333;
-            margin-bottom: 20px;
-            font-size: 20px;
-            font-weight: bold;
-          }
-          h3 {
-            color:grey;
-            font-size: 15px;
-          }
-        }
-      }
-    }
-  }
-  .view-display-id-buy_guide  {
-    margin:  0 20%;
     .view-content {
       display: flex;
       flex-wrap: wrap;
-      .views-row {
-        width: 500px;
-        margin-right: 70px;
-        .wc-magazine-item {
-          margin-bottom: 50px;
-        }
+      >div {
+
       }
     }
-    .wc-latest-art {
-      display: flex;
-      img {
-        width: 350px;
-        height: 180px;
-      }
+    .wc-further-three-art {
       .wc-rolex-modal {
-        margin-left: 20px;
+        img {
+          width: 100%;
+          height: 500px;
+        }
         .wc-rolex-action {
-          .wc-rolex-sub {
-            color:grey;
-            font-size: 15px;
-          }
+          position: absolute;
+          margin-top: -80px;
+          padding: 0 10px;
           .wc-rolex-title {
-            //border-bottom: 1px solid #333;
-            margin-bottom: 50px;
-            font-size: 15px;
-            font-weight: bold;
-          }
-          h3 {
-            color:grey;
-            font-size: 15px;
+            font-size:  18px;
           }
         }
       }
     }
   }
-  //.views-row {
-  //  width: 100%;
-  //  .views-field-field-page-title-image {
-  //    margin-bottom: 50px;
-  //    img {
-  //      width: 100%;
-  //    }
-  //  }
+
+  //.wc-buy-product-privew__img {
+  //  margin-bottom: 40px;
+
+    .wc-magazine-privew__img {
+      width: 100%;
+    }
   //}
 
-  .container {
-    max-width: none !important;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-    .row {
-      margin-right:0 !important;
-      margin-left:0 !important;
-      .col-md-12 {
-        padding-right: 0;
-        padding-left: 0;
+  .wc-magazine-body {
+    margin-bottom: 50px;
+
+    .wc-magazine__title {
+      text-align: center;
+      border-bottom: 1px solid #333;
+      margin-bottom: 20px;
+    }
+
+    .wc-magazine__describe {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .wc-magazine-owner {
+      text-align: center;
+      color: gray;
+
+      .wc-magazine__cate {
+        padding-right: 50px;
       }
     }
   }
-}
-
 

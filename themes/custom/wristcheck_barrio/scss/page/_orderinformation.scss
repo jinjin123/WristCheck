@@ -1,0 +1,45 @@
+#block-shippinginfotop {
+  margin-bottom: 70px;
+}
+
+.commerce-checkout-flow {
+  h3{
+    display: block;
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 40px;
+  }
+}
+
+fieldset {
+  > legend > .fieldset-legend {
+    display: block;
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 40px;
+  }
+
+  .fieldset-wrapper {
+    .radio {
+      display: flex;
+      flex-direction: row;
+
+      > div {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  p.address {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px dashed #dddddd;
+    span{
+      margin-right: 20px;
+    }
+  }
+}

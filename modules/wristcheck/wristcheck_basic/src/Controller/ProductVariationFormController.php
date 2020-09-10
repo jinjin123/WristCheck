@@ -8,11 +8,15 @@ use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormState;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
+use Drupal\commerce_price\Price;
+use Drupal\commerce_order\Entity\OrderItem;
+use Drupal\commerce_order\Entity\Order;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * Class ProductVariationFormController.
  */
@@ -93,7 +97,8 @@ class ProductVariationFormController extends ControllerBase {
 
     }
 
-    $cart_array = $this->addToCartForm($product_id, 'teaser', true, 'en');
+//    $cart_array = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\UserRegisterForm');
+    $cart_array = $this->addToCartForm($product_id, 'cart', true, 'en');
     $output['data'] = render($cart_array);
     return new JsonResponse($output);
   }
@@ -129,6 +134,7 @@ class ProductVariationFormController extends ControllerBase {
     $order_item = $order_item_storage->createFromPurchasableEntity($default_variation);
     /** @var \Drupal\commerce_cart\Form\AddToCartFormInterface $form_object */
     $form_object = $this->entityTypeManager->getFormObject('commerce_order_item', 'add_to_cart');
+//    var_dump($form_object);
     $form_object->setEntity($order_item);
     // The default form ID is based on the variation ID, but in this case the
     // product ID is more reliable (the default variation might change between
@@ -142,32 +148,87 @@ class ProductVariationFormController extends ControllerBase {
       ],
     ]);
 
+
     return $this->formBuilder->buildForm($form_object, $form_state);
   }
 
 
-  public function secondhandtmp(){
-    $content = \Drupal::request()->getContent();
-    $params = json_decode($content, TRUE);
-    $model = $params['model'];
-    $price = $params['price'];
-    $database = \Drupal::database();
-    if(!isset($params['tag'])){
-      $result = $database->insert('tmpsecondhandproduct')
-        ->fields([
-          'model' => $model,
-          'price'=> $price,
-          'uid' =>\Drupal::currentUser()->id(),
-        ])
-        ->execute();
-    }else{
-      $result = $database->delete('tmpsecondhandproduct')
-        ->condition('model' ,$model)
-        ->condition('price',$price)
-        ->condition('uid',\Drupal::currentUser()->id())
-        ->execute();
+//  public function secondhandtmp(){
+//    $content = \Drupal::request()->getContent();
+//    $params = json_decode($content, TRUE);
+//    $model = $params['model'];
+//    $price = $params['price'];
+//    $database = \Drupal::database();
+//    if(!isset($params['tag'])){
+//      $result = $database->insert('tmpsecondhandproduct')
+//        ->fields([
+//          'model' => $model,
+//          'price'=> $price,
+//          'uid' =>\Drupal::currentUser()->id(),
+//        ])
+//        ->execute();
+//    }else{
+//      $result = $database->delete('tmpsecondhandproduct')
+//        ->condition('model' ,$model)
+//        ->condition('price',$price)
+//        ->condition('uid',\Drupal::currentUser()->id())
+//        ->execute();
+//    }
+////    \Drupal::logger('CART')->error('CART'  . json_encode($params['model']));
+//    return new Response("ok");
+//  }
+
+  public function custom($type,$product_id) {
+    if (!in_array($type, ['new', 'old'])) {
+      \Drupal::messenger()->addError("not allow opeation");
+      return $this->redirect("/product/".$product_id);
     }
-//    \Drupal::logger('CART')->error('CART'  . json_encode($params['model']));
-    return new Response("ok");
+    $store_id = 1;
+    $order_type = 'default';
+
+    $entity_manager = \Drupal::entityTypeManager();
+    $cart_manager = \Drupal::service('commerce_cart.cart_manager');
+    $cart_provider = \Drupal::service('commerce_cart.cart_provider');
+    $store = $entity_manager->getStorage('commerce_store')->load($store_id);
+    $cart = $cart_provider->getCart('default', $store);
+
+    if (!$cart) {
+      $cart = $cart_provider->createCart($order_type, $store);
+    }
+
+
+    $product = \Drupal\commerce_product\Entity\Product::load($product_id);
+    if(!$product->getDefaultVariation()){
+      \Drupal::messenger()->addError("not allow opeation");
+      $url = Url::fromUri('internal:/product/'.$product_id); // choose a path
+      $destination = $url->toString();
+      $response = new RedirectResponse($destination, 301);
+      return $response->send();
+    }
+    $d_id = $product->getDefaultVariation()->Id();
+    $ids = $product->getVariationIds();
+    if($type == "old"){
+      if(count($ids)>1){
+        foreach($ids as $v){
+          if($v==$d_id){
+            continue;
+          }else{
+            $product_variation = $entity_manager->getStorage('commerce_product_variation')->load($v);
+            $order = $cart_manager->addEntity($cart, $product_variation);
+          }
+        }
+      }else{
+        \Drupal::messenger()->addError("not allow opeation");
+        $url = Url::fromUri('internal:/product/'.$product_id); // choose a path
+        $destination = $url->toString();
+        $response = new RedirectResponse($destination, 301);
+        return $response->send();
+      }
+    }elseif($type == "new"){
+      $product_variation = $entity_manager->getStorage('commerce_product_variation')->load($d_id);
+      $order = $cart_manager->addEntity($cart, $product_variation);
+    }
+    sleep(2);
+    return $this->redirect('commerce_cart.page');
   }
 }

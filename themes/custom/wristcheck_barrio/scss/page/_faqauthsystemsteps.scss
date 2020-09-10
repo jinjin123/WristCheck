@@ -1,211 +1,226 @@
-.path-faq-authsystemstep {
-  main {
-    margin: 0 250px;
+.wc-faqsystemstep {
+  margin: 0 200px;
 
-    .views-element-container {
-      .view-wristcheck-faq {
-        .view-filters {
-          .views-exposed-form {
-            .form-row {
-              > fieldset {
-                display: none;
-              }
+  .view-wristcheck-faq {
+    .view-filters {
+      //display: none;
+    }
+  }
+
+  .view-wristcheck-faq {
+    .view-filters {
+      .views-exposed-form {
+        .form-row {
+          > fieldset {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .view-content {
+    > div {
+      .views-field-field-wristcheck-process-steps {
+        .field-content {
+          .paragraph--type--wristcheck-process-steps {
+            .field--name-field-process-step {
+              display: flex;
+              flex-wrap: wrap;
+              margin-bottom: 50px;
             }
           }
         }
       }
+    }
+  }
 
-      .view-content {
+  #edit-actions {
+    #edit-submit-wristcheck-faq {
+      background-color: #d0d0d0;
+      border: 0;
+      height: 40px;
+      width: 150px;
+    }
+
+    #edit-reset {
+      height: 40px;
+      width: 150px;
+    }
+
+    button {
+      margin-right: 15px;
+    }
+
+    margin-bottom: 80px;
+  }
+
+  .block-wristcheck-faq-checkvalue-block {
+    margin-bottom: 100px;
+
+    .content {
+      h1 {
+        margin-bottom: 50px;
+      }
+
+      .row {
         > div {
-          .views-field-field-wristcheck-process-steps {
-            .field-content {
-              .paragraph--type--wristcheck-process-steps {
-                .field--name-field-process-step {
-                  display: flex;
-                  flex-wrap: wrap;
-                  margin-bottom: 50px;
-                }
-              }
+          margin-right: 250px;
+        }
+      }
+    }
+  }
+
+  .view-display-id-faq_ad_simple_one_pic {
+    margin-bottom: 100px;
+    .views-field-field-page-title-image {
+      .field-content {
+         img {
+           width:100%;
+         }
+      }
+    }
+    .view-content {
+      .views-row {
+        .views-field-title {
+          .field-content {
+            > div {
+              color: #333;
+              font-weight: bold;
+              font-size: 25px;
+              margin-bottom: 30px;
             }
           }
         }
       }
     }
+  }
 
-    #edit-actions {
-      #edit-submit-wristcheck-faq {
-        background-color: #d0d0d0;
-        border: 0;
-        height: 40px;
-        width: 150px;
-      }
+  .view-display-id-faq_ad_simple_four_pic {
+    margin-bottom: 100px;
 
-      #edit-reset {
-        height: 40px;
-        width: 150px;
-      }
+    .view-content {
+      display: flex;
+      flex-wrap: wrap;
 
-      button {
-        margin-right: 15px;
-      }
+      .views-row {
+        //margin-right: 10px;
 
-      margin-bottom: 80px;
-    }
-
-    .block-wristcheck-faq-checkvalue-block {
-      margin-bottom: 100px;
-
-      .content {
-        h1 {
-          margin-bottom: 50px;
+        .views-field-field-image {
+          margin-bottom: 30px;
         }
 
-        .row {
-          > div {
-            margin-right: 250px;
-          }
-        }
-      }
-    }
-
-    .view-display-id-faq_ad_simple_one_pic {
-      margin-bottom: 100px;
-
-      .view-content {
-        .views-row {
-          .views-field-title {
-            .field-content {
-              > div {
-                color: #333;
-                font-weight: bold;
-                font-size: 25px;
-                margin-bottom: 30px;
-              }
+        .views-field-title {
+          .field-content {
+            > div {
+              color: #333;
+              font-weight: bold;
+              text-align: center;
             }
           }
         }
       }
     }
+  }
 
-    .view-display-id-faq_ad_simple_four_pic {
-      margin-bottom: 100px;
+  .ad_four {
+    h1 {
+      margin-bottom: 30px;
+    }
+  }
 
-      .view-content {
-        display: flex;
-        flex-wrap: wrap;
+  #block-wristcheckfaqslider {
+    //padding: 0 120px;
+    background-image: url("/themes/custom/wristcheck_barrio/images/watch.png");
+    width: 1300px;
+    //height: 400px;
+    margin-bottom: 40px;
+  }
+}
 
-        .views-row {
-          margin-right: 30px;
+.wc-faq-checkout {
+  img {
+    width: 100%;
+  }
+}
 
-          .views-field-field-image {
-            margin-bottom: 30px;
-          }
 
-          .views-field-title {
-            .field-content {
-              > div {
-                color: #333;
-                font-weight: bold;
-                text-align: center;
-              }
-            }
-          }
-        }
+.wc-faq {
+  padding: 20px;
+  margin: 0 20%;
+
+  .wc-faq__title {
+    font-size: 30px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 1);
+    margin-bottom: 50px;
+  }
+
+  .wc-faq__item {
+    border-bottom: 1px solid rgba(223, 223, 223, 0.24);
+  }
+
+  .wc-faq__item__titile {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 1);
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    font-family: Myriad Pro;
+    font-weight: 400;
+    color: rgba(72, 72, 72, 1);
+  }
+
+  a {
+    font-size: 16px;
+    font-family: Myriad Pro;
+    font-weight: 400;
+    color: rgba(24, 108, 164, 1);
+  }
+
+  .wc-faq__item__body {
+    //display: none;
+  }
+}
+
+.wc-step {
+  .wc-step-body {
+    .wc-step-body__title {
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+    .wc-step-body__img {
+      .field__item {
+        //width: 25%;
+        margin-right: 55px;
       }
     }
+  }
+}
+.wc-ad-four {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
 
-    .ad_four {
-      h1 {
-        margin-bottom: 30px;
+.wc-faq-ad {
+  .wc-faq-ad-body {
+    .wc-faq-ad__img {
+      width: 100%;
+      img {
+        width: 95%;
       }
+
+      margin-bottom: 30px;
     }
 
-    #block-wristcheckfaqslider {
-      //padding: 0 120px;
-      background-image: url("/themes/custom/wristcheck_barrio/images/watch.png");
-      width: 1300px;
-      //height: 400px;
-      margin-bottom: 40px;
-    }
-
-    .contact {
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      .view-header {
-        margin-bottom: 30px;
-        //div {
-        //  display: inline-flex;
-        //text-align: center;
-        span {
-          display: flex;
-          position: relative;
-          margin: 0 36%;
-          left: 40px
-        }
-        h5 {
-          margin-right: 20px;
-          font-size: 14px;
-          margin-top: 2px;
-        }
-        a {
-          font-size: 14px;
-          color: #82b1d0;
-          font-weight: bold;
-        }
-        hr {
-          width:50%;
-        }
-        //}
-      }
-      .views-element-container {
-        .view-display-id-faq_contact_us {
-          text-align: center;
-          .view-content {
-            .views-row {
-              .views-field-title {
-                margin-bottom: 20px;
-                .field-content {
-                  .faq-arrow {
-                    margin-top: -20px;
-                  }
-                  > div {
-                    color: #333;
-                    font-weight: bold;
-
-                    i {
-                      border: solid grey;
-                      border-width: 0 1px 1px 0;
-                      display: inline-block;
-                      padding: 5px;
-                      transform: rotate(-45deg);
-                      -webkit-transform: rotate(-45deg);
-                      margin-bottom: 5px;
-                      margin-left: 50%;
-                    }
-                  }
-                }
-              }
-
-              .views-field-body {
-                display: none;
-                >div {
-                  >p {
-                    color: #898989;
-                  }
-                }
-                //.field-content {
-                //  >p {
-                //    //display:  none;
-                //  }
-                //}
-                margin-bottom: 50px;
-              }
-            }
-          }
-        }
-      }
+    .wc-faq-ad__title {
+      text-align: center;
+      position: relative;
     }
   }
 }

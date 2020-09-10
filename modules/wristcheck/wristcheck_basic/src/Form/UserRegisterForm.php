@@ -60,6 +60,16 @@ class UserRegisterForm extends FormBase
         'placeholder' => 'Username',
       ],
     ];
+    $form['condtion'] = [
+      '#type' => 'checkbox',
+      '#title' => t("I ACCEPT WRIST CHECK'S PRIVACY POLICY"),
+      '#size' => 10,
+      '#disabled' => TRUE,
+      '#maxlength' => 255,
+      '#default_value' => 1,
+      '#required' => TRUE,
+      '#description' =>  t(""),
+    ];
     $form['actions'] = [
       '#type' => 'button',
       '#value' => $this->t('register'),
@@ -161,7 +171,7 @@ class UserRegisterForm extends FormBase
       $error_output = '';
       foreach($errors as $error) {
         $err = $error->__toString();
-        $error_output .= '<div class="messages error" >' . $err .'</div>';
+        $error_output .= '<div class="alert alert-danger" role="alert" >' . $err .'</div>';
       }
       $form['errors'] = [
         '#markup' => $error_output,

@@ -1,58 +1,33 @@
-.path-user-activate {
-  .pay-location-icon {
-    width:15px
+
+.pay-location-icon {
+  width: 15px
+}
+
+.note-start, .re-email {
+  margin-bottom: 100px;
+}
+
+.re-email {
+  a {
+    color: #186CA4;
   }
-  main {
-    .wc-panel {
-      .direction {
-        margin-left: 5px;
-        h5 {
-          i {
-            margin-right: 10px;
-            font-size: 30px;
-          }
-        }
-      }
-      hr {
-        border:1px groove ;
-        margin-bottom: 100px !important;
-      }
-      .row {
-        h5 {
-          margin-bottom: 30px;
-        }
-      }
-      .note-start {
-        h5 {
-          font-weight: bold;
-        }
-        margin-bottom: 100px;
-      }
-      .re-email {
-        a {
-          color: blue;
-        }
-        margin-bottom: 100px;
-        div {
-          float: right;
-          margin-top: -200px;
-        }
-      }
-      .user_act_footer {
-        display: flex;
-        >div {
-          margin-right: 600px;
-        }
-      }
-      .user-active-title {
-        h1 {
-          margin-bottom: 10px ;
-        }
-        h5 {
-          margin-bottom: 20px ;
-        }
-        margin-bottom: 100px ;
-      }
-    }
+}
+
+.wc-user-active-right-box {
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+
+  .wc-user-active-img-box {
+    width: 340px;
+    height: 250px;
+    background-color: rgba(223, 223, 223, 0.24);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 40px;
   }
 }

@@ -1,55 +1,172 @@
-.path-user-supplementform {
-  main {
-    margin: 0 300px;
-    .wc-panel {
-      .alert {
-        display: none;
+//.path-user-supplementform {
+//  main {
+//    margin: 0 300px;
+.wc-panel {
+  .alert {
+    display: none;
+  }
+
+  .top-box {
+    text-align: center;
+    margin-bottom: 100px;
+    border-style: groove;
+    display: flex;
+    padding: 60px 100px;
+
+    .top-box-img {
+      width: 20%;
+      text-align: right;
+    }
+
+    .top-box-info {
+      flex: 1;
+      text-align: left;
+      padding-left: 60px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-family: Source Han Sans CN;
+      font-weight: bold;
+      color: #222222;
+      margin-bottom: 30px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-family: Myriad Pro;
+      font-weight: 400;
+      color: #484848;
+    }
+
+    img {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+    }
+
+  }
+
+  .wc-persional_data {
+    display: flex;
+    margin-bottom: 28px;
+    align-items: center;
+
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+
+    img {
+      width: 70px;
+      border-radius: 50%;
+      margin-right: 30px;
+    }
+
+  }
+
+  .wc-user_content {
+    margin-bottom: 80px;
+    display: flex;
+
+    .view-wristcheck-user-data {
+      > .view-content {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
       }
-      .top-box {
+    }
+    .webform-submission-user-info-form {
+      fieldset {
+        margin-bottom: 50px;
+        label {
+          display: none;
+        }
+      }
+    }
+
+    .views-field-field-brand-logo {
+      margin-bottom: 16px;
+    }
+
+    .wc-user-search-body__img {
+      width: 135px;
+      height: 100px;
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      margin-right: 36px;
+
+    }
+
+    .wc-user-search-body__title {
+      display: flex;
+      align-items: center;
+      line-height: 2;
+      flex: 1;
+
+      h5 {
+        font-size: 18px;
+        line-height: 2;
+        font-family: Source Han Sans CN;
+        font-weight: bold;
+        color: #9A9A9A;
+        margin-bottom: 0;
+      }
+    }
+
+    .wc-supple-form-body {
+      margin: 0 auto;
+      width: 60%;
+
+      .wc-supple__title {
+        font-size: 30px;
+        font-family: Source Han Sans CN;
+        font-weight: bold;
+        color: #222222;
         text-align: center;
-        margin-bottom: 100px;
-        border-style: groove;
-        display: flex;
-        div {
-          margin: 100px 100px;
-        }
-        img {
-          width: 100px;
-        }
+        margin-bottom: 70px;
       }
-      .persional_data {
-        display: flex;
-        img {
-          width: 100px;
-        }
-      }
-      .user_content {
-        margin-bottom: 80px;
-        display: flex;
-        h1 {
-          font-size: 20px;
-        }
-        >div {
-          margin-right: 30%;
-        }
-      }
-      .view-wristcheck-user-data {
-        .view-content {
-          .views-row {
-            display: flex;
-            .views-field-title {
-              margin-top: 100px;
-              margin-left: 30px;
-            }
-          }
-        }
+
+      .wc-person-short-desc {
+        font-size: 17px;
+        font-family: Myriad Pro;
+        font-weight: 400;
+        color: #484848;
+        margin-bottom: 40px
       }
     }
-    #block-webform-5 {
-      width: 25%;
-    }
-    label {
-      display: none;
+
+  }
+
+  .view-wristcheck-user-data {
+    .view-content {
+      .views-row {
+        display: flex;
+
+        .views-field-title {
+          margin-top: 100px;
+          margin-left: 30px;
+        }
+      }
     }
   }
 }
+
+.wc-user-search-brand {
+  .wc-user-search-body {
+    display: flex;
+  }
+}
+

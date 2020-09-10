@@ -48,6 +48,7 @@ class PaymentController extends ControllerBase
     $id = \Drupal::currentUser()->id();
     $query = \Drupal::entityQuery('commerce_order')
       ->condition('uid', $id)
+      ->condition('state','fulfillment')
       ->sort('created','DESC')
       ->range(0,1);
     $order_ids = $query->execute();
@@ -62,6 +63,8 @@ class PaymentController extends ControllerBase
         $variables['order_id'] = $order_id;
       }
     }
+    $user = \Drupal\user\Entity\User::load('1');
+    $variables['phone'] = $user->get('field_phone_number')->value;
     return [
       '#theme' => 'wristcheck_payment_success',
       '#type' => 'markup',
@@ -71,7 +74,20 @@ class PaymentController extends ControllerBase
 
   public function paystep()
   {
-    $variables = [];
+    $entity_ids = \Drupal::entityTypeManager()
+      ->getStorage('commerce_payment_method')
+      ->loadMultiple();
+    $variables =[];
+    foreach($entity_ids as $v){
+      if(isset($v->card_type)){
+         $cp = array_values($v->card_type->getValue()[0])[0];
+         $cn = array_values($v->card_number->getValue()[0])[0];
+         $variables["card"]= $cp."(".$cn.")";
+         break;
+      }
+    }
+    $account = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $variables['acc'] = array_values($account->name->getValue()[0])[0];
     return [
       '#theme' => 'wristcheck_payment_step',
       '#type' => 'markup',

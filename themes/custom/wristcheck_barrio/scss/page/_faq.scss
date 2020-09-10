@@ -1,62 +1,50 @@
-.path-faq {
-  main {
-    margin: 0 300px;
-    .wc-panel {
-      .text-description {
-        margin-bottom: 100px;
-      }
-    }
+.wc-faq-panel {
+  width: 90%;
+  margin: 100px auto;
 
-    .view-wristcheck-faq {
-      .view-filters {
-        display: none;
-      }
+  .wc-faq-header {
+    margin-bottom: 100px;
+    padding: 20px;
+  }
 
-      .view-content {
-        .views-row {
-          .views-field-title {
-            font-weight: bold;
+  .wc-faq__title {
+    font-size: 30px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 30px;
+  }
 
-            .field-content {
-              display: flex;
+  .wc-faq__sub {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #222222;
+  }
 
-              > div {
-                padding-bottom: 30px;
-                color: black;
-                font-size: 20px;
+  .wc-faq {
+    margin: 0;
+    text-align: left;
+  }
 
-                i {
-                  border: solid black;
-                  border-width: 0 2px 2px 0;
-                  display: inline-block;
-                  padding: 3px;
-                  transform: rotate(-45deg);
-                  -webkit-transform: rotate(-45deg);
-                  margin-bottom: 5px;
-                  margin-left: 50%;
-                }
-              }
-            }
-          }
-
-          .views-field-body {
-            display: none;
-            //.field-content {
-            //  p {
-            //    display: none;
-            //  }
-            //}
-          }
-
-          .views-field-field-faq-category {
-            //padding-top: 50px;
-            //padding-bottom: 50px;
-            font-size: 30px;
-            color: #333;
-          }
-        }
-      }
+  .view-wristcheck-faq {
+    .view-filters {
+      display: none;
     }
   }
+}
+
+.wc-faq__item {
+  background-image: none;
+}
+
+.wc-faq__item__titile {
+  font-size: 18px;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #222222;
+  background: url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png) no-repeat;
+  background-size: 15px auto;
+  background-position: 100% 30%;
 }
 
