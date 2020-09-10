@@ -76,7 +76,7 @@
         <div class="wc-userinfo-card mb-lg-5">
           <div class="wc-userinfo__body">
             <p class="ppp">How many watches do you have?</p>
-            <p class="p">The purchase was made on May 28, 2020, with the last notice on May 28, 2020</p>
+            <p class="p">The purchase was made on {{ variables['porttime']  }}, with the last notice on {{ variables['porttime']  }}</p>
 {#            <div class="wc-userinfo-list">#}
 {#              <div class="wc-userinfo-list__item">#}
 {#                <div class="wc-userinfo-list__item-img"></div>#}
@@ -153,26 +153,51 @@
           <div class="wc-userinfo__body">
             <p class="ppp">Newsletter</p>
             <div class="wc-userinfo-list">
-              <p class="wc-userinfo-list_p">
-                <span class="p bold">newsletter</span>
+{#              <p class="wc-userinfo-list_p" >#}
+              <p class="">
+                {% if variables["news"]  ==1 %}
+                <input class="wc-user-checkbox" type="checkbox" checked="checked" />
+                {% else %}
+                <input class="wc-user-checkbox" type="checkbox" />
+                {% endif %}
+                <span class="wc-userinfo-list_p p bold">newsletter</span>
                 <span class="p">(All information about WRISTCHECK will be sent to your mailbox)</span>
               </p>
-              <p class="wc-userinfo-list_p">
-                <span class="p bold">We cooperate in advertising</span>
+{#              <p class="wc-userinfo-list_p" >#}
+              <p class="" >
+                {% if variables["cooperate"]  ==1 %}
+                  <input class="wc-user-checkbox" type="checkbox" checked="checked" />
+                {% else %}
+                  <input class="wc-user-checkbox" type="checkbox" />
+                {% endif %}
+                <span class="wc-userinfo-list_p p bold">We cooperate in advertising</span>
                 <span class="p">(We will receive products from our partners one after another)</span>
               </p>
-              <p class="wc-userinfo-list_p">
-                <span class="p bold">guide</span>
+{#              <p class="wc-userinfo-list_p" >#}
+              <p class="" >
+                {% if variables["guide"]  ==1 %}
+                  <input class="wc-user-checkbox" type="checkbox" checked="checked" />
+                {% else %}
+                  <input class="wc-user-checkbox" type="checkbox"  />
+                {% endif %}
+                <span class="wc-userinfo-list_p p bold">guide</span>
                 <span class="p">(Tips and tricks to help you make the most of the site)</span>
               </p>
-              <p class="wc-userinfo-list_p">
-                <span class="p bold">Price warning</span>
+{#              <p class="wc-userinfo-list_p" #}
+              <p>
+                {% if variables["price"]  ==1 %}
+                  <input class="wc-user-checkbox" type="checkbox" checked="checked" disabled="disabled"/>
+                {% else %}
+                  <input class="wc-user-checkbox" type="checkbox"  />
+                {% endif %}
+                <span class="wc-userinfo-list_p p bold">Price warning</span>
                 <span class="p">(Information about price changes in the goods you store)</span>
               </p>
             </div>
             <div class="p d-flex flex-row">
               <span class="bold pr-4">Select the language:</span>
-              <div class="flex-grow-1"> {{ drupal_view('wristcheck_user_profile','settings') }}</div>
+{#              <div class="flex-grow-1"> {{ drupal_view('wristcheck_user_profile','settings') }}</div>#}
+              <div class="flex-grow-1"> {{ variables['lang'] }}</div>
             </div>
           </div>
         </div>

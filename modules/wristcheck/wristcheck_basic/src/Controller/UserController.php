@@ -43,6 +43,19 @@ class UserController extends ControllerBase
       $variables['birth']  = date("Y/m/d",strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
     }
     $variables['name'] =$user->getUsername();
+    $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
+    $variables['news'] = $user->get('field_newsletter')->value;
+    $variables['cooperate'] = $user->get('field_we_cooperate_in')->value;
+    $variables['guide'] = $user->get('field_guide')->value;
+    $variables['price'] = $user->get('field_price_warning')->value;
+    $entity_ids = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->getQuery()
+      ->condition('type', 'portfolio')
+      ->condition('uid', '1')
+      ->sort('created.value', 'DESC')
+      ->range(0, 1)->execute();
+    $variables['porttime'] =  date("M d,Y",\Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
     return [
       '#theme' => 'wristcheck_user_info',
       '#variables' => $variables
@@ -81,14 +94,16 @@ class UserController extends ControllerBase
       $total = 0;
       $unit = "";
       foreach($entity_ids as $v){
-        if (count(array_values($v->field_related_model->entity->field_ask_price->getValue()))>0){
-          $total += array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['number'];
-          $unit = array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['currency_code'];
-        }
-        if($unit !=""){
-          $variables["total"] = "VALUE: ".$unit."".strval($total);
-        }else {
-          $variables = [];
+        if(count($v->field_related_model)!=0){
+          if (count(array_values($v->field_related_model->entity->field_ask_price->getValue()))>0){
+            $total += array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['number'];
+            $unit = array_values($v->field_related_model->entity->field_ask_price->getValue())[0]['currency_code'];
+          }
+          if($unit !=""){
+            $variables["total"] = "VALUE: ".$unit."".strval($total);
+          }else {
+            $variables = [];
+          }
         }
       }
     }else{
