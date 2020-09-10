@@ -1,0 +1,42 @@
+uuid: 8594a8ca-696d-43ed-ade4-a18fa5ec1050
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product.field_condition
+field_name: field_condition
+entity_type: commerce_product
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: New
+      label: New
+    -
+      value: Unworn
+      label: Unworn
+    -
+      value: 'Very good'
+      label: 'Very good'
+    -
+      value: Good
+      label: Good
+    -
+      value: Fair
+      label: Fair
+    -
+      value: Poor
+      label: Poor
+    -
+      value: Incomplete
+      label: Incomplete
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

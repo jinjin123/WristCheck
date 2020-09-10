@@ -9,7 +9,7 @@ id: commerce_product.watch.field_crust_material
 field_name: field_crust_material
 entity_type: commerce_product
 bundle: watch
-label: 'Crust Material'
+label: 'Case Material'
 description: ''
 required: false
 translatable: false

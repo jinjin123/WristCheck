@@ -9,7 +9,7 @@ id: commerce_product.watch.field_case_band_material
 field_name: field_case_band_material
 entity_type: commerce_product
 bundle: watch
-label: case_band_material
+label: 'Bracelet material'
 description: ''
 required: false
 translatable: false

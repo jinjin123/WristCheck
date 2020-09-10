@@ -1,0 +1,10 @@
+uuid: c00207fd-2ca9-47bf-8b84-16760f186213
+langcode: en
+status: true
+dependencies: {  }
+id: wristcheck_pcpi
+label: 'Wristcheck product custom parameter item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,15 +1,15 @@
-uuid: bc4c48cb-356c-4053-817e-af6a53192e77
+uuid: 905e5e41-3352-4b55-92f6-78471014b4c6
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.watch
-    - field.storage.commerce_product.field_watch_sex
-id: commerce_product.watch.field_watch_sex
-field_name: field_watch_sex
+    - field.storage.commerce_product.field_scope_of_delivery
+id: commerce_product.watch.field_scope_of_delivery
+field_name: field_scope_of_delivery
 entity_type: commerce_product
 bundle: watch
-label: Gender
+label: 'Scope of delivery'
 description: ''
 required: false
 translatable: false

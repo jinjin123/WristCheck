@@ -1,0 +1,31 @@
+uuid: 10b936a4-fc77-476c-8058-3ea71407c9a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wristcheck_pcpi.field_item_key
+    - field.field.paragraph.wristcheck_pcpi.field_value
+    - paragraphs.paragraphs_type.wristcheck_pcpi
+  module:
+    - text
+id: paragraph.wristcheck_pcpi.default
+targetEntityType: paragraph
+bundle: wristcheck_pcpi
+mode: default
+content:
+  field_item_key:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_value:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

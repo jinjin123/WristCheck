@@ -1,11 +1,11 @@
-uuid: 9c45d024-b02f-40ec-96cd-b0f1f6fac292
+uuid: 643bc83c-79f8-4da4-b2ae-d597f9e1f844
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_product
-id: commerce_product.field_extras
-field_name: field_extras
+id: commerce_product.field_scope_of_delivery
+field_name: field_scope_of_delivery
 entity_type: commerce_product
 type: string
 settings:
@@ -14,7 +14,7 @@ settings:
   case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

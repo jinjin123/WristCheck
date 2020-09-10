@@ -9,7 +9,7 @@ id: commerce_product.watch.field_watch_core
 field_name: field_watch_core
 entity_type: commerce_product
 bundle: watch
-label: 'Watch Core'
+label: Movement
 description: ''
 required: false
 translatable: false
