@@ -49,12 +49,29 @@
     &:before{
       content: "";
       position: absolute;
-      top: 25px;
+      top: 20px;
       left: 0;
       width: 10px;
       height: 10px;
       border: 1px solid $color-dark3;
     }
+    &::after {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      content: "";
+      transition: none;
+      transform: none;
+      display: none;
+    }
+  }
+
+  input:checked ~ .wc-userinfo-list_p::after {
+    display: block;
+    background: no-repeat 50% / 100% 100%;
+    background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
   }
   .wc-userinfo-list_num{
     display: flex;
@@ -120,6 +137,9 @@
   //margin-top: 30px;
   .wc-userinfo-list {
     margin-top: 40px;
+    .wc-user-checkbox {
+      display: none;
+    }
   }
   .cart-icon{
     display: inline-block;
