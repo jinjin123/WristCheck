@@ -24,6 +24,7 @@ dependencies:
     - field.field.commerce_product.watch.field_cate_img
     - field.field.commerce_product.watch.field_clasp
     - field.field.commerce_product.watch.field_clasp_material
+    - field.field.commerce_product.watch.field_condition
     - field.field.commerce_product.watch.field_crust_material
     - field.field.commerce_product.watch.field_detailimg
     - field.field.commerce_product.watch.field_extras
@@ -39,6 +40,7 @@ dependencies:
     - field.field.commerce_product.watch.field_ref_number
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
+    - field.field.commerce_product.watch.field_scope_of_delivery
     - field.field.commerce_product.watch.field_shock
     - field.field.commerce_product.watch.field_sku
     - field.field.commerce_product.watch.field_specifications
@@ -46,6 +48,7 @@ dependencies:
     - field.field.commerce_product.watch.field_verified_dealer
     - field.field.commerce_product.watch.field_watch_core
     - field.field.commerce_product.watch.field_watch_core_num
+    - field.field.commerce_product.watch.field_watch_params
     - field.field.commerce_product.watch.field_watch_sex
     - field.field.commerce_product.watch.field_watch_style
     - field.field.commerce_product.watch.field_water_resistance
@@ -229,6 +232,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_condition:
+    weight: 54
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_crust_material:
     weight: 16
     settings:
@@ -354,6 +363,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_scope_of_delivery:
+    weight: 55
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_shock:
     weight: 25
     settings:
@@ -411,6 +428,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_watch_params:
+    type: entity_reference_paragraphs
+    weight: 53
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   field_watch_sex:
     weight: 22

@@ -1,0 +1,21 @@
+uuid: 38127e3c-c912-4924-84f5-bd23872f5c86
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - entity_reference_revisions
+    - paragraphs
+id: commerce_product.field_watch_params
+field_name: field_watch_params
+entity_type: commerce_product
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,28 @@
+uuid: 03827921-d454-4441-a4f2-533614eb3872
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_name
+    - paragraphs.paragraphs_type.wristcheck_product_custom_parame
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: paragraph.wristcheck_product_custom_parame.field_name
+field_name: field_name
+entity_type: paragraph
+bundle: wristcheck_product_custom_parame
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

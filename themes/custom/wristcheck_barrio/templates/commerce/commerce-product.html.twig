@@ -146,15 +146,15 @@
         <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">
           {% set url = url('<current>')['#markup'] %}
           <a href="/custom/product/new/{{ url|split('/')|last }}">BUY NEW FROM
-            {{  product.variation_price  }}
+            {{ product.variation_price }}
           </a>
-{#          {{  product.variation_price|slice(1)  }}#}
+          {#          {{  product.variation_price|slice(1)  }}#}
         </div>
         <div class="wc-product-buy pr" id="wc-product-buy-used" product_id="{{ product.id }}">
           {% set url = url('<current>')['#markup'] %}
           <a href="/custom/product/old/{{ url|split('/')|last }}">BUY USED FROM
             {{ drupal_view('wristcheck_second_hands_watch') }}
-            </a>
+          </a>
         </div>
       </div>
     </div>
@@ -165,20 +165,41 @@
 </div>
 
 <div class="row">
+  <div class="col-md-12">
+    <h3>{{ 'THE SELLER CREDIT'|t }}</h3>
+  </div>
+
+  {{ drupal_view('wristcheck_products','wristcheck_basic_info') }}
+
   <div class="col-md-12 wc-product-body">
     {{ product.body }}
   </div>
+
+  <div class="col-md-12 pl-0 pr-0">
+    {{ product.field_watch_params }}
+
+    <div class="col-md-6">
+      <h3>{{ 'Functions'|t }}</h3>
+      {{ drupal_view('wristcheck_products','product_functions') }}
+    </div>
+
+    <div class="col-md-6">
+      <h3>{{ 'Others'|t }}</h3>
+      {{ drupal_view('wristcheck_products','product_others') }}
+    </div>
+  </div>
+
   <div class="col-md-12 wc-product-specifications">
     {{ product.field_specifications }}
   </div>
   <div class="col-md-12 wc-related-model">
-    <h3>RELATED WATCHES</h3>
+    <h3>{{ 'RELATED WATCHES'|t }}</h3>
     {#    {{ product.field_related_model }}#}
     {{ drupal_view('wristcheck_models') }}
   </div>
-{#  <div class="col-md-12">#}
-{#    {{ drupal_view('wristcheck_testimdnials') }}#}
-{#  </div>#}
+  {#  <div class="col-md-12">#}
+  {#    {{ drupal_view('wristcheck_testimdnials') }}#}
+  {#  </div>#}
 </div>
 
 <div class="wc-panel wc-testimdnials">
