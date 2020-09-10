@@ -153,26 +153,35 @@
           <div class="wc-userinfo__body">
             <p class="ppp">Newsletter</p>
             <div class="wc-userinfo-list">
-              <p class="wc-userinfo-list_p">
+{#              <p class="wc-userinfo-list_p" >#}
+              <p>
+                <input class="" type="checkbox" checked="checked" disabled="disabled"/>
                 <span class="p bold">newsletter</span>
                 <span class="p">(All information about WRISTCHECK will be sent to your mailbox)</span>
               </p>
-              <p class="wc-userinfo-list_p">
+{#              <p class="wc-userinfo-list_p" >#}
+              <p class="" >
+                <input class="" type="checkbox"/>
                 <span class="p bold">We cooperate in advertising</span>
                 <span class="p">(We will receive products from our partners one after another)</span>
               </p>
-              <p class="wc-userinfo-list_p">
+{#              <p class="wc-userinfo-list_p" >#}
+              <p class="" >
+                <input class="" type="checkbox"/>
                 <span class="p bold">guide</span>
                 <span class="p">(Tips and tricks to help you make the most of the site)</span>
               </p>
-              <p class="wc-userinfo-list_p">
+{#              <p class="wc-userinfo-list_p" #}
+              <p>
+                <input class="" type="checkbox"/>
                 <span class="p bold">Price warning</span>
                 <span class="p">(Information about price changes in the goods you store)</span>
               </p>
             </div>
             <div class="p d-flex flex-row">
               <span class="bold pr-4">Select the language:</span>
-              <div class="flex-grow-1"> {{ drupal_view('wristcheck_user_profile','settings') }}</div>
+{#              <div class="flex-grow-1"> {{ drupal_view('wristcheck_user_profile','settings') }}</div>#}
+              <div class="flex-grow-1"> {{ variables['lang'] }}</div>
             </div>
           </div>
         </div>

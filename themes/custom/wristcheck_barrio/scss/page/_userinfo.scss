@@ -56,6 +56,22 @@
       border: 1px solid $color-dark3;
     }
   }
+  .wc-userinfo-list_p::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    content: "";
+    transition: none;
+    transform: none;
+    display: none;
+  }
+  input:checked ~ .wc-userinfo-list_p::after {
+    display: block;
+    background: no-repeat 50% / 100% 100%;
+    background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
+  }
   .wc-userinfo-list_num{
     display: flex;
     flex-direction: row;

@@ -43,6 +43,10 @@ class UserController extends ControllerBase
       $variables['birth']  = date("Y/m/d",strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
     }
     $variables['name'] =$user->getUsername();
+    $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
+    $variables['news'] = $user->get('field_newsletter')->value;
+    $variables['cooperate'] = $user->get('field_we_cooperate_in')->value;
+    $variables['guide'] = $user->get('field_guide')->value;
     return [
       '#theme' => 'wristcheck_user_info',
       '#variables' => $variables
