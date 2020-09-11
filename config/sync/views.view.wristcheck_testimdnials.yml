@@ -320,11 +320,10 @@ display:
   customer_review:
     display_plugin: block
     id: customer_review
-    display_title: 'customer review'
+    display_title: Block
     position: 1
     display_options:
       display_extenders: {  }
-      display_description: ''
       style:
         type: slideshow
         options:
@@ -439,6 +438,7 @@ display:
         style: false
         row: false
         fields: false
+        pager: false
       row:
         type: fields
         options:
@@ -523,7 +523,7 @@ display:
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: '   <img class="wc-testimdnials-img" src="/themes/custom/wristcheck_barrio/images/icons/icon-star{{ field_rate }}.png"/>'
             make_link: false
             path: ''
             absolute: false
@@ -637,6 +637,12 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      pager:
+        type: some
+        options:
+          items_per_page: 5
+          offset: 0
+      block_description: none
     cache_metadata:
       max-age: -1
       contexts:

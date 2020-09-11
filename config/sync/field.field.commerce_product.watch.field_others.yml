@@ -9,7 +9,7 @@ id: commerce_product.watch.field_others
 field_name: field_others
 entity_type: commerce_product
 bundle: watch
-label: others
+label: Others
 description: ''
 required: false
 translatable: false

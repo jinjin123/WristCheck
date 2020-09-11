@@ -1,0 +1,28 @@
+uuid: de152f5b-4a40-4ebc-ac7b-ca42e863a3e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.node.field_related_model
+    - node.type.wcshw
+id: node.wcshw.field_related_model
+field_name: field_related_model
+entity_type: node
+bundle: wcshw
+label: 'Related Model'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      watch: watch
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

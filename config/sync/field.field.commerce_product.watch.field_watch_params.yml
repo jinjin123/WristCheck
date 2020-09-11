@@ -1,0 +1,43 @@
+uuid: 09452c9d-c95e-4690-8420-e2db16090179
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_watch_params
+    - paragraphs.paragraphs_type.wristcheck_product_custom_parame
+  module:
+    - entity_reference_revisions
+id: commerce_product.watch.field_watch_params
+field_name: field_watch_params
+entity_type: commerce_product
+bundle: watch
+label: 'Watch params'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      wristcheck_product_custom_parame: wristcheck_product_custom_parame
+    target_bundles_drag_drop:
+      wristcheck_magazine_screening:
+        weight: 6
+        enabled: false
+      wristcheck_pcpi:
+        weight: 7
+        enabled: false
+      wristcheck_process_steps:
+        weight: 8
+        enabled: false
+      wristcheck_product_custom_parame:
+        enabled: true
+        weight: 9
+      wristcheck_product_specification:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

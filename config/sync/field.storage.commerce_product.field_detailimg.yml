@@ -1,16 +1,27 @@
-uuid: d67280d5-a8e0-468b-939e-a30f844aaee2
+uuid: 681e234d-8c6d-4e7f-b891-a6d3fbf5107c
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_product
-    - remote_image
+    - file
+    - image
 id: commerce_product.field_detailimg
 field_name: field_detailimg
 entity_type: commerce_product
-type: remote_image
-settings: {  }
-module: remote_image
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
 locked: false
 cardinality: -1
 translatable: true

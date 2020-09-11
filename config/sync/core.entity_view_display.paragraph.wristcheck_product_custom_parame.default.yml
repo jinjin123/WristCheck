@@ -1,0 +1,34 @@
+uuid: d41f7b92-b2b1-411d-b909-0c9435920d60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wristcheck_product_custom_parame.field_items
+    - field.field.paragraph.wristcheck_product_custom_parame.field_name
+    - paragraphs.paragraphs_type.wristcheck_product_custom_parame
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.wristcheck_product_custom_parame.default
+targetEntityType: paragraph
+bundle: wristcheck_product_custom_parame
+mode: default
+content:
+  field_items:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_name:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true
