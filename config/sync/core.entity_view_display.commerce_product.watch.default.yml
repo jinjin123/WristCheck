@@ -21,7 +21,6 @@ dependencies:
     - field.field.commerce_product.watch.field_case_thickness
     - field.field.commerce_product.watch.field_case_weight
     - field.field.commerce_product.watch.field_cate
-    - field.field.commerce_product.watch.field_cate_img
     - field.field.commerce_product.watch.field_clasp
     - field.field.commerce_product.watch.field_clasp_material
     - field.field.commerce_product.watch.field_condition
@@ -226,6 +225,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_detailimg:
+    weight: 59
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   field_extras:
     weight: 44
@@ -463,8 +471,6 @@ content:
 hidden:
   created: true
   feeds_item: true
-  field_cate_img: true
-  field_detailimg: true
   langcode: true
   search_api_excerpt: true
   stores: true
