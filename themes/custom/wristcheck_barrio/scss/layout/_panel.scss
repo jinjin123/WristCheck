@@ -376,3 +376,27 @@
     }
   }
 }
+
+.view-wristcheck-products .item-list {
+  *zoom: 1;
+  display: block;
+  width: 100%;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  > ul > li {
+    width: 25%;
+    float: left;
+  }
+}
