@@ -4,14 +4,22 @@
  */
 
 input[type="search"] {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 header #search-block-form {
-    padding: 5px 15px;
-    flex-flow: row wrap;
+  padding: 5px 15px;
+  flex-flow: row wrap;
 }
 
 #search-block-form {
-    display: flex;
+  display: flex;
+
+  .form-type-search {
+    padding-right: 0;
+  }
+
+  .form-actions {
+    padding-left: 0;
+  }
 }

@@ -156,9 +156,7 @@
             {{ drupal_view('wristcheck_second_hands_watch') }}
           </a>
         </div>
-
         {{ drupal_view('wristcheck_second_hands_watch','product_single_page_two_hands_lists') }}
-
       </div>
     </div>
     <div class="wc-shield">
@@ -167,42 +165,36 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <h3>{{ 'THE SELLER CREDIT'|t }}</h3>
-  </div>
-
+<div class="wc-panel">
+  <div class="wc-panel__title text-center">{{ 'THE SELLER CREDIT'|t }}</div>
   {{ drupal_view('wristcheck_products','wristcheck_basic_info') }}
-
+</div>
+<div class="row">
   <div class="col-md-12 wc-product-body">
     {{ product.body }}
   </div>
-
   <div class="col-md-12 pl-0 pr-0">
     {{ product.field_watch_params }}
-
-    <div class="col-md-6">
-      <h3>{{ 'Functions'|t }}</h3>
-      {{ drupal_view('wristcheck_products','product_functions') }}
-    </div>
-
-    <div class="col-md-6">
-      <h3>{{ 'Others'|t }}</h3>
-      {{ drupal_view('wristcheck_products','product_others') }}
-    </div>
   </div>
+</div>
 
+<div class="wc-panel">
+  <div class="wc-panel__title">{{ 'Functions'|t }}</div>
+  {{ drupal_view('wristcheck_products','product_functions') }}
+</div>
+<div class="wc-panel">
+  <div class="wc-panel__title">{{ 'Others'|t }}</div>
+  {{ drupal_view('wristcheck_products','product_others') }}
+</div>
+
+<div class="row">
   <div class="col-md-12 wc-product-specifications">
     {{ product.field_specifications }}
   </div>
-  <div class="col-md-12 wc-related-model">
-    <h3>{{ 'RELATED WATCHES'|t }}</h3>
-    {#    {{ product.field_related_model }}#}
-    {{ drupal_view('wristcheck_models') }}
-  </div>
-  {#  <div class="col-md-12">#}
-  {#    {{ drupal_view('wristcheck_testimdnials') }}#}
-  {#  </div>#}
+</div>
+<div class="wc-panel">
+  <div class="wc-panel__title text-center">{{ 'RELATED WATCHES'|t }}</div>
+  {{ drupal_view('wristcheck_models') }}
 </div>
 
 <div class="wc-panel wc-testimdnials">
