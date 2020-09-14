@@ -27,7 +27,7 @@ third_party_settings:
 id: wristcheckuseraccountmenu_2
 theme: wristcheck_barrio
 region: header
-weight: 0
+weight: -8
 provider: null
 plugin: 'system_menu_block:account'
 settings:

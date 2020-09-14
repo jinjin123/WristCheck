@@ -2,9 +2,12 @@
 {##}
 <div class='header-box'>
   <div class='container'>
-    <div class='header-top'>
+    <div class='header-top flex-row justify-content-between align-items-center'>
       {{ page.header }}
     </div>
+  </div>
+  <div class="header-box__line"></div>
+  <div class="container">
     <header id="navbar-spy" class="header wc-header">
       <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light">
         <div
@@ -12,7 +15,8 @@
           {# <a class="navbar-brand" href="{{ path('<front>') }}">
                           <img src="{{ logo }}" alt="drupal theme">
                       </a> #}
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                  aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,9 +25,9 @@
             <div class="module-container">
               <!-- Module Languages -->
               <!-- Module Social -->
-            {{ page.top_header }}
+              {{ page.top_header }}
+            </div>
           </div>
-        </div>
           <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
