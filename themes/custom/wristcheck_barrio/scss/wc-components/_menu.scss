@@ -152,7 +152,7 @@ ul.wc-menu-container {
   transform-origin: center top;
   transition: all .3s ease;
   transform: scaleY(0);
-  padding: 35px 20px;
+  padding: 35px 100px;
   text-align: left;
   //z-index: 100;
   li{
@@ -173,6 +173,10 @@ li.mega-dropdown {
 
 ul.navbar-submenus {
   padding: 0;
+  li{
+    height: 30px;
+    margin-bottom: 10px;
+  }
 }
 
 //.wc-menu-container {
