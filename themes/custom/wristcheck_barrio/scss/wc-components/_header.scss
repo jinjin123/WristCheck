@@ -66,7 +66,7 @@
     content: '';
     width: 22px;
     height: 22px;
-    background: url('../images/icons/icon-search.png') no-repeat center center;
+    background: url('/themes/custom/wristcheck_barrio/images/icons/icon-search.png') no-repeat center center;
     background-size: contain;
   }
 
@@ -99,7 +99,7 @@
       display: inline-block;
       width: 16px;
       height: 14px;
-      background: url('../images/icons/icon-cart.png') no-repeat;
+      background: url('/themes/custom/wristcheck_barrio/images/icons/icon-cart.png') no-repeat;
       background-position: center center;
       background-size: contain;
     }
@@ -200,7 +200,7 @@
       //line-height: 1;
       //padding-bottom: 35px;
       line-height: 1.375;
-      border-bottom: 1px solid #cdd4d8;
+      //border-bottom: 1px solid #cdd4d8;
       padding-bottom: 10px;
       margin-bottom: 10px;
     }
