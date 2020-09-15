@@ -105,6 +105,7 @@ module:
   rdf: 0
   realistic_dummy_content: 0
   realistic_dummy_content_api: 0
+  redirect_after_login: 0
   remote_image: 0
   rest: 0
   restui: 0

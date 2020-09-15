@@ -25,7 +25,7 @@ third_party_settings:
     background_overlay: ''
 id: addsecondhandwatchtocartblock
 theme: wristcheck_barrio
-region: content
+region: auto_hidden_block
 weight: -5
 provider: null
 plugin: add_second_hand_watch_to_cart_block
