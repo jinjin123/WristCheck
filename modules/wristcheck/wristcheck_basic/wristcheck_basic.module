@@ -251,6 +251,11 @@ function wristcheck_basic_theme()
       'variables' => [
         'variables' => []
       ]
+    ],
+    'wristcheck_how_it_works_block' =>[
+      'variables' => [
+        'variables' => []
+      ]
     ]
   ];
 }
