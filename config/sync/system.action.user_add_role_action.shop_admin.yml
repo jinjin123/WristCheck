@@ -1,0 +1,14 @@
+uuid: fa905bf7-c50f-4dc6-9fc1-9e3714ebfac4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.shop_admin
+  module:
+    - user
+id: user_add_role_action.shop_admin
+label: 'Add the 商店管理员 role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: shop_admin

@@ -1,0 +1,14 @@
+uuid: 4c93318c-2cae-4d98-bbbf-26c54d984229
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.shop_admin
+  module:
+    - user
+id: user_remove_role_action.shop_admin
+label: 'Remove the 商店管理员 role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: shop_admin
