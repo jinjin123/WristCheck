@@ -24,6 +24,8 @@ class WristcheckSignUpForNewsBlock extends BlockBase {
     $webform = \Drupal::entityTypeManager()->getStorage('webform')->load('wristcheck_maintenance_form');
     $maintenance_form = $webform->getSubmissionForm();
 
+    $maintenance_form['actions']['submit']['#value'] = $this->t('SIGN UP');
+
     array_push($maintenance_form['#attributes']['class'],'wristcheck_sign_up_for_news_block');
 
 //  $maintenance_form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\MaintenanceForm');
