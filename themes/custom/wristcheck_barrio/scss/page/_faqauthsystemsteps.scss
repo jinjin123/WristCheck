@@ -73,13 +73,15 @@
 
   .view-display-id-faq_ad_simple_one_pic {
     margin-bottom: 100px;
+
     .views-field-field-page-title-image {
       .field-content {
-         img {
-           width:100%;
-         }
+        img {
+          width: 100%;
+        }
       }
     }
+
     .view-content {
       .views-row {
         .views-field-title {
@@ -158,7 +160,7 @@
   }
 
   .wc-faq__item {
-    border-bottom: 1px solid rgb(228 228 228);
+    border-bottom: 1px solid rgb(228,228,228);
   }
 
   .wc-faq__item__titile {
@@ -167,6 +169,7 @@
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
     margin-bottom: 30px;
+    cursor: pointer;
   }
 
   p {
@@ -194,6 +197,7 @@
       font-weight: bold;
       margin-bottom: 50px;
     }
+
     .wc-step-body__img {
       .field__item {
         //width: 25%;
@@ -202,6 +206,7 @@
     }
   }
 }
+
 .wc-ad-four {
   padding-right: 0 !important;
   padding-left: 0 !important;
@@ -211,6 +216,7 @@
   .wc-faq-ad-body {
     .wc-faq-ad__img {
       width: 100%;
+
       img {
         width: 95%;
       }
