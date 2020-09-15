@@ -1,89 +1,39 @@
 {#BUYING PROCESS#}
-<div class="wc-v2-panel">
-  <div class="wc-v2-panel__title text-center">HOW IT WORKS</div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="wc-v2-how_it_works__item">
-        <div class="how_it_works__icon">
-          <img src="/themes/custom/wristcheck_barrio/images/v2/icon/watch-icon.png" alt="">
-        </div>
-        <div class="how_it_works__cont">
-          <div class="how_it_works__title">TRUSTED MARKET. VERIFIED SELLERS.</div>
-          <div class="how_it_works__detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor
-          </div>
-          <a href="javascript:;" class="how_it_works__link">
-            <span>LEARN MORE</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="wc-v2-how_it_works__item">
-        <div class="how_it_works__icon">
-          <img src="/themes/custom/wristcheck_barrio/images/v2/icon/tag-icon.png" alt="">
-        </div>
-        <div class="how_it_works__cont">
-          <div class="how_it_works__title">BUYER PROTECTION. PEACE OF MIND.</div>
-          <div class="how_it_works__detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor
-          </div>
-          <a href="javascript:;" class="how_it_works__link">
-            <span>LEARN MORE</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="wc-v2-how_it_works__item">
-        <div class="how_it_works__icon">
-          <img src="/themes/custom/wristcheck_barrio/images/v2/icon/hand-icon.png" alt="">
-        </div>
-        <div class="how_it_works__cont">
-          <div class="how_it_works__title">FAST PAYMENT. SECURE DELIVERY.</div>
-          <div class="how_it_works__detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor
-          </div>
-          <a href="javascript:;" class="how_it_works__link">
-            <span>LEARN MORE</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{{ drupal_block('wristcheck_how_it_works_block') }}
 <div class="v-line"></div>
 <div class="wc-v2-panel">
   <div class="wc-v2-panel__title text-center">BEST SELLERS</div>
-  <div class="pb-5">
+  {{ drupal_view('wristcheck_products','best_sellers') }}
+{#  <div class="pb-5">#}
 
-  </div>
-  <div class="wc-v2-panel__more text-center">
-    <a href="javascript:;" class="wc-v2-panel__more-btn wc-btn-white">
-      <div class="wc-btn-cont">SHOP NOW</div>
-    </a>
-  </div>
+{#  </div>#}
+{#  <div class="wc-v2-panel__more text-center">#}
+{#    <a href="javascript:;" class="wc-v2-panel__more-btn wc-btn-white">#}
+{#      <div class="wc-btn-cont">SHOP NOW</div>#}
+{#    </a>#}
+{#  </div>#}
 </div>
 <div class="v-line"></div>
 <div class="wc-v2-panel">
   <div class="wc-v2-panel__title text-center">SHOP BY BRAND</div>
-  <div class="pb-5">
+  {{ drupal_view('wristcheck_brand','logo') }}
+{#  <div class="pb-5">#}
 
-  </div>
+{#  </div>#}
 </div>
 <div class="v-line"></div>
 <div class="wc-v2-panel">
   <div class="wc-v2-panel__title text-center">FROM THE JOURNAL</div>
-  <div class="pb-5">
+  {{ drupal_view('wristcheck_buy_magazine','from_the_journal') }}
+{#  <div class="pb-5">#}
 
-  </div>
-  <div class="wc-v2-panel__more text-center">
-    <a href="javascript:;" class="wc-v2-panel__more-btn wc-btn-white">
-      <div class="wc-btn-cont">LEARN MORE</div>
-    </a>
-  </div>
+{#  </div>#}
+{#  <div class="wc-v2-panel__more text-center">#}
+{#    <a href="javascript:;" class="wc-v2-panel__more-btn wc-btn-white">#}
+{#      <div class="wc-btn-cont">LEARN MORE</div>#}
+{#    </a>#}
+{#  </div>#}
 </div>
-
 {#<div class="wc-panel pt-100">
   <h1 class='wc-panel__title text-center'>{{ 'BUYING PROCESS'|t }}</h1>
   <div class='container'>
