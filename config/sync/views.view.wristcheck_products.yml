@@ -334,9 +334,26 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-      sorts: {  }
+      sorts:
+        field_radioactivity_energy:
+          id: field_radioactivity_energy
+          table: commerce_product__field_radioactivity
+          field: field_radioactivity_energy
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       header: {  }
-      footer: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          plugin_id: text
       empty: {  }
       relationships:
         field_related_brand:
@@ -362,6 +379,120 @@ display:
         - 'config:field.storage.commerce_product.field_watch_core'
         - 'config:field.storage.commerce_product.field_watch_sex'
         - 'config:field.storage.commerce_product.field_year'
+  best_sellers:
+    display_plugin: block
+    id: best_sellers
+    display_title: 'Best sellers'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      pager:
+        type: some
+        options:
+          items_per_page: 16
+          offset: 0
+      defaults:
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        fields: false
+        relationships: false
+        arguments: false
+        footer: false
+      use_more: true
+      use_more_always: true
+      use_more_text: 'SHOP NOW'
+      allow:
+        items_per_page: true
+      fields:
+        field_model_images:
+          id: field_model_images
+          table: commerce_product__field_model_images
+          field: field_model_images
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: ol
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      relationships: {  }
+      arguments: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "  <div class=\"wc-v2-panel__more text-center\">\r\n    <a href=\"javascript:;\" class=\"wc-v2-panel__more-btn wc-btn-white\">\r\n      <div class=\"wc-btn-cont\">SHOP NOW</div>\r\n    </a>\r\n  </div>"
+            format: basic_html
+          plugin_id: text
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+      tags:
+        - 'config:field.storage.commerce_product.field_model_images'
   brand_product:
     display_plugin: block
     id: brand_product

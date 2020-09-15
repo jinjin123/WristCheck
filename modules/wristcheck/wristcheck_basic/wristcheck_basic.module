@@ -256,6 +256,11 @@ function wristcheck_basic_theme()
       'variables' => [
         'variables' => []
       ]
+    ],
+    'wristcheck_sign_up_for_news_block' =>[
+      'variables' => [
+        'variables' => []
+      ]
     ]
   ];
 }
