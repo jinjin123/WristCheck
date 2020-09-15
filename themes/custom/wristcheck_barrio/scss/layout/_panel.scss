@@ -376,3 +376,103 @@
     }
   }
 }
+
+.view-wristcheck-products .item-list {
+  *zoom: 1;
+  display: block;
+  width: 100%;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  > ul > li {
+    width: 25%;
+    float: left;
+  }
+}
+
+
+.wc-v2-panel {
+  padding: 70px 0;
+
+  .wc-v2-panel__title {
+    font-size: 18px;
+    font-family: Helvetica;
+    color: #000000;
+    margin-bottom: 70px;
+  }
+
+  .wc-v2-how_it_works__item {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .how_it_works__icon {
+    img {
+      display: inline-block;
+      width: auto;
+      height: 50px;
+    }
+
+    margin-right: 20px;
+  }
+
+  .how_it_works__cont {
+    flex: 1;
+  }
+
+  .how_it_works__title {
+    font-size: 12px;
+    font-family: Helvetica;
+    color: #000000;
+    line-height: 21px;
+    margin-bottom: 5px;
+  }
+
+  .how_it_works__detail {
+    font-size: 14px;
+    font-family: Helvetica;
+    color: #000000;
+    line-height: 18px;
+    height: 36px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .how_it_works__link {
+    span {
+      font-size: 12px;
+      font-family: Helvetica;
+      color: #000000;
+      padding: 2px 0;
+      border-bottom: 1px solid #000;
+    }
+  }
+
+  //.wc-v2-panel__more {
+  //
+  //}
+
+  .wc-v2-panel__more-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    margin: 0 auto;
+  }
+}

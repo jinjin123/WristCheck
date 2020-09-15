@@ -21,7 +21,6 @@ dependencies:
     - field.field.commerce_product.watch.field_case_thickness
     - field.field.commerce_product.watch.field_case_weight
     - field.field.commerce_product.watch.field_cate
-    - field.field.commerce_product.watch.field_cate_img
     - field.field.commerce_product.watch.field_clasp
     - field.field.commerce_product.watch.field_clasp_material
     - field.field.commerce_product.watch.field_condition
@@ -62,7 +61,6 @@ dependencies:
     - paragraphs
     - path
     - radioactivity
-    - remote_image
     - text
 id: commerce_product.watch.default
 targetEntityType: commerce_product
@@ -205,17 +203,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_cate_img:
-    weight: 51
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-      placeholder_alt: ''
-      placeholder_width: ''
-      placeholder_height: ''
-    third_party_settings: {  }
-    type: remote_image
-    region: content
   field_clasp:
     weight: 38
     settings:
@@ -247,15 +234,12 @@ content:
     type: string_textfield
     region: content
   field_detailimg:
-    weight: 52
+    weight: 57
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
-      placeholder_alt: ''
-      placeholder_width: ''
-      placeholder_height: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: remote_image
+    type: image_image
     region: content
   field_extras:
     weight: 40

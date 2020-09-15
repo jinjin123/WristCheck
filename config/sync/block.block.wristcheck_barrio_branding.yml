@@ -3,15 +3,31 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block_attributes
+    - ntv_block_background
     - system
   theme:
     - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
 _core:
   default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
 id: wristcheck_barrio_branding
 theme: wristcheck_barrio
 region: header
-weight: -7
+weight: -9
 provider: null
 plugin: system_branding_block
 settings:
@@ -20,6 +36,6 @@ settings:
   provider: system
   label_display: '0'
   use_site_logo: true
-  use_site_name: true
-  use_site_slogan: true
+  use_site_name: false
+  use_site_slogan: false
 visibility: {  }

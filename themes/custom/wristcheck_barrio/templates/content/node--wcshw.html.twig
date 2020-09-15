@@ -121,51 +121,78 @@
 
 
     </div>
+{#    <div class="col-md-6">#}
+{#      <div class="wc-product-introduction">#}
+{#        <div class="wc-product-title">{{ product.field_subname }}</div>#}
+{#        <div class="wc-product--row">#}
+{#          <div class="wc-product-title bold">{{ product.title }}</div>#}
+{#          {{- product.flag_wristcheck_wishlist -}}#}
+{#        </div>#}
+{#        <div class="wc-product-num">#}
+{#          {{ product.field_ref_number }}#}
+{#        </div>#}
+{#        <div class="wc-product-btn">#}
+{#          <a href="javascript:;" class="wc-product-add-wishlist">#}
+{#            <span class="fa fa-arrow-right"></span>#}
+{#            | ADD TO WISHLIST</a>#}
+{#          <div class="wc-product-variations">#}
+{#            {{- product.variations -}}#}
+{#          </div>#}
+{#        </div>#}
+
+{#        <div class="wc-product-content">{{ product.field_introduction }}</div>#}
+{#        <div class="wc-product--row">#}
+{#          <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">#}
+{#            {% set url = url('<current>')['#markup'] %}#}
+{#            <a href="/custom/product/new/{{ url|split('/')|last }}">BUY NEW FROM#}
+{#              {{ product.variation_price }}#}
+{#            </a>#}
+{#            #}{#          {{  product.variation_price|slice(1)  }}#}
+{#          </div>#}
+{#          <div class="wc-product-buy pr" id="wc-product-buy-used" product_id="{{ product.id }}">#}
+{#            {% set url = url('<current>')['#markup'] %}#}
+{#            <a href="/custom/product/old/{{ url|split('/')|last }}">BUY USED FROM#}
+{#              {{ drupal_view('wristcheck_second_hands_watch') }}#}
+{#            </a>#}
+{#          </div>#}
+
+{#          {{ drupal_view('wristcheck_second_hands_watch','product_single_page_two_hands_lists') }}#}
+
+{#        </div>#}
+{#      </div>#}
+{#      <div class="wc-shield">#}
+{#        <img src="/themes/custom/wristcheck_barrio/images/shield.png" alt="wristcheck guarantee" class="img-fluid"/>#}
+{#      </div>#}
+{#    </div>#}
   </div>
-  {#    <div class="col-md-6">#}
-  {#      <div class="wc-product-introduction">#}
-  {#        <div class="wc-product-title">{{ product.field_subname }}</div>#}
-  {#        <div class="wc-product--row">#}
-  {#          <div class="wc-product-title bold">{{ product.title }}</div>#}
-  {#          {{- product.flag_wristcheck_wishlist -}}#}
-  {#        </div>#}
-  {#        <div class="wc-product-num">#}
-  {#          {{ product.field_ref_number }}#}
-  {#        </div>#}
-  {#        <div class="wc-product-btn">#}
-  {#          <a href="javascript:;" class="wc-product-add-wishlist">#}
-  {#            <span class="fa fa-arrow-right"></span>#}
-  {#            | ADD TO WISHLIST</a>#}
-  {#          <div class="wc-product-variations">#}
-  {#            {{- product.variations -}}#}
-  {#          </div>#}
-  {#        </div>#}
 
-  {#        <div class="wc-product-content">{{ product.field_introduction }}</div>#}
-  {#        <div class="wc-product--row">#}
-  {#          <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">#}
-  {#            {% set url = url('<current>')['#markup'] %}#}
-  {#            <a href="/custom/product/new/{{ url|split('/')|last }}">BUY NEW FROM#}
-  {#              {{ product.variation_price }}#}
-  {#            </a>#}
-  {#            #}{#          {{  product.variation_price|slice(1)  }}#}
-  {#          </div>#}
-  {#          <div class="wc-product-buy pr" id="wc-product-buy-used" product_id="{{ product.id }}">#}
-  {#            {% set url = url('<current>')['#markup'] %}#}
-  {#            <a href="/custom/product/old/{{ url|split('/')|last }}">BUY USED FROM#}
-  {#              {{ drupal_view('wristcheck_second_hands_watch') }}#}
-  {#            </a>#}
-  {#          </div>#}
 
-  {#          {{ drupal_view('wristcheck_second_hands_watch','product_single_page_two_hands_lists') }}#}
 
-  {#        </div>#}
-  {#      </div>#}
-  {#      <div class="wc-shield">#}
-  {#        <img src="/themes/custom/wristcheck_barrio/images/shield.png" alt="wristcheck guarantee" class="img-fluid"/>#}
-  {#      </div>#}
-  {#    </div>#}
-</div>
+
+{#  {{ title_prefix }}#}
+{#  {% if label and not page %}#}
+{#    <h2{{ title_attributes }}>#}
+{#      <a href="{{ url }}" rel="bookmark">{{ label }}</a>#}
+{#    </h2>#}
+{#  {% endif %}#}
+{#  {{ title_suffix }}#}
+
+{#  {% if display_submitted %}#}
+{#    <footer class="node__meta">#}
+{#      {{ author_picture }}#}
+{#      <div{{ author_attributes.addClass('node__submitted') }}>#}
+{#        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}#}
+{#        {{ metadata }}#}
+{#      </div>#}
+{#    </footer>#}
+{#  {% endif %}#}
+
+{#  <div{{ content_attributes.addClass('node__content') }}>#}
+{#    {{ content }}#}
+{#  </div>#}
+
+</article>
+
 
 
 {# In a Twig template we attach the library. #}
