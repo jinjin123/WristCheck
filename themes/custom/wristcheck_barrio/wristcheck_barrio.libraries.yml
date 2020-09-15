@@ -6,10 +6,12 @@ global-styling:
     js/plugins/bootstrap.min.js: {}
     js/plugins/bootstrap-datepicker.min.js: {}
     libs/noUiSlider-14.6.0/distribute/nouislider.js: {}
+    libs/swiper/js/swiper.js: {}
     js/global.js: {}
   css:
     component:
       css/style.css: {}
+      libs/swiper/css/swiper.css: {}
       css/bootstrap-datepicker.min.css: {}
       libs/font-awesome-4.7.0/css/font-awesome.css: {}
       libs/noUiSlider-14.6.0/distribute/nouislider.css: {}
@@ -56,6 +58,14 @@ sell-styling:
   css:
     component:
       libs/swiper/css/swiper.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+homepage-styling:
+  version: VERSION
+  js:
+    js/homepage.js: {}
   dependencies:
     - core/jquery
     - core/drupal

@@ -82,18 +82,18 @@ display:
         type: html_list
         options:
           grouping: {  }
-          row_class: ''
-          default_row_class: true
+          row_class: swiper-slide
+          default_row_class: false
           type: ul
-          wrapper_class: item-list
-          class: ''
+          wrapper_class: swiper-container
+          class: swiper-wrapper
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
       fields:
         field_case_band_material:
           id: field_case_band_material
@@ -401,7 +401,7 @@ display:
         relationships: false
         arguments: false
         footer: false
-      use_more: true
+      use_more: false
       use_more_always: true
       use_more_text: 'SHOP NOW'
       allow:
@@ -417,8 +417,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<img class="img-fluid" src="{{field_model_images}}" alt="{{field_model_images__title}}"/>'
             make_link: false
             path: ''
             absolute: false
@@ -461,7 +461,7 @@ display:
             image_style: ''
           group_column: ''
           group_columns: {  }
-          group_rows: true
+          group_rows: false
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
@@ -483,8 +483,8 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "  <div class=\"wc-v2-panel__more text-center\">\r\n    <a href=\"javascript:;\" class=\"wc-v2-panel__more-btn wc-btn-white\">\r\n      <div class=\"wc-btn-cont\">SHOP NOW</div>\r\n    </a>\r\n  </div>"
-            format: basic_html
+            value: "  <div class=\"wc-v2-panel__more text-center\">\r\n    <a href=\"/category\" class=\"wc-v2-panel__more-btn wc-btn-white\">\r\n      <div class=\"wc-btn-cont\">SHOP NOW</div>\r\n    </a>\r\n  </div>"
+            format: full_html
           plugin_id: text
     cache_metadata:
       max-age: -1

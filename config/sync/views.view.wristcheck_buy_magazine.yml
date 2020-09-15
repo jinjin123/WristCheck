@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_brand_tags
+    - field.storage.node.field_blog_categories
     - field.storage.node.field_page_title_image
     - field.storage.node.field_subtitle
     - field.storage.user.user_picture
@@ -862,6 +862,69 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
+        body:
+          id: body
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: summary
+          type: text_trimmed
+          settings:
+            trim_length: 240
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_subtitle:
           id: field_subtitle
           table: node__field_subtitle
@@ -924,10 +987,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_brand_tags:
-          id: field_brand_tags
-          table: node__field_brand_tags
-          field: field_brand_tags
+        field_blog_categories:
+          id: field_blog_categories
+          table: node__field_blog_categories
+          field: field_blog_categories
           relationship: none
           group_type: group
           admin_label: ''
@@ -998,9 +1061,9 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-latest-art col-md-12 \">\r\n\t<div class='wc-discover-img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>BUYER'S GUIDE</p>\r\n\t\t\t<h2 class='wc-rolex-title'>{{ title }}</h2>\r\n\t\t\t<h3>BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
-            make_link: true
-            path: '{{ view_node }}'
+            text: "<div class=\"wc-from-the-journal col-md-12 \">\r\n\t<a href=\"{{ view_node }}\" class='wc-from-the-journal-img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></a>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>{{field_blog_categories }}</p>\r\n\t\t\t<h2 class='wc-rolex-title'>{{ title }}</h2>\r\n\t\t\t<div class=\"wc-rolex-title__sub\">{{body }}</div>\r\n\t\t\t<h3>BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
@@ -1055,17 +1118,18 @@ display:
         pager: false
         style: false
         row: false
+        footer: false
       pager:
         type: some
         options:
-          items_per_page: 4
+          items_per_page: 2
           offset: 0
       style:
         type: default
         options:
           grouping: {  }
           row_class: 'col-sm-12 col-md-4 col-lg-6 portfolio-item filter-Packaging filter-Print portfolio'
-          default_row_class: true
+          default_row_class: false
       row:
         type: fields
         options:
@@ -1073,6 +1137,20 @@ display:
           separator: ''
           hide_empty: false
           default_field_elements: true
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<div class=\"wc-v2-panel__more text-center\">\r\n    <a href=\"/product/search-result\" class=\"wc-v2-panel__more-btn wc-btn-white\">\r\n      <div class=\"wc-btn-cont\">LEARN MORE</div>\r\n    </a>\r\n  </div>"
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
@@ -1082,7 +1160,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_brand_tags'
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_blog_categories'
         - 'config:field.storage.node.field_page_title_image'
         - 'config:field.storage.node.field_subtitle'
   further_articles:
