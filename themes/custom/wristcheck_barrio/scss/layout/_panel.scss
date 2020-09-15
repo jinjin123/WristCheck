@@ -463,7 +463,78 @@
     }
   }
 
-  .wc-v2-panel__more {
+  //.wc-v2-panel__more {
+  //
+  //}
 
+  .wc-v2-panel__more-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    margin: 0 auto;
   }
+}
+
+.wc-sign-up {
+  background-color: #000000;
+  padding: 100px 0;
+
+  .wc-sign-up__box {
+    width: 40%;
+    margin-bottom: 30px;
+  }
+
+  .wc-sign-up__title {
+    font-size: 12px;
+    font-family: Helvetica;
+    color: #E2E1D9;
+    line-height: 21px;
+    margin-bottom: 5px
+  }
+
+  .wc-sign-up__sub {
+    font-size: 14px;
+    font-family: Helvetica;
+    color: #E2E1D9;
+    line-height: 18px;
+  }
+
+  .wc-sign-up__input {
+    display: inline-block;
+    width: 300px;
+    height: 45px;
+    color: #FFF;
+    border: 1px solid #E2E1D9;
+    background-color: transparent;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    line-height: 35px;
+    margin-right: 5px;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &::placeholder {
+      color: #E2E1D9;
+    }
+  }
+
+  .wc-sign-up__btn {
+    width: 126px;
+    height: 45px;
+    border: 1px solid #E2E1D9;
+    background-color: transparent;
+    color: #FFF;
+    transition: all .25s ease;
+
+    &:hover {
+      background-color: #FFF;
+      color: #333;
+    }
+  }
+
 }
