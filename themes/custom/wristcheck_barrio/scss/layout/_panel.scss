@@ -466,4 +466,13 @@
   .wc-v2-panel__more {
 
   }
+
+  .wc-v2-panel__more-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    margin: 0 auto;
+  }
 }
