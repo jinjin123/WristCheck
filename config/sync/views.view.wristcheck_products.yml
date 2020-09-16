@@ -2556,6 +2556,7 @@ display:
         sorts: false
         exposed_form: false
         use_ajax: false
+        footer: false
       filter_groups:
         operator: AND
         groups:
@@ -3065,6 +3066,44 @@ display:
                   collapsible: false
                   is_secondary: false
       use_ajax: false
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<div class=\"wc-panel\">\r\n    <h1 class='wc-panel__title text-center'>RECOMMENDED FOR YOU</h1>\r\n\r\n  </div>"
+            format: full_html
+          plugin_id: text
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          view_to_insert: 'wristcheck_products:hot_recommended'
+          inherit_arguments: false
+          plugin_id: view
+        area_1:
+          id: area_1
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "Top categories\r\nRafael Nadal Watches ..."
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
