@@ -37,6 +37,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /aaaa
+    pages: /buy
     negate: false
     context_mapping: {  }

@@ -1,16 +1,14 @@
 (function ($, Drupal) {
   $(function () {
-    if (Swiper) {
-      var mySwiper = new Swiper('.sell-swiper-container', {
-      //   var mySwiper = new Swiper('.swiper-container', {
-        // 如果需要分页器
-        pagination: {
-          el: '.swiper-pagination',
-        },
-        // 如果需要前进后退按钮
+    if (typeof Swiper != 'undefined') {
+      var mySwiper = new Swiper('.swiper-container', {
+        paginationClickable: true,
+        loop: true,
+        effect:'coverflow',
+        spaceBetween: 30,
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          prevEl: '.swiper-button-prev'
         }
       });
     }
