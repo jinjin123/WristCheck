@@ -22,10 +22,11 @@
       background-color: transparent;
       color: #FFF;
 
-      &::placeholder{
+      &::placeholder {
         color: #FFF;
       }
-      &:focus{
+
+      &:focus {
         outline: none;
         border-color: #FFF;
       }
@@ -257,4 +258,8 @@
   .wc-faq {
     margin: 0 auto;
   }
+}
+
+#edit-submit--2 {
+  display: none;
 }
