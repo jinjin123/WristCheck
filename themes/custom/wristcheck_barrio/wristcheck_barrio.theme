@@ -27,7 +27,12 @@ function wristcheck_barrio_preprocess_views_view(&$variables)
         'wrapper_class' => 'swiper-container'
       ],
       'product_search_result' => [
-        'wrapper_class' => 'item-list'
+        'wrapper_class' => 'item-list portfolio',
+        'class' => 'wc-buy-more-products'
+      ],
+      'hot_recommended' => [
+        'wrapper_class' => 'item-list portfolio',
+        'class' => 'wc-buy-more-products'
       ]
     ]
   ];
