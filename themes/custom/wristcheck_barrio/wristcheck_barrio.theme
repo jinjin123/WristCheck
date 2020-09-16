@@ -9,11 +9,60 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 
 /**
+ * Prepares variables for view templates.
+ *
+ * Default template: views-view.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: The ViewExecuditable object.
+ */
+function wristcheck_barrio_preprocess_views_view(&$variables)
+{
+  static $append_views_class = [
+    'wristcheck_products' => [
+      'best_sellers' => [
+        'row_class' => 'swiper-slide',
+        'class' => 'swiper-wrapper',
+        'wrapper_class' => 'swiper-container'
+      ],
+      'product_search_result' => [
+        'wrapper_class' => 'item-list'
+      ]
+    ]
+  ];
+
+
+  $id = $variables['id'];
+  $display_id = $variables['display_id'];
+
+  if (isset($append_views_class[$id])) {
+    $view_class = $append_views_class[$id];
+
+    $view = $variables['view'];
+
+    array_walk($view_class, function ($v, $k) use ($display_id, &$view) {
+      if ($display_id == $k) {
+        $options = $view->style_plugin->options;
+        array_walk($v, function ($vv, $kk) use (&$options) {
+          $current_class = explode(' ', $options[$kk]);
+          array_push($current_class, $vv);
+          $current_class = array_unique($current_class);
+          $options[$kk] = implode($current_class, ' ');
+        });
+        $view->style_plugin->options = $options;
+      }
+    });
+  }
+}
+
+/**
  * Implements hook_form_system_theme_settings_alter() for settings form.
  *
  * Replace Barrio setting options with subtheme ones.
  */
-function wristcheck_barrio_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+function wristcheck_barrio_form_system_theme_settings_alter(&$form, FormStateInterface $form_state)
+{
   $form['components']['navbar']['bootstrap_barrio_navbar_top_background']['#options'] = array(
     'bg-primary' => t('Primary'),
     'bg-secondary' => t('Secondary'),
@@ -37,7 +86,8 @@ function wristcheck_barrio_form_system_theme_settings_alter(&$form, FormStateInt
  *
  * &$variables
  */
-function wristcheck_barrio_preprocess_maintenance_page(&$variables) {
+function wristcheck_barrio_preprocess_maintenance_page(&$variables)
+{
   $webform = \Drupal::entityTypeManager()->getStorage('webform')->load('wristcheck_maintenance_form');
   $maintenance_form = $webform->getSubmissionForm();
 
@@ -45,42 +95,44 @@ function wristcheck_barrio_preprocess_maintenance_page(&$variables) {
   $variables['maintenance_form'] = $maintenance_form;
 }
 
-function wristcheck_barrio_preprocess_breadcrumb(&$variables) {
+function wristcheck_barrio_preprocess_breadcrumb(&$variables)
+{
   $view = \Drupal\views\Views::getView('wristcheck_buy_magazine');
   $view->execute('single');
   global $head_title;
-  foreach($view->result as $row){
+  foreach ($view->result as $row) {
     $head_title['title'] = $row->_entity->get('title')->value;
   }
   global $head_title;
   $result = [];
-  array_push($result,array('text' => 'HOME','url'=>'/'),array('text' => 'MAGAZINE'),array('text'=>$head_title['title']));
+  array_push($result, array('text' => 'HOME', 'url' => '/'), array('text' => 'MAGAZINE'), array('text' => $head_title['title']));
   if ($variables['breadcrumb'] && isset($head_title['title'])) {
-      $variables['breadcrumb'] = $result;
+    $variables['breadcrumb'] = $result;
   }
 }
 
-function wristcheck_barrio_preprocess_menu(array &$variables,$hook) {
+function wristcheck_barrio_preprocess_menu(array &$variables, $hook)
+{
 //user info slider
-    if($hook == "menu__wristcheck_user_sidebar_menu"){
-        $current_path = \Drupal::request()->getRequestUri();
-        $path_args = explode('/', $current_path);
-        $items = $variables['items'];
-        foreach ($items as $key => $item) {
-          $urlString = $item['url']->toString();
-          if ($item['url']->toString() == $current_path  ) {
-            // Add active link.
-            $variables['items'][$key]['attributes']['class'] = 'active';
-          }elseif ($item['url']->toString() == "" && $path_args[3] == "transactions")  {
-            $variables['items'][$key]['attributes']['class'] = 'active';
-          }
-        }
+  if ($hook == "menu__wristcheck_user_sidebar_menu") {
+    $current_path = \Drupal::request()->getRequestUri();
+    $path_args = explode('/', $current_path);
+    $items = $variables['items'];
+    foreach ($items as $key => $item) {
+      $urlString = $item['url']->toString();
+      if ($item['url']->toString() == $current_path) {
+        // Add active link.
+        $variables['items'][$key]['attributes']['class'] = 'active';
+      } elseif ($item['url']->toString() == "" && $path_args[3] == "transactions") {
+        $variables['items'][$key]['attributes']['class'] = 'active';
+      }
     }
+  }
   if ($variables['theme_hook_original'] == 'menu__main') {
     $items = $variables['items'];
-    $variables['logo'] = theme_get_setting('logo.url','wristcheck');
+    $variables['logo'] = theme_get_setting('logo.url', 'wristcheck');
     foreach ($items as $key => $item) {
-          $variables['items'][$key]['logo'] = $variables['logo'];
+      $variables['items'][$key]['logo'] = $variables['logo'];
     }
   }
 }
@@ -89,17 +141,17 @@ function wristcheck_barrio_preprocess_menu(array &$variables,$hook) {
 //for payment succ & step css name
 function wristcheck_barrio_preprocess_html(array &$variables)
 {
-  $path      = \Drupal::service('path.current')->getPath();
+  $path = \Drupal::service('path.current')->getPath();
   $path_args = explode('/', $path);
-  if(in_array("payment-success",$path_args) || in_array("payment-step",$path_args)){
-     if(count($path_args)>2){
-       if($path_args[3] == "payment-success"){
-         $variables['attributes']['class'][] = 'payment-success';
-       }
-       if($path_args[3] == "payment-step"){
-         $variables['attributes']['class'][] = 'payment-step';
-       }
-     }
+  if (in_array("payment-success", $path_args) || in_array("payment-step", $path_args)) {
+    if (count($path_args) > 2) {
+      if ($path_args[3] == "payment-success") {
+        $variables['attributes']['class'][] = 'payment-success';
+      }
+      if ($path_args[3] == "payment-step") {
+        $variables['attributes']['class'][] = 'payment-step';
+      }
+    }
   }
 }
 
