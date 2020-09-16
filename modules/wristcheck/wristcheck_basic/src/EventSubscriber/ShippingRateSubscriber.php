@@ -45,14 +45,16 @@ class ShippingRateSubscriber implements EventSubscriberInterface {
   public function onFinalizeTransition(WorkflowTransitionEvent $event) {
     /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
     $order = $event->getEntity();
-    $orderEntity = reset($order->get('order_id')->referencedEntities());
+    $array = $order->get('order_id')->referencedEntities();
+    $orderEntity = reset($array);
     $this->logStorage->generate($orderEntity, 'order_finalize')->save();
   }
 
   public function onShipTransition(WorkflowTransitionEvent $event) {
     /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
     $order = $event->getEntity();
-    $orderEntity = reset($order->get('order_id')->referencedEntities());
+    $array = $order->get('order_id')->referencedEntities();
+    $orderEntity = reset($array);
     $this->logStorage->generate($orderEntity, 'order_ship')->save();
   }
 }
