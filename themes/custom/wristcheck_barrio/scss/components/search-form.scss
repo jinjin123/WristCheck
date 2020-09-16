@@ -14,8 +14,12 @@ header #search-block-form {
 
 #search-block-form {
   display: flex;
+  position: relative;
 
   .form-type-search {
+    position: absolute;
+    top: 0;
+    left: 0;
     padding-right: 0;
   }
 

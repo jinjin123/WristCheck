@@ -131,6 +131,9 @@
   .wc-rolex-item {
     height: 524px;
     background-color: $bg_gray1;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     padding: 30px;
     display: flex;
