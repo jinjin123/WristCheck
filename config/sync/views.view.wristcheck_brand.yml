@@ -410,8 +410,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<div class="portfolio-img lazyload wc-homepage-brand-logo" data-original="{{field_brand_logo}}"></div>'
             make_link: false
             path: ''
             absolute: false
@@ -437,22 +437,21 @@ display:
             preserve_tags: ''
             html: false
           element_type: ''
-          element_class: ''
+          element_class: img-fluid
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: image_url
           settings:
             image_style: ''
-            image_link: content
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -468,13 +467,31 @@ display:
         fields: false
         arguments: false
         pager: false
+        style: false
+        row: false
       display_description: ''
       arguments: {  }
       pager:
         type: some
         options:
-          items_per_page: 4
+          items_per_page: 6
           offset: 0
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: 'wc-shop-by-brand__img  col-md-4'
+          default_row_class: false
+          type: ul
+          wrapper_class: wc-shop-by-brand__box
+          class: 'wc-shop-by-brand__item row'
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,11 +1,11 @@
-uuid: bb13a793-940b-4d87-998b-a306cfe4d30a
+uuid: 026311c3-a910-4299-9128-1e13fd18ea73
 langcode: en
 status: true
 dependencies:
   module:
     - block_attributes
-    - ctools
     - ntv_block_background
+    - system
     - wristcheck_basic
   theme:
     - wristcheck_barrio
@@ -23,22 +23,20 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: addsecondhandwatchtocartblock
+id: wristchecksignupfornewsblock
 theme: wristcheck_barrio
-region: auto_hidden_block
-weight: -5
+region: bottom_footer
+weight: -9
 provider: null
-plugin: add_second_hand_watch_to_cart_block
+plugin: wristcheck_sign_up_for_news_block
 settings:
-  id: add_second_hand_watch_to_cart_block
-  label: 'Add second hand watch to cart block'
+  id: wristcheck_sign_up_for_news_block
+  label: 'Wristcheck sign up for news block'
   provider: wristcheck_basic
   label_display: '0'
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      wcshw: wcshw
+  request_path:
+    id: request_path
+    pages: '*'
     negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
+    context_mapping: {  }

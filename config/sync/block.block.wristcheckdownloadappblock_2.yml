@@ -1,6 +1,6 @@
 uuid: 137cbcc2-fe1f-4ddc-b0f8-d5bd88abfe11
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - block_attributes
@@ -25,7 +25,7 @@ third_party_settings:
 id: wristcheckdownloadappblock_2
 theme: wristcheck_barrio
 region: bottom_footer
-weight: -15
+weight: -10
 provider: null
 plugin: wristcheck_download_app_block
 settings:
