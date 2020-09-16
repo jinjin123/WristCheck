@@ -155,6 +155,7 @@
   background-size: 100%;
   background-position: top center;
   background-color: #4a736f;
+  padding-bottom: 80px;
 
   .wc-panel__sub,
   .wc-panel__title {
@@ -201,15 +202,21 @@
 .wc-sell-swiper {
   width: 60%;
   margin: 0 auto;
-  padding-bottom: 80px;
+  position: relative;
+
+  .swiper-container {
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
 
   .swiper-slide {
-    padding: 0 30px;
     box-sizing: border-box;
+    width: 70%;
 
     .wc-swiper-slide {
       background-color: #FFF;
-      width: 90%;
+      width: 100%;
       height: 100%;
       padding: 20px;
       margin: 0 auto;
@@ -218,7 +225,71 @@
         width: 100%;
         height: 100%;
         background-color: #F9F9F9;
+        padding: 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
       }
+
+      .wc-swiper-slide-photo {
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin-right: 20px;
+        overflow: hidden;
+
+        img {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .wc-swiper-slide-cont {
+        flex: 1;
+
+        h1 {
+          font-size: 18px;
+          font-family: Source Han Sans CN;
+          font-weight: 500;
+          color: #222222;
+
+        }
+
+        .wc-testimdnials-detail__sub {
+          font-size: 14px;
+          font-family: Source Han Sans CN;
+          font-weight: 400;
+          color: #999999;
+        }
+
+        .wc-testimdnials-detail {
+          font-size: 14px;
+          font-family: Source Han Sans CN;
+          font-weight: 300;
+          color: #222222;
+          line-height: 1.8;
+          word-break: break-all;
+          word-wrap: break-word;
+          margin-bottom: 20px;
+        }
+      }
+
+      .wc-testimdnials-star {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 70px;
+
+        img {
+          display: block;
+          height: 24px;
+          width: auto;
+        }
+      }
+
     }
   }
 
@@ -232,6 +303,8 @@
 
   .swiper-wrapper {
     height: 310px;
+    padding: 0;
+    list-style: none;
   }
 }
 
