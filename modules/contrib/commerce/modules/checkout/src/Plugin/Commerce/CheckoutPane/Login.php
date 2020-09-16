@@ -406,6 +406,16 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
         break;
 
       case 'login':
+        $storage = $this->entityTypeManager->getStorage('user');
+        /** @var \Drupal\user\UserInterface $account */
+        \Drupal::service('session')->migrate();
+        \Drupal::service('session')->set('uid',$form_state->get('logged_in_uid'));
+        $this->order->setCustomer($storage->load($form_state->get('logged_in_uid')));
+        $form_state->setRedirect('commerce_checkout.form', [
+          'commerce_order' => $this->order->id(),
+          'step' => $this->checkoutFlow->getNextStepId($this->getStepId()),
+        ]);
+        break;
       case 'register':
         $storage = $this->entityTypeManager->getStorage('user');
         /** @var \Drupal\user\UserInterface $account */
