@@ -131,6 +131,9 @@
   .wc-rolex-item {
     height: 524px;
     background-color: $bg_gray1;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     padding: 30px;
     display: flex;
@@ -377,26 +380,33 @@
   }
 }
 
-.view-wristcheck-products .item-list {
-  *zoom: 1;
-  display: block;
-  width: 100%;
-
-  &:before,
-  &:after {
-    display: table;
-    content: "";
-    // Fixes Opera/contenteditable bug:
-    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
-    line-height: 0;
+.view-wristcheck-products {
+  .pagination {
+    justify-content: center;
   }
 
-  &:after {
-    clear: both;
-  }
+  .item-list {
+    *zoom: 1;
+    display: block;
+    width: 100%;
 
-  > ul > li {
-    width: 25%;
-    float: left;
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+      // Fixes Opera/contenteditable bug:
+      // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+      line-height: 0;
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    > ul > li {
+      width: 25%;
+      float: left;
+      padding: 0.75rem 1.25rem;
+    }
   }
 }
