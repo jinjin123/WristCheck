@@ -1,0 +1,122 @@
+{% set titles = [
+  'BRAND',
+  'MODEL',
+  'PRICE',
+  'CASE DIAMETER',
+  'YEAR',
+  'LOCATION',
+  'MORE'
+] %}
+<div class="wc-product-search">
+  <div class="container-fluid wc-product-search-menu">
+    <div class="container">
+      <div class="wc-search-menu">
+        <ul class="d-flex flex-row">
+          {% for title in titles %}
+            <li class="flex-grow-1">
+              <a href="javascript:;" class="wc-search-menu__title">
+                {{ title }}
+              </a>
+              <div class="container wc-search-dropdown-panel">
+                <div class="wc-search-dropdown-panel__body">
+                  {% if title == 'BRAND' %}
+                    <div class="wc-search-panel__body"></div>
+                  {% elseif title == 'MODEL' %}
+                    <div class="wc-search-panel__body"></div>
+                  {% elseif title == 'PRICE' %}
+                    <form class="wc-search-panel__body row wc-search-form-line">
+                      <div class="col-md-6 wc-search__item">
+                        <div class="form-group">
+                          <label>Currency option</label>
+                          <select class="form-control">
+                            {% for option in variables['locations'] %}
+                              <option value="{{ option }}">{{ option }}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6 wc-search__item"></div>
+                      <div class="col-md-6 wc-search__item">
+                        <div class="form-group">
+                          <label>from $</label>
+                          <input type="number" min="0" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6 wc-search__item">
+                        <div class="form-group">
+                          <label>from $</label>
+                          <input type="number" min="0" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-12 wc-search__item">
+                        <div id="wc-range"></div>
+                      </div>
+                    </form>
+                    <div class="d-flex justify-content-between wc-search__price">
+                      <a href="javascript:;" class="wc-btn-white">
+                        <div class="wc-btn-cont"><span class="fa fa-download mr-2"></span> SAVE THIS SEARCH</div>
+                      </a>
+                      <div>
+                        <a href="javascript:;" class="wc-search-menu-cancel">CANCEL</a>
+                        <a href="javascript:;" class="wc-btn-dark">
+                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS(79)</div>
+                        </a>
+                      </div>
+                    </div>
+                  {% elseif title == 'CASE DIAMETER' %}
+                    <div class="wc-search-panel__body"></div>
+                  {% elseif title == 'YEAR' %}
+                    <div class="wc-search-panel__body">
+
+                    </div>
+                  {% elseif title == 'LOCATION' %}
+                    <form class="wc-search-panel__body row wc-search-form-line wc-search-location">
+                      <div class="col-md-6 wc-search__item">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h2 class="wc-location-col__title">YOUR SELECTION</h2>
+                            <p class="wc-clear-font">Clear selection</p>
+                          </div>
+                          <div class="col-md-6">
+                            <h2 class="wc-location-col__title">YOUR SELECTION</h2>
+                            <h3 class="wc-location-col__title_sub">GREATER CHINA</h3>
+                            <ul class="wc-location-col__list">
+                              <li><label><input type="checkbox"> Mainland china</label></li>
+                              <li><label><input type="checkbox"> Hong kong</label></li>
+                              <li><label><input type="checkbox"> Macau</label></li>
+                              <li><label><input type="checkbox"> Taiwan</label></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 wc-search__item">
+                        <input class="form-control wc-location-input"/>
+                        <ul class="wc-location-col__list">
+                          <li><label><input type="checkbox"> Mainland china</label></li>
+                          <li><label><input type="checkbox"> Hong kong</label></li>
+                        </ul>
+                      </div>
+                    </form>
+                    <div class="d-flex justify-content-between wc-search__price">
+                      <a href="javascript:;" class="wc-btn-white">
+                        <div class="wc-btn-cont"><span class="fa fa-download mr-2"></span> SAVE THIS SEARCH</div>
+                      </a>
+                      <div>
+                        <a href="javascript:;" class="wc-search-menu-cancel">CANCEL</a>
+                        <a href="javascript:;" class="wc-btn-dark">
+                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS(79)</div>
+                        </a>
+                      </div>
+                    </div>
+                  {% elseif title == 'MORE' %}
+                    <div class="wc-search-panel__body"></div>
+                  {% endif %}
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

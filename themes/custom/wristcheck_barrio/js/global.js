@@ -170,14 +170,14 @@
         // messages.add("Save your profile successful!",{"type":"status"});
         if (data == "ok") {
           // $(".alert-success").css("display", "block");
-          messages.add("Save your profile successful!",{"type":"status"});
-          $('.messages').css("color","green")
-          $('.messages').css("border","1px solid ")
-          $('.messages').css("font-size","20px")
-        }else{
-          messages.add("Save your profile Faild! Please try again!",{"type":"error"});
-          $('.messages').css("border","1px solid #red")
-          $('.messages').css("font-size","20px")
+          messages.add("Save your profile successful!", {"type": "status"});
+          $('.messages').css("color", "green")
+          $('.messages').css("border", "1px solid ")
+          $('.messages').css("font-size", "20px")
+        } else {
+          messages.add("Save your profile Faild! Please try again!", {"type": "error"});
+          $('.messages').css("border", "1px solid #red")
+          $('.messages').css("font-size", "20px")
           // $('.messages').css("color","green")
           // $(".alert-danger").css("display", "block");
         }
@@ -303,6 +303,15 @@
   });
   $('.wc-search-dropdown-panel').on('click', function (e) {
     e.stopPropagation()
+  });
+  $('.wc-product-search .wc-search-menu-cancel').click('click', function (e) {
+    e.stopPropagation();
+    var nav = $('.wc-search-menu>ul>li.active');
+    var _modal = $('.wc-product-search-modal');
+    var _menu = nav.parents('.wc-product-search-menu');
+    nav.removeClass('active');
+    _modal.removeClass('show');
+    _menu.css({'z-index': 2});
   });
   $(window).scroll(function () {
     var _wTop = $(this).scrollTop();
