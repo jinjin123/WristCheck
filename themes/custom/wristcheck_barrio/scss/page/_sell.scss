@@ -200,7 +200,7 @@
 }
 
 .wc-sell-swiper {
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   position: relative;
 
@@ -295,10 +295,18 @@
 
   .swiper-button-next {
     right: 0;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .swiper-button-prev {
     left: 0;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .swiper-wrapper {

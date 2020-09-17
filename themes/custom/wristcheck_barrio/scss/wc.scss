@@ -258,6 +258,15 @@ a:focus {
   background-color: $bg_gray2;
 }
 
+.view-id-wristcheck_buy_news .view-content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
 .portfolio,
 .wc-news {
   .views-element-container {
