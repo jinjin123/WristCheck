@@ -255,12 +255,39 @@
         tooltip: true,
         connect: true,
         pips: {
-          mode: 'positions',
-          values: [0, 20000, 500000, 200000, 1500000],
+          mode: 'values',
+          values: [0, 300000, 600000, 900000, 1200000, 1500000],
           density: 4
+        }
+      }).on('change', function (values, handle) {
+        if (handle === 0) {
+          $('input[name="price[min]"]').val(values[handle])
+        } else if (handle === 1) {
+          $('input[name="price[max]"]').val(values[handle])
         }
       });
     }
+  });
+  $('.wc-product-search .wc-search-btn').click(function () {
+    var searhBox = $('.wc-product-search');
+    var redirct = '/product/search-result';
+    var paramsStrArr = [];
+    searhBox.find('form').each(function (index, item) {
+      var queryString = $(item).serialize();
+      if (queryString.length > 0) {
+        paramsStrArr.push(queryString)
+      }
+    });
+    location.href = redirct + (paramsStrArr.length === 0 ? '' : ('?' + paramsStrArr.join('&')))
+  });
+  $('.wc-product-search .wc-clear-font').click(function () {
+    var _this = $(this);
+    console.log(_this)
+    var _form = _this.parents('form.wc-search-panel__body');
+    _form.find('input:checked').each(function (index, item) {
+      item.checked = false;
+    })
+
   });
   // category page all brands
   // $('.wc-all-brands-header-list a').on('click', function(){
