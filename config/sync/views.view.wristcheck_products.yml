@@ -2508,6 +2508,7 @@ display:
         exposed_form: false
         use_ajax: false
         footer: false
+        header: false
       filter_groups:
         operator: AND
         groups:
@@ -3055,6 +3056,7 @@ display:
             value: "Top categories\r\nRafael Nadal Watches ..."
             format: full_html
           plugin_id: text
+      header: {  }
     cache_metadata:
       max-age: -1
       contexts:
