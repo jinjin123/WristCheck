@@ -6,6 +6,7 @@ global-styling:
     js/plugins/bootstrap.min.js: {}
     js/plugins/bootstrap-datepicker.min.js: {}
     libs/noUiSlider-14.6.0/distribute/nouislider.js: {}
+    libs/wnumb-1.2.0/wNumb.js: {}
     libs/swiper/js/swiper.js: {}
     js/global.js: {}
   css:

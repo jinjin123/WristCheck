@@ -7,7 +7,7 @@
   'LOCATION',
   'MORE'
 ] %}
-<div class="wc-product-search">
+<div class="wc-product-search wc-product-search-result">
   <div class="container-fluid wc-product-search-menu">
     <div class="container">
       <div class="wc-search-menu">
@@ -28,7 +28,7 @@
                       <div class="col-md-6 wc-search__item">
                         <div class="form-group">
                           <label>Currency option</label>
-                          <select class="form-control">
+                          <select class="form-control" name="currency_code" data-search="currency_code">
                             {% for option in variables['locations'] %}
                               <option value="{{ option }}">{{ option }}</option>
                             {% endfor %}
@@ -39,13 +39,13 @@
                       <div class="col-md-6 wc-search__item">
                         <div class="form-group">
                           <label>from $</label>
-                          <input type="number" min="0" class="form-control">
+                          <input type="number" min="0" name="price[min]" data-search="price[min]" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6 wc-search__item">
                         <div class="form-group">
                           <label>from $</label>
-                          <input type="number" min="0" class="form-control">
+                          <input type="number" min="0" name="price[max]" data-search="price[max]" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-12 wc-search__item">
@@ -58,8 +58,8 @@
                       </a>
                       <div>
                         <a href="javascript:;" class="wc-search-menu-cancel">CANCEL</a>
-                        <a href="javascript:;" class="wc-btn-dark">
-                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS(79)</div>
+                        <a href="javascript:;" class="wc-btn-dark wc-search-btn">
+                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS</div>
                         </a>
                       </div>
                     </div>
@@ -81,10 +81,10 @@
                             <h2 class="wc-location-col__title">YOUR SELECTION</h2>
                             <h3 class="wc-location-col__title_sub">GREATER CHINA</h3>
                             <ul class="wc-location-col__list">
-                              <li><label><input type="checkbox"> Mainland china</label></li>
-                              <li><label><input type="checkbox"> Hong kong</label></li>
-                              <li><label><input type="checkbox"> Macau</label></li>
-                              <li><label><input type="checkbox"> Taiwan</label></li>
+                              {% for option in variables['locations'] %}
+                                <li><label><input type="checkbox" name="location[]" data-search="location[]"
+                                                  value="{{ option }}"> {{ option }}</label></li>
+                              {% endfor %}
                             </ul>
                           </div>
                         </div>
@@ -103,8 +103,8 @@
                       </a>
                       <div>
                         <a href="javascript:;" class="wc-search-menu-cancel">CANCEL</a>
-                        <a href="javascript:;" class="wc-btn-dark">
-                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS(79)</div>
+                        <a href="javascript:;" class="wc-btn-dark wc-search-btn">
+                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS</div>
                         </a>
                       </div>
                     </div>
@@ -118,5 +118,13 @@
         </ul>
       </div>
     </div>
+  </div>
+</div>
+<div class="wc-search-status">
+  <div class="wc-search-status-tags">
+    <span class="tag-item">earch <a class="remove-tag">X</a></span>
+  </div>
+  <div class="wc-search-status-font">
+    REMOVAL OF CONDITIONS
   </div>
 </div>
