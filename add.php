@@ -15,40 +15,41 @@ while($data = fgetcsv($file,1000000,";"))
         {
             $price = new \Drupal\commerce_price\Price($data[3], 'USD');
             $variation = \Drupal\commerce_product\Entity\ProductVariation::create([
-              'type' => 'watch', 
-              'sku' => $data[5], 
+              'type' => 'watch',
+              'sku' => $data[5],
               'status' => 1,
               'price' => $price,
               'title' => $data[0],
-              'attribute_color' => 'red', 
+              'attribute_color' => 'red',
             ]);
 
 	   for($i=0;$i<=4;$i++){
 	   	$bdata = file_get_contents('big.jpg');
-	   	$bfile = file_save_data($idata, 'public://big'.$i.'.jpg');
+	   	$bfile = file_save_data($bdata, 'public://big'.$i.'.jpg');
 	  	$icon = file_get_contents('10809695_s210_v1570202069342.jpg');
 	   	$icon_f = file_save_data($icon, 'public://10809695_s210_v1570202069342_'.$i.'.jpg');
-		$childpa[] = Paragraph::create([
-			'type' => 'wristcheck_pcpi',
-		   	'field_item_key' => 'Movement',
-		   	'field_value' => 'Manual winding',
-		]);
-		$sec[] = Paragraph::create([
-			'type' => 'wristcheck_product_specification',
-			'field_icon' => [
-    				'target_id' => $icon_f->id(),
-			],
-			'field_title' => 'Hour',
-	 	]);
-		$imgid[] = [
-    			'target_id' => $bfile->id(),
-		];
+      $childpa[] = Paragraph::create([
+        'type' => 'wristcheck_pcpi',
+          'field_item_key' => 'Movement',
+          'field_value' => 'Manual winding',
+      ]);
+      $sec[] = Paragraph::create([
+        'type' => 'wristcheck_product_specification',
+        'field_icon' => [
+              'target_id' => $icon_f->id(),
+        ],
+        'field_title' => 'Hour',
+      ]);
+      $imgid[] = [
+            'target_id' => $bfile->id(),
+      ];
 	   }
 
 	   $pa = Paragraph::create(['type' => 'wristcheck_product_custom_parame',]);
-	   $pa->set("field_name",'Bracelet/strap'); 
-	   $pa->set('field_items',$childpa); 
+	   $pa->set("field_name",'Bracelet/strap');
+	   $pa->set('field_items',$childpa);
 	   $pa->save();
+
 	   $idata = file_get_contents('watch3.jpg');
 	   $ifile = file_save_data($idata, 'public://watch3.jpg');
 
@@ -69,7 +70,7 @@ while($data = fgetcsv($file,1000000,";"))
               'stores' => [$store],
               'variations' => [$variation],
               'uid' => 1,
-              'type' => 'watch', 
+              'type' => 'watch',
               'title' => $data[4],
 	      'field_subname' => $data[4],
               'field_ask_price'=>$price,
