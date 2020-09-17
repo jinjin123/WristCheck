@@ -125,6 +125,15 @@ a:focus {
   padding: 10px 20px;
   font-weight: normal;
 
+  &.wc-v2-panel__more-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    margin: 0 auto;
+  }
+
   &.wc-btn-large {
     padding: 16px 40px;
   }

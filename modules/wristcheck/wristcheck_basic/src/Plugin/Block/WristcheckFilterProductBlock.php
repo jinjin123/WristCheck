@@ -2,7 +2,13 @@
 
 namespace Drupal\wristcheck_basic\Plugin\Block;
 
+use Drupal\commerce_price\Entity\Currency;
+use Drupal\commerce_product\Entity\ProductType;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Config\Entity\ConfigEntityType;
+use Drupal\Core\Field\FieldConfigInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a 'WristcheckFilterProductBlock' block.
@@ -12,7 +18,46 @@ use Drupal\Core\Block\BlockBase;
  *  admin_label = @Translation("Wristcheck filter product block"),
  * )
  */
-class WristcheckFilterProductBlock extends BlockBase {
+class WristcheckFilterProductBlock extends BlockBase  implements ContainerFactoryPluginInterface{
+
+  /**
+   * Drupal\Core\Entity\EntityManagerInterface definition.
+   *
+   * @var \Drupal\Core\Entity\EntityManagerInterface
+   */
+  protected $entityManager;
+
+  /**
+   * Symfony\Component\DependencyInjection\ContainerAwareInterface definition.
+   *
+   * @var \Symfony\Component\DependencyInjection\ContainerAwareInterface
+   */
+  protected $entityQuery;
+
+  /**
+   * Drupal\commerce\ConfigurableFieldManagerInterface definition.
+   *
+   * @var \Drupal\commerce\ConfigurableFieldManagerInterface
+   */
+  protected $commerceConfigurableFieldManager;
+
+  protected $commerceCurrencyRepository;
+
+  protected $commerceAttributeFieldManager;
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
+  {
+    $instance = new static($configuration, $plugin_id, $plugin_definition);
+    $instance->entityManager = $container->get('entity.manager');
+    $instance->entityQuery = $container->get('entity.query');
+    $instance->commerceConfigurableFieldManager = $container->get('commerce.configurable_field_manager');
+    $instance->commerceCurrencyRepository = $container->get('commerce_price.currency_repository');
+    $instance->commerceAttributeFieldManager = $container->get('commerce_product.attribute_field_manager');
+    return $instance;
+  }
 
   /**
    * {@inheritdoc}
@@ -35,7 +80,6 @@ class WristcheckFilterProductBlock extends BlockBase {
     ];
 
     $build['#variables'] = $variables;
-//     $build['wristcheck_filter_product_block']['#markup'] = 'Implement WristcheckFilterProductBlock.';
 
     return $build;
   }

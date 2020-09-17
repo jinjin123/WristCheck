@@ -27,8 +27,8 @@ class OrderStatusController extends ControllerBase {
       $render_output = render($pre_render)->__toString();
       $create_day = date('m-d', $entity->get('created')->value);
       $create_hour = date('H:i', $entity->get('created')->value);
-      $author = reset($entity->get('uid')->referencedEntities());
-      $author_link = Link::fromTextAndUrl($author->get('name')->value, Url::fromRoute('entity.user.canonical', array('user' => $entity->id())));
+      $author = array_values($entity->get('uid')->referencedEntities())[0];
+//      $author_link = Link::fromTextAndUrl($author->get('name')->value, Url::fromRoute('entity.user.canonical', array('user' => $entity->id())));
 
       $rows[] = [
         [
@@ -41,7 +41,7 @@ class OrderStatusController extends ControllerBase {
               '#markup' => $render_output
             ]
           ],
-        'author' => $author_link->toString()
+        'author' => $author->get('name')->value
       ];
     }
 
