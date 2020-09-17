@@ -7,7 +7,7 @@
   'LOCATION',
   'MORE'
 ] %}
-<div class="wc-product-search">
+<div class="wc-product-search wc-product-search-result">
   <div class="container-fluid wc-product-search-menu">
     <div class="container">
       <div class="wc-search-menu">
@@ -82,7 +82,8 @@
                             <h3 class="wc-location-col__title_sub">GREATER CHINA</h3>
                             <ul class="wc-location-col__list">
                               {% for option in variables['locations'] %}
-                                <li><label><input type="checkbox" name="location[]" data-search="location[]" value="{{ option }}"> {{ option }}</label></li>
+                                <li><label><input type="checkbox" name="location[]" data-search="location[]"
+                                                  value="{{ option }}"> {{ option }}</label></li>
                               {% endfor %}
                             </ul>
                           </div>
@@ -117,5 +118,13 @@
         </ul>
       </div>
     </div>
+  </div>
+</div>
+<div class="wc-search-status">
+  <div class="wc-search-status-tags">
+    <span class="tag-item">earch <a class="remove-tag">X</a></span>
+  </div>
+  <div class="wc-search-status-font">
+    REMOVAL OF CONDITIONS
   </div>
 </div>

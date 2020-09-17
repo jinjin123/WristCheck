@@ -44,6 +44,42 @@
   // };
 
 
+  var getALLQuery = function () {
+    var allQueryString = location.href.split('?').length > 1 ?
+      decodeURI(location.href.split('?')[1]) : '';
+    var list = [];
+    allQueryString.split('&').map(function (item, index) {
+      var info = item.split('=');
+      list.push({label: info[0], value: info[1]});
+    });
+    return list;
+  };
+
+  var tagsList = $('.wc-search-status-tags');
+  if (tagsList.length > 0) {
+    var queryList = getALLQuery();
+    var htmlBuff = '';
+    queryList.map(function (item) {
+      if (item.value !== undefined && item.value !== '') {
+        htmlBuff += '<span class="tag-item" name="' + item.label + '">' +
+          item.value + ' <a class="remove-tag">x</a></span>';
+      }
+    });
+    tagsList.html(htmlBuff);
+    tagsList.on('click', '.remove-tag', function () {
+      var _this = $(this);
+      var _index = tagsList.index(_this.parent());
+      queryList.splice(_index, 1);
+      _this.parent().remove();
+      var redirct = '/product/search-result';
+      var queryString = queryList.map(function (search) {
+        return search.label + '=' + search.value;
+      });
+      location.href = redirct + '?' + queryString.join('&');
+    });
+  }
+
+
   Drupal.behaviors.bootstrap_barrio_subtheme = {
     attach: function (context, settings) {
       var position = $(window).scrollTop();
@@ -309,6 +345,7 @@
     if (_self.hasClass('active')) {
       _self.removeClass('active');
       _modal.removeClass('show');
+      _menu.removeClass('active');
       _menu.css({'z-index': 2});
 
 
@@ -324,7 +361,8 @@
         });
       });
       _modal.addClass('show');
-      _menu.css({'z-index': 5})
+      _menu.css({'z-index': 5});
+      _menu.addClass('active');
       _self.addClass('active').siblings('.active').removeClass(('active'))
     }
   });
@@ -340,6 +378,7 @@
     _modal.removeClass('show');
     _menu.css({'z-index': 2});
   });
+
   $(window).scroll(function () {
     var _wTop = $(this).scrollTop();
     var _box = $('.wc-product-search');
