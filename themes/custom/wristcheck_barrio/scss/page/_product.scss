@@ -126,7 +126,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
   }
 
   .wc-product-wishlist {
@@ -235,19 +235,109 @@
 
   .wc-product-buy-new,
   .wc-product-buy {
-    flex: 1;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    position: relative;
 
     a {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 90%;
+      width: 100%;
       padding: 20px;
       color: #FFF;
       font-size: 14px;
       background-color: $color-dark2;
 
+    }
+
+    .wc-product-buy-used-popup {
+      transition: all .3s ease-in-out;
+      max-height: 500px;
+      transform-origin: top center;
+      transform: scaleY(0);
+      opacity: 0;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 570px;
+      background: #FFFFFF;
+      box-shadow: 0px 3px 15px 1px rgba(102, 102, 102, 0.08);
+      padding: 40px;
+    }
+
+    &:hover {
+      .wc-product-buy-used-popup {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
+  }
+
+  .wc-product-buy-used-popup {
+    .item-list ul li {
+      padding: 0;
+      a{
+        background-color: transparent;
+      }
+    }
+
+    .more-link {
+      margin-top: 20px;
+    }
+
+    .wc-used-img {
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+      margin-right: 30px;
+      background-color: #f0efee;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .wc-used-cont {
+      flex: 1;
+
+      .wc-used-cont__title {
+        font-size: 16px;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #222222;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+
+      .wc-used-cont__code {
+        font-size: 16px;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #222222;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+
+      .wc-used-cont__num {
+        font-size: 14px;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #666666;
+      }
+
+      .wc-used-cont__price {
+        font-size: 24px;
+        font-family: Source Han Sans CN;
+        font-weight: bold;
+        color: #222222;
+      }
     }
   }
 
@@ -259,7 +349,12 @@
 }
 
 .wc-shield {
+  text-align: right;
   margin-top: 60px;
+
+  img {
+    max-width: 570px;
+  }
 }
 
 .wc-product-body {
@@ -440,7 +535,8 @@
   > li {
     width: 30%;
     overflow: hidden;
-    img{
+
+    img {
       display: block;
       width: 100%;
       height: auto;
@@ -471,7 +567,6 @@
   box-shadow: 0 0 10px #ddd;
   display: none;
   z-index: 20;
-  height: 700px;
 }
 
 .etalage_zoom_area div {
@@ -514,4 +609,81 @@
   -moz-box-shadow: 0 0 10px #ddd;
   box-shadow: 0 0 10px #ddd;
   border: 1px solid #535353;
+}
+
+.field--name-field-watch-params {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+
+  .wc-product-ol {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        font-size: 18px;
+        font-family: Source Han Sans CN;
+        font-weight: 500;
+        color: #222222;
+        padding: 10px 0;
+      }
+    }
+  }
+
+
+  .wc-product-introduction__title {
+    border-bottom: 1px solid #DFDFDF;
+    margin-bottom: 10px;
+
+    span {
+      padding: 20px 0;
+      display: inline-block;
+    }
+  }
+
+  .wc-product-introduction__key {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: #222222;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 30px;
+  }
+
+  .wc-product-introduction__value {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 300;
+    color: #222222;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 30px;
+  }
+
+  h4 {
+    font-size: 24px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #222222;
+  }
+}
+
+.view-display-id-product_others {
+  .more-link > a {
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #176BA4;
+  }
+}
+.wc-display-label .field__label{
+  display: none;
 }

@@ -44,7 +44,7 @@ class OrderStatusController extends ControllerBase {
           ],
         'author' => $author->get('name')->value
       ];
-      $header = ['Date','Event', 'Administrator'];
+      $header = ['Date','Process', 'Administrator'];
     }
 
     $build['table'] = [
