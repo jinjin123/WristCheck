@@ -316,4 +316,4 @@ wristcheck_basic.order_status:
     _controller: '\Drupal\wristcheck_basic\Controller\OrderStatusController::index'
     _title: 'OrderStatus'
   requirements:
-    _permission: 'administer commerce_payment'
+    _permission: 'access wristcheck administration pages'
