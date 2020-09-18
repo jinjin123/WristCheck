@@ -114,15 +114,15 @@
 {#{{ drupal_view('product_view', 'product_relative',product.field_categories.0['#options'].entity.tid.value) }}#}
 {#{{ dump(product.variation_price[0]) }}#}
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <div class="wc-product-imglist1">
       {{ drupal_view('wristcheck_product_jcarousel','top') }}
     </div>
-{#    <div class="wc-product-imglist2">#}
-{#      {{ drupal_view('wristcheck_product_jcarousel','page_1') }}#}
-{#    </div>#}
+    {#    <div class="wc-product-imglist2">#}
+    {#      {{ drupal_view('wristcheck_product_jcarousel','page_1') }}#}
+    {#    </div>#}
   </div>
-  <div class="col-md-6">
+  <div class="col-md-7">
     <div class="wc-product-introduction">
       <div class="wc-product-title">{{ product.field_subname }}</div>
       <div class="wc-product--row">
@@ -153,10 +153,12 @@
         <div class="wc-product-buy pr" id="wc-product-buy-used" product_id="{{ product.id }}">
           {% set url = url('<current>')['#markup'] %}
           <a href="/custom/product/old/{{ url|split('/')|last }}">BUY USED FROM
-            {{ drupal_view('wristcheck_second_hands_watch') }}
+            {#            {{ drupal_view('wristcheck_second_hands_watch') }}#}
           </a>
+          <div class="wc-product-buy-used-popup">
+            {{ drupal_view('wristcheck_second_hands_watch','product_single_page_two_hands_lists') }}
+          </div>
         </div>
-        {{ drupal_view('wristcheck_second_hands_watch','product_single_page_two_hands_lists') }}
       </div>
     </div>
     <div class="wc-shield">
@@ -165,33 +167,46 @@
   </div>
 </div>
 
-<div class="wc-panel">
-  <div class="wc-panel__title text-center">{{ 'THE SELLER CREDIT'|t }}</div>
-  {{ drupal_view('wristcheck_products','wristcheck_basic_info') }}
-</div>
+{#<div class="wc-panel">#}
+{#  <div class="wc-panel__title text-center">{{ 'THE SELLER CREDIT'|t }}</div>#}
+{#  {{ drupal_view('wristcheck_products','wristcheck_basic_info') }}#}
+{#</div>#}
+{#description#}
 <div class="row">
   <div class="col-md-12 wc-product-body">
     {{ product.body }}
   </div>
-  <div class="col-md-12 pl-0 pr-0">
-    {{ product.field_watch_params }}
+</div>
+{#description end#}
+
+<div class="wc-v2-panel">
+  {{ product.field_watch_params }}
+</div>
+
+<div class="wc-panel field--name-field-watch-params">
+  <div class="col-md-6">
+    <h4 class="wc-product-introduction__title">
+      <span>{{ 'Functions'|t }}</span>
+    </h4>
+    {{ drupal_view('wristcheck_products','product_functions') }}
+  </div>
+  <div class="col-md-6">
+    <h4 class="wc-product-introduction__title">
+      <span>{{ 'Others'|t }}</span>
+    </h4>
+    {{ drupal_view('wristcheck_products','product_others') }}
   </div>
 </div>
 
 <div class="wc-panel">
-  <div class="wc-panel__title">{{ 'Functions'|t }}</div>
-  {{ drupal_view('wristcheck_products','product_functions') }}
-</div>
-<div class="wc-panel">
-  <div class="wc-panel__title">{{ 'Others'|t }}</div>
-  {{ drupal_view('wristcheck_products','product_others') }}
-</div>
-
-<div class="row">
-  <div class="col-md-12 wc-product-specifications">
-    {{ product.field_specifications }}
+  <div class="wc-panel__title text-center">{{ 'SPECIFICATIONS'|t }}</div>
+  <div class="row">
+    <div class="col-md-12 wc-product-specifications wc-display-label">
+      {{ product.field_specifications }}
+    </div>
   </div>
 </div>
+
 <div class="wc-panel">
   <div class="wc-panel__title text-center">{{ 'RELATED WATCHES'|t }}</div>
   {{ drupal_view('wristcheck_models') }}
