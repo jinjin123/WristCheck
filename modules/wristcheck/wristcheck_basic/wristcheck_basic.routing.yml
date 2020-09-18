@@ -275,13 +275,13 @@ admin.wristcheck:
   requirements:
     _permission: 'access wristcheck administration pages'
 
-wristcheck_basic.order_status_controller_index:
-  path: '/user/{user}/orders/{commerce_order}/status'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\OrderStatusController::index'
-    _title: 'User order status'
-  requirements:
-    _permission: 'access content'
+#wristcheck_basic.order_status_controller_index:
+#  path: '/user/{user}/orders/{commerce_order}/status'
+#  defaults:
+#    _controller: '\Drupal\wristcheck_basic\Controller\OrderStatusController::index'
+#    _title: 'User order status'
+#  requirements:
+#    _permission: 'access content'
 
 wristcheck_basic.product_variation_form_controller_index:
   path: '/product_variation_form/{type}/{product_id}'
@@ -308,3 +308,12 @@ wristcheck_basic.wristcheck_custom_cart:
     _title: 'customcart'
   requirements:
     _access: 'TRUE'
+
+wristcheck_basic.order_status:
+  path: '/admin/commerce/orders/{commerce_order}/OrderStatus'
+  defaults:
+#    _entity_list: 'commerce_payment'
+    _controller: '\Drupal\wristcheck_basic\Controller\OrderStatusController::index'
+    _title: 'OrderStatus'
+  requirements:
+    _permission: 'access wristcheck administration pages'

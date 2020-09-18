@@ -2,3 +2,10 @@ wristcheck_basic.user_settings_form:
   route_name: wristcheck_basic.user_settings_form
   base_route: entity.user.canonical
   title: 'Settings'
+
+
+wristcheck_basic.order_status:
+  route_name: wristcheck_basic.order_status
+  base_route: entity.commerce_order.canonical
+  title: OrderStatus
+  weight: 15
