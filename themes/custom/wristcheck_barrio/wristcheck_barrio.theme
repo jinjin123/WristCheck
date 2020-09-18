@@ -160,5 +160,36 @@ function wristcheck_barrio_preprocess_html(array &$variables)
   }
 }
 
-
+//for payment succ & step css name
+function wristcheck_barrio_preprocess_user(array &$variables)
+{
+  $path = \Drupal::service('path.current')->getPath();
+  $path_args = explode('/', $path);
+  if($path_args[1] =="user"){
+     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+         $variables['mail'] = $user->getEmail();
+         $variables['phone'] = $user->get('field_phone_number')->value;
+         if(count($user->field_surnames->getValue())>0){
+           $variables['surname'] = array_values($user->field_surnames->getValue()[0])[0];
+         }
+         $variables['gender']  = array_values($user->field_gender->getValue()[0])[0];
+         if(count($user->field_date_of_birth->getValue())>0){
+           $variables['birth']  = date("Y/m/d",strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
+         }
+         $variables['name'] =$user->getUsername();
+         $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
+         $variables['news'] = $user->get('field_newsletter')->value;
+         $variables['cooperate'] = $user->get('field_we_cooperate_in')->value;
+         $variables['guide'] = $user->get('field_guide')->value;
+         $variables['price'] = $user->get('field_price_warning')->value;
+         $entity_ids = \Drupal::entityTypeManager()
+           ->getStorage('node')
+           ->getQuery()
+           ->condition('type', 'portfolio')
+           ->condition('uid', '1')
+           ->sort('created.value', 'DESC')
+           ->range(0, 1)->execute();
+         $variables['porttime'] =  date("M d,Y",\Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
+  }
+}
 
