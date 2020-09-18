@@ -11,6 +11,7 @@
     var swiper = new window.Swiper('.swiper-container', {
       loop: true,
       speed: 2500,
+      autoplay: true,
       slidesPerView: 5,
       spaceBetween: 30,
       centeredSlides: true,
