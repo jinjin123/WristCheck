@@ -281,6 +281,9 @@
   .wc-product-buy-used-popup {
     .item-list ul li {
       padding: 0;
+      a{
+        background-color: transparent;
+      }
     }
 
     .more-link {
