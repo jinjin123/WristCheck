@@ -24,11 +24,8 @@ global-styling:
 product-styling:
   version: VERSION
   js:
-    libs/slick/slick.js: {}
+    libs/jqzoom/jqzoom.js: {}
     js/product.js: {}
-  css:
-    component:
-      libs/slick/slick.css: {}
   dependencies:
     - core/jquery
     - core/drupal

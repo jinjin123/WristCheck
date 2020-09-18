@@ -7,18 +7,20 @@
     height: 500px;
     overflow: hidden;
   }
-  .field-content{
+
+  .field-content {
     display: flex;
     justify-content: center;
   }
 }
 
 .wc-product-imglist2 {
-  .field-content{
+  .field-content {
     display: flex;
     justify-content: center;
   }
 }
+
 .custom-switch {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -28,6 +30,7 @@
   .wc-product-imglist2 {
     margin-top: 30px;
   }
+
   .view-wristcheck-product-jcarousel {
     .slick-slider {
       width: 80%;
@@ -39,6 +42,7 @@
     }
   }
 }
+
 //.view-wristcheck-product-jcarousel {
 //  .skin-default {
 //    padding: 30px 25px;
@@ -140,12 +144,15 @@
         &.fa-heart {
           color: $color-dark2;
         }
+
         &.fa-heart:before {
           content: "\f08a" !important;
         }
+
         &.fa-heart-o {
           color: #FF6464;
         }
+
         &.fa-heart-o:before {
           content: "\f004" !important;
         }
@@ -276,9 +283,11 @@
 
 .wc-product-specifications {
   margin-bottom: 50px;
+
   h3 {
     text-align: center;
   }
+
   .field__label {
     text-align: center;
     font-size: 30px;
@@ -297,8 +306,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    margin-right:  100px;
-    margin-left:  100px;
+    margin-right: 100px;
+    margin-left: 100px;
 
     > .field__item {
       flex: 1;
@@ -369,11 +378,140 @@
 //}
 .wc-product-buy-new {
   .field--name-price {
-      .field__label {
-        display: none;
-      }
+    .field__label {
+      display: none;
+    }
   }
 }
+
 #swt {
   display: none;
+}
+
+
+.etalage {
+  direction: ltr;
+}
+
+.etalage, .etalage_thumb, .etalage_thumb_image, .etalage_big_image, .etalage_zoom_preview, .etalage_icon, .etalage_hint {
+  display: none
+}
+
+.etalage .etalage_thumb {
+  background: #fff url('/themes/custom/wristcheck_barrio/images/icons/loading.gif') center no-repeat;
+}
+
+.etalage, .etalage ul, .etalage li, .etalage img, .etalage_hint, .etalage_icon, .etalage_description {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none
+}
+
+.etalage, .etalage_magnifier div, .etalage_magnifier div img, .etalage_small_thumbs ul, ul .etalage_small_thumbs li, .etalage_zoom_area div, .etalage_zoom_img {
+  position: relative
+}
+
+.etalage img, .etalage li {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  user-drag: none
+}
+
+.etalage, .etalage_small_thumbs li {
+  float: none;
+
+  background-color: #FFF;
+}
+
+.etalage .etalage_small_thumbs > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 210px;
+
+  > li {
+    width: 30%;
+    overflow: hidden;
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+
+}
+
+.etalage_right {
+  float: right
+}
+
+.etalage li {
+  position: absolute
+}
+
+.etalage img {
+  vertical-align: bottom;
+}
+
+.etalage .etalage_zoom_area, .etalage_zoom_area {
+  background: #fff url('/themes/custom/wristcheck_barrio/images/icons/loading.gif') center no-repeat;
+  border: 1px solid #ddd;
+  padding: 2px;
+  -webkit-box-shadow: 0 0 10px #ddd;
+  -moz-box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #ddd;
+  display: none;
+  z-index: 20;
+  height: 700px;
+}
+
+.etalage_zoom_area div {
+  overflow: hidden;
+}
+
+.etalage_zoom_area .etalage_zoom_img {
+  position: absolute;
+}
+
+.etalage_wrap {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.etalage_wrap .etalage_magnifier {
+  background: #fff;
+  outline: #bbb solid 1px;
+  display: none;
+  cursor: move;
+}
+
+.etalage_magnifier div {
+  overflow: hidden;
+}
+
+.etalage_wrap .etalage_small_thumbs {
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.etalage_wrap .etalage_small_thumbs li {
+  border: 1px solid #FFF;
+  margin: 0px 10px 0px 0px;
+  position: relative;
+}
+
+.etalage_wrap ul li.etalage_smallthumb_active {
+  -webkit-box-shadow: 0 0 10px #ddd;
+  -moz-box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #ddd;
+  border: 1px solid #535353;
 }
