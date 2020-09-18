@@ -18,7 +18,7 @@ class OrderStatusController extends ControllerBase {
    * @return string
    *   Return Hello string.
    */
-  public function index($commerce_order) {
+  public function index($user=null,$commerce_order) {
     $result = views_get_view_result('commerce_activity', 'default', $commerce_order, 'commerce_order');
     $view_builder = \Drupal::entityTypeManager()->getViewBuilder('commerce_log');
     $rows = [];
@@ -44,7 +44,7 @@ class OrderStatusController extends ControllerBase {
           ],
         'author' => $author->get('name')->value
       ];
-      $header = ['Date','Event', 'Administrator'];
+      $header = ['Date','Process', 'Administrator'];
     }
 
     $build['table'] = [
