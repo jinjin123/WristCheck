@@ -2082,6 +2082,8 @@ display:
         fields: false
         relationships: false
         arguments: false
+        style: false
+        row: false
       use_more: false
       use_more_always: true
       use_more_text: more
@@ -2142,7 +2144,7 @@ display:
             link_to_entity: false
           group_column: value
           group_columns: {  }
-          group_rows: true
+          group_rows: false
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
@@ -2189,6 +2191,22 @@ display:
           entity_type: commerce_product
           entity_field: product_id
           plugin_id: numeric
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+          type: ul
+          wrapper_class: wc-product-ol
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -2218,6 +2236,8 @@ display:
         fields: false
         relationships: false
         arguments: false
+        style: false
+        row: false
       use_more: true
       use_more_always: true
       use_more_text: 'Report a suspicious listing'
@@ -2278,7 +2298,7 @@ display:
             link_to_entity: false
           group_column: value
           group_columns: {  }
-          group_rows: true
+          group_rows: false
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
@@ -2325,6 +2345,22 @@ display:
           entity_type: commerce_product
           entity_field: product_id
           plugin_id: numeric
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+          type: ul
+          wrapper_class: wc-product-ol
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
