@@ -19,7 +19,7 @@
                       <img src="/themes/custom/wristcheck_barrio/images/photo.png" alt="">
                     </div>
                     <div class="d-flex flex-column">
-                      <h2 class="mb-1">{{ content['field_the_email_address'][0]['#context']['value']}}</h2>
+                      <h2 class="mb-1">{{ mail }}</h2>
                       <a href="/cart" class="mt-1"><img class="cart-icon"
                                                         src="/themes/custom/wristcheck_barrio/images/icons/icon-cart.png" alt=""></a>
                     </div>
@@ -28,34 +28,33 @@
                 <div class="col-md-4">
                   <div class="wc-userinfo-item">
                     <label>name:</label>
-                    <span>{{ content['field_full_name'][0]['#context']["value"] }}</span>
+                    <span>{{ name }}</span>
                   </div>
                   <div class="wc-userinfo-item">
                     <label>surnames:</label>
-                    <span>{{ content['field_surnames'][0]['#context']["value"]}}</span>
+                    <span>{{ surname }}</span>
                   </div>
                   <div class="wc-userinfo-item">
                     <label>gender:</label>
-                    {{ content['field_gender'][0]['#markup']}}
-{#                    {% if variablesp["gender"] == 0 %}#}
-{#                      <span>male</span>#}
-{#                    {% else %}#}
-{#                      <span>women</span>#}
-{#                    {% endif %}#}
+                    {% if gender == 0 %}
+                      <span>male</span>
+                    {% else %}
+                      <span>women</span>
+                    {% endif %}
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="wc-userinfo-item">
                     <label>Date of birth:</label>
-                    <span>{{ content['field_date_of_birth'][0]['#attributes']['datetime'] }}</span>
+                    <span>{{ birth }}</span>
                   </div>
                   <div class="wc-userinfo-item">
                     <label>The email address:</label>
-                    <span>{{ content['field_the_email_address'][0]['#context']['value'] }}</span>
+                    <span>{{ mail }}</span>
                   </div>
                   <div class="wc-userinfo-item">
                     <label>phone:</label>
-                    <span>{{ content['field_phone_number'][0]['#context']['value'] }} <span class="wc-userinfo-flag"><img
+                    <span>{{ phone }} <span class="wc-userinfo-flag"><img
                           src="/themes/custom/wristcheck_barrio/images/icons/usa.png" alt=""></span></span>
                   </div>
                 </div>
@@ -77,7 +76,7 @@
         <div class="wc-userinfo-card mb-lg-5">
           <div class="wc-userinfo__body">
             <p class="ppp">How many watches do you have?</p>
-            <p class="p">The purchase was made on {{ variables['porttime']  }}, with the last notice on {{ variables['porttime']  }}</p>
+            <p class="p">The purchase was made on {{ porttime  }}, with the last notice on {{ porttime  }}</p>
             {#            <div class="wc-userinfo-list">#}
             {#              <div class="wc-userinfo-list__item">#}
             {#                <div class="wc-userinfo-list__item-img"></div>#}
@@ -156,7 +155,7 @@
             <div class="wc-userinfo-list">
               {#              <p class="wc-userinfo-list_p" >#}
               <p class="">
-                {% if content['field_newsletter'][0]['#markup'] =="On" %}
+                {% if news  ==1 %}
                   <input class="wc-user-checkbox" type="checkbox" checked="checked" />
                 {% else %}
                   <input class="wc-user-checkbox" type="checkbox" />
@@ -166,7 +165,7 @@
               </p>
               {#              <p class="wc-userinfo-list_p" >#}
               <p class="" >
-                {% if content['field_we_cooperate_in'][0]['#markup'] =="On" %}
+                {% if cooperate  ==1 %}
                   <input class="wc-user-checkbox" type="checkbox" checked="checked" />
                 {% else %}
                   <input class="wc-user-checkbox" type="checkbox" />
@@ -176,7 +175,7 @@
               </p>
               {#              <p class="wc-userinfo-list_p" >#}
               <p class="" >
-                {% if content['field_guide'][0]['#markup'] =="On" %}
+                {% if guide  ==1 %}
                   <input class="wc-user-checkbox" type="checkbox" checked="checked" />
                 {% else %}
                   <input class="wc-user-checkbox" type="checkbox"  />
@@ -186,7 +185,7 @@
               </p>
               {#              <p class="wc-userinfo-list_p" #}
               <p>
-                {% if content['field_price_warning'][0]['#markup'] == "On" %}
+                {% if price  ==1 %}
                   <input class="wc-user-checkbox" type="checkbox" checked="checked" disabled="disabled"/>
                 {% else %}
                   <input class="wc-user-checkbox" type="checkbox"  />
@@ -198,11 +197,7 @@
             <div class="p d-flex flex-row">
               <span class="bold pr-4">Select the language:</span>
               {#              <div class="flex-grow-1"> {{ drupal_view('wristcheck_user_profile','settings') }}</div>#}
-              {% if  content['user_picture']['#language'] == 'en'%}
-              <div class="flex-grow-1"> English</div>
-              {% elseif  content['user_picture']['#language'] == 'zh'%}
-                <div class="flex-grow-1"> Chinses</div>
-              {% endif %}
+              <div class="flex-grow-1"> {{ lang }}</div>
             </div>
           </div>
         </div>
