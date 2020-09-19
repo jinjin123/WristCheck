@@ -9,25 +9,24 @@ label: Content
 type: 'canonical_entities:node'
 pattern: '[node:title]'
 selection_criteria:
-  b9947f1e-29e8-4490-8b36-e48242f025ff:
+  2e861c62-188d-4c53-9a33-afe408c06a30:
     id: node_type
     bundles:
       article: article
       blog_post: blog_post
-      home_page: home_page
-      multi_page: multi_page
-      one_page: one_page
+      brand: brand
       page: page
       portfolio: portfolio
-      portfolio_list: portfolio_list
       services: services
       simplenews_issue: simplenews_issue
-      team: team
       testominals: testominals
+      wcshw: wcshw
+      wristcheck_faq: wristcheck_faq
+      wristcheck_process_steps: wristcheck_process_steps
     negate: false
     context_mapping:
       node: node
-    uuid: b9947f1e-29e8-4490-8b36-e48242f025ff
+    uuid: 2e861c62-188d-4c53-9a33-afe408c06a30
 selection_logic: and
 weight: -5
 relationships: {  }
