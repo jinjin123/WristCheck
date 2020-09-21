@@ -19,14 +19,24 @@
       $('.wc-product-variations').removeClass('show')
     });
     // wishlist end
+    var p = 500 / 680;
+    var thumb_image_width = 680;
+    var thumb_image_height = 500;
+    var box_width = $('.wc-product-imglist1').innerWidth();
+
+    if (box_width < 680) {
+      thumb_image_width = box_width;
+      thumb_image_height = box_width * p;
+    }
+
 
     $(".etalage").zoom({
       align: "left",              // 当前展示图片的位置，则放大的图片在其相对的位置
-      thumb_image_width: 680,     // 当前展示图片的宽
-      thumb_image_height: 500,    // 当前展示图片的高
+      thumb_image_width: thumb_image_width,     // 当前展示图片的宽
+      thumb_image_height: thumb_image_height,    // 当前展示图片的高
       source_image_width: 2040,    // 放大图片的宽
       source_image_height: 1500,  // 放大图片的高
-      zoom_area_width: 675,       // 放大图片的展示区域的宽
+      zoom_area_width: thumb_image_width - 5,       // 放大图片的展示区域的宽
       zoom_area_height: 700,// 放大图片的展示区域的高
       zoom_area_distance: 10,     //
       zoom_easing: true,          // 是否淡入淡出
