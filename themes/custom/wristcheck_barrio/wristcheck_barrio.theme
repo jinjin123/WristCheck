@@ -190,6 +190,8 @@ function wristcheck_barrio_preprocess_user(array &$variables)
            ->sort('created.value', 'DESC')
            ->range(0, 1)->execute();
          $variables['porttime'] =  date("M d,Y",\Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
+         $variables['userobj'] = $user;
+         $variables['userid'] = \Drupal::currentUser()->id();
   }
 }
 

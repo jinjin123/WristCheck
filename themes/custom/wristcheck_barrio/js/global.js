@@ -147,9 +147,16 @@
     // $("#swt").css("display","none");
     // $("#swt").css("color","transparent");
     // console.log($("#wc-product-buy-new >a>div>div")[1].textContent.slice(1))
-    if ((window.location.pathname).split("/").length > 2 && (window.location.pathname).split("/")[1] == "product") {
-      $("#wc-product-buy-new >a>div>div")[1].textContent = $("#wc-product-buy-new >a>div>div")[1].textContent.slice(1);
+
+    var productPrice = $("#wc-product-buy-new .field__item, .price__number");
+    if(productPrice.text().length >0){
+      productPrice.map(function(el){
+        if (($(this).text() || "").split('$').length > 1) {
+          $(this).text('$ ' + $(this).text().split('$')[1]);
+        }
+      });
     }
+
     var flag = true;
     $('#wc-product-buy-used').click(function () {
       if (flag) {
