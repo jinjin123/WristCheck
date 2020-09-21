@@ -1343,7 +1343,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1415,7 +1415,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1427,7 +1427,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1451,7 +1451,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1475,7 +1475,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1523,7 +1523,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1859,7 +1859,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1943,7 +1943,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1979,7 +1979,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -1991,7 +1991,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -2003,7 +2003,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -2039,7 +2039,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -2183,7 +2183,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
@@ -2219,7 +2219,7 @@ menus:
     uri: 'internal:/'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
