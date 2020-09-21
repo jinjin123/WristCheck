@@ -148,11 +148,11 @@
     // $("#swt").css("color","transparent");
     // console.log($("#wc-product-buy-new >a>div>div")[1].textContent.slice(1))
 
-    var productPrice = $("#wc-product-buy-new .field__item, .price__number");
-    if(productPrice.text().length >0){
-      productPrice.map(function(el){
-        if (($(this).text() || "").split('$').length > 1) {
-          $(this).text('$ ' + $(this).text().split('$')[1]);
+    var productPrice = $("#wc-product-buy-new .field__item, .price__number, .field--name-price .field__item, td.views-field-unit-price__number, .order-total-line__subtotal .order-total-line-value, .order-total-line__total .order-total-line-value, td.views-field-total-price__number, label.custom-control-label, .checkout-order-summary td,.checkout-order-summary span");
+    if (productPrice.text().length > 0) {
+      productPrice.map(function (el) {
+        if (($(this).text() || "").indexOf('$') > -1) {
+          $(this).text($(this).text().replace(/US\$/ig, ' $ '));
         }
       });
     }

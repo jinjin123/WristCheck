@@ -208,6 +208,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
     // Send the request and retrieve the response.
     try {
       $payment_response = $this->CheckoutApi->payments()->request($checkout_payment);
+      \Drupal::logger('commerce_checkoutcom')->notice('OrderStatus'. json_encode($payment_response));
       ErrorHelper::handleErrors($payment_response, 'payment');
     } catch (NeedsRedirectException $e) {
       throw $e;
