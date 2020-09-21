@@ -53,7 +53,6 @@
   color:#003cc5;
 }
 .wc-protfolio-product__title {
-  line-height: 1;
   font-size: 24px;
   font-family: Source Han Sans CN;
   font-weight: bold;
@@ -62,6 +61,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 20px;
+  line-height: 1.5;
   >span {
     padding: 0 !important;
   }
