@@ -11,6 +11,15 @@
   padding-bottom: 30px;
   color: $color-dark3;
   position: relative;
+  justify-content: space-between;
+
+  .navbar-toggler {
+    display: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
 
   //logo brand
   .navbar-brand {
@@ -230,3 +239,22 @@
 }
 
 // nav end
+
+@media (max-width: 991.98px) {
+  .header-top {
+    .navbar-brand {
+      width: 200px;
+      margin-top: 10px;
+    }
+
+    .navbar-toggler {
+      display: block;
+      border-color: transparent;
+    }
+  }
+
+  .widget-search {
+    display: none;
+  }
+
+}
