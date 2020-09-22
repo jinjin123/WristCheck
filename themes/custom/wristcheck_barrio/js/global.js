@@ -403,5 +403,17 @@
     }
   })
 
+  $('.header-box button.navbar-toggler').click(function () {
+    var menu = $('#navbarContent');
+    var header = $('#navbar-spy');
+    if (!menu.hasClass('show')) {
+      menu.addClass('show');
+      header.addClass('show')
+    } else {
+      menu.removeClass('show');
+      header.removeClass('show')
+    }
+  })
+
 
 })(jQuery, Drupal);
