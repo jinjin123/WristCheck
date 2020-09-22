@@ -332,3 +332,22 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .wc-shop-by-brand__box .wc-homepage-brand-logo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .wc-shop-by-brand__box .wc-homepage-brand-logo {
+    width: 100%;
+    height: 300px;
+  }
+  .wc-shop-by-brand__box .wc-shop-by-brand__img {
+    margin-bottom: 50px;
+  }
+  .view-display-id-best_sellers .swiper-slide {
+    height: 200px;
+  }
+}

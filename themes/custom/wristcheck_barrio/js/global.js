@@ -414,6 +414,22 @@
       header.removeClass('show')
     }
   })
+  $('.header-box .navbar-nav>li').click(function () {
+    var _this = $(this);
+    if (!_this.hasClass('show')) {
+      _this.addClass('show')
+      _this.siblings('.show').removeClass('show')
+    } else {
+      _this.parent().children('.show').removeClass('show')
+    }
+  })
+  $('.menu-close').click(function () {
+    var menu = $('#navbarContent');
+    var header = $('#navbar-spy');
+    menu.removeClass('show')
+    header.removeClass('show')
+    header.find('.show').removeClass('show')
+  })
 
 
 })(jQuery, Drupal);
