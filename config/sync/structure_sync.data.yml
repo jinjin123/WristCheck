@@ -1133,6 +1133,18 @@ blocks:
         value: "<div class=\"payment-success payment-step\">\r\n<div class=\"row direction\"><a class=\"wc-back-nav\" onclick=\"javascript:history.back();\"> So let's go back to the list<!-- a--></a></div>\r\n<a class=\"wc-back-nav\" onclick=\"javascript:history.back();\"> </a>\r\n\r\n<div class=\"wc-panel\">\r\n<div class=\"wc-panel__title\"><a class=\"wc-back-nav\" onclick=\"javascript:history.back();\">Order</a></div>\r\n\r\n<div class=\"row\">\r\n<div class=\"col-md-12\"><a class=\"wc-back-nav\" onclick=\"javascript:history.back();\"><img class=\"img-fluid\" src=\"/themes/custom/wristcheck_barrio/images/paystep.png\"/></a></div>\r\n</div>\r\n</div>\r\n<a class=\"wc-back-nav\" onclick=\"javascript:history.back();\"> </a></div>\r\n"
         summary: ''
         format: full_html
+  -
+    info: 'Wristcheck Auth block'
+    langcode: en
+    uuid: d988a0d5-59ad-492d-b8a2-c47ab8c1fe0f
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"cs-box\">\r\n<div class=\"wc-product-title bold\">WRISTCHECK GUARANTEE</div>\r\n\r\n<div class=\"wc-product__sub\"><img src=\"/themes/custom/wristcheck_barrio/images/icons/add.png\" />AUTHENTICITY GUARANTEED</div>\r\n\r\n<div class=\"wc-product__sub\"><img src=\"/themes/custom/wristcheck_barrio/images/icons/add.png\" />SECURE PAYMENT IN ESCROW</div>\r\n\r\n<div class=\"wc-product__sub\"><img src=\"/themes/custom/wristcheck_barrio/images/icons/add.png\" />SELLER GETS PAID ONCE</div>\r\n\r\n<div class=\"“wc-product-right-img&quot;\"><img src=\"/themes/custom/wristcheck_barrio/images/icons/add.png\" /></div>\r\n</div>\r\n"
+        summary: ''
+        format: full_html
 menus:
   -
     menu_name: main
