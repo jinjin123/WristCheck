@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\responsive_image\Entity\ResponsiveImageStyle;
+use Drupal\file\Entity\File;
 
 /**
  * Prepares variables for view templates.
@@ -84,6 +85,16 @@ function wristcheck_barrio_form_system_theme_settings_alter(&$form, FormStateInt
     'bg-white' => t('White'),
     'bg-transparent' => t('Transparent'),
   );
+
+  $form['logo']['settings']['logo_mobile_upload'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Upload mobile logo image'),
+    '#upload_location' => \Drupal::config('system.file')->get('default_scheme') . '://theme/logo/',
+    '#default_value' => theme_get_setting('logo_mobile_upload'),
+    '#upload_validators' => array(
+      'file_validate_extensions' => array('gif png jpg jpeg'),
+    ),
+  ];
 }
 
 /**
@@ -158,40 +169,49 @@ function wristcheck_barrio_preprocess_html(array &$variables)
       }
     }
   }
+  if (isset($variables['page']) && isset($variables['page']['header'])) {
+    $fid = theme_get_setting('logo_mobile_upload');
+    if (is_array($fid) && sizeof($fid) > 0) {
+      $variables['page']['header']['logo_mobile'] = File::load($fid[0])->url();
+    } else {
+      $variables['page']['header']['logo_mobile'] = null;
+    }
+  }
 }
+
 
 //for payment succ & step css name
 function wristcheck_barrio_preprocess_user(array &$variables)
 {
   $path = \Drupal::service('path.current')->getPath();
   $path_args = explode('/', $path);
-  if($path_args[1] =="user"){
-     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-         $variables['mail'] = $user->getEmail();
-         $variables['phone'] = $user->get('field_phone_number')->value;
-         if(count($user->field_surnames->getValue())>0){
-           $variables['surname'] = array_values($user->field_surnames->getValue()[0])[0];
-         }
-         $variables['gender']  = array_values($user->field_gender->getValue()[0])[0];
-         if(count($user->field_date_of_birth->getValue())>0){
-           $variables['birth']  = date("Y/m/d",strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
-         }
-         $variables['name'] =$user->getUsername();
-         $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
-         $variables['news'] = $user->get('field_newsletter')->value;
-         $variables['cooperate'] = $user->get('field_we_cooperate_in')->value;
-         $variables['guide'] = $user->get('field_guide')->value;
-         $variables['price'] = $user->get('field_price_warning')->value;
-         $entity_ids = \Drupal::entityTypeManager()
-           ->getStorage('node')
-           ->getQuery()
-           ->condition('type', 'portfolio')
-           ->condition('uid', '1')
-           ->sort('created.value', 'DESC')
-           ->range(0, 1)->execute();
-         $variables['porttime'] =  date("M d,Y",\Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
-         $variables['userobj'] = $user;
-         $variables['userid'] = \Drupal::currentUser()->id();
+  if ($path_args[1] == "user") {
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $variables['mail'] = $user->getEmail();
+    $variables['phone'] = $user->get('field_phone_number')->value;
+    if (count($user->field_surnames->getValue()) > 0) {
+      $variables['surname'] = array_values($user->field_surnames->getValue()[0])[0];
+    }
+    $variables['gender'] = array_values($user->field_gender->getValue()[0])[0];
+    if (count($user->field_date_of_birth->getValue()) > 0) {
+      $variables['birth'] = date("Y/m/d", strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
+    }
+    $variables['name'] = $user->getUsername();
+    $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
+    $variables['news'] = $user->get('field_newsletter')->value;
+    $variables['cooperate'] = $user->get('field_we_cooperate_in')->value;
+    $variables['guide'] = $user->get('field_guide')->value;
+    $variables['price'] = $user->get('field_price_warning')->value;
+    $entity_ids = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->getQuery()
+      ->condition('type', 'portfolio')
+      ->condition('uid', '1')
+      ->sort('created.value', 'DESC')
+      ->range(0, 1)->execute();
+    $variables['porttime'] = date("M d,Y", \Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
+    $variables['userobj'] = $user;
+    $variables['userid'] = \Drupal::currentUser()->id();
   }
 }
 
