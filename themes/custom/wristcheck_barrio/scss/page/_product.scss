@@ -281,7 +281,8 @@
   .wc-product-buy-used-popup {
     .item-list ul li {
       padding: 0;
-      a{
+
+      a {
         background-color: transparent;
       }
     }
@@ -684,6 +685,57 @@
     color: #176BA4;
   }
 }
-.wc-display-label .field__label{
+
+.wc-display-label .field__label {
   display: none;
+}
+
+
+.wc-shield-box {
+  padding: 30px;
+  border: 1px dashed #333;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  width: 65%;
+
+  .wc-shield-box__left {
+    flex: 1;
+  }
+
+  .wc-shield-box__right {
+    width: 150px;
+    img {
+      display: block;
+      margin-left: 20px;
+    }
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .wc-shield-box__item {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .wc-shield-box__item-img {
+    float: left;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: 20px;
+
+    img {
+      display: block;
+      width: 22px;
+      height: auto;
+    }
+
+  }
 }
