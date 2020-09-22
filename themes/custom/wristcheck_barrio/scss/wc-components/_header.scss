@@ -340,3 +340,45 @@
     }
   }
 }
+
+.wc-mobile-logo {
+  width: 300px;
+
+  img {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.menu-close__btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background-color: transparent;
+  border: none;
+
+  &:before {
+    content: " ";
+    width: 1px;
+    height: 20px;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transform: rotate(45deg) translate(-10px,0px);
+  }
+
+  &:after {
+    content: " ";
+    width: 1px;
+    height: 20px;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transform: rotate(135deg) translate(0px,10px);
+  }
+}

@@ -350,4 +350,33 @@
   .view-display-id-best_sellers .swiper-slide {
     height: 200px;
   }
+  .wc-sign-up .wc-sign-up__box {
+    width: 60%;
+  }
+  .wc-v2-panel .wc-v2-how_it_works__item {
+    padding: 30px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .wc-sign-up .wc-sign-up__box {
+    width: 80%;
+    margin: auto;
+  }
+  .wristcheck_sign_up_for_news_block {
+    text-align: center;
+    padding: 30px 0;
+
+    .form-actions,
+    .form-email {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .webform-button--submit {
+      width: 100%;
+      background: #FFF;
+      color: #333;
+    }
+  }
 }

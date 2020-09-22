@@ -426,9 +426,14 @@
   $('.menu-close').click(function () {
     var menu = $('#navbarContent');
     var header = $('#navbar-spy');
+    var modal = $('.wc-page-modal');
+    var search = $('.wc-product-search-modal');
     menu.removeClass('show')
     header.removeClass('show')
     header.find('.show').removeClass('show')
+    modal.removeClass('show');
+    search.removeClass('show')
+
   })
 
 
