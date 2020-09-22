@@ -322,3 +322,14 @@ function wristcheck_basic_form_node_wcshw_form_alter(&$form, FormStateInterface 
 //  var_dump($product->variation_id);
 //}
 
+function wristcheck_basic_entity_operation(\Drupal\Core\Entity\EntityInterface $entity) {
+  if(in_array($entity->bundle(), ['wcshw'])) {
+    $operations = array();
+    $operations['create'] = array(
+      'title' => t('Create'),
+      'url' =>  \Drupal\Core\Url::fromRoute('node.add',['node_type'=> 'wcshw']),
+      'weight' => 30,
+    );
+    return $operations;
+  }
+}
