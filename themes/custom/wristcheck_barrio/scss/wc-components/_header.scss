@@ -258,7 +258,8 @@
   }
 
 }
-.wc-brand{
+
+.wc-brand {
   display: none;
   padding: 20px;
 }
@@ -274,14 +275,14 @@
     overflow-y: auto;
     background-color: #333;
 
-    .wc-brand{
+    .wc-brand {
       display: flex;
       width: 100%;
       justify-content: space-between;
       align-items: center;
     }
 
-    .navbar-nav li.active > a {
+    .navbar-nav li.active > a.dropdown-toggle {
       color: #FFF;
     }
 
@@ -290,9 +291,94 @@
 
       > li {
         justify-content: flex-start;
-        padding-left: 20px;
+        padding: 0;
         border-bottom: 1px solid #ddd;
+
+        a:before, a:after {
+          width: 0;
+          height: 0;
+        }
+
+        a.dropdown-toggle {
+          padding-left: 20px;
+        }
+
+        &:hover a.dropdown-toggle {
+          color: #FFF;
+        }
+
+        &:hover {
+          .wc-menu-container {
+            transform: scaleY(0);
+            opacity: 0;
+          }
+        }
+      }
+
+      > .mega-dropdown {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .wc-menu-container {
+        height: 0;
+        padding: 0;
+        position: static;
+      }
+
+      li.show {
+        .wc-menu-container {
+          height: auto;
+          opacity: 1;
+          padding: 30px;
+          transform: scaleY(1);
+          background-color: #FFF;
+        }
       }
     }
+  }
+}
+
+.wc-mobile-logo {
+  width: 300px;
+
+  img {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.menu-close__btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background-color: transparent;
+  border: none;
+
+  &:before {
+    content: " ";
+    width: 1px;
+    height: 20px;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transform: rotate(45deg) translate(-10px,0px);
+  }
+
+  &:after {
+    content: " ";
+    width: 1px;
+    height: 20px;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transform: rotate(135deg) translate(0px,10px);
   }
 }
