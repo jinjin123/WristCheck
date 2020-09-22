@@ -10,11 +10,11 @@
   <div class="container">
     <header id="navbar-spy" class="header wc-header">
       <div class="wc-brand">
-        {{ page.header.wristcheck_barrio_branding }}
+        <div class="wc-mobile-logo">
+          <img src="{{ page.header.logo_mobile }}" alt="">
+        </div>
         <div class="menu-close">
-          <button type="button">
-            <span class="navbar-collapse"></span>
-          </button>
+          <button class="menu-close__btn" type="button"></button>
         </div>
       </div>
       <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light">
