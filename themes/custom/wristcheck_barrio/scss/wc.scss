@@ -339,6 +339,10 @@ a:focus {
   z-index: 0 !important;
 }
 
+.container-fluid{
+  overflow: hidden;
+}
+
 @media (min-width: 1460px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1400px;
@@ -362,3 +366,4 @@ a:focus {
     padding-bottom: 0;
   }
 }
+
