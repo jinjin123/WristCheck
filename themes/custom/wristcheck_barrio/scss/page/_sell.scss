@@ -11,6 +11,7 @@
 .webform-submission-faq-price-form {
   .webform-elements {
     display: flex;
+    flex-wrap: wrap;
     position: relative;
     color: #FFF;
 
@@ -338,5 +339,45 @@
 
   .wc-faq {
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 1440px) {
+  .wc-sell-swiper {
+    width: 80%;
+  }
+  .webform-submission-faq-price-form .webform-elements .form-control {
+    width: 150px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .wc-video-box {
+    width: 100%;
+    height: 400px;
+  }
+  .wc-sell-get-started {
+    width: 300px;
+  }
+  .wc-sell-banner {
+    padding: 0 20px;
+  }
+  .wc-sell-banner__input {
+    display: flex;
+    flex-direction: row;
+
+    .form-control {
+      flex: 1;
+    }
+  }
+  .webform-submission-faq-price-form .webform-elements .js-form-item-second-size,
+  .form-item-first-size {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wc-sell-swiper {
+    width: 100%;
   }
 }

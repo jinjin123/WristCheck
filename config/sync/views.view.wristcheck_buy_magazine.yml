@@ -1373,10 +1373,10 @@ display:
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -1596,10 +1596,10 @@ display:
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:

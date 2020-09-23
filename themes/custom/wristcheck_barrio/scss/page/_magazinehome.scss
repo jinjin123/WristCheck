@@ -231,3 +231,15 @@
   }
 }
 
+@media (max-width: 1024px){
+  .view-display-id-further_articles .view-content > div{
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 640px){
+  .view-display-id-further_articles .view-content > div{
+    max-width: 100% !important;
+  }
+}
+
