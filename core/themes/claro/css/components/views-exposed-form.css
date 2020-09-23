@@ -84,6 +84,13 @@
 rgba(0, 0, 0, 0.1);
 }
 
+
+.wc-second-hand-button {
+  padding: 10px 20px 10px 20px;
+  border: 1px solid grey;
+  color:grey;
+  text-decoration:none;
+}
 .views-exposed-form__item.views-exposed-form__item {
   /*margin: 0.75rem 0.5rem 0 0; /* LTR */
 }
