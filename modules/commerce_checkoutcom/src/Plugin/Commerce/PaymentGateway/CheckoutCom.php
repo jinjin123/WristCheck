@@ -290,7 +290,6 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       $capture_response = $this->CheckoutApi->payments()->capture($capture);
       ErrorHelper::handleErrors($capture_response, 'capture');
     } catch (\Exception $e) {
-      var_dump($e);
       ErrorHelper::handleException($e);
     }
 
