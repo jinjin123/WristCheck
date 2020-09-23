@@ -585,7 +585,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-buygui-art col-md-12\">\r\n\t<div class='img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<h2 class='wc-rolex-title'>{{ title }}</h2>\r\n\t\t\t<p class='wc-rolex-sub'>NEWS</p>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: "<div class=\"wc-buygui-art\">\r\n\t<div class='img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<h2 class='wc-rolex-title'>{{ title }}</h2>\r\n\t\t\t<p class='wc-rolex-sub'>NEWS</p>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -656,10 +656,10 @@ display:
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -1061,7 +1061,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-from-the-journal col-md-12 \">\r\n\t<a href=\"{{ view_node }}\" class='wc-from-the-journal-img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></a>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>{{field_blog_categories }}</p>\r\n\t\t\t<h2 class='wc-rolex-title'>{{ title }}</h2>\r\n\t\t\t<div class=\"wc-rolex-title__sub\">{{body }}</div>\r\n\t\t\t<h3>BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: "<div class=\"wc-from-the-journal\">\r\n\t<a href=\"{{ view_node }}\" class='wc-from-the-journal-img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></a>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>{{field_blog_categories }}</p>\r\n\t\t\t<h2 class='wc-rolex-title'>{{ title }}</h2>\r\n\t\t\t<div class=\"wc-rolex-title__sub\">{{body }}</div>\r\n\t\t\t<h3>BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -1302,7 +1302,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-further-art col-md-12\">\r\n\t<div class='img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>NEWS</p>\r\n\t\t\t<h4 class='wc-rolex-title'>{{ title }}</h4>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: "<div class=\"wc-further-art\">\r\n\t<div class='img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>NEWS</p>\r\n\t\t\t<h4 class='wc-rolex-title'>{{ title }}</h4>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -1373,10 +1373,10 @@ display:
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -1596,10 +1596,10 @@ display:
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -1813,7 +1813,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-latest-art col-md-12 \">\r\n\t<div class='wc-discover-img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>BUYER'S GUIDE</p>\r\n\t\t\t<h2 class='wc-rolex-title'><span>{{ title }}</span></h2>\r\n\t\t\t<h3>BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: "<div class=\"wc-latest-art\">\r\n\t<div class='wc-discover-img portfolio-img lazyload' data-original=\"{{field_page_title_image}}\" ></div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>BUYER'S GUIDE</p>\r\n\t\t\t<h2 class='wc-rolex-title'><span>{{ title }}</span></h2>\r\n\t\t\t<h3>BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -1884,10 +1884,10 @@ display:
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -2372,10 +2372,10 @@ display:
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
     cache_metadata:
       max-age: -1
       contexts:

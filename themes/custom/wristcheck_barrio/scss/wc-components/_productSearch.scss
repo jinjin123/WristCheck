@@ -303,3 +303,9 @@
     padding-left: 30px;
   }
 }
+
+@media (max-width: 767px) {
+  .wc-product-search {
+    display: none;
+  }
+}

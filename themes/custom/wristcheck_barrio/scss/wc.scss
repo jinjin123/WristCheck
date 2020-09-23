@@ -303,10 +303,13 @@ a:focus {
 .view-id-wristcheck_testimdnials {
   .view-content {
     display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
 
     .flex-1-item {
       width: 20%;
-
+      margin-bottom: 30px;
       div {
         .wc-testimdnials-img {
           //width:150px;
@@ -336,6 +339,10 @@ a:focus {
   z-index: 0 !important;
 }
 
+.container-fluid{
+  overflow: hidden;
+}
+
 @media (min-width: 1460px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1400px;
@@ -349,3 +356,14 @@ a:focus {
     max-width: 1800px;
   }
 }
+
+@media (max-width: 1024px) {
+  .view-id-wristcheck_testimdnials .view-content .flex-1-item{
+    width: 50%;
+    margin-bottom: 80px;
+  }
+  .wc-testimdnials .pb-100{
+    padding-bottom: 0;
+  }
+}
+

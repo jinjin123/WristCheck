@@ -27,6 +27,7 @@
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
+    width: 220px;
 
     span {
       display: none;
@@ -367,7 +368,7 @@
     top: 50%;
     left: 50%;
     transform-origin: center center;
-    transform: rotate(45deg) translate(-10px,0px);
+    transform: rotate(45deg) translate(-10px, 0px);
   }
 
   &:after {
@@ -379,6 +380,13 @@
     top: 50%;
     left: 50%;
     transform-origin: center center;
-    transform: rotate(135deg) translate(0px,10px);
+    transform: rotate(135deg) translate(0px, 10px);
+  }
+}
+
+@media (max-width: 415px) {
+  .header-top .navbar-brand {
+    width: 180px;
+    margin: 8px 0 0 0;
   }
 }
