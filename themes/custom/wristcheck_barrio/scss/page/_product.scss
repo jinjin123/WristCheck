@@ -400,15 +400,17 @@
   .field--name-field-specifications > .field__items {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     margin-right: 100px;
     margin-left: 100px;
 
     > .field__item {
-      flex: 1;
+      flex: 0 1 100px;
       border-right: 1px solid #C8C6C6;
       padding: 0 30px;
+      margin-bottom: 10px;
 
       &:last-child {
         border-right: 1px solid transparent;
@@ -705,6 +707,7 @@
 
   .wc-shield-box__right {
     width: 150px;
+
     img {
       display: block;
       margin-left: 20px;
@@ -737,5 +740,12 @@
       height: auto;
     }
 
+  }
+}
+
+@media (max-width: 768px) {
+  .wc-product-specifications .field--name-field-specifications > .field__items {
+    margin-left: 0;
+    margin-right: 0;
   }
 }

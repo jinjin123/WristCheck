@@ -29,6 +29,8 @@
       thumb_image_height = box_width * p;
     }
 
+    $('.wc-product-imglist1').css('height', (thumb_image_height + 160) + 'px');
+
 
     $(".etalage").zoom({
       align: "left",              // 当前展示图片的位置，则放大的图片在其相对的位置

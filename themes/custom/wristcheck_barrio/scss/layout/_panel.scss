@@ -107,7 +107,7 @@
 
   .flex-1-item {
     padding: 0 30px;
-    flex: 1;
+    flex: 1 0 200px;
   }
 
   h1 {
@@ -411,15 +411,36 @@
     }
   }
 }
+@media (max-width: 1700px) {
+  .wc-ex-panel {
+    height: 350px;
+  }
+}
 
 @media (max-width: 1024px) {
   .wc-ex-panel {
     height: 250px;
+  }
+  .wc-panel{
+    padding: 20px 0;
   }
 }
 
 @media (max-width: 876px) {
   .wc-ex-panel {
     height: 200px;
+  }
+  .view-wristcheck-products .item-list > ul > li{
+    width: 50%;
+  }
+  .wc-panel .wc-panel__title{
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .view-wristcheck-products .item-list > ul > li{
+    width: 100%;
+    padding: 0.75rem 0;
   }
 }
