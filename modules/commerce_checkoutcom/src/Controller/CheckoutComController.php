@@ -200,7 +200,7 @@ class CheckoutComController extends PaymentCheckoutController {
             ->execute();
           break;
         case "payment_approved":
-          $database->update('payment_approved')
+          $database->update('commerce_payment')
             ->fields(["remote_state"=> 'Authorized'])
             ->condition("order_id",$arr->data->metadata->order_id )
             ->execute();
