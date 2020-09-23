@@ -184,13 +184,24 @@ class CheckoutComController extends PaymentCheckoutController {
   public function NotificationStatus(Request $request, RouteMatchInterface $route_match )
   {
     $arr = json_decode($request->getContent());
-    \Drupal::logger('commerce_checkoutcom')->notice('content' . json_encode($arr));
+    \Drupal::logger('commerce_checkoutwebhook')->notice('content' . json_encode($arr));
+    $database = \Drupal::database();
     try {
       switch ($arr->type) {
         case "payment_refunded":
-          $database = \Drupal::database();
           $database->update('commerce_payment')
             ->fields(["refunded_amount__number"=> $arr->data->amount / 100,"state"=>'refunded'])
+            ->condition("order_id",$arr->data->metadata->order_id )
+            ->execute();
+        case  "payment_captured":
+          $database->update('commerce_payment')
+            ->fields(["remote_state"=> 'Captured'])
+            ->condition("order_id",$arr->data->metadata->order_id )
+            ->execute();
+          break;
+        case "payment_approved":
+          $database->update('commerce_payment')
+            ->fields(["remote_state"=> 'Authorized'])
             ->condition("order_id",$arr->data->metadata->order_id )
             ->execute();
           break;
