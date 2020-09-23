@@ -184,7 +184,7 @@ class CheckoutComController extends PaymentCheckoutController {
   public function NotificationStatus(Request $request, RouteMatchInterface $route_match )
   {
     $arr = json_decode($request->getContent());
-    \Drupal::logger('commerce_checkoutcom')->notice('content' . json_encode($arr));
+    \Drupal::logger('commerce_checkoutwebhook')->notice('content' . json_encode($arr));
     $database = \Drupal::database();
     try {
       switch ($arr->type) {
