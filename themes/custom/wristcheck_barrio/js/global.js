@@ -46,7 +46,7 @@
   $('a[href]').click(function (e) {
     var href = $(this).attr('href');
     console.log(href)
-    if (href !== '' && href !== '#' && href !== 'javascript:;' && href !== null) {
+    if (href !== '' && href !== '#' && href !== 'javascript:;' && href !== null && !$(this).hasClass('use-ajax')) {
       e.stopPropagation()
       $('body').append($('<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>'))
       window.location.href = href;
