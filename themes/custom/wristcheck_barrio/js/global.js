@@ -7,6 +7,8 @@
 
   'use strict';
 
+    console.log(Drupal.behaviors)
+
   // Drupal.behaviors.ProductVariationLoad = {
   //   attach: function (context, settings) {
   //     var display = $(".wc-product-variations");

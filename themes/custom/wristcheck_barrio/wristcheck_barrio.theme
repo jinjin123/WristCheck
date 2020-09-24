@@ -220,3 +220,10 @@ function wristcheck_barrio_preprocess_user(array &$variables)
   }
 }
 
+function wristcheck_barrio_library_info_alter(&$libraries, $extension) {
+  // Add our own extension to drupal.ajax, which is aware of the page markup so
+  // can add AJAX progress loaders in the page.
+  if ($extension == 'core' && isset($libraries['drupal.ajax'])) {
+    $libraries['drupal.ajax']['js']['/' . drupal_get_path('theme', 'wristcheck_barrio') . '/js/ajax-overrides.js'] = [];
+  }
+}
