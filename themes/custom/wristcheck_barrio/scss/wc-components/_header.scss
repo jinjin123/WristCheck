@@ -383,6 +383,11 @@
     transform: rotate(135deg) translate(0px, 10px);
   }
 }
+#primary-menu {
+  .container-fluid{
+    overflow: initial !important;
+  }
+}
 
 @media (max-width: 415px) {
   .header-top .navbar-brand {
