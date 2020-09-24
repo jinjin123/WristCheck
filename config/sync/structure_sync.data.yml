@@ -1142,7 +1142,7 @@ blocks:
     rev_id_current: null
     fields:
       body:
-        value: "<div class=\"cs-box\">\r\n<div class=\"wc-product-title bold\">WRISTCHECK GUARANTEE</div>\r\n\r\n<div class=\"wc-product__sub\"><img src=\"/themes/custom/wristcheck_barrio/images/icons/add.png\" />AUTHENTICITY GUARANTEED</div>\r\n\r\n<div class=\"wc-product__sub\"><img src=\"/themes/custom/wristcheck_barrio/images/icons/add.png\" />SECURE PAYMENT IN ESCROW</div>\r\n\r\n<div class=\"wc-product__sub\"><img src=\"/themes/custom/wristcheck_barrio/images/icons/add.png\" />SELLER GETS PAID ONCE</div>\r\n\r\n<div class=\"“wc-product-right-img&quot;\"><img src=\"/themes/custom/wristcheck_barrio/images/icons/add.png\" /></div>\r\n</div>\r\n"
+        value: "<div class=\"wc-shield-box\">\r\n<div class=\"wc-shield-box__left\">\r\n<h1>WRISTCHECK GUARANTEE</h1>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/dui.png\" /></span> AUTHENTICITY GUARANTEED</div>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/qian.png\" /> </span> SECURE PAYMENT IN ESCROW</div>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/ren.png\" /> </span> SELLER GETS PAID ONCE</div>\r\n</div>\r\n\r\n<div class=\"wc-shield-box__right\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/dun.png\" /></div>\r\n</div>\r\n"
         summary: ''
         format: full_html
 menus:
