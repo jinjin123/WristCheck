@@ -41,7 +41,7 @@
   {# Set nofollow to prevent search bots from crawling anonymous flag links #}
   {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
 
-  <div class="{{classes|join(' ')}}"><a {{ attributes }}><div class="d-flex flex-column align-items-center"><span class="fa {{ fa_class }}"></span>wishlist</div></a></div>
+  <div class="{{classes|join(' ')}}"><a {{ attributes }} data-progress-type="WCFullprogress" ><div class="d-flex flex-column align-items-center"><span class="fa {{ fa_class }}"></span>wishlist</div></a></div>
 {#  <div class="{{ classes|join(' ') }}">#}
 {#    <a class="fa {{ action_class }} wc-product-wishlist"></a>#}
 {#    <span class="wc-product-wishlist__title">wishlist</span>#}

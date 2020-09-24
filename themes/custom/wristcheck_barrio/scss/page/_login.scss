@@ -102,3 +102,12 @@
     }
   }
 }
+
+@media (max-width: 415px) {
+  #block-wristcheck-barrio-content .user-login-form{
+    padding: 50px 20px;
+  }
+  #block-wristcheck-barrio-content .user-login-form .form-footer .wc-btn-dark{
+    width: 100%;
+  }
+}
