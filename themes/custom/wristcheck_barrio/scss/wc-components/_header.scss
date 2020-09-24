@@ -383,9 +383,23 @@
     transform: rotate(135deg) translate(0px, 10px);
   }
 }
+
 #primary-menu {
-  .container-fluid{
+  .container-fluid {
     overflow: initial !important;
+  }
+}
+
+.login-icon-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .login-icon-mobile {
+    display: block;
+  }
+  .block-wristcheck-ajax-user-login-block {
+    display: none;
   }
 }
 

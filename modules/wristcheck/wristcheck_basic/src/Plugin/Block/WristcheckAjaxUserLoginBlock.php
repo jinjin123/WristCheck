@@ -33,6 +33,7 @@ class WristcheckAjaxUserLoginBlock extends BlockBase {
           'padding' => 20,
           'dialogClass' => 'wc-login-dialog'
         ]),
+        'data-progress-type' => 'WCFullprogress',
         'data-dialog-type' => 'modal'
       ),
     );
