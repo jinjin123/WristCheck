@@ -266,6 +266,16 @@ function wristcheck_basic_theme()
       'variables' => [
         'variables' => []
       ]
+    ],
+    'wristcheck_error_404'=>[
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_error_403'=>[
+      'variables' => [
+        'variables' => []
+      ]
     ]
   ];
 }

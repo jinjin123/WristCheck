@@ -172,7 +172,12 @@ function wristcheck_barrio_preprocess_html(array &$variables)
   if (isset($variables['page']) && isset($variables['page']['header'])) {
     $fid = theme_get_setting('logo_mobile_upload');
     if (is_array($fid) && sizeof($fid) > 0) {
-      $variables['page']['header']['logo_mobile'] = File::load($fid[0])->url();
+      $file = File::load($fid[0]);
+      if (!is_null($file)){
+        $variables['page']['header']['logo_mobile'] = $file->url();
+      }else{
+        $variables['page']['header']['logo_mobile'] = null;
+      }
     } else {
       $variables['page']['header']['logo_mobile'] = null;
     }
