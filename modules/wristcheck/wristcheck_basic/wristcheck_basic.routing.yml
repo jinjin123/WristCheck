@@ -317,3 +317,19 @@ wristcheck_basic.order_status:
     _title: 'OrderStatus'
   requirements:
     _permission: 'access wristcheck administration pages'
+
+wristcheck_basic.error_page_controller_error404:
+  path: '/wristcheck_basic/error404'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\ErrorPageController::error404'
+    _title: 'Error 404'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.error_page_controller_error403:
+  path: '/wristcheck_basic/error403'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\ErrorPageController::error403'
+    _title: 'Error 403'
+  requirements:
+    _permission: 'access content'

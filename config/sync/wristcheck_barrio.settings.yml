@@ -33,8 +33,7 @@ features:
   comment_user_verification: 1
   favicon: 1
 logo:
-  use_default: 0
-  path: 'public://LETTERMARK-BLACK@3x_0.png'
+  use_default: 1
 favicon:
   use_default: 1
 bootstrap_barrio_region_clean_header: 1
@@ -78,5 +77,7 @@ bootstrap_barrio_google_fonts: ''
 bootstrap_barrio_bootstrap_icons: 0
 bootstrap_barrio_icons: ''
 bootstrap_barrio_table_head: thead-dark
+logo_mobile_path: ''
 logo_mobile_upload:
-  - '91909'
+  - '815'
+logo_mobile_upload_1: xxx
