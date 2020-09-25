@@ -36,3 +36,24 @@
     color: #9b9b9b;
   }
 }
+
+.layout-checkout-form {
+  padding: 50px;
+  .link--previous {
+    background-color: #FFF;
+    border: 1px solid #333;
+    display: inline-block;
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+    margin-left: 10px;
+    min-width: 100px;
+  }
+}
+
