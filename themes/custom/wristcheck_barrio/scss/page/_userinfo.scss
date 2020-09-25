@@ -40,13 +40,16 @@
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
   }
-  .bold{
+
+  .bold {
     font-weight: 600;
   }
-  .wc-userinfo-list_p{
+
+  .wc-userinfo-list_p {
     padding: 16px;
     position: relative;
-    &:before{
+
+    &:before {
       content: "";
       position: absolute;
       top: 20px;
@@ -55,6 +58,7 @@
       height: 10px;
       border: 1px solid $color-dark3;
     }
+
     &::after {
       position: absolute;
       top: 20px;
@@ -73,12 +77,14 @@
     background: no-repeat 50% / 100% 100%;
     background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
   }
-  .wc-userinfo-list_num{
+
+  .wc-userinfo-list_num {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    .list_num{
+
+    .list_num {
       font-size: 50px;
       font-style: italic;
       font-weight: 600;
@@ -137,11 +143,13 @@
   //margin-top: 30px;
   .wc-userinfo-list {
     margin-top: 40px;
+
     .wc-user-checkbox {
       display: none;
     }
   }
-  .cart-icon{
+
+  .cart-icon {
     display: inline-block;
     width: 16px;
   }
@@ -165,11 +173,13 @@
     flex-direction: column;
     padding-left: 30px;
     justify-content: space-between;
+
     p {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      &:last-child{
+
+      &:last-child {
         margin: 0;
       }
     }
@@ -195,41 +205,74 @@
   padding-bottom: 20px;
 }
 
+/* 普通用户后台样式*/
+form.user-form {
+  padding: 30px 20px;
+  background-color: #FFF;
+
+  .form-control {
+    height: auto;
+  }
+
+  .tabledrag-toggle-weight,
+  .link-edit-summary {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+  }
+
+  .tabledrag-toggle-weight-wrapper {
+    padding-bottom: 10px;
+  }
+}
+
+/* 普通用户后台样式 end*/
 @media (max-width: 1025px) {
-  .wc-userinfo-card .wc-userinfo-padding{
+  .wc-userinfo-card .wc-userinfo-padding {
     padding: 0;
   }
-  .wc-userinfo-card .title, .wc-userinfo-card h1{
+  .wc-userinfo-card .title, .wc-userinfo-card h1 {
     font-size: 24px;
   }
-  .wc-userinfo-card .sub_title, .wc-userinfo-card h2{
+  .wc-userinfo-card .sub_title, .wc-userinfo-card h2 {
     font-size: 18px;
   }
-  .wc-userinfo-card .wc-userinfo-left{
+  .wc-userinfo-card .wc-userinfo-left {
     flex-direction: column !important;
-    .wc-userinfo-photo{
+
+    .wc-userinfo-photo {
       margin: 0 auto 30px;
     }
-    .wc-userinfo-info{
+
+    .wc-userinfo-info {
       align-items: center;
     }
   }
-  .wc-buy-product-item .wc-buy-product-privew__img{
+  .wc-buy-product-item .wc-buy-product-privew__img {
     width: 100% !important;
   }
-  .wc-buy-product-item .wc-buy-product-body{
+  .wc-buy-product-item .wc-buy-product-body {
     display: none !important;
   }
-  .wc-userinfo__header{
+  .wc-userinfo__header {
     margin-top: 20px;
   }
-  .wc-userinfo__body .item-list ul li{
+  .wc-userinfo__body .item-list ul li {
     padding: 0.75rem 0 0 0;
   }
 }
 
 @media (max-width: 375px) {
-  .wc-userinfo-card .wc-userinfo__header{
+  .wc-userinfo-card .wc-userinfo__header {
     position: relative;
   }
   .wc-userinfo-card .wc-userinfo__header .actions {
