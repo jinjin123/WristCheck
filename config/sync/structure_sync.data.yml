@@ -1130,7 +1130,7 @@ blocks:
     rev_id_current: null
     fields:
       body:
-        value: "<div class=\"payment-success payment-step\">\r\n<div class=\"row direction\"><a class=\"wc-back-nav\" onclick=\"javascript:history.back();\"> So let's go back to the list<!-- a--></a></div>\r\n<a class=\"wc-back-nav\" onclick=\"javascript:history.back();\"> </a>\r\n\r\n<div class=\"wc-panel\">\r\n<div class=\"wc-panel__title\"><a class=\"wc-back-nav\" onclick=\"javascript:history.back();\">Order</a></div>\r\n\r\n<div class=\"row\">\r\n<div class=\"col-md-12\"><a class=\"wc-back-nav\" onclick=\"javascript:history.back();\"><img class=\"img-fluid\" src=\"/themes/custom/wristcheck_barrio/images/paystep.png\"/></a></div>\r\n</div>\r\n</div>\r\n<a class=\"wc-back-nav\" onclick=\"javascript:history.back();\"> </a></div>\r\n"
+        value: "<div class=\"payment-success payment-step\">\r\n<div class=\"row direction\"><span class=\"fa fa-angle-left\">&nbsp;</span> <a class=\"wc-back-nav\" href=\"\" onclick=\"javascript:history.back();\">So let's go back to the list</a></div>\r\n\r\n<div class=\"wc-panel\">\r\n<div class=\"wc-panel__title\">Order</div>\r\n\r\n<div class=\"row\">\r\n<div class=\"col-md-12\"><img class=\"img-fluid\" src=\"/themes/custom/wristcheck_barrio/images/paystep.png\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n"
         summary: ''
         format: full_html
   -
