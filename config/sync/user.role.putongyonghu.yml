@@ -1,0 +1,49 @@
+uuid: 4ce013c3-35fe-4810-b09f-669740d62fb7
+langcode: en
+status: true
+dependencies: {  }
+id: putongyonghu
+label: 普通用户
+weight: -4
+is_admin: null
+permissions:
+  - 'access commerce_order overview'
+  - 'access commerce_product overview'
+  - 'access commerce_product_attribute overview'
+  - 'access commerce_promotion overview'
+  - 'access commerce_wishlist overview'
+  - 'access content overview'
+  - 'access profile overview'
+  - 'access user profiles'
+  - 'change own username'
+  - 'create customer profile'
+  - 'create default commerce_wishlist'
+  - 'create portfolio content'
+  - 'delete own customer profile'
+  - 'delete own default commerce_wishlist'
+  - 'delete own portfolio content'
+  - 'delete own services content'
+  - 'delete own wcshw content'
+  - 'duplicate own default commerce_wishlist'
+  - 'edit own comments'
+  - 'edit own portfolio content'
+  - 'edit own services content'
+  - 'edit own simplenews_issue content'
+  - 'flag bookmark'
+  - 'flag second_hands_watch_flag'
+  - 'flag wristcheck_wishlist'
+  - 'restful get api_rest_resource'
+  - 'unflag bookmark'
+  - 'unflag second_hands_watch_flag'
+  - 'unflag wristcheck_wishlist'
+  - 'update own customer profile'
+  - 'update own default commerce_wishlist'
+  - 'view 2hw_order commerce_order'
+  - 'view commerce_promotion'
+  - 'view default commerce_order'
+  - 'view default commerce_product'
+  - 'view own commerce_wishlist'
+  - 'view own customer profile'
+  - 'view own default commerce_wishlist'
+  - 'view own profile'
+  - 'view watch commerce_product'
