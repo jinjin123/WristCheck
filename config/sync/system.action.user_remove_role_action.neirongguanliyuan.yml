@@ -1,0 +1,14 @@
+uuid: eafda58d-21fb-4a62-bc71-05c1aafd02d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.neirongguanliyuan
+  module:
+    - user
+id: user_remove_role_action.neirongguanliyuan
+label: 'Remove the 内容管理员 role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: neirongguanliyuan

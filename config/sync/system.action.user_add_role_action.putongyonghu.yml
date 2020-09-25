@@ -1,0 +1,14 @@
+uuid: dd21eaf7-7d18-4e8c-b982-47fdf7eb65c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.putongyonghu
+  module:
+    - user
+id: user_add_role_action.putongyonghu
+label: 'Add the 普通用户 role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: putongyonghu
