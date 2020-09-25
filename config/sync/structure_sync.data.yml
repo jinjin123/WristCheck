@@ -2665,7 +2665,7 @@ menus:
     uri: 'internal:/eshop'
     link_title: ''
     description: null
-    enabled: '1'
+    enabled: '0'
     expanded: '1'
     weight: '-47'
     langcode: en
