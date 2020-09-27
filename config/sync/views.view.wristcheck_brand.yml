@@ -80,10 +80,10 @@ display:
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
       fields:
         field_cover_image:
           id: field_cover_image
@@ -128,16 +128,15 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: image_url
           settings:
             image_style: ''
-            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -213,8 +212,8 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div>{{ field_cover_image }}</div>\r\n<h1>BRAND INTRODUCTION</h1>\r\n{{ field_introduction }}"
-            make_link: true
+            text: "<img class=\"img-fluid\" src=\"{{field_cover_image}}\" />\r\n<div class=\"wc-v2-panel\">\r\n<h1 class=\"wc-panel__title text-center mb-5\">BRAND INTRODUCTION</h1>\r\n{{ field_introduction }}\r\n</div>"
+            make_link: false
             path: '{{ view_node }}'
             absolute: false
             external: false
