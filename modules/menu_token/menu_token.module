@@ -33,7 +33,7 @@ function menu_token_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function menu_token_form_menu_link_content_menu_link_content_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function menu_token_form_menu_link_content_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   $form_state->setCached(FALSE);
   $rebuild_with_custom_element = $form_state->get('rebuild_with_custom_element');
@@ -404,9 +404,13 @@ function menu_token_prepare_context_replacement(&$links) {
   $bubbleable_metadata = new BubbleableMetadata();
 
   foreach ($links as $key => $linkData) {
-    $links[$key]["link"]["url"] = $token_service->replace($linkData["link"]["url"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
-    $links[$key]["link"]["title"] = $token_service->replace($linkData["link"]["title"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
-    $links[$key]["link"]["options"]["bubleble_metadata"] = $bubbleable_metadata;
+    try {
+      $links[$key]["link"]["url"] = $token_service->replace($linkData["link"]["url"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
+      $links[$key]["link"]["title"] = $token_service->replace($linkData["link"]["title"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
+      $links[$key]["link"]["options"]["bubleble_metadata"] = $bubbleable_metadata;
+    }
+    catch (Exception $exception) {}
+
     $links[$key] = $links[$key]["link"];
   }
 

@@ -6,6 +6,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
 use Drupal\Core\Site\MaintenanceModeInterface;
@@ -36,7 +37,11 @@ class MaintenanceModeSubscriber implements EventSubscriberInterface {
       $routeMatch = RouteMatch::createFromRequest($request);
       $response = $event->getResponse();
 
-      if ($this->maintenanceMode->applies($routeMatch) && !$this->maintenanceMode->exempt($this->account)) {
+      if (
+        $this->maintenanceMode->applies($routeMatch)
+        && !$this->maintenanceMode->exempt($this->account)
+        && !($response instanceof RedirectResponse)
+      ) {
         $response->setStatusCode($status_code);
         $event->setResponse($response);
       }

@@ -1,8 +1,6 @@
 available_entities:
-  block_content: block_content
-  node: node
   user: user
-  menu_link_content: menu_link_content
+  block_content: '0'
   comment: '0'
   commerce_log: '0'
   commerce_order: '0'
@@ -26,6 +24,7 @@ available_entities:
   file: '0'
   flagging: '0'
   media: '0'
+  node: '0'
   path_alias: '0'
   profile: '0'
   search_api_task: '0'
@@ -35,6 +34,8 @@ available_entities:
   vote: '0'
   vote_result: '0'
   webform_submission: '0'
+  menu_link_content: '0'
   paragraph: '0'
 _core:
   default_config_hash: lcQIEazCoV3xb72H67GTKBEuGmqBDkWVA6bm4Gb22NA
+
