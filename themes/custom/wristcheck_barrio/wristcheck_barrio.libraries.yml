@@ -68,3 +68,11 @@ homepage-styling:
     - core/jquery
     - core/drupal
 
+category-styling:
+  version: VERSION
+  js:
+    js/category.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
