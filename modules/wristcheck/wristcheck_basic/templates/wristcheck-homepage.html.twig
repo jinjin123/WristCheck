@@ -11,7 +11,11 @@
 </div>
 <div class="wc-v2-panel">
   <div class="wc-v2-panel__title text-center">BEST SELLERS</div>
-  {{ drupal_view('wristcheck_products','best_sellers') }}
+  <div class="position-relative best_sellers-swiper">
+    {{ drupal_view('wristcheck_products','best_sellers') }}
+    <div class="swiper-button-prev best_sellers-prev"></div>
+    <div class="swiper-button-next best_sellers-next"></div>
+  </div>
   {#  <div class="wc-v2-panel__more text-center">
       <a href="javascript:;" class="wc-v2-panel__more-btn wc-btn-white">
         <div class="wc-btn-cont">SHOP NOW</div>
