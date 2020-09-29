@@ -42,21 +42,21 @@
   //     }
   //   }
   // };
-  // 监听页面跳转
-  $('a[href]').click(function (e) {
+  // 监听页面跳转  ajax load 伴随着刷新页面bug事件
+  // $('a[href]').click(function (e) {
     var href = $(this).attr('href');
-    if (href !== '' && 
-        href !== '#' && 
-        href !== 'javascript:;' && 
-        href !== null && 
-        !$(this).hasClass('use-ajax') && 
+    if (href !== '' &&
+        href !== '#' &&
+        href !== 'javascript:;' &&
+        href !== null &&
+        !$(this).hasClass('use-ajax') &&
         !$(this).hasClass('trigger') &&
         !$(this).parent().hasClass('wc-all-brands-header-list__href')) {
       e.stopPropagation()
       $('body').append($('<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>'))
       window.location.href = href;
     }
-  });
+  // });
 
 
   var getALLQuery = function () {

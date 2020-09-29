@@ -46,7 +46,10 @@
 
 body {
   background-color: $body_bg;
-  font-family: "basis-grotesque-regular-pro","Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif;
+  font-family: "basis-grotesque-pro","Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif;
+}
+input, button, select, optgroup, textarea{
+  font-family: "basis-grotesque-pro","Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif;
 }
 
 .v-line {
