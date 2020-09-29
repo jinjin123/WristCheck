@@ -4,7 +4,7 @@
 
   .wc-v2-panel__title {
     font-size: 18px;
-    font-family: Helvetica;
+     
     color: #000000;
     margin-bottom: 70px;
   }
@@ -31,7 +31,8 @@
 
   .how_it_works__title {
     font-size: 12px;
-    font-family: Helvetica;
+    font-weight: 700;
+    font-family: "basis-grotesque-bold-pro";
     color: #000000;
     line-height: 21px;
     margin-bottom: 5px;
@@ -39,7 +40,7 @@
 
   .how_it_works__detail {
     font-size: 14px;
-    font-family: Helvetica;
+    font-weight: 300;
     color: #000000;
     line-height: 18px;
     height: 36px;
@@ -53,7 +54,7 @@
   .how_it_works__link {
     span {
       font-size: 12px;
-      font-family: Helvetica;
+       
       color: #000000;
       padding: 2px 0;
       border-bottom: 1px solid #000;
@@ -127,15 +128,16 @@
 
   .wc-sign-up__title {
     font-size: 12px;
-    font-family: Helvetica;
+    font-weight: 700;
     color: #E2E1D9;
+    font-family: "basis-grotesque-bold-pro";
     line-height: 21px;
     margin-bottom: 5px
   }
 
   .wc-sign-up__sub {
     font-size: 14px;
-    font-family: Helvetica;
+     
     color: #E2E1D9;
     line-height: 18px;
   }
@@ -228,7 +230,7 @@
 
   .wc-rolex-sub {
     font-size: 14px;
-    font-family: Helvetica;
+     
     color: #000000;
     line-height: 21px;
     font-weight: bold;
@@ -239,7 +241,7 @@
     font-size: 34px;
     line-height: 48px;
     margin-bottom: 5px;
-    font-family: Helvetica;
+     
     color: #000000;
     font-weight: bold;
     width: 100%;
@@ -251,7 +253,7 @@
   .wc-rolex-title__sub {
     font-size: 30px;
     line-height: 38px;
-    font-family: Helvetica;
+     
     color: #000000;
     font-weight: 300;
     height: 80px;
@@ -266,7 +268,7 @@
     font-size: 14px;
     height: 45px;
     line-height: 45px;
-    font-family: Helvetica;
+     
     color: #000000;
   }
 }
@@ -329,6 +331,16 @@
     &:hover {
       background-color: #FFF;
       color: #333;
+    }
+  }
+}
+.best_sellers-swiper{
+  .best_sellers-next,
+  .best_sellers-prev{
+    top: 40%;
+    &:hover,
+    &:active{
+      outline: none;
     }
   }
 }

@@ -10,7 +10,7 @@
   $(function () {
     var swiper = new window.Swiper('.swiper-container', {
       loop: true,
-      speed: 2500,
+      speed: 1000,
       autoplay: true,
       slidesPerView: 5,
       spaceBetween: 30,
@@ -33,6 +33,10 @@
           slidesPerView: 1,
           spaceBetween: 20
         }
+      },
+      navigation: {
+        nextEl: '.best_sellers-next',
+        prevEl: '.best_sellers-prev',
       },
       on: {
         setTranslate: function () {

@@ -967,78 +967,6 @@ menus:
     langcode: en
     uuid: d6a883d1-62dc-445f-943f-e4a2dd6bdbb9
   -
-    menu_name: main
-    title: Headers
-    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-49'
-    langcode: en
-    uuid: e44d0c8a-a0cb-460a-b873-de5ecce7d6c4
-  -
-    menu_name: main
-    title: Sliders
-    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-50'
-    langcode: en
-    uuid: 0f9f45af-e8b3-4545-8b5a-a5a04890e1c2
-  -
-    menu_name: main
-    title: Footers
-    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-47'
-    langcode: en
-    uuid: 69e8eead-e365-44d0-b9e0-4300c0e2ec42
-  -
-    menu_name: main
-    title: 'Page Titles'
-    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-46'
-    langcode: en
-    uuid: b492b168-ec2a-4eea-91f3-399d167b55f0
-  -
-    menu_name: main
-    title: 'Untinity Pages'
-    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-45'
-    langcode: en
-    uuid: 4881dc91-d78a-4495-926d-fea078d09d10
-  -
-    menu_name: main
-    title: 'Page Tempalates'
-    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '1'
-    weight: '-44'
-    langcode: en
-    uuid: 28078c5e-b116-4583-85f1-f2d7da2642e4
-  -
     menu_name: header-2-menu
     title: Blog
     parent: null
@@ -2490,3 +2418,159 @@ menus:
     weight: '-45'
     langcode: en
     uuid: ebe08725-b824-40cf-bb6c-02450d8a2dd0
+  -
+    menu_name: main
+    title: CLASSIFICATION
+    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
+    uri: 'internal:#'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '1'
+    weight: '3'
+    langcode: en
+    uuid: 30f5e91c-659d-422d-b4e8-101922d430e2
+  -
+    menu_name: main
+    title: 'BUY ABLE AGZINE'
+    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
+    uri: 'internal:#'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '1'
+    weight: '5'
+    langcode: en
+    uuid: 4ead954d-1f29-4427-92b5-d89be9fcc4f2
+  -
+    menu_name: main
+    title: 'WATCH  MAGAZINE'
+    parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
+    uri: 'internal:#'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '1'
+    weight: '4'
+    langcode: en
+    uuid: 9442499a-5a2e-45dc-b119-cd2dbea20bb4
+  -
+    menu_name: main
+    title: 'Schedule Your Visit With Us'
+    parent: 'menu_link_content:30f5e91c-659d-422d-b4e8-101922d430e2'
+    uri: 'entity:node/399'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: ed018af4-84fb-47c9-af5a-11d4bee50955
+  -
+    menu_name: main
+    title: 'Easy To Customize'
+    parent: 'menu_link_content:30f5e91c-659d-422d-b4e8-101922d430e2'
+    uri: 'entity:node/398'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: f413bddd-ab97-42f0-a5ee-d8992a64d5f1
+  -
+    menu_name: main
+    title: 'Creating Better Experience'
+    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
+    uri: 'entity:node/404'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: d4193dca-4de4-43a2-89c0-457cff01294e
+  -
+    menu_name: main
+    title: 'Easy To Customize'
+    parent: 'menu_link_content:4ead954d-1f29-4427-92b5-d89be9fcc4f2'
+    uri: 'entity:node/396'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 332200e7-569a-41e6-a3c2-a57f0541a2f5
+  -
+    menu_name: main
+    title: 'Easy To Customize'
+    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
+    uri: 'entity:node/403'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 1ed610da-a2b1-426c-bd0b-612b63789c98
+  -
+    menu_name: main
+    title: 'Creating Better Experience'
+    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
+    uri: 'entity:node/401'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: e67ba93e-30a4-41ba-bf77-8fa7a77698bd
+  -
+    menu_name: main
+    title: 'Splash Your Ideas'
+    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
+    uri: 'entity:node/402'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 2a8e7ca1-339a-4194-a8ca-feff4ab429d7
+  -
+    menu_name: main
+    title: 'Schedule Your Visit With Us'
+    parent: 'menu_link_content:30f5e91c-659d-422d-b4e8-101922d430e2'
+    uri: 'entity:node/400'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: ce9e2652-d530-4b6b-a270-295c65d873b8
+  -
+    menu_name: main
+    title: 'Donec id elit gravida aeget'
+    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
+    uri: 'entity:node/397'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 54727f9f-33b7-4ef6-ba24-4faee9d68a60
+  -
+    menu_name: main
+    title: 'Familiar idea with Clients'
+    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
+    uri: 'entity:node/405'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: d69b7a54-8913-4e71-ad81-b0b8bbbaf1c8

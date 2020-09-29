@@ -85,69 +85,6 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        field_cover_image:
-          id: field_cover_image
-          table: node__field_cover_image
-          field: field_cover_image
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image_url
-          settings:
-            image_style: ''
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         view_node:
           id: view_node
           table: node_field_revision
@@ -212,7 +149,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<img class=\"img-fluid\" src=\"{{field_cover_image}}\" />\r\n<div class=\"wc-v2-panel\">\r\n<h1 class=\"wc-panel__title text-center mb-5\">BRAND INTRODUCTION</h1>\r\n{{ field_introduction }}\r\n</div>"
+            text: "<div class=\"wc-v2-panel\">\r\n<h1 class=\"wc-panel__title text-center mb-5\">BRAND INTRODUCTION</h1>\r\n{{ field_introduction }}\r\n</div>"
             make_link: false
             path: '{{ view_node }}'
             absolute: false
@@ -358,7 +295,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_cover_image'
         - 'config:field.storage.node.field_introduction'
   brand_product:
     display_plugin: block
@@ -368,6 +304,59 @@ display:
     display_options:
       display_extenders: {  }
       fields:
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
         field_brand_logo:
           id: field_brand_logo
           table: node__field_brand_logo
@@ -380,8 +369,8 @@ display:
           alter:
             alter_text: true
             text: '<div class="portfolio-img lazyload wc-homepage-brand-logo" data-original="{{field_brand_logo}}"></div>'
-            make_link: false
-            path: ''
+            make_link: true
+            path: '{{ view_node }}'
             absolute: false
             external: false
             replace_spaces: false
@@ -469,6 +458,116 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_brand_logo'
+  cover_image:
+    display_plugin: block
+    id: cover_image
+    display_title: 'Banner image'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      fields:
+        field_cover_image:
+          id: field_cover_image
+          table: node__field_cover_image
+          field: field_cover_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<img src="{{field_cover_image}}" class="img-fluid" />'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      defaults:
+        fields: false
+        arguments: false
+        pager: false
+        style: false
+        row: false
+      display_description: ''
+      arguments: {  }
+      pager:
+        type: some
+        options:
+          items_per_page: 1
+          offset: 0
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: wc-shop-by-brand__banner
+          default_row_class: false
+          type: ul
+          wrapper_class: wc-shop-by-brand__box
+          class: 'wc-shop-by-brand__item row'
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      block_description: 'Brand cover image'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_cover_image'
   description:
     display_plugin: block
     id: description
