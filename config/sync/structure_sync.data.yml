@@ -3,7 +3,7 @@ taxonomies:
   blog_tags:
     -
       vid: blog_tags
-      tid: '92'
+      tid: '6'
       langcode: en
       name: ANIMATION
       description__value: null
@@ -13,7 +13,7 @@ taxonomies:
       uuid: d39d51d5-a391-4a9a-aabc-7cc0038b6ffa
     -
       vid: blog_tags
-      tid: '97'
+      tid: '31'
       langcode: en
       name: Background
       description__value: null
@@ -23,7 +23,7 @@ taxonomies:
       uuid: 150b498b-7a8d-4d98-9d28-ab54e7ed87e2
     -
       vid: blog_tags
-      tid: '94'
+      tid: '8'
       langcode: en
       name: BRANDING
       description__value: null
@@ -33,7 +33,7 @@ taxonomies:
       uuid: abfa9a9d-2c3a-4dff-b18e-0532ed1db057
     -
       vid: blog_tags
-      tid: '98'
+      tid: '33'
       langcode: en
       name: Freebies
       description__value: null
@@ -43,7 +43,7 @@ taxonomies:
       uuid: ebff23fa-6a6e-495f-bc76-39d73f277f92
     -
       vid: blog_tags
-      tid: '93'
+      tid: '7'
       langcode: en
       name: 'GRAPHIC DESIGN'
       description__value: null
@@ -53,7 +53,7 @@ taxonomies:
       uuid: ef1cf913-5dfc-4608-ab03-f043d9d3b15c
     -
       vid: blog_tags
-      tid: '96'
+      tid: '10'
       langcode: en
       name: PHOTOGRAPHY
       description__value: null
@@ -63,7 +63,7 @@ taxonomies:
       uuid: 29ff72be-34b7-43aa-823c-fe1be60ce0e9
     -
       vid: blog_tags
-      tid: '99'
+      tid: '36'
       langcode: en
       name: 'PSD Mockup'
       description__value: null
@@ -73,7 +73,7 @@ taxonomies:
       uuid: ce64eea8-203a-4075-9618-babc935c42db
     -
       vid: blog_tags
-      tid: '101'
+      tid: '46'
       langcode: en
       name: 'Tool / Tips'
       description__value: null
@@ -83,7 +83,7 @@ taxonomies:
       uuid: 9b9e7571-2ed4-480d-9d97-fbad6cd24c36
     -
       vid: blog_tags
-      tid: '95'
+      tid: '9'
       langcode: en
       name: 'WEB DEVELOPING'
       description__value: null
@@ -93,7 +93,7 @@ taxonomies:
       uuid: 49fffaf8-c2f9-417c-8ca5-026b67d6936e
     -
       vid: blog_tags
-      tid: '100'
+      tid: '37'
       langcode: en
       name: 'Web Template'
       description__value: null
@@ -108,7 +108,7 @@ taxonomies:
   product_tags:
     -
       vid: product_tags
-      tid: '111'
+      tid: '76'
       langcode: en
       name: AudemarsPiguet
       description__value: null
@@ -118,7 +118,7 @@ taxonomies:
       uuid: 251c6b05-8334-4de6-96de-30ea33b02efc
     -
       vid: product_tags
-      tid: '112'
+      tid: '77'
       langcode: en
       name: Hublot
       description__value: null
@@ -128,7 +128,7 @@ taxonomies:
       uuid: 8971499c-22ca-4860-915b-f2df03b036f1
     -
       vid: product_tags
-      tid: '110'
+      tid: '75'
       langcode: en
       name: IWC
       description__value: null
@@ -138,7 +138,7 @@ taxonomies:
       uuid: 871bd80a-3c8e-4a95-8395-d416ebd40773
     -
       vid: product_tags
-      tid: '103'
+      tid: '68'
       langcode: en
       name: Jaeger-LeCoultre
       description__value: null
@@ -148,7 +148,7 @@ taxonomies:
       uuid: 4e514fa5-eef5-4914-acd6-a7fa27e8b7c6
     -
       vid: product_tags
-      tid: '104'
+      tid: '69'
       langcode: en
       name: Omega
       description__value: null
@@ -158,7 +158,7 @@ taxonomies:
       uuid: a8197220-b2d1-40f1-8239-4d82636235b8
     -
       vid: product_tags
-      tid: '105'
+      tid: '70'
       langcode: en
       name: Panerai
       description__value: null
@@ -168,7 +168,7 @@ taxonomies:
       uuid: 4ea63e22-e935-4b03-8744-0ec24d4a764a
     -
       vid: product_tags
-      tid: '106'
+      tid: '71'
       langcode: en
       name: 'Patek Philippe'
       description__value: null
@@ -178,7 +178,7 @@ taxonomies:
       uuid: 0e44e754-ce2e-432a-8d73-9cf7b9f07aff
     -
       vid: product_tags
-      tid: '107'
+      tid: '72'
       langcode: en
       name: rolex
       description__value: null
@@ -188,7 +188,7 @@ taxonomies:
       uuid: 52dc25ae-ded8-49ae-9b07-3de04f86d140
     -
       vid: product_tags
-      tid: '108'
+      tid: '73'
       langcode: en
       name: 'TAG Heuer'
       description__value: null
@@ -198,7 +198,7 @@ taxonomies:
       uuid: f6011105-727a-41e7-b7da-f54009e4ba6f
     -
       vid: product_tags
-      tid: '109'
+      tid: '74'
       langcode: en
       name: 'Vacheron Constantin'
       description__value: null
@@ -210,7 +210,7 @@ taxonomies:
   unit_tags:
     -
       vid: unit_tags
-      tid: '113'
+      tid: '78'
       langcode: en
       name: CNY
       description__value: null
@@ -220,7 +220,7 @@ taxonomies:
       uuid: e01836cb-9147-43fb-a750-be1727a721b7
     -
       vid: unit_tags
-      tid: '114'
+      tid: '79'
       langcode: en
       name: HKD
       description__value: null
@@ -230,7 +230,7 @@ taxonomies:
       uuid: 0c9c1ae5-8e20-48ae-aacb-53b1766bc033
     -
       vid: unit_tags
-      tid: '115'
+      tid: '80'
       langcode: en
       name: USD
       description__value: null
@@ -710,9 +710,9 @@ blocks:
     rev_id_current: null
     fields:
       body:
-        value: "<p><a> So let's go back to the list<!-- a--></a></p>\r\n\r\n<p><a> </a></p>\r\n\r\n<p><a>Order</a></p>\r\n\r\n<p><a><img src=\"/themes/custom/wristcheck_barrio/images/paystep.png\" /></a></p>\r\n\r\n<p><a> </a></p>\r\n"
+        value: "<div class=\"payment-success payment-step\">\r\n <div class=\"row direction\">\r\n  <span class=\"fa fa-angle-left\">&nbsp;</span>\r\n  <a class=\"wc-back-nav\" onclick=\"javascript:history.back();\" href=\" \">So let's go back to the list</a>\r\n </div>\r\n <div class=\"wc-panel\">\r\n  <div class=\"wc-panel__title\">Order</div>\r\n  <div class=\"row\">\r\n   <div class=\"col-md-12\"><img class=\"img-fluid\" src=\"/themes/custom/wristcheck_barrio/images/paystep.png\" /></div>\r\n  </div>\r\n </div>\r\n</div>"
         summary: ''
-        format: basic_html
+        format: full_html
   -
     info: 'Wristcheck Auth block'
     langcode: en
