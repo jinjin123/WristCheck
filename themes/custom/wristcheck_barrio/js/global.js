@@ -42,11 +42,36 @@
   //     }
   //   }
   // };
+  var loading = function (href) {
+    $('body').append($('<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>'))
+    if (href) {
+      window.location.href = href;
+    } else {
+      setTimeout(function () {
+        $('.ajax-progress').remove()
+      }, 3000)
+    }
+  }
+
+  // 菜单处理，子菜单超过10个的，添加更多按钮
+  $('#block-wristcheck-barrio-main-menu .navbar-nav>li').each(function () {
+    var menu = $(this);
+    menu.find('.wc-menu-container>li').each(function () {
+      var sub_menu = $(this);
+      if (sub_menu.find('.navbar-submenus>li').length > 8) {
+        let more_link = $('<li><a class="wc-btn-white wc-btn-large" href="javascript:;"><span class="wc-btn-cont">read more</span></a></li>')
+        more_link.click(function () {
+          loading(sub_menu.children('a').attr('href'))
+        })
+        sub_menu.find('.navbar-submenus').append(more_link)
+      }
+    })
+  })
   // 监听页面跳转  ajax load 伴随着刷新页面bug事件
   $('a[href]').click(function (e) {
     var href = $(this).attr('href');
     if (href.indexOf('?') == 0) {
-        console.log(e);
+      console.log(e);
     } else if (href !== '' &&
       href !== '#' &&
       href !== 'javascript:;' &&
@@ -55,8 +80,7 @@
       !$(this).hasClass('trigger') &&
       !$(this).parent().hasClass('wc-all-brands-header-list__href')) {
       e.stopPropagation()
-      $('body').append($('<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>'))
-      window.location.href = href;
+      loading(href)
     }
   });
 
@@ -67,8 +91,11 @@
     var list = [];
     allQueryString.split('&').map(function (item, index) {
       var info = item.split('=');
-      list.push({ label: info[0], value: info[1] });
+      if (info[0] == 'currency_code' || info[0] == 'price[min]' || info[0] == 'price[max]' || info[0] == "location[]") {
+        list.push({ label: info[0], value: info[1] });
+      }
     });
+
     return list;
   };
 
