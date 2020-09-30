@@ -43,20 +43,22 @@
   //   }
   // };
   // 监听页面跳转  ajax load 伴随着刷新页面bug事件
-  // $('a[href]').click(function (e) {
+  $('a[href]').click(function (e) {
     var href = $(this).attr('href');
-    if (href !== '' &&
-        href !== '#' &&
-        href !== 'javascript:;' &&
-        href !== null &&
-        !$(this).hasClass('use-ajax') &&
-        !$(this).hasClass('trigger') &&
-        !$(this).parent().hasClass('wc-all-brands-header-list__href')) {
+    if (href.indexOf('?') == 0) {
+        console.log(e);
+    } else if (href !== '' &&
+      href !== '#' &&
+      href !== 'javascript:;' &&
+      href !== null &&
+      !$(this).hasClass('use-ajax') &&
+      !$(this).hasClass('trigger') &&
+      !$(this).parent().hasClass('wc-all-brands-header-list__href')) {
       e.stopPropagation()
       $('body').append($('<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>'))
       window.location.href = href;
     }
-  // });
+  });
 
 
   var getALLQuery = function () {
@@ -65,7 +67,7 @@
     var list = [];
     allQueryString.split('&').map(function (item, index) {
       var info = item.split('=');
-      list.push({label: info[0], value: info[1]});
+      list.push({ label: info[0], value: info[1] });
     });
     return list;
   };
@@ -228,12 +230,12 @@
         // messages.add("Save your profile successful!",{"type":"status"});
         if (data == "ok") {
           // $(".alert-success").css("display", "block");
-          messages.add("Save your profile successful!", {"type": "status"});
+          messages.add("Save your profile successful!", { "type": "status" });
           $('.messages').css("color", "green")
           $('.messages').css("border", "1px solid ")
           $('.messages').css("font-size", "20px")
         } else {
-          messages.add("Save your profile Faild! Please try again!", {"type": "error"});
+          messages.add("Save your profile Faild! Please try again!", { "type": "error" });
           $('.messages').css("border", "1px solid #red")
           $('.messages').css("font-size", "20px")
           // $('.messages').css("color","green")
@@ -288,7 +290,7 @@
         faqflag = true;
       }
     });
-// menu show hide
+    // menu show hide
     $('#primary-menu .navbar-nav>li.mega-dropdown').hover(function () {
       if ($(this).children('.wc-menu-container').length > 0) {
         $('.wc-page-modal').addClass('show');
@@ -368,7 +370,7 @@
       _self.removeClass('active');
       _modal.removeClass('show');
       _menu.removeClass('active');
-      _menu.css({'z-index': 2});
+      _menu.css({ 'z-index': 2 });
 
 
       if (_wTop <= _box.offset().top) {
@@ -377,13 +379,13 @@
         })
       }
     } else {
-      $('html, body').animate({scrollTop: _box.offset().top}, 300, 'linear', function () {
+      $('html, body').animate({ scrollTop: _box.offset().top }, 300, 'linear', function () {
         _menu.addClass(('fixed-top')).css({
           top: _top + 'px'
         });
       });
       _modal.addClass('show');
-      _menu.css({'z-index': 5});
+      _menu.css({ 'z-index': 5 });
       _menu.addClass('active');
       _self.addClass('active').siblings('.active').removeClass(('active'))
     }
@@ -398,7 +400,7 @@
     var _menu = nav.parents('.wc-product-search-menu');
     nav.removeClass('active');
     _modal.removeClass('show');
-    _menu.css({'z-index': 2});
+    _menu.css({ 'z-index': 2 });
   });
 
   $(window).scroll(function () {
@@ -414,7 +416,7 @@
         top: _top + 'px'
       });
     } else if (_menu.hasClass('fixed-top')) {
-      _menu.removeClass(('fixed-top')).css({top: 0});
+      _menu.removeClass(('fixed-top')).css({ top: 0 });
     }
   })
 
