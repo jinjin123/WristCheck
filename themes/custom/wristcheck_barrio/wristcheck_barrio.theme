@@ -218,6 +218,8 @@ function wristcheck_barrio_preprocess_user(array &$variables)
     $variables['porttime'] = date("M d,Y", \Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
     $variables['userobj'] = $user;
     $variables['userid'] = \Drupal::currentUser()->id();
+  }else {
+    $variables['tag'] = 'nouser';
   }
 }
 
@@ -228,3 +230,4 @@ function wristcheck_barrio_library_info_alter(&$libraries, $extension) {
     $libraries['drupal.ajax']['js']['/' . drupal_get_path('theme', 'wristcheck_barrio') . '/js/ajax-overrides.js'] = [];
   }
 }
+
