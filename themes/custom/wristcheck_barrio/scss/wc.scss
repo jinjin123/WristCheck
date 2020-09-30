@@ -205,6 +205,13 @@ a:focus {
   position: relative;
   z-index: 1;
   font-size: 14px;
+  .btn-line{
+    display: inline-block;
+    margin: 0 10px;
+    border-left: 1px solid #4E4E4E;
+    height: 12px;
+    vertical-align: middle;
+  }
 }
 
 .views-field-field-brand-logo {
