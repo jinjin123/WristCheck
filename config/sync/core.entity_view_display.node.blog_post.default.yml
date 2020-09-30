@@ -58,7 +58,7 @@ content:
     region: content
   field_images:
     weight: 6
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
@@ -67,7 +67,7 @@ content:
     region: content
   field_page_title_image:
     weight: 0
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
