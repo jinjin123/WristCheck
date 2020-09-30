@@ -3,7 +3,7 @@ taxonomies:
   blog_tags:
     -
       vid: blog_tags
-      tid: '6'
+      tid: '92'
       langcode: en
       name: ANIMATION
       description__value: null
@@ -13,7 +13,7 @@ taxonomies:
       uuid: d39d51d5-a391-4a9a-aabc-7cc0038b6ffa
     -
       vid: blog_tags
-      tid: '31'
+      tid: '97'
       langcode: en
       name: Background
       description__value: null
@@ -23,7 +23,7 @@ taxonomies:
       uuid: 150b498b-7a8d-4d98-9d28-ab54e7ed87e2
     -
       vid: blog_tags
-      tid: '8'
+      tid: '94'
       langcode: en
       name: BRANDING
       description__value: null
@@ -33,7 +33,7 @@ taxonomies:
       uuid: abfa9a9d-2c3a-4dff-b18e-0532ed1db057
     -
       vid: blog_tags
-      tid: '33'
+      tid: '98'
       langcode: en
       name: Freebies
       description__value: null
@@ -43,7 +43,7 @@ taxonomies:
       uuid: ebff23fa-6a6e-495f-bc76-39d73f277f92
     -
       vid: blog_tags
-      tid: '7'
+      tid: '93'
       langcode: en
       name: 'GRAPHIC DESIGN'
       description__value: null
@@ -53,7 +53,7 @@ taxonomies:
       uuid: ef1cf913-5dfc-4608-ab03-f043d9d3b15c
     -
       vid: blog_tags
-      tid: '10'
+      tid: '96'
       langcode: en
       name: PHOTOGRAPHY
       description__value: null
@@ -63,7 +63,7 @@ taxonomies:
       uuid: 29ff72be-34b7-43aa-823c-fe1be60ce0e9
     -
       vid: blog_tags
-      tid: '36'
+      tid: '99'
       langcode: en
       name: 'PSD Mockup'
       description__value: null
@@ -73,7 +73,7 @@ taxonomies:
       uuid: ce64eea8-203a-4075-9618-babc935c42db
     -
       vid: blog_tags
-      tid: '46'
+      tid: '101'
       langcode: en
       name: 'Tool / Tips'
       description__value: null
@@ -83,7 +83,7 @@ taxonomies:
       uuid: 9b9e7571-2ed4-480d-9d97-fbad6cd24c36
     -
       vid: blog_tags
-      tid: '9'
+      tid: '95'
       langcode: en
       name: 'WEB DEVELOPING'
       description__value: null
@@ -93,7 +93,7 @@ taxonomies:
       uuid: 49fffaf8-c2f9-417c-8ca5-026b67d6936e
     -
       vid: blog_tags
-      tid: '37'
+      tid: '100'
       langcode: en
       name: 'Web Template'
       description__value: null
@@ -108,7 +108,7 @@ taxonomies:
   product_tags:
     -
       vid: product_tags
-      tid: '76'
+      tid: '111'
       langcode: en
       name: AudemarsPiguet
       description__value: null
@@ -118,7 +118,7 @@ taxonomies:
       uuid: 251c6b05-8334-4de6-96de-30ea33b02efc
     -
       vid: product_tags
-      tid: '77'
+      tid: '112'
       langcode: en
       name: Hublot
       description__value: null
@@ -128,7 +128,7 @@ taxonomies:
       uuid: 8971499c-22ca-4860-915b-f2df03b036f1
     -
       vid: product_tags
-      tid: '75'
+      tid: '110'
       langcode: en
       name: IWC
       description__value: null
@@ -138,7 +138,7 @@ taxonomies:
       uuid: 871bd80a-3c8e-4a95-8395-d416ebd40773
     -
       vid: product_tags
-      tid: '68'
+      tid: '103'
       langcode: en
       name: Jaeger-LeCoultre
       description__value: null
@@ -148,7 +148,7 @@ taxonomies:
       uuid: 4e514fa5-eef5-4914-acd6-a7fa27e8b7c6
     -
       vid: product_tags
-      tid: '69'
+      tid: '104'
       langcode: en
       name: Omega
       description__value: null
@@ -158,7 +158,7 @@ taxonomies:
       uuid: a8197220-b2d1-40f1-8239-4d82636235b8
     -
       vid: product_tags
-      tid: '70'
+      tid: '105'
       langcode: en
       name: Panerai
       description__value: null
@@ -168,7 +168,7 @@ taxonomies:
       uuid: 4ea63e22-e935-4b03-8744-0ec24d4a764a
     -
       vid: product_tags
-      tid: '71'
+      tid: '106'
       langcode: en
       name: 'Patek Philippe'
       description__value: null
@@ -178,7 +178,7 @@ taxonomies:
       uuid: 0e44e754-ce2e-432a-8d73-9cf7b9f07aff
     -
       vid: product_tags
-      tid: '72'
+      tid: '107'
       langcode: en
       name: rolex
       description__value: null
@@ -188,7 +188,7 @@ taxonomies:
       uuid: 52dc25ae-ded8-49ae-9b07-3de04f86d140
     -
       vid: product_tags
-      tid: '73'
+      tid: '108'
       langcode: en
       name: 'TAG Heuer'
       description__value: null
@@ -198,7 +198,7 @@ taxonomies:
       uuid: f6011105-727a-41e7-b7da-f54009e4ba6f
     -
       vid: product_tags
-      tid: '74'
+      tid: '109'
       langcode: en
       name: 'Vacheron Constantin'
       description__value: null
@@ -210,7 +210,7 @@ taxonomies:
   unit_tags:
     -
       vid: unit_tags
-      tid: '78'
+      tid: '113'
       langcode: en
       name: CNY
       description__value: null
@@ -220,7 +220,7 @@ taxonomies:
       uuid: e01836cb-9147-43fb-a750-be1727a721b7
     -
       vid: unit_tags
-      tid: '79'
+      tid: '114'
       langcode: en
       name: HKD
       description__value: null
@@ -230,7 +230,7 @@ taxonomies:
       uuid: 0c9c1ae5-8e20-48ae-aacb-53b1766bc033
     -
       vid: unit_tags
-      tid: '80'
+      tid: '115'
       langcode: en
       name: USD
       description__value: null
@@ -1148,30 +1148,6 @@ menus:
     uuid: aaf6f71f-d9e4-426c-9cbe-1bcdbf672221
   -
     menu_name: main
-    title: Omega
-    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
-    uri: 'entity:node/427'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 0c66a924-8daf-422b-94dd-ab132e1882a0
-  -
-    menu_name: main
-    title: Rolex
-    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
-    uri: 'entity:node/426'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: ff332b19-5dc0-401f-a01e-b377ae8d9f40
-  -
-    menu_name: main
     title: SERVICES
     parent: 'menu_link_content:47dc53cc-647c-45e7-8c88-e33530365542'
     uri: 'internal:/faq'
@@ -2036,66 +2012,6 @@ menus:
     uuid: a2a9f994-93e8-4921-8329-73c0b6a903b7
   -
     menu_name: main
-    title: NOMOS
-    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
-    uri: 'entity:node/438'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 925567fa-b97e-4aca-abae-45f288d64796
-  -
-    menu_name: main
-    title: Sinn
-    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
-    uri: 'entity:node/437'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 8b5d6349-62e6-4cc7-8f1a-378a0f675cb2
-  -
-    menu_name: main
-    title: Oris
-    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
-    uri: 'entity:node/436'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: f4ba7400-80c0-48d6-8ebb-1a89925781b2
-  -
-    menu_name: main
-    title: Breguet
-    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
-    uri: 'entity:node/439'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: cc7f479a-b689-412d-899b-af10963af848
-  -
-    menu_name: main
-    title: 'Ulysse Nardin'
-    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
-    uri: 'entity:node/440'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 508fe079-4649-4cf7-a2a2-7dba689a8670
-  -
-    menu_name: main
     title: CWC
     parent: 'menu_link_content:d089abad-28c2-4f3f-b307-904a37fd3e62'
     uri: 'internal:/'
@@ -2214,18 +2130,6 @@ menus:
     weight: '0'
     langcode: en
     uuid: e20e6c24-f23c-4f88-b45a-ba30a433d9b0
-  -
-    menu_name: main
-    title: Seiko
-    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
-    uri: 'entity:node/435'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 04fa3533-650f-47e0-a17a-de4ce185f965
   -
     menu_name: main
     title: Jaeger-LeCoultre
@@ -2420,6 +2324,102 @@ menus:
     uuid: ebe08725-b824-40cf-bb6c-02450d8a2dd0
   -
     menu_name: main
+    title: Omega
+    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+    uri: 'entity:node/427'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 0c66a924-8daf-422b-94dd-ab132e1882a0
+  -
+    menu_name: main
+    title: Rolex
+    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+    uri: 'entity:node/426'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: ff332b19-5dc0-401f-a01e-b377ae8d9f40
+  -
+    menu_name: main
+    title: NOMOS
+    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+    uri: 'entity:node/438'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 925567fa-b97e-4aca-abae-45f288d64796
+  -
+    menu_name: main
+    title: Sinn
+    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+    uri: 'entity:node/437'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 8b5d6349-62e6-4cc7-8f1a-378a0f675cb2
+  -
+    menu_name: main
+    title: Oris
+    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+    uri: 'entity:node/436'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: f4ba7400-80c0-48d6-8ebb-1a89925781b2
+  -
+    menu_name: main
+    title: Breguet
+    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+    uri: 'entity:node/439'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: cc7f479a-b689-412d-899b-af10963af848
+  -
+    menu_name: main
+    title: 'Ulysse Nardin'
+    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+    uri: 'entity:node/440'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 508fe079-4649-4cf7-a2a2-7dba689a8670
+  -
+    menu_name: main
+    title: Seiko
+    parent: 'menu_link_content:1e2ca839-2316-4ecc-b596-c3a7e7cb0eb1'
+    uri: 'entity:node/435'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 04fa3533-650f-47e0-a17a-de4ce185f965
+  -
+    menu_name: main
     title: CLASSIFICATION
     parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
     uri: 'internal:#'
@@ -2480,97 +2480,121 @@ menus:
     uuid: f413bddd-ab97-42f0-a5ee-d8992a64d5f1
   -
     menu_name: main
-    title: 'Creating Better Experience'
-    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
-    uri: 'entity:node/404'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: d4193dca-4de4-43a2-89c0-457cff01294e
-  -
-    menu_name: main
-    title: 'Easy To Customize'
-    parent: 'menu_link_content:4ead954d-1f29-4427-92b5-d89be9fcc4f2'
-    uri: 'entity:node/396'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 332200e7-569a-41e6-a3c2-a57f0541a2f5
-  -
-    menu_name: main
-    title: 'Easy To Customize'
-    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
-    uri: 'entity:node/403'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 1ed610da-a2b1-426c-bd0b-612b63789c98
-  -
-    menu_name: main
-    title: 'Creating Better Experience'
-    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
-    uri: 'entity:node/401'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: e67ba93e-30a4-41ba-bf77-8fa7a77698bd
-  -
-    menu_name: main
-    title: 'Splash Your Ideas'
-    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
-    uri: 'entity:node/402'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: en
-    uuid: 2a8e7ca1-339a-4194-a8ca-feff4ab429d7
-  -
-    menu_name: main
-    title: 'Schedule Your Visit With Us'
+    title: 'Indie Brand Portrait: Armin Strom'
     parent: 'menu_link_content:30f5e91c-659d-422d-b4e8-101922d430e2'
-    uri: 'entity:node/400'
+    uri: 'entity:node/457'
     link_title: null
     description: null
     enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
-    uuid: ce9e2652-d530-4b6b-a270-295c65d873b8
+    uuid: fcab8658-1f56-42c3-b5bb-e5fec218aa4b
   -
     menu_name: main
-    title: 'Donec id elit gravida aeget'
+    title: 'The Grandfather of the Modern Chronograph Movement: Seiko 6139'
     parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
-    uri: 'entity:node/397'
+    uri: 'entity:node/458'
     link_title: null
     description: null
     enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
-    uuid: 54727f9f-33b7-4ef6-ba24-4faee9d68a60
+    uuid: 07fbd0bd-1132-4ea6-93e5-76c80d671d02
   -
     menu_name: main
-    title: 'Familiar idea with Clients'
-    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
-    uri: 'entity:node/405'
+    title: '5 Things You Should Know About the Omega Seamaster Aqua Terra'
+    parent: 'menu_link_content:4ead954d-1f29-4427-92b5-d89be9fcc4f2'
+    uri: 'entity:node/448'
     link_title: null
     description: null
     enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: en
-    uuid: d69b7a54-8913-4e71-ad81-b0b8bbbaf1c8
+    uuid: fdad736c-937f-49b1-ad12-df98f1761e11
+  -
+    menu_name: main
+    title: 'The Remarkable Story of Cartier: From Jeweler to Watchmaker to Ultimate Luxury Brand'
+    parent: 'menu_link_content:4ead954d-1f29-4427-92b5-d89be9fcc4f2'
+    uri: 'entity:node/447'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: bf440b0b-5e4b-4047-a0b1-67a7f08b853f
+  -
+    menu_name: main
+    title: 'Editors’ Picks of the Week: Cartier Brand Week Special'
+    parent: 'menu_link_content:4ead954d-1f29-4427-92b5-d89be9fcc4f2'
+    uri: 'entity:node/446'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 6c5774a2-4c70-4af4-8d18-67dd102cea4d
+  -
+    menu_name: main
+    title: 'Special: The Run for Rolex – High Demand, High Prices?'
+    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
+    uri: 'entity:node/445'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 19e7680e-eaba-4923-814c-61fa6674409d
+  -
+    menu_name: main
+    title: 'Chrono24 Brand Week: How Cartier Invented the Wristwatch With the Santos!'
+    parent: 'menu_link_content:4ead954d-1f29-4427-92b5-d89be9fcc4f2'
+    uri: 'entity:node/460'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 4e315584-d6a7-47e4-b0b7-070ef41bc10e
+  -
+    menu_name: main
+    title: 'A New Addition to the Prospex Family: The All-New Seiko Prospex LX Series'
+    parent: 'menu_link_content:4ead954d-1f29-4427-92b5-d89be9fcc4f2'
+    uri: 'entity:node/461'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 0e2ad9a0-a526-4909-abff-772e431da6fe
+  -
+    menu_name: main
+    title: 'Top Watches in TV Shows'
+    parent: 'menu_link_content:30f5e91c-659d-422d-b4e8-101922d430e2'
+    uri: 'entity:node/462'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: cc0278cd-a3f9-447a-aded-94a0532bd4ae
+  -
+    menu_name: main
+    title: 'Chrono24 Buyer’s Guide: Cartier Santos'
+    parent: 'menu_link_content:9442499a-5a2e-45dc-b119-cd2dbea20bb4'
+    uri: 'entity:node/459'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: dc8b2871-df46-4853-8617-0f588b2f2977
