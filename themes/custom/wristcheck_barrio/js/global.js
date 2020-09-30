@@ -46,7 +46,7 @@
   $('a[href]').click(function (e) {
     var href = $(this).attr('href');
     if (href.indexOf('?') == 0) {
-        console.log(e);
+      console.log(e);
     } else if (href !== '' &&
       href !== '#' &&
       href !== 'javascript:;' &&
@@ -67,8 +67,11 @@
     var list = [];
     allQueryString.split('&').map(function (item, index) {
       var info = item.split('=');
-      list.push({ label: info[0], value: info[1] });
+      if (info[0] == 'currency_code' || info[0] == 'price[min]' || info[0] == 'price[max]' || info[0] == "location[]") {
+        list.push({ label: info[0], value: info[1] });
+      }
     });
+
     return list;
   };
 
