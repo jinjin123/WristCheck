@@ -6,6 +6,9 @@
     this.progress.element = $('<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>');
     $('body').append(this.progress.element);
   };
+  Drupal.theme.ajaxProgressIndicatorFullscreen = function () {
+    return '<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>';
+  };
 
   var originalThrobber = Drupal.Ajax.prototype.setProgressIndicatorThrobber;
   Drupal.Ajax.prototype.setProgressIndicatorThrobber = function () {
