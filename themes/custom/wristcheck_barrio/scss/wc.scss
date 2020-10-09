@@ -443,6 +443,21 @@ a:focus {
 /*------------------------------------*\
     #LOADING-SECTION end
 \*------------------------------------*/
+.lazyload {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.ani-scale_max {
+  transition: all ease-out .5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
 
 
 @media (min-width: 1460px) {

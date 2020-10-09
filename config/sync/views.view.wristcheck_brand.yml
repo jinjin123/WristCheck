@@ -724,7 +724,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="portfolio-img lazyload wc-homepage-brand-logo" data-original="{{field_brand_logo}}"></div>'
+            text: "<div class=\"portfolio-img wc-homepage-brand-logo\">\r\n<div class=\"lazyload ani-scale_max\"  data-original=\"{{field_brand_logo}}\"></div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
