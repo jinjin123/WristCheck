@@ -143,7 +143,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"portfolio-img wc-ex-panel mb-40 lazyload\" data-original=\"{{field_brand_logo}}\"></div>\r\n<div class='portfolio-sub-title'>{{ title }}</div>"
+            text: "<div class=\"portfolio-img wc-ex-panel mb-40 \">\r\n\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_brand_logo}}\"></div>\r\n</div>\r\n<div class='portfolio-sub-title'>{{ title }}</div>"
             make_link: false
             path: ''
             absolute: false
