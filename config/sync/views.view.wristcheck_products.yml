@@ -3065,7 +3065,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div class=\"wc-panel\">\r\n    <h1 class='wc-panel__title text-center'>RECOMMENDED FOR YOU</h1>\r\n\r\n  </div>"
+            value: "<div class=\"wc-panel\">\r\n    <h1 class='wc-panel__title text-center'>WRISTCHECK SELECTS</h1>\r\n\r\n  </div>"
             format: full_html
           plugin_id: text
         view:
