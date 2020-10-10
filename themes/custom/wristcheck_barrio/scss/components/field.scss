@@ -48,6 +48,10 @@
             max-width: 100%;
         }
     }
+    .node--type-blog-post .node .field--type-image{
+        float: none;
+        display: block;
+    }
     [dir="rtl"] .node .field--type-image {
         float: right;
         margin: 0 0 0 $spacer;
