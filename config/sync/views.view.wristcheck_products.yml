@@ -419,7 +419,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<img class="img-fluid" src="{{field_model_images}}" alt="{{field_model_images__title}}"/>'
+            text: '<img class="img-fluid" src="{{field_model_images}}" alt="{{field_model_images__title}}">'
             make_link: false
             path: ''
             absolute: false
@@ -2573,36 +2573,18 @@ display:
           is_grouped: false
           group_info:
             label: 'Related Brand (field_related_brand)'
-            description: ''
+            description: null
             identifier: field_related_brand_target_id
             optional: true
             widget: select
-            multiple: true
+            multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
             group_items:
-              1:
-                title: ''
-                operator: '='
-                value:
-                  value: ''
-                  min: ''
-                  max: ''
-              2:
-                title: ''
-                operator: '='
-                value:
-                  value: ''
-                  min: ''
-                  max: ''
-              3:
-                title: ''
-                operator: '='
-                value:
-                  value: ''
-                  min: ''
-                  max: ''
+              1: {  }
+              2: {  }
+              3: {  }
           plugin_id: numeric
         field_case_diameter_value:
           id: field_case_diameter_value
