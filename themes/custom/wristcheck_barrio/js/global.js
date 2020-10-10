@@ -187,6 +187,12 @@
    */
   Drupal.$wc = {};
   $(function () {
+    if (window.location.pathname === "/faq-sellstep") {
+      var _ov = document.getElementById('edit-first-unit');
+      _ov.removeChild(_ov.options[0]);
+      var _sv = document.getElementById('edit-second-unit');
+      _sv.removeChild(_sv.options[0]);
+    }
     // handle second hand price to update cart form
     // $("#swt").css("display","none");
     // $("#swt").css("color","transparent");
