@@ -20,9 +20,13 @@
               <div class="container wc-search-dropdown-panel">
                 <div class="wc-search-dropdown-panel__body">
                   {% if title == 'BRAND' %}
-                    <div class="wc-search-panel__body"></div>
+                    <div class="wc-search-panel__body">
+                      {{drupal_view('wristcheck_brand','filter_brand_title')}}
+                    </div>
                   {% elseif title == 'MODEL' %}
-                    <div class="wc-search-panel__body"></div>
+                    <div class="wc-search-panel__body">
+                      {{drupal_view('wristcheck_model','filter_model_title')}}
+                    </div>
                   {% elseif title == 'PRICE' %}
                     <form class="wc-search-panel__body row wc-search-form-line">
                       <div class="col-md-6 wc-search__item">
@@ -64,10 +68,12 @@
                       </div>
                     </div>
                   {% elseif title == 'CASE DIAMETER' %}
-                    <div class="wc-search-panel__body"></div>
+                    <div class="wc-search-panel__body">
+                    {{drupal_view('wristcheck_model','filter_model_case_diameter')}}
+                    </div>
                   {% elseif title == 'YEAR' %}
                     <div class="wc-search-panel__body">
-
+                    {{drupal_view('wristcheck_model','filter_model_year')}}
                     </div>
                   {% elseif title == 'LOCATION' %}
                     <form class="wc-search-panel__body row wc-search-form-line wc-search-location">
