@@ -1510,6 +1510,7 @@ display:
         filters: false
         filter_groups: false
         empty: false
+        footer: false
       filters:
         type:
           id: type
@@ -1615,6 +1616,18 @@ display:
             value: "<div class=\"wc-sell-empty\">\r\n  <div class=\"wc-sell-empty_title\">WATCH COLLECTION</div>\r\n  <div class=\"wc-sell-empty_sub\">ADD YOUR FIRST WATCH TO THE WATCH COLLECTION</div>\r\n  <a href=\"/node/add/wcshw\" class=\"wc-btn-dark wc-btn-large wc-sell-get-started\" tabindex=\"-1\">\r\n    <span class=\"wc-btn-cont\">\r\n      <span class=\"fa fa-arrow-right\"></span>\r\n      <span class=\"btn-line\"></span>\r\n      ADD A WATCH\r\n    </span>\r\n  </a>\r\n</div>"
             format: full_html
           plugin_id: text
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<div class=\"\">\r\n  <a href=\"/node/add/wcshw\" class=\"wc-btn-dark wc-btn-large wc-sell-get-started\" tabindex=\"-1\">\r\n    <span class=\"wc-btn-cont\">\r\n      <span class=\"fa fa-arrow-right\"></span>\r\n      <span class=\"btn-line\"></span>\r\n      ADD A WATCH\r\n    </span>\r\n  </a>\r\n</div>"
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
