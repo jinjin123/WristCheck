@@ -91,11 +91,11 @@
     var list = [];
     allQueryString.split('&').map(function (item, index) {
       var info = item.split('=');
-      if (info[0] == 'currency_code' || info[0] == 'price[min]' || info[0] == 'price[max]' || info[0] == "location[]") {
+      var keys = ['currency_code', 'price[min]', 'price[max]', 'location[]', 'field_related_brand_target_id', 'field_related_model_target_id', 'field_case_diameter_value', 'field_year_value']
+      if (keys.indexOf(info[0]) > -1) {
         list.push({ label: info[0], value: info[1] });
       }
     });
-
     return list;
   };
 
@@ -105,21 +105,36 @@
     var htmlBuff = '';
     queryList.map(function (item) {
       if (item.value !== undefined && item.value !== '') {
-        htmlBuff += '<span class="tag-item" name="' + item.label + '">' +
-          item.value + ' <a class="remove-tag">x</a></span>';
+        var value = item.value;
+        if (item.label.indexOf('_id') > -1) {
+          value = $('[name="' + item.label + '"][value="' + item.value + '"]').attr("title")
+        }
+        htmlBuff += '<span class="tag-item" name="' + item.label + '" value="' + item.value + '">' +
+          value + ' <a class="remove-tag">x</a></span>';
       }
     });
     tagsList.html(htmlBuff);
     tagsList.on('click', '.remove-tag', function () {
       var _this = $(this);
-      var _index = tagsList.index(_this.parent());
-      queryList.splice(_index, 1);
-      _this.parent().remove();
-      var redirct = '/product/search-result';
-      var queryString = queryList.map(function (search) {
-        return search.label + '=' + search.value;
-      });
-      location.href = redirct + '?' + queryString.join('&');
+      var _name = _this.parent().attr('name');
+      var _value = _this.parent().attr('value');
+      var _index = null;
+
+      queryList.map(function (opt, index) {
+        if (opt.label == _name && opt.value == _value) {
+          _index = index;
+        }
+      })
+      if (_index != null) {
+        
+        queryList.splice(_index, 1);
+        _this.parent().remove();
+        var redirct = '/product/search-result';
+        var queryString = queryList.map(function (search) {
+          return search.label + '=' + search.value;
+        });
+        location.href = redirct + '?' + queryString.join('&');
+      }
     });
   }
 
@@ -361,10 +376,18 @@
     var paramsStrArr = [];
     searhBox.find('form').each(function (index, item) {
       var queryString = $(item).serialize();
+      var queryArr = $(item).serializeArray();
       if (queryString.length > 0) {
         paramsStrArr.push(queryString)
       }
+      // queryArr.map(function (option, index) {
+      //   if (option.name && option.name.indexOf('_id') > -1) {
+      //     var title = $('[name="' + option.name + '"][value="' + option.value + '"]').attr('title');
+      //     localStorage.setItem(option.name + '_' + option.value, title)
+      //   }
+      // })
     });
+
     location.href = redirct + (paramsStrArr.length === 0 ? '' : ('?' + paramsStrArr.join('&')))
   });
   $('.wc-product-search .wc-clear-font').click(function () {
