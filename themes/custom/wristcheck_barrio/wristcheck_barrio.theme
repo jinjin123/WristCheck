@@ -111,6 +111,12 @@ function wristcheck_barrio_preprocess_maintenance_page(&$variables)
   $variables['maintenance_form'] = $maintenance_form;
 }
 
+function wristcheck_barrio_preprocess_node(&$variables)
+{
+  $sell_form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\SellAddToCartForm');
+  $variables['sell_form'] = $sell_form;
+}
+
 function wristcheck_barrio_preprocess_breadcrumb(&$variables)
 {
   $view = \Drupal\views\Views::getView('wristcheck_buy_magazine');
