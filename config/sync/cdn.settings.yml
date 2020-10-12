@@ -1,0 +1,17 @@
+langcode: en
+status: false
+mapping:
+  type: simple
+  domain: wristcheck.s3-website.ap-east-1.amazonaws.com
+  conditions:
+    not:
+      extensions:
+        - css
+        - js
+scheme: 'http://'
+farfuture:
+  status: true
+stream_wrappers:
+  - public
+_core:
+  default_config_hash: FGYrMvt5Li0Jm92wyoGSiFFNoI_WqcHTeNDMq4jHId0

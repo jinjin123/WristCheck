@@ -1,0 +1,9 @@
+tips:
+  cdn-ui-status:
+    label: 状态
+  cdn-ui-mapping:
+    label: 映射
+  cdn-ui-mapping-type:
+    label: 映射类型
+  cdn-ui-mapping-simple-conditions:
+    label: 条件
