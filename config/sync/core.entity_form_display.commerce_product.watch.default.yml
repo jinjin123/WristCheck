@@ -40,7 +40,6 @@ dependencies:
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
     - field.field.commerce_product.watch.field_scope_of_delivery
-    - field.field.commerce_product.watch.field_shock
     - field.field.commerce_product.watch.field_sku
     - field.field.commerce_product.watch.field_specifications
     - field.field.commerce_product.watch.field_subname
@@ -349,14 +348,6 @@ content:
     region: content
   field_scope_of_delivery:
     weight: 55
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_shock:
-    weight: 25
     settings:
       size: 60
       placeholder: ''

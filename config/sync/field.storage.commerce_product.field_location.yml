@@ -23,6 +23,9 @@ settings:
     -
       value: Taiwan
       label: Taiwan
+    -
+      value: Japan
+      label: Japan
   allowed_values_function: ''
 module: options
 locked: false
