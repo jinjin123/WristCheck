@@ -235,6 +235,16 @@ form.user-form {
     padding-bottom: 10px;
   }
 }
+.page-user-password{
+  .user-pass{
+    .form-submit{
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      margin-top: 30px;
+    }
+  }
+}
 
 /* 普通用户后台样式 end*/
 @media (max-width: 1025px) {
