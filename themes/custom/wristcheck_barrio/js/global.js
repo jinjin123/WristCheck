@@ -8,23 +8,23 @@
 	'use strict';
 
 	// debug
-	// var local = window.location.origin;
-	// if (local.indexOf('localhost') > -1) {
-	// 	$('img').each(function () {
-	// 		var img = $(this)
-	// 		var url = img.attr('src')
-	// 		if (url.match(/^[http|htts]/ig) == null) {
-	// 			$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
-	// 		}
-	// 	})
-	// 	$('.lazyload[data-original]').each(function () {
-	// 		var img = $(this)
-	// 		var url = img.attr('data-original')
-	// 		if (url.match(/^[http|htts]/ig) == null) {
-	// 			$(this).attr('data-original', 'http://dev.wristcheck.com:8888' + url)
-	// 		}
-	// 	})
-	// }
+	var local = window.location.origin;
+	if (local.indexOf('localhost') > -1) {
+		$('img').each(function () {
+			var img = $(this)
+			var url = img.attr('src')
+			if (url.match(/^[http|htts]/ig) == null) {
+				$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
+			}
+		})
+		$('.lazyload[data-original]').each(function () {
+			var img = $(this)
+			var url = img.attr('data-original')
+			if (url.match(/^[http|htts]/ig) == null) {
+				$(this).attr('data-original', 'http://dev.wristcheck.com:8888' + url)
+			}
+		})
+	}
 
 	// Drupal.behaviors.ProductVariationLoad = {
 	//   attach: function (context, settings) {
@@ -77,10 +77,17 @@
 		var menu = $(this);
 		menu.find('.wc-menu-container>li').each(function () {
 			var sub_menu = $(this);
-			if (sub_menu.find('.navbar-submenus>li').length > 8) {
-				let more_link = $('<li><a class="wc-btn-white wc-btn-large" href="javascript:;"><span class="wc-btn-cont">read more</span></a></li>')
+
+			if (sub_menu.find('.navbar-submenus>li').length > 10) {
+				let more_link = $('<li><a class="wc-btn-white wc-btn-large wc-menu-read-more" href="javascript:;"><span class="wc-btn-cont">read more</span></a></li>')
 				more_link.click(function () {
 					loading(sub_menu.children('a').attr('href'))
+				})
+				sub_menu.find('.navbar-submenus>li').each(function(){
+					var el = $(this);
+					if(el.index() > 9){
+						el.hide();
+					}
 				})
 				sub_menu.find('.navbar-submenus').append(more_link)
 			}
