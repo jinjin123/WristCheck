@@ -177,6 +177,10 @@ a:focus {
   transition: all .25s ease;
   padding: 10px 20px;
   font-weight: normal;
+  &.form-control{
+    padding: 10px 20px;
+    height: auto;
+  }
 
   &.wc-btn-large {
     padding: 16px 40px;
@@ -201,6 +205,10 @@ a:focus {
     }
   }
 }
+button.wc-btn-dark{
+  border: 0;
+}
+
 
 .wc-btn-cont {
   display: inline-block;
