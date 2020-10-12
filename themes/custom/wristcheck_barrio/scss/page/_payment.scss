@@ -38,3 +38,28 @@
     color: rgba(24, 108, 164, 1);
   }
 }
+
+// payment-methods/add
+.commerce-payment-method-add-form{
+  padding: 40px;
+  background: #FFF;
+  width: 50%;
+  margin: 0 auto;
+  #edit-submit{
+    display: block;
+    width: 100%;
+  }
+}
+
+.wc-second-hand-watch{
+  #block-wristcheck-barrio-content{
+    .table-responsive{
+      padding: 16px;
+      table {
+        td{
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

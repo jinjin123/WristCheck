@@ -46,7 +46,7 @@
   }
 
   .wc-userinfo-list_p {
-    padding: 16px;
+    padding: 16px 16px 16px 30px;
     position: relative;
 
     &:before {
@@ -54,17 +54,17 @@
       position: absolute;
       top: 20px;
       left: 0;
-      width: 10px;
-      height: 10px;
+      width: 16px;
+      height: 16px;
       border: 1px solid $color-dark3;
     }
 
     &::after {
       position: absolute;
-      top: 20px;
-      left: 0;
-      width: 10px;
-      height: 10px;
+      top: 16px;
+      left: 1px;
+      width: 16px;
+      height: 16px;
       content: "";
       transition: none;
       transform: none;
@@ -73,9 +73,10 @@
   }
 
   input:checked ~ .wc-userinfo-list_p::after {
+    content: "\2713";
     display: block;
-    background: no-repeat 50% / 100% 100%;
-    background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
+    // background: no-repeat 50% / 100% 100%;
+    // background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
   }
 
   .wc-userinfo-list_num {
@@ -232,6 +233,16 @@ form.user-form {
 
   .tabledrag-toggle-weight-wrapper {
     padding-bottom: 10px;
+  }
+}
+.page-user-password{
+  .user-pass{
+    .form-submit{
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      margin-top: 30px;
+    }
   }
 }
 

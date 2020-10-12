@@ -339,8 +339,10 @@
   .best_sellers-prev{
     top: 40%;
     &:hover,
+    &:focus,
     &:active{
       outline: none;
+      box-shadow: none;
     }
   }
 }
