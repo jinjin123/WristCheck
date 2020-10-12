@@ -72,7 +72,7 @@
 #}
 
 
-{#  {{ dd(_context) }}#}
+{#  {{ dd(sell_form) }}#}
 <div class="row wc-wcshw-warp">
   <div class="col-md-5">
     <div class="wc-product-imglist1">
@@ -102,10 +102,11 @@
       <div class="wc-product-content">{{ product.field_introduction }}</div>
       <div class="wc-product--row">
         <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">
-          {% set url = url('<current>')['#markup'] %}
-          <a href="/product/{{ url|split('/')|last }}">BUY NEW FROM
-            {{ product.variation_price }}
-          </a>
+{#          {% set url = url('<current>')['#markup'] %}#}
+{#          <a href="/product/{{ url|split('/')|last }}">BUY NEW FROM#}
+{#            {{ product.variation_price }}#}
+{#          </a>#}
+          {{ sell_form  }}
         </div>
       </div>
     </div>

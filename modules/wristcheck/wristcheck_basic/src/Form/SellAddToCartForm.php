@@ -26,7 +26,7 @@ class SellAddToCartForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Buy'),
+      '#value' => $this->t('BUY NEW FROM'),
     ];
 
     return $form;
