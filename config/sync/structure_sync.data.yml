@@ -1126,7 +1126,7 @@ menus:
     menu_name: main
     title: BRAND
     parent: 'menu_link_content:47dc53cc-647c-45e7-8c88-e33530365542'
-    uri: 'internal:#'
+    uri: 'internal:/buy'
     link_title: ''
     description: null
     enabled: '1'
@@ -1138,7 +1138,7 @@ menus:
     menu_name: main
     title: CATEGORY
     parent: 'menu_link_content:47dc53cc-647c-45e7-8c88-e33530365542'
-    uri: 'internal:#'
+    uri: 'internal:/category'
     link_title: ''
     description: null
     enabled: '1'

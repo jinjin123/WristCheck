@@ -2,13 +2,13 @@ langcode: en
 status: false
 mapping:
   type: simple
-  domain: wristcheck.s3-website.ap-east-1.amazonaws.com
+  domain: null
   conditions:
     not:
       extensions:
         - css
         - js
-scheme: 'http://'
+scheme: //
 farfuture:
   status: true
 stream_wrappers:
