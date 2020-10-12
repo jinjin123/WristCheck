@@ -150,7 +150,7 @@
 }
 
 .wc-search-dropdown-panel__body {
-  padding: 60px;
+  padding: 60px 20px;
 
   .wc-search__item {
     margin-bottom: 60px;
@@ -176,6 +176,8 @@
 
 .wc-search__price {
   padding-top: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .wc-search-location {
@@ -213,53 +215,71 @@
       box-shadow: none;
     }
   }
+}
+.wc-location-col__list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+   
+  font-weight: 500;
+  color: rgba(34, 34, 34, 1);
 
-  .wc-location-col__list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 16px;
-    font-size: 18px;
-     
-    font-weight: 500;
-    color: rgba(34, 34, 34, 1);
+  input[type=checkbox],input[type="radio"] {
+    margin-right: 10px;
+  }
 
-    input[type=checkbox] {
-      margin-right: 10px;
-    }
+  input[type="checkbox"],input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 14px;
+    position: relative;
+  }
 
-    input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      text-align: center;
-      vertical-align: middle;
-      line-height: 14px;
-      position: relative;
-    }
+  input[type="checkbox"]::before,input[type="radio"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d9d9d9
+  }
 
-    input[type="checkbox"]::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: #fff;
-      width: 100%;
-      height: 100%;
-      border: 1px solid #d9d9d9
-    }
-
-    input[type="checkbox"]:checked::before {
-      content: "\2713";
-      background-color: #fff;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      border: 1px solid #333;
-      color: #333;
-      font-size: 14px;
-      font-weight: bold;
-    }
+  input[type="checkbox"]:checked::before {
+    content: "\2713";
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #333;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  input[type="radio"]:checked::before{
+    content:"";
+    background-color: #FFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #333;
+    color: #333;
+  }
+  input[type="radio"]:checked::after{
+    content:"";
+    background-color: #333;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
   }
 }
 
@@ -301,6 +321,18 @@
     font-weight: 400;
     color: #999999;
     padding-left: 30px;
+  }
+}
+.wc-search-panel__body{
+  max-height: 450px;
+  overflow-y: auto;
+  padding: 0 30px;
+}
+.label-flex{
+  display: flex;
+  >input{
+    flex: 0 0 16px;
+    margin-top: 6px;
   }
 }
 
