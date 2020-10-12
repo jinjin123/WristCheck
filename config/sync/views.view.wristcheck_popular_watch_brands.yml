@@ -132,7 +132,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<img class="img-fluid" src="{{ field_brand_logo }}" alt="{{ field_brand_logo__alt }}" title="{{ field_brand_logo__title }}"/>'
+            text: '<div class="lazyload ani-scale_max" data-original="{{field_brand_logo}}" title="{{ field_brand_logo__title }}"></div>'
             make_link: true
             path: '{{ view_node }}'
             absolute: false

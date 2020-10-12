@@ -24,7 +24,7 @@
                                             <form class="row wc-location-col__list">
                                                 {% for option in variables['brands'] %}
                                                     <div class="col-md-3">
-                                                        <label><input type="radio" name="field_related_brand_target_id" data-search="field_related_brand_target_id" value="{{ option.nid }}" title="{{ option.title }}">
+                                                        <label class="label-flex"><input type="radio" name="field_related_brand_target_id" data-search="field_related_brand_target_id" value="{{ option.nid }}" title="{{ option.title }}">
                                                             <span>{{ option.title }}</span></label>
                                                     </div>
                                                 {% endfor %}
@@ -49,7 +49,7 @@
                                             <form class="row wc-location-col__list">
                                                 {% for option in variables['models'] %}
                                                     <div class="col-md-3">
-                                                        <label><input type="radio" name="field_related_model_target_id" data-search="field_related_model_target_id" value="{{ option.product_id }}" title="{{ option.title }}">
+                                                        <label class="label-flex"><input type="radio" name="field_related_model_target_id" data-search="field_related_model_target_id" value="{{ option.product_id }}" title="{{ option.title }}">
                                                             <span>{{ option.title }}</span></label>
                                                     </div>
                                                 {% endfor %}
@@ -76,7 +76,7 @@
                                                     <div class="form-group">
                                                         <label>Currency option</label>
                                                         <select class="form-control" name="currency_code" data-search="currency_code">
-                                                            {% for option in variables['locations'] %}
+                                                            {% for option in variables['currencies'] %}
                                                                 <option value="{{ option }}">{{ option }}</option>
                                                     		{% endfor %}
                                                 		</select>
@@ -119,7 +119,7 @@
 											<form class="row wc-location-col__list">
 												{% for option in variables['case_diameter'] %}
 													<div class="col-md-3">
-														<label><input type="radio" name="field_case_diameter_value" data-search="field_case_diameter_value" value="{{ option.field_case_diameter_value }}" title="{{ option.field_case_diameter_value }}">
+														<label class="label-flex"><input type="radio" name="field_case_diameter_value" data-search="field_case_diameter_value" value="{{ option.field_case_diameter_value }}" title="{{ option.field_case_diameter_value }}">
 															<span>{{ option.field_case_diameter_value }}</span></label>
 													</div>
 												{% endfor %}
@@ -145,7 +145,7 @@
 											<form class="row wc-location-col__list">
 												{% for option in variables['years'] %}
 													<div class="col-md-3">
-														<label><input type="radio" name="field_year_value" data-search="field_year_value" value="{{ option.field_year_value }}" title="{{ option.field_year_value }}">
+														<label class="label-flex"><input type="radio" name="field_year_value" data-search="field_year_value" value="{{ option.field_year_value }}" title="{{ option.field_year_value }}">
 															<span>{{ option.field_year_value }}</span></label>
 													</div>
 												{% endfor %}

@@ -7,3 +7,22 @@
 ul.wc-buy-more-products > li {
   margin-bottom: 40px;
 }
+.step-img_box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  >img{
+    margin: 10px 0;
+  }
+}
+.step-img_1,
+.step-img_2,
+.step-img_3,
+.step-img_4,
+.step-img_5{
+  display: inline-block;
+  width: auto;
+  height: 70px;
+}
