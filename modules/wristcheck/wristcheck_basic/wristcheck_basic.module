@@ -412,9 +412,10 @@ function wristcheck_basic_cron() {
         ])
         ->condition('unit', $unit, '=')
         ->execute();
+      \Drupal::logger('wristcheck_basic')->notice(date('Y-m-d H:i:s', time()) . ': Update '. $unit . ' currency rates');
     }
     else {
-      \Drupal::logger('wristcheck_basic')->error('Get currency error');
+      \Drupal::logger('wristcheck_basic')->error(date('Y-m-d H:i:s', time()) . ': Get '. $unit .' currency rates error');
     }
   }
 }
