@@ -278,7 +278,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-v2-panel\">\r\n<h1 class=\"wc-panel__title text-center mb-5\">ABOUT {{title}}</h1>\r\n{{ field_introduction }}\r\n</div>"
+            text: "<div class=\"wc-v2-panel\">\r\n<h1 class=\"wc-panel__title text-center mb-5\">ABOUT {{ title }}</h1>\r\n{{ field_introduction }}\r\n</div>"
             make_link: false
             path: '{{ view_node }}'
             absolute: false
@@ -1119,3 +1119,4 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_brand_logo'
+
