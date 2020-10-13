@@ -12,6 +12,7 @@ use Drupal\user\Entity\User;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Site\Settings;
 
 /**
  * Implements hook_help().
@@ -387,3 +388,34 @@ function wristcheck_basic_form_node_wcshw_form_alter(&$form, FormStateInterface 
 //$form[$artist_field]['#options'] = $options;
 //unset($form[$artist_field]['#size']);
 //}
+
+/**
+ * Implements hook_cron().
+ */
+function wristcheck_basic_cron() {
+  $currency_api = Settings::get('currency_api');
+  $client = \Drupal::httpClient();
+  $units = ['HKD', 'USD'];
+  foreach ($units as $unit) {
+    $url = $currency_api . $unit;
+    $request = $client->request('GET', $url);
+    $statusCode = $request->getStatusCode();
+    if($statusCode == '200') {
+      $contents = $request->getBody()->getContents();
+      $json = json_decode($contents);
+      $rate = json_encode($json->conversion_rates);
+      $connection = \Drupal::service('database');
+      $connection->update('currency')
+        ->fields([
+          'rate' => $rate,
+          'date' => date('Y-m-d', time()),
+        ])
+        ->condition('unit', $unit, '=')
+        ->execute();
+      \Drupal::logger('wristcheck_basic')->notice(date('Y-m-d H:i:s', time()) . ': Update '. $unit . ' currency rates');
+    }
+    else {
+      \Drupal::logger('wristcheck_basic')->error(date('Y-m-d H:i:s', time()) . ': Get '. $unit .' currency rates error');
+    }
+  }
+}
