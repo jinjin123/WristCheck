@@ -395,8 +395,17 @@ function wristcheck_basic_form_node_wcshw_form_alter(&$form, FormStateInterface 
 function wristcheck_basic_cron() {
   $currency_api = Settings::get('currency_api');
   $client = \Drupal::httpClient();
-  $units = ['HKD', 'USD'];
-  foreach ($units as $unit) {
+  $connection = \Drupal::service('database');
+  $query = $connection->query("SELECT unit, date FROM currency");
+  $result = $query->fetchAll();
+  foreach ($result as $value) {
+    $unit = $value->unit;
+    $date = $value->date;
+    $current_date = date('Y-m-d', time());
+    if ($date == $current_date) {
+      // update currency once every day
+      break;
+    }
     $url = $currency_api . $unit;
     $request = $client->request('GET', $url);
     $statusCode = $request->getStatusCode();
@@ -404,7 +413,6 @@ function wristcheck_basic_cron() {
       $contents = $request->getBody()->getContents();
       $json = json_decode($contents);
       $rate = json_encode($json->conversion_rates);
-      $connection = \Drupal::service('database');
       $connection->update('currency')
         ->fields([
           'rate' => $rate,
