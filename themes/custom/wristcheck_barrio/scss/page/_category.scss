@@ -23,17 +23,36 @@
         }
     }
 }
-// fixed ajax load inset row class
 .view-id-wristcheck_all_brands{
-    >.view-content{
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: -15px;
-        margin-left: -15px;
+    margin-bottom: 40px;
+}
+.brand-list-item{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    width: 100%;
+    h3{
+        font-size: 38px;
+        font-weight: 400;
+        color: #222222;
+        width: 50px;
     }
+    .wc-category-brand-item{
+        margin-bottom: 25px;
+    }
+    ul{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 5px;
+        >li{
+            list-style: none;
+        }
+        a{
+            display: inline-block;
+            font-size: 20px;
+        }
+    }
+    
 }
