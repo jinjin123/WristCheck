@@ -1119,4 +1119,3 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_brand_logo'
-
