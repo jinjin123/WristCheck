@@ -9,7 +9,7 @@
     }
     .views-field-field-brand-logo{
         width: 100%;
-        padding-top: 100%;
+        padding-top: 82%;
         overflow: hidden;
         position: relative;
 
@@ -55,4 +55,10 @@
         }
     }
     
+}
+
+@media (max-width: 640px){
+    .view-id-wristcheck_popular_watch_brands .view-content > .views-row{
+        width: 50%;
+    }
 }

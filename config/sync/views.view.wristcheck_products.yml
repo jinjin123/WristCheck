@@ -3740,7 +3740,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print portfolio wc-userwishlist'
+          row_class: 'col-sm-12 col-md-12 col-lg-12 portfolio-item filter-Packaging filter-Print portfolio wc-userwishlist'
           default_row_class: true
       row:
         type: fields
