@@ -451,7 +451,12 @@ function wristcheck_basic_check_user_information_submit($form, FormStateInterfac
 }
 
 function wristcheck_basic_check_user_information_validate($form, FormStateInterface $form_state) {
-
+  $user = \Drupal::currentUser()->getAccount();
+  $uid = $user->id();
+  wristcheck_basic_check_user_infomation($uid,$emptyFields);
+  foreach ($emptyFields as $field_name) {
+    $form_state->setErrorByName($field_name, t('Please fill the information.'));
+  }
 }
 
 /**
