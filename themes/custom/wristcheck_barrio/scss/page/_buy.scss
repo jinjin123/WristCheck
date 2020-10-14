@@ -16,6 +16,20 @@ ul.wc-buy-more-products > li {
   >img{
     margin: 10px 0;
   }
+  .step-img_box-item{
+    position: relative;
+    height: 250px;
+    // text-align: center;
+  }
+  .step-img_cont{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px 10px 0;
+    text-align: left;
+    min-width: 200px;
+  }
 }
 .step-img_1,
 .step-img_2,
@@ -24,5 +38,34 @@ ul.wc-buy-more-products > li {
 .step-img_5{
   display: inline-block;
   width: auto;
-  height: 70px;
+  height: 90px;
+}
+.selling-process-img-box{
+  width: 100%;
+  .process-img{
+    margin-bottom: 20px;
+  }
+}
+.process-img{
+  display: inline-block;
+  width: auto;
+  height: 200px;
+}
+
+@media (max-width: 1900px) {
+  .step-img_box-item:last-child{
+    width: 300px;
+  }
+  .step-img_1,
+  .step-img_2,
+  .step-img_3,
+  .step-img_4,
+  .step-img_5{
+    height: 70px;
+  }
+  .step-img_box{
+    .step-img_cont{
+      height: 70px;
+    }
+  }
 }

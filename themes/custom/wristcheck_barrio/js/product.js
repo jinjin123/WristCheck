@@ -1,4 +1,8 @@
 (function ($) {
+  var buy_used_from = $('.view-display-id-product_single_page_two_hands_lists');
+    if(buy_used_from.children().length === 1){
+      $('#wc-product-buy-used').hide();
+    }
   $(function () {
     //TODO: this page global event
 
