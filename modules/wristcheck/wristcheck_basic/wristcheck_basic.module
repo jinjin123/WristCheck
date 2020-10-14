@@ -427,3 +427,56 @@ function wristcheck_basic_cron() {
     }
   }
 }
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wristcheck_basic_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['actions']['submit']['#submit'][] = 'wristcheck_basic_check_user_information_submit';
+  $form["#validate"][] = 'wristcheck_basic_check_user_information_validate';
+}
+
+function wristcheck_basic_check_user_information_submit($form, FormStateInterface $form_state) {
+  $tempStore = \Drupal::service('user.private_tempstore')->get('wristcheck_basic');
+  $redirect_to_sell = $tempStore->get('redirect_to_sell');
+  \Drupal::logger('wristcheck_basic')->notice('if redirect_to_sell: ' . $redirect_to_sell);
+
+  if ($redirect_to_sell) {
+    $form_state->setRedirect('wristcheck_basic.sell_controller_index');
+  }
+
+  $tempStore->set('redirect_to_sell', FALSE);
+  \Drupal::logger('wristcheck_basic')->notice('After form redirect set redirect_to_sell: FALSE');
+}
+
+function wristcheck_basic_check_user_information_validate($form, FormStateInterface $form_state) {
+
+}
+
+/**
+ * Check user has enough information.
+ *
+ * @param $uid
+ *
+ * @return bool
+ */
+function wristcheck_basic_check_user_infomation($uid, &$emptyFields = []) {
+  $user = User::load($uid);
+  $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('user', 'user');
+  $allFields= array_keys($definitions);
+  $checkFields = preg_grep("/^field_/", $allFields);
+  foreach ($checkFields as $fieldName) {
+    if ($user->get($fieldName)->isEmpty()) {
+      $emptyFields[] = $fieldName;
+    }
+  }
+
+  if ($emptyFields) {
+    \Drupal::logger('wristcheck_basic')->notice(print_r($emptyFields, TRUE));
+    return FALSE;
+  }
+  else{
+    return TRUE;
+  }
+}

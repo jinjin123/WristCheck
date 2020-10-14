@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Drupal\Core\Url;
 /**
-* Redirect .html pages to corresponding Node page.
+* Redirect pages.
 */
 class CustomRedirectSubscriber implements EventSubscriberInterface {
 
@@ -29,18 +29,25 @@ class CustomRedirectSubscriber implements EventSubscriberInterface {
       $user = \Drupal::currentUser()->getAccount();
       $uid = $user->id();
       if ($uid == 0) {
-        // if user has not login, redirect login page
+        // anonymous user
         $response = new RedirectResponse('/user/login', $this->redirectCode);
         $response->send();
         exit(0);
       }
       else {
-        //
-        $response = new RedirectResponse('/user/login', $this->redirectCode);
-        $response->send();
-        exit(0);
+        // logged user, check if user has enough information
+        if (!wristcheck_basic_check_user_infomation($uid)) {
+          $response = new RedirectResponse('/user/register', $this->redirectCode);
+          $response->send();
+          // need redirect to sell page after fill user information.
+          $tempStore = \Drupal::service('user.private_tempstore')->get('wristcheck_basic');
+          $tempStore->set('redirect_to_sell', TRUE);
+          \Drupal::logger('wristcheck_basic')->notice('User has no enough info, set redirect_to_sell: TRUE');
+          exit(0);
+        }
       }
     }
+
   }
 
   /**
@@ -52,4 +59,5 @@ class CustomRedirectSubscriber implements EventSubscriberInterface {
     $events[KernelEvents::REQUEST][] = array('customRedirection');
     return $events;
   }
+
 }
