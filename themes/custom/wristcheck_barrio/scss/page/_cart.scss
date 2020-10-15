@@ -57,3 +57,26 @@
   }
 }
 
+@media (max-width: 767px) {
+  .layout-checkout-form{
+    padding: 0;
+  }
+  #edit-payment-information-payment-method.radio{
+    flex-direction: column;
+    >div{
+      margin-bottom: 20px;
+    }
+  }
+  .order-total-line-label{
+    padding-right: 20px;
+  }
+  #edit-shipping-information-recalculate-shipping{
+    margin-bottom: 30px;
+  }
+  #commerce-checkout-flow-multistep-default{
+    #edit-actions-next,
+    #edit-sidebar-coupon-redemption-form-apply{
+      width: 100%;
+    }
+  }
+}
