@@ -12,9 +12,6 @@ use Drupal\Core\Url;
 */
 class CustomRedirectSubscriber implements EventSubscriberInterface {
 
-  /** @var int */
-  private $redirectCode = 301;
-
   /**
   * Redirect pattern based url
   * @param GetResponseEvent $event
@@ -30,16 +27,16 @@ class CustomRedirectSubscriber implements EventSubscriberInterface {
       $uid = $user->id();
       if ($uid == 0) {
         // anonymous user
-        $response = new RedirectResponse('/user/login?check_user_information=1', $this->redirectCode);
+        $response = new RedirectResponse('/user/login?check_user_information=1');
         $response->send();
-        exit(0);
+        //exit(0);
       }
       else {
         // logged user, check if user has enough information
         if (!wristcheck_basic_check_user_infomation($uid)) {
-          $response = new RedirectResponse('/user/'. $uid .'/edit?destination=/sell', $this->redirectCode);
+          $response = new RedirectResponse('/user/'. $uid .'/edit?destination=/sell');
           $response->send();
-          exit(0);
+          //exit(0);
         }
       }
     }
