@@ -249,7 +249,7 @@
 		}
 		// md-slider change opacity
 		$(".md-slide-item").hover(function() {
-      $(".md-object").css("opacity","0.5")
+      $(".md-object").css("opacity","0.2")
       $(".md-object").css("transition","opacity .6s ease .3s;")
     },function (){
       $(".md-object").css("opacity","1")

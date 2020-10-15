@@ -68,4 +68,17 @@ ul.wc-buy-more-products > li {
       height: 70px;
     }
   }
+  .process-img{
+    height: 170px;
+  }
+}
+@media (max-width: 1441px){
+  .process-img{
+    height: 140px;
+  }
+}
+@media (max-width: 961px) {
+  .process-img{
+    height: 120px;
+  }
 }
