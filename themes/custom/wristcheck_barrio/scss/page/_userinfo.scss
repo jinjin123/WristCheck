@@ -246,6 +246,21 @@ form.user-form {
   }
 }
 
+.view-wristcheck-products .portfolio.wc-userwishlist{
+  margin-bottom: 0;
+  background-color:#FFF;
+  .wc-protfolio-product__title{
+    width: 100%;
+    > a{
+      padding: 5px;
+      width: 34px;
+      position: absolute;
+      right: 0;
+      text-align: center;
+    }
+  }
+}
+
 /* 普通用户后台样式 end*/
 @media (max-width: 1025px) {
   .wc-userinfo-card .wc-userinfo-padding {
