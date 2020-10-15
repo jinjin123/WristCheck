@@ -30,19 +30,15 @@ class CustomRedirectSubscriber implements EventSubscriberInterface {
       $uid = $user->id();
       if ($uid == 0) {
         // anonymous user
-        $response = new RedirectResponse('/user/login', $this->redirectCode);
+        $response = new RedirectResponse('/user/login?check_user_information=1', $this->redirectCode);
         $response->send();
         exit(0);
       }
       else {
         // logged user, check if user has enough information
         if (!wristcheck_basic_check_user_infomation($uid)) {
-          $response = new RedirectResponse('/user/register', $this->redirectCode);
+          $response = new RedirectResponse('/user/'. $uid .'/edit?destination=/sell', $this->redirectCode);
           $response->send();
-          // need redirect to sell page after fill user information.
-          $tempStore = \Drupal::service('user.private_tempstore')->get('wristcheck_basic');
-          $tempStore->set('redirect_to_sell', TRUE);
-          \Drupal::logger('wristcheck_basic')->notice('User has no enough info, set redirect_to_sell: TRUE');
           exit(0);
         }
       }

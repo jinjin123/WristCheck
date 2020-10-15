@@ -9,6 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -435,26 +436,12 @@ function wristcheck_basic_cron() {
 function wristcheck_basic_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $user = \Drupal::currentUser();
   if ($user->id() != 1) {
-    $form['actions']['submit']['#submit'][] = 'wristcheck_basic_check_user_information_submit';
     $roles = $user->getRoles();
     // Only validate authenticated user.
     if (count($roles) == 1 && $roles[0] == 'authenticated') {
       $form["#validate"][] = 'wristcheck_basic_check_user_information_validate';
     }
   }
-}
-
-function wristcheck_basic_check_user_information_submit($form, FormStateInterface $form_state) {
-  $tempStore = \Drupal::service('user.private_tempstore')->get('wristcheck_basic');
-  $redirect_to_sell = $tempStore->get('redirect_to_sell');
-  \Drupal::logger('wristcheck_basic')->notice('if redirect_to_sell: ' . $redirect_to_sell);
-
-  if ($redirect_to_sell) {
-    $form_state->setRedirect('wristcheck_basic.sell_controller_index');
-  }
-
-  $tempStore->set('redirect_to_sell', FALSE);
-  \Drupal::logger('wristcheck_basic')->notice('After form redirect set redirect_to_sell: FALSE');
 }
 
 function wristcheck_basic_check_user_information_validate(&$form, FormStateInterface $form_state) {
@@ -480,9 +467,54 @@ function wristcheck_basic_check_user_information_validate(&$form, FormStateInter
         $form_state->setErrorByName($field_name, t('Please fill the information.'));
       }
     }
-    $form_state->setRebuild();
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wristcheck_basic_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (isset($_GET['check_user_information'])) {
+    $form['actions']['submit']['#submit'][] = 'wristcheck_basic_user_login_submit';
+    //$form['redirect'] = '/user';
+  }
+}
+
+function wristcheck_basic_user_login_submit($form, FormStateInterface $form_state) {
+  $user = \Drupal::currentUser();
+  $uid = $user->id();
+  if (!wristcheck_basic_check_user_infomation($uid)) {
+    //$form_state->setRedirect('user.register');
+    $url = \Drupal\core\Url::fromRoute('wristcheck_basic.sell_controller_index');
+    $form_state->setRedirectUrl($url);
+    //\Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', '/user/register');
+  }
+  else {
+    $form_state->setRedirect('wristcheck_basic.sell_controller_index');
+  }
+}
+
+/**
+ * Implements hook_user_login().
+ */
+//function wristcheck_basic_user_login(UserInterface $account) {
+//  if (isset($_GET['check_user_information'])) {
+//    $user = \Drupal::currentUser();
+//    $uid = $user->id();
+//    if (!wristcheck_basic_check_user_infomation($uid)) {
+//      // need redirect to sell page after fill user information.
+//      $tempStore = \Drupal::service('user.private_tempstore')->get('wristcheck_basic');
+//      $tempStore->set('redirect_to_sell', TRUE);
+//      \Drupal::logger('wristcheck_basic')->notice('Login, find user has no enough info, set redirect_to_sell: TRUE');
+//      //$form_state->setRedirect('user.register');
+//      $test = \Drupal\core\Url::fromRoute('user.register');
+//      \Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', '/user/register');
+//    }
+//    else {
+//      \Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', '/sell');
+//    }
+//  }
+//}
 
 /**
  * Check user has enough information.
