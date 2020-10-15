@@ -9,6 +9,7 @@ use Drupal\Core\Config\Entity\ConfigEntityType;
 use Drupal\Core\Field\FieldConfigInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\file\Entity\File;
 
 /**
  * Provides a 'WristcheckFilterProductBlock' block.
@@ -90,6 +91,20 @@ class WristcheckFilterProductBlock extends BlockBase  implements ContainerFactor
       ->orderBy('created', 'desc')
       ->execute()
       ->fetchAll();
+//    $database = \Drupal::database();
+//    $models = $database->select('commerce_product_field_data', 'n');
+//    $models->leftJoin('commerce_product__field_model_images','i','i.entity_id = n.product_id');
+//    $models->fields('n', ['product_id', 'title']);
+//    $models->fields('i',['field_model_images_target_id']);
+//    $models->condition('n.status', '1', '=');
+//    $models->condition('n.type', 'watch', '=');
+//    $models->orderBy('created', 'desc');
+//    $res = $models->execute()->fetchAll();
+
+//    $newModels=array();
+//    foreach($res as $key => $value){
+//      array_push($newModels,(object)array("product_id"=> $value->product_id,"title"=> $value->title,"img"=>file_url_transform_relative(file_create_url(File::load($value->field_model_images_target_id)->getFileUri()))));
+//    }
 
     $years = $database->select('commerce_product__field_year', 'n')
       ->condition('n.bundle', 'watch', '=')

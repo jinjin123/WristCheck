@@ -1,6 +1,10 @@
 // jcarousel
 @import '../variables/color';
 
+.wc-product-search-model-img {
+   height: 100px;
+  width: 100px;
+}
 .wc-product-imglist1 {
   .wc-product-slick-item {
     width: 100%;
@@ -108,14 +112,14 @@
 
   .wc-product-title {
     font-size: 30px;
-     
+
     font-weight: 400;
     color: $color-dark2;
     padding-top: 20px;
 
     &.bold {
       font-size: 30px;
-       
+
       font-weight: bold;
       color: $color-dark2;
       padding: 0;
@@ -133,7 +137,7 @@
     a {
       text-decoration: none;
       font-size: 18px;
-       
+
       font-weight: 400;
       color: $color-dark2;
 
@@ -167,7 +171,7 @@
       display: flex;
       flex-direction: row;
       font-size: 16px;
-       
+
       font-weight: 400;
       color: $color-dark2;
 
@@ -222,7 +226,7 @@
     font-size: 14px;
     height: 150px;
     overflow: hidden;
-     
+
     font-weight: 400;
     color: $color-dark2;
     line-height: 24px;
@@ -310,7 +314,7 @@
 
       .wc-used-cont__title {
         font-size: 16px;
-         
+
         font-weight: 400;
         color: #222222;
         line-height: 1.5;
@@ -319,7 +323,7 @@
 
       .wc-used-cont__code {
         font-size: 16px;
-         
+
         font-weight: 400;
         color: #222222;
         line-height: 1.5;
@@ -328,14 +332,14 @@
 
       .wc-used-cont__num {
         font-size: 14px;
-         
+
         font-weight: 400;
         color: #666666;
       }
 
       .wc-used-cont__price {
         font-size: 24px;
-         
+
         font-weight: bold;
         color: #222222;
       }
@@ -360,7 +364,7 @@
 
 .wc-product-body {
   font-size: 14px;
-   
+
   font-weight: 400;
   color: $color-dark2;
   line-height: 24px;
@@ -369,7 +373,7 @@
 
   .field--name-body .field__label {
     font-size: 24px;
-     
+
     font-weight: bold;
     color: $color-dark2;
     padding-bottom: 60px;
@@ -387,7 +391,7 @@
   .field__label {
     text-align: center;
     font-size: 30px;
-     
+
     font-weight: bold;
     color: $color-dark2;
     line-height: 53px;
@@ -429,7 +433,7 @@
 
       .field--name-field-title {
         font-size: 24px;
-         
+
         font-weight: bold;
         color: $color-dark2;
         padding-bottom: 20px;
@@ -437,7 +441,7 @@
 
       .field--name-field-description {
         font-size: 18px;
-         
+
         font-weight: 500;
         color: $color-dark2;
       }
@@ -632,7 +636,7 @@
 
       li {
         font-size: 18px;
-         
+
         font-weight: 500;
         color: #222222;
         padding: 10px 0;
@@ -653,7 +657,7 @@
 
   .wc-product-introduction__key {
     font-size: 18px;
-     
+
     font-weight: 500;
     color: #222222;
     padding-top: 10px;
@@ -663,7 +667,7 @@
 
   .wc-product-introduction__value {
     font-size: 14px;
-     
+
     font-weight: 300;
     color: #222222;
     padding-top: 10px;
@@ -673,7 +677,7 @@
 
   h4 {
     font-size: 24px;
-     
+
     font-weight: bold;
     color: #222222;
   }
@@ -682,7 +686,7 @@
 .view-display-id-product_others {
   .more-link > a {
     font-size: 14px;
-     
+
     font-weight: 400;
     color: #176BA4;
   }
