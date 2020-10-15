@@ -3740,8 +3740,8 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'col-sm-12 col-md-3 col-lg-3 portfolio-item filter-Packaging filter-Print portfolio wc-userwishlist'
-          default_row_class: true
+          row_class: 'col-sm-12 col-md-12 col-lg-12 portfolio-item filter-Packaging filter-Print portfolio wc-userwishlist'
+          default_row_class: false
       row:
         type: fields
         options:
@@ -3759,7 +3759,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<div class=\"row\">\r\n   <div class=\"wc-panel-protfolio\">\r\n     <div class=\"wc-protfolio__total col-xs-6 col-sm-6 col-md-12\"></div>\r\n     <div class=\"wc-product-introduction\">\r\n       <div class=\"wc-product-btn\">\r\n         <a href=\"javascript:;\" class=\"wc-product-add-wishlist \">\r\n           <span class=\"fa fa-arrow-right\"></span>\r\n           | THE LIQUIDATION</a>\r\n       </div>\r\n     </div>\r\n   </div>\r\n </div>"
+          content: "<div class=\"d-flex flex-row justify-content-end mt-5\">\r\n  <a href=\"#\" class=\"wc-btn-dark wc-btn-large wc-sell-get-started text-center\">\r\n      <span class=\"wc-btn-cont\">\r\n        <span class=\"fa  fa-arrow-right\"></span>\r\n        <span class=\"btn-line\"></span>\r\n        THE LIQUIDATION\r\n      </span>\r\n    </a>\r\n</div>"
           plugin_id: text_custom
     cache_metadata:
       max-age: -1

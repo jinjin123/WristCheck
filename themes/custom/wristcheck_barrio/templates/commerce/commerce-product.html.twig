@@ -134,8 +134,12 @@
       </div>
       <div class="wc-product-btn">
         <a href="javascript:;" class="wc-product-add-wishlist">
-          <span class="fa fa-arrow-right"></span>
-          | ADD TO WISHLIST</a>
+          <div class="wc-btn-cont">
+            <span class="fa fa-arrow-right"></span>
+            <span class="btn-line"></span>
+            ADD TO WISHLIST
+          </div>
+        </a>
         <div class="wc-product-variations">
           {{- product.variations -}}
         </div>
@@ -145,7 +149,7 @@
       <div class="wc-product--row">
         <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">
           {% set url = url('<current>')['#markup'] %}
-          <a href="/custom/product/new/{{ url|split('/')|last }}">BUY NEW FROM
+          <a href="/custom/product/new/{{ url|split('/')|last }}"><span>BUY NEW FROM</span>
             {{ product.variation_price }}
           </a>
           {#          {{  product.variation_price|slice(1)  }}#}

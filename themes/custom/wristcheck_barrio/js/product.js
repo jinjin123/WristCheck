@@ -1,16 +1,34 @@
 (function ($) {
+  var buy_used_from = $('.view-display-id-product_single_page_two_hands_lists');
+    if(buy_used_from.children().length === 1){
+	  $('#wc-product-buy-used').hide();
+	  $('#wc-product-buy-new a>span').text("BUY FROM")
+    }
   $(function () {
     //TODO: this page global event
+    var loading = function (href) {
+      $('body').append($('<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>'))
+      if (href) {
+        window.location.href = href;
+      } else {
+        setTimeout(function () {
+          $('.ajax-progress').remove()
+        }, 3000)
+      }
+    }
 
     // wishlist
     $('.wc-product-add-wishlist').click(function (e) {
       e.stopPropagation();
-      var panel = $(this).siblings('.wc-product-variations');
-      if (panel.hasClass('show')) {
-        panel.removeClass('show')
-      } else {
-        panel.addClass('show')
-      }
+      loading();
+      $(this).next().find('.form-submit').trigger('click');
+
+      // var panel = $(this).siblings('.wc-product-variations');
+      // if (panel.hasClass('show')) {
+      //   panel.removeClass('show')
+      // } else {
+      //   panel.addClass('show')
+      // }
     });
     $('.wc-product-variations').click(function (e) {
       e.stopPropagation()

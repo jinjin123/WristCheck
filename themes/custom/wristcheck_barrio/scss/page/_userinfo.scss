@@ -46,7 +46,7 @@
   }
 
   .wc-userinfo-list_p {
-    padding: 16px;
+    padding: 16px 16px 16px 30px;
     position: relative;
 
     &:before {
@@ -54,17 +54,17 @@
       position: absolute;
       top: 20px;
       left: 0;
-      width: 10px;
-      height: 10px;
+      width: 16px;
+      height: 16px;
       border: 1px solid $color-dark3;
     }
 
     &::after {
       position: absolute;
-      top: 20px;
-      left: 0;
-      width: 10px;
-      height: 10px;
+      top: 16px;
+      left: 1px;
+      width: 16px;
+      height: 16px;
       content: "";
       transition: none;
       transform: none;
@@ -73,9 +73,10 @@
   }
 
   input:checked ~ .wc-userinfo-list_p::after {
+    content: "\2713";
     display: block;
-    background: no-repeat 50% / 100% 100%;
-    background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
+    // background: no-repeat 50% / 100% 100%;
+    // background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
   }
 
   .wc-userinfo-list_num {
@@ -234,6 +235,32 @@ form.user-form {
     padding-bottom: 10px;
   }
 }
+.page-user-password{
+  .user-pass{
+    .form-submit{
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      margin-top: 30px;
+    }
+  }
+}
+
+.view-id-wristcheck_portfolio .portfolio.wc-userwishlist,
+.view-wristcheck-products .portfolio.wc-userwishlist{
+  margin-bottom: 0;
+  background-color:#FFF;
+  .wc-protfolio-product__title{
+    width: 100%;
+    > a{
+      padding: 5px;
+      width: 34px;
+      position: absolute;
+      right: 0;
+      text-align: center;
+    }
+  }
+}
 
 /* 普通用户后台样式 end*/
 @media (max-width: 1025px) {
@@ -269,6 +296,23 @@ form.user-form {
   .wc-userinfo__body .item-list ul li {
     padding: 0.75rem 0 0 0;
   }
+}
+
+.wc-buy-product-item{
+  .wc-portfolio-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .btn{
+      border: 1px solid #333;
+      transition: all .3s ease-in;
+      &:hover{
+        background-color: #333;
+        color: #FFF;
+      }
+    }
+  }  
 }
 
 @media (max-width: 375px) {

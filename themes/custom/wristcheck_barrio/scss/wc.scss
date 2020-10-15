@@ -44,10 +44,13 @@
 @import "page/homepage.scss";
 @import "page/buy.scss";
 @import "page/wcshw.scss";
+@import "page/category";
 
 body {
   background-color: $body_bg;
   font-family: "basis-grotesque-pro", "Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 input, button, select, optgroup, textarea {
@@ -176,6 +179,10 @@ a:focus {
   transition: all .25s ease;
   padding: 10px 20px;
   font-weight: normal;
+  &.form-control{
+    padding: 10px 20px;
+    height: auto;
+  }
 
   &.wc-btn-large {
     padding: 16px 40px;
@@ -200,6 +207,10 @@ a:focus {
     }
   }
 }
+button.wc-btn-dark{
+  border: 0;
+}
+
 
 .wc-btn-cont {
   display: inline-block;

@@ -1,0 +1,21 @@
+uuid: e9df2e03-f0bf-45a5-9430-56e785b38a4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_initials
+    - node.type.brand
+  module:
+    - options
+id: node.brand.field_initials
+field_name: field_initials
+entity_type: node
+bundle: brand
+label: Initials
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
