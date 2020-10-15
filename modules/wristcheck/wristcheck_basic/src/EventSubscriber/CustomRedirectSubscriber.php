@@ -12,9 +12,6 @@ use Drupal\Core\Url;
 */
 class CustomRedirectSubscriber implements EventSubscriberInterface {
 
-  /** @var int */
-  private $redirectCode = 301;
-
   /**
   * Redirect pattern based url
   * @param GetResponseEvent $event
@@ -30,20 +27,20 @@ class CustomRedirectSubscriber implements EventSubscriberInterface {
       $uid = $user->id();
       if ($uid == 0) {
         // anonymous user
-        $response = new RedirectResponse('/user/login', $this->redirectCode);
+        $response = new RedirectResponse('/user/login?check_user_information=1');
         $response->send();
-        exit(0);
+        //exit(0);
       }
       else {
         // logged user, check if user has enough information
-        if (!wristcheck_basic_check_user_infomation($uid)) {
-          $response = new RedirectResponse('/user/register', $this->redirectCode);
-          $response->send();
-          // need redirect to sell page after fill user information.
-          $tempStore = \Drupal::service('user.private_tempstore')->get('wristcheck_basic');
-          $tempStore->set('redirect_to_sell', TRUE);
-          \Drupal::logger('wristcheck_basic')->notice('User has no enough info, set redirect_to_sell: TRUE');
-          exit(0);
+        $roles = $user->getRoles();
+        // Only redirect authenticated user and use is not super admin
+        if ($uid != 1 && count($roles) == 1 && $roles[0] == 'authenticated') {
+          if (!wristcheck_basic_check_user_infomation($uid)) {
+            $response = new RedirectResponse('/user/'. $uid .'/edit?destination=/sell');
+            $response->send();
+            //exit(0);
+          }
         }
       }
     }
