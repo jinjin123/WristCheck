@@ -100,5 +100,8 @@
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
     {{ content }}
   </div>
-  <div>{{ drupal_view('wristcheck_buy_news','blog_news') }}</div>
+  <div class="wc-panel">
+    <div class="wc-panel__title text-center">LATEST ARTICLES</div>
+    {{ drupal_view('wristcheck_buy_news','blog_news') }}
+  </div>
 </article>
