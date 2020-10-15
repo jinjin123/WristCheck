@@ -450,12 +450,30 @@ function wristcheck_basic_check_user_information_submit($form, FormStateInterfac
   \Drupal::logger('wristcheck_basic')->notice('After form redirect set redirect_to_sell: FALSE');
 }
 
-function wristcheck_basic_check_user_information_validate($form, FormStateInterface $form_state) {
+function wristcheck_basic_check_user_information_validate(&$form, FormStateInterface $form_state) {
   $user = \Drupal::currentUser()->getAccount();
   $uid = $user->id();
   wristcheck_basic_check_user_infomation($uid,$emptyFields);
   foreach ($emptyFields as $field_name) {
-    $form_state->setErrorByName($field_name, t('Please fill the information.'));
+    //check if it the field has value in form_state
+    $value = $form_state->getValue($field_name);
+    //$definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('user', 'user');
+    //$field_type = $definitions[$field_name]->getType();
+    //todo : may be need checked by every field_type
+    if (isset($value[0]['value']) && empty($value[0]['value'])) {
+      if ($field_name == 'field_description') {
+        //$form[$field_name]['#attributes']['class'][] = 'error';
+        //$form[$field_name]['#attributes']['class'][] = 'is-invalid';
+        $form[$field_name]['#prefix'] = '<div class="error is-invalid form-control">';
+        $form[$field_name]['#suffix'] = '</div>';
+        // Do not know why field_description can not generate the class is-invalid
+        $form_state->setErrorByName($field_name, t('Please fill the information.'));
+      }
+      else {
+        $form_state->setErrorByName($field_name, t('Please fill the information.'));
+      }
+    }
+    $form_state->setRebuild();
   }
 }
 
