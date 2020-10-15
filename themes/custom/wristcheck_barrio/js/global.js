@@ -328,10 +328,9 @@
 				$.getJSON("/currency-price?search=" + funit, (function (data) {
 					$("#edit-second-size")[0].value = (src * JSON.parse(data)[sunit]).toFixed(2);
 				}))
-
 			});
-
 		})
+
 		//faq index
 		$(".view-content").removeClass("row");
 		//faq auth system expose filter
@@ -436,6 +435,28 @@
 	//   console.log(this);
 	//   $(this).parent().addClass('is-active').siblings().removeClass('is-active')
 	// })
+  // disable product search result
+  $('.layout-container').on('click',function(event){
+    if(event.target.className.indexOf("wc-product-search-modal") !=-1){
+      var _self = $('.wc-search-menu>ul>li');
+      var _wTop = $(window).scrollTop();
+      var _box = $('.wc-product-search');
+      var _modal = $('.wc-product-search-modal');
+      var _menu = _self.parents('.wc-product-search-menu');
+      if (_self.hasClass('active')) {
+        _self.removeClass('active');
+        _modal.removeClass('show');
+        _menu.removeClass('active');
+        _menu.css({ 'z-index': 2 });
+
+        if (_wTop <= _box.offset().top) {
+          _menu.removeClass(('fixed-top')).css({
+            top: 0
+          })
+        }
+      }
+    }
+  })
 
 	// product search bar event
 	$('.wc-search-menu>ul>li').on('click', function () {
@@ -472,6 +493,7 @@
 			_self.addClass('active').siblings('.active').removeClass(('active'))
 		}
 	});
+
 	$('.wc-search-dropdown-panel').on('click', function (e) {
 		e.stopPropagation()
 	});
