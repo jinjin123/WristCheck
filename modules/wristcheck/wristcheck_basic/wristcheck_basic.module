@@ -515,7 +515,6 @@ function wristcheck_basic_user_login(UserInterface $account) {
     \Drupal::logger('test1')->notice($uid);
     if (!wristcheck_basic_check_user_infomation($uid)) {
       //$test = \Drupal\core\Url::fromRoute('user.register');
-      \Drupal::logger('test2')->notice($uid);
       $response =  new RedirectResponse('/user/' . $uid . '/edit');
       $response->send();
     }
