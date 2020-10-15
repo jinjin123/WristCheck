@@ -246,6 +246,7 @@ form.user-form {
   }
 }
 
+.view-id-wristcheck_portfolio .portfolio.wc-userwishlist,
 .view-wristcheck-products .portfolio.wc-userwishlist{
   margin-bottom: 0;
   background-color:#FFF;
@@ -295,6 +296,23 @@ form.user-form {
   .wc-userinfo__body .item-list ul li {
     padding: 0.75rem 0 0 0;
   }
+}
+
+.wc-buy-product-item{
+  .wc-portfolio-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .btn{
+      border: 1px solid #333;
+      transition: all .3s ease-in;
+      &:hover{
+        background-color: #333;
+        color: #FFF;
+      }
+    }
+  }  
 }
 
 @media (max-width: 375px) {
