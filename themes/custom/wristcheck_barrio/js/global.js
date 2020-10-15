@@ -467,6 +467,7 @@
   })
 
 	// product search bar event
+	var is_click = false;
 	$('.wc-search-menu>ul>li').on('click', function () {
 		var _self = $(this);
 		var _wTop = $(window).scrollTop();
@@ -476,6 +477,10 @@
 		var _admin_toolbar = $('#toolbar-bar .toolbar-tab').height() || 0;
 		var _admin_subToobar = $('#toolbar-item-administration-tray.toolbar-tray-horizontal').height() || 0;
 		var _top = _admin_toolbar + _admin_subToobar;
+		is_click = true;
+		setTimeout(function(){
+			is_click = false;
+		},600)
 
 		if (_self.hasClass('active')) {
 			_self.removeClass('active');
@@ -516,6 +521,7 @@
 	});
 
 	$(window).scroll(function () {
+		if(is_click) return false;
 		var _wTop = $(this).scrollTop();
 		var _box = $('.wc-product-search');
 		var _menu = $('.wc-product-search .wc-product-search-menu');
