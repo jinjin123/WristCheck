@@ -49,6 +49,8 @@
 body {
   background-color: $body_bg;
   font-family: "basis-grotesque-pro", "Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 input, button, select, optgroup, textarea {
