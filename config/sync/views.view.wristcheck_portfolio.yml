@@ -74,14 +74,11 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: html_list
+        type: default
         options:
           grouping: {  }
-          row_class: ''
-          default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: ''
+          row_class: 'col-sm-12 col-md-12 col-lg-12 portfolio-item filter-Packaging filter-Print portfolio wc-userwishlist'
+          default_row_class: false
       row:
         type: fields
         options:
@@ -592,7 +589,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n    <div class=\"wc-buy-product-privew__img\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_page_title_image }}\"/></div>\r\n    <div class=\"wc-buy-product-body\">\r\n        <div class=\"wc-protfolio-product__title\"><span class=\"col-md-4\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</span><a class=\"col-md-4 fa fa-close\" href=\"{{ delete_node }}\"></a></div>\r\n        <div class=\"wc-buy-product__sub\"><span>The purchase was make on {{ created }}</span></div>\r\n        <div class=\"row wc-buy-product-footer\">\r\n            <div class=\"col-md-1\"><strong class=\"wc-protfolio__price\">{{ field_ask_price }}</strong> </div>\r\n            <div class=\"col-md-6\"><a class=\"btn btn-default wc-protfolio_sold \" href=\"#\">SOLD FOR CASH </a> </div>\r\n            <div class=\"col-md-4\"><a class=\" wc-protfolio-product__link\" href=\"{{ view_commerce_product }}\">Sell it for money</a> </div>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n    <div class=\"wc-buy-product-privew__img\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_page_title_image }}\"/></div>\r\n    <div class=\"wc-buy-product-body\">\r\n        <div class=\"wc-protfolio-product__title\"><span class=\"col-md-4\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</span><a class=\"col-md-4 fa fa-close\" href=\"{{ delete_node }}\"></a></div>\r\n        <div class=\"wc-buy-product__sub\"><span>The purchase was make on {{ created }}</span></div>\r\n        <div class=\"wc-portfolio-footer\">\r\n            <strong class=\"wc-protfolio__price\">{{ field_ask_price }}</strong>\r\n            <a class=\"btn btn-default \" href=\"#\">SOLD FOR CASH </a>\r\n            <a class=\" wc-protfolio-product__link\" href=\"{{ view_commerce_product }}\">Sell it for money</a>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false

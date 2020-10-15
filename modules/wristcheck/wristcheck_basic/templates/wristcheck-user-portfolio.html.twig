@@ -1,18 +1,16 @@
 
 {% if variables["total"] %}
 {{ drupal_view("wristcheck_portfolio") }}
- <div class="row">
-   <div class="wc-panel-protfolio">
-   <div class="wc-protfolio__total col-xs-6 col-sm-6 col-md-12">{{ variables["total"] }}</div>
-     <div class="wc-product-introduction">
-       <div class="wc-product-btn"  >
-         <a href="javascript:;" class="wc-product-add-wishlist ">
-           <span class="fa fa-arrow-right"></span>
-           | ADD A NEW TABLE</a>
-       </div>
-     </div>
-   </div>
- </div>
+ <div class="d-flex flex-row justify-content-between align-items-center mt-5">
+    <span>{{ variables["total"] }}</span>
+    <a href="#" class="wc-btn-dark wc-btn-large wc-sell-get-started text-center">
+      <span class="wc-btn-cont">
+        <span class="fa  fa-arrow-right"></span>
+        <span class="btn-line"></span>
+        ADD A NEW TABLE
+      </span>
+    </a>
+  </div>
 {% else %}
 <div class="wc-user-info">
   <div class="wc-user-info__title">PORTFOLIO</div>
