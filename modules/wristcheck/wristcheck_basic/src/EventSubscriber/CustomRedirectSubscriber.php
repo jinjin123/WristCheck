@@ -33,10 +33,14 @@ class CustomRedirectSubscriber implements EventSubscriberInterface {
       }
       else {
         // logged user, check if user has enough information
-        if (!wristcheck_basic_check_user_infomation($uid)) {
-          $response = new RedirectResponse('/user/'. $uid .'/edit?destination=/sell');
-          $response->send();
-          //exit(0);
+        $roles = $user->getRoles();
+        // Only redirect authenticated user and use is not super admin
+        if ($uid != 1 && count($roles) == 1 && $roles[0] == 'authenticated') {
+          if (!wristcheck_basic_check_user_infomation($uid)) {
+            $response = new RedirectResponse('/user/'. $uid .'/edit?destination=/sell');
+            $response->send();
+            //exit(0);
+          }
         }
       }
     }
