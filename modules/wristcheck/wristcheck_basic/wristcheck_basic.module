@@ -433,8 +433,15 @@ function wristcheck_basic_cron() {
  * Implements hook_form_FORM_ID_alter().
  */
 function wristcheck_basic_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  $form['actions']['submit']['#submit'][] = 'wristcheck_basic_check_user_information_submit';
-  $form["#validate"][] = 'wristcheck_basic_check_user_information_validate';
+  $user = \Drupal::currentUser();
+  if ($user->id() != 1) {
+    $form['actions']['submit']['#submit'][] = 'wristcheck_basic_check_user_information_submit';
+    $roles = $user->getRoles();
+    // Only validate authenticated user.
+    if (count($roles) == 1 && $roles[0] == 'authenticated') {
+      $form["#validate"][] = 'wristcheck_basic_check_user_information_validate';
+    }
+  }
 }
 
 function wristcheck_basic_check_user_information_submit($form, FormStateInterface $form_state) {
