@@ -37,7 +37,7 @@ class CustomRedirectSubscriber implements EventSubscriberInterface {
         // Only redirect authenticated user and use is not super admin
         if ($uid != 1 && count($roles) == 1 && $roles[0] == 'authenticated') {
           if (!wristcheck_basic_check_user_infomation($uid)) {
-            $response = new RedirectResponse('/user/'. $uid .'/edit?destination=/sell');
+            $response = new RedirectResponse('/user/'. $uid .'/edit?destination=/node/add/wcshw');
             $response->send();
             //exit(0);
           }
