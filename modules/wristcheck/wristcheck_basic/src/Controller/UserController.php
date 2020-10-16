@@ -114,6 +114,7 @@ class UserController extends ControllerBase
     }else{
       $variables = [];
     }
+    $variables["userid"] = \Drupal::currentUser()->id();
     return [
       '#theme' => 'wristcheck_user_portfolio',
       '#variables' => $variables

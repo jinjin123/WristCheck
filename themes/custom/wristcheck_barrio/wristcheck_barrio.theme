@@ -166,6 +166,7 @@ function wristcheck_barrio_preprocess_html(array &$variables)
 {
   $path = \Drupal::service('path.current')->getPath();
   $path_args = explode('/', $path);
+  $variables['userid'] = \Drupal::currentUser()->id();
   if (in_array("payment-success", $path_args) || in_array("payment-step", $path_args)) {
     if (count($path_args) > 2) {
       if ($path_args[3] == "payment-success") {
