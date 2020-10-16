@@ -5721,10 +5721,10 @@ menus:
     menu_name: wristcheck-user-sidebar-menu
     title: Sell
     parent: 'menu_link_content:9a166a86-163b-4f17-ace9-f6edf6c30fae'
-    uri: 'internal:/user/[current-user:uid]/transactions/sell'
+    uri: 'internal:/user/[current-user:uid]/sell'
     link_title: ''
     description: null
-    enabled: '1'
+    enabled: '0'
     expanded: '0'
     weight: '-49'
     langcode: en
@@ -5745,10 +5745,10 @@ menus:
     menu_name: wristcheck-user-sidebar-menu
     title: Buy
     parent: 'menu_link_content:9a166a86-163b-4f17-ace9-f6edf6c30fae'
-    uri: 'internal:/user/[current-user:uid]/transactions/buy'
+    uri: 'internal:/user/[current-user:uid]/buy'
     link_title: ''
     description: null
-    enabled: '1'
+    enabled: '0'
     expanded: '0'
     weight: '-50'
     langcode: en
