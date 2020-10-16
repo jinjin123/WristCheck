@@ -61,7 +61,17 @@ class MenuTokenContextManager {
   public function prepareContextualLinks($relevantLink, $config) {
 
     $this->contextualReplacementLinks = unserialize($this->state->get('menu_token_links_contextual_replacements'));
-    $text_tokens = $this->tokenService->scan($relevantLink["url"]);
+    if (isset($relevantLink["route_name"])) {
+      foreach ($relevantLink["route_parameters"] as $route_parameter) {
+        $text_token = $this->tokenService->scan($route_parameter);
+        foreach ($text_token as $type => $value) {
+          $text_tokens[$type] = $value;
+        }
+      }
+    }
+    else {
+      $text_tokens = $this->tokenService->scan($relevantLink["url"]);
+    }
     $text_tokens = array_merge($text_tokens, $this->tokenService->scan($relevantLink["title"]));
 
     $use_in_context = FALSE;

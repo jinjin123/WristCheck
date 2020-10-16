@@ -1,0 +1,18 @@
+diff a/modules/menu_token/menu_token.module b/modules/menu_token/menu_token.module	(rejected hunks)
+@@ -404,7 +448,15 @@
+   $bubbleable_metadata = new BubbleableMetadata();
+ 
+   foreach ($links as $key => $linkData) {
+-    $links[$key]["link"]["url"] = $token_service->replace($linkData["link"]["url"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
++    if (isset($links[$key]["link"]["route_name"])) {
++      foreach ($links[$key]["link"]["route_parameters"] as $type => $route_parameter) {
++        $links[$key]["link"]["route_parameters"][$type] = $token_service->replace($route_parameter, [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
++      }
++    }
++    else {
++      $links[$key]["link"]["url"] = $token_service->replace($linkData["link"]["url"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
++      menu_token_route_from_path_for_context($key, $links);
++    }
+     $links[$key]["link"]["title"] = $token_service->replace($linkData["link"]["title"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
+     $links[$key]["link"]["options"]["bubleble_metadata"] = $bubbleable_metadata;
+     $links[$key] = $links[$key]["link"];
