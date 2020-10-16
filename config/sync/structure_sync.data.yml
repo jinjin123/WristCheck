@@ -2814,3 +2814,15 @@ menus:
     weight: '0'
     langcode: en
     uuid: a4988ca9-5b41-4aaf-8bd9-dc27d55e81b1
+  -
+    menu_name: wristcheck-user-sidebar-menu
+    title: Wishlist
+    parent: null
+    uri: 'internal:/user/[current-user:uid]/wishlist'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 53d338a8-8115-471c-b1db-c692ff905897
