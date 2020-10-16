@@ -149,7 +149,7 @@ wristcheck_basic.payment_controller_index:
     _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::index'
     _title: 'Payment'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -159,7 +159,7 @@ wristcheck_basic.payment_controller_success:
     _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::paysuccess'
     _title: 'Payment'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -169,7 +169,7 @@ wristcheck_basic.payment_controller_step:
     _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::paystep'
     _title: 'Payment'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -179,7 +179,7 @@ wristcheck_basic.user_settings_form:
     _form: '\Drupal\wristcheck_basic\Form\UserSettingsForm'
     _title: 'Setting'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -189,7 +189,7 @@ wristcheck_basic.user_controller_info:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::info'
     _title: 'User'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -199,7 +199,7 @@ wristcheck_basic.user_controller_sell:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::sell'
     _title: 'Sell'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -209,7 +209,7 @@ wristcheck_basic.user_controller_buy:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::buy'
     _title: 'Buy'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -229,7 +229,7 @@ wristcheck_basic.user_controller_portfolio:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::portfolio'
     _title: 'Portfolio'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
