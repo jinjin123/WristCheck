@@ -197,7 +197,7 @@ class UserController extends ControllerBase
       exit;
     }
     else {
-      $response = new RedirectResponse(URL::fromRoute('wristcheck_basic.sell_controller_index')
+      $response = new RedirectResponse(URL::fromUserInput('/node/add/wcshw')
         ->toString());
       $response->send();
     }

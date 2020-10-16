@@ -448,7 +448,7 @@ function wristcheck_basic_form_user_form_alter(&$form, \Drupal\Core\Form\FormSta
 function wristcheck_basic_check_user_information_validate(&$form, FormStateInterface $form_state) {
   $user = \Drupal::currentUser()->getAccount();
   $uid = $user->id();
-  wristcheck_basic_check_user_infomation($uid,$emptyFields);
+  wristcheck_basic_check_user_infomation($uid, $emptyFields);
   foreach ($emptyFields as $field_name) {
     //check if it the field has value in form_state
     $value = $form_state->getValue($field_name);
@@ -488,7 +488,8 @@ function wristcheck_basic_form_user_login_form_alter(&$form, \Drupal\Core\Form\F
  *
  * @return bool
  */
-function wristcheck_basic_check_user_infomation($uid, &$emptyFields = []) {
+function wristcheck_basic_check_user_infomation($uid, &$emptyFields = NULL) {
+  $emptyFields = [];
   $user = User::load($uid);
   $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('user', 'user');
   $allFields= array_keys($definitions);
