@@ -114,6 +114,7 @@ class UserController extends ControllerBase
     }else{
       $variables = [];
     }
+    $variables["userid"] = \Drupal::currentUser()->id();
     return [
       '#theme' => 'wristcheck_user_portfolio',
       '#variables' => $variables
@@ -196,7 +197,7 @@ class UserController extends ControllerBase
       exit;
     }
     else {
-      $response = new RedirectResponse(URL::fromRoute('wristcheck_basic.sell_controller_index')
+      $response = new RedirectResponse(URL::fromUserInput('/node/add/wcshw')
         ->toString());
       $response->send();
     }
