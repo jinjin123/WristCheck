@@ -341,6 +341,11 @@
     margin: 0 auto;
   }
 }
+.wc-transactions-sell-list,
+.wc-transactions-buy-list{
+  padding-left: 20px;
+  background-color: #FFF;
+}
 
 @media (max-width: 1440px) {
   .wc-sell-swiper {
