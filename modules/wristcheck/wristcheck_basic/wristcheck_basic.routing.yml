@@ -193,25 +193,25 @@ wristcheck_basic.user_controller_info:
   options:
     user: \d+
 
-wristcheck_basic.user_controller_sell:
-  path: '/user/transactions/sell/{uid}'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserController::sell'
-    _title: 'Sell'
-  requirements:
-    _permission: 'access content'
-  options:
-    uid: \d+
-
-wristcheck_basic.user_controller_buy:
-  path: '/user/transactions/buy/{uid}'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserController::buy'
-    _title: 'Buy'
-  requirements:
-    _permission: 'access content'
-  options:
-    uid: \d+
+#wristcheck_basic.user_controller_sell:
+#  path: '/user/transactions/sell/{uid}'
+#  defaults:
+#    _controller: '\Drupal\wristcheck_basic\Controller\UserController::sell'
+#    _title: 'Sell'
+#  requirements:
+#    _permission: 'access content'
+#  options:
+#    uid: \d+
+#
+#wristcheck_basic.user_controller_buy:
+#  path: '/user/transactions/buy/{uid}'
+#  defaults:
+#    _controller: '\Drupal\wristcheck_basic\Controller\UserController::buy'
+#    _title: 'Buy'
+#  requirements:
+#    _permission: 'access content'
+#  options:
+#    uid: \d+
 
 wristcheck_basic.user_controller_userprofile:
   path: '/user-profile'
