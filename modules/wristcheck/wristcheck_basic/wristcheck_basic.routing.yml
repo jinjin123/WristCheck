@@ -341,3 +341,11 @@ wristcheck_basic.check_user_info:
     _title: 'Check user info'
   requirements:
     _access: 'TRUE'
+
+wristcheck_basic.flagdel:
+  path: '/wristcheck_basic/flag/{product_id}'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::flagdel'
+    _title: 'unflag'
+  requirements:
+    _permission: 'access content'
