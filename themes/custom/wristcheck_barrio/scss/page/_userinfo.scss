@@ -315,6 +315,31 @@ form.user-form {
   }  
 }
 
+.profile-customer-edit-form.profile-form{
+  padding: 60px;
+  margin: 60px auto;
+  background-color: #FFF;
+}
+.wc-form-submit{
+  display: inline-block;
+  min-width: 270px;
+  margin-right: 20px;
+}
+a#edit-delete{
+  display: inline-block;
+  min-width: 270px;
+  border: 1px solid #1f2127;
+  color: #1f2127 !important;
+  font-size: 14px;
+  padding: 15px 20px;
+  text-align: center;
+  font-weight: normal;
+  cursor: pointer;
+}
+td>.form-group{
+  margin-bottom: 0;
+}
+
 @media (max-width: 375px) {
   .wc-userinfo-card .wc-userinfo__header {
     position: relative;
