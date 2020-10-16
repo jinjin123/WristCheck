@@ -12,10 +12,10 @@ while($data = fgetcsv($file,1000000,";"))
         if($data[0]!='')
         {
 		$des = array(
-			"Datejust" => "Known for models such as the Submariner, GMT Master and the Cosmograph Daytona, Rolex has long been considered a collector's essential. Past releases by Rolex, including the Cosmograph Daytona 'Paul Newman', the Ref 6062 'Bao Dai', the GMT Master ref. 1675 'Apocalypse Now', the ref. 6265 'Unicorn', have propelled into the top brands in modern day watch collecting.",
+			"Datejust" => "The Datejust is the first-ever self-winding chronometer with a date window. The Datejust is available in varying sizes (28-41mm), materials (steel, two-tone, solid gold) and dial colours, many of which have become modern-day staples of collections",
 			"Oyster Perpetual" => "A direct descendant of the original 1927 Rolex Oyster, the Rolex Oyster Perpetual is",
 			"Sky-Dweller" => "The Rolex Sky-Dweller is the most complicated Rolex watch ever manufactured.",
-			"Day-Date" => "The Cellini is Rolex's only collection that celebrates classical watchmaking and a more traditional sense of timeless design.",
+			"Day-Date" => "Day-Date	The Rolex Day-Date, presented in 1956, was the first wristwatch to display the day (spelled in full) and the date at the same time. The Day-Date has been worn by some of the most prominent figures in history, including high-profile political figures, movie stars and more and has long been regarded as the standard of luxury and affluence",
 			"Cellini" => "The Cellini is Rolex's only collection that celebrates classical watchmaking and a more traditional sense of timeless design.",
 			"Lady-Datejust" => "The Lady Datejust was launched as the female-friend counterpart to the Datejust. The Lady Datejust is available in varying sizes (28-41mm), materials (steel, two-tone, solid gold) and dial colours, many of which have become modern-day staples of collections",
 			"Pearlmaster" => "The Rolex Pearlmaster was launched in 1992 as part of the Oyster Perpetual series to feature watches made from the precious metals and embellished with gemstones.",
