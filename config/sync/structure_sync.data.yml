@@ -272,16 +272,6 @@ taxonomies:
       uuid: 2c6c2af8-d359-4f2e-ab36-9b252a73bfb2
     -
       vid: watch_series_categories
-      tid: '84'
-      langcode: en
-      name: /product/yacht-master-2-steel/184
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: 67c7dbce-4800-4724-96b8-38849bbdb7c6
-    -
-      vid: watch_series_categories
       tid: '85'
       langcode: en
       name: '0000084'
@@ -4880,26 +4870,6 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: a521ea4b-b22d-4a95-ac0d-4774ea1594db
-    -
-      vid: watch_series_categories
-      tid: '544'
-      langcode: en
-      name: 'Yellow gold'
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: 4a470c99-4d2b-45e6-b257-c4f1a4370426
-    -
-      vid: watch_series_categories
-      tid: '545'
-      langcode: en
-      name: '[email protected]'
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: 81d32072-8c3c-420a-8011-e2efcbc8a757
 blocks:
   -
     info: 'Block - Social'
