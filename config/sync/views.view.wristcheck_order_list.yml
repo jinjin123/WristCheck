@@ -880,6 +880,72 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        order_id:
+          id: order_id
+          table: commerce_order
+          field: order_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: commerce_order
+          entity_field: order_id
+          plugin_id: field
         view_commerce_order:
           id: view_commerce_order
           table: commerce_order
@@ -891,7 +957,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n\t<div class=\"wc-buy-product-privew__img\"><a href=\"{{view_commerce_order}}\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_model_images }}\"/></a></div>\r\n\t<div class=\"wc-buy-product-body\">\r\n\t\t<div class=\"wc-buy-product__title\"><a href=\"{{view_commerce_order}}\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</a> </div>\r\n\t\t<div class=\"wc-buy-product__sub\"><span>The purchase was made on May 28, 2020</span><a>transport</a></div>\r\n\t\t<div class=\"row wc-buy-product-footer\">\r\n\t\t\t<div class=\"col-md-4\">The original price is  {{ total_price__number }} </div>\r\n\t\t\t<div class=\"col-md-4\">Discount is {{ total_price__currency_code }}  0</div>\r\n\t\t\t<div class=\"col-md-4\"><strong>Real pay  {{ total_price__number }} </strong></div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n\t<div class=\"wc-buy-product-privew__img\"><a href=\"{{view_commerce_order}}\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_model_images }}\"/></a></div>\r\n\t<div class=\"wc-buy-product-body\">\r\n\t\t<div class=\"wc-buy-product__title\"><a href=\"{{view_commerce_order}}\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</a> </div>\r\n\t\t<div class=\"wc-buy-product__sub\"><span>The purchase was made on May 28, 2020</span><a href=\"{{view_commerce_order}}\">transport</a></div>\r\n\t\t<div class=\"row wc-buy-product-footer\">\r\n\t\t\t<div class=\"col-md-4\">The original price is  {{ total_price__number }} </div>\r\n\t\t\t<div class=\"col-md-4\">Discount is {{ total_price__currency_code }}  0</div>\r\n\t\t\t<div class=\"col-md-4\"><strong>Real pay  {{ total_price__number }} </strong></div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -937,6 +1003,9 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        style: false
+        row: false
+        empty: false
       filters:
         type:
           id: type
@@ -986,6 +1055,36 @@ display:
         groups:
           1: AND
       display_description: ''
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: 'item-list wc-transactions_buy-list'
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: true
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"wc-sell-empty\">\r\n  <div class=\"wc-sell-empty_title\">WATCH COLLECTION</div>\r\n  <div class=\"wc-sell-empty_sub\">ADD YOUR FIRST WATCH TO THE WATCH COLLECTION</div>\r\n  <a href=\"/buy\" class=\"wc-btn-dark wc-btn-large wc-sell-get-started\" tabindex=\"-1\">\r\n    <span class=\"wc-btn-cont\">\r\n      <span class=\"fa fa-arrow-right\"></span>\r\n      <span class=\"btn-line\"></span>\r\n      ADD A WATCH\r\n    </span>\r\n  </a>\r\n</div>"
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
@@ -1452,6 +1551,72 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        order_id:
+          id: order_id
+          table: commerce_order
+          field: order_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: commerce_order
+          entity_field: order_id
+          plugin_id: field
         view_commerce_order:
           id: view_commerce_order
           table: commerce_order
@@ -1511,6 +1676,8 @@ display:
         filter_groups: false
         empty: false
         footer: false
+        style: false
+        row: false
       filters:
         type:
           id: type
@@ -1628,6 +1795,22 @@ display:
           tokenize: false
           content: "<div class=\"\">\r\n  <a href=\"/node/add/wcshw\" class=\"wc-btn-dark wc-btn-large wc-sell-get-started\" tabindex=\"-1\">\r\n    <span class=\"wc-btn-cont\">\r\n      <span class=\"fa fa-arrow-right\"></span>\r\n      <span class=\"btn-line\"></span>\r\n      ADD A WATCH\r\n    </span>\r\n  </a>\r\n</div>"
           plugin_id: text_custom
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: 'item-list wc-transactions_sell-list'
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
