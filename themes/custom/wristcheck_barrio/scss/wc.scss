@@ -135,6 +135,7 @@ a:focus {
   transition: all .25s ease;
   padding: 10px 20px;
   font-weight: normal;
+  cursor: pointer;
 
   &.wc-v2-panel__more-btn {
     display: flex;
@@ -179,6 +180,7 @@ a:focus {
   transition: all .25s ease;
   padding: 10px 20px;
   font-weight: normal;
+  cursor: pointer;
   &.form-control{
     padding: 10px 20px;
     height: auto;
@@ -209,6 +211,11 @@ a:focus {
 }
 button.wc-btn-dark{
   border: 0;
+}
+a.wc-btn-white,
+a.wc-btn-dark{
+  display: inline-block;
+  text-align: center;
 }
 
 

@@ -144,7 +144,7 @@ class UserLoginForm extends FormBase
 //    $form['links'] = [
 //      '#type' => 'markup',
 //      '#markup' => '<div class="links"><a class="register" href="' . $base_url . '/user/register">' . $this->t('No user account yet?') . '</a><a class="forget" href="' . $base_url . '/user/password">' . $this->t('Forget Password?') . '</a></div>',
-//      '#suffix'=>'<div class="form-footer text-center"><p class="form-footer-title">Do you not currently have a user account?</p><div><a class="wc-btn-dark"><div class="wc-btn-cont"><span class="fa fa-arrow-right"></span> | <span>IN THE CONTINUE</span></div></a></div></div>'
+//      '#suffix'=>'<div class="form-footer text-center"><p class="form-footer-title">Do you not currently have a user account?</p><div><a class="wc-btn-dark"><div class="wc-btn-cont"><span class="fa fa-arrow-right"></span> <span class="btn-line"></span> <span>IN THE CONTINUE</span></div></a></div></div>'
 //    ];
 //
 //    $this->renderer->addCacheableDependency($form, $config);
