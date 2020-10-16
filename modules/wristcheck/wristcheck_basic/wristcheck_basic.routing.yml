@@ -333,3 +333,11 @@ wristcheck_basic.error_page_controller_error403:
     _title: 'Error 403'
   requirements:
     _permission: 'access content'
+
+wristcheck_basic.check_user_info:
+  path: '/wristcheck_basic/check_user_info'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::checkUserInfo'
+    _title: 'Check user info'
+  requirements:
+    _access: 'TRUE'

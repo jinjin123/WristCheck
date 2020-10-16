@@ -476,58 +476,9 @@ function wristcheck_basic_check_user_information_validate(&$form, FormStateInter
  */
 function wristcheck_basic_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if (isset($_GET['check_user_information'])) {
-      //array_unshift($form['actions']['submit']['#submit'], 'wristcheck_basic_user_login_submit');
-      //$form['actions']['submit']['#submit'][] = 'wristcheck_basic_user_login_submit';
-      //$form['#submit'][] = 'wristcheck_basic_user_login_submit';
-     // $form['actions']['submit']['#submit']= ['wristcheck_basic_user_login_submit'];
-     //array_unshift($form['#submit'], 'wristcheck_basic_user_login_submit');
-
-    $form["#action"] .= '&destination=/user/register';
-    $test =1;
-    //$form["#validate"]
-
+    //for redirect page
+    $form["#action"] .= '&destination=/wristcheck_basic/check_user_info';
   }
-}
-
-function wristcheck_basic_user_login_submit($form, FormStateInterface $form_state) {
-  $user = \Drupal::currentUser();
-  $uid = $user->id();
-  \Drupal::logger('test1')->notice($uid);
-  if (!wristcheck_basic_check_user_infomation($uid)) {
-   //$form_state->setRedirect('user.register');
-    //$url = \Drupal\core\Url::fromRoute('wristcheck_basic.sell_controller_index');
-    //$url = \Drupal\core\Url::fromUserInput('/user/' . $uid . '/edit');
-    //$form_state->setRedirectUrl($url);
-    //\Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', '/user/' . $uid . '/edit');
-
-    $response = new RedirectResponse(URL::fromUserInput('/user/' . $uid . '/edit')
-      ->toString());
-    $response->send();
-    exit;
-  }
-  else {
-    $form_state->setRedirect('wristcheck_basic.sell_controller_index');
-  }
-  return;
-}
-
-/**
- * Implements hook_user_login().
- */
-function wristcheck_basic_user_login(UserInterface $account) {
-//  \Drupal::logger('test_login')->notice('login');
-//  if (isset($_GET['check_user_information'])) {
-//    $uid = $account->id();
-//    \Drupal::logger('test1')->notice($uid);
-//    if (!wristcheck_basic_check_user_infomation($uid)) {
-//      //$test = \Drupal\core\Url::fromRoute('user.register');
-//      $response =  new RedirectResponse('/user/' . $uid . '/edit');
-//      $response->send();
-//    }
-//    else {
-//      \Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', '/sell');
-//    }
-//  }
 }
 
 /**
