@@ -12,6 +12,7 @@ use Drupal\Core\Url;
 use Drupal\facets\Exception\Exception;
 use Drupal\user\UserAuthInterface;
 use Drupal\user\UserStorageInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -173,6 +174,33 @@ class UserController extends ControllerBase
     }catch (Exception $e){
       return new Response("faild",403);
     }
+  }
+
+  /**
+   * Create this page, just for redirect.
+   * Because it is not redirect page right after login with $form_state->setRedirect('...')
+   * or use hook_user_login.
+   * And also I tried EventSubscriber, like the patch in
+   * https://www.drupal.org/project/redirect_after_login/issues/3055452#comment-13726776
+   * So I change the user login form '#acton', $form["#action"] .= '&destination=/wristcheck_basic/check_user_info';
+   * Do redirect action in this page.
+   */
+  public function checkUserInfo() {
+    $user = \Drupal::currentUser();
+    $uid = $user->id();
+    if (!wristcheck_basic_check_user_infomation($uid)) {
+      //$response = new RedirectResponse(URL::fromUserInput('/user/' . $uid . '/edit')
+      $response = new RedirectResponse(URL::fromRoute('user.register')
+        ->toString());
+      $response->send();
+      exit;
+    }
+    else {
+      $response = new RedirectResponse(URL::fromRoute('wristcheck_basic.sell_controller_index')
+        ->toString());
+      $response->send();
+    }
+    //return new Response("Check user info");
   }
 
 }
