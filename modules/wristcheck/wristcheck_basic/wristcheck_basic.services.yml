@@ -35,3 +35,8 @@ services:
     class: Drupal\wristcheck_basic\EventSubscriber\CustomRedirectSubscriber
     tags:
       - {name: event_subscriber}
+  wrist_basic.afterLogin:
+    class: Drupal\wristcheck_basic\EventSubscriber\AfterLoginEventSubscriber
+    arguments: [ '@current_user', '@config.factory' ]
+    tags:
+      - { name: event_subscriber }
