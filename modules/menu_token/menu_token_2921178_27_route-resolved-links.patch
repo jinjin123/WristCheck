@@ -1,0 +1,144 @@
+diff -Naur a/menu_token.links.menu.yml b/menu_token.links.menu.yml
+--- a/menu_token.links.menu.yml
++++ b/menu_token.links.menu.yml
+@@ -1,6 +1,6 @@
+ menu_token.available_entities_configuration_form:
+-  title: 'Menu token, used entities.'
++  title: 'Configure Menu Token'
+   route_name: menu_token.available_entities_configuration_form
+   description: 'A description for the menu entry'
+-  parent: system.modules_list
++  parent: system.admin_config_ui
+   weight: 99
+diff -Naur a/menu_token.module b/menu_token.module
+--- a/menu_token.module
++++ b/menu_token.module
+@@ -377,25 +377,69 @@
+ }
+ 
+ /**
++ * Check for and replace matching routes.
++ */
++function menu_token_route_from_path($relevant_link_id, &$links) {
++  if (preg_match('/^base:/', $links[$relevant_link_id]['url'])) {
++    $revelent_url = str_replace('base:', '/', $links[$relevant_link_id]['url']);
++  }
++  elseif (preg_match('/^internal:/', $links[$relevant_link_id]['url'])) {
++    $revelent_url = str_replace('internal:', '/', $links[$relevant_link_id]['url']);
++  } 
++
++  if ($url_object = \Drupal::service('path.validator')->getUrlIfValid($revelent_url)) {
++    if ($links[$relevant_link_id]['route_name'] = $url_object->getRouteName()) {
++      $links[$relevant_link_id]['route_parameters'] = $url_object->getrouteParameters();
++      $links[$relevant_link_id]['url'] = NULL;
++    }
++  }
++}
++
++/**
+  * Helper function for replacing links with token.
+  */
+-function replace_links_with_tokens(Token $token_service, $replace_with, $relevant_link, &$links, BubbleableMetadata $bubbleableMetadata) {
++function replace_links_with_tokens(Token $token_service, $link_attribute, $relevant_link, &$links, BubbleableMetadata $bubbleableMetadata) {
+ 
+   $uuId_from_link = substr($relevant_link['id'], strpos($relevant_link['id'], ":") + 1, strlen($relevant_link['id']));
+   $config_menu = \Drupal::entityTypeManager()->getStorage('link_configuration_storage')->load($uuId_from_link);
+ 
+-  // Replace nothing to mess here all action is in hook.
+   if (!empty($config_menu)) {
+     $configuration = unserialize($config_menu->configurationSerialized);
+-    $links[$relevant_link['id']][$replace_with] = $token_service->replace($links[$relevant_link['id']][$replace_with], [], ["configuration" => $configuration], $bubbleableMetadata);
+-    if (is_null($links[$relevant_link['id']][$replace_with])) {
+-      $links[$relevant_link['id']][$replace_with] = $token_service->replace($config_menu->linkid, [], ["configuration" => $configuration], $bubbleableMetadata);
++    if ($link_attribute == "route_parameters") {
++      foreach ($links[$relevant_link['id']]['route_parameters'] as $type => $route_parameter) {
++        $links[$relevant_link['id']]['route_parameters'][$type] = $token_service->replace($route_parameter, [], ["configuration" => $configuration], $bubbleableMetadata);
++      }
++    }
++    else {
++      $links[$relevant_link['id']][$link_attribute] = $token_service->replace($links[$relevant_link['id']][$link_attribute], [], ["configuration" => $configuration], $bubbleableMetadata);
++      if ($link_attribute == 'url') {
++        menu_token_route_from_path($relevant_link['id'], $links);
++      }
+     }
+     $links[$relevant_link['id']]["options"]["bubleble_metadata"] = $bubbleableMetadata;
+   }
+ }
+ 
+ /**
++ * Check for and replace matching routes for context (it has a different array structure).
++ */
++function menu_token_route_from_path_for_context($relevant_link_id, &$links) {
++  if (preg_match('/^base:/', $links[$relevant_link_id]['link']['url'])) {
++    $revelent_url = str_replace('base:', '/', $links[$relevant_link_id]['link']['url']);
++  }
++  elseif (preg_match('/^internal:/', $links[$relevant_link_id]['link']['url'])) {
++    $revelent_url = str_replace('internal:', '/', $links[$relevant_link_id]['link']['url']);
++  } 
++
++  if ($url_object = \Drupal::service('path.validator')->getUrlIfValid($revelent_url)) {
++    if ($links[$relevant_link_id]['link']['route_name'] = $url_object->getRouteName()) {
++      $links[$relevant_link_id]['link']['route_parameters'] = $url_object->getrouteParameters();
++      $links[$relevant_link_id]['link']['url'] = NULL;
++    }
++  }
++}
++
++/**
+  * @param $links
+  */
+ function menu_token_prepare_context_replacement(&$links) {
+@@ -404,7 +448,15 @@
+   $bubbleable_metadata = new BubbleableMetadata();
+ 
+   foreach ($links as $key => $linkData) {
+-    $links[$key]["link"]["url"] = $token_service->replace($linkData["link"]["url"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
++    if (isset($links[$key]["link"]["route_name"])) {
++      foreach ($links[$key]["link"]["route_parameters"] as $type => $route_parameter) {
++        $links[$key]["link"]["route_parameters"][$type] = $token_service->replace($route_parameter, [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
++      }
++    }
++    else {
++      $links[$key]["link"]["url"] = $token_service->replace($linkData["link"]["url"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
++      menu_token_route_from_path_for_context($key, $links);
++    }
+     $links[$key]["link"]["title"] = $token_service->replace($linkData["link"]["title"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
+     $links[$key]["link"]["options"]["bubleble_metadata"] = $bubbleable_metadata;
+     $links[$key] = $links[$key]["link"];
+@@ -445,7 +497,13 @@
+       if (!empty($configMenu)) {
+         $config = unserialize($configMenu->configurationSerialized);
+         $context_manager->prepareContextualLinks($relevant_link, $config);
+-        replace_links_with_tokens($token_service, "url", $relevant_link, $links, $bubbleable_metadata);
++        
++        if (isset($relevant_link["route_name"])) {
++          replace_links_with_tokens($token_service, "route_parameters", $relevant_link, $links, $bubbleable_metadata);
++        }
++        else {
++          replace_links_with_tokens($token_service, "url", $relevant_link, $links, $bubbleable_metadata);
++        }
+         replace_links_with_tokens($token_service, "title", $relevant_link, $links, $bubbleable_metadata);
+       }
+     }
+diff -Naur a/src/Service/MenuTokenContextManager.php b/src/Service/MenuTokenContextManager.php
+--- a/src/Service/MenuTokenContextManager.php
++++ b/src/Service/MenuTokenContextManager.php
+@@ -61,7 +61,17 @@
+   public function prepareContextualLinks($relevantLink, $config) {
+ 
+     $this->contextualReplacementLinks = unserialize($this->state->get('menu_token_links_contextual_replacements'));
+-    $text_tokens = $this->tokenService->scan($relevantLink["url"]);
++    if (isset($relevantLink["route_name"])) {
++      foreach ($relevantLink["route_parameters"] as $route_parameter) {
++        $text_token = $this->tokenService->scan($route_parameter);
++        foreach ($text_token as $type => $value) {
++          $text_tokens[$type] = $value;
++        }
++      }
++    }
++    else {
++      $text_tokens = $this->tokenService->scan($relevantLink["url"]);
++    }
+     $text_tokens = array_merge($text_tokens, $this->tokenService->scan($relevantLink["title"]));
+ 
+     $use_in_context = FALSE;

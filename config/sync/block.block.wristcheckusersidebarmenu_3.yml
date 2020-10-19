@@ -42,7 +42,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/user/*/settings\r\n/user/*/payment\r\n/user/*/transactions/sell\r\n/user/*/transactions/buy\r\n/user/*/portfolio\r\n/user/*/wishlist"
+    pages: "/user/*/settings\r\n/user/*/payment\r\n/user/transactions/sell\r\n/user/transactions/buy\r\n/user/*/portfolio\r\n/user/*/wishlist"
     negate: false
     context_mapping: {  }
   user_role:

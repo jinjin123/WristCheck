@@ -12,6 +12,7 @@ use Drupal\Core\Url;
 use Drupal\facets\Exception\Exception;
 use Drupal\user\UserAuthInterface;
 use Drupal\user\UserStorageInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -113,6 +114,7 @@ class UserController extends ControllerBase
     }else{
       $variables = [];
     }
+    $variables["userid"] = \Drupal::currentUser()->id();
     return [
       '#theme' => 'wristcheck_user_portfolio',
       '#variables' => $variables
@@ -175,4 +177,53 @@ class UserController extends ControllerBase
     }
   }
 
+  /**
+   * Create this page, just for redirect.
+   * Because it is not redirect page right after login with $form_state->setRedirect('...')
+   * or use hook_user_login.
+   * And also I tried EventSubscriber, like the patch in
+   * https://www.drupal.org/project/redirect_after_login/issues/3055452#comment-13726776
+   * So I change the user login form '#acton', $form["#action"] .= '&destination=/wristcheck_basic/check_user_info';
+   * Do redirect action in this page.
+   */
+  public function checkUserInfo() {
+    $user = \Drupal::currentUser();
+    $uid = $user->id();
+    if (!wristcheck_basic_check_user_infomation($uid)) {
+      //$response = new RedirectResponse(URL::fromUserInput('/user/' . $uid . '/edit')
+      $response = new RedirectResponse(URL::fromRoute('user.register')
+        ->toString());
+      $response->send();
+      exit;
+    }
+    else {
+      $response = new RedirectResponse(URL::fromUserInput('/node/add/wcshw')
+        ->toString());
+      $response->send();
+    }
+    //return new Response("Check user info");
+  }
+
+  public function  flagdel($product_id) {
+    $uid = \Drupal::currentUser()->id();
+    $database = \Drupal::database();
+    $query = $database->select("flagging","n")
+      ->condition("n.uid",$uid,"=")
+      ->condition("n.entity_id",$product_id,"=")
+      ->countQuery()
+      ->execute()->fetchCol()[0];
+     if($query==1){
+       $query = $database->delete("flagging")
+         ->condition("entity_id",$product_id)
+         ->condition("uid",$uid)
+          ->execute();
+     }else {
+       \Drupal::messenger()->addError("Not Allow Opeation");
+     }
+    $response = new RedirectResponse('/user/'. $uid .'/wishlist');
+     $response->send();
+     return $response;
+  }
+
 }
+

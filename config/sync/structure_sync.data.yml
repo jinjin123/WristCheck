@@ -5724,7 +5724,7 @@ menus:
     uri: 'internal:/user/[current-user:uid]/transactions/sell'
     link_title: ''
     description: null
-    enabled: '1'
+    enabled: '0'
     expanded: '0'
     weight: '-49'
     langcode: en
@@ -5748,7 +5748,7 @@ menus:
     uri: 'internal:/user/[current-user:uid]/transactions/buy'
     link_title: ''
     description: null
-    enabled: '1'
+    enabled: '0'
     expanded: '0'
     weight: '-50'
     langcode: en

@@ -71,6 +71,9 @@
 			}, 3000)
 		}
 	}
+	var hideLoading = function(){
+		$('.ajax-progress').remove()
+	}
 
 	// 菜单处理，子菜单超过10个的，添加更多按钮
 	$('#block-wristcheck-barrio-main-menu .navbar-nav>li').each(function () {
@@ -306,9 +309,11 @@
 		}
 		//usersupplementform
 		$("#profile_button").click(function () {
+			loading();
 			// console.log($("#webform-submission-user-info-add-form").serialize())
 			$.post("/user-profile", $("#webform-submission-user-info-add-form").serialize(), function (data) {
 				const messages = new Drupal.Message();
+				hideLoading();
 				// messages.add("Save your profile successful!",{"type":"status"});
 				if (data == "ok") {
 					// $(".alert-success").css("display", "block");

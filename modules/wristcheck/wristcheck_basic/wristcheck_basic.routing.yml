@@ -193,25 +193,25 @@ wristcheck_basic.user_controller_info:
   options:
     user: \d+
 
-wristcheck_basic.user_controller_sell:
-  path: '/user/{user}/transactions/sell'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserController::sell'
-    _title: 'Sell'
-  requirements:
-    _permission: 'access content'
-  options:
-    user: \d+
-
-wristcheck_basic.user_controller_buy:
-  path: '/user/{user}/transactions/buy'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserController::buy'
-    _title: 'Buy'
-  requirements:
-    _permission: 'access content'
-  options:
-    user: \d+
+#wristcheck_basic.user_controller_sell:
+#  path: '/user/transactions/sell/{uid}'
+#  defaults:
+#    _controller: '\Drupal\wristcheck_basic\Controller\UserController::sell'
+#    _title: 'Sell'
+#  requirements:
+#    _permission: 'access content'
+#  options:
+#    uid: \d+
+#
+#wristcheck_basic.user_controller_buy:
+#  path: '/user/transactions/buy/{uid}'
+#  defaults:
+#    _controller: '\Drupal\wristcheck_basic\Controller\UserController::buy'
+#    _title: 'Buy'
+#  requirements:
+#    _permission: 'access content'
+#  options:
+#    uid: \d+
 
 wristcheck_basic.user_controller_userprofile:
   path: '/user-profile'
@@ -331,5 +331,21 @@ wristcheck_basic.error_page_controller_error403:
   defaults:
     _controller: '\Drupal\wristcheck_basic\Controller\ErrorPageController::error403'
     _title: 'Error 403'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.check_user_info:
+  path: '/wristcheck_basic/check_user_info'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::checkUserInfo'
+    _title: 'Check user info'
+  requirements:
+    _access: 'TRUE'
+
+wristcheck_basic.flagdel:
+  path: '/wristcheck_basic/flag/{product_id}'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::flagdel'
+    _title: 'unflag'
   requirements:
     _permission: 'access content'
