@@ -508,3 +508,12 @@ function wristcheck_basic_check_user_infomation($uid, &$emptyFields = NULL) {
     return TRUE;
   }
 }
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function wristcheck_basic_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'wristcheck_order_list')) {
+    $view->element['#attached']['library'][] = 'wristcheck_basic/orderStatus';
+  }
+}

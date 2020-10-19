@@ -5,6 +5,7 @@ namespace Drupal\wristcheck_basic\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class OrderStatusController.
@@ -56,6 +57,24 @@ class OrderStatusController extends ControllerBase {
       '#empty' => t('No content has been found.'),
     ];
     return $build;
+  }
+
+
+  public function buyOrderStatus($user=null, $commerce_order) {
+    $results = views_get_view_result('commerce_activity', 'default', $commerce_order, 'commerce_order');
+    $output = '';
+    foreach($results as $result)  {
+      $entity = $result->_entity;
+      $create_day = date('m-d', $entity->get('created')->value);
+      $create_hour = date('i:s', $entity->get('created')->value);
+      $log = $entity->label();
+      $output .= '<div><span class="log-day">'.$create_day . '</span><span class="log-hour">' . $create_hour . '</span>
+<span class="log-content">' . $log . '</span></div>';
+    }
+
+    return new JsonResponse([
+      'output' => $output,
+    ]);
   }
 
 }
