@@ -360,3 +360,22 @@ wristcheck_basic.flagdel:
     _title: 'unflag'
   requirements:
     _permission: 'access content'
+
+wristcheck_basic.noticeacc:
+  path: '/wristcheck_basic/notice_user'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::noticeacc'
+    _title: 'notice_user'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.enableacc:
+  path: '/wristcheck_basic/enable_account/{user}'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::enableacc'
+    _title: 'notice_user'
+  requirements:
+    _permission: 'access content'
+  options:
+    user: \d+
+
