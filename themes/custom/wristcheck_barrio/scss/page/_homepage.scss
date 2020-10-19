@@ -287,7 +287,7 @@
   .form-email {
     display: inline-block;
     width: 300px;
-    height: 45px;
+    height: 55px;
     color: #FFF;
     border: 1px solid #E2E1D9;
     background-color: transparent;
@@ -295,6 +295,7 @@
     box-sizing: border-box;
     line-height: 35px;
     margin-right: 5px;
+
 
     &:focus {
       outline: none;
@@ -322,7 +323,7 @@
   .webform-button--submit {
     display: inline-block;
     width: 126px;
-    height: 45px;
+    height: 55px;
     border: 1px solid #E2E1D9;
     background-color: transparent;
     color: #FFF;
