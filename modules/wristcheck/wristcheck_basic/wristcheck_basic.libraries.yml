@@ -1,0 +1,4 @@
+orderStatus:
+  version: VERSION
+  js:
+    js/getOrderStatusAjax.js: {}

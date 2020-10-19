@@ -318,6 +318,17 @@ wristcheck_basic.order_status:
   requirements:
     _permission: 'access wristcheck administration pages'
 
+wristcheck_basic.user_controller_buy_status:
+  path: '/user/transactions/buy/{commerce_order}/status'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\OrderStatusController::buyOrderStatus'
+    _title: 'Order status'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'
+#  options:
+#    id: \d+
+
 wristcheck_basic.error_page_controller_error404:
   path: '/wristcheck_basic/error404'
   defaults:
@@ -349,3 +360,22 @@ wristcheck_basic.flagdel:
     _title: 'unflag'
   requirements:
     _permission: 'access content'
+
+wristcheck_basic.noticeacc:
+  path: '/wristcheck_basic/notice_user'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::noticeacc'
+    _title: 'notice_user'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.enableacc:
+  path: '/wristcheck_basic/enable_account/{user}'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::enableacc'
+    _title: 'notice_user'
+  requirements:
+    _permission: 'access content'
+  options:
+    user: \d+
+

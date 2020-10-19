@@ -3,34 +3,24 @@ taxonomies:
   blog_tags:
     -
       vid: blog_tags
-      tid: '6'
+      tid: '549'
       langcode: en
-      name: ANIMATION
+      name: 'BUY ABLE AGZINE'
       description__value: null
       description__format: null
       weight: '0'
       parent: '0'
-      uuid: d39d51d5-a391-4a9a-aabc-7cc0038b6ffa
+      uuid: 6cae419d-a367-4ede-a2fb-3234ea91957c
     -
       vid: blog_tags
-      tid: '31'
+      tid: '547'
       langcode: en
-      name: Background
+      name: CLASSIFICATION
       description__value: null
       description__format: null
       weight: '0'
       parent: '0'
-      uuid: 150b498b-7a8d-4d98-9d28-ab54e7ed87e2
-    -
-      vid: blog_tags
-      tid: '8'
-      langcode: en
-      name: BRANDING
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: abfa9a9d-2c3a-4dff-b18e-0532ed1db057
+      uuid: bbddc8f9-07b4-485e-8012-9201e48c3e18
     -
       vid: blog_tags
       tid: '33'
@@ -63,44 +53,14 @@ taxonomies:
       uuid: 29ff72be-34b7-43aa-823c-fe1be60ce0e9
     -
       vid: blog_tags
-      tid: '36'
+      tid: '548'
       langcode: en
-      name: 'PSD Mockup'
+      name: 'WATCH MAGAZINE'
       description__value: null
       description__format: null
       weight: '0'
       parent: '0'
-      uuid: ce64eea8-203a-4075-9618-babc935c42db
-    -
-      vid: blog_tags
-      tid: '46'
-      langcode: en
-      name: 'Tool / Tips'
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: 9b9e7571-2ed4-480d-9d97-fbad6cd24c36
-    -
-      vid: blog_tags
-      tid: '9'
-      langcode: en
-      name: 'WEB DEVELOPING'
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: 49fffaf8-c2f9-417c-8ca5-026b67d6936e
-    -
-      vid: blog_tags
-      tid: '37'
-      langcode: en
-      name: 'Web Template'
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: ba9b3691-9c01-4f18-ad77-d5ce77550d6e
+      uuid: fadf8eaf-cb50-4bd5-bc91-ffa001aec047
   faq_category: {  }
   portfolio_categories: {  }
   portfolio_tags: {  }
@@ -7445,3 +7405,15 @@ menus:
     weight: '0'
     langcode: en
     uuid: 53d338a8-8115-471c-b1db-c692ff905897
+  -
+    menu_name: main
+    title: 'Easy To Customize'
+    parent: 'menu_link_content:30f5e91c-659d-422d-b4e8-101922d430e2'
+    uri: 'entity:node/403'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 7910c605-c9bc-4902-86a1-5ec7e53c0acb
