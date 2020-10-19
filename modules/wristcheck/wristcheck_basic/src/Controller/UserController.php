@@ -204,4 +204,26 @@ class UserController extends ControllerBase
     //return new Response("Check user info");
   }
 
+  public function  flagdel($product_id) {
+    $uid = \Drupal::currentUser()->id();
+    $database = \Drupal::database();
+    $query = $database->select("flagging","n")
+      ->condition("n.uid",$uid,"=")
+      ->condition("n.entity_id",$product_id,"=")
+      ->countQuery()
+      ->execute()->fetchCol()[0];
+     if($query==1){
+       $query = $database->delete("flagging")
+         ->condition("entity_id",$product_id)
+         ->condition("uid",$uid)
+          ->execute();
+     }else {
+       \Drupal::messenger()->addError("Not Allow Opeation");
+     }
+    $response = new RedirectResponse('/user/'. $uid .'/wishlist');
+     $response->send();
+     return $response;
+  }
+
 }
+
