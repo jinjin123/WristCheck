@@ -11,7 +11,7 @@ dependencies:
     - node.type.blog_post
     - taxonomy.vocabulary.blog_tags
   content:
-    - 'taxonomy_term:watch_series_categories:24e5b6e2-ea59-4214-a48e-a504044be606'
+    - 'taxonomy_term:blog_tags:bbddc8f9-07b4-485e-8012-9201e48c3e18'
   module:
     - better_exposed_filters
     - image
@@ -1893,7 +1893,7 @@ display:
   magazine_cate_json:
     display_plugin: rest_export
     id: magazine_cate_json
-    display_title: 'REST export'
+    display_title: 'discover  dropdown list json'
     position: 8
     display_options:
       display_extenders: {  }
@@ -2076,6 +2076,7 @@ display:
           require_value: false
           reduce_duplicates: false
           plugin_id: taxonomy_index_tid
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:

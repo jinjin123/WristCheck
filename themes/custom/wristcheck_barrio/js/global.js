@@ -574,7 +574,7 @@
 		search.removeClass('show')
 	})
 	// loading discover menu
-	var discoverId = [582, 584, 583];
+	var discoverId = [547, 548, 549];
 	var discoverMenu = $('.mega-dropdown[data-title="Discover"]');
 	var discoverSubMenu = discoverMenu.children('ul').children('.dropdown-submenu');
 	var subMenu = function(arr) {
@@ -590,7 +590,7 @@
 			console.log(res)
 			console.log(discoverSubMenu)
 			$(discoverSubMenu[index]).children('.navbar-submenus').append(subMenu(res))
-			
+
 		})
 	});
 
