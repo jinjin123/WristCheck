@@ -225,5 +225,32 @@ class UserController extends ControllerBase
      return $response;
   }
 
+  public function noticeacc(){
+    try{
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+      $id = \Drupal::currentUser()->id();
+      $eMail = $user->getEmail();
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $name = $user->getUsername();
+      $email = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id())->getEmail();
+      $sitelink = \Drupal::request()->getSchemeAndHttpHost();
+      $params['subject'] = t('Wristcheck enable account Email');
+      $params['body'] = t('Hi @user , This is enable user account link, please click the @sitelink  ', ['@user' => $name,'@sitelink' => $sitelink . "/wristcheck_basic/enable_account/". $id]);
+      $params['headers'] = [
+        'content-type' => 'text/plain',
+      ];
+      $mailManager->mail('wristcheck_basic', 'smtp-test', $eMail, $langcode, $params,NULL,true);
+    }catch (Exception $e){
+      \Drupal::logger('User_enableacc')->error('user acc enable email  failed' . json_encode($e));
+    }
+  }
+
+  public function enableacc($user)
+  {
+    $u = \Drupal\user\Entity\User::load($user);
+    $u->set("status",1);
+    $u->save();
+  }
 }
 
