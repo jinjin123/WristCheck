@@ -585,12 +585,13 @@
 		return buff.join('');
 	}
 	discoverId.forEach(function (id, index) {
-		console.log(id, index)
 		$.get('/wristcheck_magazine/' + id, {}, function (res) {
-			console.log(res)
-			console.log(discoverSubMenu)
-			$(discoverSubMenu[index]).children('.navbar-submenus').append(subMenu(res))
-
+			var ul = $(discoverSubMenu[index]).children('.navbar-submenus');
+			if(ul.length == 0){
+				$(discoverSubMenu[index]).append('<ul class="navbar-submenus">'+subMenu(res)+'</ul>')
+			}else {
+				ul.append(subMenu(res))
+			}
 		})
 	});
 
