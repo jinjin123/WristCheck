@@ -6905,7 +6905,7 @@ menus:
     menu_name: main
     title: CLASSIFICATION
     parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
+    uri: 'internal:/wristcheck_magazine?tid=CLASSIFICATION'
     link_title: ''
     description: null
     enabled: '1'
@@ -6917,7 +6917,7 @@ menus:
     menu_name: main
     title: 'BUY ABLE AGZINE'
     parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
+    uri: 'internal:/wristcheck_magazine?tid=BUY+ABLE+AGZINE'
     link_title: ''
     description: null
     enabled: '1'
@@ -6929,7 +6929,7 @@ menus:
     menu_name: main
     title: 'WATCH  MAGAZINE'
     parent: 'menu_link_content:d1c40512-bc84-41e6-8164-3f3a0d1901c6'
-    uri: 'internal:#'
+    uri: 'internal:/wristcheck_magazine?tid=WATCH+MAGAZINE'
     link_title: ''
     description: null
     enabled: '1'
