@@ -58,7 +58,7 @@
                   item.in_active_trail ? 'active',
                 ]
               %}
-                <li{{item.attributes.addClass(current_classes)}}>
+                <li{{item.attributes.addClass(current_classes)}} data-title="{{item.title}}">
                   <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="{{ item.url }}">
                     {{ item.title|raw }}
                     <span class='dian'></span>

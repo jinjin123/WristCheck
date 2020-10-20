@@ -11,7 +11,7 @@ dependencies:
     - node.type.blog_post
     - taxonomy.vocabulary.blog_tags
   content:
-    - 'taxonomy_term:blog_tags:bbddc8f9-07b4-485e-8012-9201e48c3e18'
+    - 'taxonomy_term:watch_series_categories:24e5b6e2-ea59-4214-a48e-a504044be606'
   module:
     - better_exposed_filters
     - image
@@ -2089,7 +2089,7 @@ display:
   magazine_dropdown:
     display_plugin: page
     id: magazine_dropdown
-    display_title: Page
+    display_title: 'Discover result page'
     position: 7
     display_options:
       display_extenders: {  }
@@ -2124,6 +2124,8 @@ display:
         arguments: false
         fields: false
         pager: false
+        style: false
+        row: false
       filters:
         status:
           value: '1'
@@ -2212,69 +2214,6 @@ display:
       use_ajax: false
       arguments: {  }
       fields:
-        field_page_title_image:
-          id: field_page_title_image
-          table: node__field_page_title_image
-          field: field_page_title_image
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: '{{ view_node }}'
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: wc-magazine-top
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image_url
-          settings:
-            image_style: ''
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -2285,7 +2224,7 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: true
+            alter_text: false
             text: "            <h2 class='mag-title'>{{ title }}</h2>\r\n"
             make_link: false
             path: ''
@@ -2458,10 +2397,10 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
-        body:
-          id: body
-          table: node__body
-          field: body
+        field_page_title_image:
+          id: field_page_title_image
+          table: node__field_page_title_image
+          field: field_page_title_image
           relationship: none
           group_type: group
           admin_label: ''
@@ -2469,9 +2408,9 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{view_node}}\">\r\n    <div class=\"wc-magazine\">\r\n        <div class=\"wc-magazine-body\"> \r\n              <div class=\"wc-magazine__title\"> {{ title }} </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n"
-            make_link: false
-            path: ''
+            text: "<div class=\"wc-latest-art\">\r\n\t<div class='wc-discover-img portfolio-img'>\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n\t</div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>BUYER'S GUIDE</p>\r\n\t\t\t<h2 class='wc-rolex-title'><span>{{ title }}</span></h2>\r\n\t\t\t<h3>BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            make_link: true
+            path: '{{ view_node }}'
             absolute: false
             external: false
             replace_spaces: false
@@ -2500,17 +2439,17 @@ display:
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
+          element_wrapper_class: wc-magazine-top
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: summary
-          type: text_trimmed
+          click_sort_column: target_id
+          type: image_url
           settings:
-            trim_length: 300
-          group_column: value
+            image_style: ''
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2525,6 +2464,20 @@ display:
         type: none
         options:
           offset: 0
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-4 col-lg-6 portfolio-item filter-Packaging filter-Print portfolio'
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -2535,7 +2488,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_page_title_image'
   single:
     display_plugin: block
