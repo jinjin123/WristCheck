@@ -577,22 +577,51 @@
 	var discoverId = [547, 548, 549];
 	var discoverMenu = $('.mega-dropdown[data-title="Discover"]');
 	var discoverSubMenu = discoverMenu.children('ul').children('.dropdown-submenu');
-	var subMenu = function(arr) {
+	var subMenu = function (arr) {
 		var buff = [];
-		arr.forEach(function(item){
-			buff.push('<li><a href="'+item.view_node+'">'+item.title+'</a></li>')
+		arr.forEach(function (item) {
+			buff.push('<li><a href="' + item.view_node + '">' + item.title + '</a></li>')
 		})
 		return buff.join('');
 	}
 	discoverId.forEach(function (id, index) {
 		$.get('/wristcheck_magazine/' + id, {}, function (res) {
 			var ul = $(discoverSubMenu[index]).children('.navbar-submenus');
-			if(ul.length == 0){
-				$(discoverSubMenu[index]).append('<ul class="navbar-submenus">'+subMenu(res)+'</ul>')
-			}else {
+			if (ul.length == 0) {
+				$(discoverSubMenu[index]).append('<ul class="navbar-submenus">' + subMenu(res) + '</ul>')
+			} else {
 				ul.append(subMenu(res))
 			}
 		})
+	});
+
+	// order status
+	var orderListBuffer = function (arr) {
+		var buffs = [];
+		arr.forEach(function (item) {
+			const arr = item.date.split(' ')
+			var orderDate = arr[0].slice(5);
+			var orderTime = arr[1].slice(0,5);
+			var orderLog = item.log;
+			var buff =
+				'<div class="order-list-item"><div class="order-list-time"><h2>' + orderDate + '</h2><p>' + orderTime + '</p></div><div class="order-list-line"><span class="cricle"></span><span class="line"><span></div><div class="order-list-title">' + orderLog + '</div></div>';
+			buffs.push(buff)
+		})
+		return buffs.join('')
+	}
+	$(".wc-transactions-buy-list").on('click', 'a.transport-link', function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+
+		let order_id = $(this).data("order-id");
+		var modal = $('#orderStatus');
+		$.ajax({
+			url: "/user/transactions/buy/" + order_id + "/status",
+			context: this,
+		}).done(function (data) {
+			modal.find('.modal-body').html('<div class="order-list">' + orderListBuffer(data.log) + '</div>')
+			modal.modal('show')
+		});
 	});
 
 })(jQuery, Drupal);
