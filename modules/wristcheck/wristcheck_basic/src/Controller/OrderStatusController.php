@@ -62,18 +62,19 @@ class OrderStatusController extends ControllerBase {
 
   public function buyOrderStatus($user=null, $commerce_order) {
     $results = views_get_view_result('commerce_activity', 'default', $commerce_order, 'commerce_order');
-    $output = '';
+    $output = [];
     foreach($results as $result)  {
       $entity = $result->_entity;
-      $create_day = date('m-d', $entity->get('created')->value);
-      $create_hour = date('i:s', $entity->get('created')->value);
+      $create_day = date('Y-m-d', $entity->get('created')->value);
+      $create_hour = date('H:i:s', $entity->get('created')->value);
       $log = $entity->label();
-      $output .= '<div><span class="log-day">'.$create_day . '</span><span class="log-hour">' . $create_hour . '</span>
-<span class="log-content">' . $log . '</span></div>';
+      array_push($output,(object)array("date"=> $create_day.' '.$create_hour,"log"=>$log));
+//      $output .= '<div><span class="log-day">'.$create_day . '</span><span class="log-hour">' . $create_hour . '</span>
+//<span class="log-content">' . $log . '</span></div>';
     }
 
     return new JsonResponse([
-      'output' => $output,
+      'log' => $output,
     ]);
   }
 
