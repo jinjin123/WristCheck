@@ -511,9 +511,32 @@ function wristcheck_basic_check_user_infomation($uid, &$emptyFields = NULL) {
 
 /**
  * Implements hook_views_pre_render().
+ * @param ViewExecutable $view
  */
 function wristcheck_basic_views_pre_render(ViewExecutable $view) {
   if (isset($view) && ($view->storage->id() == 'wristcheck_order_list')) {
     $view->element['#attached']['library'][] = 'wristcheck_basic/orderStatus';
   }
 }
+
+
+//function wristcheck_basic_views_pre_view(ViewExecutable $view)
+//{
+//  if (isset($view) && ($view->current_display == "transactions_sell")){
+//    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+//    $Mail = $user->getEmail();
+//    $options = array(
+//      'id' => 'area_text_custom',
+//      'table' => 'views',
+//      'field' => 'area_text_custom',
+//      'relationship' => 'none',
+//      'group_type' => 'none',
+//      'admin_label' => '',
+//      'empty' => FALSE,
+//      'tokenize' => FALSE,
+//      'content' => "<div class='row'><div class='col-lg-10'>$Mail</div><div class='col-lg-2'><a href='javascript;'>transport</a></div></div>",
+//      'plugin_id' => 'text_custom',
+//    );
+//    $view->setHandler('transactions_sell', 'header', 'area_text_custom', $options);
+//  }
+//}
