@@ -17,6 +17,7 @@ sites# This file contains default .gitignore rules. To use it, copy it to .gitig
 # custom module, theme, etc., are not ignored unless you purposely do so.
 /vendor/
 .idea/
+.vscode/
 
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php

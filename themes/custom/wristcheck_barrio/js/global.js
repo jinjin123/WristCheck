@@ -71,7 +71,7 @@
 			}, 3000)
 		}
 	}
-	var hideLoading = function(){
+	var hideLoading = function () {
 		$('.ajax-progress').remove()
 	}
 
@@ -86,9 +86,9 @@
 				more_link.click(function () {
 					loading(sub_menu.children('a').attr('href'))
 				})
-				sub_menu.find('.navbar-submenus>li').each(function(){
+				sub_menu.find('.navbar-submenus>li').each(function () {
 					var el = $(this);
-					if(el.index() > 9){
+					if (el.index() > 9) {
 						el.hide();
 					}
 				})
@@ -251,13 +251,12 @@
 			});
 		}
 		// md-slider change opacity
-		$(".md-slide-item").hover(function() {
-      $(".md-object").css("opacity","0.2")
-      $(".md-object").css("transition","opacity .6s ease .3s;")
-    },function (){
-      $(".md-object").css("opacity","1")
-      }
-    )
+		$(".md-slide-item").hover(function () {
+			$(".md-object").css("opacity", "0.2")
+			$(".md-object").css("transition", "opacity .6s ease .3s;")
+		}, function () {
+			$(".md-object").css("opacity", "1")
+		})
 
 		var flag = true;
 		$('#wc-product-buy-used').click(function () {
@@ -448,28 +447,28 @@
 	//   console.log(this);
 	//   $(this).parent().addClass('is-active').siblings().removeClass('is-active')
 	// })
-  // disable product search result
-  $('.layout-container').on('click',function(event){
-    if(event.target.className.indexOf("wc-product-search-modal") !=-1){
-      var _self = $('.wc-search-menu>ul>li');
-      var _wTop = $(window).scrollTop();
-      var _box = $('.wc-product-search');
-      var _modal = $('.wc-product-search-modal');
-      var _menu = _self.parents('.wc-product-search-menu');
-      if (_self.hasClass('active')) {
-        _self.removeClass('active');
-        _modal.removeClass('show');
-        _menu.removeClass('active');
-        _menu.css({ 'z-index': 2 });
+	// disable product search result
+	$('.layout-container').on('click', function (event) {
+		if (event.target.className.indexOf("wc-product-search-modal") != -1) {
+			var _self = $('.wc-search-menu>ul>li');
+			var _wTop = $(window).scrollTop();
+			var _box = $('.wc-product-search');
+			var _modal = $('.wc-product-search-modal');
+			var _menu = _self.parents('.wc-product-search-menu');
+			if (_self.hasClass('active')) {
+				_self.removeClass('active');
+				_modal.removeClass('show');
+				_menu.removeClass('active');
+				_menu.css({ 'z-index': 2 });
 
-        if (_wTop <= _box.offset().top) {
-          _menu.removeClass(('fixed-top')).css({
-            top: 0
-          })
-        }
-      }
-    }
-  })
+				if (_wTop <= _box.offset().top) {
+					_menu.removeClass(('fixed-top')).css({
+						top: 0
+					})
+				}
+			}
+		}
+	})
 
 	// product search bar event
 	var is_click = false;
@@ -483,9 +482,9 @@
 		var _admin_subToobar = $('#toolbar-item-administration-tray.toolbar-tray-horizontal').height() || 0;
 		var _top = _admin_toolbar + _admin_subToobar;
 		is_click = true;
-		setTimeout(function(){
+		setTimeout(function () {
 			is_click = false;
-		},600)
+		}, 600)
 
 		if (_self.hasClass('active')) {
 			_self.removeClass('active');
@@ -526,7 +525,7 @@
 	});
 
 	$(window).scroll(function () {
-		if(is_click) return false;
+		if (is_click) return false;
 		var _wTop = $(this).scrollTop();
 		var _box = $('.wc-product-search');
 		var _menu = $('.wc-product-search .wc-product-search-menu');
@@ -573,7 +572,27 @@
 		header.find('.show').removeClass('show')
 		modal.removeClass('show');
 		search.removeClass('show')
-
 	})
+	// loading discover menu
+	var discoverId = [547, 548, 549];
+	var discoverMenu = $('.mega-dropdown[data-title="Discover"]');
+	var discoverSubMenu = discoverMenu.children('ul').children('.dropdown-submenu');
+	var subMenu = function(arr) {
+		var buff = [];
+		arr.forEach(function(item){
+			buff.push('<li><a href="'+item.view_node+'">'+item.title+'</a></li>')
+		})
+		return buff.join('');
+	}
+	discoverId.forEach(function (id, index) {
+		$.get('/wristcheck_magazine/' + id, {}, function (res) {
+			var ul = $(discoverSubMenu[index]).children('.navbar-submenus');
+			if(ul.length == 0){
+				$(discoverSubMenu[index]).append('<ul class="navbar-submenus">'+subMenu(res)+'</ul>')
+			}else {
+				ul.append(subMenu(res))
+			}
+		})
+	});
 
 })(jQuery, Drupal);
