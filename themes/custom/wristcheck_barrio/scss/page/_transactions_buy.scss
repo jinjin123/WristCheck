@@ -33,6 +33,8 @@
 
   .wc-buy-product__sub {
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
     span {
       display: block;
       height: 20px;
