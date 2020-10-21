@@ -623,5 +623,19 @@
 			modal.modal('show')
 		});
 	});
+  $(".wc-transactions-sell-list").on('click', 'a.transport-link', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    let order_id = $(this).data("order-id");
+    var modal = $('#orderStatus');
+    $.ajax({
+      url: "/user/transactions/buy/" + order_id + "/status",
+      context: this,
+    }).done(function (data) {
+      modal.find('.modal-body').html('<div class="order-list">' + orderListBuffer(data.log) + '</div>')
+      modal.modal('show')
+    });
+  });
 
 })(jQuery, Drupal);

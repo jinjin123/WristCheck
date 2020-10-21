@@ -559,8 +559,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: long
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: 'M d, Y'
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -958,7 +958,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n\t<div class=\"wc-buy-product-privew__img\"><a href=\"{{view_commerce_order}}\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_model_images }}\"/></a></div>\r\n\t<div class=\"wc-buy-product-body\">\r\n\t\t<div class=\"wc-buy-product__title\"><a href=\"{{view_commerce_order}}\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</a> </div>\r\n\t\t<div class=\"wc-buy-product__sub\"><span>The purchase was made on May 28, 2020</span><a class=\"transport-link\"  data-order-id= \"{{ order_id }} \" href=\"#\">transport</a></div>\r\n                <div id=buy-order-status-{{ order_id }}></div>\r\n\t\t<div class=\"row wc-buy-product-footer\">\r\n\t\t\t<div class=\"col-md-4\">The original price is  {{ total_price__number }} </div>\r\n\t\t\t<div class=\"col-md-4\">Discount is {{ total_price__currency_code }}  0</div>\r\n\t\t\t<div class=\"col-md-4\"><strong>Real pay  {{ total_price__number }} </strong></div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n\t<div class=\"wc-buy-product-privew__img\"><a href=\"{{view_commerce_order}}\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_model_images }}\"/></a></div>\r\n\t<div class=\"wc-buy-product-body\">\r\n\t\t<div class=\"wc-buy-product__title\"><a href=\"{{view_commerce_order}}\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</a> </div>\r\n\t\t<div class=\"wc-buy-product__sub\"><span>The purchase was made on {{ created }}</span><a class=\"transport-link\"  data-order-id= \"{{ order_id }} \" href=\"#\">transport</a></div>\r\n                <div id=buy-order-status-{{ order_id }}></div>\r\n\t\t<div class=\"row wc-buy-product-footer\">\r\n\t\t\t<div class=\"col-md-4\">The original price is  {{ total_price__number }} </div>\r\n\t\t\t<div class=\"col-md-4\">Discount is {{ total_price__currency_code }}  0</div>\r\n\t\t\t<div class=\"col-md-4\"><strong>Real pay  {{ total_price__number }} </strong></div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -1802,7 +1802,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "  <div class=\"row\"><div class=\"col-lg-10\"> {{ mail }} </div><div class=\"col-lg-2\"><a href=\"/user/transactions/buy/{{ order_id }}/status\">transport</a></div></div>\r\n<div class=\"col-md-12 wc-buy-product-item\">\r\n\t<div class=\"wc-buy-product-privew__img\"><a href=\"{{ view_commerce_order }}\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_model_images }}\"/></a></div>\r\n\t<div class=\"wc-buy-product-body\">\r\n\t\t<div class=\"wc-buy-product__title\"><a href=\"{{ view_commerce_order }}\">Brand: {{ field_cate }} | model: {{ field_watch_core }} </a></div>\r\n\t\t<div class=\"wc-buy-product__sub\"><span>The sale will take place on {{ created }}. The last notice will be on {{created}}</span></div>\r\n\t\t<div class=\"row wc-buy-product-footer\">\r\n\t\t\t<div class=\"col-md-4\">The original price is  {{ total_price__number }} </div>\r\n\t\t\t<div class=\"col-md-4\">Discount is {{ total_price__currency_code }}  0</div>\r\n\t\t\t<div class=\"col-md-4\"><strong>Real pay  {{ total_price__number }} </strong></div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: "  <div class=\"row wc-sell-orderinfo-item\"><div class=\"col-lg-10\"><span> {{ mail }}<span> </div><div class=\"col-lg-2\"><a class=\"transport-link\"  data-order-id= \"{{ order_id }} \" href=\"#\">transport</a></div></div>\r\n<div class=\"col-md-12 wc-buy-product-item\">\r\n\t<div class=\"wc-buy-product-privew__img\"><a href=\"{{ view_commerce_order }}\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_model_images }}\"/></a></div>\r\n\t<div class=\"wc-buy-product-body\">\r\n\t\t<div class=\"wc-buy-product__title\"><a href=\"{{ view_commerce_order }}\">Brand: {{ field_cate }} | model: {{ field_watch_core }} </a></div>\r\n\t\t<div class=\"wc-buy-product__sub\"><span>The sale will take place on {{ created }}. </span></div>\r\n\t\t<div class=\"row wc-buy-product-footer\">\r\n\t\t\t<div class=\"col-md-4\">The original price is  {{ total_price__number }} </div>\r\n\t\t\t<div class=\"col-md-4\">Discount is {{ total_price__currency_code }}  0</div>\r\n\t\t\t<div class=\"col-md-4\"><strong>Real pay  {{ total_price__number }} </strong></div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
