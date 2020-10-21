@@ -102,3 +102,55 @@
     }
   }
 }
+
+.wc-order-status{
+  .modal-body{
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  .order-list .order-list-item:last-child .line{
+    display: none;
+  }
+}
+.modal-body{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.order-list-item{
+  display: flex;
+  flex-direction: row;
+  min-height: 120px;
+  .order-list-time{
+    width: 100px;
+  }
+  h2{
+    font-size: 30px;
+  }
+  p{
+    font-size: 18px;
+  }
+  .order-list-line{
+    width: 100px;
+    position: relative;
+  }
+  .cricle{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #DADADA;
+    transform: translateX(-50%);
+  }
+  .line{
+    width: 1px;
+    height: 100%;
+    background: #DADADA;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+  }
+
+}
