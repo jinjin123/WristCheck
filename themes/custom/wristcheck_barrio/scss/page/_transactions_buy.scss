@@ -1,3 +1,16 @@
+.wc-sell-orderinfo-item {
+   div {
+     a {
+       font-family: Myriad Pro;
+       font-weight: 400;
+       color: #176BA4;
+     }
+     span {
+       font-family: Myriad Pro;
+       font-size: 20px;
+     }
+   }
+}
 .wc-buy-product-item {
   padding: 40px 0;
   border-bottom: 1px solid #EBEBEB;
@@ -22,7 +35,7 @@
   .wc-buy-product__title {
     line-height: 1;
     font-size: 24px;
-     
+
     font-weight: bold;
     color: #222222;
     overflow: hidden;
@@ -33,6 +46,8 @@
 
   .wc-buy-product__sub {
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
     span {
       display: block;
       height: 20px;
@@ -56,13 +71,13 @@
   }
   .wc-buy-product-footer{
     font-size: 18px;
-     
+
     font-weight: bold;
     color: #999999;
   }
   .wc-protfolio-product-footer{
     font-size: 18px;
-     
+
     font-weight: bold;
     color: #999999;
     margin-bottom: 30px;
@@ -85,15 +100,70 @@
       .wc-wishlist-footer__process {
         color: grey;
         &:before{
-          content: "";
+          font-family: "basis-grotesque-pro", "Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif,'FontAwesome';
+          content: "\f044";
           position: absolute;
-          top: 7px;
+          //top: 7px;
           left: 0;
-          width: 10px;
-          height: 10px;
-          border: 1px solid ;
+          top: 4px;
+          font-size: x-small;
+          //width: 10px;
+          //height: 10px;
+          //border: 1px solid ;
         }
       }
     }
   }
+}
+
+.wc-order-status{
+  .modal-body{
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  .order-list .order-list-item:last-child .line{
+    display: none;
+  }
+}
+.modal-body{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.order-list-item{
+  display: flex;
+  flex-direction: row;
+  min-height: 120px;
+  .order-list-time{
+    width: 100px;
+  }
+  h2{
+    font-size: 30px;
+  }
+  p{
+    font-size: 18px;
+  }
+  .order-list-line{
+    width: 100px;
+    position: relative;
+  }
+  .cricle{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #DADADA;
+    transform: translateX(-50%);
+  }
+  .line{
+    width: 1px;
+    height: 100%;
+    background: #DADADA;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+  }
+
 }
