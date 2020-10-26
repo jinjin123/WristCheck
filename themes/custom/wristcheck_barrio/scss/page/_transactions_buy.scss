@@ -90,7 +90,7 @@
         &:before{
           content: "";
           position: absolute;
-          top: 7px;
+          top: 9px;
           left: 0;
           width: 10px;
           height: 10px;
@@ -100,16 +100,14 @@
       .wc-wishlist-footer__process {
         color: grey;
         &:before{
-          font-family: "basis-grotesque-pro", "Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif,'FontAwesome';
-          content: "\f044";
+          content: "";
           position: absolute;
-          //top: 7px;
-          left: 0;
-          top: 4px;
+          top: 7px;
+          left: -4px;
           font-size: x-small;
-          //width: 10px;
-          //height: 10px;
-          //border: 1px solid ;
+          width: 14px;
+          height: 14px;
+          background: url('/themes/custom/wristcheck_barrio/images/icons/edit.png') no-repeat center center/contain;
         }
       }
     }
