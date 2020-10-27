@@ -11,7 +11,7 @@ dependencies:
     - node.type.blog_post
     - taxonomy.vocabulary.blog_tags
   content:
-    - 'taxonomy_term:blog_tags:bbddc8f9-07b4-485e-8012-9201e48c3e18'
+    - 'taxonomy_term:watch_series_categories:24e5b6e2-ea59-4214-a48e-a504044be606'
   module:
     - better_exposed_filters
     - image
@@ -1140,7 +1140,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div class=\"wc-v2-panel__more text-center\">\r\n    <a href=\"/product/search-result\" class=\"wc-v2-panel__more-btn wc-btn-white\">\r\n      <div class=\"wc-btn-cont\">LEARN MORE</div>\r\n    </a>\r\n  </div>"
+            value: "<div class=\"wc-v2-panel__more text-center\">\r\n    <a href=\"/product/search-result\" class=\"wc-v2-panel__more-btn wc-btn-white\">\r\n      <div class=\"wc-btn-cont\">DISCOVER MORE</div>\r\n    </a>\r\n  </div>"
             format: full_html
           plugin_id: text
     cache_metadata:

@@ -186,7 +186,12 @@
   }
 
   .wc-shop-by-brand__img {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    .brand-title{
+      font-size: 20px;
+      text-align: center;
+      padding: 20px;
+    }
   }
 
   .wc-homepage-brand-logo {
