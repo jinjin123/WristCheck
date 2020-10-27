@@ -574,26 +574,51 @@
 		search.removeClass('show')
 	})
 	// loading discover menu
-	var discoverId = [547, 548, 549];
-	var discoverMenu = $('.mega-dropdown[data-title="Discover"]');
-	var discoverSubMenu = discoverMenu.children('ul').children('.dropdown-submenu');
-	var subMenu = function (arr) {
-		var buff = [];
-		arr.forEach(function (item) {
-			buff.push('<li><a href="' + item.view_node + '">' + item.title + '</a></li>')
-		})
-		return buff.join('');
-	}
-	discoverId.forEach(function (id, index) {
-		$.get('/wristcheck_magazine/' + id, {}, function (res) {
-			var ul = $(discoverSubMenu[index]).children('.navbar-submenus');
-			if (ul.length == 0) {
-				$(discoverSubMenu[index]).append('<ul class="navbar-submenus">' + subMenu(res) + '</ul>')
-			} else {
-				ul.append(subMenu(res))
-			}
-		})
-	});
+	//var discoverId = [547, 548, 549];
+  var discoverId = [];
+  $.getJSON("/magazine_term" , (function (data) {
+    data.forEach(function (item){
+      discoverId.push(item.tid)
+    })
+    var discoverMenu = $('.mega-dropdown[data-title="Discover"]');
+    var discoverSubMenu = discoverMenu.children('ul').children('.dropdown-submenu');
+    var subMenu = function (arr) {
+      var buff = [];
+      arr.forEach(function (item) {
+        buff.push('<li><a href="' + item.view_node + '">' + item.title + '</a></li>')
+      })
+      return buff.join('');
+    }
+    discoverId.forEach(function (id, index) {
+      $.get('/wristcheck_magazine/' + id, {}, function (res) {
+        var ul = $(discoverSubMenu[index]).children('.navbar-submenus');
+        if (ul.length == 0) {
+          $(discoverSubMenu[index]).append('<ul class="navbar-submenus">' + subMenu(res) + '</ul>')
+        } else {
+          ul.append(subMenu(res))
+        }
+      })
+    });
+  }))
+  // var discoverMenu = $('.mega-dropdown[data-title="Discover"]');
+	// var discoverSubMenu = discoverMenu.children('ul').children('.dropdown-submenu');
+	// var subMenu = function (arr) {
+	// 	var buff = [];
+	// 	arr.forEach(function (item) {
+	// 		buff.push('<li><a href="' + item.view_node + '">' + item.title + '</a></li>')
+	// 	})
+	// 	return buff.join('');
+	// }
+	// discoverId.forEach(function (id, index) {
+	// 	$.get('/wristcheck_magazine/' + id, {}, function (res) {
+	// 		var ul = $(discoverSubMenu[index]).children('.navbar-submenus');
+	// 		if (ul.length == 0) {
+	// 			$(discoverSubMenu[index]).append('<ul class="navbar-submenus">' + subMenu(res) + '</ul>')
+	// 		} else {
+	// 			ul.append(subMenu(res))
+	// 		}
+	// 	})
+	// });
 
 	// order status
 	var orderListBuffer = function (arr) {
