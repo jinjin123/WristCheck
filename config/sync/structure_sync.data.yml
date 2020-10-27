@@ -23,36 +23,6 @@ taxonomies:
       uuid: bbddc8f9-07b4-485e-8012-9201e48c3e18
     -
       vid: blog_tags
-      tid: '33'
-      langcode: en
-      name: Freebies
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: ebff23fa-6a6e-495f-bc76-39d73f277f92
-    -
-      vid: blog_tags
-      tid: '7'
-      langcode: en
-      name: 'GRAPHIC DESIGN'
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: ef1cf913-5dfc-4608-ab03-f043d9d3b15c
-    -
-      vid: blog_tags
-      tid: '10'
-      langcode: en
-      name: PHOTOGRAPHY
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: 29ff72be-34b7-43aa-823c-fe1be60ce0e9
-    -
-      vid: blog_tags
       tid: '548'
       langcode: en
       name: 'WATCH MAGAZINE'
