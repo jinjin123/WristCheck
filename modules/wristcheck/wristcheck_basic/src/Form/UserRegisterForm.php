@@ -29,7 +29,37 @@ class UserRegisterForm extends FormBase
   {
 
     $form['errors'] = [];
-     $form['Email'] = [
+    $form['first_name'] = [
+      '#type' => 'textfield',
+      '#title' => 'First name',
+      '#size' => 60,
+      '#maxlength' => USERNAME_MAX_LENGTH,
+      '#description' => $this->t('Enter your First Name.' ),
+      '#required' => TRUE,
+      '#attributes' => [
+        'autocorrect' => 'none',
+        'autocapitalize' => 'none',
+        'spellcheck' => 'false',
+        'autofocus' => 'autofocus',
+        'placeholder' => 'First Name',
+      ],
+    ];
+    $form['last_name'] = [
+      '#type' => 'textfield',
+      '#title' => 'Last name',
+      '#size' => 60,
+      '#maxlength' => USERNAME_MAX_LENGTH,
+      '#description' => $this->t('Enter your Last Name.' ),
+      '#required' => TRUE,
+      '#attributes' => [
+        'autocorrect' => 'none',
+        'autocapitalize' => 'none',
+        'spellcheck' => 'false',
+        'autofocus' => 'autofocus',
+        'placeholder' => 'Last Name',
+      ],
+    ];
+    $form['email'] = [
       '#type' => 'textfield',
       '#title' => 'Email',
       '#size' => 60,
@@ -44,25 +74,39 @@ class UserRegisterForm extends FormBase
         'placeholder' => 'Email',
       ],
     ];
-
-    $form['Name'] = [
+    $form['username'] = [
       '#type' => 'textfield',
       '#title' => 'Username',
       '#size' => 60,
       '#maxlength' => USERNAME_MAX_LENGTH,
-      '#description' => $this->t('Enter your username.' ),
+      '#description' => $this->t('Enter your First Name.' ),
       '#required' => TRUE,
       '#attributes' => [
         'autocorrect' => 'none',
         'autocapitalize' => 'none',
         'spellcheck' => 'false',
         'autofocus' => 'autofocus',
-        'placeholder' => 'Username',
+        'placeholder' => 'First Name',
       ],
     ];
-    $form['condtion'] = [
+    $form['password'] = [
+      '#type' => 'password',
+      '#title' => 'Password',
+      '#size' => 60,
+      '#maxlength' => USERNAME_MAX_LENGTH,
+      '#description' => $this->t('Enter your Password .' ),
+      '#required' => TRUE,
+      '#attributes' => [
+        'autocorrect' => 'none',
+        'autocapitalize' => 'none',
+        'spellcheck' => 'false',
+        'autofocus' => 'autofocus',
+        'placeholder' => 'Password',
+      ],
+    ];
+    $form['update'] = [
       '#type' => 'checkbox',
-      '#title' => t("I ACCEPT WRIST CHECK'S PRIVACY POLICY"),
+      '#title' => t("Sign up for Wristcheck Discover Updates"),
       '#size' => 10,
       '#disabled' => TRUE,
       '#maxlength' => 255,
@@ -70,9 +114,30 @@ class UserRegisterForm extends FormBase
       '#required' => TRUE,
       '#description' =>  t(""),
     ];
+    $form['condition'] = [
+      '#type' => 'checkbox',
+      '#title' => t("Sign up for Wristcheck Product Launches/Drops"),
+      '#size' => 10,
+      '#disabled' => TRUE,
+      '#maxlength' => 255,
+      '#default_value' => 1,
+      '#required' => TRUE,
+      '#description' =>  t(""),
+    ];
+    $form['labeldes'] = [
+      '#type' => 'markup',
+//      '#markup' => '<div class="links">'."aaaaa" .'</div>',
+//      '#suffix'=>'<div class="form-footer text-center"><p class="form-footer-title">' . $this->t('Do you not currently have a user account?') . '</p><div><a class="wc-btn-dark"><div class="wc-btn-cont"><span class="fa fa-arrow-right"></span> <span class="btn-line"></span> <span>' . $this->t('IN THE CONTINUE') . '</span></div></a></div></div>',
+//      '#weight' => 1000,
+//      '#type' => 'markup',
+//      '#title' => t("This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply"),
+      '#markup'=> t("This site is protected by reCAPTCHA and the Google") . " " .'<a href="javascript:;" class="wc-term-link">'.t('Privacy Policy').'</a>'.t("and"). '<a href="javascript:;" class="wc-term-link">'.t('Terms of Service').'</a>'." ".t("apply") ,
+//      '#attributes' => array('class' => 'label1'),
+//      '#description' =>  t(""),
+    ];
     $form['actions'] = [
       '#type' => 'button',
-      '#value' => $this->t('register'),
+      '#value' => $this->t('SIGN UP'),
       '#submit' => ['::submitForm'],
       '#validate' => ['::validateForm'],
       '#ajax' => array(

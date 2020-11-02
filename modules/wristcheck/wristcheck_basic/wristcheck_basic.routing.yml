@@ -236,7 +236,8 @@ wristcheck_basic.user_controller_portfolio:
 wristcheck_basic.user_login_form:
   path: '/wristcheck_basic/form/user_login'
   defaults:
-    _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
+#    _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::UserLogin'
     _title: 'PLEASE LOGIN'
   requirements:
     _access: 'TRUE'
@@ -244,7 +245,8 @@ wristcheck_basic.user_login_form:
 wristcheck_basic.user_register_form:
   path: '/wristcheck_basic/form/user_register'
   defaults:
-    _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
+#    _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::UserRegister'
     _title: 'Welcome to register'
   requirements:
     _access: 'TRUE'

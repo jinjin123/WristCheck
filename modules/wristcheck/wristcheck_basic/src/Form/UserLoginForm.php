@@ -71,17 +71,18 @@ class UserLoginForm extends FormBase
 
     // add register class.
     $register = Link::fromTextAndUrl($this->t('Register Now?'), Url::fromRoute("wristcheck_basic.user_register_form"))->toRenderable();
-    $register['#attributes'] = array(
-      'class' => array(
-        'use-ajax',
-        'register-popup-form'
-        ),
-      'data-dialog-options' => Json::encode([
-        'width' => 730,
-        'dialogClass' => 'wc-register-dialog'
-      ]),
-      'data-dialog-type' => 'modal',
-    );
+//    $register = Link::fromTextAndUrl($this->t('Register Now?'), Url::fromRoute("wristcheck_basic.user_register_form"))->toRenderable();
+//    $register['#attributes'] = array(
+//      'class' => array(
+//        'use-ajax',
+//        'register-popup-form'
+//        ),
+//      'data-dialog-options' => Json::encode([
+//        'width' => 730,
+//        'dialogClass' => 'wc-register-dialog'
+//      ]),
+//      'data-dialog-type' => 'modal',
+//    );
 
     // add forget class.
     $forget = Link::fromTextAndUrl($this->t(' Forget your password?'), Url::fromRoute('user.pass'))->toRenderable();
