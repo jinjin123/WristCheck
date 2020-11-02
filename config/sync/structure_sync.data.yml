@@ -5597,7 +5597,7 @@ menus:
     menu_name: wristcheck-bottom-menu
     title: FAQs
     parent: null
-    uri: 'internal:#'
+    uri: 'internal:/faq'
     link_title: ''
     description: null
     enabled: '1'
@@ -6856,7 +6856,7 @@ menus:
   -
     menu_name: wristcheck-bottom-menu
     title: PAYEMENTS
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: 'menu_link_content:0d91a143-6e20-42f1-9041-9bef5d8407b6'
     uri: 'internal:#'
     link_title: ''
     description: null
@@ -6880,19 +6880,19 @@ menus:
   -
     menu_name: wristcheck-bottom-menu
     title: 'PRIVACY POLICY'
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: null
     uri: 'internal:#'
     link_title: ''
     description: null
     enabled: '1'
-    expanded: '0'
+    expanded: '1'
     weight: '-48'
     langcode: en
     uuid: 0d91a143-6e20-42f1-9041-9bef5d8407b6
   -
     menu_name: wristcheck-bottom-menu
     title: 'TERMS & CONDITIONS'
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: 'menu_link_content:0d91a143-6e20-42f1-9041-9bef5d8407b6'
     uri: 'internal:#'
     link_title: ''
     description: null
