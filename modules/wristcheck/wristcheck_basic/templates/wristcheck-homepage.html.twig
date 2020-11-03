@@ -1,28 +1,56 @@
 {#BUYING PROCESS#}
+<div class="wc-panel">
+  {#  <div class="text-center"><span class="wc-discover__title">sinn 203 st : a diving chronogeraph with pilot’s watch potential</span>#}
+  <div class="text-center"><span class="wc-discover__title">Wrist Talk with Francois-Henry Bennahmias</span>
+  </div>
+  {#  <div class="wc-discover__sub text-center">Everything you need to know about the features, technology, and quality#}
+  {#    behind the Sinn 203 St.#}
+</div>
+<div class="wc-discover__tag">
+  <a>BUYER'S GUIDE</a>
+  <a>by Nils Rau</a>
+</div>
+{{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
+</div>
+
 {{ drupal_block('wristcheck_how_it_works_block') }}
+
 <div class="v-line"></div>
 <div class="v-line"></div>
 <div class="wc-v2-panel">
-  <div class="wc-v2-panel__title text-center">SHOP BY BRAND</div>
+{#  <div class="wc-v2-panel__title text-center">SHOP BY BRAND</div>#}
+  <div class="wc-v2-panel__title text-center">BROWSE BY BRAND</div>
   {{ drupal_view('wristcheck_brand','logo') }}
 {#  <div class="pb-5">#}
 
 {#  </div>#}
 </div>
-<div class="wc-v2-panel">
-  <div class="wc-v2-panel__title text-center">BEST SELLERS</div>
-  <div class="position-relative best_sellers-swiper">
-    {{ drupal_view('wristcheck_products','best_sellers') }}
-    <div class="swiper-button-prev best_sellers-prev"></div>
-    <div class="swiper-button-next best_sellers-next"></div>
+
+{#<div class="wc-v2-panel">#}
+{#  <div class="wc-v2-panel__title text-center">BEST SELLERS</div>#}
+{#  <div class="position-relative best_sellers-swiper">#}
+{#    {{ drupal_view('wristcheck_products','best_sellers') }}#}
+{#    <div class="swiper-button-prev best_sellers-prev"></div>#}
+{#    <div class="swiper-button-next best_sellers-next"></div>#}
+{#  </div>#}
+{#  #}{#  <div class="wc-v2-panel__more text-center">#}
+{#      <a href="javascript:;" class="wc-v2-panel__more-btn wc-btn-white">#}
+{#        <div class="wc-btn-cont">SHOP NOW</div>#}
+{#      </a>#}
+{#    </div>#}
+{#</div>#}
+<div class="wc-panel wc-brand-product">
+  <h1 class="wc-panel__title text-center">EDITOR'S PICKS</h1>
+{#  <div class="container portfolio">#}
+{#    {{ drupal_view('wristcheck_brand','brand_product') }}#}
+{#  </div>#}
+  <div class='container portfolio wc-buy-more-products'>
+    {{ drupal_view('wristcheck_products','related_products') }}
   </div>
-  {#  <div class="wc-v2-panel__more text-center">
-      <a href="javascript:;" class="wc-v2-panel__more-btn wc-btn-white">
-        <div class="wc-btn-cont">SHOP NOW</div>
-      </a>
-    </div>#}
 </div>
+
 <div class="v-line"></div>
+
 <div class="wc-v2-panel">
   <div class="wc-v2-panel__title text-center">FROM THE JOURNAL</div>
   {{ drupal_view('wristcheck_buy_magazine','from_the_journal') }}
