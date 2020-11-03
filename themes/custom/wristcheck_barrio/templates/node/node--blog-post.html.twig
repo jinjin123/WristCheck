@@ -90,6 +90,7 @@
       </div>
     {% endif %}
     <h1 class="wc-blog-title">{{ node.label }}</h1>
+    <span>{{ nodesumm }}</span>
     {% if display_submitted %}
       <div class="wc-blog-user">
         {{ author_picture }}
@@ -101,7 +102,16 @@
     {{ content }}
   </div>
   <div class="wc-panel">
-    <div class="wc-panel__title text-center">LATEST ARTICLES</div>
-    {{ drupal_view('wristcheck_buy_news','blog_news') }}
+{#    <div class="wc-panel__title text-center">LATEST ARTICLES</div>#}
+{#    {{ drupal_view('wristcheck_buy_news','blog_news') }}#}
+        <div class="wc-panel__title text-center">RELATED WATCHES</div>
+{#        {{ drupal_view('wristcheck_buy_news','blog_news') }}#}
+    {{ drupal_view('wristcheck_brand','brand_product') }}
+  </div>
+  <div class="wc-panel">
+    {#    <div class="wc-panel__title text-center">LATEST ARTICLES</div>#}
+    {#    {{ drupal_view('wristcheck_buy_news','blog_news') }}#}
+    <div class="wc-panel__title text-center">READ MORE</div>
+    {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
   </div>
 </article>
