@@ -79,7 +79,7 @@ class UserRegisterForm extends FormBase
       '#title' => 'Username',
       '#size' => 60,
       '#maxlength' => USERNAME_MAX_LENGTH,
-      '#description' => $this->t('Enter your First Name.' ),
+      '#description' => $this->t('Enter your UserName.' ),
       '#required' => TRUE,
       '#attributes' => [
         'autocorrect' => 'none',
@@ -104,24 +104,24 @@ class UserRegisterForm extends FormBase
         'placeholder' => 'Password',
       ],
     ];
-    $form['update'] = [
+    $form['discoverupdate'] = [
       '#type' => 'checkbox',
       '#title' => t("Sign up for Wristcheck Discover Updates"),
       '#size' => 10,
-      '#disabled' => TRUE,
+//      '#disabled' => TRUE,
       '#maxlength' => 255,
       '#default_value' => 1,
-      '#required' => TRUE,
+//      '#required' => TRUE,
       '#description' =>  t(""),
     ];
     $form['condition'] = [
       '#type' => 'checkbox',
       '#title' => t("Sign up for Wristcheck Product Launches/Drops"),
       '#size' => 10,
-      '#disabled' => TRUE,
+//      '#disabled' => TRUE,
       '#maxlength' => 255,
       '#default_value' => 1,
-      '#required' => TRUE,
+//      '#required' => TRUE,
       '#description' =>  t(""),
     ];
     $form['labeldes'] = [
@@ -164,14 +164,20 @@ class UserRegisterForm extends FormBase
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+//    dd($form_state->getValues()["condition"]);
     try {
       $mailManager = \Drupal::service('plugin.manager.mail');
-      $email = $form_state->getValues()['Email'];
-      $name = $form_state->getValues()['Name'];
-      $pwd = $this->randompwd();
+      $first_name = $form_state->getValues()['first_name'];
+      $last_name = $form_state->getValues()['last_name'];
+      $email = $form_state->getValues()['email'];
+      $name = $form_state->getValues()['username'];
+      $pwd = $form_state->getValues()['password'];
+      $disUpdate = $form_state->getValues()['discoverupdate'];
+      $cond = $form_state->getValues()['condition'];
+//      $pwd = $this->randompwd();
       $result = trim($email);
       if (filter_var($result, FILTER_VALIDATE_EMAIL)) {
-        if($email !="" && $name !="")  {
+        if($email !="" && $name !="" && $pwd !="")  {
           $query = \Drupal::entityQuery('user');
           $orGroup1 = $query->orConditionGroup();
           $orGroup1->condition('mail', $email);
@@ -187,6 +193,10 @@ class UserRegisterForm extends FormBase
             $user->setUsername($name);
             $user->setPassword($pwd);
             $user->setEmail($email);
+            $user->set("field_first_name",$first_name);
+            $user->set("field_last_name",$last_name);
+            $user->set("field_discover_updated",$disUpdate);
+            $user->set("field_product_launches",$cond);
             $user->set("init",  $email);
             $user->set("langcode", $langcode);
             $user->set("preferred_langcode", $langcode);
