@@ -8,15 +8,19 @@ dependencies:
     - field.field.user.user.field_cell_number_to_receive_ord
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_description
+    - field.field.user.user.field_discover_updated
     - field.field.user.user.field_email_to_receive_order_sta
+    - field.field.user.user.field_first_name
     - field.field.user.user.field_full_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_guide
+    - field.field.user.user.field_last_name
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_pay_by_email_authenticatio
     - field.field.user.user.field_pay_by_password
     - field.field.user.user.field_phone_number
     - field.field.user.user.field_price_warning
+    - field.field.user.user.field_product_launches
     - field.field.user.user.field_social
     - field.field.user.user.field_surnames
     - field.field.user.user.field_the_email_address
@@ -49,15 +53,19 @@ hidden:
   field_cell_number_to_receive_ord: true
   field_date_of_birth: true
   field_description: true
+  field_discover_updated: true
   field_email_to_receive_order_sta: true
+  field_first_name: true
   field_full_name: true
   field_gender: true
   field_guide: true
+  field_last_name: true
   field_newsletter: true
   field_pay_by_email_authenticatio: true
   field_pay_by_password: true
   field_phone_number: true
   field_price_warning: true
+  field_product_launches: true
   field_social: true
   field_surnames: true
   field_the_email_address: true

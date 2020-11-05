@@ -7,15 +7,19 @@ dependencies:
     - field.field.user.user.field_cell_number_to_receive_ord
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_description
+    - field.field.user.user.field_discover_updated
     - field.field.user.user.field_email_to_receive_order_sta
+    - field.field.user.user.field_first_name
     - field.field.user.user.field_full_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_guide
+    - field.field.user.user.field_last_name
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_pay_by_email_authenticatio
     - field.field.user.user.field_pay_by_password
     - field.field.user.user.field_phone_number
     - field.field.user.user.field_price_warning
+    - field.field.user.user.field_product_launches
     - field.field.user.user.field_social
     - field.field.user.user.field_surnames
     - field.field.user.user.field_the_email_address
@@ -67,6 +71,13 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_discover_updated:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_email_to_receive_order_sta:
     type: boolean_checkbox
     weight: 23
@@ -74,6 +85,14 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_first_name:
+    weight: 24
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_full_name:
     weight: 9
     settings:
@@ -95,6 +114,14 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_last_name:
+    weight: 25
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_newsletter:
     weight: 11
@@ -126,6 +153,13 @@ content:
     region: content
   field_price_warning:
     weight: 14
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_product_launches:
+    weight: 27
     settings:
       display_label: true
     third_party_settings: {  }
