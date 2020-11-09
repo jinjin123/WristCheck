@@ -109,6 +109,41 @@ class UserSettingsForm extends FormBase
       '#default_value' => array($existUser->preferred_langcode->value),
     ];
 
+//    $locationarr = $existUser->field_location->getSetting('allowed_values');
+//    $taglocation = [];
+//    foreach($locationarr  as $key => $value){
+//      switch ($value){
+//        case "Hong Kong":
+//          $optstr  = '<img value='.$value.'data-iconurl="themes-icon.png">'.$value.'</option>';
+//          array_push($taglocation, $optstr);
+//        case "US":
+//          $optstr  = '<option value='.$value.'data-iconurl="themes-icon.png">'.$value.'</option>';
+//          array_push($taglocation, $optstr);
+//        case "China":
+//          $optstr  = '<option value='.$value.'data-iconurl="themes-icon.png">'.$value.'</option>';
+//          array_push($taglocation, $optstr);
+//      }
+//
+//    }
+    $form['select_the_location'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Select the location'),
+      '#weight' => '0',
+      '#default_value' => array($existUser->field_location->value),
+      '#options' => array($existUser->field_location->getSetting('allowed_values')),
+      '#attributes' => array('class' => array('wc-location-selector')),
+    ];
+
+    $form['select_the_currency'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Select the currency'),
+      '#weight' => '0',
+      '#default_value' => array($existUser->field_currency->value),
+      '#options' => array($existUser->field_currency->getSetting('allowed_values')),
+
+    ];
+
+
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Save'),
@@ -144,6 +179,8 @@ class UserSettingsForm extends FormBase
       'guide' => 'field_guide',
       'price_warning' => 'field_price_warning',
       'select_the_language' => 'preferred_langcode',
+      'select_the_location' => 'field_location',
+      'select_the_currency' => 'field_currency',
     ];
 
     $existUser = User::load($this->currentUser->id());
@@ -162,7 +199,7 @@ class UserSettingsForm extends FormBase
       if (isset($values[$key])) {
         $existUser->$value->value = $values[$key];
         if($values['newsletter'] == 1){
-          \Drupal::service("wristcheck_basic.mailchamp")->MailChampSubscript($mail,$fname,$lname);
+//          \Drupal::service("wristcheck_basic.mailchamp")->MailChampSubscript($mail,$fname,$lname);
         }
       }
     });

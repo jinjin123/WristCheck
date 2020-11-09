@@ -1,0 +1,30 @@
+uuid: 6c5cf5cf-8b97-44a0-b4a8-2333719e4df8
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_location
+field_name: field_location
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Hong Kong'
+      label: '🇭🇰 Hong kong'
+    -
+      value: US
+      label: '🇺🇸 US'
+    -
+      value: China
+      label: '🇨🇳 China'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
