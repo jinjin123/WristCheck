@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_cell_number_to_receive_ord
+    - field.field.user.user.field_currency
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_description
     - field.field.user.user.field_discover_updated
@@ -14,6 +15,7 @@ dependencies:
     - field.field.user.user.field_gender
     - field.field.user.user.field_guide
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_location
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_pay_by_email_authenticatio
     - field.field.user.user.field_pay_by_password
@@ -29,6 +31,7 @@ dependencies:
     - datetime
     - image
     - link
+    - options
     - user
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
@@ -46,6 +49,13 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_currency:
+    weight: 28
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_date_of_birth:
     weight: 15
@@ -126,6 +136,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_location:
+    weight: 29
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_newsletter:
     weight: 11

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.user.compact
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_cell_number_to_receive_ord
+    - field.field.user.user.field_currency
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_description
     - field.field.user.user.field_discover_updated
@@ -15,6 +16,7 @@ dependencies:
     - field.field.user.user.field_gender
     - field.field.user.user.field_guide
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_location
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_pay_by_email_authenticatio
     - field.field.user.user.field_pay_by_password
@@ -51,6 +53,7 @@ hidden:
   commerce_remote_id: true
   customer_profiles: true
   field_cell_number_to_receive_ord: true
+  field_currency: true
   field_date_of_birth: true
   field_description: true
   field_discover_updated: true
@@ -60,6 +63,7 @@ hidden:
   field_gender: true
   field_guide: true
   field_last_name: true
+  field_location: true
   field_newsletter: true
   field_pay_by_email_authenticatio: true
   field_pay_by_password: true
