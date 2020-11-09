@@ -4,7 +4,7 @@
 
   .wc-v2-panel__title {
     font-size: 18px;
-     
+
     color: #000000;
     margin-bottom: 70px;
   }
@@ -54,7 +54,7 @@
   .how_it_works__link {
     span {
       font-size: 12px;
-       
+
       color: #000000;
       padding: 2px 0;
       border-bottom: 1px solid #000;
@@ -76,7 +76,8 @@
 }
 
 .block-wristcheck-sign-up-for-news-block {
-  background-color: #000000;
+  //background-color: #000000;
+  background-color: #F0EFEE;
   width: 100%;
 }
 
@@ -129,7 +130,8 @@
   .wc-sign-up__title {
     font-size: 12px;
     font-weight: 700;
-    color: #E2E1D9;
+    //color: #E2E1D9;
+    color: #333;
     font-family: "basis-grotesque-bold-pro";
     line-height: 21px;
     margin-bottom: 5px
@@ -137,8 +139,9 @@
 
   .wc-sign-up__sub {
     font-size: 14px;
-     
-    color: #E2E1D9;
+
+    //color: #E2E1D9;
+    color: #333;
     line-height: 18px;
   }
 
@@ -235,7 +238,7 @@
 
   .wc-rolex-sub {
     font-size: 14px;
-     
+
     color: #000000;
     line-height: 21px;
     font-weight: bold;
@@ -246,7 +249,7 @@
     font-size: 34px;
     line-height: 48px;
     margin-bottom: 5px;
-     
+
     color: #000000;
     font-weight: bold;
     width: 100%;
@@ -258,7 +261,7 @@
   .wc-rolex-title__sub {
     font-size: 30px;
     line-height: 38px;
-     
+
     color: #000000;
     font-weight: 300;
     height: 80px;
@@ -273,7 +276,7 @@
     font-size: 14px;
     height: 45px;
     line-height: 45px;
-     
+
     color: #000000;
   }
 }
@@ -295,7 +298,8 @@
     height: 55px;
     color: #FFF;
     border: 1px solid #E2E1D9;
-    background-color: transparent;
+    //background-color: transparent;
+    background-color: white;
     padding: 5px 10px;
     box-sizing: border-box;
     line-height: 35px;
@@ -330,7 +334,8 @@
     width: 126px;
     height: 55px;
     border: 1px solid #E2E1D9;
-    background-color: transparent;
+    //background-color: transparent;
+    background-color: #5599AA;
     color: #FFF;
     transition: all .25s ease;
 
@@ -399,4 +404,24 @@
       color: #333;
     }
   }
+}
+
+.wc-term-link {
+   color: #5599AA;
+}
+
+.wc-reg-bottom-label_link {
+  a {
+    color: #5599AA;
+  }
+}
+.wc-reg-form-title {
+  color: $color-black;
+  font-size: 35px;
+  text-align:  center;
+  margin-bottom:  30px;
+}
+.wc-reg-bottom-label {
+  margin-top: 50px;
+  text-align: center;
 }

@@ -275,6 +275,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_user_login'=>[
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_error_403'=>[
       'variables' => [
         'variables' => []

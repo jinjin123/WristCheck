@@ -1,0 +1,24 @@
+uuid: af220140-4e9a-480d-b584-5c33e91c6103
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_product_launches
+  module:
+    - user
+id: user.user.field_product_launches
+field_name: field_product_launches
+entity_type: user
+bundle: user
+label: 'product launches'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

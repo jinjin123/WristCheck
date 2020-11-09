@@ -70,18 +70,19 @@ class UserLoginForm extends FormBase
     $form = \Drupal::formBuilder()->getForm('Drupal\user\Form\UserLoginForm');
 
     // add register class.
-    $register = Link::fromTextAndUrl($this->t('Register Now?'), Url::fromRoute("wristcheck_basic.user_register_form"))->toRenderable();
-    $register['#attributes'] = array(
-      'class' => array(
-        'use-ajax',
-        'register-popup-form'
-        ),
-      'data-dialog-options' => Json::encode([
-        'width' => 730,
-        'dialogClass' => 'wc-register-dialog'
-      ]),
-      'data-dialog-type' => 'modal',
-    );
+//    $register = Link::fromTextAndUrl($this->t('Register Now?'), Url::fromRoute("wristcheck_basic.user_register_form"))->toRenderable();
+//    $register = Link::fromTextAndUrl($this->t('Register Now?'), Url::fromRoute("wristcheck_basic.user_register_form"))->toRenderable();
+//    $register['#attributes'] = array(
+//      'class' => array(
+//        'use-ajax',
+//        'register-popup-form'
+//        ),
+//      'data-dialog-options' => Json::encode([
+//        'width' => 730,
+//        'dialogClass' => 'wc-register-dialog'
+//      ]),
+//      'data-dialog-type' => 'modal',
+//    );
 
     // add forget class.
     $forget = Link::fromTextAndUrl($this->t(' Forget your password?'), Url::fromRoute('user.pass'))->toRenderable();
@@ -89,8 +90,9 @@ class UserLoginForm extends FormBase
 
     $form['links'] = [
       '#type' => 'markup',
-      '#markup' => '<div class="links">'. render($register) . render($forget) .'</div>',
-      '#suffix'=>'<div class="form-footer text-center"><p class="form-footer-title">' . $this->t('Do you not currently have a user account?') . '</p><div><a class="wc-btn-dark"><div class="wc-btn-cont"><span class="fa fa-arrow-right"></span> <span class="btn-line"></span> <span>' . $this->t('IN THE CONTINUE') . '</span></div></a></div></div>',
+//      '#markup' => '<div class="links">'. render($register) . render($forget) .'</div>',
+      '#markup' => '<div class="links">'. render($forget) .'</div>',
+//      '#suffix'=>'<div class="form-footer text-center"><p class="form-footer-title">' . $this->t('Do you not currently have a user account?') . '</p><div><a class="wc-btn-dark"><div class="wc-btn-cont"><span class="fa fa-arrow-right"></span> <span class="btn-line"></span> <span>' . $this->t('IN THE CONTINUE') . '</span></div></a></div></div>',
       '#weight' => 1000,
     ];
     return $form;

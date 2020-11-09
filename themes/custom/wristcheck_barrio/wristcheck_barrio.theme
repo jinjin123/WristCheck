@@ -113,6 +113,10 @@ function wristcheck_barrio_preprocess_maintenance_page(&$variables)
 
 function wristcheck_barrio_preprocess_node(&$variables)
 {
+  $nodeid =$variables["attributes"]["data-history-node-id"];
+  $node = \Drupal::entityManager()->getStorage('node')->load($nodeid);
+  $node_summary = $node->get('body')->summary;
+  $variables['nodesumm'] = $node_summary;
   $sell_form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\SellAddToCartForm');
   $variables['sell_form'] = $sell_form;
 }

@@ -252,5 +252,26 @@ class UserController extends ControllerBase
     $u->set("status",1);
     $u->save();
   }
+
+  public function UserLogin()
+  {
+    $form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\UserLoginForm');
+    $variables["login_form"] = $form;
+    $variables["tag"] =  "login";
+    return [
+      '#theme' => 'wristcheck_user_login',
+      '#variables' => $variables
+    ];
+  }
+  public function UserRegister()
+  {
+    $form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\UserRegisterForm');
+    $variables["reg_form"] = $form;
+    $variables["tag"] =  "reg";
+    return [
+      '#theme' => 'wristcheck_user_login',
+      '#variables' => $variables
+    ];
+  }
 }
 

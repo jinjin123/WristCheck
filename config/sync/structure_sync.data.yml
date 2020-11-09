@@ -3352,6 +3352,16 @@ taxonomies:
       uuid: 56d36bc9-d4b3-4698-a6f8-1bf45b931f1d
     -
       vid: watch_series_categories
+      tid: '552'
+      langcode: en
+      name: Aquanaut
+      description__value: "<p>First released by Patek Philippe in 1997, the Aquanaut family is the second line of Sport Watches manufactured by the brand, introduced to the world 21 years after the launch of the Nautilus. The first model released under the Aquanaut line was a ref. 5060A, which was sized at 35.6mm. Known for its signature rubber straps, current models such as the ref. 5167 and ref. 5164 are highly sought after pieces, with sky high premium prices in the secondary market.</p>\r\n"
+      description__format: basic_html
+      weight: '0'
+      parent: '0'
+      uuid: 71229264-9b7b-4657-a489-cdbe5aaf3b4f
+    -
+      vid: watch_series_categories
       tid: '400'
       langcode: en
       name: Automatic
@@ -3470,6 +3480,16 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: 421c6fe9-0a13-4b48-b5cb-833b1c0d1cd9
+    -
+      vid: watch_series_categories
+      tid: '550'
+      langcode: en
+      name: Calatrava
+      description__value: "<p>The Calatrava is a family of dress watches that was introduced in 1932, shortly after Patek Philippe was acquired by the Stern family. The original Calatrava model ref. 96 remained in production for more than 40 years, before giving way to newer successor models. In 1973, Patek Philippe released what modern collectors consider the signature Calatrava, the ref. 3520.</p>\r\n"
+      description__format: basic_html
+      weight: '0'
+      parent: '0'
+      uuid: 8f29c044-cb83-42ae-9e02-c26ec4a4497a
     -
       vid: watch_series_categories
       tid: '412'
@@ -3605,7 +3625,7 @@ taxonomies:
       tid: '425'
       langcode: en
       name: Day-Date
-      description__value: "<p>Day-DateThe Rolex Day-Date, presented in 1956, was the first wristwatch to display the day (spelled in full) and the date at the same time. The Day-Date has been worn by some of the most prominent figures in history, including high-profile political figures, movie stars and more and has long been regarded as the standard of luxury and affluence</p>\r\n"
+      description__value: "<p>The Rolex Day-Date, presented in 1956, was the first wristwatch to display the day (spelled in full) and the date at the same time. The Day-Date has been worn by some of the most prominent figures in history, including high-profile political figures, movie stars and more and has long been regarded as the standard of luxury and affluence</p>\r\n"
       description__format: basic_html
       weight: '0'
       parent: '0'
@@ -4070,6 +4090,16 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: 0bc66b0d-f7ee-4ce4-bbdc-1159eaa0c6b4
+    -
+      vid: watch_series_categories
+      tid: '551'
+      langcode: en
+      name: Nautilus
+      description__value: "<p>Designed by legendary Swiss designer Gerald Genta, and launched by Patek Philippe in 1976 during the 'quartz crisis', the Nautilus was the first 'sports' watch to be released by the brand. The first model was a ref. 3700 that is still highly sought after today, and the Nautilus family has become one of the most popular collections within Patek Philippe, synonymous with anyone remotely interested in the world of luxury watches.</p>\r\n"
+      description__format: basic_html
+      weight: '0'
+      parent: '0'
+      uuid: 5832ccb2-f214-4910-90ad-b0f3b3f61c7c
     -
       vid: watch_series_categories
       tid: '472'
@@ -5567,7 +5597,7 @@ menus:
     menu_name: wristcheck-bottom-menu
     title: FAQs
     parent: null
-    uri: 'internal:#'
+    uri: 'internal:/faq'
     link_title: ''
     description: null
     enabled: '1'
@@ -6826,7 +6856,7 @@ menus:
   -
     menu_name: wristcheck-bottom-menu
     title: PAYEMENTS
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: 'menu_link_content:0d91a143-6e20-42f1-9041-9bef5d8407b6'
     uri: 'internal:#'
     link_title: ''
     description: null
@@ -6850,19 +6880,19 @@ menus:
   -
     menu_name: wristcheck-bottom-menu
     title: 'PRIVACY POLICY'
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: null
     uri: 'internal:#'
     link_title: ''
     description: null
     enabled: '1'
-    expanded: '0'
+    expanded: '1'
     weight: '-48'
     langcode: en
     uuid: 0d91a143-6e20-42f1-9041-9bef5d8407b6
   -
     menu_name: wristcheck-bottom-menu
     title: 'TERMS & CONDITIONS'
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: 'menu_link_content:0d91a143-6e20-42f1-9041-9bef5d8407b6'
     uri: 'internal:#'
     link_title: ''
     description: null
