@@ -29,36 +29,36 @@ class UserRegisterForm extends FormBase
   {
 
     $form['errors'] = [];
-    $form['first_name'] = [
-      '#type' => 'textfield',
-      '#title' => 'First name',
-      '#size' => 60,
-      '#maxlength' => USERNAME_MAX_LENGTH,
-      '#description' => $this->t('Enter your First Name.' ),
-      '#required' => TRUE,
-      '#attributes' => [
-        'autocorrect' => 'none',
-        'autocapitalize' => 'none',
-        'spellcheck' => 'false',
-        'autofocus' => 'autofocus',
-        'placeholder' => 'First Name',
-      ],
-    ];
-    $form['last_name'] = [
-      '#type' => 'textfield',
-      '#title' => 'Last name',
-      '#size' => 60,
-      '#maxlength' => USERNAME_MAX_LENGTH,
-      '#description' => $this->t('Enter your Last Name.' ),
-      '#required' => TRUE,
-      '#attributes' => [
-        'autocorrect' => 'none',
-        'autocapitalize' => 'none',
-        'spellcheck' => 'false',
-        'autofocus' => 'autofocus',
-        'placeholder' => 'Last Name',
-      ],
-    ];
+//    $form['first_name'] = [
+//      '#type' => 'textfield',
+//      '#title' => 'First name',
+//      '#size' => 60,
+//      '#maxlength' => USERNAME_MAX_LENGTH,
+//      '#description' => $this->t('Enter your First Name.' ),
+//      '#required' => TRUE,
+//      '#attributes' => [
+//        'autocorrect' => 'none',
+//        'autocapitalize' => 'none',
+//        'spellcheck' => 'false',
+//        'autofocus' => 'autofocus',
+//        'placeholder' => 'First Name',
+//      ],
+//    ];
+//    $form['last_name'] = [
+//      '#type' => 'textfield',
+//      '#title' => 'Last name',
+//      '#size' => 60,
+//      '#maxlength' => USERNAME_MAX_LENGTH,
+//      '#description' => $this->t('Enter your Last Name.' ),
+//      '#required' => TRUE,
+//      '#attributes' => [
+//        'autocorrect' => 'none',
+//        'autocapitalize' => 'none',
+//        'spellcheck' => 'false',
+//        'autofocus' => 'autofocus',
+//        'placeholder' => 'Last Name',
+//      ],
+//    ];
     $form['email'] = [
       '#type' => 'textfield',
       '#title' => 'Email',
@@ -74,21 +74,21 @@ class UserRegisterForm extends FormBase
         'placeholder' => 'Email',
       ],
     ];
-    $form['username'] = [
-      '#type' => 'textfield',
-      '#title' => 'Username',
-      '#size' => 60,
-      '#maxlength' => USERNAME_MAX_LENGTH,
-      '#description' => $this->t('Enter your UserName.' ),
-      '#required' => TRUE,
-      '#attributes' => [
-        'autocorrect' => 'none',
-        'autocapitalize' => 'none',
-        'spellcheck' => 'false',
-        'autofocus' => 'autofocus',
-        'placeholder' => 'First Name',
-      ],
-    ];
+//    $form['username'] = [
+//      '#type' => 'textfield',
+//      '#title' => 'Username',
+//      '#size' => 60,
+//      '#maxlength' => USERNAME_MAX_LENGTH,
+//      '#description' => $this->t('Enter your UserName.' ),
+//      '#required' => TRUE,
+//      '#attributes' => [
+//        'autocorrect' => 'none',
+//        'autocapitalize' => 'none',
+//        'spellcheck' => 'false',
+//        'autofocus' => 'autofocus',
+//        'placeholder' => 'First Name',
+//      ],
+//    ];
     $form['password'] = [
       '#type' => 'password',
       '#title' => 'Password',
@@ -167,21 +167,22 @@ class UserRegisterForm extends FormBase
 //    dd($form_state->getValues()["condition"]);
     try {
       $mailManager = \Drupal::service('plugin.manager.mail');
-      $first_name = $form_state->getValues()['first_name'];
-      $last_name = $form_state->getValues()['last_name'];
+//      $first_name = $form_state->getValues()['first_name'];
+//      $last_name = $form_state->getValues()['last_name'];
       $email = $form_state->getValues()['email'];
-      $name = $form_state->getValues()['username'];
+//      $name = $form_state->getValues()['username'];
       $pwd = $form_state->getValues()['password'];
       $disUpdate = $form_state->getValues()['discoverupdate'];
       $cond = $form_state->getValues()['condition'];
 //      $pwd = $this->randompwd();
       $result = trim($email);
       if (filter_var($result, FILTER_VALIDATE_EMAIL)) {
-        if($email !="" && $name !="" && $pwd !="")  {
+//        if($email !="" && $name !="" && $pwd !="")  {
+        if($email !="" && $pwd !="")  {
           $query = \Drupal::entityQuery('user');
           $orGroup1 = $query->orConditionGroup();
           $orGroup1->condition('mail', $email);
-          $orGroup1->condition('name', $name);
+//          $orGroup1->condition('name', $name);
           $ids = $query->condition($orGroup1)
             ->execute();
           if (!empty($ids)) {
@@ -190,11 +191,11 @@ class UserRegisterForm extends FormBase
             //  create user
             $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
             $user = \Drupal\user\Entity\User::create();
-            $user->setUsername($name);
+//            $user->setUsername($name);
             $user->setPassword($pwd);
             $user->setEmail($email);
-            $user->set("field_first_name",$first_name);
-            $user->set("field_last_name",$last_name);
+//            $user->set("field_first_name",$first_name);
+//            $user->set("field_last_name",$last_name);
             $user->set("field_discover_updated",$disUpdate);
             $user->set("field_product_launches",$cond);
             $user->set("init",  $email);
@@ -205,7 +206,7 @@ class UserRegisterForm extends FormBase
             $user->save();
 //        $sys_mail  = \Drupal::config('system.site')->get('mail');
             $params['subject'] = t('Wristcheck Username & Password Email');
-            $params['body'] = t('Your Username is: @user , Your  Password is: @pass', ['@user' => $name, '@pass'=> $pwd]);
+            $params['body'] = t('Your Username is: @user , Your  Password is: @pass', ['@user' => $email , '@pass'=> $pwd]);
             $params['headers'] = [
               'content-type' => 'text/plain',
             ];

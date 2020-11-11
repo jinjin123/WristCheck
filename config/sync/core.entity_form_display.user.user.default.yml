@@ -10,11 +10,9 @@ dependencies:
     - field.field.user.user.field_description
     - field.field.user.user.field_discover_updated
     - field.field.user.user.field_email_to_receive_order_sta
-    - field.field.user.user.field_first_name
     - field.field.user.user.field_full_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_guide
-    - field.field.user.user.field_last_name
     - field.field.user.user.field_location
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_pay_by_email_authenticatio
@@ -93,14 +91,6 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_first_name:
-    weight: 24
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_full_name:
     weight: 9
     settings:
@@ -122,14 +112,6 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
-    region: content
-  field_last_name:
-    weight: 25
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_location:
     weight: 30
