@@ -15,6 +15,9 @@ use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Site\Settings;
+use Drupal\commerce_order\Entity\Order;
+use Drupal\commerce_order\Adjustment;
+use Drupal\commerce_price\Price;
 
 /**
  * Implements hook_help().
@@ -545,3 +548,53 @@ function wristcheck_basic_views_pre_render(ViewExecutable $view) {
 //    $view->setHandler('transactions_sell', 'header', 'area_text_custom', $options);
 //  }
 //}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function wristcheck_basic_form_views_form_commerce_cart_form_default_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+  $order_id = substr($form_id, strlen('views_form_commerce_cart_form_default_'));
+  $order = Order::load($order_id);
+  $if_need_insurance_value = isset($order->get('field_if_need_insurance')->getValue()[0]) ?
+    $order->get('field_if_need_insurance')->getValue()[0]['value'] : 0;
+  $form['insurance'] = [
+    '#type' => 'checkbox',
+    '#title' => 'WRISTCHECK INSURANCE',
+    '#description' => 'description description description...',
+    '#default_value' => $if_need_insurance_value,
+  ];
+
+  $form['actions']['submit']['#submit'][] = 'wristcheck_basic_cart_update';
+
+}
+
+function wristcheck_basic_cart_update($form, &$form_state) {
+  $values = $form_state->getValues();
+  $order_id = substr($values["form_id"], strlen('views_form_commerce_cart_form_default_'));
+  $order = Order::load($order_id);
+  $currency_code = $order->getTotalPrice()->getCurrencyCode();
+  // todo: calculate amount by set value
+  $amount = '10';
+  //$adjustments = $order->getAdjustments();
+  $adjustment_amount = new Price($amount, $currency_code);
+  $adjustment = new Adjustment([
+    'type' => 'custom',
+    'label' => 'Plus 10%',
+    'amount' => $adjustment_amount,
+    'percentage' => '0.1',
+    'included' => FALSE,
+    'locked' => TRUE,
+  ]);
+  if ($values['insurance']) {
+    $order->set('field_if_need_insurance', 1);
+    $order->setAdjustments([$adjustment]);
+    $order->save();
+  }
+  else {
+    $order->set('field_if_need_insurance', 0);
+    $order->setAdjustments([]);
+    $order->save();
+  }
+
+}
