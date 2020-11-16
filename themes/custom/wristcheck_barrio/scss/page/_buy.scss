@@ -13,6 +13,10 @@ ul.wc-buy-more-products > li {
   .step-number_box-item{
     display: flex;
     padding: 30px;
+    .step-number_img{
+      width: 60px;
+      height: 60px;
+    }
     .step-number_content{
       margin-left: 20px;
     }
