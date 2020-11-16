@@ -1,36 +1,31 @@
-uuid: b57ab3d6-57a3-45eb-b752-71689189a0ed
+uuid: d7942afb-90c6-4933-8086-8f4cd06035ee
 langcode: en
 status: true
 dependencies:
   config:
-    - commerce_order.commerce_order_type.default
-    - field.field.commerce_order.default.field_do_you_need_a_gift_bag
-    - field.field.commerce_order.default.field_if_need_insurance
-    - field.field.commerce_order.default.field_phone
-    - field.field.commerce_order.default.shipments
+    - commerce_order.commerce_order_type.2hw_order
+    - field.field.commerce_order.2hw_order.field_if_need_insurance
+    - field.field.commerce_order.2hw_order.shipments
   module:
     - commerce_order
     - inline_entity_form
-    - telephone
-_core:
-  default_config_hash: 1NKrIQBqELStd0cyiuHeNArhuPvOZj36faDEG1dWqEA
-id: commerce_order.default.default
+id: commerce_order.2hw_order.default
 targetEntityType: commerce_order
-bundle: default
+bundle: 2hw_order
 mode: default
 content:
   adjustments:
     type: commerce_adjustment_default
-    weight: 2
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   billing_profile:
     type: commerce_billing_profile
     weight: 0
     settings: {  }
-    third_party_settings: {  }
     region: content
+    third_party_settings: {  }
   cart:
     type: boolean_checkbox
     settings:
@@ -38,45 +33,31 @@ content:
     weight: 20
     region: content
     third_party_settings: {  }
-  field_do_you_need_a_gift_bag:
-    weight: 22
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_if_need_insurance:
-    weight: 23
+    weight: 21
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_phone:
-    weight: 21
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
   order_items:
     type: inline_entity_form_complex
-    weight: 1
+    weight: 0
     settings:
       override_labels: true
       label_singular: 'order item'
       label_plural: 'order items'
-      allow_new: true
-      match_operator: CONTAINS
-      allow_existing: false
       form_mode: default
       revision: false
       collapsible: false
       collapsed: false
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
       allow_duplicate: false
-    third_party_settings: {  }
     region: content
+    third_party_settings: {  }
 hidden:
-  created: true
   ip_address: true
   mail: true
   order_number: true

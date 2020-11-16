@@ -5,6 +5,7 @@ dependencies:
   config:
     - commerce_order.commerce_order_type.default
     - field.field.commerce_order.default.field_do_you_need_a_gift_bag
+    - field.field.commerce_order.default.field_if_need_insurance
     - field.field.commerce_order.default.field_phone
     - field.field.commerce_order.default.shipments
   module:
@@ -46,6 +47,16 @@ content:
       format: yes-no
       format_custom_true: ''
       format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_if_need_insurance:
+    weight: 11
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     type: boolean
     region: content
