@@ -573,16 +573,15 @@ function wristcheck_basic_cart_update($form, &$form_state) {
   $values = $form_state->getValues();
   $order_id = substr($values["form_id"], strlen('views_form_commerce_cart_form_default_'));
   $order = Order::load($order_id);
-  $currency_code = $order->getTotalPrice()->getCurrencyCode();
-  // todo: calculate amount by set value
-  $amount = '10';
-  //$adjustments = $order->getAdjustments();
-  $adjustment_amount = new Price($amount, $currency_code);
+  $totalPrice = $order->getTotalPrice();
+  //$currency_code = $totalPrice->getCurrencyCode();
+  $insurance_rate = \Drupal::config('wristcheck_basic.rateSettings')->get('insurance');
+  $adjustment_amount = $totalPrice->multiply($insurance_rate)->divide('100');
   $adjustment = new Adjustment([
     'type' => 'custom',
-    'label' => 'Plus 10%',
+    'label' => 'Plus '. $insurance_rate .'%',
     'amount' => $adjustment_amount,
-    'percentage' => '0.1',
+    'percentage' => bcdiv($insurance_rate, '100', 3),
     'included' => FALSE,
     'locked' => TRUE,
   ]);
@@ -596,7 +595,6 @@ function wristcheck_basic_cart_update($form, &$form_state) {
     $order->setAdjustments([]);
     $order->save();
   }
-
 }
 
 
