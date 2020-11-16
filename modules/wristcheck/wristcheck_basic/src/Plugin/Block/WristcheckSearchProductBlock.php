@@ -110,12 +110,12 @@ class WristcheckSearchProductBlock extends BlockBase implements ContainerFactory
       ->fetchAll();
 
     $variables = [
-      'case_diameter' => $case_diameter,
       'years' => $years,
       'brands' => $brands,
-      'models' => $models,
+      'currencies' => $currencies,
+      'case_diameter' => $case_diameter,
       'locations' => $locations,
-      'currencies' => $currencies
+      'models' => $models,
     ];
 
     $build['#variables'] = $variables;

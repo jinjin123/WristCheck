@@ -1,7 +1,45 @@
+.wc-price-search__item {
+   padding-bottom: 20px;
+}
+.noUi-pips {
+  display: none;
+}
+.wc-brand-overscollbox {
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+.wc-casesize-overscollbox {
+  height: 300px;
+  padding-top: 10px;
+}
+.wc-location-overscollbox {
+  height: 200px;
+  padding-top: 10px;
+}
+
 .wc-buy-more-products {
   .item-list ul > li {
     margin-bottom: 40px;
   }
+}
+#wc-range {
+  margin-top: 20px;
+  height: 0px;
+}
+.wc-price-updatebtn {
+  >a {
+    width: 100%;
+    font-weight: bold;
+  }
+}
+.wc-price-hr {
+  height: 1px;
+  width: 10px;
+  background: rgba(255, 255, 255, 1);
+  border: none;
+  border-top: 1px solid #555555;
 }
 
 ul.wc-buy-more-products > li {
@@ -80,5 +118,26 @@ ul.wc-buy-more-products > li {
 @media (max-width: 961px) {
   .process-img{
     height: 120px;
+  }
+}
+
+.wc-buy-searchbox-border {
+  border:1px solid;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-color: $top_border_color;
+  opacity:  0.2;
+}
+
+.wc-pd-search-button {
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  border: 1px solid #D8D8D8;
+  border-color: #D8D8D8;
+  >a {
+    font-size: 18px;
+    top: 5px;
+    position: relative;
   }
 }

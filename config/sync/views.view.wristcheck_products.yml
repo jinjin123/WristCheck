@@ -3211,10 +3211,25 @@ display:
           group_type: group
           admin_label: ''
           order: DESC
-          exposed: false
+          exposed: true
           expose:
-            label: ''
+            label: 'Ask Price (field_ask_price:number)'
           plugin_id: standard
+        created:
+          id: created
+          table: commerce_product_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: Created
+          granularity: second
+          entity_type: commerce_product
+          entity_field: created
+          plugin_id: date
       exposed_form:
         type: bef
         options:
@@ -3297,6 +3312,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
       tags:
         - 'config:field.storage.commerce_product.body'
         - 'config:field.storage.commerce_product.field_ask_price'

@@ -12,20 +12,11 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: 'Mainland china'
-      label: 'Mainland china'
+      value: China
+      label: China
     -
       value: 'Hong Kong'
       label: 'Hong Kong'
-    -
-      value: Macau
-      label: Macau
-    -
-      value: Taiwan
-      label: Taiwan
-    -
-      value: Japan
-      label: Japan
   allowed_values_function: ''
 module: options
 locked: false
