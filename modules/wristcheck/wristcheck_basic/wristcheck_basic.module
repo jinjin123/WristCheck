@@ -579,7 +579,7 @@ function wristcheck_basic_cart_update($form, &$form_state) {
   $adjustment_amount = $totalPrice->multiply($insurance_rate)->divide('100');
   $adjustment = new Adjustment([
     'type' => 'custom',
-    'label' => 'Plus '. $insurance_rate .'%',
+    'label' => 'Insurance Plus '. $insurance_rate .'%',
     'amount' => $adjustment_amount,
     'percentage' => bcdiv($insurance_rate, '100', 3),
     'included' => FALSE,
