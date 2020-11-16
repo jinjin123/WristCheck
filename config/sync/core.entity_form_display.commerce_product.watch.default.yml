@@ -14,10 +14,10 @@ dependencies:
     - field.field.commerce_product.watch.field_case_band_length
     - field.field.commerce_product.watch.field_case_band_material
     - field.field.commerce_product.watch.field_case_band_width
-    - field.field.commerce_product.watch.field_case_diameter
     - field.field.commerce_product.watch.field_case_face
     - field.field.commerce_product.watch.field_case_number
     - field.field.commerce_product.watch.field_case_shape
+    - field.field.commerce_product.watch.field_case_size
     - field.field.commerce_product.watch.field_case_thickness
     - field.field.commerce_product.watch.field_case_weight
     - field.field.commerce_product.watch.field_cate
@@ -146,14 +146,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_case_diameter:
-    weight: 26
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_case_face:
     weight: 30
     settings:
@@ -177,6 +169,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_case_size:
+    weight: 60
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_case_thickness:
     weight: 27

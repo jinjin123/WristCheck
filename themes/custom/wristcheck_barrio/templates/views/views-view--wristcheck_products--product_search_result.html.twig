@@ -45,8 +45,17 @@
     {{ title }}
   {% endif %}
   {{ title_suffix }}
-    <div class="view-header">
-      {{ drupal_block('wristcheck_filter_product_block') }}
+    <div class="wc-product-searchview-header">
+{#      {{ drupal_block('wristcheck_filter_product_block') }}#}
+      <div class="wc-sortproduct-option">
+        <span>Sort by</span>
+        <select>
+          <option value="1">Newest first</option>
+          <option value="2">Price low to high</option>
+          <option value="3">Price high to low</option>
+        </select>
+        {#  {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}#}
+      </div>
     </div>
 {#  {% if exposed %}#}
 {#    <div class="view-filters">#}

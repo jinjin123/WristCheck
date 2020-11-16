@@ -2527,51 +2527,6 @@ display:
               2: {  }
               3: {  }
           plugin_id: numeric
-        field_case_diameter_value:
-          id: field_case_diameter_value
-          table: commerce_product__field_case_diameter
-          field: field_case_diameter_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 5
-          exposed: true
-          expose:
-            operator_id: field_case_diameter_value_op
-            label: 'case_diameter (field_case_diameter)'
-            description: ''
-            use_operator: false
-            operator: field_case_diameter_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_case_diameter_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              shop_admin: '0'
-              administrator: '0'
-              neirongguanliyuan: '0'
-              chanpinguanliyuan: '0'
-              putongyonghu: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
         field_related_model_target_id:
           id: field_related_model_target_id
           table: commerce_product__field_related_model
@@ -2584,7 +2539,7 @@ display:
             min: ''
             max: ''
             value: ''
-          group: 6
+          group: 5
           exposed: true
           expose:
             operator_id: field_related_model_target_id_op
@@ -2631,7 +2586,7 @@ display:
           admin_label: ''
           operator: '='
           value: ''
-          group: 7
+          group: 6
           exposed: true
           expose:
             operator_id: field_year_value_op
@@ -2667,6 +2622,56 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        field_case_size_value:
+          id: field_case_size_value
+          table: commerce_product__field_case_size
+          field: field_case_size_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: '0'
+            max: '100'
+            value: ''
+          group: 7
+          exposed: true
+          expose:
+            operator_id: case_size_op
+            label: 'Case Size(MM) (field_case_size)'
+            description: ''
+            use_operator: true
+            operator: field_case_size_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: case_size
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              shop_admin: '0'
+              administrator: '0'
+              neirongguanliyuan: '0'
+              chanpinguanliyuan: '0'
+              putongyonghu: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       defaults:
         filters: false
         filter_groups: false
@@ -3146,44 +3151,7 @@ display:
                   collapsible: false
                   is_secondary: false
       use_ajax: false
-      footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: "<div class=\"wc-panel\">\r\n    <h1 class='wc-panel__title text-center'>WRISTCHECK SELECTS</h1>\r\n\r\n  </div>"
-            format: full_html
-          plugin_id: text
-        view:
-          id: view
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          view_to_insert: 'wristcheck_products:hot_recommended'
-          inherit_arguments: false
-          plugin_id: view
-        area_1:
-          id: area_1
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: "Top categories\r\nRafael Nadal Watches ..."
-            format: full_html
-          plugin_id: text
+      footer: {  }
       header: {  }
     cache_metadata:
       max-age: -1

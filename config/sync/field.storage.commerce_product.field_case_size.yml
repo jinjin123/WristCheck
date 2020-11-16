@@ -1,17 +1,16 @@
-uuid: 91883954-4d8a-4f03-afae-0ab2a38faf95
+uuid: f485c31c-6836-4f16-b2e5-dc0a4689ce26
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_product
-id: commerce_product.field_case_diameter
-field_name: field_case_diameter
+id: commerce_product.field_case_size
+field_name: field_case_size
 entity_type: commerce_product
-type: string
+type: integer
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

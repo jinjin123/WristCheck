@@ -13,7 +13,6 @@ dependencies:
     - field.field.commerce_product.watch.field_case_band_length
     - field.field.commerce_product.watch.field_case_band_material
     - field.field.commerce_product.watch.field_case_band_width
-    - field.field.commerce_product.watch.field_case_diameter
     - field.field.commerce_product.watch.field_case_face
     - field.field.commerce_product.watch.field_case_number
     - field.field.commerce_product.watch.field_case_shape
@@ -252,13 +251,6 @@ mappings:
     target: field_power_time
     map:
       value: power_time
-    unique: {  }
-    settings:
-      language: null
-  -
-    target: field_case_diameter
-    map:
-      value: case_diameter
     unique: {  }
     settings:
       language: null

@@ -414,12 +414,14 @@
 			});
 		}
 	});
-	$('.wc-product-search .wc-search-btn').click(function () {
+	// $('.wc-product-search .wc-search-btn').click(function () {
+  $('.wc-product-search ').click(function () {
 		var searhBox = $('.wc-product-search');
 		var redirct = '/product/search-result';
 		var paramsStrArr = [];
 		searhBox.find('form').each(function (index, item) {
-			var queryString = $(item).serialize();
+			// var queryString = $(item).serialize();
+      var queryString = $(item).serialize();
 			var queryArr = $(item).serializeArray();
 			if (queryString.length > 0) {
 				paramsStrArr.push(queryString)
@@ -431,8 +433,8 @@
 			//   }
 			// })
 		});
-
-		location.href = redirct + (paramsStrArr.length === 0 ? '' : ('?' + paramsStrArr.join('&')))
+      // console.log(decodeURIComponent(('?' + paramsStrArr.join('&'))))
+		location.href = redirct + (paramsStrArr.length === 0 ? '' : decodeURIComponent('?' + paramsStrArr.join('&')))
 	});
 	$('.wc-product-search .wc-clear-font').click(function () {
 		var _this = $(this);
