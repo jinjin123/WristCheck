@@ -388,4 +388,10 @@ wristcheck_basic.rateSettings:
     _title: 'Wristcheck Rate Setting'
   requirements:
     _permission: 'administer site configuration'
-
+wristcheck_basic.getRate:
+  path: '/wristcheck_basic/getRate'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::getRate'
+    _title: 'The rate'
+  requirements:
+    _access: 'TRUE'
