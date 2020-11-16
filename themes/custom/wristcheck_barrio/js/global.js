@@ -8,7 +8,7 @@
 	'use strict';
 
 	// debug
-	var local = window.location.origin;
+/* 	var local = window.location.origin;
 	if (local.indexOf('localhost') > -1) {
 		$('img').each(function () {
 			var img = $(this)
@@ -25,7 +25,7 @@
 			}
 		})
 	}
-
+ */
 
 	// Drupal.behaviors.ProductVariationLoad = {
 	//   attach: function (context, settings) {
