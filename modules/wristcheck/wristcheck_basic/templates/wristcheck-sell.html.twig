@@ -51,11 +51,22 @@
   <div class="col-md-12">
     <div class="wc-panel">
       <div class="wc-panel2__title text-center">LOW SALES COMMISSION</div>
-      <div
-        class="wc-panel2__sub text-center"> {{ 'We charge 6.5% of your selling price'|t }}</div>
+      <div class="wc-panel2__sub text-center"> {{ 'We charge 6.5% of your selling price'|t }}</div>
       <div class="wc-low-sales">
-        <div class="wc-panel__title text-center text-white">Calculate your payoff </div>
-        {{ drupal_entity("webform","faq_price") }}
+        <div class="wc-panel__title text-center text-white">LOW SALES COMMISSION </div>
+        {# {{ drupal_entity("webform","faq_price") }} #}
+        <div>We charge 6.5% of your selling price</div>
+        <div>CALCULATE YOUR PAYOFF</div>
+        <div class="wc-sell-input">
+        <div class="wc-sell-inputl">
+        <label for="edit-first-size" class="js-form-required form-required">Your selling price</label>
+        <input data-drupal-selector="edit-first-size" type="text" id="edit-first-size" name="first_size" value="" size="25" maxlength="255" class="form-text required form-control" required="required" aria-required="true">
+        </div>
+        <div class="wc-sell-inputl">
+        <label for="edit-first-size" class="js-form-required form-required">Your earnings</label>
+        <input data-drupal-selector="edit-second-size" type="text" id="edit-second-size" name="second_size" value="" size="25" maxlength="255" class="form-text required form-control" required="required" aria-required="true">
+        </div>
+        </div>
       </div>
     </div>
   </div>
