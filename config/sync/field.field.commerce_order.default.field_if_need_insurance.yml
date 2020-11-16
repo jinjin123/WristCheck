@@ -1,0 +1,21 @@
+uuid: 938405f8-f8b4-4f3c-87ef-2cb2116c18e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.default
+    - field.storage.commerce_order.field_if_need_insurance
+id: commerce_order.default.field_if_need_insurance
+field_name: field_if_need_insurance
+entity_type: commerce_order
+bundle: default
+label: if_need_insurance
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
