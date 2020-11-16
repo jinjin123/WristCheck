@@ -381,3 +381,11 @@ wristcheck_basic.enableacc:
   options:
     user: \d+
 
+wristcheck_basic.rateSettings:
+  path: '/admin/config/system/wristcheck_basic/rateSetting'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\WristcheckRateSettingsForm'
+    _title: 'Wristcheck Rate Setting'
+  requirements:
+    _permission: 'administer site configuration'
+
