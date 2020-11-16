@@ -10,6 +10,7 @@ dependencies:
     - field.storage.commerce_product.field_cate
     - field.storage.commerce_product.field_condition
     - field.storage.commerce_product.field_crust_material
+    - field.storage.commerce_product.field_delivery_box
     - field.storage.commerce_product.field_extras
     - field.storage.commerce_product.field_location
     - field.storage.commerce_product.field_model_images
@@ -19,6 +20,7 @@ dependencies:
     - field.storage.commerce_product.field_scope_of_delivery
     - field.storage.commerce_product.field_verified_dealer
     - field.storage.commerce_product.field_watch_core
+    - field.storage.commerce_product.field_watch_series
     - field.storage.commerce_product.field_watch_sex
     - field.storage.commerce_product.field_year
     - flag.flag.wristcheck_wishlist
@@ -1504,7 +1506,7 @@ display:
       pager:
         type: infinite_scroll
         options:
-          items_per_page: 12
+          items_per_page: 27
           offset: 0
           id: 0
           total_pages: null
@@ -1599,256 +1601,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_place_of_origin:
-          id: field_place_of_origin
-          table: commerce_product__field_place_of_origin
-          field: field_place_of_origin
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: address_country_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_radioactivity:
-          id: field_radioactivity
-          table: commerce_product__field_radioactivity
-          field: field_radioactivity
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: energy
-          type: radioactivity_value
-          settings:
-            decimals: !!float 1
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_ask_price:
-          id: field_ask_price
-          table: commerce_product__field_ask_price
-          field: field_ask_price
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_verified_dealer:
-          id: field_verified_dealer
-          table: commerce_product__field_verified_dealer
-          field: field_verified_dealer
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         view_commerce_product:
           id: view_commerce_product
           table: commerce_product
@@ -1902,18 +1654,144 @@ display:
           absolute: false
           entity_type: commerce_product
           plugin_id: entity_link
-        body:
-          id: body
-          table: commerce_product__body
-          field: body
+        field_watch_series:
+          id: field_watch_series
+          table: commerce_product__field_watch_series
+          field: field_watch_series
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
-            text: "<a href=\"{{view_commerce_product}}\">\r\n\t<div class=\"portfolio-img wc-ex-panel mb-20\">\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_model_images}}\"></div>\r\n\t</div>\r\n\t<div class=\"portfolio-sub-detail\">\r\n\t\t<div class=\"profile-sub-country d-flex flex-row justify-content-start align-items-center\">\r\n\t\t\t<div class=\"country__box d-flex flex-row align-items-center\">\r\n\t\t\t\t<div class=\"country__img\">\r\n\t\t\t\t\t<img class=\"img-fluid\" src=\"/themes/custom/wristcheck_barrio/images/icons/usa.png\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t\t<span class=\"country__nam\">USA</span>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"like-box d-flex flex-row align-items-center\">\r\n\t\t\t\t<img src=\"/themes/custom/wristcheck_barrio/images/icons/sheild.png\" alt=\"\"\r\n\t\t\t\tclass=\"img-fluid like-icon\">\r\n\t\t\t\t<span class=\"like-count\">{{field_radioactivity}}</span>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"profile-sub-content\">\r\n\t\t\t{{body}}\r\n\t\t</div>\r\n\t\t<div class=\"profile-sub-price d-flex flex-row justify-content-between align-items-end\">\r\n\t\t\t<div class=\"price__number\">{{field_ask_price }}</div>\r\n\t\t\t<div class=\"price__star d-flex flex-column justify-content-center\">\r\n\t\t\t\t<img src=\"/themes/custom/wristcheck_barrio/images/icons/icon-star{{field_verified_dealer}}.png\" alt=\"\"\r\n\t\t\t\tclass=\"price__star-img\">\r\n\t\t\t\t<span class=\"price__star-font\">VERIFIED DEALER</span>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</a>"
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_cate:
+          id: field_cate
+          table: commerce_product__field_cate
+          field: field_cate
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_delivery_box:
+          id: field_delivery_box
+          table: commerce_product__field_delivery_box
+          field: field_delivery_box
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1951,8 +1829,72 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_default
+          type: basic_string
           settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ask_price:
+          id: field_ask_price
+          table: commerce_product__field_ask_price
+          field: field_ask_price
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"{{view_commerce_product}}\">\r\n\t<div class=\"portfolio-img wc-ex-panel mb-20\">\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_model_images}}\"></div>\r\n\t</div>\r\n\t<div class=\"portfolio-sub-detail\">\r\n                 {% if  field_delivery_box %} \r\n                                <div><img src=\"/themes/custom/wristcheck_barrio/images/watchflagbox.png\"/></div>\r\n                  {% endif %}\r\n\t\t<div class=\"wc-product-category\">{{ field_cate }}</div>\r\n\t\t<div class=\"wc-product-series\">{{ field_watch_series }}</div>\r\n\t\t<div class=\"price__number\">{{field_ask_price }}</div>\r\n\t</div>\r\n</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: number
+          type: commerce_price_default
+          settings:
+            strip_trailing_zeroes: false
+            currency_display: symbol
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1987,12 +1929,11 @@ display:
         - 'languages:language_interface'
         - url.query_args
       tags:
-        - 'config:field.storage.commerce_product.body'
         - 'config:field.storage.commerce_product.field_ask_price'
+        - 'config:field.storage.commerce_product.field_cate'
+        - 'config:field.storage.commerce_product.field_delivery_box'
         - 'config:field.storage.commerce_product.field_model_images'
-        - 'config:field.storage.commerce_product.field_place_of_origin'
-        - 'config:field.storage.commerce_product.field_radioactivity'
-        - 'config:field.storage.commerce_product.field_verified_dealer'
+        - 'config:field.storage.commerce_product.field_watch_series'
   page_1:
     display_plugin: page
     id: page_1

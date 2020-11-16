@@ -34,6 +34,23 @@
     font-weight: bold;
   }
 }
+.wc-sortproduct-option {
+  float:right;
+  >span {
+    padding-right: 10px;
+  }
+  >select {
+    height: 30px;
+    width: 200px;
+    padding-left: 10px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: white;
+    background: url(/themes/custom/wristcheck_barrio/images/sortarrow.png) no-repeat scroll right center white;
+    background-position: 170px;
+  }
+}
 .wc-price-hr {
   height: 1px;
   width: 10px;

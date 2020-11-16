@@ -1,0 +1,29 @@
+uuid: 007a24ab-670a-407b-bf69-cd7e3e0eb507
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_watch_series
+    - taxonomy.vocabulary.watch_series_categories
+id: commerce_product.watch.field_watch_series
+field_name: field_watch_series
+entity_type: commerce_product
+bundle: watch
+label: 'watch series'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      watch_series_categories: watch_series_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
