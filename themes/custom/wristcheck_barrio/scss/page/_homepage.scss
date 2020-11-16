@@ -11,8 +11,9 @@
 
   .wc-v2-how_it_works__item {
     padding: 30px;
-    display: flex;
+    //display: flex;
     flex-direction: row;
+    text-align: center;
   }
 
   .how_it_works__icon {
@@ -22,7 +23,7 @@
       height: 50px;
     }
 
-    margin-right: 20px;
+    //margin-right: 20px;
   }
 
   .how_it_works__cont {
