@@ -61,7 +61,36 @@
 	//     }
 	//   }
 	// };
-	var loading = function (href) {
+  //sort_by_product
+  if($("#sort_by_product").length > 0){
+    var redirct = '/product/search-result';
+    if(location.search =="" ){
+      location.href  =  redirct + "?sort_by=created&sort_order=DESC"
+    }
+  }
+  $("#sort_by_product").change(function (e) {
+       var sort_by_k = $("#sort_by_product option:selected")[0].value;
+       var redirct = '/product/search-result';
+      switch (sort_by_k) {
+        case "1":
+          location.href  =  redirct + "?sort_by=created&sort_order=DESC"
+          break;
+        case "2":
+          location.href  =  redirct + "?sort_by=field_ask_price_number&sort_order=ASC"
+          break;
+        case "3":
+          location.href  =  redirct + "?sort_by=field_ask_price_number&sort_order=DESC"
+          break;
+        default:
+          location.href  =  redirct + "?sort_by=created&sort_order=DESC"
+          break;
+      }
+  })
+
+  $(".wc-pd-search-button").click(function () {
+    location.href = '/buy';
+  })
+ 	var loading = function (href) {
 		$('body').append($('<div class="ajax-progress wc-progress"><div class="preloader"> <div class="spinner"> <div class="double-bounce1"></div> <div class="double-bounce2"></div> </div> </div></div>'))
 		if (href) {
 			window.location.href = href;
