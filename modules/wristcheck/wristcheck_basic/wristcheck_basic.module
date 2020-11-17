@@ -101,6 +101,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_buy_long_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_category' => [
       'variables' => [
         'variables' => []
@@ -113,6 +118,11 @@ function wristcheck_basic_theme()
     ],
 
     'wristcheck_user_buy' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_buy_benefits_block' => [
       'variables' => [
         'variables' => []
       ]

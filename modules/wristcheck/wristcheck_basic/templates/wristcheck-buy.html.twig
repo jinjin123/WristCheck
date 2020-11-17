@@ -48,7 +48,8 @@
 </div>
 <div class="v-line"></div>
 
-{#<div class="wc-panel pt-100">#}
+<div class="wc-panel pt-100">
+  {{ drupal_block('wristcheck_buy_benefits_block') }}
 {#    <h1 class='wc-panel__title text-center'>{{ 'The BUYING PROCESS'|t }}</h1>#}
 {#    <div#}
 {#        class='container'>#}
@@ -86,7 +87,7 @@
 {#            </div>#}
 {#        </div>#}
 {#    </div>#}
-{#</div>#}
+</div>
 <div class="v-line"></div>
 <div
     class="wc-panel pt-100">
@@ -131,8 +132,8 @@
         {{ drupal_view('wristcheck_products','hot_recommended') }}
     </div>
 </div>
-{#<div class="v-line"></div>#}
-{#<div class="wc-panel pt-100">#}
+<div class="v-line"></div>
+<div class="wc-panel pt-100">
 {#    <h1 class='wc-panel__title text-center'>{{ 'The BUYING PROCESS'|t }}</h1>#}
 {#    <div#}
 {#        class='container'>#}
@@ -170,7 +171,11 @@
 {#            </div>#}
 {#        </div>#}
 {#    </div>#}
-{#</div>#}
+    <h3 class="wc-panel__sub text-center pb-50">{{ 'SHOP BY BRAND'|t }}</h3>
+    <div class='container wc-brands-warp'>
+      {{ drupal_view('wristcheck_popular_watch_brands','shop_by_brand') }}
+    </div>
+</div>
 {#<div class="v-line"></div>#}
 {#<div#}
 {#    class="wc-panel pt-100">#}
@@ -258,38 +263,39 @@
 
 {#    </div>#}
 {#</div>#}
-<div class="wc-panel pt-50">
-{#    <h1 class='wc-panel__title text-center'>{{ 'MORE PRODUCTS'|t }}</h1>#}
-    {#  <div class="text-center pt-4 pb-4">#}
-    {#    <a href="javascript:;" class="wc-btn-dark mr-4 wc-btn-large">#}
-    {#      <span class="wc-btn-cont">VIEW BUY MODAL</span>#}
-    {#    </a>#}
-    {#    <a href="javascript:;" class="wc-btn-dark ml-4 wc-btn-large">#}
-    {#      <span class="wc-btn-cont">VIEW BUY LISTING</span>#}
-    {#    </a>#}
-    {#  </div>#}
-        <div class='container portfolio wc-buy-more-products'> {{ drupal_view('wristcheck_products','more_products') }}
-    </div>
-    <div>
-    </div>
 
-        {#  {{ drupal_view('wristcheck_selling_process_block') }}#}
-        {#<div class="wc-panel wc-news">#}
-        {#  <h1 class='wc-panel__title text-center'>{{ 'WRISTCHECK IN THE NEWS'|t }}</h1>#}
-        {#  <div class='container'>#}
-        {#    {{ drupal_view('wristcheck_buy_news') }}#}
-        {#  </div>#}
-        {#</div>#}
-        {#<div class="wc-panel wc-rolex portfolio">#}
-        {#  <h1 class='wc-panel__title text-center'>{{ 'FURTHER ARTICLES ABOUT ROLEX'|t }}</h1>#}
-        {#  <div class='container pt-50'>#}
-        {#    {{ drupal_view('wristcheck_buy_magazine') }}#}
-        {#  </div>#}
-        {#</div>#}
-        {#<div class="wc-panel wc-testimdnials">#}
-        {#  <h1 class='wc-panel__title text-center'>{{ 'TESTIMDNIALS'|t }}</h1>#}
-        {#  <div class='container pt-50 pb-100'>#}
-        {#    {{ drupal_view('wristcheck_testimdnials','default') }}#}
-        {#  </div>#}
-        {#</div>#}
-</div>
+{#<div class="wc-panel pt-50">#}
+{#    <h1 class='wc-panel__title text-center'>{{ 'MORE PRODUCTS'|t }}</h1>#}
+{#    #}{#  <div class="text-center pt-4 pb-4">#}
+{#    #}{#    <a href="javascript:;" class="wc-btn-dark mr-4 wc-btn-large">#}
+{#    #}{#      <span class="wc-btn-cont">VIEW BUY MODAL</span>#}
+{#    #}{#    </a>#}
+{#    #}{#    <a href="javascript:;" class="wc-btn-dark ml-4 wc-btn-large">#}
+{#    #}{#      <span class="wc-btn-cont">VIEW BUY LISTING</span>#}
+{#    #}{#    </a>#}
+{#    #}{#  </div>#}
+{#        <div class='container portfolio wc-buy-more-products'> {{ drupal_view('wristcheck_products','more_products') }}#}
+{#    </div>#}
+{#    <div>#}
+{#    </div>#}
+
+{#        #}{#  {{ drupal_view('wristcheck_selling_process_block') }}#}
+{#        #}{#<div class="wc-panel wc-news">#}
+{#        #}{#  <h1 class='wc-panel__title text-center'>{{ 'WRISTCHECK IN THE NEWS'|t }}</h1>#}
+{#        #}{#  <div class='container'>#}
+{#        #}{#    {{ drupal_view('wristcheck_buy_news') }}#}
+{#        #}{#  </div>#}
+{#        #}{#</div>#}
+{#        #}{#<div class="wc-panel wc-rolex portfolio">#}
+{#        #}{#  <h1 class='wc-panel__title text-center'>{{ 'FURTHER ARTICLES ABOUT ROLEX'|t }}</h1>#}
+{#        #}{#  <div class='container pt-50'>#}
+{#        #}{#    {{ drupal_view('wristcheck_buy_magazine') }}#}
+{#        #}{#  </div>#}
+{#        #}{#</div>#}
+{#        #}{#<div class="wc-panel wc-testimdnials">#}
+{#        #}{#  <h1 class='wc-panel__title text-center'>{{ 'TESTIMDNIALS'|t }}</h1>#}
+{#        #}{#  <div class='container pt-50 pb-100'>#}
+{#        #}{#    {{ drupal_view('wristcheck_testimdnials','default') }}#}
+{#        #}{#  </div>#}
+{#        #}{#</div>#}
+{#</div>#}

@@ -5316,6 +5316,18 @@ blocks:
         value: "<div class=\"wc-shield-box\">\r\n<div class=\"wc-shield-box__left\">\r\n<h1>WRISTCHECK GUARANTEE</h1>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/dui.png\" /></span> AUTHENTICITY GUARANTEED</div>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/qian.png\" /> </span> SECURE PAYMENT IN ESCROW</div>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/ren.png\" /> </span> SELLER GETS PAID ONCE</div>\r\n</div>\r\n\r\n<div class=\"wc-shield-box__right\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/dun.png\" /></div>\r\n</div>\r\n"
         summary: ''
         format: full_html
+  -
+    info: 'Wristcheck buy all watches banner '
+    langcode: en
+    uuid: 341b0e41-914a-4f71-b484-a5332dba6b3d
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-buyallwatches\"><img src=\"/themes/custom/wristcheck_barrio/images/buybanner.png\" /></div>\r\n"
+        summary: ''
+        format: full_html
 menus:
   -
     menu_name: main

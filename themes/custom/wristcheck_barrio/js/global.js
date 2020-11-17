@@ -8,23 +8,23 @@
 	'use strict';
 
 	// debug
-	var local = window.location.origin;
-	if (local.indexOf('localhost') > -1) {
-		$('img').each(function () {
-			var img = $(this)
-			var url = img.attr('src')
-			if (url.match(/^[http|htts]/ig) == null) {
-				$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
-			}
-		})
-		$('.lazyload[data-original]').each(function () {
-			var img = $(this)
-			var url = img.attr('data-original')
-			if (url.match(/^[http|htts]/ig) == null) {
-				$(this).attr('data-original', 'http://dev.wristcheck.com:8888' + url)
-			}
-		})
-	}
+	// var local = window.location.origin;
+	// if (local.indexOf('localhost') > -1) {
+	// 	$('img').each(function () {
+	// 		var img = $(this)
+	// 		var url = img.attr('src')
+	// 		if (url.match(/^[http|htts]/ig) == null) {
+	// 			$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
+	// 		}
+	// 	})
+	// 	$('.lazyload[data-original]').each(function () {
+	// 		var img = $(this)
+	// 		var url = img.attr('data-original')
+	// 		if (url.match(/^[http|htts]/ig) == null) {
+	// 			$(this).attr('data-original', 'http://dev.wristcheck.com:8888' + url)
+	// 		}
+	// 	})
+	// }
 
 	// Drupal.behaviors.ProductVariationLoad = {
 	//   attach: function (context, settings) {
@@ -64,7 +64,7 @@
   //sort_by_product
   if($("#sort_by_product").length > 0){
     var redirct = '/product/search-result';
-    if(location.search =="" ){
+    if(location.search =="" && location.pathname != "/buy"){
       location.href  =  redirct + "?sort_by=created&sort_order=DESC"
     }
   }

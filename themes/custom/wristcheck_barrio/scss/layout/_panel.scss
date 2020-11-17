@@ -371,10 +371,40 @@
 .wc-brand-product,
 .view-wristcheck-products,
 .view-id-wristcheck_popular_watch_brands {
+  .js-pager__items {
+    padding-top: 50px;
+     > li {
+       text-align: center;
+       list-style: none;
+       >a {
+         padding: 10px;
+         border: 1px solid #D8D8D8;
+         border-color: #D8D8D8;
+         font-weight: bold;
+       }
+     }
+  }
   .view-content {
     display: flex;
     flex-wrap: wrap;
-
+    .views-infinite-scroll-content-wrapper {
+      display: flex ;
+      > .views-row {
+        display: block;
+        width: 20%;
+        padding: 5px;
+        .field-content {
+          transition: all .3s ease-in;
+          a > img {
+            display: inline-block;
+            width: 100%;
+          }
+          &:hover {
+            box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
     > .views-row {
       display: block;
       width: 20%;
@@ -423,6 +453,32 @@
     > ul > li {
       //width: 25%;
       width: 33.3%;
+      float: left;
+      padding: 0.75rem 1.25rem;
+    }
+  }
+}
+.wc-editor-pick {
+  .item-list {
+    *zoom: 1;
+    display: block;
+    width: 100%;
+
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+      // Fixes Opera/contenteditable bug:
+      // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+      line-height: 0;
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    > ul > li {
+      width: 25%;
       float: left;
       padding: 0.75rem 1.25rem;
     }

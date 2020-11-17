@@ -61,6 +61,18 @@
 .wc-product-searchview-header {
    padding-bottom:  50px;
 }
+.wc-longbuy-product-split-rg {
+  .portfolio-sub-detail {
+    text-align:  center;
+    padding-top: 10px;
+    .price__number {
+      font-weight: bold;
+    }
+    .wc-product-category {
+      font-weight: bold;
+    }
+  }
+}
 
 ul.wc-buy-more-products > li {
   margin-bottom: 40px;
@@ -87,7 +99,7 @@ ul.wc-buy-more-products > li {
       font-size: 14px;
     }
   }
-  
+
 }
 .step-img_box{
   display: flex;
@@ -184,4 +196,49 @@ ul.wc-buy-more-products > li {
     top: 5px;
     position: relative;
   }
+}
+
+//#block-wristcheckbuyallwatchesbanner {
+//  width:100%;
+//  .wc-buyallwatches {
+//    img {
+//      width:100%;
+//    }
+//  }
+//}
+//.block-views-blockwristcheck-products-more-products {
+//   width:100%;
+//  .wc-buyallwatches {
+//     img {
+//       width:100%;
+//     }
+//  }
+//}
+.wc-buy-long-product {
+   display: flex;
+    .wc-buyallwatches {
+       img {
+         width:100%;
+       }
+    }
+}
+.wc-buyallwatches {
+  padding-bottom: 20px;
+  img {
+    width:100%;
+  }
+}
+
+.block-wristcheck-buy-long-block{
+   width:100%;
+  .wc-buyallwatches {
+     img {
+       width:100%;
+     }
+  }
+}
+
+
+.wc-longbuy-product-split {
+  margin: 20px 100px;
 }
