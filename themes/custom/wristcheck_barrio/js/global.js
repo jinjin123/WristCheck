@@ -64,7 +64,7 @@
   //sort_by_product
   if($("#sort_by_product").length > 0){
     var redirct = '/product/search-result';
-    if(location.search =="" && location.pathname != "/buy"  && /brand/i.test(location.pathname)){
+    if(location.search =="" && location.pathname != "/buy"  && !/brand/i.test(location.pathname)){
       location.href  =  redirct + "?sort_by=created&sort_order=DESC"
     }
   }
