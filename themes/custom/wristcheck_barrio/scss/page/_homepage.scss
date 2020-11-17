@@ -11,8 +11,9 @@
 
   .wc-v2-how_it_works__item {
     padding: 30px;
-    display: flex;
+    //display: flex;
     flex-direction: row;
+    text-align: center;
   }
 
   .how_it_works__icon {
@@ -22,7 +23,7 @@
       height: 50px;
     }
 
-    margin-right: 20px;
+    //margin-right: 20px;
   }
 
   .how_it_works__cont {
@@ -422,6 +423,10 @@
   margin-bottom:  30px;
 }
 .wc-reg-bottom-label {
-  margin-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
+}
+#reg-form {
+  max-width: 640px;
+  margin: auto;
 }

@@ -1,6 +1,6 @@
 uuid: d3aeb546-96eb-4d9b-95bf-1c54964b5a5f
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - block_attributes
@@ -25,8 +25,8 @@ third_party_settings:
     background_overlay: ''
 id: wristchecksearchproductblock
 theme: wristcheck_barrio
-region: highlighted
-weight: 0
+region: sidebar_first
+weight: -8
 provider: null
 plugin: wristcheck_search_product_block
 settings:
@@ -37,6 +37,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /buy
+    pages: "/buy\r\n/product/search-result"
     negate: false
     context_mapping: {  }

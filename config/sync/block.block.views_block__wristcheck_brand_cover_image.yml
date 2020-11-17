@@ -28,7 +28,7 @@ third_party_settings:
 id: views_block__wristcheck_brand_cover_image
 theme: wristcheck_barrio
 region: highlighted
-weight: 0
+weight: -11
 provider: null
 plugin: 'views_block:wristcheck_brand-cover_image'
 settings:

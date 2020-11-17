@@ -1,10 +1,9 @@
 uuid: adbee3d5-b5ab-49e0-96ed-170a0d79bdec
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - commerce_product.commerce_product_type.watch
-    - field.storage.commerce_product.field_case_diameter
     - field.storage.commerce_product.field_year
   module:
     - commerce
@@ -169,79 +168,14 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      fields:
-        field_case_diameter:
-          id: field_case_diameter
-          table: commerce_product__field_case_diameter
-          field: field_case_diameter
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '{{ field_case_diameter }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+      fields: {  }
       defaults:
         fields: false
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
-      tags:
-        - 'config:field.storage.commerce_product.field_case_diameter'
+      tags: {  }
   filter_model_title:
     display_plugin: block
     id: filter_model_title

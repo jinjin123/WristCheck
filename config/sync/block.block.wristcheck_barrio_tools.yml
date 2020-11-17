@@ -13,7 +13,7 @@ _core:
 id: wristcheck_barrio_tools
 theme: wristcheck_barrio
 region: sidebar_first
-weight: 0
+weight: -9
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

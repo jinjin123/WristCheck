@@ -1,11 +1,93 @@
+.wc-price-search__item {
+   padding-bottom: 20px;
+}
+.noUi-pips {
+  display: none;
+}
+.wc-brand-overscollbox {
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+.wc-casesize-overscollbox {
+  height: 300px;
+  padding-top: 10px;
+}
+.wc-location-overscollbox {
+  height: 200px;
+  padding-top: 10px;
+}
+
 .wc-buy-more-products {
   .item-list ul > li {
     margin-bottom: 40px;
   }
 }
+#wc-range {
+  margin-top: 20px;
+  height: 0px;
+}
+.wc-price-updatebtn {
+  >a {
+    width: 100%;
+    font-weight: bold;
+  }
+}
+.wc-sortproduct-option {
+  float:right;
+  >span {
+    padding-right: 10px;
+  }
+  >select {
+    height: 30px;
+    width: 200px;
+    padding-left: 10px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: white;
+    background: url(/themes/custom/wristcheck_barrio/images/sortarrow.png) no-repeat scroll right center white;
+    background-position: 170px;
+  }
+}
+.wc-price-hr {
+  height: 1px;
+  width: 10px;
+  background: rgba(255, 255, 255, 1);
+  border: none;
+  border-top: 1px solid #555555;
+}
+.wc-product-searchview-header {
+   padding-bottom:  50px;
+}
 
 ul.wc-buy-more-products > li {
   margin-bottom: 40px;
+}
+.step-number_box{
+  max-width: 640px;
+  margin: auto;
+  .step-number_box-item{
+    display: flex;
+    padding: 30px;
+    .step-number_img{
+      width: 60px;
+      height: 60px;
+    }
+    .step-number_content{
+      margin-left: 20px;
+    }
+    .step-number_content-title{
+      font-size: 18px;
+      font-weight: 900;
+      padding-bottom: 10px;
+    }
+    .step-number_content-text{
+      font-size: 14px;
+    }
+  }
+  
 }
 .step-img_box{
   display: flex;
@@ -80,5 +162,26 @@ ul.wc-buy-more-products > li {
 @media (max-width: 961px) {
   .process-img{
     height: 120px;
+  }
+}
+
+.wc-buy-searchbox-border {
+  border:1px solid;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-color: $top_border_color;
+  opacity:  0.2;
+}
+
+.wc-pd-search-button {
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  border: 1px solid #D8D8D8;
+  border-color: #D8D8D8;
+  >a {
+    font-size: 18px;
+    top: 5px;
+    position: relative;
   }
 }

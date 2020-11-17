@@ -1,0 +1,19 @@
+uuid: 913880be-3bc7-4f5a-a36f-07d95ccceb7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_delivery_box
+field_name: field_delivery_box
+entity_type: commerce_product
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
