@@ -489,6 +489,10 @@ function wristcheck_basic_form_user_login_form_alter(&$form, \Drupal\Core\Form\F
     //for redirect page
     $form["#action"] .= '&destination=/wristcheck_basic/check_user_info';
   }
+
+  $form['name']['#title'] = 'Email';
+  $form['name']['#description'] = '';
+  $form['pass']['#description'] = '';
 }
 
 /**
