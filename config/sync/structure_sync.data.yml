@@ -5328,6 +5328,18 @@ blocks:
         value: "<div class=\"wc-buyallwatches\"><img src=\"/themes/custom/wristcheck_barrio/images/buybanner.png\" /></div>\r\n"
         summary: ''
         format: full_html
+  -
+    info: 'Wristcheck Buy Home Page Banner'
+    langcode: en
+    uuid: b64515da-953d-41b2-89d3-5872ff80b88a
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-buyallwatches\"><img src=\"/themes/custom/wristcheck_barrio/images/buyhomebanner.png\" /></div>\r\n"
+        summary: ''
+        format: full_html
 menus:
   -
     menu_name: main
