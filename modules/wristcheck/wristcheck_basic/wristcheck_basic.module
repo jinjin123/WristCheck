@@ -5,6 +5,8 @@
  * Contains wristcheck_basic.module.
  */
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\RedirectCommand;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
@@ -578,10 +580,13 @@ function wristcheck_basic_form_views_form_commerce_cart_form_default_alter(&$for
     '#title' => 'WRISTCHECK INSURANCE',
     '#description' => 'description description description...',
     '#default_value' => $if_need_insurance_value,
+    '#ajax' => array(
+      'callback' => 'wristcheck_basic_if_need_insurance_ajax',
+      'wrapper' => 'views-form-commerce-cart-form-default-' . $order_id,
+    ),
   ];
 
   $form['actions']['submit']['#submit'][] = 'wristcheck_basic_cart_update';
-
 }
 
 function wristcheck_basic_cart_update($form, &$form_state) {
@@ -610,6 +615,14 @@ function wristcheck_basic_cart_update($form, &$form_state) {
     $order->setAdjustments([]);
     $order->save();
   }
+}
+
+function wristcheck_basic_if_need_insurance_ajax($form, &$form_state) {
+  wristcheck_basic_cart_update($form, $form_state);
+  $response = new AjaxResponse();
+  $currentURL = Url::fromRoute('<current>');
+  $response->addCommand(new RedirectCommand($currentURL->toString()));
+  return $response;
 }
 
 
