@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.commerce_product.field_images
     - field.storage.commerce_product.field_model_images
+    - image.style.image255x255
     - image.style.image70x70
   enforced:
     module:
@@ -164,8 +165,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<img src="{{ field_model_images }}"/>'
             make_link: false
             path: ''
             absolute: false
@@ -203,10 +204,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: image_url
           settings:
-            image_style: ''
-            image_link: ''
+            image_style: image255x255
           group_column: ''
           group_columns: {  }
           group_rows: true
