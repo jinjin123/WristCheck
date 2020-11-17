@@ -123,7 +123,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-
+    'wristcheck_sell_service_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_buy' => [
       'variables' => [
         'variables' => []
