@@ -609,6 +609,3 @@ function wristcheck_basic_if_need_insurance_ajax($form, &$form_state) {
   $response->addCommand(new RedirectCommand($currentURL->toString()));
   return $response;
 }
-
-
-
