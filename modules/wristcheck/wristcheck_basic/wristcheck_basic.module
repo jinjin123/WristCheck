@@ -572,7 +572,6 @@ function wristcheck_basic_form_views_form_commerce_cart_form_default_alter(&$for
   ];
 
   $form['actions']['submit']['#submit'][] = 'wristcheck_basic_cart_update';
-
 }
 
 function wristcheck_basic_cart_update($form, &$form_state) {

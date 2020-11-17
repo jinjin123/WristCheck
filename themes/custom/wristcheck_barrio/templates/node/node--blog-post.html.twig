@@ -91,12 +91,15 @@
     {% endif %}
     <h1 class="wc-blog-title">{{ node.label }}</h1>
     <span>{{ nodesumm }}</span>
+    <div>
     {% if display_submitted %}
       <div class="wc-blog-user">
         {{ author_picture }}
         {{ author_name }}
       </div>
     {% endif %}
+    <div class="shares">{{ drupal_block('addtoany_block') }}</div>
+    </div>
   </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
     {{ content }}
