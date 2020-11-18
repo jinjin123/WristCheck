@@ -5352,6 +5352,18 @@ blocks:
         value: "<div class=\"wc-sell-buttom-banner\">\r\n <img alt=\"sellbanner\" data-entity-type=\"file\" data-entity-uuid=\"d3c55326-5ca6-47fc-99f4-bf951a45e242\" src=\"/sites/default/files/inline-images/2020-11-18_10-07.png\" />\r\n</div>\r\n"
         summary: ''
         format: full_html
+  -
+    info: 'Wristcheck Laces  Block'
+    langcode: en
+    uuid: e18102f9-3375-493c-ad98-1f83b68dbb77
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-laces-block\"><img alt=\"sharedow\" data-entity-type=\"file\" data-entity-uuid=\"c09aa18d-3405-4e0c-905d-62b40976601c\" src=\"/sites/default/files/inline-images/2020-11-18_16-19.png\" /></div>\r\n"
+        summary: ''
+        format: full_html
 menus:
   -
     menu_name: main

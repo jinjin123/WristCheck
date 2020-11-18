@@ -328,3 +328,32 @@
     }
   }
 }
+
+.wc-discover-home {
+  .wc-magazine {
+    .wc-magazine-body {
+      .wc-magazine__title {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+.wc-discover-home-flag {
+ .wc-ex-panel {
+   height:240px;
+ }
+}
+.wc-laces-block {
+  img {
+    width: 100%;
+  }
+}
+.wc-discover-panel {
+  .view-content {
+    .views-infinite-scroll-content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
