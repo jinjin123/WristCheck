@@ -8,23 +8,23 @@
 	'use strict';
 
 	// debug
-	var local = window.location.origin;
-	if (local.indexOf('localhost') > -1) {
-		$('img').each(function () {
-			var img = $(this)
-			var url = img.attr('src')
-			if (url.match(/^[http|htts]/ig) == null) {
-				$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
-			}
-		})
-		$('.lazyload[data-original]').each(function () {
-			var img = $(this)
-			var url = img.attr('data-original')
-			if (url.match(/^[http|htts]/ig) == null) {
-				$(this).attr('data-original', 'http://dev.wristcheck.com:8888' + url)
-			}
-		})
-	}
+	// var local = window.location.origin;
+	// if (local.indexOf('localhost') > -1) {
+	// 	$('img').each(function () {
+	// 		var img = $(this)
+	// 		var url = img.attr('src')
+	// 		if (url.match(/^[http|htts]/ig) == null) {
+	// 			$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
+	// 		}
+	// 	})
+	// 	$('.lazyload[data-original]').each(function () {
+	// 		var img = $(this)
+	// 		var url = img.attr('data-original')
+	// 		if (url.match(/^[http|htts]/ig) == null) {
+	// 			$(this).attr('data-original', 'http://dev.wristcheck.com:8888' + url)
+	// 		}
+	// 	})
+	// }
 
 	// Drupal.behaviors.ProductVariationLoad = {
 	//   attach: function (context, settings) {
@@ -376,17 +376,16 @@
           $.getJSON("/wristcheck_basic/getRate" , (function (data) {
             $(".wc-low-sales-result").css("display","block")
             $(".wc-low__four_title").css({
-              // "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ",
-              // "background-position": "150px",
               "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ",
               "background-size": "15px auto",
               "background-position": "100% 30%",
             });
-              console.log($("#edit-second-size").val())
-               var ins = data.insurance
-              var ship = data.shipping
-              var sercenter = data.service_center
-              var oco  = data.overhead_costs
+              // console.log($("#edit-second-size").val())
+               var ins = Number(data.insurance)
+              var ship = Number(data.shipping)
+              var sercenter = Number(data.service_center)
+              var oco  = Number(data.overhead_costs)
+            $(".wc-low_tolate")[0].textContent = (ins+ship+sercenter+oco).toString() + "%"
             var result = "$" + (earnprice -((earnprice * ins/100)+(earnprice * ship/100)+(earnprice * sercenter/100)+ (earnprice * oco/100))).toString()
             // $("#edit-second-size")[0].textContent = result
             // console.log($(".insurance_rate")[0].textContent)

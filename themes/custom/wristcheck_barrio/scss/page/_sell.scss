@@ -98,7 +98,12 @@
     }
   }
 }
+.block-wristcheck-faq-question-block {
+  width:100%
+}
+.wc-sell-buttom-banner {
 
+}
 .webform-submission-faq-price-form {
   .webform-elements {
     display: flex;
@@ -476,4 +481,16 @@
   .wc-sell-swiper {
     width: 100%;
   }
+}
+#block-wristchecksellbuttombannerblock {
+  width: 100%;
+  .wc-sell-buttom-banner {
+     img {
+       width: 100%;
+     }
+  }
+}
+
+#block-wristcheckselllowsaleblock {
+  width: 100%;
 }

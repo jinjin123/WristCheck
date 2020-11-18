@@ -5340,6 +5340,18 @@ blocks:
         value: "<div class=\"wc-buyallwatches\"><img src=\"/themes/custom/wristcheck_barrio/images/buyhomebanner.png\" /></div>\r\n"
         summary: ''
         format: full_html
+  -
+    info: 'Wristcheck sell buttom banner block '
+    langcode: en
+    uuid: 928457ac-f18c-4780-8ed1-befa561ed18a
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-sell-buttom-banner\">\r\n <img alt=\"sellbanner\" data-entity-type=\"file\" data-entity-uuid=\"d3c55326-5ca6-47fc-99f4-bf951a45e242\" src=\"/sites/default/files/inline-images/2020-11-18_10-07.png\" />\r\n</div>\r\n"
+        summary: ''
+        format: full_html
 menus:
   -
     menu_name: main

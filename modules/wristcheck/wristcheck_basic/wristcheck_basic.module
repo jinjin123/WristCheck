@@ -138,7 +138,16 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-
+    'wristcheck_faq_question_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_sell_lowsale_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_sell' => [
       'variables' => [
         'variables' => []

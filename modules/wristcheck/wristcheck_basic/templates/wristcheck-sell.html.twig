@@ -59,72 +59,70 @@
 </div>
 
 {{ drupal_block('wristcheck_sell_service_block') }}
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="wc-panel">
-      {#      <div class="wc-panel2__title text-center">LOW SALES COMMISSION</div>#}
-      {#      <div class="wc-panel2__sub text-center"> {{ 'We charge 6.5% of your selling price'|t }}</div>#}
-      <div class="wc-low-sales">
-        <div class="wc-low__title text-center text-white">LOW SALES COMMISSION</div>
-        {# {{ drupal_entity("webform","faq_price") }} #}
-        <div class="wc-low__sed_title text-center text-white">We charge 6.5% of your selling price</div>
-        <div class="wc-low__third_title text-center text-white">CALCULATE YOUR PAYOFF</div>
-        <div class="wc-sell-input">
-          <div class="wc-sell-inputl">
-            <label for="edit-first-size" class="js-form-required form-required">Your selling price</label>
-            <input data-drupal-selector="edit-first-size" type="text" id="edit-first-size" name="first_size" value=""
-                   size="25" maxlength="255" class="form-text required form-control first-size" required="required"
-                   aria-required="true" placeholder="">
-            <span class="wc-low-fixed-first-price">$</span>
-          </div>
-          <div class="wc-sell-inputl">
-            <label for="edit-first-size" class="js-form-required form-required">Your earnings</label>
-            <input data-drupal-selector="edit-second-size" type="text" id="edit-second-size" name="second_size" value=""
-                   size="25" maxlength="255" class="form-text required form-control wc-sell-sedinput-size " required="required" disabled
-                   aria-required="true" placeholder="">
-            <span class="earn_result wc-low-fixed-price"></span>
-          </div>
-        </div>
-        <div class="wc-low__four_title ">
-            <div class="text-center text-white">BREAKDOWN</div>
-        </div>
-        <div class="wc-low-sales-result col-md-4">
-           <div class="wc-low__result_ask_price row">
-             <label class="col-lg-4">Your selling price</label>
-             <span class="col-lg-6"></span>
-             <span class="col-lg-2 earnprice" >$50,000</span>
-           </div>
-          <div class="row">
-            <label class="col-lg-4">lnsurance</label>
-            <span class="col-lg-6 insurance_rate">- 2%</span>
-            <span class="col-lg-2 ins_price">-1,000</span>
-          </div>
-          <div class="row">
-            <label class="col-lg-4">Shipping</label>
-            <span class="col-lg-6 ship_rate">- 1%</span>
-            <span class="col-lg-2 ship_price">-1,000</span>
-          </div>
-          <div class="row">
-            <label class="col-lg-4">Service center</label>
-            <span class="col-lg-6 sc_rate">- 3%</span>
-            <span class="col-lg-2 sc_price">-1,000</span>
-          </div>
-          <div class="row">
-            <label class="col-lg-4">Overhead costs</label>
-            <span class="col-lg-6 oc_rate">- 2%</span>
-            <span class="col-lg-2 oc_price">-1,000</span>
-          </div>
-          <div class="row wc-low-earning">
-            <label class="col-lg-4">Your earnings</label>
-            <span class="col-lg-6 "></span>
-            <span class="col-lg-2 earn_result">$1,000</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{{ drupal_block('wristcheck_sell_video_block') }}
+{#<div class="row">#}
+{#  <div class="col-md-12">#}
+{#    <div class="wc-panel">#}
+{#      <div class="wc-low-sales">#}
+{#        <div class="wc-low__title text-center text-white">LOW SALES COMMISSION</div>#}
+{#        #}{# {{ drupal_entity("webform","faq_price") }} #}
+{#        <div class="wc-low__sed_title text-center text-white">We charge <span class="wc-low_tolate">6.5%</span> of your selling price</div>#}
+{#        <div class="wc-low__third_title text-center text-white">CALCULATE YOUR PAYOFF</div>#}
+{#        <div class="wc-sell-input">#}
+{#          <div class="wc-sell-inputl">#}
+{#            <label for="edit-first-size" class="js-form-required form-required">Your selling price</label>#}
+{#            <input data-drupal-selector="edit-first-size" type="text" id="edit-first-size" name="first_size" value=""#}
+{#                   size="25" maxlength="255" class="form-text required form-control first-size" required="required"#}
+{#                   aria-required="true" placeholder="">#}
+{#            <span class="wc-low-fixed-first-price">$</span>#}
+{#          </div>#}
+{#          <div class="wc-sell-inputl">#}
+{#            <label for="edit-first-size" class="js-form-required form-required">Your earnings</label>#}
+{#            <input data-drupal-selector="edit-second-size" type="text" id="edit-second-size" name="second_size" value=""#}
+{#                   size="25" maxlength="255" class="form-text required form-control wc-sell-sedinput-size " required="required" disabled#}
+{#                   aria-required="true" placeholder="">#}
+{#            <span class="earn_result wc-low-fixed-price"></span>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="wc-low__four_title ">#}
+{#            <div class="text-center text-white">BREAKDOWN</div>#}
+{#        </div>#}
+{#        <div class="wc-low-sales-result col-md-4">#}
+{#           <div class="wc-low__result_ask_price row">#}
+{#             <label class="col-lg-4">Your selling price</label>#}
+{#             <span class="col-lg-6"></span>#}
+{#             <span class="col-lg-2 earnprice" >$50,000</span>#}
+{#           </div>#}
+{#          <div class="row">#}
+{#            <label class="col-lg-4">lnsurance</label>#}
+{#            <span class="col-lg-6 insurance_rate">- 2%</span>#}
+{#            <span class="col-lg-2 ins_price">-1,000</span>#}
+{#          </div>#}
+{#          <div class="row">#}
+{#            <label class="col-lg-4">Shipping</label>#}
+{#            <span class="col-lg-6 ship_rate">- 1%</span>#}
+{#            <span class="col-lg-2 ship_price">-1,000</span>#}
+{#          </div>#}
+{#          <div class="row">#}
+{#            <label class="col-lg-4">Service center</label>#}
+{#            <span class="col-lg-6 sc_rate">- 3%</span>#}
+{#            <span class="col-lg-2 sc_price">-1,000</span>#}
+{#          </div>#}
+{#          <div class="row">#}
+{#            <label class="col-lg-4">Overhead costs</label>#}
+{#            <span class="col-lg-6 oc_rate">- 2%</span>#}
+{#            <span class="col-lg-2 oc_price">-1,000</span>#}
+{#          </div>#}
+{#          <div class="row wc-low-earning">#}
+{#            <label class="col-lg-4">Your earnings</label>#}
+{#            <span class="col-lg-6 "></span>#}
+{#            <span class="col-lg-2 earn_result">$1,000</span>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
 
 
 {#<div class="row">#}
@@ -186,45 +184,45 @@
 {#  </div>#}
 {#</div>#}
 
-<div class="wc-panel wc-testimdnials">
-  <h1 class='wc-panel__title text-center'>{{ 'TESTIMONIALS'|t }}</h1>
-  <div class='container pt-50 pb-100'>
-    {{ drupal_view('wristcheck_testimdnials','default') }}
-  </div>
-</div>
+{#<div class="wc-panel wc-testimdnials">#}
+{#  <h1 class='wc-panel__title text-center'>{{ 'TESTIMONIALS'|t }}</h1>#}
+{#  <div class='container pt-50 pb-100'>#}
+{#    {{ drupal_view('wristcheck_testimdnials','default') }}#}
+{#  </div>#}
+{#</div>#}
 {#TESTIMDNIALS#}
 {#{{ drupal_view('wristcheck_testimdnials','default') }}#}
 {#TESTIMDNIALS end#}
 
-<div class="wc-panel">
-  <div class='text-center'>
-    <a href="/node/add/wcshw" class="wc-btn-dark wc-btn-large wc-sell-get-started">
-      <span class="wc-btn-cont">
-        <span class="fa  fa-arrow-right"></span>
-        <span class="btn-line"></span>
-        {{ 'GET STARTED'|t }}
-      </span>
-    </a>
-  </div>
-</div>
+{#<div class="wc-panel">#}
+{#  <div class='text-center'>#}
+{#    <a href="/node/add/wcshw" class="wc-btn-dark wc-btn-large wc-sell-get-started">#}
+{#      <span class="wc-btn-cont">#}
+{#        <span class="fa  fa-arrow-right"></span>#}
+{#        <span class="btn-line"></span>#}
+{#        {{ 'GET STARTED'|t }}#}
+{#      </span>#}
+{#    </a>#}
+{#  </div>#}
+{#</div>#}
 
 
-<div class="row">
-  <div class="col-md-8 wc-do-you-have-any-questions">
-    <div class="wc-panel">
-      <div class="wc-panel__title text-center">Do you have any questions? Contact us!</div>
-      <div class="wc-panel__sub text-center">
-        {% if variables['phone'] %}
-          <a href="tel:{{ variables['phone'] }}">CALL : {{ variables['phone'] }}</a>
-        {% else %}
-          <a href="tel:+0012 987654">CALL : +0012 987654</a>
-        {% endif %}
-        <a class="email" href="tomail:{{ variables['mail'] }}">EMAIL : CONTACT</a>
-      </div>
-    </div>
-    <div class="divider"></div>
-    {{ drupal_view('wristcheck_faq','faq_contact_us') }}
-  </div>
-</div>
+{#<div class="row">#}
+{#  <div class="col-md-8 wc-do-you-have-any-questions">#}
+{#    <div class="wc-panel">#}
+{#      <div class="wc-panel__title text-center">Do you have any questions? Contact us!</div>#}
+{#      <div class="wc-panel__sub text-center">#}
+{#        {% if variables['phone'] %}#}
+{#          <a href="tel:{{ variables['phone'] }}">CALL : {{ variables['phone'] }}</a>#}
+{#        {% else %}#}
+{#          <a href="tel:+0012 987654">CALL : +0012 987654</a>#}
+{#        {% endif %}#}
+{#        <a class="email" href="tomail:{{ variables['mail'] }}">EMAIL : CONTACT</a>#}
+{#      </div>#}
+{#    </div>#}
+{#    <div class="divider"></div>#}
+{#    {{ drupal_view('wristcheck_faq','faq_contact_us') }}#}
+{#  </div>#}
+{#</div>#}
 
 {#{{ attach_library('wristcheck_barrio/sell-styling') }}#}

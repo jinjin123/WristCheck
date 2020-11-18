@@ -1,9 +1,9 @@
-uuid: ddc5791d-05b4-4352-a962-f8c54b8d0f80
+uuid: e0b6e301-c909-47e6-a173-347a7c962bbe
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:b64515da-953d-41b2-89d3-5872ff80b88a'
+    - 'block_content:basic:928457ac-f18c-4780-8ed1-befa561ed18a'
   module:
     - block_attributes
     - block_content
@@ -25,15 +25,15 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheckbuyhomepagebanner
+id: wristchecksellbuttombannerblock
 theme: wristcheck_barrio
-region: highlighted
-weight: -11
+region: bottom_footer
+weight: -14
 provider: null
-plugin: 'block_content:b64515da-953d-41b2-89d3-5872ff80b88a'
+plugin: 'block_content:928457ac-f18c-4780-8ed1-befa561ed18a'
 settings:
-  id: 'block_content:b64515da-953d-41b2-89d3-5872ff80b88a'
-  label: 'Wristcheck Buy Home Page Banner'
+  id: 'block_content:928457ac-f18c-4780-8ed1-befa561ed18a'
+  label: 'Wristcheck sell buttom banner block '
   provider: block_content
   label_display: '0'
   status: true
@@ -42,6 +42,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /buy
+    pages: /sell
     negate: false
     context_mapping: {  }

@@ -28,7 +28,7 @@ third_party_settings:
 id: wristcheckbuyallwatchesbanner_2
 theme: wristcheck_barrio
 region: highlighted
-weight: 0
+weight: -10
 provider: null
 plugin: 'block_content:341b0e41-914a-4f71-b484-a5332dba6b3d'
 settings:
