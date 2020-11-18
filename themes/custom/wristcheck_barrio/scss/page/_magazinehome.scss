@@ -357,3 +357,14 @@
     }
   }
 }
+
+.wc-magazine-single {
+  display: flex;
+  .wc-magazine-body {
+    margin-top: 150px;
+    position: relative;
+    .wc-magazine__title {
+      border-bottom: 0;
+    }
+  }
+}
