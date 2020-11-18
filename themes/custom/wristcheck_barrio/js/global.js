@@ -260,6 +260,12 @@
 	 */
 	Drupal.$wc = {};
 	$(function () {
+	  // console.log($(".wc-sell-buttom-banner").length)
+    if($(".wc-sell-buttom-banner").length >0){
+      $(".wc-sell-buttom-banner").click(function () {
+          location.href = "/node/add/wcshw"
+      })
+    }
 		if (window.location.pathname === "/faq-sellstep") {
 			var _ov = document.getElementById('edit-first-unit');
 			_ov.removeChild(_ov.options[0]);
