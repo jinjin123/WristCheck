@@ -693,4 +693,7 @@
       modal.modal('show')
     });
   });
+
+  $("a.return-btn").css('height', $("button#edit-actions-next").outerHeight());
+  $("a.return-btn").css('width', $("button#edit-actions-next").outerWidth());
 })(jQuery, Drupal);

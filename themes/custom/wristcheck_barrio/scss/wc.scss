@@ -506,3 +506,24 @@ a.wc-btn-dark{
   }
 }
 
+.order-summary-qty {
+  display: block;
+}
+small#edit-insurance--description {
+  display: block;
+}
+input[type="number"] {
+  min-width: 60px;
+}
+a.return-btn {
+  border: solid 1px grey;
+  display: inline-block;
+  height: 53px;
+  line-height: 53px;
+  text-align: center;
+  position: relative;
+  top: 2px;
+  width: 288.767px;
+  margin: 0 10px 20px 0;
+}
+
