@@ -27,7 +27,11 @@
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
-    width: 220px;
+    width: auto;
+    >img{
+      display: block;
+      height: 28px;
+    }
 
     span {
       display: none;
@@ -108,6 +112,9 @@
     position: relative;
     display: flex;
     align-items: center;
+    >.block{
+      height: 30px;
+    }
 
     .header-cart__icon {
       display: inline-block;
@@ -188,9 +195,35 @@
   .Login-popup-link {
     background: url("/themes/custom/wristcheck_barrio/images/v2/icon/user-icon.png") no-repeat center center;
     background-size: contain;
-
+    display: inline-block;
+    width: 30px;
+    height: 30px;
     a {
+      display: inline-block;
       color: transparent;
+    }
+  }
+  .cart-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    
+    img{
+      display: inline-block;
+      width: 100%;
+    }
+  }
+  .local-icon{
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i{
+      font-size: 26px;
+      margin-right:5px;
     }
   }
 }

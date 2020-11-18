@@ -43,7 +43,7 @@
         .wc-rolex-action {
           .wc-rolex-sub {
             font-size: 14px;
-             
+
             font-weight: 400;
             color: #9A9A9A;
             margin-bottom: 10px;
@@ -66,7 +66,7 @@
 
           h3 {
             font-size: 14px;
-             
+
             font-weight: 400;
             color: #9A9A9A;
           }
@@ -241,3 +241,130 @@
   }
 }
 
+.wc-relate-product-article {
+  .view-wristcheck-products  {
+    .item-list > ul > li {
+      width: 25%;
+    }
+  }
+  .portfolio-sub-detail {
+    text-align: center;
+    padding-top: 10px;
+    .wc-product-category {
+      font-weight: bold;
+    }
+    .price__number {
+      font-weight: bold;
+    }
+  }
+}
+.wc-article-comment {
+  display: flex;
+  .wc-panel__title {
+    padding: 0;
+  }
+  .wc-panel__subtitle {
+    padding-bottom: 50px;
+    .wc-article-lgin,
+    .wc-article-lgreg{
+      color: $mongreen;
+    }
+  }
+}
+
+.wc-overy-comment {
+  //border-bottom: 1px solid;
+  //border-color: #979797;
+  //opacity: 0.2;
+  .wc-comment-cont {
+    padding-left: 30px;
+  }
+}
+.wc-article-hotflag {
+  .wc-rolex-title {
+     font-size: 21px;
+  }
+  .view-wristcheck-buy-magazine {
+    .view-content {
+      margin: 0 ;
+    }
+    .item-list {
+      width: 100%;
+      ul > li {
+        padding-bottom: 20px;
+        >a  {
+          .wc-ex-panel {
+            height: 200px;
+          }
+          .wc-art-hotflag {
+            padding-top: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wc-rolex-modal {
+  padding-top: 10px;
+}
+
+.wc-mag-readmore {
+ .wc-ex-panel {
+   height: 200px;
+ }
+}
+
+.view-wristcheck-buy-magazine {
+  .views-row {
+    padding: 10px ;
+  }
+  .wc-latest-art  {
+    .wc-ex-panel {
+      height: 240px;
+    }
+    .wc-rolex-modal {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.wc-discover-home {
+  .wc-magazine {
+    .wc-magazine-body {
+      .wc-magazine__title {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+.wc-discover-home-flag {
+ .wc-ex-panel {
+   height:240px;
+ }
+}
+.wc-laces-block {
+  img {
+    width: 100%;
+  }
+}
+.wc-discover-panel {
+  .view-content {
+    .views-infinite-scroll-content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.wc-magazine-single {
+  display: flex;
+  .wc-magazine-body {
+    margin-top: 150px;
+    position: relative;
+    .wc-magazine__title {
+      border-bottom: 0;
+    }
+  }
+}

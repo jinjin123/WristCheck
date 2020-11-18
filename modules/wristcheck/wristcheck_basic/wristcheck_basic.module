@@ -130,6 +130,11 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_discover_buttom_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_buy' => [
       'variables' => [
         'variables' => []
