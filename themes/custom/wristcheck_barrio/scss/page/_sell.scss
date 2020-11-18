@@ -1,7 +1,7 @@
 .wc-low-sales {
   width: 100%;
   //height: 440px;
-  height: 640px;
+  height: 680px;
   //background-color: #4A736F;
   background-color: $mongreen;
   display: flex;
@@ -20,10 +20,10 @@
     font-family: "basis-grotesque-bold-pro";
   }
   .wc-low__sed_title {
-    font-family: "basis-grotesque-bold-pro";
+    //font-family: "basis-grotesque-bold-pro";
     position: relative;
     top: -70px;
-    font-size: medium;
+    //font-size: medium;
   }
   .wc-low__third_title {
     font-family: "basis-grotesque-bold-pro";
@@ -37,13 +37,29 @@
       label {
         color: #fff;
       }
+      .first-size {
+        text-indent: 11px;
+      }
       .wc-sell-sedinput-size {
         background-color: transparent;
         border: 0;
       }
+      .wc-low-fixed-first-price {
+        float: left;
+        top: -31px;
+        position: relative;
+        text-indent: 12px;
+      }
+      .wc-low-fixed-price {
+        float: left;
+        top: -30px;
+        position: relative;
+        color: #fff;
+      }
     }
   }
   .wc-low__four_title {
+    font-weight: bold;
     top: 40px;
     position: relative;
     padding-right: 30px;
@@ -61,8 +77,17 @@
     top:40px;
     font-size:13px;
     color:#fff;
+    display: none;
     label{
       text-align: left;
+    }
+    //&:nth-child(1) {
+    //  position: relative;
+    //  top: -10px;
+    //}
+    .wc-low-earning {
+      padding-top: 20px;
+      font-weight: bold;
     }
     .wc-low__result_ask_price {
       &:nth-child(1) {

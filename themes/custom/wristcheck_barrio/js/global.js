@@ -358,18 +358,53 @@
 				}
 			})
 		})
-		//faq currency
+
+		//faq currency && /sell low  sales
 		$(document).ready(function () {
 			$("#edit-first-size").on('input', function () {
-				var src = $("#edit-first-size")[0].value;
-				var funit = $('#edit-first-unit option:selected')[0].textContent;
-				var sunit = $('#edit-second-unit option:selected')[0].textContent;
-				// console.log(funit,sunit)
-				// console.log($('#edit-first-unit option:selected')[0].textContent)
-				$.getJSON("/currency-price?search=" + funit, (function (data) {
-					$("#edit-second-size")[0].value = (src * JSON.parse(data)[sunit]).toFixed(2);
-				}))
+			  if(/faq/i.test(location.pathname)){
+          var src = $("#edit-first-size")[0].value;
+          var funit = $('#edit-first-unit option:selected')[0].textContent;
+          var sunit = $('#edit-second-unit option:selected')[0].textContent;
+          $.getJSON("/currency-price?search=" + funit, (function (data) {
+            $("#edit-second-size")[0].value = (src * JSON.parse(data)[sunit]).toFixed(2);
+          }))
+        }
+        if(/sell/i.test(location.pathname)){
+          var earnprice = $("#edit-first-size")[0].value;
+          // console.log(earnprice)
+          $.getJSON("/wristcheck_basic/getRate" , (function (data) {
+            $(".wc-low-sales-result").css("display","block")
+            $(".wc-low__four_title").css({
+              // "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ",
+              // "background-position": "150px",
+              "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ",
+              "background-size": "15px auto",
+              "background-position": "100% 30%",
+            });
+              console.log($("#edit-second-size").val())
+               var ins = data.insurance
+              var ship = data.shipping
+              var sercenter = data.service_center
+              var oco  = data.overhead_costs
+            var result = "$" + (earnprice -((earnprice * ins/100)+(earnprice * ship/100)+(earnprice * sercenter/100)+ (earnprice * oco/100))).toString()
+            // $("#edit-second-size")[0].textContent = result
+            // console.log($(".insurance_rate")[0].textContent)
+            $(".earn_result")[0].textContent = result
+            $(".earn_result")[1].textContent = result
+            $(".ins_price")[0].textContent =  "-" + (earnprice * ins/100).toString()
+            $(".ship_price")[0].textContent = "-" + (earnprice * ship/100).toString()
+            $(".sc_price")[0].textContent = "-" + (earnprice * sercenter/100).toString()
+            $(".oc_price")[0].textContent =  "-" + (earnprice * oco/100).toString()
+            $(".insurance_rate")[0].textContent ="- " + ins.toString()  + "%"
+            $(".ship_rate")[0].textContent = "- " + ship.toString() + "%"
+            $(".sc_rate")[0].textContent = "- " + sercenter.toString() + "%"
+            $(".oc_rate")[0].textContent = "- " + oco.toString() + "%"
+          }))
+        }
 			});
+
+
 		})
 
 		//faq index
