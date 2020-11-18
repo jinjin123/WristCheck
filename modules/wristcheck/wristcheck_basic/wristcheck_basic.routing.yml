@@ -395,3 +395,10 @@ wristcheck_basic.getRate:
     _title: 'The rate'
   requirements:
     _access: 'TRUE'
+wristcheck_basic.howToBeSeller:
+  path: '/wristcheck_basic/inquire-how-to-be-seller'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::howToBeSeller'
+    _title: 'Inquire how to be seller'
+  requirements:
+    _access: 'TRUE'
