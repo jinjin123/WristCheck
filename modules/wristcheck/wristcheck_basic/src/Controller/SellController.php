@@ -60,4 +60,7 @@ class SellController extends ControllerBase
     return new JsonResponse($rateSettings);
   }
 
+  public function howToBeSeller() {
+    return [];
+  }
 }
