@@ -389,9 +389,10 @@
     flex-wrap: wrap;
     .views-infinite-scroll-content-wrapper {
       display: flex ;
+      flex-wrap: wrap;
       > .views-row {
         display: block;
-        width: 20%;
+        width: 33%;
         padding: 5px;
         .field-content {
           transition: all .3s ease-in;
