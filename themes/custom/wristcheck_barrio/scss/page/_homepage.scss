@@ -359,6 +359,30 @@
   }
 }
 
+.homepage-discover__title{
+  font-size: 48px;
+  font-weight: bold;
+  color: rgba(0,0,0,.9);
+  padding: 16px;
+}
+.homepage-it-work{
+  background-color: #13788A;
+  margin: 50px 0;
+
+  .how_it_works__icon{
+    margin-bottom: 10px;
+  }
+  .how_it_works__title{
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .how_it_works__link span{
+    color: #FFF;
+    border-bottom-color: #FFF;
+  }
+}
+
 @media (max-width: 1200px) {
   .wc-shop-by-brand__box .wc-homepage-brand-logo {
     width: 100%;
