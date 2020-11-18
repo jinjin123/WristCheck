@@ -1,12 +1,11 @@
 
 .wc-v2-panel {
-  padding: 70px 0;
+  padding: 64px 0;
 
   .wc-v2-panel__title {
-    font-size: 18px;
-
+    font-size: 32px;
     color: #000000;
-    margin-bottom: 70px;
+    margin-bottom: 64px;
   }
 
   .wc-v2-how_it_works__item {
@@ -199,9 +198,7 @@
   }
 
   .wc-homepage-brand-logo {
-    width: 348px;
     height: 439px;
-    background-color: #D8D8D8;
     position: relative;
     display: block;
     overflow: hidden;
@@ -210,6 +207,34 @@
     background-repeat: no-repeat;
     background-position: center center;
     margin: 0 auto;
+  }
+}
+.wc-hompage-wristcheck_brand-logo{
+  .wc-shop-by-brand__img{
+    >a{
+      display: inline-block;
+      position: relative;
+      width: 100%;
+    }
+  }
+  .brand-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all .3s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    &:hover{
+      background-color: rgba(0,0,0,.3);
+      opacity: 1;
+    }
   }
 }
 
@@ -380,6 +405,24 @@
   .how_it_works__link span{
     color: #FFF;
     border-bottom-color: #FFF;
+  }
+}
+.homepage-line-bg{
+  width: 100%;
+  height: 88px;
+  background: url('/themes/custom/wristcheck_barrio/images/v2/banner/line-bg.png') repeat-x;
+  background-size: auto 352px;
+  background-position: 0 0;
+  animation: linebg 10s linear infinite;
+}
+
+@keyframes linebg {
+  0%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: -880px 0;
+    // background-position: 0 -264px;
   }
 }
 

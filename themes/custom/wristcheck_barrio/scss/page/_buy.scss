@@ -84,8 +84,8 @@ ul.wc-buy-more-products > li {
     display: flex;
     padding: 30px;
     .step-number_img{
-      width: 60px;
       height: 60px;
+      flex: 0 0 60px;
     }
     .step-number_content{
       margin-left: 20px;
