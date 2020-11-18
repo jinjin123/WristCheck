@@ -8,23 +8,23 @@
 	'use strict';
 
 	// debug
-	var local = window.location.origin;
-	if (local.indexOf('localhost') > -1) {
-		$('img').each(function () {
-			var img = $(this)
-			var url = img.attr('src')
-			if (url.match(/^[http|htts]/ig) == null) {
-				$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
-			}
-		})
-		$('.lazyload[data-original]').each(function () {
-			var img = $(this)
-			var url = img.attr('data-original')
-			if (url.match(/^[http|htts]/ig) == null) {
-				$(this).attr('data-original', 'http://dev.wristcheck.com:8888' + url)
-			}
-		})
-	}
+	// var local = window.location.origin;
+	// if (local.indexOf('localhost') > -1) {
+	// 	$('img').each(function () {
+	// 		var img = $(this)
+	// 		var url = img.attr('src')
+	// 		if (url.match(/^[http|htts]/ig) == null) {
+	// 			$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
+	// 		}
+	// 	})
+	// 	$('.lazyload[data-original]').each(function () {
+	// 		var img = $(this)
+	// 		var url = img.attr('data-original')
+	// 		if (url.match(/^[http|htts]/ig) == null) {
+	// 			$(this).attr('data-original', 'http://dev.wristcheck.com:8888' + url)
+	// 		}
+	// 	})
+	// }
 
 	// Drupal.behaviors.ProductVariationLoad = {
 	//   attach: function (context, settings) {
@@ -64,7 +64,7 @@
   //sort_by_product
   if($("#sort_by_product").length > 0){
     var redirct = '/product/search-result';
-    if(location.search =="" ){
+    if(location.search =="" && location.pathname != "/buy"  && !/brand/i.test(location.pathname)){
       location.href  =  redirct + "?sort_by=created&sort_order=DESC"
     }
   }
@@ -79,10 +79,10 @@
           location.href  =  redirct + "?sort_by=field_ask_price_number&sort_order=ASC"
           break;
         case "3":
-          location.href  =  redirct + "?sort_by=field_ask_price_number&sort_order=DESC"
+          location.href  =  redirct + "?sort_by=field_ask_price_number&sort_order=DESC";
           break;
         default:
-          location.href  =  redirct + "?sort_by=created&sort_order=DESC"
+          location.href  =  redirct + "?sort_by=created&sort_order=DESC";
           break;
       }
   })
@@ -260,6 +260,12 @@
 	 */
 	Drupal.$wc = {};
 	$(function () {
+	  // console.log($(".wc-sell-buttom-banner").length)
+    if($(".wc-sell-buttom-banner").length >0){
+      $(".wc-sell-buttom-banner").click(function () {
+          location.href = "/node/add/wcshw"
+      })
+    }
 		if (window.location.pathname === "/faq-sellstep") {
 			var _ov = document.getElementById('edit-first-unit');
 			_ov.removeChild(_ov.options[0]);
@@ -358,18 +364,52 @@
 				}
 			})
 		})
-		//faq currency
+
+		//faq currency && /sell low  sales
 		$(document).ready(function () {
 			$("#edit-first-size").on('input', function () {
-				var src = $("#edit-first-size")[0].value;
-				var funit = $('#edit-first-unit option:selected')[0].textContent;
-				var sunit = $('#edit-second-unit option:selected')[0].textContent;
-				// console.log(funit,sunit)
-				// console.log($('#edit-first-unit option:selected')[0].textContent)
-				$.getJSON("/currency-price?search=" + funit, (function (data) {
-					$("#edit-second-size")[0].value = (src * JSON.parse(data)[sunit]).toFixed(2);
-				}))
+			  if(/faq/i.test(location.pathname)){
+          var src = $("#edit-first-size")[0].value;
+          var funit = $('#edit-first-unit option:selected')[0].textContent;
+          var sunit = $('#edit-second-unit option:selected')[0].textContent;
+          $.getJSON("/currency-price?search=" + funit, (function (data) {
+            $("#edit-second-size")[0].value = (src * JSON.parse(data)[sunit]).toFixed(2);
+          }))
+        }
+        if(/sell/i.test(location.pathname)){
+          var earnprice = $("#edit-first-size")[0].value;
+          // console.log(earnprice)
+          $.getJSON("/wristcheck_basic/getRate" , (function (data) {
+            $(".wc-low-sales-result").css("display","block")
+            $(".wc-low__four_title").css({
+              "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ",
+              "background-size": "15px auto",
+              "background-position": "100% 30%",
+            });
+              // console.log($("#edit-second-size").val())
+               var ins = Number(data.insurance)
+              var ship = Number(data.shipping)
+              var sercenter = Number(data.service_center)
+              var oco  = Number(data.overhead_costs)
+            $(".wc-low_tolate")[0].textContent = (ins+ship+sercenter+oco).toString() + "%"
+            var result = "$" + (earnprice -((earnprice * ins/100)+(earnprice * ship/100)+(earnprice * sercenter/100)+ (earnprice * oco/100))).toString()
+            // $("#edit-second-size")[0].textContent = result
+            // console.log($(".insurance_rate")[0].textContent)
+            $(".earn_result")[0].textContent = result
+            $(".earn_result")[1].textContent = result
+            $(".ins_price")[0].textContent =  "-" + (earnprice * ins/100).toString()
+            $(".ship_price")[0].textContent = "-" + (earnprice * ship/100).toString()
+            $(".sc_price")[0].textContent = "-" + (earnprice * sercenter/100).toString()
+            $(".oc_price")[0].textContent =  "-" + (earnprice * oco/100).toString()
+            $(".insurance_rate")[0].textContent ="- " + ins.toString()  + "%"
+            $(".ship_rate")[0].textContent = "- " + ship.toString() + "%"
+            $(".sc_rate")[0].textContent = "- " + sercenter.toString() + "%"
+            $(".oc_rate")[0].textContent = "- " + oco.toString() + "%"
+          }))
+        }
 			});
+
+
 		})
 
 		//faq index

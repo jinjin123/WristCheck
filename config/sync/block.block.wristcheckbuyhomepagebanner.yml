@@ -1,12 +1,14 @@
-uuid: d3aeb546-96eb-4d9b-95bf-1c54964b5a5f
+uuid: ddc5791d-05b4-4352-a962-f8c54b8d0f80
 langcode: en
 status: true
 dependencies:
+  content:
+    - 'block_content:basic:b64515da-953d-41b2-89d3-5872ff80b88a'
   module:
     - block_attributes
+    - block_content
     - ntv_block_background
     - system
-    - wristcheck_basic
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -23,20 +25,23 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristchecksearchproductblock
+id: wristcheckbuyhomepagebanner
 theme: wristcheck_barrio
-region: sidebar_first
-weight: -8
+region: highlighted
+weight: -11
 provider: null
-plugin: wristcheck_search_product_block
+plugin: 'block_content:b64515da-953d-41b2-89d3-5872ff80b88a'
 settings:
-  id: wristcheck_search_product_block
-  label: 'Wristcheck search product block'
-  provider: wristcheck_basic
+  id: 'block_content:b64515da-953d-41b2-89d3-5872ff80b88a'
+  label: 'Wristcheck Buy Home Page Banner'
+  provider: block_content
   label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: /product/search-result
+    pages: /buy
     negate: false
     context_mapping: {  }

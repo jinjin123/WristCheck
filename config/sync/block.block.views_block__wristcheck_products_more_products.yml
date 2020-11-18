@@ -1,11 +1,14 @@
-uuid: 137cbcc2-fe1f-4ddc-b0f8-d5bd88abfe11
+uuid: 2b4af498-2b6b-4294-8e78-44acf1cd4bd2
 langcode: en
 status: false
 dependencies:
+  config:
+    - views.view.wristcheck_products
   module:
     - block_attributes
     - ntv_block_background
-    - wristcheck_basic
+    - system
+    - views
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -22,15 +25,22 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheckdownloadappblock_2
+id: views_block__wristcheck_products_more_products
 theme: wristcheck_barrio
 region: bottom_footer
-weight: -9
+weight: -13
 provider: null
-plugin: wristcheck_download_app_block
+plugin: 'views_block:wristcheck_products-more_products'
 settings:
-  id: wristcheck_download_app_block
-  label: 'Wristcheck download app block'
-  provider: wristcheck_basic
+  id: 'views_block:wristcheck_products-more_products'
+  label: ''
+  provider: views
   label_display: '0'
-visibility: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /buy
+    negate: false
+    context_mapping: {  }

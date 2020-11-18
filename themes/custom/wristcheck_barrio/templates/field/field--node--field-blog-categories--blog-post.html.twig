@@ -51,7 +51,11 @@
   label_display == 'visually_hidden' ? 'visually-hidden',
 ]
 %}
-<div>Tags</div>
-{% for item in items  %}
-  <div>{{ item.content }} </div>
-{% endfor %}
+<div class="wc-blog-article-tag">Tags</div>
+<div class="wc-bg-item">
+  {% for item in items  %}
+    <div class="col-md-3 wc-blog-tag-item">
+      <a href="wristcheck_magazine?tid={{ item.content["#title"] }}">{{ item.content["#title"] }}</a>
+    </div>
+  {% endfor %}
+</div>

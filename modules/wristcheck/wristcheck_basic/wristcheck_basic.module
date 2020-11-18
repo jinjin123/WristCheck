@@ -105,7 +105,17 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_buy_long_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_category' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_filter_brand_product_block'=>[
       'variables' => [
         'variables' => []
       ]
@@ -115,13 +125,31 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-
+    'wristcheck_sell_service_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_buy' => [
       'variables' => [
         'variables' => []
       ]
     ],
-
+    'wristcheck_buy_benefits_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_faq_question_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_sell_lowsale_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_sell' => [
       'variables' => [
         'variables' => []

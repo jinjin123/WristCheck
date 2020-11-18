@@ -3,6 +3,7 @@
         width: 100%;
     }
 }
+.views-infinite-scroll-content-wrapper,
 .view-id-wristcheck_popular_watch_brands{
     >.view-content>.views-row{
         padding: 10px;
@@ -54,7 +55,7 @@
             font-size: 20px;
         }
     }
-    
+
 }
 
 @media (max-width: 640px){

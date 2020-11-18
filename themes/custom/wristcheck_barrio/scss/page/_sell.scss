@@ -1,13 +1,109 @@
 .wc-low-sales {
   width: 100%;
-  height: 440px;
-  background-color: #4A736F;
+  //height: 440px;
+  height: 680px;
+  //background-color: #4A736F;
+  background-color: $mongreen;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .wc-low__title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333333;
+    top:-70px;
+    margin: 0;
+    //padding: 50px 0;
+    padding: 10px 0;
+    position: relative;
+    font-family: "basis-grotesque-bold-pro";
+  }
+  .wc-low__sed_title {
+    //font-family: "basis-grotesque-bold-pro";
+    position: relative;
+    top: -70px;
+    //font-size: medium;
+  }
+  .wc-low__third_title {
+    font-family: "basis-grotesque-bold-pro";
+    position: relative;
+    top: -40px;
+    font-size: large;
+  }
+  .wc-sell-input {
+    //border-bottom: 0;
+    .wc-sell-inputl {
+      label {
+        color: #fff;
+      }
+      .first-size {
+        text-indent: 11px;
+      }
+      .wc-sell-sedinput-size {
+        background-color: transparent;
+        border: 0;
+      }
+      .wc-low-fixed-first-price {
+        float: left;
+        top: -31px;
+        position: relative;
+        text-indent: 12px;
+      }
+      .wc-low-fixed-price {
+        float: left;
+        top: -30px;
+        position: relative;
+        color: #fff;
+      }
+    }
+  }
+  .wc-low__four_title {
+    font-weight: bold;
+    top: 40px;
+    position: relative;
+    padding-right: 30px;
+    padding-left: 30px;
+    background: url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png) no-repeat ;
+    -webkit-background-size: 15px auto;
+    background-position: 150px;
+  }
+  .wc-low-sales-result {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    top:40px;
+    font-size:13px;
+    color:#fff;
+    display: none;
+    label{
+      text-align: left;
+    }
+    //&:nth-child(1) {
+    //  position: relative;
+    //  top: -10px;
+    //}
+    .wc-low-earning {
+      padding-top: 20px;
+      font-weight: bold;
+    }
+    .wc-low__result_ask_price {
+      &:nth-child(1) {
+        //color: red;
+        position: relative;
+        top: -20px;
+      }
+    }
+  }
 }
+.block-wristcheck-faq-question-block {
+  width:100%
+}
+.wc-sell-buttom-banner {
 
+}
 .webform-submission-faq-price-form {
   .webform-elements {
     display: flex;
@@ -385,4 +481,19 @@
   .wc-sell-swiper {
     width: 100%;
   }
+}
+#block-wristchecksellbuttombannerblock {
+  width: 100%;
+  .wc-sell-buttom-banner {
+     img {
+       width: 100%;
+     }
+     img:hover {
+       cursor: pointer;
+     }
+  }
+}
+
+#block-wristcheckselllowsaleblock {
+  width: 100%;
 }

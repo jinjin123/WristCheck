@@ -25,7 +25,7 @@ third_party_settings:
 id: shippinginfotop
 theme: wristcheck_barrio
 region: content
-weight: -10
+weight: -12
 provider: null
 plugin: 'block_content:118315ec-097f-4dfa-aa32-e55603de59bb'
 settings:
