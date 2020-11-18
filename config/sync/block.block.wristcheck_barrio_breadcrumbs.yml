@@ -38,6 +38,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /magazine-single
+    pages: "/magazine-single\r\n/product/*"
     negate: false
     context_mapping: {  }
