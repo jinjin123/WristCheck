@@ -84,7 +84,7 @@ class CheckoutComController extends PaymentCheckoutController {
           $expires = CreditCard::calculateExpirationTimestamp($payment_details->source['expiry_month'], $payment_details->source['expiry_year']);
           $payment_method->setExpiresTime($expires);
           $payment_method->setRemoteId($payment_details->source['id']);
-          $payment_method->save();
+          //$payment_method->save();
         }
       }
 
