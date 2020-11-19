@@ -12,7 +12,7 @@ id: inquire_how_to_be_a_seller
 title: 'Inquire how to be a seller'
 description: ''
 category: ''
-elements: "email:\n  '#type': email\n  '#title': Email"
+elements: "markup:\n  '#type': webform_markup\n  '#markup': 'description&nbsp;description&nbsp;description ...'\nemail:\n  '#type': email\n  '#title': Email\n  '#size': 30\n  '#required': true"
 css: ''
 javascript: ''
 settings:
