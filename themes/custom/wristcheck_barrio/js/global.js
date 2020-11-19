@@ -385,9 +385,9 @@
           $.getJSON("/wristcheck_basic/getRate" , (function (data) {
             $(".wc-low-sales-result").css("display","block")
             $(".wc-low__four_title").css({
-              "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ",
-              "background-size": "15px auto",
-              "background-position": "100% 30%",
+              "background": "url(/themes/custom/wristcheck_barrio/images/icons/sell-arrow-up.png)no-repeat ",
+              "background-size": "40px ",
+              "background-position": "100% 50%",
             });
               // console.log($("#edit-second-size").val())
                var ins = Number(data.insurance)
