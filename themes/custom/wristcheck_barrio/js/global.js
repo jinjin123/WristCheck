@@ -10,13 +10,13 @@
 	// debug
 	var local = window.location.origin;
 	if (local.indexOf('localhost') > -1) {
-		// $('img').each(function () {
-		// 	var img = $(this)
-		// 	var url = img.attr('src')
-		// 	if (url.match(/^[http|htts]/ig) == null) {
-		// 		$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
-		// 	}
-		// })
+	// 	// $('img').each(function () {
+	// 	// 	var img = $(this)
+	// 	// 	var url = img.attr('src')
+	// 	// 	if (url.match(/^[http|htts]/ig) == null) {
+	// 	// 		$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
+	// 	// 	}
+	// 	// })
 		$('.lazyload[data-original]').each(function () {
 			var img = $(this)
 			var url = img.attr('data-original')
@@ -264,6 +264,9 @@
     if($(".wc-sell-buttom-banner").length >0){
       $(".wc-sell-buttom-banner").click(function () {
           location.href = "/node/add/wcshw"
+      })
+      $(".wc-sellbanner").click(function () {
+        location.href = "/wristcheck_basic/inquire-how-to-be-seller"
       })
     }
 		if (window.location.pathname === "/faq-sellstep") {

@@ -12,7 +12,7 @@ id: inquire_how_to_be_a_seller
 title: 'Inquire how to be a seller'
 description: ''
 category: ''
-elements: "markup:\n  '#type': webform_markup\n  '#markup': 'description&nbsp;description&nbsp;description ...'\nemail:\n  '#type': email\n  '#title': Email\n  '#size': 30\n  '#required': true"
+elements: "markup:\n  '#type': webform_markup\n  '#markup': 'Lorem ipsum dolor sit amet,consectetur adipiscing elit.'\nemail:\n  '#type': email\n  '#title': Email\n  '#size': 30\n  '#required': true"
 css: ''
 javascript: ''
 settings:
@@ -111,7 +111,7 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: page
+  confirmation_type: message
   confirmation_title: ''
   confirmation_message: ''
   confirmation_url: ''
