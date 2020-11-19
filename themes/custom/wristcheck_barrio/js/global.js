@@ -265,6 +265,9 @@
       $(".wc-sell-buttom-banner").click(function () {
           location.href = "/node/add/wcshw"
       })
+      $(".wc-sellbanner").click(function () {
+        location.href = "/wristcheck_basic/inquire-how-to-be-seller"
+      })
     }
 		if (window.location.pathname === "/faq-sellstep") {
 			var _ov = document.getElementById('edit-first-unit');

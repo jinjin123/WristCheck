@@ -497,3 +497,18 @@
 #block-wristcheckselllowsaleblock {
   width: 100%;
 }
+
+.wc-sellbanner {
+  img {
+    width: 100%;
+  }
+  img:hover {
+    cursor: pointer;
+  }
+}
+
+.webform-submission-inquire-how-to-be-a-seller-form {
+  .form-actions {
+    margin-left: 20px;
+  }
+}
