@@ -33,11 +33,15 @@
       {{ drupal_view('wristcheck_products','home_edit_pick') }}
     </div>
 </div>
-<div class="wc-v2-panel">
+<div class="wc-v2-panel  wc-discover-panel">
     <div class="container">
-        <div class="v-line"></div>
-        <div class="wc-v2-panel__title text-center">FROM THE JOURNAL</div>
-        {{ drupal_view('wristcheck_buy_magazine','from_the_journal') }}
-        {{ attach_library('wristcheck_barrio/homepage-styling') }}
+      <div class="v-line"></div>
+        <div class="wc-panel wc-v2-panel__title text-center">FROM THE JOURNAL</div>
+{#        {{ drupal_view('wristcheck_buy_magazine','from_the_journal') }}#}
+{#      {{ drupal_view('wristcheck_buy_magazine','article_three_load') }}#}
+{#        {{ attach_library('wristcheck_barrio/homepage-styling') }}#}
+      <div class="wc-panel wc-padding-top-0 wc-mag-two-load">
+        {{ drupal_view('wristcheck_buy_magazine','article_three_load') }}
+      </div>
     </div>
 </div>
