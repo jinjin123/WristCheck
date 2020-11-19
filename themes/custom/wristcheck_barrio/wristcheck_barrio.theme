@@ -130,6 +130,9 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables)
   if ($match) {
     $result = [['text' => 'Buy', 'url' => '/buy']];
     $product_id = substr($current_path, strlen('/product/'));
+    if (is_string($product_id)) {
+      return;
+    }
     $product = Product::load($product_id);
     $field_cate = $product->get('field_cate')->getValue();
     if (isset($field_cate[0]['target_id'])) {
