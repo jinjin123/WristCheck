@@ -136,14 +136,18 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables)
       $field_cate = $product->get('field_cate')->getValue();
       if (isset($field_cate[0]['target_id'])) {
         $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_cate[0]['target_id']);
-        $title = $term->getName();
-        array_push($result,['text' => $title, 'url' => '/brand/'. $title]);
+        if ($term) {
+          $title = $term->getName();
+          array_push($result,['text' => $title, 'url' => '/brand/'. $title]);
+        }
       }
       $field_watch_series = $product->get('field_watch_series')->getValue();
       if (isset($field_watch_series[0]['target_id'])) {
         $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_watch_series[0]['target_id']);
-        $title = $term->getName();
-        array_push($result,['text' => $title, 'url' => '/#']);
+        if ($term) {
+          $title = $term->getName();
+          array_push($result,['text' => $title, 'url' => '/#']);
+        }
       }
       $variables['breadcrumb'] = $result;
       return;
