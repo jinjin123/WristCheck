@@ -4532,8 +4532,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: number
-          type: commerce_price_plain
-          settings: {  }
+          type: commerce_price_default
+          settings:
+            strip_trailing_zeroes: false
+            currency_display: symbol
           group_column: value
           group_columns: {  }
           group_rows: true
