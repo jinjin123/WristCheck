@@ -131,6 +131,7 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables)
     $result = [['text' => 'Buy', 'url' => '/buy']];
     $product_id = substr($current_path, strlen('/product/'));
     if (is_string($product_id)) {
+      $variables['breadcrumb'] = [];
       return;
     }
     $product = Product::load($product_id);
