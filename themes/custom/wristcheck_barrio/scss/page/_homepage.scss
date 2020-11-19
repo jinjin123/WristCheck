@@ -497,3 +497,9 @@
   max-width: 640px;
   margin: auto;
 }
+.wc-editor-pick {
+  >ul>li>a {
+    background-color: $mongreen;
+    color:#fff;
+  }
+}
