@@ -1,12 +1,14 @@
-uuid: 72673f45-068b-4000-883d-c897d17332e5
+uuid: 8ed5047b-956f-44dd-b822-f3b5c0001a29
 langcode: en
-status: false
+status: true
 dependencies:
+  config:
+    - webform.webform.inquire_how_to_be_a_seller
   module:
     - block_attributes
-    - md_slider
     - ntv_block_background
     - system
+    - webform
   theme:
     - wristcheck_barrio
 third_party_settings:
@@ -23,20 +25,23 @@ third_party_settings:
     bg_image_position: ''
     bg_image_size: ''
     background_overlay: ''
-id: wristcheckproductslider
+id: webform_3
 theme: wristcheck_barrio
-region: highlighted
-weight: -12
+region: content
+weight: 0
 provider: null
-plugin: 'md_slider_block:wristcheck_product_slider'
+plugin: webform_block
 settings:
-  id: 'md_slider_block:wristcheck_product_slider'
-  label: 'Wristcheck product slider'
-  provider: md_slider
-  label_display: '0'
+  id: webform_block
+  label: 'INQUIRE HOW TO BE A SELLER'
+  provider: webform
+  label_display: visible
+  webform_id: inquire_how_to_be_a_seller
+  default_data: ''
+  redirect: false
 visibility:
   request_path:
     id: request_path
-    pages: /sell
+    pages: /wristcheck_basic/inquire-how-to-be-seller
     negate: false
     context_mapping: {  }

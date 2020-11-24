@@ -506,3 +506,50 @@ a.wc-btn-dark{
   }
 }
 
+.order-summary-qty {
+  display: block;
+}
+small#edit-insurance--description {
+  display: block;
+}
+input[type="number"] {
+  min-width: 60px;
+}
+a.return-btn {
+  border: solid 1px grey;
+  display: inline-block;
+  height: 53px;
+  line-height: 53px;
+  text-align: center;
+  position: relative;
+  top: 2px;
+  width: 288.767px;
+  margin: 0 10px 20px 0;
+}
+
+#block-webform-3 {
+  margin: 100px auto 300px auto;
+  text-align: center;
+  h2 {
+
+  }
+  #edit-markup {
+
+  }
+  label[for="edit-email"] {
+    position: relative;
+    left: -110px
+  }
+  #edit-email {
+    width: 270px;
+    margin: auto;
+  }
+  #edit-actions--2 {
+    margin: 0;
+    button {
+      width:270px;
+      margin:auto;
+    }
+  }
+
+}

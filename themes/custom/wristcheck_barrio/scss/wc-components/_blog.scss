@@ -1,4 +1,7 @@
 .wc-post-blog {
+  .node__content {
+    display: flex;
+  }
   p {
     font-size: 14px;
     font-weight: 400;
@@ -35,7 +38,7 @@
     .field--name-uid {
       margin: 0 8px;
       font-size: 18px;
-       
+
       font-weight: bold;
       color: rgba(51, 51, 51, 1);
       line-height: 24px;

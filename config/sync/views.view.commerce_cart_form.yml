@@ -290,7 +290,7 @@ display:
           relationship: product_id
           group_type: group
           admin_label: ''
-          label: Title
+          label: Product
           exclude: false
           alter:
             alter_text: false
@@ -597,7 +597,18 @@ display:
           entity_type: commerce_order_item
           entity_field: order_item_id
           plugin_id: standard
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<div class="wc-panel"> <div class="wc-panel__title text-left">BAG</div></div>'
+          plugin_id: text_custom
       footer:
         commerce_order_total:
           id: commerce_order_total
@@ -681,6 +692,7 @@ display:
           entity_field: order_id
           plugin_id: numeric
       display_extenders: {  }
+      title: ''
     cache_metadata:
       max-age: -1
       contexts:

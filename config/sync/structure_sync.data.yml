@@ -5364,6 +5364,18 @@ blocks:
         value: "<div class=\"wc-laces-block\"><img alt=\"sharedow\" data-entity-type=\"file\" data-entity-uuid=\"c09aa18d-3405-4e0c-905d-62b40976601c\" src=\"/sites/default/files/inline-images/2020-11-18_16-19.png\" /></div>\r\n"
         summary: ''
         format: full_html
+  -
+    info: 'Wristcheck Sell Banner'
+    langcode: en
+    uuid: 2612ee4e-a073-4df5-b723-ad43a9343c79
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-sellbanner\"><img alt=\"sellbanner\" data-entity-type=\"file\" data-entity-uuid=\"38a6ff7d-df33-4ba9-890c-a6b33265348b\" src=\"/sites/default/files/inline-images/2020-11-19_10-48.png\" /></div>\r\n"
+        summary: ''
+        format: full_html
 menus:
   -
     menu_name: main

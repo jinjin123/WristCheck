@@ -10,13 +10,13 @@
 	// debug
 	var local = window.location.origin;
 	if (local.indexOf('localhost') > -1) {
-		// $('img').each(function () {
-		// 	var img = $(this)
-		// 	var url = img.attr('src')
-		// 	if (url.match(/^[http|htts]/ig) == null) {
-		// 		$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
-		// 	}
-		// })
+	// 	// $('img').each(function () {
+	// 	// 	var img = $(this)
+	// 	// 	var url = img.attr('src')
+	// 	// 	if (url.match(/^[http|htts]/ig) == null) {
+	// 	// 		$(this).attr('src', 'http://dev.wristcheck.com:8888' + url)
+	// 	// 	}
+	// 	// })
 		$('.lazyload[data-original]').each(function () {
 			var img = $(this)
 			var url = img.attr('data-original')
@@ -65,7 +65,7 @@
   if($("#sort_by_product").length > 0){
     var redirct = '/product/search-result';
     if(location.search =="" && location.pathname != "/buy"  && !/brand/i.test(location.pathname)){
-      location.href  =  redirct + "?sort_by=created&sort_order=DESC"
+      // location.href  =  redirct + "?sort_by=created&sort_order=DESC"
     }
   }
   $("#sort_by_product").change(function (e) {
@@ -265,6 +265,9 @@
       $(".wc-sell-buttom-banner").click(function () {
           location.href = "/node/add/wcshw"
       })
+      $(".wc-sellbanner").click(function () {
+        location.href = "/wristcheck_basic/inquire-how-to-be-seller"
+      })
     }
 		if (window.location.pathname === "/faq-sellstep") {
 			var _ov = document.getElementById('edit-first-unit');
@@ -382,9 +385,9 @@
           $.getJSON("/wristcheck_basic/getRate" , (function (data) {
             $(".wc-low-sales-result").css("display","block")
             $(".wc-low__four_title").css({
-              "background": "url(/themes/custom/wristcheck_barrio/images/icons/arrow-up.png)no-repeat ",
-              "background-size": "15px auto",
-              "background-position": "100% 30%",
+              "background": "url(/themes/custom/wristcheck_barrio/images/icons/sell-arrow-up.png)no-repeat ",
+              "background-size": "40px ",
+              "background-position": "100% 50%",
             });
               // console.log($("#edit-second-size").val())
                var ins = Number(data.insurance)
@@ -733,4 +736,7 @@
       modal.modal('show')
     });
   });
+
+  $("a.return-btn").css('height', $("button#edit-actions-next").outerHeight());
+  $("a.return-btn").css('width', $("button#edit-actions-next").outerWidth());
 })(jQuery, Drupal);

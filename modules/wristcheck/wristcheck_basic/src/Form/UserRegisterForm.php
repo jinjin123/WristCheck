@@ -131,7 +131,7 @@ class UserRegisterForm extends FormBase
 //      '#weight' => 1000,
 //      '#type' => 'markup',
 //      '#title' => t("This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply"),
-      '#markup'=> t("This site is protected by reCAPTCHA and the Google") . " " .'<a href="javascript:;" class="wc-term-link">'.t('Privacy Policy').'</a>'.t("and"). '<a href="javascript:;" class="wc-term-link">'.t('Terms of Service').'</a>'." ".t("apply") ,
+      '#markup'=> t("This site is protected by reCAPTCHA and the Google") . " " .'<a href="javascript:;" class="wc-term-link">'.t('Privacy Policy').'</a>'. " " .t("and"). " " .'<a href="javascript:;" class="wc-term-link">'.t('Terms of Service').'</a>'." ".t("apply") ,
 //      '#attributes' => array('class' => 'label1'),
 //      '#description' =>  t(""),
     ];
