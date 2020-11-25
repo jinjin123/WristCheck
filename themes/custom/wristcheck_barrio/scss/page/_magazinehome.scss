@@ -170,10 +170,8 @@
   .view-content {
     display: flex;
     flex-wrap: wrap;
-
-    > div {
-
-    }
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   .wc-further-three-art {

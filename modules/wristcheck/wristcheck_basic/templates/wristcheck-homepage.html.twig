@@ -1,19 +1,11 @@
 <div class="container">
-    {#    <div class="wc-panel">#}
-    {#        <img src="/themes/custom/wristcheck_barrio/images/v2/banner/hompage-banner.jpg" class="img-fluid"/>#}
-    {#        <div class="text-center homepage-discover__title">Wrist Talk with Francois-Henry Bennahmias</div>#}
-    {#        <div class="wc-discover__tag">#}
-    {#            <a>BUYER'S GUIDE</a>#}
-    {#            <a>by Nils Rau</a>#}
-    {#        </div>#}
-    {#    </div>#}
-        <div class="wc-panel wc-padding-top-0"> {#    <div class="wc-panel__title text-center">WATCH 101S</div>#}
-        {#    {{ drupal_view('wristcheck_buy_magazine','single_article') }}#}
-    {{ drupal_view('wristcheck_buy_magazine','discover_head_block') }}
+    <div class="wc-homepage-banner">
+        {{ drupal_view('wristcheck_buy_magazine','discover_head_block') }}
     </div>
-{{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
+    {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
 </div>
-    <div class="homepage-it-work"> <div class="container">
+<div class="homepage-it-work">
+    <div class="container">
         {{ drupal_block('wristcheck_how_it_works_block') }}
     </div>
 </div>
@@ -32,7 +24,8 @@
         {{ drupal_view('wristcheck_products','home_edit_pick') }}
     </div>
 </div>
-<div class="wc-v2-panel">
+<div
+    class="wc-v2-panel">
     {# wc-discover-panel #}
     <div class="container">
         <div class="v-line"></div>
@@ -43,7 +36,7 @@
             </div>
         </div>
         {# {{ drupal_view('wristcheck_buy_magazine','from_the_journal') }}#}
-        {# {{ drupal_view('wristcheck_buy_magazine','article_three_load') }}#}
+    {# {{ drupal_view('wristcheck_buy_magazine','article_three_load') }}#}
         {# {{ attach_library('wristcheck_barrio/homepage-styling') }}#}
     </div>
 </div>
