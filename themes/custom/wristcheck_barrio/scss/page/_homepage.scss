@@ -403,6 +403,12 @@
     font-size: 20px;
     line-height: 24px;
   }
+  .wc-rolex-sub{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: rgba(0,0,0,.56);
+  }
 }
 .block-wristcheck-how-it-works-block{
   .wc-v2-panel{
@@ -418,6 +424,7 @@
     margin: 0;
   }
 }
+.view-display-id-latest_articles,
 .view-display-id-article_three_load{
   .views-infinite-scroll-content-wrapper>div{
     margin-bottom: 32px;

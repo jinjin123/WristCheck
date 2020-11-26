@@ -366,10 +366,13 @@
     width: 100%;
   }
 }
-.layout-sidebar-first,
-.wc-second-hand-watch{
-  margin-top: 32px;
+.page-view-wristcheck-products{
+  .layout-sidebar-first,
+  .wc-second-hand-watch{
+    margin-top: 32px;
+  }
 }
+
 
 @media (max-width: 767px) {
   .wc-product-search {
