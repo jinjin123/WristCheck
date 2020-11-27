@@ -1,0 +1,23 @@
+uuid: d48d3c36-c243-46f3-afba-a8e36d2dafd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_original_box
+id: commerce_product.watch.field_original_box
+field_name: field_original_box
+entity_type: commerce_product
+bundle: watch
+label: 'Original box'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

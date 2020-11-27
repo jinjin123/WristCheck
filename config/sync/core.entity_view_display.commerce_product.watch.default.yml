@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.watch.body
     - field.field.commerce_product.watch.feeds_item
     - field.field.commerce_product.watch.field_ask_price
+    - field.field.commerce_product.watch.field_authenticity_guaranteed
     - field.field.commerce_product.watch.field_bezel_material
     - field.field.commerce_product.watch.field_case_back
     - field.field.commerce_product.watch.field_case_back_width
@@ -33,6 +34,8 @@ dependencies:
     - field.field.commerce_product.watch.field_manufacturer
     - field.field.commerce_product.watch.field_model_images
     - field.field.commerce_product.watch.field_model_tags
+    - field.field.commerce_product.watch.field_original_box
+    - field.field.commerce_product.watch.field_original_papers
     - field.field.commerce_product.watch.field_others
     - field.field.commerce_product.watch.field_place_of_origin
     - field.field.commerce_product.watch.field_power_time
@@ -41,6 +44,7 @@ dependencies:
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
     - field.field.commerce_product.watch.field_scope_of_delivery
+    - field.field.commerce_product.watch.field_secure_payment_in_escrow
     - field.field.commerce_product.watch.field_sku
     - field.field.commerce_product.watch.field_specifications
     - field.field.commerce_product.watch.field_subname
@@ -71,21 +75,31 @@ content:
   body:
     label: above
     type: text_default
-    weight: 11
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ask_price:
-    weight: 52
-    label: above
+    weight: 41
+    label: hidden
     settings:
-      strip_trailing_zeroes: false
       currency_display: symbol
+      strip_trailing_zeroes: false
     third_party_settings: {  }
     type: commerce_price_default
     region: content
+  field_authenticity_guaranteed:
+    weight: 53
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: "\tAuthenticity guaranteed"
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_bezel_material:
-    weight: 33
+    weight: 22
     label: above
     settings:
       link_to_entity: false
@@ -93,7 +107,7 @@ content:
     type: string
     region: content
   field_case_back:
-    weight: 35
+    weight: 24
     label: above
     settings:
       link_to_entity: false
@@ -101,38 +115,6 @@ content:
     type: string
     region: content
   field_case_back_width:
-    weight: 48
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_case_band_color:
-    weight: 40
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_case_band_length:
-    weight: 41
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_case_band_material:
-    weight: 39
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_case_band_width:
     weight: 37
     label: above
     settings:
@@ -140,8 +122,40 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_case_band_color:
+    weight: 29
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_case_band_length:
+    weight: 30
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_case_band_material:
+    weight: 28
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_case_band_width:
+    weight: 26
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_case_face:
-    weight: 34
+    weight: 23
     label: above
     settings:
       link_to_entity: false
@@ -149,7 +163,7 @@ content:
     type: string
     region: content
   field_case_number:
-    weight: 38
+    weight: 27
     label: above
     settings:
       link_to_entity: false
@@ -157,7 +171,7 @@ content:
     type: string
     region: content
   field_case_shape:
-    weight: 36
+    weight: 25
     label: above
     settings:
       link_to_entity: false
@@ -165,7 +179,7 @@ content:
     type: string
     region: content
   field_case_size:
-    weight: 62
+    weight: 50
     label: above
     settings:
       thousand_separator: ''
@@ -174,7 +188,7 @@ content:
     type: number_integer
     region: content
   field_case_thickness:
-    weight: 31
+    weight: 20
     label: above
     settings:
       link_to_entity: false
@@ -182,7 +196,7 @@ content:
     type: string
     region: content
   field_case_weight:
-    weight: 46
+    weight: 35
     label: above
     settings:
       link_to_entity: false
@@ -190,7 +204,7 @@ content:
     type: string
     region: content
   field_cate:
-    weight: 54
+    weight: 43
     label: above
     settings:
       link: true
@@ -198,7 +212,7 @@ content:
     type: entity_reference_label
     region: content
   field_clasp:
-    weight: 42
+    weight: 31
     label: above
     settings:
       link_to_entity: false
@@ -206,7 +220,7 @@ content:
     type: string
     region: content
   field_clasp_material:
-    weight: 43
+    weight: 32
     label: above
     settings:
       link_to_entity: false
@@ -214,14 +228,14 @@ content:
     type: string
     region: content
   field_condition:
-    weight: 56
+    weight: 45
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_crust_material:
-    weight: 24
+    weight: 14
     label: above
     settings:
       link_to_entity: false
@@ -229,14 +243,14 @@ content:
     type: string
     region: content
   field_delivery_box:
-    weight: 61
+    weight: 49
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_detailimg:
-    weight: 59
+    weight: 47
     label: above
     settings:
       image_style: ''
@@ -245,7 +259,7 @@ content:
     type: image
     region: content
   field_extras:
-    weight: 44
+    weight: 33
     label: above
     settings:
       link_to_entity: false
@@ -253,21 +267,21 @@ content:
     type: string
     region: content
   field_introduction:
-    weight: 13
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_location:
-    weight: 53
+    weight: 42
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_manufacturer:
-    weight: 27
+    weight: 18
     label: above
     settings:
       link_to_entity: false
@@ -275,7 +289,7 @@ content:
     type: string
     region: content
   field_model_images:
-    weight: 14
+    weight: 5
     label: above
     settings:
       image_style: ''
@@ -284,15 +298,35 @@ content:
     type: image
     region: content
   field_model_tags:
-    weight: 16
+    weight: 6
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_original_box:
+    weight: 52
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Original box'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_original_papers:
+    weight: 51
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Original papers'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_others:
-    weight: 45
+    weight: 34
     label: above
     settings:
       link_to_entity: false
@@ -300,14 +334,14 @@ content:
     type: string
     region: content
   field_place_of_origin:
-    weight: 49
+    weight: 38
     label: above
     settings: {  }
     third_party_settings: {  }
     type: address_country_default
     region: content
   field_power_time:
-    weight: 28
+    weight: 19
     label: above
     settings:
       link_to_entity: false
@@ -315,7 +349,7 @@ content:
     type: string
     region: content
   field_radioactivity:
-    weight: 50
+    weight: 39
     label: above
     settings:
       energy: !!float 10
@@ -324,7 +358,7 @@ content:
     type: radioactivity_emitter
     region: content
   field_ref_number:
-    weight: 17
+    weight: 7
     label: above
     settings:
       link_to_entity: false
@@ -332,7 +366,7 @@ content:
     type: string
     region: content
   field_related_brand:
-    weight: 18
+    weight: 8
     label: above
     settings:
       link: true
@@ -340,7 +374,7 @@ content:
     type: entity_reference_label
     region: content
   field_related_model:
-    weight: 19
+    weight: 9
     label: above
     settings:
       link: true
@@ -348,15 +382,25 @@ content:
     type: entity_reference_label
     region: content
   field_scope_of_delivery:
-    weight: 57
+    weight: 46
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
+  field_secure_payment_in_escrow:
+    weight: 54
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Secure payment in Escrow'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_sku:
-    weight: 25
+    weight: 16
     label: above
     settings:
       link_to_entity: false
@@ -365,7 +409,7 @@ content:
     region: content
   field_specifications:
     type: entity_reference_revisions_entity_view
-    weight: 25
+    weight: 15
     label: above
     settings:
       view_mode: default
@@ -373,7 +417,7 @@ content:
     third_party_settings: {  }
     region: content
   field_subname:
-    weight: 20
+    weight: 10
     label: hidden
     settings:
       link_to_entity: false
@@ -381,14 +425,14 @@ content:
     type: string
     region: content
   field_verified_dealer:
-    weight: 51
+    weight: 40
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_watch_core:
-    weight: 22
+    weight: 12
     label: above
     settings:
       link_to_entity: false
@@ -396,7 +440,7 @@ content:
     type: string
     region: content
   field_watch_core_num:
-    weight: 23
+    weight: 13
     label: above
     settings:
       link_to_entity: false
@@ -405,7 +449,7 @@ content:
     region: content
   field_watch_params:
     type: entity_reference_revisions_entity_view
-    weight: 55
+    weight: 44
     label: hidden
     settings:
       view_mode: default
@@ -413,7 +457,7 @@ content:
     third_party_settings: {  }
     region: content
   field_watch_series:
-    weight: 60
+    weight: 48
     label: above
     settings:
       link: true
@@ -421,7 +465,7 @@ content:
     type: entity_reference_label
     region: content
   field_watch_sex:
-    weight: 26
+    weight: 17
     label: above
     settings:
       link_to_entity: false
@@ -429,7 +473,7 @@ content:
     type: string
     region: content
   field_watch_style:
-    weight: 21
+    weight: 11
     label: above
     settings:
       link_to_entity: false
@@ -437,7 +481,7 @@ content:
     type: string
     region: content
   field_water_resistance:
-    weight: 32
+    weight: 21
     label: above
     settings:
       link_to_entity: false
@@ -445,7 +489,7 @@ content:
     type: string
     region: content
   field_year:
-    weight: 47
+    weight: 36
     label: above
     settings:
       link_to_entity: false
@@ -453,21 +497,29 @@ content:
     type: string
     region: content
   flag_wristcheck_wishlist:
-    weight: 10
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   title:
     label: hidden
     type: string
-    weight: -5
+    weight: 0
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  uid:
+    type: entity_reference_label
+    weight: 55
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
   variations:
     type: commerce_add_to_cart
-    weight: 10
+    weight: 1
     region: content
     label: hidden
     settings:
@@ -483,4 +535,3 @@ hidden:
   langcode: true
   search_api_excerpt: true
   stores: true
-  uid: true

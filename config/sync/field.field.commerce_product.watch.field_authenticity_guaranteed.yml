@@ -1,0 +1,23 @@
+uuid: 0f76186f-1628-412f-8241-357723213e68
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_authenticity_guaranteed
+id: commerce_product.watch.field_authenticity_guaranteed
+field_name: field_authenticity_guaranteed
+entity_type: commerce_product
+bundle: watch
+label: 'Authenticity guaranteed'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

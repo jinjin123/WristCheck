@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.watch.body
     - field.field.commerce_product.watch.feeds_item
     - field.field.commerce_product.watch.field_ask_price
+    - field.field.commerce_product.watch.field_authenticity_guaranteed
     - field.field.commerce_product.watch.field_bezel_material
     - field.field.commerce_product.watch.field_case_back
     - field.field.commerce_product.watch.field_case_back_width
@@ -33,6 +34,8 @@ dependencies:
     - field.field.commerce_product.watch.field_manufacturer
     - field.field.commerce_product.watch.field_model_images
     - field.field.commerce_product.watch.field_model_tags
+    - field.field.commerce_product.watch.field_original_box
+    - field.field.commerce_product.watch.field_original_papers
     - field.field.commerce_product.watch.field_others
     - field.field.commerce_product.watch.field_place_of_origin
     - field.field.commerce_product.watch.field_power_time
@@ -41,6 +44,7 @@ dependencies:
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
     - field.field.commerce_product.watch.field_scope_of_delivery
+    - field.field.commerce_product.watch.field_secure_payment_in_escrow
     - field.field.commerce_product.watch.field_sku
     - field.field.commerce_product.watch.field_specifications
     - field.field.commerce_product.watch.field_subname
@@ -89,6 +93,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: commerce_price_default
+    region: content
+  field_authenticity_guaranteed:
+    weight: 63
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_bezel_material:
     weight: 29
@@ -297,6 +308,20 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_original_box:
+    weight: 62
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_original_papers:
+    weight: 61
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_others:
     weight: 41
     settings:
@@ -362,6 +387,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_secure_payment_in_escrow:
+    weight: 64
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_sku:
     weight: 21

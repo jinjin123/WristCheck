@@ -1,0 +1,28 @@
+uuid: b6bd8021-ae41-4d75-b39f-4d855dbcae99
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.node.field_related_model
+    - node.type.blog_post
+id: node.blog_post.field_related_model
+field_name: field_related_model
+entity_type: node
+bundle: blog_post
+label: 'Related Model'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      watch: watch
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

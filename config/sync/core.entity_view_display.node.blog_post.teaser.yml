@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.blog_post.field_images
     - field.field.node.blog_post.field_page_title_image
     - field.field.node.blog_post.field_related_brand
+    - field.field.node.blog_post.field_related_model
     - node.type.blog_post
   module:
     - text
@@ -34,11 +35,13 @@ content:
     weight: 100
     region: content
 hidden:
+  addtoany: true
   field_blog_categories: true
   field_blog_comments: true
   field_blog_tags: true
   field_images: true
   field_page_title_image: true
   field_related_brand: true
+  field_related_model: true
   langcode: true
   search_api_excerpt: true

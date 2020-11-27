@@ -116,7 +116,8 @@
 <div class="row">
   <div class="col-md-5">
     <div class="wc-product-imglist1">
-      {{ drupal_view('wristcheck_product_jcarousel','top') }}
+{#      {{ drupal_view('wristcheck_product_jcarousel','top') }}#}
+            {{ drupal_view('wristcheck_product_jcarousel','image') }}
     </div>
     {#    <div class="wc-product-imglist2">#}
     {#      {{ drupal_view('wristcheck_product_jcarousel','page_1') }}#}
@@ -125,22 +126,38 @@
   <div class="col-md-7">
     <div class="wc-product-introduction">
       <div class="wc-product-title">{{ product.field_subname }}</div>
+      <div class="wc-product-title bold">{{ product.title }}</div>
+      <div>
+        {{- product.field_ask_price -}}
+      </div>
+      <div>
+        Inspected by certified watchmaker
+      </div>
+      <div>
+        {{ product.uid }}
+      </div>
       <div class="wc-product--row">
-        <div class="wc-product-title bold">{{ product.title }}</div>
         {{- product.flag_wristcheck_wishlist -}}
       </div>
-      <div class="wc-product-num">
-        {{ product.field_ref_number }}
-      </div>
+{#      <div class="wc-product-num">#}
+{#        {{ product.field_ref_number }}#}
+{#      </div>#}
+      {{ product.field_original_box }}
+      {{ product.field_original_papers }}
+      {{ product.field_authenticity_guaranteed }}
+      {{ product.field_secure_payment_in_escrow }}
       <div class="wc-product-btn">
         <a href="javascript:;" class="wc-product-add-wishlist">
           <div class="wc-btn-cont">
             <span class="fa fa-arrow-right"></span>
             <span class="btn-line"></span>
-            ADD TO WISHLIST
+            ADD TO BAG
           </div>
         </a>
         <div class="wc-product-variations">
+
+
+
           {{- product.variations -}}
         </div>
       </div>
@@ -213,41 +230,46 @@
   {{ product.field_watch_params }}
 </div>
 
-<div class="wc-panel field--name-field-watch-params">
-  <div class="col-md-6">
-    <h4 class="wc-product-introduction__title">
-      <span>{{ 'Functions'|t }}</span>
-    </h4>
-    {{ drupal_view('wristcheck_products','product_functions') }}
-  </div>
-  <div class="col-md-6">
-    <h4 class="wc-product-introduction__title">
-      <span>{{ 'Others'|t }}</span>
-    </h4>
-    {{ drupal_view('wristcheck_products','product_others') }}
-  </div>
-</div>
+{#<div class="wc-panel field--name-field-watch-params">#}
+{#  <div class="col-md-6">#}
+{#    <h4 class="wc-product-introduction__title">#}
+{#      <span>{{ 'Functions'|t }}</span>#}
+{#    </h4>#}
+{#    {{ drupal_view('wristcheck_products','product_functions') }}#}
+{#  </div>#}
+{#  <div class="col-md-6">#}
+{#    <h4 class="wc-product-introduction__title">#}
+{#      <span>{{ 'Others'|t }}</span>#}
+{#    </h4>#}
+{#    {{ drupal_view('wristcheck_products','product_others') }}#}
+{#  </div>#}
+{#</div>#}
+
+{#<div class="wc-panel">#}
+{#  <div class="wc-panel__title text-center">{{ 'SPECIFICATIONS'|t }}</div>#}
+{#  <div class="row">#}
+{#    <div class="col-md-12 wc-product-specifications wc-display-label">#}
+{#      {{ product.field_specifications }}#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
 
 <div class="wc-panel">
-  <div class="wc-panel__title text-center">{{ 'SPECIFICATIONS'|t }}</div>
-  <div class="row">
-    <div class="col-md-12 wc-product-specifications wc-display-label">
-      {{ product.field_specifications }}
-    </div>
-  </div>
+  <div class="wc-panel__title text-center">{{ 'READ MORE'|t }}</div>
+  {{ drupal_view('wristcheck_buy_magazine','read_more') }}
 </div>
 
 <div class="wc-panel">
   <div class="wc-panel__title text-center">{{ 'RELATED WATCHES'|t }}</div>
-  {{ drupal_view('wristcheck_models') }}
+  {{ drupal_view('wristcheck_products','related_models') }}
 </div>
 
-<div class="wc-panel wc-testimdnials">
-  <h1 class='wc-panel__title text-center'>{{ 'TESTIMONIALS'|t }}</h1>
-  <div class='container pt-50 pb-100'>
-    {{ drupal_view('wristcheck_testimdnials','default') }}
-  </div>
-</div>
+{#<div class="wc-panel wc-testimdnials">#}
+{#  <h1 class='wc-panel__title text-center'>{{ 'TESTIMONIALS'|t }}</h1>#}
+{#  <div class='container pt-50 pb-100'>#}
+{#    {{ drupal_view('wristcheck_testimdnials','default') }}#}
+{#  </div>#}
+{#</div>#}
 
 {# In a Twig template we attach the library. #}
 {{ attach_library('wristcheck_barrio/product-styling') }}
