@@ -52,34 +52,33 @@
 
     <main role="main">
         <a id="main-content" tabindex="-1"></a>
-		{% if page.sidebar_first %}
-			<div class="container">
-				<div class="row">
-					{% if page.sidebar_first %}
-						<div class="col-md-3">
-							<aside class="layout-sidebar-first" role="complementary">
-								{{ page.sidebar_first }}
-							</aside>
-						</div>
-					{% endif %}
-					{% set classes = [
-							page.sidebar_first and page.sidebar_second ? 'col-md-6' : page.sidebar_first or page.sidebar_second ? 'col-md-9' : 'col-md-12',
-						]
-					%}
-					<div {{ attributes.addClass(classes) }}>
-						<div class="layout-content">
-							{{ page.content }}
-						</div>
-					</div>
-					{% if page.sidebar_second %}
-						<aside class="layout-sidebar-second" role="complementary">
-							{{ page.sidebar_second }}
+		<div class="container">
+			<div class="row">
+				{% if page.sidebar_first %}
+					<div class="col-md-3">
+						<aside class="layout-sidebar-first" role="complementary">
+							{{ page.sidebar_first }}
 						</aside>
-					{% endif %}
+					</div>
+				{% endif %}
+				{% set classes = [
+						page.sidebar_first and page.sidebar_second ? 'col-md-6' : page.sidebar_first or page.sidebar_second ? 'col-md-9' : 'col-md-12',
+					]
+				%}
+				<div {{ attributes.addClass(classes) }}>
+					<div class="layout-content">
+						{{ page.content }}
+					</div>
 				</div>
+				{% if page.sidebar_second %}
+					<aside class="layout-sidebar-second" role="complementary">
+						{{ page.sidebar_second }}
+					</aside>
+				{% endif %}
 			</div>
-		{% else %}
-			{{ page.content }}
+		</div>
+		{% if page.section %}
+			{{page.section}}
 		{% endif %}
     </main>
     <div class="container-fluid">

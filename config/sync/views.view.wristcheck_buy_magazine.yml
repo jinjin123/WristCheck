@@ -4064,6 +4064,7 @@ display:
         row: false
         header: false
         sorts: false
+        css_class: false
       pager:
         type: some
         options:
@@ -4111,6 +4112,7 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
+      css_class: row-view-content
     cache_metadata:
       max-age: -1
       contexts:

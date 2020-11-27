@@ -332,7 +332,7 @@ display:
       menu:
         type: normal
         title: Glossary
-        weight: -44
+        weight: -43
         menu_name: main
         parent: ''
         enabled: false
