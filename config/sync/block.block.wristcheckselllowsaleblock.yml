@@ -1,0 +1,42 @@
+uuid: 13e3678a-06e7-4908-8b8c-31e18b696eb4
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+    - wristcheck_basic
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckselllowsaleblock
+theme: wristcheck_barrio
+region: bottom_footer
+weight: -15
+provider: null
+plugin: wristcheck_sell_lowsale_block
+settings:
+  id: wristcheck_sell_lowsale_block
+  label: 'Wristcheck sell lowsale block'
+  provider: wristcheck_basic
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /sell
+    negate: false
+    context_mapping: {  }

@@ -5,16 +5,23 @@
  * Contains wristcheck_basic.module.
  */
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\RedirectCommand;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Site\Settings;
+use Drupal\commerce_order\Entity\Order;
+use Drupal\commerce_order\Adjustment;
+use Drupal\commerce_price\Price;
 
 /**
  * Implements hook_help().
@@ -98,7 +105,17 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_buy_long_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_category' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_filter_brand_product_block'=>[
       'variables' => [
         'variables' => []
       ]
@@ -108,13 +125,36 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-
+    'wristcheck_sell_service_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_discover_buttom_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_buy' => [
       'variables' => [
         'variables' => []
       ]
     ],
-
+    'wristcheck_buy_benefits_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_faq_question_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_sell_lowsale_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_sell' => [
       'variables' => [
         'variables' => []
@@ -275,11 +315,22 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_user_login'=>[
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_error_403'=>[
       'variables' => [
         'variables' => []
       ]
-    ]
+    ],
+    'wristcheck_basic_commerce_checkout_order_summary' => [
+      'variables' => [
+        'order_entity' => NULL,
+        'checkout_step' => '',
+      ],
+    ],
   ];
 }
 
@@ -479,6 +530,10 @@ function wristcheck_basic_form_user_login_form_alter(&$form, \Drupal\Core\Form\F
     //for redirect page
     $form["#action"] .= '&destination=/wristcheck_basic/check_user_info';
   }
+
+  $form['name']['#title'] = 'Email';
+  $form['name']['#description'] = '';
+  $form['pass']['#description'] = '';
 }
 
 /**
@@ -540,3 +595,118 @@ function wristcheck_basic_views_pre_render(ViewExecutable $view) {
 //    $view->setHandler('transactions_sell', 'header', 'area_text_custom', $options);
 //  }
 //}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function wristcheck_basic_form_views_form_commerce_cart_form_default_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+  $order_id = substr($form_id, strlen('views_form_commerce_cart_form_default_'));
+  $order = Order::load($order_id);
+  $if_need_insurance_value = isset($order->get('field_if_need_insurance')->getValue()[0]) ?
+    $order->get('field_if_need_insurance')->getValue()[0]['value'] : 0;
+  $form['insurance'] = [
+    '#type' => 'checkbox',
+    '#title' => 'WRISTCHECK INSURANCE',
+    '#description' => 'description description description...',
+    '#default_value' => $if_need_insurance_value,
+    '#ajax' => array(
+      'callback' => 'wristcheck_basic_if_need_insurance_ajax',
+      'wrapper' => 'views-form-commerce-cart-form-default-' . $order_id,
+    ),
+  ];
+
+  $form['#submit'][] = 'wristcheck_basic_cart_update';
+}
+
+function wristcheck_basic_cart_update($form, &$form_state) {
+  $values = $form_state->getValues();
+  $order_id = substr($values["form_id"], strlen('views_form_commerce_cart_form_default_'));
+  $order = Order::load($order_id);
+  $subTotalPrice = $order->getSubtotalPrice();
+  //$totalPrice = $order->getTotalPrice();
+  //$currency_code = $totalPrice->getCurrencyCode();
+  $insurance_rate = \Drupal::config('wristcheck_basic.rateSettings')->get('insurance');
+  $adjustment_amount = $subTotalPrice->multiply($insurance_rate)->divide('100');
+  $adjustment = new Adjustment([
+    'type' => 'custom',
+    'label' => 'Insurance Plus '. $insurance_rate .'%',
+    'amount' => $adjustment_amount,
+    'percentage' => bcdiv($insurance_rate, '100', 3),
+    'included' => FALSE,
+    'locked' => TRUE,
+  ]);
+  if ($values['insurance']) {
+    $order->set('field_if_need_insurance', 1);
+    $order->setAdjustments([$adjustment]);
+    $order->save();
+  }
+  else {
+    $order->set('field_if_need_insurance', 0);
+    $order->setAdjustments([]);
+    $order->save();
+  }
+}
+
+function wristcheck_basic_if_need_insurance_ajax($form, &$form_state) {
+  wristcheck_basic_cart_update($form, $form_state);
+  $response = new AjaxResponse();
+  $currentURL = Url::fromRoute('<current>');
+  $response->addCommand(new RedirectCommand($currentURL->toString()));
+  return $response;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wristcheck_basic_form_commerce_checkout_flow_multistep_default_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form["#step_id"] == 'order_information') {
+    $form["payment_information"]['#weight'] = 99;
+    $form["actions"]['return_to_bag'] = [
+      '#title' => t('RETURN TO BAG'),
+      '#type' => 'link',
+      '#url' => \Drupal\Core\Url::fromUserInput('/cart'),
+      '#attributes' => ['class' => ['return-btn']],
+      '#weight' => -10,
+    ];
+    $form["sidebar"]["order_summary"]["summary"]["#theme"] = 'wristcheck_basic_commerce_checkout_order_summary';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function wristcheck_basic_preprocess_wristcheck_basic_commerce_checkout_order_summary(&$variables) {
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+  $order = $variables['order_entity'];
+  /** @var \Drupal\commerce_order\OrderTotalSummaryInterface $order_total_summary */
+  $order_total_summary = \Drupal::service('commerce_order.order_total_summary');
+  $variables['totals'] = $order_total_summary->buildTotals($order);
+  $variables['rendered_totals'] = [
+    '#theme' => 'commerce_order_total_summary',
+    '#order_entity' => $order,
+    '#totals' => $variables['totals'],
+  ];
+
+  $order_items = $order->getItems();
+  $product_images = [];
+  $product_titles = [];
+  foreach ($order_items as $order_item) {
+    $product = $order_item->getPurchasedEntity()->getProduct();
+    $product_titles[] = $product->getTitle();
+    $img_target_id = $product->get('field_model_images')->getValue()[0]['target_id'];
+    //$product_images[] = file_url_transform_relative(file_create_url(File::load($img_target_id)->getFileUri()));
+    $file = File::load($img_target_id);
+    // Get origin image URI.
+    $image_uri = $file->getFileUri();
+    // Load image style "thumbnail".
+    $style = ImageStyle::load('thumbnail');
+    // Get URI.
+    $uri = $style->buildUri($image_uri);
+    // Get URL.
+    $url = $style->buildUrl($image_uri);
+    $product_images[] = $url;
+  }
+  $variables['product_images'] = $product_images;
+  $variables['product_titles'] = $product_titles;
+}

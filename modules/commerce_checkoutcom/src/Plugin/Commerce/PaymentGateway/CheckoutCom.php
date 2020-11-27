@@ -223,7 +223,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
       $payment_method->setRemoteId($payment_response->source['id']);
       $expires = CreditCard::calculateExpirationTimestamp($payment_response->source['expiry_month'], $payment_response->source['expiry_year']);
       $payment_method->setExpiresTime($expires);
-      $payment_method->save();
+      //$payment_method->save();
     }
 
     $this->setRemoteCustomerId($customer, $payment_response->customer['id']);
@@ -375,7 +375,7 @@ class CheckoutCom extends OnsitePaymentGatewayBase implements CheckoutComInterfa
     $payment_method->card_number = $token_response->last4;
     $payment_method->card_exp_year = $token_response->expiry_year;
     $payment_method->card_exp_month = $token_response->expiry_month;
-    $payment_method->save();
+    //$payment_method->save();
   }
 
   /**

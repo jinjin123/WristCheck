@@ -90,18 +90,53 @@
       </div>
     {% endif %}
     <h1 class="wc-blog-title">{{ node.label }}</h1>
-    {% if display_submitted %}
-      <div class="wc-blog-user">
-        {{ author_picture }}
-        {{ author_name }}
-      </div>
-    {% endif %}
+    <span>{{ nodesumm }}</span>
+    <div>
+      {% if display_submitted %}
+        <div class="wc-blog-user">
+          {{ author_picture }}
+          {{ author_name }}
+        </div>
+      {% endif %}
+    </div>
   </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-    {{ content }}
+    <div class="col-lg-8">
+      {{ content }}
+    </div>
+    <div class="col-lg-4 wc-article-hotflag">
+      <div class="wc-panel__title text-center">RECOMMENDED</div>
+      {{ drupal_view('wristcheck_buy_magazine','mag_hot_recommend') }}
+    </div>
   </div>
-  <div class="wc-panel">
-    <div class="wc-panel__title text-center">LATEST ARTICLES</div>
-    {{ drupal_view('wristcheck_buy_news','blog_news') }}
+  <div class="wc-panel wc-relate-product-article">
+    {#    <div class="wc-panel__title text-center">LATEST ARTICLES</div>#}
+    {#    {{ drupal_view('wristcheck_buy_news','blog_news') }}#}
+    <div class="wc-panel__title text-center">RELATED WATCHES</div>
+    {#        {{ drupal_view('wristcheck_buy_news','blog_news') }}#}
+    {#    {{ drupal_view('wristcheck_brand','brand_product') }}#}
+    {{ drupal_view('wristcheck_products','relate_product_for_article') }}
+  </div>
+  <div class="wc-panel wc-mag-readmore">
+    {#    <div class="wc-panel__title text-center">LATEST ARTICLES</div>#}
+    {#    {{ drupal_view('wristcheck_buy_news','blog_news') }}#}
+    <div class="wc-panel__title text-center">READ MORE</div>
+    {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
+  </div>
+  <div class="v-line"></div>
+  <div class="wc-panel wc-article-comment">
+    <div class="col-lg-8">
+      <div class="wc-panel__title text-left">123 COMMENTS</div>
+      <div class="wc-panel__subtitle text-left">
+        <a href="/wristcheck_basic/form/user_login" class="wc-article-lgin">Log in</a> or
+        <a href="/wristcheck_basic/form/user_register" class="wc-article-lgreg">sign up</a>
+        to leave a comment
+      </div>
+      {{ drupal_view('wristcheck_testimdnials','article_comment') }}
+    </div>
+    <div class="col-lg-4 wc-article-hotflag">
+      <div class="wc-panel__title text-center">RECOMMENDED</div>
+      {{ drupal_view('wristcheck_buy_magazine','mag_hot_recommend') }}
+    </div>
   </div>
 </article>

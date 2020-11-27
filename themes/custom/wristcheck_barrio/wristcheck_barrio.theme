@@ -5,6 +5,7 @@
  * Functions to support theming in the SASS Starterkit subtheme.
  */
 
+use Drupal\commerce_product\Entity\Product;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 use Drupal\file\Entity\File;
@@ -113,12 +114,50 @@ function wristcheck_barrio_preprocess_maintenance_page(&$variables)
 
 function wristcheck_barrio_preprocess_node(&$variables)
 {
+  $nodeid =$variables["attributes"]["data-history-node-id"];
+  $node = \Drupal::entityManager()->getStorage('node')->load($nodeid);
+  $node_summary = $node->get('body')->summary;
+  $variables['nodesumm'] = $node_summary;
   $sell_form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\SellAddToCartForm');
   $variables['sell_form'] = $sell_form;
 }
 
 function wristcheck_barrio_preprocess_breadcrumb(&$variables)
 {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $patterns = '/product/*';
+  $match = \Drupal::service('path.matcher')->matchPath($current_path, $patterns);
+  if ($match) {
+    $result = [['text' => 'Buy', 'url' => '/buy']];
+    $product_id = substr($current_path, strlen('/product/'));
+    preg_match('/[\d]*/', $product_id, $matches);
+    if (count($matches) == 1 && $matches[0] == $product_id) {
+      $product = Product::load($product_id);
+      $field_cate = $product->get('field_cate')->getValue();
+      if (isset($field_cate[0]['target_id'])) {
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_cate[0]['target_id']);
+        if ($term) {
+          $title = $term->getName();
+          array_push($result,['text' => $title, 'url' => '/brand/'. $title]);
+        }
+      }
+      $field_watch_series = $product->get('field_watch_series')->getValue();
+      if (isset($field_watch_series[0]['target_id'])) {
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_watch_series[0]['target_id']);
+        if ($term) {
+          $title = $term->getName();
+          array_push($result,['text' => $title, 'url' => '/#']);
+        }
+      }
+      $variables['breadcrumb'] = $result;
+      return;
+    }
+    else {
+      $variables['breadcrumb'] = [];
+      return;
+    }
+  }
+
   $view = \Drupal\views\Views::getView('wristcheck_buy_magazine');
   $view->execute('single');
   global $head_title;

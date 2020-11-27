@@ -745,6 +745,7 @@ display:
         pager: false
         style: false
         row: false
+        css_class: false
       filters:
         status:
           value: '1'
@@ -913,7 +914,7 @@ display:
         options:
           grouping: {  }
           row_class: 'col-sm-12 col-md-4 col-lg-12 portfolio-item filter-Packaging filter-Print portfolio'
-          default_row_class: true
+          default_row_class: false
       row:
         type: fields
         options:
@@ -921,6 +922,7 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      css_class: row-view-content
     cache_metadata:
       max-age: -1
       contexts:

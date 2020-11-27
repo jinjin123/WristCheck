@@ -1,9 +1,11 @@
-<div class="wc-faq-panel">
-  <div class="wc-faq-header">
-    <h1 class='wc-faq__title'>{{ 'Help and Frequently Asked Questrions'|t }}</h1>
-    <h5 class='wc-faq__sub'>{{ 'Use the search box below to search through our FAQ and find answers to your questions quickly. You can also contact us directly'|t }}</h5>
-  </div>
-  <div class="container">
-    {{ drupal_view('wristcheck_faq') }}
-  </div>
+<div class="container">
+	<div class="wc-faq-container">
+		<div class="wc-faq-panel">
+			<div class="wc-faq-header">
+				<h1 class='wc-faq__title'>{{ 'FREQUENTLY ASKED QUESTIONS'|t }}</h1>
+			</div>
+			{{ drupal_view('wristcheck_faq') }}
+		</div>
+		<p class='wc-faq-footer'>Have more questions? Contact us at +862 1234 5678 </p>
+	</div>
 </div>

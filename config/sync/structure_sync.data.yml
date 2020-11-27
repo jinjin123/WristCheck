@@ -5316,6 +5316,66 @@ blocks:
         value: "<div class=\"wc-shield-box\">\r\n<div class=\"wc-shield-box__left\">\r\n<h1>WRISTCHECK GUARANTEE</h1>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/dui.png\" /></span> AUTHENTICITY GUARANTEED</div>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/qian.png\" /> </span> SECURE PAYMENT IN ESCROW</div>\r\n\r\n<div class=\"wc-shield-box__item clearfix\"><span class=\"wc-shield-box__item-img\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/ren.png\" /> </span> SELLER GETS PAID ONCE</div>\r\n</div>\r\n\r\n<div class=\"wc-shield-box__right\"><img alt=\"\" src=\"/themes/custom/wristcheck_barrio/images/icons/dun.png\" /></div>\r\n</div>\r\n"
         summary: ''
         format: full_html
+  -
+    info: 'Wristcheck buy all watches banner '
+    langcode: en
+    uuid: 341b0e41-914a-4f71-b484-a5332dba6b3d
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-buyallwatches\"><img src=\"/themes/custom/wristcheck_barrio/images/buybanner.png\" /></div>\r\n"
+        summary: ''
+        format: full_html
+  -
+    info: 'Wristcheck Buy Home Page Banner'
+    langcode: en
+    uuid: b64515da-953d-41b2-89d3-5872ff80b88a
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-buyallwatches\"><img src=\"/themes/custom/wristcheck_barrio/images/buyhomebanner.png\" /></div>\r\n"
+        summary: ''
+        format: full_html
+  -
+    info: 'Wristcheck sell buttom banner block '
+    langcode: en
+    uuid: 928457ac-f18c-4780-8ed1-befa561ed18a
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-sell-buttom-banner\">\r\n <img alt=\"sellbanner\" data-entity-type=\"file\" data-entity-uuid=\"d3c55326-5ca6-47fc-99f4-bf951a45e242\" src=\"/sites/default/files/inline-images/2020-11-18_10-07.png\" />\r\n</div>\r\n"
+        summary: ''
+        format: full_html
+  -
+    info: 'Wristcheck Laces  Block'
+    langcode: en
+    uuid: e18102f9-3375-493c-ad98-1f83b68dbb77
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-laces-block\"><img alt=\"sharedow\" data-entity-type=\"file\" data-entity-uuid=\"c09aa18d-3405-4e0c-905d-62b40976601c\" src=\"/sites/default/files/inline-images/2020-11-18_16-19.png\" /></div>\r\n"
+        summary: ''
+        format: full_html
+  -
+    info: 'Wristcheck Sell Banner'
+    langcode: en
+    uuid: 2612ee4e-a073-4df5-b723-ad43a9343c79
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        value: "<div class=\"wc-sellbanner\"><img alt=\"sellbanner\" data-entity-type=\"file\" data-entity-uuid=\"38a6ff7d-df33-4ba9-890c-a6b33265348b\" src=\"/sites/default/files/inline-images/2020-11-19_10-48.png\" /></div>\r\n"
+        summary: ''
+        format: full_html
 menus:
   -
     menu_name: main
@@ -5597,7 +5657,7 @@ menus:
     menu_name: wristcheck-bottom-menu
     title: FAQs
     parent: null
-    uri: 'internal:#'
+    uri: 'internal:/faq'
     link_title: ''
     description: null
     enabled: '1'
@@ -6856,7 +6916,7 @@ menus:
   -
     menu_name: wristcheck-bottom-menu
     title: PAYEMENTS
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: 'menu_link_content:0d91a143-6e20-42f1-9041-9bef5d8407b6'
     uri: 'internal:#'
     link_title: ''
     description: null
@@ -6880,19 +6940,19 @@ menus:
   -
     menu_name: wristcheck-bottom-menu
     title: 'PRIVACY POLICY'
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: null
     uri: 'internal:#'
     link_title: ''
     description: null
     enabled: '1'
-    expanded: '0'
+    expanded: '1'
     weight: '-48'
     langcode: en
     uuid: 0d91a143-6e20-42f1-9041-9bef5d8407b6
   -
     menu_name: wristcheck-bottom-menu
     title: 'TERMS & CONDITIONS'
-    parent: 'menu_link_content:5ed288dc-6635-4f09-8866-e7f91ad3317a'
+    parent: 'menu_link_content:0d91a143-6e20-42f1-9041-9bef5d8407b6'
     uri: 'internal:#'
     link_title: ''
     description: null

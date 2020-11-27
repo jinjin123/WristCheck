@@ -15,6 +15,7 @@ dependencies:
     - node
     - text
     - user
+    - views_infinite_scroll
 id: wristcheck_brand
 label: 'Wristcheck brand'
 module: views
@@ -561,7 +562,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 5
+          items_per_page: 4
           offset: 0
       style:
         type: html_list
@@ -782,6 +783,184 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+  discover_instagram_feed:
+    display_plugin: block
+    id: discover_instagram_feed
+    display_title: 'INSTAGRAM FEED'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      fields:
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+        field_brand_logo:
+          id: field_brand_logo
+          table: node__field_brand_logo
+          field: field_brand_logo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div class=\"wc-latest-art\">\r\n\t<div class='wc-discover-img wc-rolex-item portfolio-img wc-ex-panel mb-20'>\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_brand_logo}}\"></div>\r\n\t</div>\r\n             <div class=\"wc-rolex-modal\">\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class=\"wc-rolex-title\">&nbsp;</h2>\r\n            <h5 class=\"wc-rolex-title\">&nbsp; </h5>\r\n        </div>\r\n    </div>\r\n</div>"
+            make_link: true
+            path: '{{ view_node }}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: img-fluid
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      defaults:
+        fields: false
+        arguments: false
+        pager: false
+        style: false
+        row: false
+        use_ajax: false
+      display_description: ''
+      arguments: {  }
+      pager:
+        type: infinite_scroll
+        options:
+          items_per_page: 9
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'VIEW MORE'
+            automatically_load_content: false
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-sm-12 col-md-4 col-lg-4 portfolio-item filter-Packaging filter-Print portfolio'
+          default_row_class: false
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      use_ajax: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_brand_logo'
   filter_brand_title:
     display_plugin: block
     id: filter_brand_title

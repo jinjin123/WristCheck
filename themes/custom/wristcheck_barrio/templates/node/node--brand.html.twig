@@ -61,24 +61,41 @@
 #}
 {#{{ attach_library('bootstrap_barrio/node') }}#}
 
-{{ drupal_view('wristcheck_brand','default') }}
+{#{{ drupal_view('wristcheck_brand','default') }}#}
 {#{{ drupal_view('wristcheck_brand','description') }}#}
-<div class="wc-panel">
-  <div class='container portfolio'>
-  {{ drupal_view('wristcheck_products','brand_product') }}
+{#<div class="wc-panel">#}
+{#  <div class='container portfolio'>#}
+{#  {{ drupal_view('wristcheck_products','brand_product') }}#}
+{#  </div>#}
+{#</div>#}
+{#<div class="wc-panel">#}
+  <div class="wc-longbuy-product-split">
+    {{ drupal_block("wristcheck_filter_brand_product_block") }}
+    <div class="wc-longbuy-product-split-rg col-lg-10">
+      <div class="wc-product-searchview-header">
+        <div class="wc-sortproduct-option">
+          <span>Sort by</span>
+          <select  id="sort_by_product">
+            <option value="1">Newest first</option>
+            <option value="2">Price low to high</option>
+            <option value="3">Price high to low</option>
+          </select>
+        </div>
+      </div>
+      <div class='container portfolio wc-buy-more-products'>
+        {{ drupal_view('wristcheck_products','related_products') }}
+      </div>
+    </div>
   </div>
-</div>
-<div class="wc-panel">
-{{ drupal_block('wristcheck_filter_product_block') }}
-<div class='container portfolio wc-buy-more-products'>
-  {{ drupal_view('wristcheck_products','related_products') }}
-</div>
-</div>
+{#  <div class='container portfolio wc-buy-more-products'>#}
+{#    {{ drupal_view('wristcheck_products','related_products') }}#}
+{#  </div>#}
+{#</div>#}
 
-<div class="wc-panel wc-brand-product">
-  <h1 class="wc-panel__title text-center">BRAND</h1>
-  <div class="container portfolio">
-    {{ drupal_view('wristcheck_brand','brand_product') }}
-  </div>
-</div>
+{#<div class="wc-panel wc-brand-product">#}
+{#  <h1 class="wc-panel__title text-center">BRAND</h1>#}
+{#  <div class="container portfolio">#}
+{#    {{ drupal_view('wristcheck_brand','brand_product') }}#}
+{#  </div>#}
+{#</div>#}
 

@@ -1,32 +1,83 @@
-<div class="wc-panel">
-  <div class="text-center"><span class="wc-discover__title">sinn 203 st : a diving chronogeraph with pilot’s watch potential</span>
-  </div>
-  <div class="wc-discover__sub text-center">Everything you need to know about the features, technology, and quality
-    behind the Sinn 203 St.
-  </div>
-  <div class="wc-discover__tag">
-    <a>BUYER'S GUIDE</a>
-    <a>by Nils Rau</a>
-  </div>
+
+<div class="container">
+    <div class="wc-homepage-banner">
+        {{ drupal_view('wristcheck_buy_magazine','discover_head_block') }}
+    </div>
+    {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
 </div>
-<div class="wc-panel wc-padding-top-0">
+<div class="wc-v2-panel">
+    <div class="homepage-line-bg"></div>
+</div>
+<div class="container">
+	<div class="wc-panel wc-padding-top-0">
+		<div class="wc-panel__title text-center">LATEST</div>
+		{{ drupal_view('wristcheck_buy_magazine','latest_articles') }}
+	</div>
+	<div class="v-line"></div>
+	<div class="wc-panel">
+		<div class="wc-panel__title text-center">WATCH 101</div>
+	</div>
+	<div class="v-line"></div>
+	<div class="wc-panel">
+		<div class="wc-panel__title text-center">ICON</div>
+	</div>
+	<div class="v-line"></div>
+	<div class="wc-panel">
+		<div class="wc-panel__title text-center">MY WATCH AND I</div>
+	</div>
+	<div class="v-line"></div>
+	<div class="wc-panel">
+		<div class="wc-panel__title text-center">BUYING GUIDES</div>
+	</div>
+</div>
+<div class="homepage-line-bg"></div>
+<div class="container">
+	<div class="wc-panel">
+		<div class="wc-panel__title text-center">BUYING GUIDES</div>
+	</div>
+</div>
+
+{# <div class="wc-panel wc-discover-home-flag"> #}
+{#  <div class="text-center"><span class="wc-discover__title">sinn 203 st : a diving chronogeraph with pilot’s watch potential</span>#}
+{#    <div class="text-center"><span class="wc-discover__title">Wrist Talk with Francois-Henry Bennahmias</span>#}
+{#  </div>#}
+{#  <div class="wc-discover__sub text-center">Everything you need to know about the features, technology, and quality#}
+{#    behind the Sinn 203 St.#}
+{#  <div class="wc-discover__tag">#}
+{#    <a>BUYER'S GUIDE</a>#}
+{#    <a>by Nils Rau</a>#}
+{#  </div>#}
+  {# {{ drupal_view('wristcheck_buy_magazine','discover_head_block') }}
+  {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }} #}
+{# </div> #}
+{#<div class="wc-panel wc-padding-top-0">
   <div class="wc-panel__title text-center">LATEST ARTICLES</div>
   {{ drupal_view('wristcheck_buy_magazine','latest_articles') }}
 </div>
 
 <div class="wc-panel wc-padding-top-0">
-  <div class="wc-panel__title text-center">FURTHER ARTICLES ABOUT ROLEX</div>
-  {{ drupal_view('wristcheck_buy_magazine','further_articles') }}
+  <div class="wc-panel__title text-center">WATCH 101S</div>
+  {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
 </div>
 
 <div class="wc-panel wc-padding-top-0">
-  <div class="wc-panel__title text-center">WRISTCHECK BUYER'S GUIDE</div>
+  <div class="wc-panel__title text-center">ICON</div>
   {{ drupal_view('wristcheck_buy_magazine','buy_guide') }}
 </div>
-
-<div class="wc-panel wc-rolex wc-padding-top-0">
-  <div class="wc-panel__title text-center">
-    FURTHER ARTICLES ABOUT ROLEX
-  </div>
+<div class="wc-panel wc-padding-top-0">
+  <div class="wc-panel__title text-center">MY WATCH AND I</div>
   {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}
 </div>
+
+<div class="wc-panel wc-padding-top-0">
+  <div class="wc-panel__title text-center">BUYING GUIDES</div>
+  {{ drupal_view('wristcheck_buy_magazine','buy_guide') }}
+</div>
+<div class="wc-panel wc-rolex wc-padding-top-0">
+  <div class="wc-panel__title text-center">
+#}{#    FURTHER ARTICLES ABOUT ROLEX#}{#
+    INSTAGRAM FEED
+  </div>
+  {{ drupal_view('wristcheck_popular_watch_brands') }}
+  #}{#  {{ drupal_view('wristcheck_buy_magazine','further_articles_3') }}#}{#
+</div>#}

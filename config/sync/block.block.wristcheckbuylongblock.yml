@@ -1,0 +1,42 @@
+uuid: d9553ec5-90e5-4dce-a398-852456a5f793
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+    - wristcheck_basic
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckbuylongblock
+theme: wristcheck_barrio
+region: bottom_footer
+weight: -13
+provider: null
+plugin: wristcheck_buy_long_block
+settings:
+  id: wristcheck_buy_long_block
+  label: 'Wristcheck buy long block'
+  provider: wristcheck_basic
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /buy
+    negate: false
+    context_mapping: {  }

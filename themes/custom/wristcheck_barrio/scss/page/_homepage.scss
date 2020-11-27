@@ -1,18 +1,18 @@
 
 .wc-v2-panel {
-  padding: 70px 0;
+  padding: 64px 0;
 
   .wc-v2-panel__title {
-    font-size: 18px;
-     
+    font-size: 32px;
     color: #000000;
-    margin-bottom: 70px;
+    margin-bottom: 64px;
   }
 
   .wc-v2-how_it_works__item {
     padding: 30px;
-    display: flex;
+    //display: flex;
     flex-direction: row;
+    text-align: center;
   }
 
   .how_it_works__icon {
@@ -22,7 +22,7 @@
       height: 50px;
     }
 
-    margin-right: 20px;
+    //margin-right: 20px;
   }
 
   .how_it_works__cont {
@@ -54,7 +54,7 @@
   .how_it_works__link {
     span {
       font-size: 12px;
-       
+
       color: #000000;
       padding: 2px 0;
       border-bottom: 1px solid #000;
@@ -77,6 +77,7 @@
 
 .block-wristcheck-sign-up-for-news-block {
   background-color: #000000;
+  //background-color: #F0EFEE;
   width: 100%;
 }
 
@@ -122,24 +123,24 @@
   width: 100%;
 
   .wc-sign-up__box {
-    width: 40%;
+    width: 90%;
     margin-bottom: 30px;
   }
 
   .wc-sign-up__title {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 700;
     color: #E2E1D9;
     font-family: "basis-grotesque-bold-pro";
-    line-height: 21px;
+    line-height: 24px;
     margin-bottom: 5px
   }
 
   .wc-sign-up__sub {
-    font-size: 14px;
-     
+    font-size: 16px;
+    font-weight: 400;
     color: #E2E1D9;
-    line-height: 18px;
+    line-height: 24px;
   }
 
   .wc-sign-up__input {
@@ -183,10 +184,11 @@
   .wc-shop-by-brand__item {
     list-style: none;
     padding: 0;
+    margin-bottom: 0;
   }
 
   .wc-shop-by-brand__img {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
     .brand-title{
       font-size: 20px;
       text-align: center;
@@ -195,9 +197,7 @@
   }
 
   .wc-homepage-brand-logo {
-    width: 348px;
-    height: 439px;
-    background-color: #D8D8D8;
+    height: 210px;
     position: relative;
     display: block;
     overflow: hidden;
@@ -208,18 +208,32 @@
     margin: 0 auto;
   }
 }
-
-.view-wristcheck-buy-magazine {
-  .view-content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+.wc-hompage-wristcheck_brand-logo{
+  .wc-shop-by-brand__img{
+    >a{
+      display: inline-block;
+      position: relative;
+      width: 100%;
+    }
+  }
+  .brand-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all .3s ease-in;
     display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    &:hover{
+      background-color: rgba(0,0,0,.3);
+      opacity: 1;
+    }
   }
 }
 
@@ -235,7 +249,7 @@
 
   .wc-rolex-sub {
     font-size: 14px;
-     
+
     color: #000000;
     line-height: 21px;
     font-weight: bold;
@@ -246,7 +260,7 @@
     font-size: 34px;
     line-height: 48px;
     margin-bottom: 5px;
-     
+
     color: #000000;
     font-weight: bold;
     width: 100%;
@@ -258,7 +272,7 @@
   .wc-rolex-title__sub {
     font-size: 30px;
     line-height: 38px;
-     
+
     color: #000000;
     font-weight: 300;
     height: 80px;
@@ -273,7 +287,7 @@
     font-size: 14px;
     height: 45px;
     line-height: 45px;
-     
+
     color: #000000;
   }
 }
@@ -293,9 +307,8 @@
     display: inline-block;
     width: 300px;
     height: 55px;
-    color: #FFF;
-    border: 1px solid #E2E1D9;
-    background-color: transparent;
+    background-color: white;
+    border:0;
     padding: 5px 10px;
     box-sizing: border-box;
     line-height: 35px;
@@ -330,7 +343,8 @@
     width: 126px;
     height: 55px;
     border: 1px solid #E2E1D9;
-    background-color: transparent;
+    //background-color: transparent;
+    background-color: #5599AA;
     color: #FFF;
     transition: all .25s ease;
 
@@ -353,6 +367,102 @@
   }
 }
 
+.homepage-discover__title{
+  font-size: 48px;
+  font-weight: bold;
+  color: rgba(0,0,0,.9);
+  padding: 16px;
+}
+.homepage-it-work{
+  background-color: #13788A;
+  margin-top: 64px;
+
+  .how_it_works__icon{
+    margin-bottom: 10px;
+  }
+  .how_it_works__title{
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .how_it_works__link span{
+    color: #FFF;
+    border-bottom-color: #FFF;
+  }
+}
+.homepage-line-bg{
+  width: 100%;
+  height: 88px;
+  background: url('/themes/custom/wristcheck_barrio/images/v2/banner/line-bg.png') repeat-x;
+  background-size: auto 352px;
+  background-position: 0 0;
+  animation: linebg 10s linear infinite;
+}
+.wc-rolex-action{
+  .wc-rolex-title{
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .wc-rolex-sub{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: rgba(0,0,0,.56);
+  }
+}
+.block-wristcheck-how-it-works-block{
+  .wc-v2-panel{
+    padding: 43px 0;
+  }
+}
+.browse-by-brand.wc-v2-panel{
+  padding-bottom: 32px;
+}
+.wc-brand-product{
+  >.wc-panel__title{
+    padding: 64px 0;
+    margin: 0;
+  }
+}
+.view-display-id-latest_articles,
+.view-display-id-article_three_load{
+  .views-infinite-scroll-content-wrapper>div{
+    margin-bottom: 32px;
+  }
+  .js-pager__items{
+    list-style: none;
+    text-align: center;
+    margin-top: 32px;
+    .pager__item>a{
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      height: 40px;
+      line-height: 36px;
+      padding: 0 16px !important;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}
+.wc-sign-up{
+  .wc-form-submit.wc-btn-large{
+    min-width: 102px;
+    padding: 0;
+    border:0;
+  }
+}
+
+@keyframes linebg {
+  0%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: -880px 0;
+    // background-position: 0 -264px;
+  }
+}
+
 @media (max-width: 1200px) {
   .wc-shop-by-brand__box .wc-homepage-brand-logo {
     width: 100%;
@@ -362,10 +472,10 @@
 @media (max-width: 960px) {
   .wc-shop-by-brand__box .wc-homepage-brand-logo {
     width: 100%;
-    height: 300px;
+    height: 210px;
   }
   .wc-shop-by-brand__box .wc-shop-by-brand__img {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
   }
   .view-display-id-best_sellers .swiper-slide {
     height: 200px;
@@ -376,6 +486,9 @@
   .wc-v2-panel .wc-v2-how_it_works__item {
     padding: 30px 10px;
   }
+}
+.wc-homepage-banner{
+  padding-top: 32px;
 }
 
 @media (max-width: 500px) {
@@ -391,6 +504,7 @@
     .form-email {
       width: 80%;
       margin: 0 auto;
+      border: 0;
     }
 
     .webform-button--submit {
@@ -398,5 +512,57 @@
       background: #FFF;
       color: #333;
     }
+  }
+}
+
+.wc-term-link {
+   color: #5599AA;
+}
+
+.wc-reg-bottom-label_link {
+  a {
+    color: #5599AA;
+  }
+}
+.wc-reg-form-title {
+  color: $color-black;
+  font-size: 32px;
+  line-height: 39px;
+  text-align:  center;
+  margin-bottom:  32px;
+}
+.wc-reg-bottom-label {
+  margin-bottom: 64px;
+  text-align: center;
+  .wc-reg-bottom-label_title{
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+    margin-top: 32px;
+  }
+  .wc-reg-bottom-label_link{
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+#reg-form {
+  max-width: 640px;
+  margin: auto;
+}
+.wc-editor-pick {
+  .view-content{
+    display: block;
+  }
+  >ul>li>a {
+    display: inline-block;
+    height: 56px;
+    line-height: 56px;
+    background-color: $mongreen;
+    color:#fff;
+    font-size: 20px;
+    font-weight: 700 !important;
+    letter-spacing: 5%;
+    border: none !important;
+    padding:0 24px !important;
   }
 }

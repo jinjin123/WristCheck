@@ -80,8 +80,8 @@ input, button, select, optgroup, textarea {
   padding-top: 50px;
 }
 
-.pb-50 {
-  padding-bottom: 50px;
+.pt-50 {
+  padding-top: 50px;
 }
 
 .mt-100 {
@@ -123,8 +123,10 @@ a:focus {
 }
 
 .views-infinite-scroll-content-wrapper {
-  display: block;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .wc-btn-white {
@@ -151,63 +153,37 @@ a:focus {
     padding: 16px 40px;
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    z-index: -1;
-    transition: all .25s ease;
-  }
-
   &:hover {
     color: #FFF !important;
-
-    &:before {
-      width: 100%;
-      background-color: $color-dark3;
-    }
+    background-color: $color-dark3;
   }
 }
 
 .wc-btn-dark {
-  border: 1px solid $color-dark3;
-  background-color: $color-dark3;
+  border: 1px solid $color-mothergreen;
+  //background-color: $color-dark3;
+  background-color: $color-mothergreen;
   color: #FFF !important;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
   position: relative;
   transition: all .25s ease;
-  padding: 10px 20px;
+  padding: 8px 20px;
   font-weight: normal;
   cursor: pointer;
   &.form-control{
-    padding: 10px 20px;
+    padding: 8px 20px;
     height: auto;
+    margin: 32px 0px 32px 0px;
   }
 
   &.wc-btn-large {
     padding: 16px 40px;
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    bottom: 1px;
-    width: 0;
-    transition: all .25s ease;
-  }
-
   &:hover {
-    color: $color-dark3 !important;
-
-    &:before {
-      width: calc(100% - 2px);
-      background-color: #FFF;
-    }
+    color: $color-mothergreen !important;
+    background-color: #FFF;
   }
 }
 button.wc-btn-dark{
@@ -343,7 +319,7 @@ a.wc-btn-dark{
 
     .flex-1-item {
       width: 20%;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
 
       div {
         .wc-testimdnials-img {
@@ -504,3 +480,50 @@ a.wc-btn-dark{
   }
 }
 
+.order-summary-qty {
+  display: block;
+}
+small#edit-insurance--description {
+  display: block;
+}
+input[type="number"] {
+  min-width: 60px;
+}
+a.return-btn {
+  border: solid 1px grey;
+  display: inline-block;
+  height: 53px;
+  line-height: 53px;
+  text-align: center;
+  position: relative;
+  top: 2px;
+  width: 288.767px;
+  margin: 0 10px 20px 0;
+}
+
+#block-webform-3 {
+  margin: 100px auto 300px auto;
+  text-align: center;
+  h2 {
+
+  }
+  #edit-markup {
+
+  }
+  label[for="edit-email"] {
+    position: relative;
+    left: -110px
+  }
+  #edit-email {
+    width: 270px;
+    margin: auto;
+  }
+  #edit-actions--2 {
+    margin: 0;
+    button {
+      width:270px;
+      margin:auto;
+    }
+  }
+
+}

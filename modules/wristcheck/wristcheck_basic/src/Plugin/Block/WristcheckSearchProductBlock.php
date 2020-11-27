@@ -101,21 +101,21 @@ class WristcheckSearchProductBlock extends BlockBase implements ContainerFactory
       ->execute()
       ->fetchAll();
 
-    $case_diameter = $database->select('commerce_product__field_case_diameter', 'n')
-      ->condition('n.bundle', 'watch', '=')
-      ->condition('n.deleted', '0', '=')
-      ->fields('n', ['field_case_diameter_value'])
-      ->distinct()
-      ->execute()
-      ->fetchAll();
+//    $case_diameter = $database->select('commerce_product__field_case_diameter', 'n')
+//      ->condition('n.bundle', 'watch', '=')
+//      ->condition('n.deleted', '0', '=')
+//      ->fields('n', ['field_case_diameter_value'])
+//      ->distinct()
+//      ->execute()
+//      ->fetchAll();
 
     $variables = [
-      'case_diameter' => $case_diameter,
       'years' => $years,
       'brands' => $brands,
-      'models' => $models,
+      'currencies' => $currencies,
+//      'case_diameter' => $case_diameter,
       'locations' => $locations,
-      'currencies' => $currencies
+      'models' => $models,
     ];
 
     $build['#variables'] = $variables;

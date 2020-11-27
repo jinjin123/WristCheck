@@ -8,6 +8,7 @@ $accent-shade: #333;
 $accent-light: lighten($accent-shade, 37%);
 $accent-dark: darken($accent-shade, 12%);
 // Reassign color vars to semantic color scheme
+$mongreen: #00798c;
 $red: #dc3545;
 $yellow: #ffc107;
 $green: #28a745;
@@ -45,7 +46,7 @@ $enable-shadows: false;
 $enable-gradients: false;
 
 // new style
-$body_bg: #F0EFEE;
-$menu_bg: #F0EFEE;
-$top_border_color: #979797;
+$body_bg: #F0F0F0;
+$menu_bg: #F0F0F0;
+$top_border_color: rgba(0,0,0,.12);
 $menu_font_color: #000000;

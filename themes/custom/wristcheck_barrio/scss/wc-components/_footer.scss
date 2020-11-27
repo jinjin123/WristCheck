@@ -12,23 +12,20 @@
     min-width: 260px;
     text-align: left;
   }
-
+  
   .footer-item__title {
-    font-size: 14px;
-     
+    font-size: 16px;
     color: #333;
-    line-height: 1.8;
-    margin-bottom: 10px;
+    line-height: 24px;
+    margin-bottom: 16px;
   }
 
-  .footer-item__sub {
-    font-size: 14px;
-     
+  .footer-item__sub{
+    font-size: 16px;
     color: #333;
-    line-height: 1.8;
-    padding: 0;
-    margin-bottom: 10px;
-
+    line-height: 24px;
+    margin-bottom: 16px;
+    padding-left:0;
     li {
       list-style: none;
       padding-left: 0;
@@ -61,19 +58,23 @@
 .menu--wristcheck-bottom-menu {
   background-color: #F0EFEE;
   width: 100%;
-
-  .footer-left, .footer-right {
-    width: 50%;
-  }
 }
 
 .wc-footer-logo {
-  text-align: center;
-
+  text-align: left;
+  padding-left:5%;
   img {
     display: inline-block;
-    max-width: 175px;
-    margin-top: 40px;
+    width: 128px;
+    margin-bottom: 24px;
+  }
+  p{
+    font-family: Basis Grotesque Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    color: rgba(0, 0, 0, 0.56);
   }
 }
 

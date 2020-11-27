@@ -236,7 +236,8 @@ wristcheck_basic.user_controller_portfolio:
 wristcheck_basic.user_login_form:
   path: '/wristcheck_basic/form/user_login'
   defaults:
-    _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
+#    _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::UserLogin'
     _title: 'PLEASE LOGIN'
   requirements:
     _access: 'TRUE'
@@ -244,7 +245,8 @@ wristcheck_basic.user_login_form:
 wristcheck_basic.user_register_form:
   path: '/wristcheck_basic/form/user_register'
   defaults:
-    _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
+#    _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::UserRegister'
     _title: 'Welcome to register'
   requirements:
     _access: 'TRUE'
@@ -379,3 +381,24 @@ wristcheck_basic.enableacc:
   options:
     user: \d+
 
+wristcheck_basic.rateSettings:
+  path: '/admin/config/system/wristcheck_basic/rateSetting'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\WristcheckRateSettingsForm'
+    _title: 'Wristcheck Rate Setting'
+  requirements:
+    _permission: 'administer site configuration'
+wristcheck_basic.getRate:
+  path: '/wristcheck_basic/getRate'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::getRate'
+    _title: 'The rate'
+  requirements:
+    _access: 'TRUE'
+wristcheck_basic.howToBeSeller:
+  path: '/wristcheck_basic/inquire-how-to-be-seller'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::howToBeSeller'
+    _title: 'Inquire how to be seller'
+  requirements:
+    _access: 'TRUE'

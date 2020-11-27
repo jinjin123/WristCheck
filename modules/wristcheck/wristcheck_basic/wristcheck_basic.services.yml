@@ -35,3 +35,9 @@ services:
     class: Drupal\wristcheck_basic\EventSubscriber\CustomRedirectSubscriber
     tags:
       - {name: event_subscriber}
+
+  wrist_basic.cart_event_subscriber:
+    class: Drupal\wristcheck_basic\EventSubscriber\CartEventSubscriber2
+    arguments: ['@messenger', '@commerce_cart.cart_manager']
+    tags:
+      - { name: event_subscriber }

@@ -12,7 +12,7 @@ id: wristcheck_maintenance_form
 title: 'Wristcheck maintenance form'
 description: ''
 category: Wristcheck
-elements: "email:\n  '#type': email\n  '#title': Email"
+elements: "email:\n  '#type': email\n  '#title': Email\n  '#placeholder': Email"
 css: ''
 javascript: ''
 settings:

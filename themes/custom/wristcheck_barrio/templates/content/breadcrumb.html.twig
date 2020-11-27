@@ -1,8 +1,8 @@
 {% if breadcrumb %}
   <div class="breadcrumb">
     <ol class="container breadcrumb-container b white">
-      {% for index, item in breadcrumb %}
-        {% if index+2 < breadcrumb|length %}
+      {% for item in breadcrumb %}
+        {% if loop.index < loop.length %}
           <li><a href="{{ item.url }}">{{ item.text }}</a></li>
         {% else %}
           <li class="active">{{ item.text }}</li>
