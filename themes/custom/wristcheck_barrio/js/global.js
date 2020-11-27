@@ -9,7 +9,7 @@
 
 	// debug
 	var local = window.location.origin;
-	if (local.indexOf('localhost') > -1) {
+	if (local.indexOf('localhost') > -1||local.indexOf("local") > -1) {
 	// 	// $('img').each(function () {
 	// 	// 	var img = $(this)
 	// 	// 	var url = img.attr('src')

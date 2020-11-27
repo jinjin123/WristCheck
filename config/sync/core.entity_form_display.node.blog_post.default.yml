@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.blog_post.field_images
     - field.field.node.blog_post.field_page_title_image
     - field.field.node.blog_post.field_related_brand
+    - field.field.node.blog_post.field_related_model
     - image.style.thumbnail
     - node.type.blog_post
   module:
@@ -83,6 +84,16 @@ content:
     region: content
   field_related_brand:
     weight: 14
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_related_model:
+    weight: 101
     settings:
       match_operator: CONTAINS
       match_limit: 10

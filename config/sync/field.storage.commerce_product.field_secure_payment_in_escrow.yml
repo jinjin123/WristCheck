@@ -1,0 +1,18 @@
+uuid: dda5dbd2-efd6-4d2b-b649-9c74a1575763
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_secure_payment_in_escrow
+field_name: field_secure_payment_in_escrow
+entity_type: commerce_product
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

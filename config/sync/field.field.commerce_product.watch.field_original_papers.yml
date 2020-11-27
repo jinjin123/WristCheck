@@ -1,0 +1,23 @@
+uuid: 16698d6d-3bbf-4f5f-a531-dcb847c5a8f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_original_papers
+id: commerce_product.watch.field_original_papers
+field_name: field_original_papers
+entity_type: commerce_product
+bundle: watch
+label: 'Original papers'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
