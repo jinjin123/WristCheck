@@ -123,26 +123,24 @@
   width: 100%;
 
   .wc-sign-up__box {
-    width: 40%;
+    width: 90%;
     margin-bottom: 30px;
   }
 
   .wc-sign-up__title {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 700;
     color: #E2E1D9;
-    //color: #333;
     font-family: "basis-grotesque-bold-pro";
-    line-height: 21px;
+    line-height: 24px;
     margin-bottom: 5px
   }
 
   .wc-sign-up__sub {
-    font-size: 14px;
-
+    font-size: 16px;
+    font-weight: 400;
     color: #E2E1D9;
-    //color: #333;
-    line-height: 18px;
+    line-height: 24px;
   }
 
   .wc-sign-up__input {
@@ -186,10 +184,11 @@
   .wc-shop-by-brand__item {
     list-style: none;
     padding: 0;
+    margin-bottom: 0;
   }
 
   .wc-shop-by-brand__img {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
     .brand-title{
       font-size: 20px;
       text-align: center;
@@ -198,7 +197,7 @@
   }
 
   .wc-homepage-brand-logo {
-    height: 439px;
+    height: 210px;
     position: relative;
     display: block;
     overflow: hidden;
@@ -235,20 +234,6 @@
       background-color: rgba(0,0,0,.3);
       opacity: 1;
     }
-  }
-}
-
-.view-wristcheck-buy-magazine {
-  .view-content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
   }
 }
 
@@ -322,10 +307,8 @@
     display: inline-block;
     width: 300px;
     height: 55px;
-    color: #FFF;
-    border: 1px solid #E2E1D9;
-    //background-color: transparent;
     background-color: white;
+    border:0;
     padding: 5px 10px;
     box-sizing: border-box;
     line-height: 35px;
@@ -392,7 +375,7 @@
 }
 .homepage-it-work{
   background-color: #13788A;
-  margin: 50px 0;
+  margin-top: 64px;
 
   .how_it_works__icon{
     margin-bottom: 10px;
@@ -415,6 +398,60 @@
   background-position: 0 0;
   animation: linebg 10s linear infinite;
 }
+.wc-rolex-action{
+  .wc-rolex-title{
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .wc-rolex-sub{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: rgba(0,0,0,.56);
+  }
+}
+.block-wristcheck-how-it-works-block{
+  .wc-v2-panel{
+    padding: 43px 0;
+  }
+}
+.browse-by-brand.wc-v2-panel{
+  padding-bottom: 32px;
+}
+.wc-brand-product{
+  >.wc-panel__title{
+    padding: 64px 0;
+    margin: 0;
+  }
+}
+.view-display-id-latest_articles,
+.view-display-id-article_three_load{
+  .views-infinite-scroll-content-wrapper>div{
+    margin-bottom: 32px;
+  }
+  .js-pager__items{
+    list-style: none;
+    text-align: center;
+    margin-top: 32px;
+    .pager__item>a{
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      height: 40px;
+      line-height: 36px;
+      padding: 0 16px !important;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}
+.wc-sign-up{
+  .wc-form-submit.wc-btn-large{
+    min-width: 102px;
+    padding: 0;
+    border:0;
+  }
+}
 
 @keyframes linebg {
   0%{
@@ -435,10 +472,10 @@
 @media (max-width: 960px) {
   .wc-shop-by-brand__box .wc-homepage-brand-logo {
     width: 100%;
-    height: 300px;
+    height: 210px;
   }
   .wc-shop-by-brand__box .wc-shop-by-brand__img {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
   }
   .view-display-id-best_sellers .swiper-slide {
     height: 200px;
@@ -449,6 +486,9 @@
   .wc-v2-panel .wc-v2-how_it_works__item {
     padding: 30px 10px;
   }
+}
+.wc-homepage-banner{
+  padding-top: 32px;
 }
 
 @media (max-width: 500px) {
@@ -464,6 +504,7 @@
     .form-email {
       width: 80%;
       margin: 0 auto;
+      border: 0;
     }
 
     .webform-button--submit {
@@ -498,8 +539,19 @@
   margin: auto;
 }
 .wc-editor-pick {
+  .view-content{
+    display: block;
+  }
   >ul>li>a {
+    display: inline-block;
+    height: 56px;
+    line-height: 56px;
     background-color: $mongreen;
     color:#fff;
+    font-size: 20px;
+    font-weight: 700 !important;
+    letter-spacing: 5%;
+    border: none !important;
+    padding:0 24px !important;
   }
 }

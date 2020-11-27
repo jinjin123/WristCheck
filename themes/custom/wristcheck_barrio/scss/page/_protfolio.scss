@@ -90,3 +90,21 @@
     }
   }
 }
+
+.portfolio .portfolio-sub-detail{
+  height: 120px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 5%;
+    color: rgba(0,0,0,.9);
+  .wc-product-category{
+    font-weight: 700;
+  }
+  .wc-product-series{
+  }
+  .price__number{
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+}

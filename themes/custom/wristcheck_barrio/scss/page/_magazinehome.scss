@@ -170,10 +170,8 @@
   .view-content {
     display: flex;
     flex-wrap: wrap;
-
-    > div {
-
-    }
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   .wc-further-three-art {
@@ -317,7 +315,7 @@
 
 .view-wristcheck-buy-magazine {
   .views-row {
-    padding: 10px ;
+    padding: 0 16px;
     .wc-magazine-top {
       padding: 10px ;
     }
@@ -374,7 +372,7 @@
 
 .wc-mag-two-load {
   .wc-rolex-item .wc-rolex-img {
-    padding-top:30%;
+    padding-top:210px;
   }
 }
 

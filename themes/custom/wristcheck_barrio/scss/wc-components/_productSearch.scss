@@ -20,10 +20,14 @@
 }
 
 .wc-product-search {
-  //background-color: #FFF;
-  //height: 100px;
   position: relative;
   padding-bottom: 100px;
+  width: 280px;
+  .wc-search-menu__title{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
 
   &.wc-product-search-result {
     background-color: transparent;
@@ -48,6 +52,20 @@
     outline: none;
     width: 24px !important;
     top: -15px;
+  }
+}
+.wc-buy-long-product{
+  .wc-longbuy-product-split-rg{
+    flex: 1;
+    padding-left: 20px;
+    padding-bottom: 64px;
+    .view-wristcheck-products .portfolio{
+      margin-bottom: 0;
+    }
+    .js-pager__items > li > a{
+      display: inline-block;
+    }
+    
   }
 }
 
@@ -343,6 +361,18 @@
     padding-left: 7px;
   }
 }
+.layout-sidebar-first{
+  .wc-product-search{
+    width: 100%;
+  }
+}
+.page-view-wristcheck-products{
+  .layout-sidebar-first,
+  .wc-second-hand-watch{
+    margin-top: 32px;
+  }
+}
+
 
 @media (max-width: 767px) {
   .wc-product-search {

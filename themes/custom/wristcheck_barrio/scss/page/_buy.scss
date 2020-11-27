@@ -38,9 +38,10 @@
   float:right;
   >span {
     padding-right: 10px;
+	font-size: 16px;
   }
   >select {
-    height: 30px;
+    height: 40px;
     width: 200px;
     padding-left: 10px;
     appearance: none;
@@ -144,6 +145,57 @@ ul.wc-buy-more-products > li {
   width: auto;
   height: 200px;
 }
+.view-wristcheck-products .view-content{
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.wc-buy-editor-pick ul.wc-buy-more-products > li,
+.wc-buy-editor-pick .portfolio{
+  margin-bottom: 0;
+}
+.wc-shop_by_brand{
+	.js-pager__items{
+		padding-top: 32px;
+		>li>a{
+			display: inline-block;
+		}
+	}
+	.views-infinite-scroll-content-wrapper{
+		margin: 0;
+		width: 100%;
+		.wc-shop-by-brand__box{
+			display: block;
+			width: 100%;
+			a{
+				display: inline-block;
+				position: relative;
+				width: 100%;
+			}
+			.brand-title{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				transition: all .3s ease-in;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: #FFF;
+				font-size: 20px;
+				font-weight: bold;
+				background: rgba(0,0,0,.5);
+				margin: 0;
+				&:hover{
+					opacity:1;
+				}
+			}
+		}
+  	}
+}
+
+
 
 @media (max-width: 1900px) {
   .step-img_box-item:last-child{
@@ -217,27 +269,30 @@ ul.wc-buy-more-products > li {
    display: flex;
     .wc-buyallwatches {
        img {
-         width:100%;
+			display: block;
+        	width:100%;
        }
     }
 }
 .wc-buyallwatches {
-  padding-bottom: 20px;
-  img {
-    width:100%;
-  }
+  max-height: 360px;
+  overflow: hidden;
+  	img {
+	  	display: block;
+    	width:100%;
+  	}
 }
 
 .block-wristcheck-buy-long-block{
    width:100%;
-  .wc-buyallwatches {
-     img {
-       width:100%;
-     }
-  }
+  	.wc-buyallwatches {
+    	img {
+			display: block;
+       		width:100%;
+     	}
+  	}
 }
 
-
 .wc-longbuy-product-split {
-  margin: 20px 100px;
+  margin: 32px 0;
 }
