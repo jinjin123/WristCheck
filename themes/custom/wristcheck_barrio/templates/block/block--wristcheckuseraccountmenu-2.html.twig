@@ -44,7 +44,8 @@
             </div>
             <a href="/cart" class="cart-icon"><img src="/themes/custom/wristcheck_barrio/images/v2/icon/cart-icon.png"/></a>
             <div class="local-icon">
-                <i class="em em-flag-hk" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;HKD
+{#                <i class="em em-flag-hk" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;HKD#}
+              <i class="em em-flag-{{ currentUserInfo['flag'] }}" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;{{ currentUserInfo['currency'] }}
             </div>
         {% else %}
             {{ drupal_block('wristcheck_ajax_user_login_block') }}
@@ -55,7 +56,8 @@
             </div>
             <a href="/cart" class="cart-icon"><img src="/themes/custom/wristcheck_barrio/images/v2/icon/cart-icon.png"/></a>
             <div class="local-icon">
-                <i class="em em-flag-hk" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;HKD
+{#                <i class="em em-flag-hk" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;HKD#}
+              <i class="em em-flag-{{ currentUserInfo['flag'] }}" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;{{ currentUserInfo['currency'] }}
             </div>
         {% endif %}
 
