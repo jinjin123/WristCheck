@@ -526,13 +526,24 @@
 }
 .wc-reg-form-title {
   color: $color-black;
-  font-size: 35px;
+  font-size: 32px;
+  line-height: 39px;
   text-align:  center;
-  margin-bottom:  30px;
+  margin-bottom:  32px;
 }
 .wc-reg-bottom-label {
-  margin-bottom: 50px;
+  margin-bottom: 64px;
   text-align: center;
+  .wc-reg-bottom-label_title{
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+    margin-top: 32px;
+  }
+  .wc-reg-bottom-label_link{
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 #reg-form {
   max-width: 640px;

@@ -1,21 +1,17 @@
-{% if variables["tag"]  == "login" %}
-  <div class="wc-reg-form-title">LOG IN</div>
-  {{ variables["login_form"] }}
-  <div class="wc-reg-bottom-label">
-    <div class="wc-reg-bottom-label_title">
-      New to Wristcheck?
-    </div>
-    <div class="wc-reg-bottom-label_link"><a href="/wristcheck_basic/form/user_register">Sign up</a></div>
-  </div>
-{% elseif variables["tag"]  == "reg" %}
-  <div class="wc-reg-form-title">SIGN UP</div>
-  {{ variables["reg_form"] }}
-  <div class="wc-reg-bottom-label">
-    <div class="wc-reg-bottom-label_title">
-      Already have an account?
-    </div>
-    <div class="wc-reg-bottom-label_link"><a href="/wristcheck_basic/form/user_login">Log in</a></div>
-  </div>
-
-{% endif %}
-
+<div class="login-warp">
+	{% if variables["tag"]  == "login" %}
+		<div class="wc-reg-form-title">LOG IN</div>
+		{{ variables["login_form"] }}
+		<div class="wc-reg-bottom-label">
+			<div class="wc-reg-bottom-label_title">New to Wristcheck?</div>
+			<div class="wc-reg-bottom-label_link"><a href="/wristcheck_basic/form/user_register">Sign up</a></div>
+		</div>
+	{% elseif variables["tag"]  == "reg" %}
+		<div class="wc-reg-form-title">SIGN UP</div>
+		{{ variables["reg_form"] }}
+		<div class="wc-reg-bottom-label wc-sign-up-bottom">
+			<div class="wc-reg-bottom-label_title">Already have an account?</div>
+			<div class="wc-reg-bottom-label_link"><a href="/wristcheck_basic/form/user_login">Log in</a></div>
+		</div>
+	{% endif %}
+</div>

@@ -33,11 +33,6 @@
 
 #block-wristcheck-barrio-content {
   .user-login-form {
-    max-width: 640px;
-    padding: 50px 50px;
-    //margin: 100px auto;
-    // background: #FFF;
-    // box-shadow: 0 0 10px 2px rgba(0, 0, 0, .04);
     box-shadow: none;
     margin: auto;
     .form-actions {
@@ -63,8 +58,10 @@
     }
 
     .links {
+      font-size: 16px;
+      line-height: 24px;
       text-align: center;
-      padding-bottom: 40px;
+      padding-bottom: 32px;
       border-bottom: 1px solid lightgray;
       .forget {
         color: #00798c;
@@ -103,7 +100,22 @@
     }
   }
 }
-
+.login-warp{
+  width: 372px;
+  margin: 0 auto;
+  padding-top: 32px;
+}
+.user-register-form{
+  font-size: 12px;
+  line-height: 18px;
+  label{
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+.wc-sign-up-bottom{
+  border-top: 1px solid #ddd;
+}
 @media (max-width: 415px) {
   #block-wristcheck-barrio-content .user-login-form{
     padding: 50px 20px;

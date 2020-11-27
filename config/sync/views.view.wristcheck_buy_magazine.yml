@@ -2587,7 +2587,7 @@ display:
         options:
           grouping: {  }
           row_class: 'col-sm-12 col-md-4 col-lg-4 portfolio-item filter-Packaging filter-Print portfolio'
-          default_row_class: true
+          default_row_class: false
       row:
         type: fields
         options:
