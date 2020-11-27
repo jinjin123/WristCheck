@@ -204,8 +204,6 @@
 //}
 
 .wc-magazine-body {
-  margin-bottom: 50px;
-
   .wc-magazine__title {
     text-align: center;
     border-bottom: 1px solid #333;
@@ -361,18 +359,88 @@
 
 .wc-magazine-single {
   display: flex;
+  .wc-buy-product-privew__img{
+    height: 440px;
+    overflow: hidden;
+    .wc-magazine-privew__img{
+      display: block;
+      width: 100%;
+      height: 440px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
   .wc-magazine-body {
-    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
+    h2{
+      font-size: 32px;
+      margin: 0 0 8px 0;
+    }
     .wc-magazine__title {
       border-bottom: 0;
+      margin-bottom: 0;
+    }
+    .wc-magazine__author{
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 }
 
 .wc-mag-two-load {
+  margin-top: 32px;
   .wc-rolex-item .wc-rolex-img {
     padding-top:210px;
   }
 }
 
+.view-more{
+  ul.pager{
+    list-style: none;
+    padding: 64px 0 0 0;
+    margin: 0;
+    .pager__item{
+      text-align: center;
+      >a{
+        display: inline-block;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 40px;
+        line-height: 36px;
+        padding: 0 16px !important;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.more-link{
+    text-align: center;
+    padding: 64px 0 0 0;
+    >a{
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      height: 40px;
+      line-height: 36px;
+      padding: 0 16px !important;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all .25 ease-in;
+      &:hover{
+        background-color: $color-mothergreen;
+        color: #FFF;
+      }
+    }
+}
+h2.mag-title{
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(0,0,0,.9);
+}

@@ -702,27 +702,17 @@ display:
         style: false
         row: false
         use_ajax: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+        css_class: false
       pager:
-        type: infinite_scroll
+        type: some
         options:
           items_per_page: 3
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More'
-            automatically_load_content: false
       style:
         type: default
         options:
@@ -737,13 +727,18 @@ display:
           separator: ''
           hide_empty: false
       use_ajax: true
+      use_more: true
+      use_more_always: true
+      use_more_text: 'VIEW MORE'
+      link_display: custom_url
+      link_url: /discover/latest
+      css_class: 'view-more row-view-content'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1009,27 +1004,17 @@ display:
         style: false
         row: false
         use_ajax: false
+        css_class: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
       pager:
-        type: infinite_scroll
+        type: some
         options:
           items_per_page: 2
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'VIEW MORE'
-            automatically_load_content: false
       style:
         type: default
         options:
@@ -1044,13 +1029,18 @@ display:
           separator: ''
           hide_empty: false
       use_ajax: true
+      css_class: 'view-more row-view-content'
+      use_more: true
+      use_more_always: true
+      use_more_text: 'VIEW MORE'
+      link_display: custom_url
+      link_url: /discover/latest
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -2616,32 +2606,22 @@ display:
       display_extenders: {  }
       display_description: ''
       pager:
-        type: infinite_scroll
+        type: some
         options:
           items_per_page: 6
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'VIEW MORE'
-            automatically_load_content: false
       defaults:
         pager: false
         fields: false
         style: false
         row: false
         use_ajax: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+        css_class: false
       fields:
         uid:
           id: uid
@@ -2837,7 +2817,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-latest-art\">\r\n\t<div class='wc-discover-img wc-rolex-item portfolio-img wc-ex-panel mb-20'>\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n\t</div>   \r\n\t\t<div class=\"wc-rolex-modal\">       \r\n\t\t\t<div class=\"wc-rolex-action\">\r\n\t            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            \t\t<h5 class='wc-rolex-title'> By {{ uid }} </h5>\r\n\t\t\t   </div>\r\n\t\t\t</div>\r\n</div>"
+            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: false
             path: '{{ view_node }}'
             absolute: false
@@ -2903,13 +2883,18 @@ display:
           hide_empty: false
           default_field_elements: true
       use_ajax: true
+      use_more: true
+      use_more_always: true
+      use_more_text: 'VIEW MORE'
+      link_display: custom_url
+      link_url: /discover/latest
+      css_class: 'view-more row-view-content'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -5221,7 +5206,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{view_node}}\">\r\n    <div class=\"wc-magazine-single\"> \r\n        <div class=\"wc-buy-product-privew__img col-lg-8\"><img  class=\"wc-magazine-privew__img\" src=\"{{ field_page_title_image }}\"/></div>\r\n        <div class=\"wc-magazine-body col-lg-4\"> \r\n              <div class=\"wc-magazine__title text-left\"> {{ title }} </div>\r\n              <div class=\"wc-magazine__describe\"> {{ body__summary }} </div>\r\n              <div class=\"wc-magazine-owner text-left\">\r\n                 <span class=\"wc-magazine__author\">BY {{ uid }}</span>\r\n              </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n"
+            text: "<a href=\"{{view_node}}\">\r\n    <div class=\"wc-magazine-single\"> \r\n        <div class=\"wc-buy-product-privew__img col-lg-8\">\r\n                <div  class=\"wc-magazine-privew__img lazyload\" data-original=\"{{ field_page_title_image }}\"></div>\r\n        </div>\r\n        <div class=\"wc-magazine-body col-lg-4\"> \r\n              <div class=\"wc-magazine__title text-left\"> {{ title }} </div>\r\n              <div class=\"wc-magazine-owner text-left\">\r\n                 <span class=\"wc-magazine__author\">BY {{ uid }}</span>\r\n              </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -5275,6 +5260,8 @@ display:
           plugin_id: field
       defaults:
         fields: false
+        css_class: false
+      css_class: row-view-content
     cache_metadata:
       max-age: -1
       contexts:

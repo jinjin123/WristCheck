@@ -914,6 +914,7 @@ display:
         style: false
         row: false
         use_ajax: false
+        css_class: false
       display_description: ''
       arguments: {  }
       pager:
@@ -951,6 +952,7 @@ display:
           separator: ''
           hide_empty: false
       use_ajax: true
+      css_class: view-more
     cache_metadata:
       max-age: -1
       contexts:

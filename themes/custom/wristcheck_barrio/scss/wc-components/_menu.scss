@@ -67,41 +67,41 @@
 }
 
 /* Menu Level #1 */
-.navbar-nav > li > a:before,
-.navbar-nav > li > a:after {
-  position: absolute;
-  background: #000;
-  content: ' ';
-  height: 2px;
-  width: 0;
-  bottom: 0;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
+// .navbar-nav > li > a:before,
+// .navbar-nav > li > a:after {
+//   position: absolute;
+//   background: #000;
+//   content: ' ';
+//   height: 2px;
+//   width: 0;
+//   bottom: 0;
+//   -webkit-transition: all 0.3s ease;
+//   -moz-transition: all 0.3s ease;
+//   transition: all 0.3s ease;
+// }
 
-.navbar-nav > li:hover > a:after {
-  width: 2px;
-  height: 2px;
-  bottom: 0;
-  right: 0;
-}
+// .navbar-nav > li:hover > a:after {
+//   width: 2px;
+//   height: 2px;
+//   bottom: 0;
+//   right: 0;
+// }
 
-.navbar-nav .dian {
-  display: inline-block;
-  width: 2px;
-  height: 2px;
-  background-color: #333;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  opacity: 0;
-  transition: all .3s ease .2s;
-}
+// .navbar-nav .dian {
+//   display: inline-block;
+//   width: 2px;
+//   height: 2px;
+//   background-color: #333;
+//   right: 0;
+//   bottom: 0;
+//   position: absolute;
+//   opacity: 0;
+//   transition: all .3s ease .2s;
+// }
 
 .navbar-nav li {
   &.active > a {
-    color: $color-black;
+    color: $color-mothergreen;
   }
 
   > a {
