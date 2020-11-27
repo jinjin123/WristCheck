@@ -4124,7 +4124,7 @@ display:
   read_more:
     display_plugin: block
     id: read_more
-    display_title: 'Further Articles 3 Load'
+    display_title: 'Read more'
     position: 1
     display_options:
       display_extenders: {  }
