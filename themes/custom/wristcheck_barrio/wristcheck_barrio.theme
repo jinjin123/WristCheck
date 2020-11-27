@@ -114,7 +114,7 @@ function wristcheck_barrio_preprocess_maintenance_page(&$variables)
 
 function wristcheck_barrio_preprocess_node(&$variables)
 {
-  $nodeid =$variables["attributes"]["data-history-node-id"];
+  $nodeid = $variables["attributes"]["data-history-node-id"];
   $node = \Drupal::entityManager()->getStorage('node')->load($nodeid);
   $node_summary = $node->get('body')->summary;
   $variables['nodesumm'] = $node_summary;
@@ -138,7 +138,7 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables)
         $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_cate[0]['target_id']);
         if ($term) {
           $title = $term->getName();
-          array_push($result,['text' => $title, 'url' => '/brand/'. $title]);
+          array_push($result, ['text' => $title, 'url' => '/brand/' . $title]);
         }
       }
       $field_watch_series = $product->get('field_watch_series')->getValue();
@@ -146,13 +146,12 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables)
         $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_watch_series[0]['target_id']);
         if ($term) {
           $title = $term->getName();
-          array_push($result,['text' => $title, 'url' => '/#']);
+          array_push($result, ['text' => $title, 'url' => '/#']);
         }
       }
       $variables['breadcrumb'] = $result;
       return;
-    }
-    else {
+    } else {
       $variables['breadcrumb'] = [];
       return;
     }
@@ -169,6 +168,31 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables)
   array_push($result, array('text' => 'HOME', 'url' => '/'), array('text' => 'MAGAZINE'), array('text' => $head_title['title']));
   if ($variables['breadcrumb'] && isset($head_title['title'])) {
     $variables['breadcrumb'] = $result;
+  }
+}
+
+function wristcheck_barrio_preprocess_block(array &$variables)
+{
+//  <!-- FILE NAME SUGGESTIONS:
+//   x block--wristcheckuseraccountmenu-2.html.twig
+//  * block--system-menu-block--account.html.twig
+//  * block--system-menu-block.html.twig
+//  * block--system.html.twig
+//  * block.html.twig
+//  -->
+
+  if ($variables['plugin_id']=='system_menu_block:account'){
+    $defaultCurrency = 'HKD';
+    $defaultFlag = 'hk';
+
+    $currentUser = Drupal::currentUser();
+    if ($currentUser) {
+      $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+      $defaultCurrency = $user->get('field_currency')->value;
+      $defaultFlag = $currentUser->getPreferredLangcode();
+    }
+    $variables['currentUserInfo']['currency'] = $defaultCurrency;
+    $variables['currentUserInfo']['flag'] = $defaultFlag;
   }
 }
 
@@ -190,6 +214,7 @@ function wristcheck_barrio_preprocess_menu(array &$variables, $hook)
       }
     }
   }
+
   if ($variables['theme_hook_original'] == 'menu__main') {
     $items = $variables['items'];
     $variables['logo'] = theme_get_setting('logo.url', 'wristcheck');
@@ -220,9 +245,9 @@ function wristcheck_barrio_preprocess_html(array &$variables)
     $fid = theme_get_setting('logo_mobile_upload');
     if (is_array($fid) && sizeof($fid) > 0) {
       $file = File::load($fid[0]);
-      if (!is_null($file)){
+      if (!is_null($file)) {
         $variables['page']['header']['logo_mobile'] = $file->url();
-      }else{
+      } else {
         $variables['page']['header']['logo_mobile'] = null;
       }
     } else {
@@ -264,12 +289,13 @@ function wristcheck_barrio_preprocess_user(array &$variables)
     $variables['porttime'] = date("M d,Y", \Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
     $variables['userobj'] = $user;
     $variables['userid'] = \Drupal::currentUser()->id();
-  }else {
+  } else {
     $variables['tag'] = 'nouser';
   }
 }
 
-function wristcheck_barrio_library_info_alter(&$libraries, $extension) {
+function wristcheck_barrio_library_info_alter(&$libraries, $extension)
+{
   // Add our own extension to drupal.ajax, which is aware of the page markup so
   // can add AJAX progress loaders in the page.
   if ($extension == 'core' && isset($libraries['drupal.ajax'])) {
