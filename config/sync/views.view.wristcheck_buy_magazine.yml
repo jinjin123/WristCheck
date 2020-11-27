@@ -14,6 +14,7 @@ dependencies:
     - 'taxonomy_term:blog_tags:bbddc8f9-07b4-485e-8012-9201e48c3e18'
   module:
     - better_exposed_filters
+    - commerce_product
     - image
     - node
     - rest
@@ -4412,7 +4413,7 @@ display:
           id: product_id
           table: commerce_product_field_data
           field: product_id
-          relationship: field_related_model_1
+          relationship: field_related_model
           group_type: group
           admin_label: ''
           default_action: default
@@ -4452,16 +4453,7 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_related_model: Product'
-          required: false
-          plugin_id: standard
-        field_related_model_1:
-          id: field_related_model_1
-          table: commerce_product__field_related_model
-          field: field_related_model
-          relationship: field_related_model
-          group_type: group
-          admin_label: 'field_related_model: Product'
-          required: false
+          required: true
           plugin_id: standard
     cache_metadata:
       max-age: -1
