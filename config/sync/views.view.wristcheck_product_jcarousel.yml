@@ -285,14 +285,11 @@ display:
         row: false
         pager: false
       style:
-        type: html_list
+        type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: etalage_thumb_image-item
           default_row_class: false
-          type: ul
-          wrapper_class: ''
-          class: ''
       row:
         type: fields
         options:

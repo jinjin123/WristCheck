@@ -19,7 +19,6 @@
  * @ingroup themeable
  */
 #}
-
 <div class="row">
   <div class="col-md-7">
     <div class="wc-product-imglist1">
@@ -28,16 +27,28 @@
   </div>
   <div class="col-md-5">
     <div class="wc-product-introduction">
-      <div class="wc-product-title">{{ product.field_subname }}</div>
+      <div class="wc-product-title">{{ product.field_related_brand }}</div>
       <div class="wc-product-title bold">{{ product.title }}</div>
       <div>
         {{- product.field_ask_price -}}
       </div>
-      <div>
+      <div class="wc-product-Inspected-tip">
         Inspected by certified watchmaker
       </div>
       <div>
         {{ product.uid }}
+      </div>
+      <div class="d-flex flex-row">
+        <a href="javascript:;" class="wc-product-add-wishlist">
+          <div class="wc-btn-cont">
+            ADD TO BAG
+          </div>
+        </a>
+        <a href="javascript:;" class="wc-product-add-wishlist ml-2">
+          <div class="wc-btn-cont">
+            Negotiate price
+          </div>
+        </a>
       </div>
       <div class="wc-product--row">
         {{- product.flag_wristcheck_wishlist -}}
@@ -47,17 +58,8 @@
       {{ product.field_authenticity_guaranteed }}
       {{ product.field_secure_payment_in_escrow }}
       <div class="wc-product-btn">
-        <a href="javascript:;" class="wc-product-add-wishlist">
-          <div class="wc-btn-cont">
-            <span class="fa fa-arrow-right"></span>
-            <span class="btn-line"></span>
-            ADD TO BAG
-          </div>
-        </a>
+        
         <div class="wc-product-variations">
-
-
-
           {{- product.variations -}}
         </div>
       </div>

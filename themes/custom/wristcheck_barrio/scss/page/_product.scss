@@ -111,20 +111,33 @@
   }
 
   .wc-product-title {
-    font-size: 30px;
-
-    font-weight: 400;
-    color: $color-dark2;
-    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgba(0, 0, 0, .9);
+    padding-bottom: 8px;
 
     &.bold {
-      font-size: 30px;
-
-      font-weight: bold;
-      color: $color-dark2;
-      padding: 0;
+      font-size: 32px;
+      line-height: 38px;
+      color: rgba(0, 0, 0, .9);
+      padding-bottom: 16px;
     }
   }
+  .field--name-field-ask-price{
+      font-size: 32px;
+      line-height: 38px;
+      color: rgba(0, 0, 0, .9);
+      padding-bottom: 16px;
+  }
+  .wc-product-Inspected-tip{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: rgba(0, 0, 0, .9);
+    margin-bottom: 5px;
+  }
+
 
   .wc-product--row {
     display: flex;
@@ -761,5 +774,27 @@
   .wc-product-specifications .field--name-field-specifications > .field__items {
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+
+.wc-product-imglist1{
+  .view-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .etalage-thumb-image-item{
+    width: 50%;
+    padding-top: 50%;
+    position: relative;
+    overflow: hidden;
+    img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
   }
 }
