@@ -210,7 +210,7 @@ display:
   image:
     display_plugin: block
     id: image
-    display_title: Top
+    display_title: 'Product Preview'
     position: 2
     display_options:
       display_extenders: {  }
@@ -227,7 +227,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<img class=\"etalage_thumb_image\" src=\"{{ field_model_images }}\" title=\"{{ field_model_images__title }}\" />\r\n<img class=\"etalage_big_image\" src=\"{{ field_model_images }}\"/>"
+            text: '<img class="etalage_thumb_image" src="{{ field_model_images }}" title="{{ field_model_images__title }}" />'
             make_link: false
             path: ''
             absolute: false
@@ -291,8 +291,8 @@ display:
           row_class: ''
           default_row_class: false
           type: ul
-          wrapper_class: etalage_wrap
-          class: etalage
+          wrapper_class: ''
+          class: ''
       row:
         type: fields
         options:
@@ -306,6 +306,8 @@ display:
           items_per_page: 4
           offset: 0
       block_description: Image
+      allow:
+        items_per_page: true
     cache_metadata:
       max-age: -1
       contexts:

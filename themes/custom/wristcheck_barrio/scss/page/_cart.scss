@@ -112,3 +112,29 @@
     }
   }
 }
+
+.view-commerce-cart-form{
+  .order-total-summary{
+    padding: 0 16px;
+  }
+  .form-actions{
+    text-align: right;
+  }
+  .delete-order-item{
+    background-color: transparent;
+    border: 0 !important;
+    padding: 0 !important;
+    color: rgba(0,0,0,.56) !important;
+    text-align: left;
+    
+    &:hover{
+      border: 0 !important;
+      padding: 0 !important;
+      color: rgba(0,0,0,.56) !important;
+      background-color: transparent !important;
+      .wc-btn-cont{
+        background-color: transparent;
+      }
+    }
+  }
+}
