@@ -527,3 +527,27 @@ a.return-btn {
   }
 
 }
+
+
+.em-flag-zh-hant {
+  background-image: url("https://twemoji.maxcdn.com/2/72x72/1f1ed-1f1f0.png")
+}
+
+.em-flag-zh-hant.em-svg {
+  background: url("https://twemoji.maxcdn.com/2/72x72/1f1ed-1f1f0.png");
+  background-image: url("https://twemoji.maxcdn.com/2/svg/1f1ed-1f1f0.svg"), none
+}
+.em-zh-hans,
+.em-flag-zh-hans {
+    background-image: url("https://twemoji.maxcdn.com/2/72x72/1f1e8-1f1f3.png")
+}
+
+.em-cn.em-svg,
+.em-flag-zh-hans.em-svg {
+    background: url("https://twemoji.maxcdn.com/2/72x72/1f1e8-1f1f3.png");
+    background-image: url("https://twemoji.maxcdn.com/2/svg/1f1e8-1f1f3.svg"), none
+}
+.em-en,
+.em-flag-en {
+    background-image: url("https://twemoji.maxcdn.com/2/72x72/1f1fa-1f1f8.png")
+}
