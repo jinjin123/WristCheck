@@ -411,9 +411,12 @@
           }))
         }
 			});
-
-
+      // brand change first name brand -> model
+      if(/brand/i.test(location.pathname)){
+         $(".wc-product-search").children().children()[0].textContent = "Model"
+      }
 		})
+
 
 		//faq index
 		$(".view-content").removeClass("row");
