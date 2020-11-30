@@ -42,7 +42,8 @@
                 {{ product.uid }}
             </div>
             <div class="d-flex flex-row">
-                <a href="javascript:;" class="wc-product-add-bag">
+              {% set url = url('<current>')['#markup'] %}
+                <a href="/custom/product/new/{{ url|split('/')|last }}" class="wc-product-add-bag">
                     ADD TO BAG
                 </a>
                 <a href="javascript:;" class="wc-product-negotiate">
