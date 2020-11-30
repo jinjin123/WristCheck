@@ -20,158 +20,73 @@
  */
 #}
 <div class="row">
-  <div class="col-md-7">
-    <div class="wc-product-imglist1">
-        {{ drupal_view('wristcheck_product_jcarousel','image') }}
-    </div>
-  </div>
-  <div class="col-md-5">
-    <div class="wc-product-introduction">
-      <div class="wc-product-title">{{ product.field_related_brand }}</div>
-      <div class="wc-product-title bold">{{ product.title }}</div>
-      <div>
-        {{- product.field_ask_price -}}
-      </div>
-      <div class="wc-product-Inspected-tip">
-        Inspected by certified watchmaker
-      </div>
-      <div>
-        {{ product.uid }}
-      </div>
-      <div class="d-flex flex-row">
-        <a href="javascript:;" class="wc-product-add-wishlist">
-          <div class="wc-btn-cont">
-            ADD TO BAG
-          </div>
-        </a>
-        <a href="javascript:;" class="wc-product-add-wishlist ml-2">
-          <div class="wc-btn-cont">
-            Negotiate price
-          </div>
-        </a>
-      </div>
-      <div class="wc-product--row">
-        {{- product.flag_wristcheck_wishlist -}}
-      </div>
-      {{ product.field_original_box }}
-      {{ product.field_original_papers }}
-      {{ product.field_authenticity_guaranteed }}
-      {{ product.field_secure_payment_in_escrow }}
-      <div class="wc-product-btn">
-        
-        <div class="wc-product-variations">
-          {{- product.variations -}}
+    <div class="col-md-7">
+        <div class="wc-product-imglist1">
+            {{ drupal_view('wristcheck_product_jcarousel','image') }}
         </div>
-      </div>
-
-      <div class="wc-product-content">{{ product.field_introduction }}</div>
-      <div class="wc-product--row">
-        <div class="wc-product-buy-new pr active" id="wc-product-buy-new" product_id="{{ product.id }}">
-          {% set url = url('<current>')['#markup'] %}
-          <a href="/custom/product/new/{{ url|split('/')|last }}"><span>BUY NEW FROM</span>
-            {{ product.variation_price }}
-          </a>
-          {#          {{  product.variation_price|slice(1)  }}#}
-        </div>
-        <div class="wc-product-buy pr" id="wc-product-buy-used" product_id="{{ product.id }}">
-          {% set url = url('<current>')['#markup'] %}
-          <a href="/custom/product/old/{{ url|split('/')|last }}">BUY USED FROM
-            {#            {{ drupal_view('wristcheck_second_hands_watch') }}#}
-          </a>
-          <div class="wc-product-buy-used-popup">
-            {{ drupal_view('wristcheck_second_hands_watch','product_single_page_two_hands_lists') }}
-          </div>
-        </div>
-      </div>
     </div>
-{#    <div class="wc-shield">#}
-{#      <div class="wc-shield-box">#}
-{#        <div class="wc-shield-box__left">#}
-{#          <h1>WRISTCHECK GUARANTEE</h1>#}
-{#          <div class="wc-shield-box__item clearfix">#}
-{#            <span class="wc-shield-box__item-img">#}
-{#              <img src="/themes/custom/wristcheck_barrio/images/icons/dui.png" alt="">#}
-{#            </span>#}
-{#            AUTHENTICITY GUARANTEED#}
-{#          </div>#}
-{#          <div class="wc-shield-box__item clearfix">#}
-{#            <span class="wc-shield-box__item-img">#}
-{#              <img src="/themes/custom/wristcheck_barrio/images/icons/qian.png" alt="">#}
-{#            </span>#}
-{#            SECURE PAYMENT IN ESCROW#}
-{#          </div>#}
-{#          <div class="wc-shield-box__item clearfix">#}
-{#            <span class="wc-shield-box__item-img">#}
-{#              <img src="/themes/custom/wristcheck_barrio/images/icons/ren.png" alt="">#}
-{#            </span>#}
-{#            SELLER GETS PAID ONCE#}
-{#          </div>#}
-{#        </div>#}
-{#        <div class="wc-shield-box__right">#}
-{#          <img src="/themes/custom/wristcheck_barrio/images/icons/dun.png" alt="">#}
-{#        </div>#}
-{#      </div>#}
-      {{ drupal_entity("block_content",58) }}
+    <div class="col-md-5">
+        <div class="wc-product-introduction">
+            <div class="wc-product-title">{{ product.field_related_brand }}</div>
+            <div class="wc-product-title bold">{{ product.title }}</div>
+            <div>
+                {{- product.field_ask_price -}}
+            </div>
+            <div class="wc-product-Inspected-tip">
+                Inspected by certified watchmaker
+            </div>
+            <div class="wc-product-signature">
+                <img src="/themes/custom/wristcheck_barrio/images/v2/signature.png"/>
+            </div>
+            <div class="wc-product-signature-name">
+                {{ product.uid }}
+            </div>
+            <div class="d-flex flex-row">
+                <a href="javascript:;" class="wc-product-add-bag">
+                    ADD TO BAG
+                </a>
+                <a href="javascript:;" class="wc-product-negotiate">
+                    NEGOTIATE PRICE
+                </a>
+            </div>
+            <div class="wc-product-specification">
+                {{ product.flag_wristcheck_wishlist }}
+                {{ product.field_original_box }}
+                {{ product.field_original_papers }}
+                {{ product.field_authenticity_guaranteed }}
+                {{ product.field_secure_payment_in_escrow }}
+            </div>
+            <div class="wc-product-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="javascript:;" aria-controls="description" role="tab" data-toggle="tab">DESCRIPTION</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="javascript:;" aria-controls="details" role="tab" data-toggle="tab">DETAILS</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="description">
+                        {{ product.field_introduction }}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="details">
+						{{ product.field_watch_params }}
+					</div>
+                </div>
+            </div>
+			<a class="wc-product-report" href="javascript:;">Report a suspicious listing</a>
+        </div>
+        {{ drupal_entity("block_content",58) }}
     </div>
-  </div>
 </div>
-
-{#<div class="wc-panel">#}
-{#  <div class="wc-panel__title text-center">{{ 'THE SELLER CREDIT'|t }}</div>#}
-{#  {{ drupal_view('wristcheck_products','wristcheck_basic_info') }}#}
-{#</div>#}
-{#description#}
-<div class="row">
-  <div class="col-md-12 wc-product-body">
-    {{ product.body }}
-  </div>
-</div>
-{#description end#}
-
-<div class="wc-v2-panel">
-  {{ product.field_watch_params }}
-</div>
-
-{#<div class="wc-panel field--name-field-watch-params">#}
-{#  <div class="col-md-6">#}
-{#    <h4 class="wc-product-introduction__title">#}
-{#      <span>{{ 'Functions'|t }}</span>#}
-{#    </h4>#}
-{#    {{ drupal_view('wristcheck_products','product_functions') }}#}
-{#  </div>#}
-{#  <div class="col-md-6">#}
-{#    <h4 class="wc-product-introduction__title">#}
-{#      <span>{{ 'Others'|t }}</span>#}
-{#    </h4>#}
-{#    {{ drupal_view('wristcheck_products','product_others') }}#}
-{#  </div>#}
-{#</div>#}
-
-{#<div class="wc-panel">#}
-{#  <div class="wc-panel__title text-center">{{ 'SPECIFICATIONS'|t }}</div>#}
-{#  <div class="row">#}
-{#    <div class="col-md-12 wc-product-specifications wc-display-label">#}
-{#      {{ product.field_specifications }}#}
-{#    </div>#}
-{#  </div>#}
-{#</div>#}
-
+<div class="v-line"></div>
 <div class="wc-panel">
-  <div class="wc-panel__title text-center">{{ 'READ MORE'|t }}</div>
-  {{ drupal_view('wristcheck_buy_magazine','read_more') }}
+    <div class="wc-panel__title text-center">{{ 'READ MORE'|t }}</div>
+    {{ drupal_view('wristcheck_buy_magazine','read_more') }}
 </div>
-
 <div class="wc-panel">
-  <div class="wc-panel__title text-center">{{ 'RELATED WATCHES'|t }}</div>
-  {{ drupal_view('wristcheck_products','related_models') }}
+    <div class="wc-panel__title text-center">{{ 'RELATED PRODUCTS'|t }}</div>
+    {{ drupal_view('wristcheck_products','related_models') }}
 </div>
 
-{#<div class="wc-panel wc-testimdnials">#}
-{#  <h1 class='wc-panel__title text-center'>{{ 'TESTIMONIALS'|t }}</h1>#}
-{#  <div class='container pt-50 pb-100'>#}
-{#    {{ drupal_view('wristcheck_testimdnials','default') }}#}
-{#  </div>#}
-{#</div>#}
-
-{# In a Twig template we attach the library. #}
 {{ attach_library('wristcheck_barrio/product-styling') }}

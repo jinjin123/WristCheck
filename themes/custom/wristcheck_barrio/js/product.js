@@ -1,9 +1,9 @@
 (function ($) {
   var buy_used_from = $('.view-display-id-product_single_page_two_hands_lists');
-    if(buy_used_from.children().length === 1){
-	  $('#wc-product-buy-used').hide();
-	  $('#wc-product-buy-new a>span').text("BUY FROM")
-    }
+  if (buy_used_from.children().length === 1) {
+    $('#wc-product-buy-used').hide();
+    $('#wc-product-buy-new a>span').text("BUY FROM")
+  }
   $(function () {
     //TODO: this page global event
     var loading = function (href) {
@@ -70,6 +70,14 @@
     //   autoplay: true,             // 是否自动播放
     //   autoplay_interval: 6000,    // 自动播放时每张图片的停留时间
     // });
+
+    $('.wc-product-tabs .nav-tabs li').click(function (e) {
+      e.stopPropagation()
+      $(this).addClass('active').siblings('.active').removeClass('active')
+      const id = $(this).children().attr('aria-controls');
+      console.log(id)
+      $('#'+id).addClass('active').siblings('.active').removeClass('active')
+    })
 
   });
 })(jQuery);

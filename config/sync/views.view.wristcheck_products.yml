@@ -4589,7 +4589,7 @@ display:
   related_models:
     display_plugin: block
     id: related_models
-    display_title: 'Brand Related Products'
+    display_title: 'Product Detail Related'
     position: 1
     display_options:
       display_extenders: {  }
@@ -4934,7 +4934,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{view_commerce_product}}\">\r\n\t<div class=\"portfolio-img wc-ex-panel mb-20\">\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_model_images}}\"></div>\r\n\t</div>\r\n\t<div class=\"portfolio-sub-detail\">\r\n                 {% if  field_delivery_box %} \r\n                                <div><img src=\"/themes/custom/wristcheck_barrio/images/watchflagbox.png\"/></div>\r\n                  {% endif %}\r\n\t\t<div class=\"wc-product-category\">{{ field_cate }}</div>\r\n\t\t<div class=\"wc-product-series\">{{ field_watch_series }}</div>\r\n\t\t<div class=\"price__number\">{{field_ask_price }}</div>\r\n\t</div>\r\n</a>\r\n"
+            text: "<a href=\"{{view_commerce_product}}\">\r\n\t<div class=\"portfolio-img wc-ex-panel mb-20\">\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_model_images}}\"></div>\r\n\t</div>\r\n\t<div class=\"portfolio-sub-detail\">\r\n                 {% if  field_delivery_box %} \r\n                                <div><img src=\"/themes/custom/wristcheck_barrio/images/watchflagbox.png\"/></div>\r\n                  {% endif %}\r\n\t\t<div class=\"wc-product-category\">{{ field_cate }}</div>\r\n\t\t<div class=\"wc-product-series\">{{ field_watch_series }}</div>\r\n\t\t<div class=\"price__number\">{{field_ask_price }}</div>\r\n\t</div>\r\n</a>"
             make_link: false
             path: ''
             absolute: false

@@ -147,16 +147,21 @@
   }
 
   .wc-product-wishlist {
+    margin-bottom: 32px;
     a {
       text-decoration: none;
-      font-size: 18px;
-
+      font-size: 16px;
+      line-height: 24px;
       font-weight: 400;
       color: $color-dark2;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
       span {
         color: $color-dark2;
-        font-size: 30px;
+        font-size: 16px;
+        margin-right: 20px;
 
         &.fa-heart {
           color: $color-dark2;
@@ -659,38 +664,32 @@
 
 
   .wc-product-introduction__title {
-    border-bottom: 1px solid #DFDFDF;
-    margin-bottom: 10px;
-
     span {
-      padding: 20px 0;
       display: inline-block;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
   }
-
+  .wc-product-introduction__value,
   .wc-product-introduction__key {
-    font-size: 18px;
-
-    font-weight: 500;
-    color: #222222;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 30px;
+    padding-bottom: 8px;
+    p{
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      margin:0;
+      color: rgba(0, 0, 0, .9);
+    }
   }
-
-  .wc-product-introduction__value {
-    font-size: 14px;
-
-    font-weight: 300;
-    color: #222222;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 30px;
+  .wc-product-introduction__value{
+    text-align: right;
   }
 
   h4 {
     font-size: 24px;
-
     font-weight: bold;
     color: #222222;
   }
@@ -797,4 +796,125 @@
       width: 100%;
     }
   }
+}
+.wc-product-signature{
+  height: 44px;
+  margin: 16px 0;
+  img{
+    display: block;
+    height: 44px;
+    width: auto;
+  }
+}
+.wc-product-signature-name{
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+  margin-bottom: 20px;
+}
+.wc-product-negotiate,
+.wc-product-add-bag{
+  display: inline-block;
+  background-color: $color_mothergreen;
+  color: #FFF;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  padding: 8px 32px;
+  border: 1px solid $color_mothergreen;
+  &:hover{
+    background-color: #FFF;
+    color: $color_mothergreen;
+  }
+}
+.wc-product-negotiate{
+  margin-left: 20px;
+  background-color: #FFF;
+  color: #000;
+  border: 1px solid #FFF;
+  &:hover{
+    border: 1px solid $color_mothergreen;
+    background-color: $color_mothergreen;
+    color: #FFF;
+  }
+}
+.wc-product-specification{
+  margin-top: 32px;
+  .field--name-field-original-box,
+  .field--name-field-original-papers,
+  .field--name-field-authenticity-guaranteed,
+  .field--name-field-secure-payment-in-escrow{
+    height: 24px;
+    margin-bottom: 16px;
+    padding-left: 35px;
+    position: relative;
+    &::before{
+      content:'';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background-size: 16px auto;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .field--name-field-original-box::before{
+    background-image: url('/themes/custom/wristcheck_barrio/images/v2/icon/box-icon.png');
+
+  }
+  .field--name-field-original-papers::before{
+    background-image: url('/themes/custom/wristcheck_barrio/images/v2/icon/file-icon.png');
+
+  }
+  .field--name-field-authenticity-guaranteed::before{
+    background-image: url('/themes/custom/wristcheck_barrio/images/v2/icon/vlide-icon.png');
+
+  }
+  .field--name-field-secure-payment-in-escrow::before{
+    background-image: url('/themes/custom/wristcheck_barrio/images/v2/icon/safe-icon.png');
+  }
+}
+.wc-product-tabs{
+  li{
+    padding: 8px 0;
+    margin-right: 32px;
+    position: relative;
+    a{
+      display: block;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, .56)
+    }
+    &.active{
+      &:after{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color_mothergreen;
+      }
+      a{
+        color: $color_mothergreen;
+      }
+    }
+  }
+  .tab-content{
+    padding: 25px 0 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, .9);
+  }
+}
+.wc-product-report{
+  display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color_mothergreen;
+  margin: 32px 0 64px;
 }

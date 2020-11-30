@@ -4373,6 +4373,7 @@ display:
         use_ajax: false
         arguments: false
         relationships: false
+        css_class: false
       pager:
         type: some
         options:
@@ -4440,6 +4441,7 @@ display:
           admin_label: 'field_related_model: Product'
           required: true
           plugin_id: standard
+      css_class: row-view-content
     cache_metadata:
       max-age: -1
       contexts:
