@@ -14,6 +14,7 @@ module:
   block: 0
   block_attributes: 0
   block_content: 0
+  block_exclude_pages: 0
   blog: 0
   breakpoint: 0
   cdn: 0
