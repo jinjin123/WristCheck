@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_page_title_image
     - field.storage.node.field_subtitle
     - field.storage.user.user_picture
+    - image.style.thumbnail
     - node.type.blog_post
     - taxonomy.vocabulary.blog_tags
   content:
@@ -633,6 +634,69 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_page_title_image:
           id: field_page_title_image
           table: node__field_page_title_image
@@ -644,7 +708,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/>By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -708,6 +772,7 @@ display:
         link_display: false
         link_url: false
         css_class: false
+        relationships: false
       pager:
         type: some
         options:
@@ -733,6 +798,18 @@ display:
       link_display: custom_url
       link_url: /discover/latest
       css_class: 'view-more row-view-content'
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -743,6 +820,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   article_two_load:
     display_plugin: block
     id: article_two_load
@@ -935,6 +1013,69 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_page_title_image:
           id: field_page_title_image
           table: node__field_page_title_image
@@ -946,7 +1087,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -1010,6 +1151,7 @@ display:
         use_more_text: false
         link_display: false
         link_url: false
+        relationships: false
       pager:
         type: some
         options:
@@ -1035,6 +1177,18 @@ display:
       use_more_text: 'VIEW MORE'
       link_display: custom_url
       link_url: /discover/latest
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -1045,6 +1199,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   buy_guide:
     display_plugin: block
     id: buy_guide
@@ -1276,6 +1431,394 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
+      defaults:
+        relationships: false
+        fields: false
+      fields:
+        field_page_title_image:
+          id: field_page_title_image
+          table: node__field_page_title_image
+          field: field_page_title_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: '{{ view_node }}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: wc-magazine-top
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: field
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "            <h2 class='mag-title'>{{ title }}</h2>\r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: ''
+          output_url_as_text: true
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        body:
+          id: body
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"{{view_node}}\">\r\n    <div class=\"wc-magazine\">\r\n        <div class=\"wc-buy-product-privew__img\"><img  class=\"wc-magazine-privew__img\" src=\"{{ field_page_title_image }}\"/></div>\r\n        <div class=\"wc-magazine-body\"> \r\n              <div class=\"wc-magazine__title\"> {{ title }} </div>\r\n              <div class=\"wc-magazine__describe\"> {{ body__summary }} </div>\r\n              <div class=\"wc-magazine-owner\">\r\n                 <span class=\"wc-magazine__author\"><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> BY {{ uid }}</span>\r\n              </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: summary
+          type: text_trimmed
+          settings:
+            trim_length: 300
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
     cache_metadata:
       max-age: -1
       contexts:
@@ -1287,6 +1830,7 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   from_the_journal:
     display_plugin: block
     id: from_the_journal
@@ -1976,6 +2520,7 @@ display:
         pager: false
         style: false
         row: false
+        relationships: false
       pager:
         type: some
         options:
@@ -1994,6 +2539,18 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -2196,6 +2753,69 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_page_title_image:
           id: field_page_title_image
           table: node__field_page_title_image
@@ -2207,7 +2827,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -2264,6 +2884,7 @@ display:
         pager: false
         style: false
         row: false
+        relationships: false
       pager:
         type: some
         options:
@@ -2282,6 +2903,18 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -2292,6 +2925,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   latest_articles:
     display_plugin: block
     id: latest_articles
@@ -2484,6 +3118,69 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_page_title_image:
           id: field_page_title_image
           table: node__field_page_title_image
@@ -2495,7 +3192,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -2552,6 +3249,7 @@ display:
         pager: false
         style: false
         row: false
+        relationships: false
       pager:
         type: infinite_scroll
         options:
@@ -2586,6 +3284,18 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -2597,6 +3307,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   latest_load_load:
     display_plugin: block
     id: latest_load_load
@@ -2622,6 +3333,7 @@ display:
         link_display: false
         link_url: false
         css_class: false
+        relationships: false
       fields:
         uid:
           id: uid
@@ -2806,6 +3518,69 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_page_title_image:
           id: field_page_title_image
           table: node__field_page_title_image
@@ -2817,7 +3592,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: false
             path: '{{ view_node }}'
             absolute: false
@@ -2889,6 +3664,18 @@ display:
       link_display: custom_url
       link_url: /discover/latest
       css_class: 'view-more row-view-content'
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -2899,6 +3686,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   mag_hot_recommend:
     display_plugin: block
     id: mag_hot_recommend
@@ -3362,6 +4150,7 @@ display:
         pager: false
         style: false
         row: false
+        relationships: false
       filters:
         status:
           value: '1'
@@ -3633,6 +4422,69 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_page_title_image:
           id: field_page_title_image
           table: node__field_page_title_image
@@ -3644,7 +4496,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-latest-art\">\r\n\t<div class='wc-discover-img portfolio-img'>\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n\t</div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>BUYER'S GUIDE</p>\r\n\t\t\t<h2 class='wc-rolex-title'><span>{{ title }}</span></h2>\r\n\t\t\t<h3>BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: "<div class=\"wc-latest-art\">\r\n\t<div class='wc-discover-img portfolio-img'>\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n\t</div>\r\n\t<div class='wc-rolex-modal'>\r\n\t\t<div class=\"wc-rolex-action\">\r\n\t\t\t<p class='wc-rolex-sub'>BUYER'S GUIDE</p>\r\n\t\t\t<h2 class='wc-rolex-title'><span>{{ title }}</span></h2>\r\n\t\t\t<h3><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> BY {{ uid }}</h3>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -3714,6 +4566,18 @@ display:
           separator: ''
           hide_empty: false
       display_description: ''
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -3725,6 +4589,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   page_1:
     display_plugin: page
     id: page_1
@@ -3980,6 +4845,69 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         body:
           id: body
           table: node__body
@@ -3991,7 +4919,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-latest-art\">\r\n\t<div class='wc-discover-img wc-rolex-item portfolio-img wc-ex-panel mb-20'>\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n\t</div>\r\n    <div class=\"wc-rolex-modal\">\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class=\"wc-rolex-title\">Easy To Customize</h2>\r\n            <h5 class=\"wc-rolex-sub\"> By Anonymous </h5>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"wc-latest-art\">\r\n\t<div class='wc-discover-img wc-rolex-item portfolio-img wc-ex-panel mb-20'>\r\n\t\t<div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n\t</div>\r\n    <div class=\"wc-rolex-modal\">\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class=\"wc-rolex-title\">Easy To Customize</h2>\r\n            <h5 class=\"wc-rolex-sub\"><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> By  {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -4051,6 +4979,7 @@ display:
         header: false
         sorts: false
         css_class: false
+        relationships: false
       pager:
         type: some
         options:
@@ -4099,6 +5028,18 @@ display:
           entity_field: created
           plugin_id: date
       css_class: row-view-content
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -4110,6 +5051,7 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   read_more:
     display_plugin: block
     id: read_more
@@ -4302,6 +5244,69 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_page_title_image:
           id: field_page_title_image
           table: node__field_page_title_image
@@ -4313,7 +5318,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'> By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"wc-rolex-item portfolio-img mb-20\">\r\n<div class=\"wc-rolex-img\">\r\n    <div class=\"lazyload ani-scale_max\" data-original=\"{{field_page_title_image}}\"></div>\r\n</div>\r\n    <div class='wc-rolex-modal'>\r\n        <div class=\"wc-rolex-action\">\r\n            <h2 class='wc-rolex-title'>{{ title }}</h2>\r\n            <h5 class='wc-rolex-sub'><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/>  By {{ uid }} </h5>\r\n        </div>\r\n    </div>\r\n</div>"
             make_link: true
             path: '{{ view_node }}'
             absolute: false
@@ -4441,6 +5446,17 @@ display:
           admin_label: 'field_related_model: Product'
           required: true
           plugin_id: standard
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
       css_class: row-view-content
     cache_metadata:
       max-age: -1
@@ -4452,6 +5468,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
   single:
     display_plugin: block
     id: single
@@ -5197,6 +6214,69 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         body:
           id: body
           table: node__body
@@ -5208,7 +6288,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{view_node}}\">\r\n    <div class=\"wc-magazine-single\"> \r\n        <div class=\"wc-buy-product-privew__img col-lg-8\">\r\n                <div  class=\"wc-magazine-privew__img lazyload\" data-original=\"{{ field_page_title_image }}\"></div>\r\n        </div>\r\n        <div class=\"wc-magazine-body col-lg-4\"> \r\n              <div class=\"wc-magazine__title text-left\"> {{ title }} </div>\r\n              <div class=\"wc-magazine-owner text-left\">\r\n                 <span class=\"wc-magazine__author\">BY {{ uid }}</span>\r\n              </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n"
+            text: "<a href=\"{{view_node}}\">\r\n    <div class=\"wc-magazine-single\"> \r\n        <div class=\"wc-buy-product-privew__img col-lg-8\">\r\n                <div  class=\"wc-magazine-privew__img lazyload\" data-original=\"{{ field_page_title_image }}\"></div>\r\n        </div>\r\n        <div class=\"wc-magazine-body col-lg-4\"> \r\n              <div class=\"wc-magazine__title text-left\"> {{ title }} </div>\r\n              <div class=\"wc-magazine-owner text-left\">\r\n                 <span class=\"wc-magazine__author\"><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/>BY {{ uid }}</span>\r\n              </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -5263,7 +6343,20 @@ display:
       defaults:
         fields: false
         css_class: false
+        relationships: false
       css_class: row-view-content
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -5275,3 +6368,4 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_page_title_image'
+        - 'config:field.storage.user.user_picture'
