@@ -144,3 +144,35 @@
     }
   }
 }
+.checkout-order-summary {
+  tr > td {
+    &:nth-child(2){
+      width: 57%;
+    }
+  }
+}
+
+.address-container-inline {
+  display: flex;
+  margin: 0 ;
+  .js-form-item-shipping-information-shipping-profile-address-0-address-given-name {
+    width: 50%;
+    margin-right: 50px;
+  }
+  .js-form-item-shipping-information-shipping-profile-address-0-address-family-name  {
+    width: 50%;
+    //margin-right: 30px;
+  }
+  .js-form-item-shipping-information-shipping-profile-address-0-address-locality {
+    width: 30%;
+    margin-right: 40px;
+  }
+  .js-form-item-shipping-information-shipping-profile-address-0-address-administrative-area {
+    width: 30%;
+    margin-right: 40px;
+    margin-top: 3px;
+  }
+  .js-form-item-shipping-information-shipping-profile-address-0-address-postal-code {
+    width: 30%;
+  }
+}
