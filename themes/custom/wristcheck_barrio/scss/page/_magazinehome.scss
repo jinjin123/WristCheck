@@ -277,6 +277,15 @@
   }
 }
 .wc-article-hotflag {
+  .wc-panel__title{
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: bold;
+
+  }
+  .wc-art-hotflag {
+    margin-top: 15px;
+  }
   .wc-rolex-title {
      font-size: 21px;
   }
@@ -334,6 +343,13 @@
       .wc-magazine__title {
         border-bottom: 0;
       }
+    }
+  }
+}
+.wc-art-hotflag {
+  .wc-rolex-sub {
+    a  {
+      color : grey;
     }
   }
 }

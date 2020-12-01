@@ -90,15 +90,16 @@
       </div>
     {% endif %}
     <h1 class="wc-blog-title">{{ node.label }}</h1>
-    <span>{{ nodesumm }}</span>
     <div>
       {% if display_submitted %}
         <div class="wc-blog-user">
+          <img class="wc-page-art-icon" src="{{ file_url(node.Owner.user_picture.0.entity.uri.value) }}"/>
           {{ author_picture }}
           {{ author_name }}
         </div>
       {% endif %}
     </div>
+    <span>{{ nodesumm }}</span>
   </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
     <div class="col-lg-8">

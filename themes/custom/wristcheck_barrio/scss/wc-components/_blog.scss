@@ -15,9 +15,12 @@
   }
 
   .wc-blog-user {
+    width: 70%;
+    margin-left: 40%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: right;
 
     article.profile {
       .field--name-user-picture {
