@@ -1767,7 +1767,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{view_node}}\">\r\n    <div class=\"wc-magazine\">\r\n        <div class=\"wc-buy-product-privew__img\"><img  class=\"wc-magazine-privew__img\" src=\"{{ field_page_title_image }}\"/></div>\r\n        <div class=\"wc-magazine-body\"> \r\n              <div class=\"wc-magazine__title\"> {{ title }} </div>\r\n              <div class=\"wc-magazine__describe\"> {{ body__summary }} </div>\r\n              <div class=\"wc-magazine-owner\">\r\n                 <span class=\"wc-magazine__author\"><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> BY {{ uid }}</span>\r\n              </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n"
+            text: "<a href=\"{{view_node}}\">\r\n    <div class=\"wc-magazine\">\r\n        <div class=\"wc-buy-product-privew__img\"><img  class=\"wc-magazine-privew__img\" src=\"{{ field_page_title_image }}\"/></div>\r\n        <div class=\"wc-magazine-body\"> \r\n              <div class=\"wc-magazine__title\"> {{ title }} </div>\r\n              <div class=\"wc-magazine-owner\">\r\n                 <span class=\"wc-magazine__author\"><img class=\"wc-page-art-icon\" src=\"{{ user_picture }}\"/> BY {{ uid }}</span>\r\n              </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n"
             make_link: false
             path: ''
             absolute: false

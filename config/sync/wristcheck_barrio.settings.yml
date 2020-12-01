@@ -31,11 +31,13 @@ features:
   node_user_picture: 1
   comment_user_picture: 1
   comment_user_verification: 1
-  favicon: 1
+  favicon: 0
 logo:
-  use_default: 1
+  use_default: 0
+  path: 'public://LETTERMARK-BLACK@3x_4.png'
 favicon:
-  use_default: 1
+  use_default: 0
+  path: ''
 bootstrap_barrio_region_clean_header: 1
 bootstrap_barrio_region_class_header: ''
 bootstrap_barrio_region_clean_primary_menu: 1
@@ -79,5 +81,5 @@ bootstrap_barrio_icons: ''
 bootstrap_barrio_table_head: thead-dark
 logo_mobile_path: ''
 logo_mobile_upload:
-  - '815'
+  - '10804'
 logo_mobile_upload_1: xxx
