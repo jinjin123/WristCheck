@@ -72,9 +72,10 @@
 .layout-checkout-form {
   padding: 32px;
   .link--previous {
+    display: none;
     background-color: #FFF;
     border: 1px solid #333;
-    display: inline-block;
+    //display: inline-block;
     font-weight: normal;
     color: #333;
     text-align: center;
@@ -126,7 +127,7 @@
     padding: 0 !important;
     color: rgba(0,0,0,.56) !important;
     text-align: left;
-    
+
     &:hover{
       border: 0 !important;
       padding: 0 !important;

@@ -303,3 +303,31 @@ ul.wc-buy-more-products > li {
   margin-bottom: 40px;
   padding: 10px;
 }
+
+#edit-payment-information-add-payment-method-payment-details-expiration-divider {
+  display: none;
+}
+
+.js-form-item-payment-information-add-payment-method-payment-details-security-code {
+  width: 30%;
+  margin-top: -5px;
+  position: relative;
+}
+
+.js-form-item-payment-information-add-payment-method-payment-details-expiration-month {
+  width: 50%;
+  margin-right: 40px;
+}
+.js-form-item-payment-information-add-payment-method-payment-details-expiration-year {
+  width: 50%;
+  margin-right: 40px;
+}
+
+#edit-payment-information-add-payment-method-payment-details-expiration {
+  float: left;
+  clear: both;
+  width: 70%;
+}
+//.link--previous {
+//  display: none;
+//}
