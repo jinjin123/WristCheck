@@ -1,9 +1,9 @@
-uuid: 7a3d8ba2-0b40-48db-b766-13bc14e068d4
+uuid: a99b1906-4486-491c-9650-cc5eb1be2c64
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:2612ee4e-a073-4df5-b723-ad43a9343c79'
+    - 'block_content:basic:18fdf32d-994f-49ca-834d-79d0ebead602'
   module:
     - block_attributes
     - block_content
@@ -30,9 +30,9 @@ theme: wristcheck_barrio
 region: highlighted
 weight: 0
 provider: null
-plugin: 'block_content:2612ee4e-a073-4df5-b723-ad43a9343c79'
+plugin: 'block_content:18fdf32d-994f-49ca-834d-79d0ebead602'
 settings:
-  id: 'block_content:2612ee4e-a073-4df5-b723-ad43a9343c79'
+  id: 'block_content:18fdf32d-994f-49ca-834d-79d0ebead602'
   label: 'Wristcheck Sell Banner'
   provider: block_content
   label_display: '0'

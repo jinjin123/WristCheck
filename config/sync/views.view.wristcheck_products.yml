@@ -4988,14 +4988,11 @@ display:
           field_api_classes: false
           plugin_id: field
       style:
-        type: html_list
+        type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: 'col-sm-12 col-md-4 col-lg-3'
           default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: ''
       row:
         type: fields
         options:
