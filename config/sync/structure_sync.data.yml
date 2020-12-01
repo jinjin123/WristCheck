@@ -5301,7 +5301,7 @@ blocks:
     rev_id_current: null
     fields:
       body:
-        value: "<div class=\"payment-success payment-step\">\r\n <div class=\"row direction\">\r\n <a class=\"wc-back-nav\" onclick=\"javascript:history.back();\" href=\" \"><span class=\"fa fa-angle-left\">&nbsp;</span>\r\n So let's go back to the list</a>\r\n </div>\r\n <div class=\"wc-panel\">\r\n  <div class=\"wc-panel__title\">Order</div>\r\n  <div class=\"row\">\r\n   <div class=\"col-md-12\"><img class=\"img-fluid\" src=\"/themes/custom/wristcheck_barrio/images/paystep.png\" /></div>\r\n  </div>\r\n </div>\r\n</div>"
+        value: "<div class=\"wc-panel shipping-info-top\">\r\n<div class=\"wc-panel__title\">Checkout</div>\r\n</div>\r\n"
         summary: ''
         format: full_html
   -
@@ -5364,18 +5364,6 @@ blocks:
         value: "<div class=\"wc-laces-block\"><img alt=\"sharedow\" data-entity-type=\"file\" data-entity-uuid=\"c09aa18d-3405-4e0c-905d-62b40976601c\" src=\"/sites/default/files/inline-images/2020-11-18_16-19.png\" /></div>\r\n"
         summary: ''
         format: full_html
-  -
-    info: 'Wristcheck Sell Banner'
-    langcode: en
-    uuid: 2612ee4e-a073-4df5-b723-ad43a9343c79
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        value: "<div class=\"wc-sellbanner\"><img alt=\"sellbanner\" data-entity-type=\"file\" data-entity-uuid=\"38a6ff7d-df33-4ba9-890c-a6b33265348b\" src=\"/sites/default/files/inline-images/2020-11-19_10-48.png\" /></div>\r\n"
-        summary: ''
-        format: full_html
 menus:
   -
     menu_name: main
@@ -5422,7 +5410,7 @@ menus:
     description: null
     enabled: '1'
     expanded: '0'
-    weight: '-45'
+    weight: '-44'
     langcode: en
     uuid: 76ace088-6bed-4922-9fb8-097aabf85f11
   -
@@ -7441,3 +7429,15 @@ menus:
     weight: '0'
     langcode: en
     uuid: 53d338a8-8115-471c-b1db-c692ff905897
+  -
+    menu_name: main
+    title: Accessories
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-45'
+    langcode: en
+    uuid: f0592c6c-db1a-4479-9f4d-6ec6a9805e34
