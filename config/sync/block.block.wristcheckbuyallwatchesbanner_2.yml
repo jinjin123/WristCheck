@@ -1,0 +1,47 @@
+uuid: c217ea41-d67a-4432-b29f-f0ab8ab91303
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:341b0e41-914a-4f71-b484-a5332dba6b3d'
+  module:
+    - block_attributes
+    - block_content
+    - ntv_block_background
+    - system
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristcheckbuyallwatchesbanner_2
+theme: wristcheck_barrio
+region: highlighted
+weight: -10
+provider: null
+plugin: 'block_content:341b0e41-914a-4f71-b484-a5332dba6b3d'
+settings:
+  id: 'block_content:341b0e41-914a-4f71-b484-a5332dba6b3d'
+  label: 'Wristcheck buy all watches banner '
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /product/search-result
+    negate: false
+    context_mapping: {  }

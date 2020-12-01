@@ -1,0 +1,8 @@
+uuid: 05259599-e8d7-4918-bc97-a0b909133fe0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Watch Series Categories'
+vid: watch_series_categories
+description: ''
+weight: 0

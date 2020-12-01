@@ -1,4 +1,7 @@
 .wc-post-blog {
+  .node__content {
+    display: flex;
+  }
   p {
     font-size: 14px;
     font-weight: 400;
@@ -12,9 +15,12 @@
   }
 
   .wc-blog-user {
+    width: 70%;
+    margin-left: 40%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: right;
 
     article.profile {
       .field--name-user-picture {
@@ -35,7 +41,7 @@
     .field--name-uid {
       margin: 0 8px;
       font-size: 18px;
-      font-family: Source Han Sans CN;
+
       font-weight: bold;
       color: rgba(51, 51, 51, 1);
       line-height: 24px;

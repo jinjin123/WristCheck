@@ -1,0 +1,14 @@
+uuid: 0422b5ed-bbed-4e23-94b2-3499d4d4fac0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.chanpinguanliyuan
+  module:
+    - user
+id: user_add_role_action.chanpinguanliyuan
+label: 'Add the 产品管理员 role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: chanpinguanliyuan

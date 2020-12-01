@@ -5,13 +5,23 @@
  * Contains wristcheck_basic.module.
  */
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\RedirectCommand;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Site\Settings;
+use Drupal\commerce_order\Entity\Order;
+use Drupal\commerce_order\Adjustment;
+use Drupal\commerce_price\Price;
 
 /**
  * Implements hook_help().
@@ -53,16 +63,9 @@ function wristcheck_basic_form_alter(&$form, &$form_state, $form_id){
   if($form_id == "webform_submission_faq_authsystem_add_form"){
     $form['actions']['submit']['#type'] = 'button';
   }
-//  var_dump($form);
-//  var_dump($form_state['base_form_id']);
-//  if($form_id =="commerce-product-add-to-cart-form"){
-//    var_dump($form_state);
-//  if($form_id  == "commerce_order_item_add_to_cart_form_commerce_product_10"){
-//    var_dump($form_state->getTriggeringElement());
-////    var_dump($form_state->getTriggeringElement()['#edit-submit--2']);
-//  }
-//  }
+
 }
+
 //function wristcheck_basic_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
 ////  exit('hello');
 //  var_dump($build);
@@ -95,7 +98,17 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
+    'wristcheck_buy_long_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_category' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_filter_brand_product_block'=>[
       'variables' => [
         'variables' => []
       ]
@@ -105,13 +118,36 @@ function wristcheck_basic_theme()
         'variables' => []
       ]
     ],
-
+    'wristcheck_sell_service_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_discover_buttom_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_buy' => [
       'variables' => [
         'variables' => []
       ]
     ],
-
+    'wristcheck_buy_benefits_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_faq_question_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_sell_lowsale_block' => [
+      'variables' => [
+        'variables' => []
+      ]
+    ],
     'wristcheck_user_sell' => [
       'variables' => [
         'variables' => []
@@ -266,7 +302,28 @@ function wristcheck_basic_theme()
       'variables' => [
         'variables' => []
       ]
-    ]
+    ],
+    'wristcheck_error_404'=>[
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_user_login'=>[
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_error_403'=>[
+      'variables' => [
+        'variables' => []
+      ]
+    ],
+    'wristcheck_basic_commerce_checkout_order_summary' => [
+      'variables' => [
+        'order_entity' => NULL,
+        'checkout_step' => '',
+      ],
+    ],
   ];
 }
 
@@ -322,3 +379,329 @@ function wristcheck_basic_form_node_wcshw_form_alter(&$form, FormStateInterface 
 //  var_dump($product->variation_id);
 //}
 
+//function wristcheck_basic_entity_operation(\Drupal\Core\Entity\EntityInterface $entity) {
+//  if(in_array($entity->bundle(), ['wcshw'])) {
+//    $operations = array();
+//    $operations['create'] = array(
+//      'title' => t('Create'),
+//      'url' =>  \Drupal\Core\Url::fromRoute('node.add',['node_type'=> 'wcshw']),
+//      'weight' => 30,
+//    );
+//    return $operations;
+//  }
+//}
+
+//function wristcheck_basic_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+//
+// If not the view we are looking, move on
+//if ($form['#id'] != 'views-exposed-form-the-art-block-1') {
+//  return FALSE;
+//}
+//
+//// Query nodes
+//$storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+//$nids = $storage->getQuery();
+//
+//// Gather published artist nodes and sort by title
+//$nids = $nids->condition('type', 'artist')
+//  ->condition('status', 1)
+//  ->sort('title')
+//  ->execute();
+//
+//// If there are no nodes, move on
+//if (!$nids) {
+//  return FALSE;
+//}
+//
+//// Start building out the options for our select list
+//$options = [];
+//$nodes = $storage->loadMultiple($nids);
+//
+//// Push titles into select list
+//foreach ($nodes as $node) {
+//  $options[$node->id()] = $node->getTitle();
+//}
+//
+//// Start building out our new form element
+//$artist_field = 'artist';
+//$form[$artist_field]['#type'] = 'select';
+//$form[$artist_field]['#multiple'] = FALSE;
+//
+//// Specify the empty option for our select list
+//$form[$artist_field]['#empty_option'] = t('Artist');
+//
+//// Add the $options from above to our select list
+//$form[$artist_field]['#options'] = $options;
+//unset($form[$artist_field]['#size']);
+//}
+
+/**
+ * Implements hook_cron().
+ */
+function wristcheck_basic_cron() {
+  $currency_api = Settings::get('currency_api');
+  $client = \Drupal::httpClient();
+  $connection = \Drupal::service('database');
+  $query = $connection->query("SELECT unit, date FROM currency");
+  $result = $query->fetchAll();
+  foreach ($result as $value) {
+    $unit = $value->unit;
+    $date = $value->date;
+    $current_date = date('Y-m-d', time());
+    if ($date == $current_date) {
+      // update currency once every day
+      break;
+    }
+    $url = $currency_api . $unit;
+    $request = $client->request('GET', $url);
+    $statusCode = $request->getStatusCode();
+    if($statusCode == '200') {
+      $contents = $request->getBody()->getContents();
+      $json = json_decode($contents);
+      $rate = json_encode($json->conversion_rates);
+      $connection->update('currency')
+        ->fields([
+          'rate' => $rate,
+          'date' => date('Y-m-d', time()),
+        ])
+        ->condition('unit', $unit, '=')
+        ->execute();
+      \Drupal::logger('wristcheck_basic')->notice(date('Y-m-d H:i:s', time()) . ': Update '. $unit . ' currency rates');
+    }
+    else {
+      \Drupal::logger('wristcheck_basic')->error(date('Y-m-d H:i:s', time()) . ': Get '. $unit .' currency rates error');
+    }
+  }
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wristcheck_basic_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $user = \Drupal::currentUser();
+  if ($user->id() != 1) {
+    $roles = $user->getRoles();
+    // Only validate authenticated user.
+    if (count($roles) == 1 && $roles[0] == 'authenticated') {
+      $form["#validate"][] = 'wristcheck_basic_check_user_information_validate';
+    }
+  }
+}
+
+function wristcheck_basic_check_user_information_validate(&$form, FormStateInterface $form_state) {
+  $user = \Drupal::currentUser()->getAccount();
+  $uid = $user->id();
+  wristcheck_basic_check_user_infomation($uid, $emptyFields);
+  foreach ($emptyFields as $field_name) {
+    //check if it the field has value in form_state
+    $value = $form_state->getValue($field_name);
+    //$definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('user', 'user');
+    //$field_type = $definitions[$field_name]->getType();
+    //todo : may be need checked by every field_type
+    if (isset($value[0]['value']) && empty($value[0]['value'])) {
+      if ($field_name == 'field_description') {
+        //$form[$field_name]['#attributes']['class'][] = 'error';
+        //$form[$field_name]['#attributes']['class'][] = 'is-invalid';
+        $form[$field_name]['#prefix'] = '<div class="error is-invalid form-control">';
+        $form[$field_name]['#suffix'] = '</div>';
+        // Do not know why field_description can not generate the class is-invalid
+        $form_state->setErrorByName($field_name, t('Please fill the information.'));
+      }
+      else {
+        $form_state->setErrorByName($field_name, t('Please fill the information.'));
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wristcheck_basic_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (isset($_GET['check_user_information'])) {
+    //for redirect page
+    $form["#action"] .= '&destination=/wristcheck_basic/check_user_info';
+  }
+
+  $form['name']['#title'] = 'Email';
+  $form['name']['#description'] = '';
+  $form['pass']['#description'] = '';
+}
+
+/**
+ * Check user has enough information.
+ *
+ * @param $uid
+ *
+ * @return bool
+ */
+function wristcheck_basic_check_user_infomation($uid, &$emptyFields = NULL) {
+  $emptyFields = [];
+  $user = User::load($uid);
+  $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('user', 'user');
+  $allFields= array_keys($definitions);
+  $checkFields = preg_grep("/^field_/", $allFields);
+  foreach ($checkFields as $fieldName) {
+    if ($user->get($fieldName)->isEmpty()) {
+      $emptyFields[] = $fieldName;
+    }
+  }
+
+  if ($emptyFields) {
+    \Drupal::logger('wristcheck_basic')->notice(print_r($emptyFields, TRUE));
+    return FALSE;
+  }
+  else{
+    return TRUE;
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ * @param ViewExecutable $view
+ */
+function wristcheck_basic_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'wristcheck_order_list')) {
+    $view->element['#attached']['library'][] = 'wristcheck_basic/orderStatus';
+  }
+}
+
+
+//function wristcheck_basic_views_pre_view(ViewExecutable $view)
+//{
+//  if (isset($view) && ($view->current_display == "transactions_sell")){
+//    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+//    $Mail = $user->getEmail();
+//    $options = array(
+//      'id' => 'area_text_custom',
+//      'table' => 'views',
+//      'field' => 'area_text_custom',
+//      'relationship' => 'none',
+//      'group_type' => 'none',
+//      'admin_label' => '',
+//      'empty' => FALSE,
+//      'tokenize' => FALSE,
+//      'content' => "<div class='row'><div class='col-lg-10'>$Mail</div><div class='col-lg-2'><a href='javascript;'>transport</a></div></div>",
+//      'plugin_id' => 'text_custom',
+//    );
+//    $view->setHandler('transactions_sell', 'header', 'area_text_custom', $options);
+//  }
+//}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function wristcheck_basic_form_views_form_commerce_cart_form_default_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+  $order_id = substr($form_id, strlen('views_form_commerce_cart_form_default_'));
+  $order = Order::load($order_id);
+  $if_need_insurance_value = isset($order->get('field_if_need_insurance')->getValue()[0]) ?
+    $order->get('field_if_need_insurance')->getValue()[0]['value'] : 0;
+  $form['insurance'] = [
+    '#type' => 'checkbox',
+    '#title' => 'WRISTCHECK INSURANCE',
+    '#description' => 'description description description...',
+    '#default_value' => $if_need_insurance_value,
+    '#ajax' => array(
+      'callback' => 'wristcheck_basic_if_need_insurance_ajax',
+      'wrapper' => 'views-form-commerce-cart-form-default-' . $order_id,
+    ),
+  ];
+
+  $form['#submit'][] = 'wristcheck_basic_cart_update';
+}
+
+function wristcheck_basic_cart_update($form, &$form_state) {
+  $values = $form_state->getValues();
+  $order_id = substr($values["form_id"], strlen('views_form_commerce_cart_form_default_'));
+  $order = Order::load($order_id);
+  $subTotalPrice = $order->getSubtotalPrice();
+  $totalPrice = $order->getTotalPrice();
+  if(isset($totalPrice)){
+    $insurance_rate = \Drupal::config('wristcheck_basic.rateSettings')->get('insurance');
+    $adjustment_amount = $subTotalPrice->multiply($insurance_rate)->divide('100');
+    $adjustment = new Adjustment([
+      'type' => 'custom',
+      'label' => 'Insurance Plus '. $insurance_rate .'%',
+      'amount' => $adjustment_amount,
+      'percentage' => bcdiv($insurance_rate, '100', 3),
+      'included' => FALSE,
+      'locked' => TRUE,
+    ]);
+    if ($values['insurance']) {
+      $order->set('field_if_need_insurance', 1);
+      $order->setAdjustments([$adjustment]);
+      $order->save();
+    }
+  }
+  //$currency_code = $totalPrice->getCurrencyCode();
+  else {
+    $order->set('field_if_need_insurance', 0);
+    $order->setAdjustments([]);
+    $order->save();
+  }
+}
+
+function wristcheck_basic_if_need_insurance_ajax($form, &$form_state) {
+  wristcheck_basic_cart_update($form, $form_state);
+  $response = new AjaxResponse();
+  $currentURL = Url::fromRoute('<current>');
+  $response->addCommand(new RedirectCommand($currentURL->toString()));
+  return $response;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wristcheck_basic_form_commerce_checkout_flow_multistep_default_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form["#step_id"] == 'order_information') {
+    $form["payment_information"]['#weight'] = 99;
+    $form["actions"]['return_to_bag'] = [
+      '#title' => t('RETURN TO BAG'),
+      '#type' => 'link',
+      '#url' => \Drupal\Core\Url::fromUserInput('/cart'),
+      '#attributes' => ['class' => ['return-btn']],
+      '#weight' => -10,
+    ];
+    $form["sidebar"]["order_summary"]["summary"]["#theme"] = 'wristcheck_basic_commerce_checkout_order_summary';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function wristcheck_basic_preprocess_wristcheck_basic_commerce_checkout_order_summary(&$variables) {
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+  $order = $variables['order_entity'];
+  /** @var \Drupal\commerce_order\OrderTotalSummaryInterface $order_total_summary */
+  $order_total_summary = \Drupal::service('commerce_order.order_total_summary');
+  $variables['totals'] = $order_total_summary->buildTotals($order);
+  $variables['rendered_totals'] = [
+    '#theme' => 'commerce_order_total_summary',
+    '#order_entity' => $order,
+    '#totals' => $variables['totals'],
+  ];
+
+  $order_items = $order->getItems();
+  $product_images = [];
+  $product_titles = [];
+  foreach ($order_items as $order_item) {
+    $product = $order_item->getPurchasedEntity()->getProduct();
+    $product_titles[] = $product->getTitle();
+    $img_target_id = $product->get('field_model_images')->getValue()[0]['target_id'];
+    //$product_images[] = file_url_transform_relative(file_create_url(File::load($img_target_id)->getFileUri()));
+    $file = File::load($img_target_id);
+    // Get origin image URI.
+    $image_uri = $file->getFileUri();
+    // Load image style "thumbnail".
+    $style = ImageStyle::load('thumbnail');
+    // Get URI.
+    $uri = $style->buildUri($image_uri);
+    // Get URL.
+    $url = $style->buildUrl($image_uri);
+    $product_images[] = $url;
+  }
+  $variables['product_images'] = $product_images;
+  $variables['product_titles'] = $product_titles;
+}

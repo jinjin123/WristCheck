@@ -1,7 +1,7 @@
 .wc-user-info {
   .wc-user-info__title {
     font-size: 30px;
-    font-family: Source Han Sans CN;
+     
     font-weight: bold;
     color: #222222;
     margin-bottom: 60px;
@@ -17,7 +17,7 @@
 
     .wc-protfolio-empty-box__font1 {
       font-size: 24px;
-      font-family: Source Han Sans CN;
+       
       font-weight: 400;
       color: #222222;
       margin-bottom: 40px
@@ -26,7 +26,7 @@
     .wc-protfolio-empty-box__font2 {
 
       font-size: 24px;
-      font-family: Source Han Sans CN;
+       
       font-weight: bold;
       color: #222222;
       margin-bottom: 80px
@@ -53,15 +53,15 @@
   color:#003cc5;
 }
 .wc-protfolio-product__title {
-  line-height: 1;
   font-size: 24px;
-  font-family: Source Han Sans CN;
+   
   font-weight: bold;
   color: #222222;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 20px;
+  line-height: 1.5;
   >span {
     padding: 0 !important;
   }
@@ -89,4 +89,22 @@
       }
     }
   }
+}
+
+.portfolio .portfolio-sub-detail{
+  height: 120px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 5%;
+    color: rgba(0,0,0,.9);
+  .wc-product-category{
+    font-weight: 700;
+  }
+  .wc-product-series{
+  }
+  .price__number{
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
 }

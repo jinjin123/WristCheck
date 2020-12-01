@@ -3,8 +3,8 @@ name: Wristcheck
 mail: jimmy_jinjin@126.com
 slogan: ''
 page:
-  403: ''
-  404: ''
+  403: /wristcheck_basic/error403
+  404: /wristcheck_basic/error404
   front: /homepage
 admin_compact_mode: false
 weight_select_max: 100

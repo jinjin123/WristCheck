@@ -1,0 +1,47 @@
+uuid: 8ed5047b-956f-44dd-b822-f3b5c0001a29
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.inquire_how_to_be_a_seller
+  module:
+    - block_attributes
+    - ntv_block_background
+    - system
+    - webform
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: webform_3
+theme: wristcheck_barrio
+region: content
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'INQUIRE HOW TO BE A SELLER'
+  provider: webform
+  label_display: visible
+  webform_id: inquire_how_to_be_a_seller
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: /wristcheck_basic/inquire-how-to-be-seller
+    negate: false
+    context_mapping: {  }

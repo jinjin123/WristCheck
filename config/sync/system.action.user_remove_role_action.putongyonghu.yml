@@ -1,0 +1,14 @@
+uuid: 6f417252-b056-45f8-b413-c1009c6a9e9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.putongyonghu
+  module:
+    - user
+id: user_remove_role_action.putongyonghu
+label: 'Remove the 普通用户 role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: putongyonghu

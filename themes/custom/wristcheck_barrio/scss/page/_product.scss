@@ -1,6 +1,10 @@
 // jcarousel
 @import '../variables/color';
 
+.wc-product-search-model-img {
+   height: 100px;
+  width: 100px;
+}
 .wc-product-imglist1 {
   .wc-product-slick-item {
     width: 100%;
@@ -107,20 +111,33 @@
   }
 
   .wc-product-title {
-    font-size: 30px;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: $color-dark2;
-    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgba(0, 0, 0, .9);
+    padding-bottom: 8px;
 
     &.bold {
-      font-size: 30px;
-      font-family: Source Han Sans CN;
-      font-weight: bold;
-      color: $color-dark2;
-      padding: 0;
+      font-size: 32px;
+      line-height: 38px;
+      color: rgba(0, 0, 0, .9);
+      padding-bottom: 16px;
     }
   }
+  .field--name-field-ask-price{
+      font-size: 32px;
+      line-height: 38px;
+      color: rgba(0, 0, 0, .9);
+      padding-bottom: 16px;
+  }
+  .wc-product-Inspected-tip{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: rgba(0, 0, 0, .9);
+    margin-bottom: 5px;
+  }
+
 
   .wc-product--row {
     display: flex;
@@ -130,16 +147,21 @@
   }
 
   .wc-product-wishlist {
+    margin-bottom: 32px;
     a {
       text-decoration: none;
-      font-size: 18px;
-      font-family: Source Han Sans CN;
+      font-size: 16px;
+      line-height: 24px;
       font-weight: 400;
       color: $color-dark2;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
       span {
         color: $color-dark2;
-        font-size: 30px;
+        font-size: 16px;
+        margin-right: 20px;
 
         &.fa-heart {
           color: $color-dark2;
@@ -167,7 +189,7 @@
       display: flex;
       flex-direction: row;
       font-size: 16px;
-      font-family: Source Han Sans CN;
+
       font-weight: 400;
       color: $color-dark2;
 
@@ -222,7 +244,7 @@
     font-size: 14px;
     height: 150px;
     overflow: hidden;
-    font-family: Source Han Sans CN;
+
     font-weight: 400;
     color: $color-dark2;
     line-height: 24px;
@@ -281,7 +303,8 @@
   .wc-product-buy-used-popup {
     .item-list ul li {
       padding: 0;
-      a{
+
+      a {
         background-color: transparent;
       }
     }
@@ -309,7 +332,7 @@
 
       .wc-used-cont__title {
         font-size: 16px;
-        font-family: Source Han Sans CN;
+
         font-weight: 400;
         color: #222222;
         line-height: 1.5;
@@ -318,7 +341,7 @@
 
       .wc-used-cont__code {
         font-size: 16px;
-        font-family: Source Han Sans CN;
+
         font-weight: 400;
         color: #222222;
         line-height: 1.5;
@@ -327,14 +350,14 @@
 
       .wc-used-cont__num {
         font-size: 14px;
-        font-family: Source Han Sans CN;
+
         font-weight: 400;
         color: #666666;
       }
 
       .wc-used-cont__price {
         font-size: 24px;
-        font-family: Source Han Sans CN;
+
         font-weight: bold;
         color: #222222;
       }
@@ -359,7 +382,7 @@
 
 .wc-product-body {
   font-size: 14px;
-  font-family: Source Han Sans CN;
+
   font-weight: 400;
   color: $color-dark2;
   line-height: 24px;
@@ -368,7 +391,7 @@
 
   .field--name-body .field__label {
     font-size: 24px;
-    font-family: Source Han Sans CN;
+
     font-weight: bold;
     color: $color-dark2;
     padding-bottom: 60px;
@@ -386,7 +409,7 @@
   .field__label {
     text-align: center;
     font-size: 30px;
-    font-family: Source Han Sans CN;
+
     font-weight: bold;
     color: $color-dark2;
     line-height: 53px;
@@ -399,15 +422,17 @@
   .field--name-field-specifications > .field__items {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     margin-right: 100px;
     margin-left: 100px;
 
     > .field__item {
-      flex: 1;
+      flex: 0 1 100px;
       border-right: 1px solid #C8C6C6;
       padding: 0 30px;
+      margin-bottom: 10px;
 
       &:last-child {
         border-right: 1px solid transparent;
@@ -426,7 +451,7 @@
 
       .field--name-field-title {
         font-size: 24px;
-        font-family: Source Han Sans CN;
+
         font-weight: bold;
         color: $color-dark2;
         padding-bottom: 20px;
@@ -434,7 +459,7 @@
 
       .field--name-field-description {
         font-size: 18px;
-        font-family: Source Han Sans CN;
+
         font-weight: 500;
         color: $color-dark2;
       }
@@ -629,7 +654,7 @@
 
       li {
         font-size: 18px;
-        font-family: Source Han Sans CN;
+
         font-weight: 500;
         color: #222222;
         padding: 10px 0;
@@ -639,38 +664,32 @@
 
 
   .wc-product-introduction__title {
-    border-bottom: 1px solid #DFDFDF;
-    margin-bottom: 10px;
-
     span {
-      padding: 20px 0;
       display: inline-block;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
   }
-
+  .wc-product-introduction__value,
   .wc-product-introduction__key {
-    font-size: 18px;
-    font-family: Source Han Sans CN;
-    font-weight: 500;
-    color: #222222;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 30px;
+    padding-bottom: 8px;
+    p{
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      margin:0;
+      color: rgba(0, 0, 0, .9);
+    }
   }
-
-  .wc-product-introduction__value {
-    font-size: 14px;
-    font-family: Source Han Sans CN;
-    font-weight: 300;
-    color: #222222;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 30px;
+  .wc-product-introduction__value{
+    text-align: right;
   }
 
   h4 {
     font-size: 24px;
-    font-family: Source Han Sans CN;
     font-weight: bold;
     color: #222222;
   }
@@ -679,11 +698,223 @@
 .view-display-id-product_others {
   .more-link > a {
     font-size: 14px;
-    font-family: Source Han Sans CN;
+
     font-weight: 400;
     color: #176BA4;
   }
 }
-.wc-display-label .field__label{
+
+.wc-display-label .field__label {
   display: none;
+}
+
+
+.wc-shield-box {
+  padding: 30px;
+  border: 1px dashed #333;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  width: 65%;
+  margin-top: 30px;
+
+  .wc-shield-box__left {
+    flex: 1;
+  }
+
+  .wc-shield-box__right {
+    width: 150px;
+
+    img {
+      display: block;
+      margin-left: 20px;
+    }
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .wc-shield-box__item {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .wc-shield-box__item-img {
+    float: left;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: 20px;
+
+    img {
+      display: block;
+      width: 22px;
+      height: auto;
+    }
+
+  }
+}
+@media (max-width: 1900px){
+  .wc-shield-box{
+    width: 90%;
+  }
+}
+@media(max-width:1440px){
+  .wc-shield-box{
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .wc-product-specifications .field--name-field-specifications > .field__items {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+.wc-product-imglist1{
+  .view-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .etalage-thumb-image-item{
+    width: 50%;
+    padding-top: 50%;
+    position: relative;
+    overflow: hidden;
+    img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+.wc-product-signature{
+  height: 44px;
+  margin: 16px 0;
+  img{
+    display: block;
+    height: 44px;
+    width: auto;
+  }
+}
+.wc-product-signature-name{
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+  margin-bottom: 20px;
+}
+.wc-product-negotiate,
+.wc-product-add-bag{
+  display: inline-block;
+  background-color: $color_mothergreen;
+  color: #FFF;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  padding: 8px 32px;
+  border: 1px solid $color_mothergreen;
+  &:hover{
+    background-color: #FFF;
+    color: $color_mothergreen;
+  }
+}
+.wc-product-negotiate{
+  margin-left: 20px;
+  background-color: #FFF;
+  color: #000;
+  border: 1px solid #FFF;
+  &:hover{
+    border: 1px solid $color_mothergreen;
+    background-color: $color_mothergreen;
+    color: #FFF;
+  }
+}
+.wc-product-specification{
+  margin-top: 32px;
+  .field--name-field-original-box,
+  .field--name-field-original-papers,
+  .field--name-field-authenticity-guaranteed,
+  .field--name-field-secure-payment-in-escrow{
+    height: 24px;
+    margin-bottom: 16px;
+    padding-left: 35px;
+    position: relative;
+    &::before{
+      content:'';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background-size: 16px auto;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .field--name-field-original-box::before{
+    background-image: url('/themes/custom/wristcheck_barrio/images/v2/icon/box-icon.png');
+
+  }
+  .field--name-field-original-papers::before{
+    background-image: url('/themes/custom/wristcheck_barrio/images/v2/icon/file-icon.png');
+
+  }
+  .field--name-field-authenticity-guaranteed::before{
+    background-image: url('/themes/custom/wristcheck_barrio/images/v2/icon/vlide-icon.png');
+
+  }
+  .field--name-field-secure-payment-in-escrow::before{
+    background-image: url('/themes/custom/wristcheck_barrio/images/v2/icon/safe-icon.png');
+  }
+}
+.wc-product-tabs{
+  li{
+    padding: 8px 0;
+    margin-right: 32px;
+    position: relative;
+    a{
+      display: block;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, .56)
+    }
+    &.active{
+      &:after{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color_mothergreen;
+      }
+      a{
+        color: $color_mothergreen;
+      }
+    }
+  }
+  .tab-content{
+    padding: 25px 0 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, .9);
+  }
+}
+.wc-product-report{
+  display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color_mothergreen;
+  margin: 32px 0 64px;
 }

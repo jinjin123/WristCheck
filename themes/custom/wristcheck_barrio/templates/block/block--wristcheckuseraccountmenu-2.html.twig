@@ -32,42 +32,34 @@
  */
 #}
 <div class='header-top__right'>
-{#  <a href="/cart" class='header-cart flex-row align-center'>#}
-{#    <span class='header-cart__icon'></span>#}
-{#    <span>WISHLIST</span>#}
-{#  </a>#}
-{#  <span class='vertical-line'></span>#}
-  <div class='header-profile'>
-    {% if logged_in %}
-      <span>MY PROFILE</span>
-        <span class='header-profile__icon'>
-        <img src='/themes/custom/wristcheck_barrio/images/photo.png'/>
-      </span>
-      {%
-        set classes = [
-        'block',
-        'block-menu',
-        'navigation',
-        'menu--' ~ derivative_plugin_id|clean_class,
-      ]
-      %}
-      {% set heading_id = attributes.id ~ '-menu'|clean_id %}
-      <nav
-        role="navigation" aria-labelledby="{{ heading_id }}" {{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
-        {# Label. If not displayed, we still provide it for screen readers. #}
-        {% if not configuration.label_display %}
-          {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+    <div class='header-profile'>
+        {% if logged_in %}
+            <div class="Login-popup-link">
+                <a href="/user" class="login-popup-form">个人中心</a>
+            </div>
+            <div class="block block-wristcheck-basic login-icon-mobile">
+                <div class="content">
+                    <a href="/wristcheck_basic/form/user_login" class="">登录</a>
+                </div>
+            </div>
+            <a href="/cart" class="cart-icon"><img src="/themes/custom/wristcheck_barrio/images/v2/icon/cart-icon.png"/></a>
+            <div class="local-icon">
+{#                <i class="em em-flag-hk" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;HKD#}
+              <i class="em em-flag-{{ currentUserInfo['flag'] }}" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;{{ currentUserInfo['currency'] }}
+            </div>
+        {% else %}
+            {{ drupal_block('wristcheck_ajax_user_login_block') }}
+            <div class="block block-wristcheck-basic login-icon-mobile">
+                <div class="content">
+                    <a href="/wristcheck_basic/form/user_login" class="">登录</a>
+                </div>
+            </div>
+            <a href="/cart" class="cart-icon"><img src="/themes/custom/wristcheck_barrio/images/v2/icon/cart-icon.png"/></a>
+            <div class="local-icon">
+{#                <i class="em em-flag-hk" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;HKD#}
+              <i class="em em-flag-{{ currentUserInfo['flag'] }}" aria-role="presentation" aria-label="Hong Kong SAR China Flag"></i>&nbsp;{{ currentUserInfo['currency'] }}
+            </div>
         {% endif %}
-        {{ title_prefix }}
-        <h2{{title_attributes.setAttribute('id',heading_id)}}>{{ configuration.label }}</h2>
-        {{ title_suffix }}
-        {# Menu. #}
-        {% block content %}
-          {{ content }}
-        {% endblock %}
-      </nav>
-    {% else %}
-      {{ drupal_block('wristcheck_ajax_user_login_block') }}
-    {% endif %}
-  </div>
+
+    </div>
 </div>

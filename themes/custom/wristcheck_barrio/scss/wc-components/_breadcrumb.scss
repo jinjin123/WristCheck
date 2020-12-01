@@ -1,7 +1,8 @@
 // breadcrumb
 #block-wristcheck-barrio-breadcrumbs {
   .breadcrumb {
-    background-color: #FFF;
+    //background-color: #FFF;
+    background-color: #F0F0F0;
   }
 }
 
@@ -14,7 +15,7 @@
     position: relative;
 
     a {
-      color: $color-dark3
+      color: rgba(0,0,0,.56);
     }
   }
 
@@ -23,7 +24,6 @@
     font-size: 18px;
     color: rgba(51, 51, 51, 1);
     line-height: 24px;
-    font-weight: bold;
 
 
     li > a:hover {
@@ -42,6 +42,7 @@
       top: 50%;
       transform: translateY(-50%);
       padding: 4px;
+      height: 22px;
       content: ' ';
       color: #666;
       line-height: 22px;

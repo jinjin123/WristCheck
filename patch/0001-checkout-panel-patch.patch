@@ -1,0 +1,62 @@
+From 7354aa14fa955dc957aa21c5db8c0e2a688970cf Mon Sep 17 00:00:00 2001
+From: Jinjin123 <hanzijinjin123@gmail.com>
+Date: Tue, 1 Dec 2020 11:59:58 +0800
+Subject: [PATCH] checkout panel patch
+
+---
+ .../Plugin/Commerce/CheckoutPane/Login.php    |  5 +++++
+ .../wristcheck_basic/wristcheck_basic.module  | 21 ++-----------------
+ 2 files changed, 7 insertions(+), 19 deletions(-)
+
+diff --git a/modules/contrib/commerce/modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php b/modules/contrib/commerce/modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php
+index 85a46c7ed..4490360d4 100644
+--- a/modules/contrib/commerce/modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php
++++ b/modules/contrib/commerce/modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php
+@@ -406,6 +406,11 @@ public function submitPaneForm(array &$pane_form, FormStateInterface $form_state
+         break;
+ 
+       case 'login':
++        $form_state->setRedirect('commerce_checkout.form', [
++          'commerce_order' => $this->order->id(),
++          'step' => $this->checkoutFlow->getNextStepId($this->getStepId()),
++        ]);
++        break;
+       case 'register':
+         $storage = $this->entityTypeManager->getStorage('user');
+         /** @var \Drupal\user\UserInterface $account */
+diff --git a/modules/wristcheck/wristcheck_basic/wristcheck_basic.module b/modules/wristcheck/wristcheck_basic/wristcheck_basic.module
+index adf2da4c8..6479754f2 100644
+--- a/modules/wristcheck/wristcheck_basic/wristcheck_basic.module
++++ b/modules/wristcheck/wristcheck_basic/wristcheck_basic.module
+@@ -63,26 +63,9 @@ function wristcheck_basic_form_alter(&$form, &$form_state, $form_id){
+   if($form_id == "webform_submission_faq_authsystem_add_form"){
+     $form['actions']['submit']['#type'] = 'button';
+   }
+-//  var_dump($form_id);
+-  $current_path = \Drupal::service('path.current')->getPath();
+-  if($form_id == "commerce_checkout_flow_multistep_default"){
+-    $form['#submit'][] = 'wristcheck_basic_user_login_form_submit';
+-  }
+-//  var_dump($form_state['base_form_id']);
+-//  if($form_id =="commerce-product-add-to-cart-form"){
+-//    var_dump($form_state);
+-//  if($form_id  == "commerce_order_item_add_to_cart_form_commerce_product_10"){
+-//    var_dump($form_state->getTriggeringElement());
+-////    var_dump($form_state->getTriggeringElement()['#edit-submit--2']);
+-//  }
+-//  }
+-}
+-function wristcheck_basic_user_login_form_submit($form, FormStateInterface $form_state) {
+-  $current_path = \Drupal::service('path.current')->getPath();
+-//  $url = Url::fromRoute('/checkout/'.explode("/",$current_path)[2]);
+-//  $form_state->setRedirectUrl($url);
+-  $form_state["redirect"] = "/checkout/".explode("/",$current_path)[2];
++
+ }
++
+ //function wristcheck_basic_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+ ////  exit('hello');
+ //  var_dump($build);
+-- 
+2.25.1
+

@@ -8,17 +8,17 @@
             <div class="wc-userinfo__header">
               <h1>PERSONAL INFORMATION</h1>
               <div class="actions">
-                <a class="action-link">EDIT</a>
+                <a href="/user/{{ user.id }}/edit" class="action-link">EDIT</a>
               </div>
             </div>
             <div class="wc-userinfo__body mt-lg-3">
               <div class="row">
                 <div class="col-md-4 d-flex flex-row align-items-center">
-                  <div class="d-flex flex-row align-items-center">
+                  <div class="d-flex flex-row align-items-center wc-userinfo-left">
                     <div class="wc-userinfo-photo">
                       <img src="/themes/custom/wristcheck_barrio/images/photo.png" alt="">
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column wc-userinfo-info">
                       <h2 class="mb-1">{{ variables["mail"] }}</h2>
                       <a href="/cart" class="mt-1"><img class="cart-icon"
                           src="/themes/custom/wristcheck_barrio/images/icons/icon-cart.png" alt=""></a>
@@ -70,7 +70,7 @@
         <div class="wc-userinfo__header">
           <h2>PORTFOLIO</h2>
           <div class="actions">
-            <a class="action-link">details</a>
+            <a  href="/user/{{ user.id }}/portfolio" class="action-link">details</a>
           </div>
         </div>
         <div class="wc-userinfo-card mb-lg-5">
@@ -121,7 +121,7 @@
         <div class="wc-userinfo__header">
           <h2>PAYMENT</h2>
           <div class="actions">
-            <a class="action-link">details</a>
+            <a href="/user/{{ user.id }}/payment" class="action-link">details</a>
           </div>
         </div>
         <div class="wc-userinfo-card mb-lg-5">
@@ -146,7 +146,7 @@
         <div class="wc-userinfo__header">
           <h2>SETTINGS</h2>
           <div class="actions">
-            <a class="action-link">details</a>
+            <a href="/user/{{ user.id }}/settings" class="action-link">details</a>
           </div>
         </div>
         <div class="wc-userinfo-card mb-lg-5">

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.watch
+    - core.base_field_override.commerce_product.watch.title
     - field.field.commerce_product.watch.body
     - field.field.commerce_product.watch.field_bezel_material
     - field.field.commerce_product.watch.field_case_back
@@ -12,7 +13,6 @@ dependencies:
     - field.field.commerce_product.watch.field_case_band_length
     - field.field.commerce_product.watch.field_case_band_material
     - field.field.commerce_product.watch.field_case_band_width
-    - field.field.commerce_product.watch.field_case_diameter
     - field.field.commerce_product.watch.field_case_face
     - field.field.commerce_product.watch.field_case_number
     - field.field.commerce_product.watch.field_case_shape
@@ -25,7 +25,6 @@ dependencies:
     - field.field.commerce_product.watch.field_manufacturer
     - field.field.commerce_product.watch.field_others
     - field.field.commerce_product.watch.field_power_time
-    - field.field.commerce_product.watch.field_shock
     - field.field.commerce_product.watch.field_sku
     - field.field.commerce_product.watch.field_watch_core
     - field.field.commerce_product.watch.field_watch_core_num
@@ -252,20 +251,6 @@ mappings:
     target: field_power_time
     map:
       value: power_time
-    unique: {  }
-    settings:
-      language: null
-  -
-    target: field_shock
-    map:
-      value: shock
-    unique: {  }
-    settings:
-      language: null
-  -
-    target: field_case_diameter
-    map:
-      value: case_diameter
     unique: {  }
     settings:
       language: null

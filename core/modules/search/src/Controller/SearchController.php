@@ -118,7 +118,7 @@ class SearchController extends ControllerBase {
       '#theme' => ['item_list__search_results__' . $plugin->getPluginId(), 'item_list__search_results'],
       '#items' => $results,
       '#empty' => [
-        '#markup' => '<h3>' . $this->t('Your search yielded no results.') . '</h3>',
+        '#markup' => '<div class="wc-empty-box"><div class="wc-empty-product"></div><h3>' . $this->t('Your search yielded no results.') . '</h3><div>',
       ],
       '#list_type' => 'ol',
       '#context' => [

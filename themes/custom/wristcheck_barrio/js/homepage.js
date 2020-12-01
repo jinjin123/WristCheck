@@ -10,12 +10,34 @@
   $(function () {
     var swiper = new window.Swiper('.swiper-container', {
       loop: true,
-      speed: 2500,
+      speed: 1000,
       autoplay: true,
       slidesPerView: 5,
       spaceBetween: 30,
       centeredSlides: true,
       watchSlidesProgress: true,
+      breakpoints: {
+        1280: {  //当屏幕宽度小于等于1280
+          slidesPerView: 4,
+          spaceBetween: 30
+        },
+        768: {  //当屏幕宽度小于等于768
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        640: {  //当屏幕宽度小于等于320
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        320: {  //当屏幕宽度小于等于320
+          slidesPerView: 1,
+          spaceBetween: 20
+        }
+      },
+      navigation: {
+        nextEl: '.best_sellers-next',
+        prevEl: '.best_sellers-prev',
+      },
       on: {
         setTranslate: function () {
           var slides = this.slides

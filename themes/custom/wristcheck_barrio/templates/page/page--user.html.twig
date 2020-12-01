@@ -63,61 +63,102 @@
  * @see template_preprocess_user()
  */
 #}
-<div class="layout-container">
-  {% if(_context['current_path'] == "/user/login" or _context['current_path'] == '/user/password') %}
-  <div class="row user-login-box">
-    <div class="col-md-4">
-      <div class="layout-content">
-        {{ page.content }}
-      </div>
-    </div>
-  </div>
-  {% else %}
-  {% include  "@wristcheck_barrio/header.html.twig" %}
-  {#  {{ page.primary_menu }}#}
-  {{ page.secondary_menu }}
-  {{ page.breadcrumb }}
-  {{ page.highlighted }}
-  {{ page.help }}
-  <main role="main" class="page-user-container">
-    <a id="main-content" tabindex="-1"></a>
-    <div class="container">
-      <div class="row">
-        {% if page.sidebar_first %}
-          <div class="col-md-3">
-            <aside class="layout-sidebar-first" role="complementary">
-              {{ page.sidebar_first }}
-            </aside>
-          </div>
-        {% endif %}
-        {% set classes = [
-          page.sidebar_first and page.sidebar_second ? 'col-md-6' : page.sidebar_first or page.sidebar_second ? 'col-md-9' : 'col-md-12',
-        ] %}
-        <div {{ attributes.addClass(classes) }}>
-          <div class="layout-content">
-            {{ page.content }}
-          </div>
-        </div>
-        {% if page.sidebar_second %}
-          <aside class="layout-sidebar-second" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endif %}
-      </div>
-    </div>
-  </main>
-  <div class="container-fluid">
-    {% if page.footer %}
-      <footer role="contentinfo">
-        {{ page.footer }}
-      </footer>
-    {% endif %}
 
-    {% if page.bottom_footer %}
-      {{ page.bottom_footer }}
-      {{ page.copyright }}
-    {% endif %}
-  </div>
+  {% if(_context['current_path'] == "/user/login" or _context['current_path'] == '/user/password') %}
+    <div class="row user-login-box">
+      <div class="col-md-4">
+        <div class="layout-content">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    {% include  "@wristcheck_barrio/header.html.twig" %}
+    {#  {{ page.primary_menu }}#}
+    {{ page.secondary_menu }}
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
+    <main role="main" class="page-user-container">
+      <a id="main-content" tabindex="-1"></a>
+      <div class="container">
+        <div class="row">
+          {% if page.sidebar_first %}
+            <div class="col-md-3">
+              <aside class="layout-sidebar-first" role="complementary">
+                {{ page.sidebar_first }}
+              </aside>
+            </div>
+          {% endif %}
+          {% set classes = [
+            page.sidebar_first and page.sidebar_second ? 'col-md-6' : page.sidebar_first or page.sidebar_second ? 'col-md-9' : 'col-md-12',
+          ] %}
+          <div {{ attributes.addClass(classes) }}>
+            <div class="layout-content">
+              {{ page.content }}
+            </div>
+          </div>
+          {% if page.sidebar_second %}
+            <aside class="layout-sidebar-second" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
+          {% endif %}
+        </div>
+      </div>
+    </main>
+    <div class="container-fluid">
+      {% if page.footer %}
+        <footer role="contentinfo">
+          {{ page.footer }}
+        </footer>
+      {% endif %}
+
+      {% if page.bottom_footer %}
+        {{ page.bottom_footer }}
+        {{ page.copyright }}
+      {% endif %}
+    </div>
   {% endif %}
-  <div class="wc-page-modal"></div>
+<div class="wc-page-modal"></div>
+<div class="wc-product-search-modal"></div>
+<div class="wc-order-status modal fade show" id="orderStatus" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="orderStatusLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="orderStatusLabel">State of the goods</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {# <div class="order-list">
+          <div class="order-list-item">
+            <div class="order-list-time">
+              <h2>5-25</h2>
+              <p>18:55</p>
+            </div>
+            <div class="order-list-line">
+              <span class="cricle"></span>
+              <span class="line"><span>
+            </div>
+            <div class="order-list-title">Delivery address: floor 03, unit 65, building 65, jinshajiang road, changzheng town, putuo district, Shanghai</div>
+          </div>
+          <div class="order-list-item">
+            <div class="order-list-time">
+              <h2>5-25</h2>
+              <p>18:55</p>
+            </div>
+            <div class="order-list-line">
+              <span class="cricle"></span>
+              <span class="line"><span>
+            </div>
+            <div class="order-list-title">Delivery address: floor 03, unit 65, building 65, jinshajiang road, changzheng town, putuo district, Shanghai</div>
+          </div>
+        </div> #}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

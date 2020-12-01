@@ -16,6 +16,7 @@ dependencies:
     - commerce_product
     - image
     - state_machine
+    - user
 id: wristcheck_order_list
 label: 'Wristcheck profile order list'
 module: views
@@ -431,16 +432,16 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: user/%/transactions/buy
+      path: user/transactions/buy
       menu:
         type: normal
         title: Buy
-        menu_name: wristcheck-user-sidebar-menu
         description: ''
+        expanded: false
         parent: 'menu_link_content:9a166a86-163b-4f17-ace9-f6edf6c30fae'
         weight: -50
-        expanded: false
-        enabled: true
+        context: '0'
+        menu_name: wristcheck-user-sidebar-menu
       fields:
         order_items_target_id:
           id: order_items_target_id
@@ -880,18 +881,18 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        view_commerce_order:
-          id: view_commerce_order
+        order_id:
+          id: order_id
           table: commerce_order
-          field: view_commerce_order
+          field: order_id
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
-            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n\t<div class=\"wc-buy-product-privew__img\"><a href=\"{{view_commerce_order}}\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_model_images }}\"/></a></div>\r\n\t<div class=\"wc-buy-product-body\">\r\n\t\t<div class=\"wc-buy-product__title\"><a href=\"{{view_commerce_order}}\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</a> </div>\r\n\t\t<div class=\"wc-buy-product__sub\"><span>The purchase was made on May 28, 2020</span><a>transport</a></div>\r\n\t\t<div class=\"row wc-buy-product-footer\">\r\n\t\t\t<div class=\"col-md-4\">The original price is  {{ total_price__number }} </div>\r\n\t\t\t<div class=\"col-md-4\">Discount is {{ total_price__currency_code }}  0</div>\r\n\t\t\t<div class=\"col-md-4\"><strong>Real pay  {{ total_price__number }} </strong></div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -928,6 +929,72 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: commerce_order
+          entity_field: order_id
+          plugin_id: field
+        view_commerce_order:
+          id: view_commerce_order
+          table: commerce_order
+          field: view_commerce_order
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div class=\"col-md-12 wc-buy-product-item\">\r\n\t<div class=\"wc-buy-product-privew__img\"><a href=\"{{view_commerce_order}}\"><img  class=\"wc-buy-product-privew__img\" src=\"{{ field_model_images }}\"/></a></div>\r\n\t<div class=\"wc-buy-product-body\">\r\n\t\t<div class=\"wc-buy-product__title\"><a href=\"{{view_commerce_order}}\">Brand: {{ field_cate }} | model: {{ field_watch_core }}</a> </div>\r\n\t\t<div class=\"wc-buy-product__sub\"><span>The purchase was made on May 28, 2020</span><a class=\"transport-link\"  data-order-id= \"{{ order_id }} \" href=\"#\">transport</a></div>\r\n                <div id=buy-order-status-{{ order_id }}></div>\r\n\t\t<div class=\"row wc-buy-product-footer\">\r\n\t\t\t<div class=\"col-md-4\">The original price is  {{ total_price__number }} </div>\r\n\t\t\t<div class=\"col-md-4\">Discount is {{ total_price__currency_code }}  0</div>\r\n\t\t\t<div class=\"col-md-4\"><strong>Real pay  {{ total_price__number }} </strong></div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
           text: view
           output_url_as_text: true
           absolute: false
@@ -937,6 +1004,12 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        style: false
+        row: false
+        empty: false
+        relationships: false
+        arguments: false
+        pager: false
       filters:
         type:
           id: type
@@ -986,12 +1059,146 @@ display:
         groups:
           1: AND
       display_description: ''
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: 'item-list wc-transactions_buy-list'
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: true
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"wc-sell-empty\">\r\n  <div class=\"wc-sell-empty_title\">WATCH COLLECTION</div>\r\n  <div class=\"wc-sell-empty_sub\">ADD YOUR FIRST WATCH TO THE WATCH COLLECTION</div>\r\n  <a href=\"/buy\" class=\"wc-btn-dark wc-btn-large wc-sell-get-started\" tabindex=\"-1\">\r\n    <span class=\"wc-btn-cont\">\r\n      <span class=\"fa fa-arrow-right\"></span>\r\n      <span class=\"btn-line\"></span>\r\n      ADD A WATCH\r\n    </span>\r\n  </a>\r\n</div>"
+            format: full_html
+          plugin_id: text
+      relationships:
+        order_items_target_id:
+          id: order_items_target_id
+          table: commerce_order__order_items
+          field: order_items_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Order item'
+          required: false
+          entity_type: commerce_order
+          entity_field: order_items
+          plugin_id: standard
+        commerce_product_variation:
+          id: commerce_product_variation
+          table: commerce_order_item
+          field: commerce_product_variation
+          relationship: order_items_target_id
+          group_type: group
+          admin_label: 'Product variation'
+          required: false
+          entity_type: commerce_order_item
+          plugin_id: standard
+        product_id:
+          id: product_id
+          table: commerce_product_variation_field_data
+          field: product_id
+          relationship: commerce_product_variation
+          group_type: group
+          admin_label: Product
+          required: false
+          entity_type: commerce_product_variation
+          entity_field: product_id
+          plugin_id: standard
+        uid:
+          id: uid
+          table: commerce_order
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: User
+          required: false
+          entity_type: commerce_order
+          entity_field: uid
+          plugin_id: standard
+      arguments:
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: current_user
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          entity_type: user
+          entity_field: uid
+          plugin_id: user_uid
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
       tags:
         - 'config:field.storage.commerce_product.field_cate'
         - 'config:field.storage.commerce_product.field_model_images'
@@ -1003,7 +1210,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: user/%/transactions/sell
+      path: user/transactions/sell
       menu:
         type: normal
         title: Sell
@@ -1452,6 +1659,72 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        order_id:
+          id: order_id
+          table: commerce_order
+          field: order_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: commerce_order
+          entity_field: order_id
+          plugin_id: field
         view_commerce_order:
           id: view_commerce_order
           table: commerce_order
@@ -1509,6 +1782,12 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        empty: false
+        footer: false
+        style: false
+        row: false
+        relationships: false
+        arguments: false
       filters:
         type:
           id: type
@@ -1600,12 +1879,137 @@ display:
         groups:
           1: AND
       display_description: ''
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"wc-sell-empty\">\r\n  <div class=\"wc-sell-empty_title\">WATCH COLLECTION</div>\r\n  <div class=\"wc-sell-empty_sub\">ADD YOUR FIRST WATCH TO THE WATCH COLLECTION</div>\r\n  <a href=\"/node/add/wcshw\" class=\"wc-btn-dark wc-btn-large wc-sell-get-started\" tabindex=\"-1\">\r\n    <span class=\"wc-btn-cont\">\r\n      <span class=\"fa fa-arrow-right\"></span>\r\n      <span class=\"btn-line\"></span>\r\n      ADD A WATCH\r\n    </span>\r\n  </a>\r\n</div>"
+            format: full_html
+          plugin_id: text
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<div class=\"\">\r\n  <a href=\"/node/add/wcshw\" class=\"wc-btn-dark wc-btn-large wc-sell-get-started\" tabindex=\"-1\">\r\n    <span class=\"wc-btn-cont\">\r\n      <span class=\"fa fa-arrow-right\"></span>\r\n      <span class=\"btn-line\"></span>\r\n      ADD A WATCH\r\n    </span>\r\n  </a>\r\n</div>"
+          plugin_id: text_custom
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: 'item-list wc-transactions_sell-list'
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      relationships:
+        order_items_target_id:
+          id: order_items_target_id
+          table: commerce_order__order_items
+          field: order_items_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Order item'
+          required: false
+          entity_type: commerce_order
+          entity_field: order_items
+          plugin_id: standard
+        commerce_product_variation:
+          id: commerce_product_variation
+          table: commerce_order_item
+          field: commerce_product_variation
+          relationship: order_items_target_id
+          group_type: group
+          admin_label: 'Product variation'
+          required: false
+          entity_type: commerce_order_item
+          plugin_id: standard
+        product_id:
+          id: product_id
+          table: commerce_product_variation_field_data
+          field: product_id
+          relationship: commerce_product_variation
+          group_type: group
+          admin_label: Product
+          required: false
+          entity_type: commerce_product_variation
+          entity_field: product_id
+          plugin_id: standard
+        uid:
+          id: uid
+          table: commerce_order
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: User
+          required: false
+          entity_type: commerce_order
+          entity_field: uid
+          plugin_id: standard
+      arguments:
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: current_user
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          entity_type: user
+          entity_field: uid
+          plugin_id: user_uid
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
       tags:
         - 'config:field.storage.commerce_product.field_cate'
         - 'config:field.storage.commerce_product.field_model_images'

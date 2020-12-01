@@ -1,121 +1,116 @@
 {% set titles = [
-  'BRAND',
-  'MODEL',
-  'PRICE',
-  'CASE DIAMETER',
-  'YEAR',
-  'LOCATION',
-  'MORE'
+  'Brand',
+  'Price',
+  'Case size',
+  'Location',
 ] %}
-<div class="wc-product-search">
-  <div class="container-fluid wc-product-search-menu">
-    <div class="container">
-      <div class="wc-search-menu">
-        <ul class="d-flex flex-row">
-          {% for title in titles %}
-            <li class="flex-grow-1">
-              <a href="javascript:;" class="wc-search-menu__title">
-                {{ title }}
-              </a>
-              <div class="container wc-search-dropdown-panel">
-                <div class="wc-search-dropdown-panel__body">
-                  {% if title == 'BRAND' %}
-                    <div class="wc-search-panel__body"></div>
-                  {% elseif title == 'MODEL' %}
-                    <div class="wc-search-panel__body"></div>
-                  {% elseif title == 'PRICE' %}
-                    <form class="wc-search-panel__body row wc-search-form-line">
-                      <div class="col-md-6 wc-search__item">
-                        <div class="form-group">
-                          <label>Currency option</label>
-                          <select class="form-control" name="currency_code" data-search="currency_code">
-                            {% for option in variables['locations'] %}
-                              <option value="{{ option }}">{{ option }}</option>
-                            {% endfor %}
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-6 wc-search__item"></div>
-                      <div class="col-md-6 wc-search__item">
-                        <div class="form-group">
-                          <label>from $</label>
-                          <input type="number" min="0" name="price[min]" data-search="price[min]" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-6 wc-search__item">
-                        <div class="form-group">
-                          <label>from $</label>
-                          <input type="number" min="0" name="price[max]" data-search="price[max]" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-12 wc-search__item">
-                        <div id="wc-range"></div>
-                      </div>
-                    </form>
-                    <div class="d-flex justify-content-between wc-search__price">
-                      <a href="javascript:;" class="wc-btn-white">
-                        <div class="wc-btn-cont"><span class="fa fa-download mr-2"></span> SAVE THIS SEARCH</div>
-                      </a>
-                      <div>
-                        <a href="javascript:;" class="wc-search-menu-cancel">CANCEL</a>
-                        <a href="javascript:;" class="wc-btn-dark wc-search-btn">
-                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS</div>
-                        </a>
-                      </div>
-                    </div>
-                  {% elseif title == 'CASE DIAMETER' %}
-                    <div class="wc-search-panel__body"></div>
-                  {% elseif title == 'YEAR' %}
-                    <div class="wc-search-panel__body">
-
-                    </div>
-                  {% elseif title == 'LOCATION' %}
-                    <form class="wc-search-panel__body row wc-search-form-line wc-search-location">
-                      <div class="col-md-6 wc-search__item">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <h2 class="wc-location-col__title">YOUR SELECTION</h2>
-                            <p class="wc-clear-font">Clear selection</p>
-                          </div>
-                          <div class="col-md-6">
-                            <h2 class="wc-location-col__title">YOUR SELECTION</h2>
-                            <h3 class="wc-location-col__title_sub">GREATER CHINA</h3>
-                            <ul class="wc-location-col__list">
-                              {% for option in variables['locations'] %}
-                                <li><label><input type="checkbox" name="location[]" data-search="location[]" value="{{ option }}"> {{ option }}</label></li>
-                              {% endfor %}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6 wc-search__item">
-                        <input class="form-control wc-location-input"/>
+{#<span>Sort by</span>#}
+{#<select>#}
+{#  <option value="1">Newest first</option>#}
+{#  <option value="2">Price low to high</option>#}
+{#  <option value="3">Price high to low</option>#}
+{#</select>#}
+  <div class="wc-product-search">
+    {% for title in titles %}
+        <div class="wc-product-searchtitle">
+            <a href="javascript:;" class="wc-search-menu__title">
+              {{ title }}
+            </a>
+          {% if title == 'Brand' %}
+          <div class="wc-brand-overscollbox">
+            <form class="row ">
+              {% for option in variables['brands'] %}
+                <div class="col-md-8">
+                  <label class="label-flex"><input type="checkbox" name="field_related_brand_target_id" data-search="field_related_brand_target_id" value="{{ option.nid }}" title="{{option.title}}">
+                    <span>{{ option.title }}</span></label>
+                </div>
+              {% endfor %}
+            </form>
+{#            {{drupal_view('wristcheck_brand','filter_brand_title')}}#}
+          </div>
+          <div class="wc-buy-searchbox-border"></div>
+          {% elseif title == 'Price' %}
+            <div class="">
+              <form class="row">
+                <div class="col-md-12 wc-price-search__item">
+                  <div id="wc-range"></div>
+                </div>
+                <div class="col-md-5 wc-search__item">
+                  <div class="form-group">
+{#                    <label>from $</label>#}
+                    <input type="number" min="0" name="price[min]" data-search="price[min]" class="form-control" placeholder="$">
+                  </div>
+                </div>
+                <hr class="wc-price-hr">
+                <div class="col-md-5 wc-search__item">
+                  <div class="form-group">
+{#                    <label>from $</label>#}
+                    <input type="number" min="0" name="price[max]" data-search="price[max]" class="form-control" placeholder="$">
+                  </div>
+                </div>
+              </form>
+              <div class="wc-price-updatebtn">
+                <a href="javascript:;" class="wc-btn-dark wc-search-btn">
+                   UPDATE
+                </a>
+              </div>
+            </div>
+          <div class="wc-buy-searchbox-border"></div>
+           {% elseif title == 'Case size' %}
+          <div class="wc-casesize-overscollbox">
+            <form class="row ">
+{#              {% for option in variables['case_diameter'] %}#}
+                <div class="col-md-8">
+{#                  <label class="label-flex"><input type="radio" name="field_case_diameter_value" data-search="field_case_diameter_value" value="{{ option.field_case_diameter_value }}" title="{{option.field_case_diameter_value}}">#}
+{#                    <span>{{ option.field_case_diameter_value }}</span>#}
+{#                  </label>#}
+                  <label class="label-flex"><input type="checkbox" name="case_size_op=<" data-search="case_size_op=<" value="&case_size[value]=35" title="UNDER 35MM">
+                    <span>UNDER 35MM</span></label>
+                  <label class="label-flex"><input type="checkbox" name="case_size[min]" data-search="case_size[min]" value="35&case_size[max]=36" title="35-36MM">
+                    <span>35-36MM</span></label>
+                  <label class="label-flex"><input type="checkbox" name="case_size[min]" data-search="case_size[min]" value="37&case_size[max]=38" title="37-38MM">
+                    <span>37-38MM</span></label>
+                  <label class="label-flex"><input type="checkbox" name="case_size[min]" data-search="case_size[min]" value="39&case_size[max]=40" title="39-40MM">
+                    <span>39-40MM</span></label>
+                  <label class="label-flex"><input type="checkbox" name="case_size[min]" data-search="case_size[min]" value="41&case_size[max]=42" title="41-42MM">
+                    <span>41-42MM</span></label>
+                  <label class="label-flex"><input type="checkbox" name="case_size[min]" data-search="case_size[min]" value="43&case_size[max]=44" title="43-44MM">
+                    <span>43-44MM</span></label>
+                  <label class="label-flex"><input type="checkbox" name="case_size_op=>" data-search="case_size_op=>" value="&case_size[value]=45" title="45MM+">
+                    <span>45MM+</span></label>
+                </div>
+{#              {% endfor %}#}
+            </form>
+{#                {{drupal_view('wristcheck_model','filter_model_case_diameter')}}#}
+          </div>
+          <div class="wc-buy-searchbox-border"></div>
+          {% elseif title == 'Location' %}
+            <div class="wc-location-overscollbox">
+              <form class="row ">
+                <div class="col-md-6 ">
+                    <div class="row">
+                      <div class="col-md-12">
                         <ul class="wc-location-col__list">
-                          <li><label><input type="checkbox"> Mainland china</label></li>
-                          <li><label><input type="checkbox"> Hong kong</label></li>
+                          {% for option in variables['locations'] %}
+                            <li>
+                              <label class="label-flex"><input type="checkbox" name="location[]" data-search="location[]" value="{{ option }}">
+                                {{ option }}</label>
+                            </li>
+                          {% endfor %}
                         </ul>
                       </div>
-                    </form>
-                    <div class="d-flex justify-content-between wc-search__price">
-                      <a href="javascript:;" class="wc-btn-white">
-                        <div class="wc-btn-cont"><span class="fa fa-download mr-2"></span> SAVE THIS SEARCH</div>
-                      </a>
-                      <div>
-                        <a href="javascript:;" class="wc-search-menu-cancel">CANCEL</a>
-                        <a href="javascript:;" class="wc-btn-dark wc-search-btn">
-                          <div class="wc-btn-cont"><span class="fa fa-arrow-right mr-2"></span>SHOW RESULTS</div>
-                        </a>
-                      </div>
                     </div>
-                  {% elseif title == 'MORE' %}
-                    <div class="wc-search-panel__body"></div>
-                  {% endif %}
                 </div>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+              </form>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    <div class="wc-buy-searchbox-border"></div>
+    <div class="wc-pd-search-button">
+      <a href="javascript:;" class="">
+             CLEAR ALL
+      </a>
     </div>
   </div>
-</div>
+

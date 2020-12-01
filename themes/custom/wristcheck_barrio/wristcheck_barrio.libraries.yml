@@ -14,6 +14,7 @@ global-styling:
       css/style.css: {}
       libs/swiper/css/swiper.css: {}
       css/bootstrap-datepicker.min.css: {}
+      libs/emoji/emoji.css: {}
       libs/font-awesome-4.7.0/css/font-awesome.css: {}
       libs/noUiSlider-14.6.0/distribute/nouislider.css: {}
   dependencies:
@@ -64,6 +65,14 @@ homepage-styling:
   version: VERSION
   js:
     js/homepage.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+category-styling:
+  version: VERSION
+  js:
+    js/category.js: {}
   dependencies:
     - core/jquery
     - core/drupal

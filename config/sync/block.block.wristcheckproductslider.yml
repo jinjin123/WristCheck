@@ -1,6 +1,6 @@
 uuid: 72673f45-068b-4000-883d-c897d17332e5
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - block_attributes
@@ -26,7 +26,7 @@ third_party_settings:
 id: wristcheckproductslider
 theme: wristcheck_barrio
 region: highlighted
-weight: 0
+weight: -12
 provider: null
 plugin: 'md_slider_block:wristcheck_product_slider'
 settings:
@@ -37,6 +37,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/buy\r\n/discover\r\n/eshop\r\n/homepage\r\n"
+    pages: /sell
     negate: false
     context_mapping: {  }

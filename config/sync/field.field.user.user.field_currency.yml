@@ -1,0 +1,21 @@
+uuid: ecabea35-d316-4b5c-9121-db54e487f470
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_currency
+  module:
+    - options
+    - user
+id: user.user.field_currency
+field_name: field_currency
+entity_type: user
+bundle: user
+label: Currency
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

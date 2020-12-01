@@ -11,6 +11,9 @@
 @import "wc-components/allBrands";
 @import "wc-components/dailogLogin";
 @import "wc-components/productSearch";
+@import "wc-components/pace-loading";
+@import "wc-components/slider";
+@import "wc-components/empty";
 @import 'page/magazinehome';
 @import 'page/magazinesingle';
 @import 'page/magazinescreen';
@@ -40,10 +43,19 @@
 @import "page/discover.scss";
 @import "page/homepage.scss";
 @import "page/buy.scss";
+@import "page/wcshw.scss";
+@import "page/category";
+@import "page/magazineform";
 
 body {
   background-color: $body_bg;
-  font-family: Helvetica, "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif;
+  font-family: "basis-grotesque-pro", "Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+input, button, select, optgroup, textarea {
+  font-family: "basis-grotesque-pro", "Helvetica", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial, sans-serif;
 }
 
 .v-line {
@@ -68,8 +80,8 @@ body {
   padding-top: 50px;
 }
 
-.pb-50 {
-  padding-bottom: 50px;
+.pt-50 {
+  padding-top: 50px;
 }
 
 .mt-100 {
@@ -90,7 +102,7 @@ body {
 .wc-back-nav {
   display: inline-block;
   font-size: 18px;
-  font-family: Source Han Sans CN;
+
   font-weight: 400;
   color: #222222;
 
@@ -111,8 +123,10 @@ a:focus {
 }
 
 .views-infinite-scroll-content-wrapper {
-  display: block;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .wc-btn-white {
@@ -124,6 +138,7 @@ a:focus {
   transition: all .25s ease;
   padding: 10px 20px;
   font-weight: normal;
+  cursor: pointer;
 
   &.wc-v2-panel__more-btn {
     display: flex;
@@ -138,60 +153,48 @@ a:focus {
     padding: 16px 40px;
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    z-index: -1;
-    transition: all .25s ease;
-  }
-
   &:hover {
     color: #FFF !important;
-
-    &:before {
-      width: 100%;
-      background-color: $color-dark3;
-    }
+    background-color: $color-dark3;
   }
 }
 
 .wc-btn-dark {
-  border: 1px solid $color-dark3;
-  background-color: $color-dark3;
+  border: 1px solid $color-mothergreen;
+  //background-color: $color-dark3;
+  background-color: $color-mothergreen;
   color: #FFF !important;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
   position: relative;
   transition: all .25s ease;
-  padding: 10px 20px;
+  padding: 8px 20px;
   font-weight: normal;
+  cursor: pointer;
+  &.form-control{
+    padding: 8px 20px;
+    height: auto;
+    margin: 32px 0px 32px 0px;
+  }
 
   &.wc-btn-large {
     padding: 16px 40px;
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    bottom: 1px;
-    width: 0;
-    transition: all .25s ease;
-  }
-
   &:hover {
-    color: $color-dark3 !important;
-
-    &:before {
-      width: calc(100% - 2px);
-      background-color: #FFF;
-    }
+    color: $color-mothergreen !important;
+    background-color: #FFF;
   }
 }
+button.wc-btn-dark{
+  border: 0;
+}
+a.wc-btn-white,
+a.wc-btn-dark{
+  display: inline-block;
+  text-align: center;
+}
+
 
 .wc-btn-cont {
   display: inline-block;
@@ -199,6 +202,14 @@ a:focus {
   position: relative;
   z-index: 1;
   font-size: 14px;
+
+  .btn-line {
+    display: inline-block;
+    margin: 0 10px;
+    border-left: 1px solid #4E4E4E;
+    height: 12px;
+    vertical-align: middle;
+  }
 }
 
 .views-field-field-brand-logo {
@@ -302,9 +313,13 @@ a:focus {
 .view-id-wristcheck_testimdnials {
   .view-content {
     display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
 
     .flex-1-item {
       width: 20%;
+      margin-bottom: 32px;
 
       div {
         .wc-testimdnials-img {
@@ -335,6 +350,112 @@ a:focus {
   z-index: 0 !important;
 }
 
+.container-fluid {
+  overflow: hidden;
+}
+
+/*------------------------------------*\
+    #LOADING-SECTION
+\*------------------------------------*/
+.preloader {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background-color: rgba(255, 255, 255, .5);
+  overflow: hidden;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.double-bounce1 {
+  display: none;
+}
+
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  background: url("/themes/custom/wristcheck_barrio/images/icons/loading.png") no-repeat center center/contain;
+  animation: running-loading 6s infinite linear;
+}
+
+@keyframes running-loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//.double-bounce1,
+//.double-bounce2 {
+//  width: 100%;
+//  height: 100%;
+//  border-radius: 50%;
+//  background-color: #333;
+//  opacity: 0.6;
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+//  animation: sk-bounce 2s infinite ease-in-out;
+//}
+//
+//.double-bounce2 {
+//  -webkit-animation-delay: -1s;
+//  animation-delay: -1s;
+//}
+//@-webkit-keyframes sk-bounce {
+//  0%,  100% {
+//    -webkit-transform: scale(0);
+//    transform: scale(0);
+//  }
+//  50% {
+//    -webkit-transform: scale(1);
+//    transform: scale(1);
+//  }
+//}
+//@keyframes sk-bounce {
+//  0%,  100% {
+//    -webkit-transform: scale(0);
+//    transform: scale(0);
+//  }
+//  50% {
+//    -webkit-transform: scale(1);
+//    transform: scale(1);
+//  }
+//}
+/*------------------------------------*\
+    #LOADING-SECTION end
+\*------------------------------------*/
+.lazyload {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.ani-scale_max {
+  transition: all ease-out .5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
 @media (min-width: 1460px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1400px;
@@ -347,4 +468,91 @@ a:focus {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1800px;
   }
+}
+
+@media (max-width: 1024px) {
+  .view-id-wristcheck_testimdnials .view-content .flex-1-item {
+    width: 50%;
+    margin-bottom: 80px;
+  }
+  .wc-testimdnials .pb-100 {
+    padding-bottom: 0;
+  }
+}
+
+.order-summary-qty {
+  display: block;
+}
+small#edit-insurance--description {
+  display: block;
+}
+input[type="number"] {
+  min-width: 60px;
+}
+a.return-btn {
+  border: solid 1px grey;
+  display: inline-block;
+  height: 53px;
+  line-height: 53px;
+  text-align: center;
+  position: relative;
+  top: 2px;
+  width: 288.767px;
+  margin: 0 10px 20px 0;
+}
+
+#block-webform-3 {
+  margin: 100px auto 300px auto;
+  text-align: center;
+  h2 {
+
+  }
+  #edit-markup {
+
+  }
+  label[for="edit-email"] {
+    position: relative;
+    left: -110px
+  }
+  #edit-email {
+    width: 270px;
+    margin: auto;
+  }
+  #edit-actions--2 {
+    margin: 0;
+    button {
+      width:270px;
+      margin:auto;
+    }
+  }
+
+}
+.wc-page-art-icon {
+   width: 25px;
+   border-radius: 50%;
+  margin-right: 10px;
+}
+
+
+.em-flag-zh-hant {
+  background-image: url("https://twemoji.maxcdn.com/2/72x72/1f1ed-1f1f0.png")
+}
+
+.em-flag-zh-hant.em-svg {
+  background: url("https://twemoji.maxcdn.com/2/72x72/1f1ed-1f1f0.png");
+  background-image: url("https://twemoji.maxcdn.com/2/svg/1f1ed-1f1f0.svg"), none
+}
+.em-zh-hans,
+.em-flag-zh-hans {
+    background-image: url("https://twemoji.maxcdn.com/2/72x72/1f1e8-1f1f3.png")
+}
+
+.em-cn.em-svg,
+.em-flag-zh-hans.em-svg {
+    background: url("https://twemoji.maxcdn.com/2/72x72/1f1e8-1f1f3.png");
+    background-image: url("https://twemoji.maxcdn.com/2/svg/1f1e8-1f1f3.svg"), none
+}
+.em-en,
+.em-flag-en {
+    background-image: url("https://twemoji.maxcdn.com/2/72x72/1f1fa-1f1f8.png")
 }

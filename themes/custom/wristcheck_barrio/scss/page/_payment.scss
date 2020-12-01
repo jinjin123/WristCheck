@@ -2,7 +2,7 @@
   padding: 20px;
   .wc-payment__title {
     font-size: 30px;
-    font-family: Source Han Sans CN;
+     
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
     margin-bottom: 50px;
@@ -18,7 +18,7 @@
 
   .wc-payment__item__titile {
     font-size: 24px;
-    font-family: Source Han Sans CN;
+     
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
     margin-bottom: 30px;
@@ -36,5 +36,30 @@
     font-family: Myriad Pro;
     font-weight: 400;
     color: rgba(24, 108, 164, 1);
+  }
+}
+
+// payment-methods/add
+.commerce-payment-method-add-form{
+  padding: 40px;
+  background: #FFF;
+  width: 50%;
+  margin: 0 auto;
+  #edit-submit{
+    display: block;
+    width: 100%;
+  }
+}
+
+.wc-second-hand-watch{
+  #block-wristcheck-barrio-content{
+    .table-responsive{
+      padding: 16px;
+      table {
+        td{
+          vertical-align: middle;
+        }
+      }
+    }
   }
 }

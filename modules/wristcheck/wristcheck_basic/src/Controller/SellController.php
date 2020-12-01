@@ -3,6 +3,7 @@
 namespace Drupal\wristcheck_basic\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class SellController.
@@ -54,4 +55,12 @@ class SellController extends ControllerBase
     ];
   }
 
+  public function getRate() {
+    $rateSettings = \Drupal::config('wristcheck_basic.rateSettings')->get();
+    return new JsonResponse($rateSettings);
+  }
+
+  public function howToBeSeller() {
+    return [];
+  }
 }

@@ -25,7 +25,7 @@ class WristcheckAjaxUserLoginBlock extends BlockBase {
     $link_options = array(
       'attributes' => array(
         'class' => array(
-          'use-ajax',
+//          'use-ajax',
           'login-popup-form',
         ),
         'data-dialog-options' => Json::encode([
@@ -33,7 +33,8 @@ class WristcheckAjaxUserLoginBlock extends BlockBase {
           'padding' => 20,
           'dialogClass' => 'wc-login-dialog'
         ]),
-        'data-dialog-type' => 'modal'
+//        'data-progress-type' => 'WCFullprogress',
+//        'data-dialog-type' => 'modal'
       ),
     );
     $url->setOptions($link_options);

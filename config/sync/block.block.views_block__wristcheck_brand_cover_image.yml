@@ -1,0 +1,48 @@
+uuid: 6bb91a93-a358-455c-93d2-a50134a661b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.wristcheck_brand
+  module:
+    - block_attributes
+    - node
+    - ntv_block_background
+    - views
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: views_block__wristcheck_brand_cover_image
+theme: wristcheck_barrio
+region: highlighted
+weight: -14
+provider: null
+plugin: 'views_block:wristcheck_brand-cover_image'
+settings:
+  id: 'views_block:wristcheck_brand-cover_image'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      brand: brand
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -8,15 +8,15 @@ dependencies:
     - field.field.node.blog_post.field_blog_comments
     - field.field.node.blog_post.field_blog_tags
     - field.field.node.blog_post.field_images
-    - field.field.node.blog_post.field_magazine_screening
     - field.field.node.blog_post.field_page_title_image
     - field.field.node.blog_post.field_related_brand
+    - field.field.node.blog_post.field_related_model
     - image.style.thumbnail
     - node.type.blog_post
   module:
     - comment
+    - content_moderation
     - image
-    - paragraphs
     - path
     - text
 _core:
@@ -74,18 +74,6 @@ content:
         enabled: true
     type: image_image
     region: content
-  field_magazine_screening:
-    type: entity_reference_paragraphs
-    weight: 26
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    region: content
   field_page_title_image:
     weight: 0
     settings:
@@ -104,12 +92,28 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_related_model:
+    weight: 101
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   langcode:
     type: language_select
     weight: 2
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path

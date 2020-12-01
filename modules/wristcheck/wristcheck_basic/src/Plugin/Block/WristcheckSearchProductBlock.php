@@ -75,9 +75,47 @@ class WristcheckSearchProductBlock extends BlockBase implements ContainerFactory
 
     $currencies = $this->commerceCurrencyRepository->getAll();
 
+
+    $database = \Drupal::database();
+    $query = $database->select('node_field_data', 'n');
+    $brands = $query->condition('n.status', '1', '=')
+      ->condition('n.type', 'brand', '=')
+      ->fields('n', ['nid', 'title'])
+      ->orderBy('created', 'desc')
+      ->execute()
+      ->fetchAll();
+
+    $models = $database->select('commerce_product_field_data', 'n')
+      ->condition('n.status', '1', '=')
+      ->condition('n.type', 'watch', '=')
+      ->fields('n', ['product_id', 'title'])
+      ->orderBy('created', 'desc')
+      ->execute()
+      ->fetchAll();
+
+    $years = $database->select('commerce_product__field_year', 'n')
+      ->condition('n.bundle', 'watch', '=')
+      ->condition('n.deleted', '0', '=')
+      ->fields('n', ['field_year_value'])
+      ->distinct()
+      ->execute()
+      ->fetchAll();
+
+//    $case_diameter = $database->select('commerce_product__field_case_diameter', 'n')
+//      ->condition('n.bundle', 'watch', '=')
+//      ->condition('n.deleted', '0', '=')
+//      ->fields('n', ['field_case_diameter_value'])
+//      ->distinct()
+//      ->execute()
+//      ->fetchAll();
+
     $variables = [
+      'years' => $years,
+      'brands' => $brands,
+      'currencies' => $currencies,
+//      'case_diameter' => $case_diameter,
       'locations' => $locations,
-      'currencies' => $currencies
+      'models' => $models,
     ];
 
     $build['#variables'] = $variables;

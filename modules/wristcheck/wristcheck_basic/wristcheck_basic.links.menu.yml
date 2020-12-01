@@ -11,3 +11,10 @@ wristcheck.admin:
   parent: 'system.admin'
   description: 'Wristcheck manage page.'
   weight: -9
+
+wristcheck_basic.wristcheck_rate_config_form:
+  title: 'Wristcheck rate config'
+  route_name: wristcheck_basic.rateSettings
+  description: 'A description for the menu entry'
+  parent: system.admin_config_system
+  weight: 100

@@ -1,9 +1,333 @@
+.wc-price-search__item {
+   padding-bottom: 20px;
+}
+.noUi-pips {
+  display: none;
+}
+.wc-brand-overscollbox {
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+.wc-casesize-overscollbox {
+  height: 300px;
+  padding-top: 10px;
+}
+.wc-location-overscollbox {
+  height: 200px;
+  padding-top: 10px;
+}
+
 .wc-buy-more-products {
   .item-list ul > li {
     margin-bottom: 40px;
+  }
+}
+#wc-range {
+  margin-top: 20px;
+  height: 0px;
+}
+.wc-price-updatebtn {
+  >a {
+    width: 100%;
+    font-weight: bold;
+  }
+}
+.wc-sortproduct-option {
+  float:right;
+  >span {
+    padding-right: 10px;
+	font-size: 16px;
+  }
+  >select {
+    height: 40px;
+    width: 200px;
+    padding-left: 10px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: white;
+    background: url(/themes/custom/wristcheck_barrio/images/sortarrow.png) no-repeat scroll right center white;
+    background-position: 170px;
+  }
+}
+.wc-price-hr {
+  height: 1px;
+  width: 10px;
+  background: rgba(255, 255, 255, 1);
+  border: none;
+  border-top: 1px solid #555555;
+}
+.wc-product-searchview-header {
+   padding-bottom:  50px;
+}
+.wc-longbuy-product-split-rg {
+  .portfolio-sub-detail {
+    text-align:  center;
+    padding-top: 10px;
+    .price__number {
+      font-weight: bold;
+    }
+    .wc-product-category {
+      font-weight: bold;
+    }
   }
 }
 
 ul.wc-buy-more-products > li {
   margin-bottom: 40px;
 }
+.step-number_box{
+  max-width: 640px;
+  margin: auto;
+  .step-number_box-item{
+    display: flex;
+    padding: 30px;
+    .step-number_img{
+      height: 60px;
+      flex: 0 0 60px;
+    }
+    .step-number_content{
+      margin-left: 20px;
+    }
+    .step-number_content-title{
+      font-size: 18px;
+      font-weight: 900;
+      padding-bottom: 10px;
+    }
+    .step-number_content-text{
+      font-size: 14px;
+    }
+  }
+}
+.step-img_box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  >img{
+    margin: 10px 0;
+  }
+  .step-img_box-item{
+    position: relative;
+    height: 250px;
+    // text-align: center;
+  }
+  .step-img_cont{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px 10px 0;
+    text-align: left;
+    min-width: 200px;
+  }
+}
+.step-img_1,
+.step-img_2,
+.step-img_3,
+.step-img_4,
+.step-img_5{
+  display: inline-block;
+  width: auto;
+  height: 90px;
+}
+.selling-process-img-box{
+  width: 100%;
+  .process-img{
+    margin-bottom: 20px;
+  }
+}
+.process-img{
+  display: inline-block;
+  width: auto;
+  height: 200px;
+}
+.view-wristcheck-products .view-content{
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.wc-buy-editor-pick ul.wc-buy-more-products > li,
+.wc-buy-editor-pick .portfolio{
+  margin-bottom: 0;
+}
+.wc-shop_by_brand{
+	.js-pager__items{
+		padding-top: 32px;
+		>li>a{
+			display: inline-block;
+		}
+	}
+	.views-infinite-scroll-content-wrapper{
+		margin: 0;
+		width: 100%;
+		.wc-shop-by-brand__box{
+			display: block;
+			width: 100%;
+			a{
+				display: inline-block;
+				position: relative;
+				width: 100%;
+			}
+			.brand-title{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				transition: all .3s ease-in;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: #FFF;
+				font-size: 20px;
+				font-weight: bold;
+				background: rgba(0,0,0,.5);
+				margin: 0;
+				&:hover{
+					opacity:1;
+				}
+			}
+		}
+  	}
+}
+
+
+
+@media (max-width: 1900px) {
+  .step-img_box-item:last-child{
+    width: 300px;
+  }
+  .step-img_1,
+  .step-img_2,
+  .step-img_3,
+  .step-img_4,
+  .step-img_5{
+    height: 70px;
+  }
+  .step-img_box{
+    .step-img_cont{
+      height: 70px;
+    }
+  }
+  .process-img{
+    height: 170px;
+  }
+}
+@media (max-width: 1441px){
+  .process-img{
+    height: 140px;
+  }
+}
+@media (max-width: 961px) {
+  .process-img{
+    height: 120px;
+  }
+}
+
+.wc-buy-searchbox-border {
+  border:1px solid;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-color: $top_border_color;
+  opacity:  0.2;
+}
+
+.wc-pd-search-button {
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  border: 1px solid #D8D8D8;
+  border-color: #D8D8D8;
+  >a {
+    font-size: 18px;
+    top: 5px;
+    position: relative;
+  }
+}
+
+//#block-wristcheckbuyallwatchesbanner {
+//  width:100%;
+//  .wc-buyallwatches {
+//    img {
+//      width:100%;
+//    }
+//  }
+//}
+//.block-views-blockwristcheck-products-more-products {
+//   width:100%;
+//  .wc-buyallwatches {
+//     img {
+//       width:100%;
+//     }
+//  }
+//}
+.wc-buy-long-product {
+   display: flex;
+    .wc-buyallwatches {
+       img {
+			display: block;
+        	width:100%;
+       }
+    }
+}
+.wc-buyallwatches {
+  max-height: 360px;
+  overflow: hidden;
+  	img {
+	  	display: block;
+    	width:100%;
+  	}
+}
+
+.block-wristcheck-buy-long-block{
+   width:100%;
+  	.wc-buyallwatches {
+    	img {
+			display: block;
+       		width:100%;
+     	}
+  	}
+}
+
+.wc-longbuy-product-split {
+  margin: 32px 0;
+}
+
+#edit-login-returning-customer-submit {
+  display: list-item;
+  min-width: 102px;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+#edit-payment-information-add-payment-method-payment-details-expiration-divider {
+  display: none;
+}
+
+.js-form-item-payment-information-add-payment-method-payment-details-security-code {
+  width: 30%;
+  margin-top: -5px;
+  position: relative;
+}
+
+.js-form-item-payment-information-add-payment-method-payment-details-expiration-month {
+  width: 50%;
+  margin-right: 40px;
+}
+.js-form-item-payment-information-add-payment-method-payment-details-expiration-year {
+  width: 50%;
+  margin-right: 40px;
+}
+
+#edit-payment-information-add-payment-method-payment-details-expiration {
+  float: left;
+  clear: both;
+  width: 70%;
+}
+//.link--previous {
+//  display: none;
+//}

@@ -8,14 +8,14 @@
 
   .title, h1 {
     font-size: 30px;
-    font-family: Source Han Sans CN;
+     
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
   }
 
   .sub_title, h2 {
     font-size: 24px;
-    font-family: Source Han Sans CN;
+     
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
   }
@@ -29,38 +29,42 @@
 
   .pp {
     font-size: 18px;
-    font-family: Source Han Sans CN;
+     
     font-weight: 400;
     color: rgba(97, 97, 97, 1);
   }
 
   .ppp {
     font-size: 24px;
-    font-family: Source Han Sans CN;
+     
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
   }
-  .bold{
+
+  .bold {
     font-weight: 600;
   }
-  .wc-userinfo-list_p{
-    padding: 16px;
+
+  .wc-userinfo-list_p {
+    padding: 16px 16px 16px 30px;
     position: relative;
-    &:before{
+
+    &:before {
       content: "";
       position: absolute;
       top: 20px;
       left: 0;
-      width: 10px;
-      height: 10px;
+      width: 16px;
+      height: 16px;
       border: 1px solid $color-dark3;
     }
+
     &::after {
       position: absolute;
-      top: 20px;
-      left: 0;
-      width: 10px;
-      height: 10px;
+      top: 16px;
+      left: 1px;
+      width: 16px;
+      height: 16px;
       content: "";
       transition: none;
       transform: none;
@@ -69,16 +73,19 @@
   }
 
   input:checked ~ .wc-userinfo-list_p::after {
+    content: "\2713";
     display: block;
-    background: no-repeat 50% / 100% 100%;
-    background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
+    // background: no-repeat 50% / 100% 100%;
+    // background-image: url("/themes/custom/wristcheck_barrio/images/icons/checked.png");
   }
-  .wc-userinfo-list_num{
+
+  .wc-userinfo-list_num {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    .list_num{
+
+    .list_num {
       font-size: 50px;
       font-style: italic;
       font-weight: 600;
@@ -104,7 +111,7 @@
   .wc-userinfo-item {
     margin-bottom: 30px;
     font-size: 16px;
-    font-family: Source Han Sans CN;
+     
     font-weight: 500;
     color: rgba(97, 97, 97, 1);
 
@@ -137,11 +144,13 @@
   //margin-top: 30px;
   .wc-userinfo-list {
     margin-top: 40px;
+
     .wc-user-checkbox {
       display: none;
     }
   }
-  .cart-icon{
+
+  .cart-icon {
     display: inline-block;
     width: 16px;
   }
@@ -165,11 +174,13 @@
     flex-direction: column;
     padding-left: 30px;
     justify-content: space-between;
+
     p {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      &:last-child{
+
+      &:last-child {
         margin: 0;
       }
     }
@@ -180,7 +191,7 @@
 .actions {
   .action-link {
     font-size: 18px;
-    font-family: Source Han Sans CN;
+     
     font-weight: 400;
     color: rgba(23, 107, 164, 1);
     cursor: pointer;
@@ -193,4 +204,149 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20px;
+}
+
+/* 普通用户后台样式*/
+form.user-form {
+  padding: 30px 20px;
+  background-color: #FFF;
+
+  .form-control {
+    height: auto;
+  }
+
+  .tabledrag-toggle-weight,
+  .link-edit-summary {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+  }
+
+  .tabledrag-toggle-weight-wrapper {
+    padding-bottom: 10px;
+  }
+}
+.page-user-password{
+  .user-pass{
+    .form-submit{
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      margin-top: 30px;
+    }
+  }
+}
+
+.view-id-wristcheck_portfolio .portfolio.wc-userwishlist,
+.view-wristcheck-products .portfolio.wc-userwishlist{
+  margin-bottom: 0;
+  background-color:#FFF;
+  .wc-protfolio-product__title{
+    width: 100%;
+    > a{
+      padding: 5px;
+      width: 34px;
+      position: absolute;
+      right: 0;
+      text-align: center;
+    }
+  }
+}
+
+/* 普通用户后台样式 end*/
+@media (max-width: 1025px) {
+  .wc-userinfo-card .wc-userinfo-padding {
+    padding: 0;
+  }
+  .wc-userinfo-card .title, .wc-userinfo-card h1 {
+    font-size: 24px;
+  }
+  .wc-userinfo-card .sub_title, .wc-userinfo-card h2 {
+    font-size: 18px;
+  }
+  .wc-userinfo-card .wc-userinfo-left {
+    flex-direction: column !important;
+
+    .wc-userinfo-photo {
+      margin: 0 auto 30px;
+    }
+
+    .wc-userinfo-info {
+      align-items: center;
+    }
+  }
+  .wc-buy-product-item .wc-buy-product-privew__img {
+    width: 100% !important;
+  }
+  .wc-buy-product-item .wc-buy-product-body {
+    display: none !important;
+  }
+  .wc-userinfo__header {
+    margin-top: 20px;
+  }
+  .wc-userinfo__body .item-list ul li {
+    padding: 0.75rem 0 0 0;
+  }
+}
+
+.wc-buy-product-item{
+  .wc-portfolio-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .btn{
+      border: 1px solid #333;
+      transition: all .3s ease-in;
+      &:hover{
+        background-color: #333;
+        color: #FFF;
+      }
+    }
+  }  
+}
+
+.profile-customer-edit-form.profile-form{
+  padding: 60px;
+  margin: 60px auto;
+  background-color: #FFF;
+}
+.wc-form-submit{
+  display: inline-block;
+  min-width: 270px;
+  margin-right: 20px;
+}
+a#edit-delete{
+  display: inline-block;
+  min-width: 270px;
+  border: 1px solid #1f2127;
+  color: #1f2127 !important;
+  font-size: 14px;
+  padding: 15px 20px;
+  text-align: center;
+  font-weight: normal;
+  cursor: pointer;
+}
+td>.form-group{
+  margin-bottom: 0;
+}
+
+@media (max-width: 375px) {
+  .wc-userinfo-card .wc-userinfo__header {
+    position: relative;
+  }
+  .wc-userinfo-card .wc-userinfo__header .actions {
+    position: absolute;
+    top: -25px;
+    right: 0;
+  }
 }

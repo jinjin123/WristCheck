@@ -1,0 +1,17 @@
+.wc-empty-box{
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    .wc-empty-product{
+        width: 100px;
+        height: 100px;
+        background: url('/themes/custom/wristcheck_barrio/images/v2/small-logo.png') no-repeat center center/contain;
+        margin-bottom: 30px;
+    }
+    h3{
+        font-size: 20px;
+    }
+}

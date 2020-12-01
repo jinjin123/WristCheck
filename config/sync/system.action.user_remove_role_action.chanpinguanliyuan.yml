@@ -1,0 +1,14 @@
+uuid: 45dc9938-74a0-4477-ac25-138402d948b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.chanpinguanliyuan
+  module:
+    - user
+id: user_remove_role_action.chanpinguanliyuan
+label: 'Remove the 产品管理员 role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: chanpinguanliyuan

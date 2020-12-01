@@ -1,6 +1,24 @@
+.wc-faq-container{
+  width: 60%;
+  margin: 0 auto;
+  .wc-faq-panel{
+    .wc-faq-header{
+      padding: 0 20px;
+      line-height: 38px;
+      margin-bottom: 64px;
+    }
+  }
+  .wc-faq-footer{
+    margin-bottom: 64px;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0,0,0,.9);
+    text-align: center;
+  }
+}
 .wc-faq-panel {
   width: 90%;
-  margin: 100px auto;
+  margin: 64px auto;
 
   .wc-faq-header {
     margin-bottom: 100px;
@@ -8,16 +26,13 @@
   }
 
   .wc-faq__title {
-    font-size: 30px;
-    font-family: Source Han Sans CN;
+    font-size: 32px;
     font-weight: bold;
     color: #222222;
-    margin-bottom: 30px;
   }
 
   .wc-faq__sub {
     font-size: 14px;
-    font-family: Source Han Sans CN;
     font-weight: 400;
     color: #222222;
   }
@@ -39,12 +54,30 @@
 }
 
 .wc-faq__item__titile {
-  font-size: 18px;
-  font-family: Source Han Sans CN;
-  font-weight: 500;
-  color: #222222;
-  background: url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png) no-repeat;
-  background-size: 15px auto;
-  background-position: 100% 30%;
+	font-size: 18px;
+	font-weight: 500;
+	color: #222222;
+	background: url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png) no-repeat;
+	background-size: 15px auto;
+	background-position: 100% 30%;
 }
-
+.wc-do-you-have-any-questions{
+  .wc-panel__title{
+    padding-bottom: 32px;
+  }
+  .mb-32{
+	  margin-bottom: 32px;
+  }
+}
+.wc-do-you-have-any-questions-sub{
+  	text-align: center;
+	margin-bottom: 16px;
+  	a{
+		font-size: 16px;
+		line-height: 24px;
+		color: rgba(0,0,0,.9);
+		&.email{
+			color: #13788A;
+		}
+  	}
+}

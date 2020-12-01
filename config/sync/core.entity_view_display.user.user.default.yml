@@ -5,17 +5,21 @@ dependencies:
   config:
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_cell_number_to_receive_ord
+    - field.field.user.user.field_currency
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_description
+    - field.field.user.user.field_discover_updated
     - field.field.user.user.field_email_to_receive_order_sta
     - field.field.user.user.field_full_name
     - field.field.user.user.field_gender
     - field.field.user.user.field_guide
+    - field.field.user.user.field_location
     - field.field.user.user.field_newsletter
     - field.field.user.user.field_pay_by_email_authenticatio
     - field.field.user.user.field_pay_by_password
     - field.field.user.user.field_phone_number
     - field.field.user.user.field_price_warning
+    - field.field.user.user.field_product_launches
     - field.field.user.user.field_social
     - field.field.user.user.field_surnames
     - field.field.user.user.field_the_email_address
@@ -25,6 +29,7 @@ dependencies:
     - datetime
     - image
     - link
+    - options
     - user
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
@@ -43,6 +48,13 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_currency:
+    weight: 28
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_date_of_birth:
     weight: 15
     label: above
@@ -58,6 +70,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_discover_updated:
+    weight: 25
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_email_to_receive_order_sta:
     weight: 22
@@ -96,6 +118,13 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_location:
+    weight: 29
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_newsletter:
     weight: 11
@@ -136,6 +165,16 @@ content:
     region: content
   field_price_warning:
     weight: 14
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_product_launches:
+    weight: 26
     label: above
     settings:
       format: default

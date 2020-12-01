@@ -5,8 +5,10 @@
  * Functions to support theming in the SASS Starterkit subtheme.
  */
 
+use Drupal\commerce_product\Entity\Product;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\responsive_image\Entity\ResponsiveImageStyle;
+use Drupal\file\Entity\File;
 
 /**
  * Prepares variables for view templates.
@@ -84,6 +86,16 @@ function wristcheck_barrio_form_system_theme_settings_alter(&$form, FormStateInt
     'bg-white' => t('White'),
     'bg-transparent' => t('Transparent'),
   );
+
+  $form['logo']['settings']['logo_mobile_upload'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Upload mobile logo image'),
+    '#upload_location' => \Drupal::config('system.file')->get('default_scheme') . '://theme/logo/',
+    '#default_value' => theme_get_setting('logo_mobile_upload'),
+    '#upload_validators' => array(
+      'file_validate_extensions' => array('gif png jpg jpeg'),
+    ),
+  ];
 }
 
 /**
@@ -100,8 +112,51 @@ function wristcheck_barrio_preprocess_maintenance_page(&$variables)
   $variables['maintenance_form'] = $maintenance_form;
 }
 
+function wristcheck_barrio_preprocess_node(&$variables)
+{
+  $nodeid = $variables["attributes"]["data-history-node-id"];
+  $node = \Drupal::entityManager()->getStorage('node')->load($nodeid);
+  $node_summary = $node->get('body')->summary;
+  $variables['nodesumm'] = $node_summary;
+  $sell_form = \Drupal::formBuilder()->getForm('Drupal\wristcheck_basic\Form\SellAddToCartForm');
+  $variables['sell_form'] = $sell_form;
+}
+
 function wristcheck_barrio_preprocess_breadcrumb(&$variables)
 {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $patterns = '/product/*';
+  $match = \Drupal::service('path.matcher')->matchPath($current_path, $patterns);
+  if ($match) {
+    $result = [['text' => 'Buy', 'url' => '/buy']];
+    $product_id = substr($current_path, strlen('/product/'));
+    preg_match('/[\d]*/', $product_id, $matches);
+    if (count($matches) == 1 && $matches[0] == $product_id) {
+      $product = Product::load($product_id);
+      $field_cate = $product->get('field_cate')->getValue();
+      if (isset($field_cate[0]['target_id'])) {
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_cate[0]['target_id']);
+        if ($term) {
+          $title = $term->getName();
+          array_push($result, ['text' => $title, 'url' => '/brand/' . $title]);
+        }
+      }
+      $field_watch_series = $product->get('field_watch_series')->getValue();
+      if (isset($field_watch_series[0]['target_id'])) {
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_watch_series[0]['target_id']);
+        if ($term) {
+          $title = $term->getName();
+          array_push($result, ['text' => $title, 'url' => '/#']);
+        }
+      }
+      $variables['breadcrumb'] = $result;
+      return;
+    } else {
+      $variables['breadcrumb'] = [];
+      return;
+    }
+  }
+
   $view = \Drupal\views\Views::getView('wristcheck_buy_magazine');
   $view->execute('single');
   global $head_title;
@@ -116,6 +171,31 @@ function wristcheck_barrio_preprocess_breadcrumb(&$variables)
   }
 }
 
+function wristcheck_barrio_preprocess_block(array &$variables)
+{
+//  <!-- FILE NAME SUGGESTIONS:
+//   x block--wristcheckuseraccountmenu-2.html.twig
+//  * block--system-menu-block--account.html.twig
+//  * block--system-menu-block.html.twig
+//  * block--system.html.twig
+//  * block.html.twig
+//  -->
+
+  if ($variables['plugin_id']=='system_menu_block:account'){
+    $defaultCurrency = 'HKD';
+    $defaultFlag = 'hk';
+
+    $currentUser = Drupal::currentUser();
+    if ($currentUser) {
+      $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+      $defaultCurrency = $user->get('field_currency')->value;
+      $defaultFlag = $currentUser->getPreferredLangcode();
+    }
+    $variables['currentUserInfo']['currency'] = $defaultCurrency;
+    $variables['currentUserInfo']['flag'] = $defaultFlag;
+  }
+}
+
 function wristcheck_barrio_preprocess_menu(array &$variables, $hook)
 {
 //user info slider
@@ -125,14 +205,16 @@ function wristcheck_barrio_preprocess_menu(array &$variables, $hook)
     $items = $variables['items'];
     foreach ($items as $key => $item) {
       $urlString = $item['url']->toString();
+
       if ($item['url']->toString() == $current_path) {
         // Add active link.
         $variables['items'][$key]['attributes']['class'] = 'active';
-      } elseif ($item['url']->toString() == "" && $path_args[3] == "transactions") {
+      } elseif ($item['url']->toString() == "" && $path_args[2] == "transactions") {
         $variables['items'][$key]['attributes']['class'] = 'active';
       }
     }
   }
+
   if ($variables['theme_hook_original'] == 'menu__main') {
     $items = $variables['items'];
     $variables['logo'] = theme_get_setting('logo.url', 'wristcheck');
@@ -148,6 +230,7 @@ function wristcheck_barrio_preprocess_html(array &$variables)
 {
   $path = \Drupal::service('path.current')->getPath();
   $path_args = explode('/', $path);
+  $variables['userid'] = \Drupal::currentUser()->id();
   if (in_array("payment-success", $path_args) || in_array("payment-step", $path_args)) {
     if (count($path_args) > 2) {
       if ($path_args[3] == "payment-success") {
@@ -158,38 +241,65 @@ function wristcheck_barrio_preprocess_html(array &$variables)
       }
     }
   }
+  if (isset($variables['page']) && isset($variables['page']['header'])) {
+    $fid = theme_get_setting('logo_mobile_upload');
+    if (is_array($fid) && sizeof($fid) > 0) {
+      $file = File::load($fid[0]);
+      if (!is_null($file)) {
+        $variables['page']['header']['logo_mobile'] = $file->url();
+      } else {
+        $variables['page']['header']['logo_mobile'] = null;
+      }
+    } else {
+      $variables['page']['header']['logo_mobile'] = null;
+    }
+  }
 }
+
 
 //for payment succ & step css name
 function wristcheck_barrio_preprocess_user(array &$variables)
 {
   $path = \Drupal::service('path.current')->getPath();
   $path_args = explode('/', $path);
-  if($path_args[1] =="user"){
-     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-         $variables['mail'] = $user->getEmail();
-         $variables['phone'] = $user->get('field_phone_number')->value;
-         if(count($user->field_surnames->getValue())>0){
-           $variables['surname'] = array_values($user->field_surnames->getValue()[0])[0];
-         }
-         $variables['gender']  = array_values($user->field_gender->getValue()[0])[0];
-         if(count($user->field_date_of_birth->getValue())>0){
-           $variables['birth']  = date("Y/m/d",strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
-         }
-         $variables['name'] =$user->getUsername();
-         $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
-         $variables['news'] = $user->get('field_newsletter')->value;
-         $variables['cooperate'] = $user->get('field_we_cooperate_in')->value;
-         $variables['guide'] = $user->get('field_guide')->value;
-         $variables['price'] = $user->get('field_price_warning')->value;
-         $entity_ids = \Drupal::entityTypeManager()
-           ->getStorage('node')
-           ->getQuery()
-           ->condition('type', 'portfolio')
-           ->condition('uid', '1')
-           ->sort('created.value', 'DESC')
-           ->range(0, 1)->execute();
-         $variables['porttime'] =  date("M d,Y",\Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
+  if ($path_args[1] == "user") {
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $variables['mail'] = $user->getEmail();
+    $variables['phone'] = $user->get('field_phone_number')->value;
+    if (count($user->field_surnames->getValue()) > 0) {
+      $variables['surname'] = array_values($user->field_surnames->getValue()[0])[0];
+    }
+    $variables['gender'] = array_values($user->field_gender->getValue()[0])[0];
+    if (count($user->field_date_of_birth->getValue()) > 0) {
+      $variables['birth'] = date("Y/m/d", strtotime(array_values($user->field_date_of_birth->getValue()[0])[0]));
+    }
+    $variables['name'] = $user->getUsername();
+    $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getName();
+    $variables['news'] = $user->get('field_newsletter')->value;
+    $variables['cooperate'] = $user->get('field_we_cooperate_in')->value;
+    $variables['guide'] = $user->get('field_guide')->value;
+    $variables['price'] = $user->get('field_price_warning')->value;
+    $entity_ids = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->getQuery()
+      ->condition('type', 'portfolio')
+      ->condition('uid', '1')
+      ->sort('created.value', 'DESC')
+      ->range(0, 1)->execute();
+    $variables['porttime'] = date("M d,Y", \Drupal\node\Entity\Node::load(array_values($entity_ids)[0])->created->getValue()[0]['value']);
+    $variables['userobj'] = $user;
+    $variables['userid'] = \Drupal::currentUser()->id();
+  } else {
+    $variables['tag'] = 'nouser';
+  }
+}
+
+function wristcheck_barrio_library_info_alter(&$libraries, $extension)
+{
+  // Add our own extension to drupal.ajax, which is aware of the page markup so
+  // can add AJAX progress loaders in the page.
+  if ($extension == 'core' && isset($libraries['drupal.ajax'])) {
+    $libraries['drupal.ajax']['js']['/' . drupal_get_path('theme', 'wristcheck_barrio') . '/js/ajax-overrides.js'] = [];
   }
 }
 

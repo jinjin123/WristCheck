@@ -1,0 +1,21 @@
+uuid: 9bfdd929-8e4a-40c3-8c35-e37b11cbbb69
+langcode: zh-hans
+status: true
+dependencies:
+  module:
+    - commerce_checkoutcom
+id: payment_checkout2
+label: 'Payment checkout2'
+weight: null
+plugin: checkoutcom
+configuration:
+  public_key: pk_test_c12f597e-989d-4d3c-91bd-3e993f6fb317
+  secret_key: sk_test_b3e4437f-ff77-4c17-b5f0-7a7863194f99
+  webhook_capture_id: wh_2qbryfm63krulgft3xckoxln4m
+  display_label: Checkout.com
+  mode: test
+  payment_method_types:
+    - credit_card
+  collect_billing_information: true
+conditions: {  }
+conditionOperator: AND

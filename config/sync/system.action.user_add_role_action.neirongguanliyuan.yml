@@ -1,0 +1,14 @@
+uuid: b7beaef0-37b9-4862-a5b2-703af9d7b93d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.neirongguanliyuan
+  module:
+    - user
+id: user_add_role_action.neirongguanliyuan
+label: 'Add the 内容管理员 role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: neirongguanliyuan

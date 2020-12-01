@@ -146,30 +146,39 @@
   }
 }
 
-
+.row-view-content{
+  .view-content{
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+      .mb-32{
+        margin-bottom: 32px;
+      }
+  }
+}
 .wc-faq {
-  padding: 20px;
+  padding: 32px 0;
   margin: 0 20%;
+  border-bottom: 1px solid rgb(228,228,228);
 
   .wc-faq__title {
     font-size: 30px;
-    font-family: Source Han Sans CN;
+     
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
     margin-bottom: 50px;
   }
 
-  .wc-faq__item {
-    border-bottom: 1px solid rgb(228,228,228);
-  }
+
 
   .wc-faq__item__titile {
-    font-size: 24px;
-    font-family: Source Han Sans CN;
+    font-size: 20px;
+    line-height: 24px;
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
-    margin-bottom: 30px;
     cursor: pointer;
+    margin:0;
   }
 
   p {
@@ -228,5 +237,12 @@
       text-align: center;
       position: relative;
     }
+  }
+}
+
+.wc-panel.shipping-info-top{
+  padding-bottom: 0;
+  .wc-panel__title{
+    padding-bottom: 0;
   }
 }

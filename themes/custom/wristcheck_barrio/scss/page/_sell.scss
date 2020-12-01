@@ -1,16 +1,116 @@
 .wc-low-sales {
   width: 100%;
-  height: 440px;
-  background-color: #4A736F;
+  //height: 440px;
+  height: 680px;
+  //background-color: #4A736F;
+  background-color: $mongreen;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .wc-low__title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333333;
+    top:-70px;
+    margin: 0;
+    //padding: 50px 0;
+    padding: 10px 0;
+    position: relative;
+    font-family: "basis-grotesque-bold-pro";
+  }
+  .wc-low__sed_title {
+    //font-family: "basis-grotesque-bold-pro";
+    position: relative;
+    top: -70px;
+    //font-size: medium;
+  }
+  .wc-low__third_title {
+    font-family: "basis-grotesque-bold-pro";
+    position: relative;
+    top: -40px;
+    font-size: large;
+  }
+  .wc-sell-input {
+    //border-bottom: 0;
+    .wc-sell-inputl {
+      label {
+        color: #fff;
+      }
+      .first-size {
+        text-indent: 11px;
+      }
+      .wc-sell-sedinput-size {
+        background-color: transparent;
+        border: 0;
+      }
+      .wc-low-fixed-first-price {
+        float: left;
+        top: -31px;
+        position: relative;
+        text-indent: 12px;
+      }
+      .wc-low-fixed-price {
+        float: left;
+        top: -30px;
+        position: relative;
+        color: #fff;
+      }
+    }
+  }
+  .wc-low__four_title {
+    font-weight: bold;
+    top: 40px;
+    position: relative;
+    padding-right: 40px;
+    padding-left: 40px;
+    //background: url(/themes/custom/wristcheck_barrio/images/icons/arrow-down.png) no-repeat ;
+    background: url(/themes/custom/wristcheck_barrio/images/icons/sell-arrow-down.png) no-repeat ;
+    -webkit-background-size: 15px auto;
+    //background-position: 150px;
+    background-size: 40px;
+    background-position: 100% 50%,
+  }
+  .wc-low-sales-result {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    top:40px;
+    font-size:13px;
+    color:#fff;
+    display: none;
+    label{
+      text-align: left;
+    }
+    //&:nth-child(1) {
+    //  position: relative;
+    //  top: -10px;
+    //}
+    .wc-low-earning {
+      padding-top: 20px;
+      font-weight: bold;
+    }
+    .wc-low__result_ask_price {
+      &:nth-child(1) {
+        //color: red;
+        position: relative;
+        top: -20px;
+      }
+    }
+  }
 }
+.block-wristcheck-faq-question-block {
+  width:100%
+}
+.wc-sell-buttom-banner {
 
+}
 .webform-submission-faq-price-form {
   .webform-elements {
     display: flex;
+    flex-wrap: wrap;
     position: relative;
     color: #FFF;
 
@@ -64,7 +164,7 @@
 
   .wc-sell-banner__title {
     font-size: 40px;
-    font-family: Source Han Sans CN;
+    font-family: "basis-grotesque-bold-pro";
     font-weight: bold;
     color: #222222;
     margin-bottom: 20px;
@@ -72,9 +172,9 @@
 
   .wc-sell-banner__sub {
     font-size: 14px;
-    font-family: Source Han Sans CN;
     font-weight: bold;
     color: #616161;
+    font-family: "basis-grotesque-bold-pro";
   }
 
   .wc-sell-banner__input {
@@ -106,7 +206,7 @@
 
 .wc-low-sales__sub {
   font-size: 18px;
-  font-family: Source Han Sans CN;
+
   font-weight: 500;
   color: #222222;
 }
@@ -122,7 +222,7 @@
   .wc-checkout-item__img {
     height: 60px;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 
     img {
       width: auto;
@@ -132,20 +232,19 @@
   }
 
   .wc-checkout-item__title {
-    font-size: 24px;
-    height: 70px;
-    font-family: Source Han Sans CN;
+    font-size: 16px;
     font-weight: bold;
-    color: #333333;
-    margin-bottom: 20px;
+    line-height: 24px;
+    color: rgba(0,0,0,.9);
+    margin-bottom: 10px;
     text-align: center;
   }
 
   .wc-checkout-item__sub {
-    font-size: 14px;
-    font-family: Source Han Sans CN;
+    font-size: 16px;
     font-weight: 400;
-    color: #666666;
+    line-height: 24px;
+    color: rgba(0,0,0,.9);
     text-align: center;
   }
 }
@@ -172,7 +271,7 @@
 
   .wc-swiper-title__top {
     font-size: 14px;
-    font-family: Source Han Sans CN;
+
     font-weight: 400;
     color: #FFFFFF;
   }
@@ -193,7 +292,7 @@
 
   .wc-swiper-title__bottom {
     font-size: 14px;
-    font-family: Source Han Sans CN;
+
     font-weight: 400;
     color: #FFFFFF;
   }
@@ -251,7 +350,7 @@
 
         h1 {
           font-size: 18px;
-          font-family: Source Han Sans CN;
+
           font-weight: 500;
           color: #222222;
 
@@ -259,14 +358,14 @@
 
         .wc-testimdnials-detail__sub {
           font-size: 14px;
-          font-family: Source Han Sans CN;
+
           font-weight: 400;
           color: #999999;
         }
 
         .wc-testimdnials-detail {
           font-size: 14px;
-          font-family: Source Han Sans CN;
+
           font-weight: 300;
           color: #222222;
           line-height: 1.8;
@@ -322,7 +421,7 @@
   .wc-panel__sub {
     a {
       font-size: 18px;
-      font-family: Source Han Sans CN;
+
       font-weight: bold;
       color: #333333;
       padding-left: 10px;
@@ -338,5 +437,83 @@
 
   .wc-faq {
     margin: 0 auto;
+  }
+}
+.wc-transactions-sell-list,
+.wc-transactions-buy-list{
+  padding-left: 20px;
+  background-color: #FFF;
+}
+.wc-panel.wc-testimdnials{
+  padding-bottom: 32px;
+}
+
+@media (max-width: 1440px) {
+  .wc-sell-swiper {
+    width: 80%;
+  }
+  .webform-submission-faq-price-form .webform-elements .form-control {
+    width: 150px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .wc-video-box {
+    width: 100%;
+    height: 400px;
+  }
+  .wc-sell-get-started {
+    width: 300px;
+  }
+  .wc-sell-banner {
+    padding: 0 20px;
+  }
+  .wc-sell-banner__input {
+    display: flex;
+    flex-direction: row;
+
+    .form-control {
+      flex: 1;
+    }
+  }
+  .webform-submission-faq-price-form .webform-elements .js-form-item-second-size,
+  .form-item-first-size {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wc-sell-swiper {
+    width: 100%;
+  }
+}
+#block-wristchecksellbuttombannerblock {
+  width: 100%;
+  .wc-sell-buttom-banner {
+     img {
+       width: 100%;
+     }
+     img:hover {
+       cursor: pointer;
+     }
+  }
+}
+
+#block-wristcheckselllowsaleblock {
+  width: 100%;
+}
+
+.wc-sellbanner {
+  img {
+    width: 100%;
+  }
+  img:hover {
+    cursor: pointer;
+  }
+}
+
+.webform-submission-inquire-how-to-be-a-seller-form {
+  .form-actions {
+    margin-left: 20px;
   }
 }

@@ -1,0 +1,23 @@
+uuid: 3a43b377-1e8c-4bdd-813e-adcef09b516c
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.watch
+    - field.storage.commerce_product.field_secure_payment_in_escrow
+id: commerce_product.watch.field_secure_payment_in_escrow
+field_name: field_secure_payment_in_escrow
+entity_type: commerce_product
+bundle: watch
+label: 'Secure payment in Escrow'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

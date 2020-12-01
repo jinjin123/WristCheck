@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.watch.body
     - field.field.commerce_product.watch.feeds_item
     - field.field.commerce_product.watch.field_ask_price
+    - field.field.commerce_product.watch.field_authenticity_guaranteed
     - field.field.commerce_product.watch.field_bezel_material
     - field.field.commerce_product.watch.field_case_back
     - field.field.commerce_product.watch.field_case_back_width
@@ -14,10 +15,10 @@ dependencies:
     - field.field.commerce_product.watch.field_case_band_length
     - field.field.commerce_product.watch.field_case_band_material
     - field.field.commerce_product.watch.field_case_band_width
-    - field.field.commerce_product.watch.field_case_diameter
     - field.field.commerce_product.watch.field_case_face
     - field.field.commerce_product.watch.field_case_number
     - field.field.commerce_product.watch.field_case_shape
+    - field.field.commerce_product.watch.field_case_size
     - field.field.commerce_product.watch.field_case_thickness
     - field.field.commerce_product.watch.field_case_weight
     - field.field.commerce_product.watch.field_cate
@@ -25,6 +26,7 @@ dependencies:
     - field.field.commerce_product.watch.field_clasp_material
     - field.field.commerce_product.watch.field_condition
     - field.field.commerce_product.watch.field_crust_material
+    - field.field.commerce_product.watch.field_delivery_box
     - field.field.commerce_product.watch.field_detailimg
     - field.field.commerce_product.watch.field_extras
     - field.field.commerce_product.watch.field_introduction
@@ -32,6 +34,8 @@ dependencies:
     - field.field.commerce_product.watch.field_manufacturer
     - field.field.commerce_product.watch.field_model_images
     - field.field.commerce_product.watch.field_model_tags
+    - field.field.commerce_product.watch.field_original_box
+    - field.field.commerce_product.watch.field_original_papers
     - field.field.commerce_product.watch.field_others
     - field.field.commerce_product.watch.field_place_of_origin
     - field.field.commerce_product.watch.field_power_time
@@ -40,7 +44,7 @@ dependencies:
     - field.field.commerce_product.watch.field_related_brand
     - field.field.commerce_product.watch.field_related_model
     - field.field.commerce_product.watch.field_scope_of_delivery
-    - field.field.commerce_product.watch.field_shock
+    - field.field.commerce_product.watch.field_secure_payment_in_escrow
     - field.field.commerce_product.watch.field_sku
     - field.field.commerce_product.watch.field_specifications
     - field.field.commerce_product.watch.field_subname
@@ -48,6 +52,7 @@ dependencies:
     - field.field.commerce_product.watch.field_watch_core
     - field.field.commerce_product.watch.field_watch_core_num
     - field.field.commerce_product.watch.field_watch_params
+    - field.field.commerce_product.watch.field_watch_series
     - field.field.commerce_product.watch.field_watch_sex
     - field.field.commerce_product.watch.field_watch_style
     - field.field.commerce_product.watch.field_water_resistance
@@ -88,6 +93,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: commerce_price_default
+    region: content
+  field_authenticity_guaranteed:
+    weight: 63
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_bezel_material:
     weight: 29
@@ -145,14 +157,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_case_diameter:
-    weight: 26
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_case_face:
     weight: 30
     settings:
@@ -176,6 +180,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_case_size:
+    weight: 60
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_case_thickness:
     weight: 27
@@ -233,6 +244,14 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_delivery_box:
+    weight: 59
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_detailimg:
     weight: 57
     settings:
@@ -288,6 +307,20 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_original_box:
+    weight: 62
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_original_papers:
+    weight: 61
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_others:
     weight: 41
@@ -355,13 +388,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_shock:
-    weight: 25
+  field_secure_payment_in_escrow:
+    weight: 64
     settings:
-      size: 60
-      placeholder: ''
+      display_label: false
     third_party_settings: {  }
-    type: string_textfield
+    type: boolean_checkbox
     region: content
   field_sku:
     weight: 21
@@ -424,6 +456,16 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+    region: content
+  field_watch_series:
+    weight: 58
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_watch_sex:
     weight: 22

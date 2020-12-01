@@ -6,6 +6,7 @@ dependencies:
     - commerce_order.commerce_order_type.default
     - core.entity_view_mode.commerce_order.user
     - field.field.commerce_order.default.field_do_you_need_a_gift_bag
+    - field.field.commerce_order.default.field_if_need_insurance
     - field.field.commerce_order.default.field_phone
     - field.field.commerce_order.default.shipments
   module:
@@ -87,6 +88,7 @@ content:
 hidden:
   changed: true
   field_do_you_need_a_gift_bag: true
+  field_if_need_insurance: true
   field_phone: true
   ip_address: true
   search_api_excerpt: true

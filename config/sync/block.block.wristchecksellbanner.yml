@@ -1,0 +1,47 @@
+uuid: a99b1906-4486-491c-9650-cc5eb1be2c64
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:18fdf32d-994f-49ca-834d-79d0ebead602'
+  module:
+    - block_attributes
+    - block_content
+    - ntv_block_background
+    - system
+  theme:
+    - wristcheck_barrio
+third_party_settings:
+  block_attributes:
+    attr_class: ''
+    attr_id: ''
+    sub_title: ''
+  ntv_block_background:
+    disable: disable
+    color: '#000000'
+    bg_image: {  }
+    bg_image_type: default
+    bg_repeat: 'no'
+    bg_image_position: ''
+    bg_image_size: ''
+    background_overlay: ''
+id: wristchecksellbanner
+theme: wristcheck_barrio
+region: highlighted
+weight: 0
+provider: null
+plugin: 'block_content:18fdf32d-994f-49ca-834d-79d0ebead602'
+settings:
+  id: 'block_content:18fdf32d-994f-49ca-834d-79d0ebead602'
+  label: 'Wristcheck Sell Banner'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /sell
+    negate: false
+    context_mapping: {  }

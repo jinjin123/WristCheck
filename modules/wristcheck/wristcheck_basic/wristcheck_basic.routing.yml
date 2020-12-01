@@ -149,7 +149,7 @@ wristcheck_basic.payment_controller_index:
     _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::index'
     _title: 'Payment'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -159,7 +159,7 @@ wristcheck_basic.payment_controller_success:
     _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::paysuccess'
     _title: 'Payment'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -169,7 +169,7 @@ wristcheck_basic.payment_controller_step:
     _controller: '\Drupal\wristcheck_basic\Controller\PaymentController::paystep'
     _title: 'Payment'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -179,7 +179,7 @@ wristcheck_basic.user_settings_form:
     _form: '\Drupal\wristcheck_basic\Form\UserSettingsForm'
     _title: 'Setting'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
@@ -189,29 +189,29 @@ wristcheck_basic.user_controller_info:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::info'
     _title: 'User'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
-wristcheck_basic.user_controller_sell:
-  path: '/user/{user}/transactions/sell'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserController::sell'
-    _title: 'Sell'
-  requirements:
-    _permission: 'access user'
-  options:
-    user: \d+
-
-wristcheck_basic.user_controller_buy:
-  path: '/user/{user}/transactions/buy'
-  defaults:
-    _controller: '\Drupal\wristcheck_basic\Controller\UserController::buy'
-    _title: 'Buy'
-  requirements:
-    _permission: 'access user'
-  options:
-    user: \d+
+#wristcheck_basic.user_controller_sell:
+#  path: '/user/transactions/sell/{uid}'
+#  defaults:
+#    _controller: '\Drupal\wristcheck_basic\Controller\UserController::sell'
+#    _title: 'Sell'
+#  requirements:
+#    _permission: 'access content'
+#  options:
+#    uid: \d+
+#
+#wristcheck_basic.user_controller_buy:
+#  path: '/user/transactions/buy/{uid}'
+#  defaults:
+#    _controller: '\Drupal\wristcheck_basic\Controller\UserController::buy'
+#    _title: 'Buy'
+#  requirements:
+#    _permission: 'access content'
+#  options:
+#    uid: \d+
 
 wristcheck_basic.user_controller_userprofile:
   path: '/user-profile'
@@ -229,14 +229,15 @@ wristcheck_basic.user_controller_portfolio:
     _controller: '\Drupal\wristcheck_basic\Controller\UserController::portfolio'
     _title: 'Portfolio'
   requirements:
-    _permission: 'access user'
+    _permission: 'access content'
   options:
     user: \d+
 
 wristcheck_basic.user_login_form:
   path: '/wristcheck_basic/form/user_login'
   defaults:
-    _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
+#    _form: '\Drupal\wristcheck_basic\Form\UserLoginForm'
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::UserLogin'
     _title: 'PLEASE LOGIN'
   requirements:
     _access: 'TRUE'
@@ -244,7 +245,8 @@ wristcheck_basic.user_login_form:
 wristcheck_basic.user_register_form:
   path: '/wristcheck_basic/form/user_register'
   defaults:
-    _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
+#    _form: '\Drupal\wristcheck_basic\Form\UserRegisterForm'
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::UserRegister'
     _title: 'Welcome to register'
   requirements:
     _access: 'TRUE'
@@ -317,3 +319,86 @@ wristcheck_basic.order_status:
     _title: 'OrderStatus'
   requirements:
     _permission: 'access wristcheck administration pages'
+
+wristcheck_basic.user_controller_buy_status:
+  path: '/user/transactions/buy/{commerce_order}/status'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\OrderStatusController::buyOrderStatus'
+    _title: 'Order status'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'
+#  options:
+#    id: \d+
+
+wristcheck_basic.error_page_controller_error404:
+  path: '/wristcheck_basic/error404'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\ErrorPageController::error404'
+    _title: 'Error 404'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.error_page_controller_error403:
+  path: '/wristcheck_basic/error403'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\ErrorPageController::error403'
+    _title: 'Error 403'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.check_user_info:
+  path: '/wristcheck_basic/check_user_info'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::checkUserInfo'
+    _title: 'Check user info'
+  requirements:
+    _access: 'TRUE'
+
+wristcheck_basic.flagdel:
+  path: '/wristcheck_basic/flag/{product_id}'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::flagdel'
+    _title: 'unflag'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.noticeacc:
+  path: '/wristcheck_basic/notice_user'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::noticeacc'
+    _title: 'notice_user'
+  requirements:
+    _permission: 'access content'
+
+wristcheck_basic.enableacc:
+  path: '/wristcheck_basic/enable_account/{user}'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\UserController::enableacc'
+    _title: 'notice_user'
+  requirements:
+    _permission: 'access content'
+  options:
+    user: \d+
+
+wristcheck_basic.rateSettings:
+  path: '/admin/config/system/wristcheck_basic/rateSetting'
+  defaults:
+    _form: '\Drupal\wristcheck_basic\Form\WristcheckRateSettingsForm'
+    _title: 'Wristcheck Rate Setting'
+  requirements:
+    _permission: 'administer site configuration'
+wristcheck_basic.getRate:
+  path: '/wristcheck_basic/getRate'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::getRate'
+    _title: 'The rate'
+  requirements:
+    _access: 'TRUE'
+wristcheck_basic.howToBeSeller:
+  path: '/wristcheck_basic/inquire-how-to-be-seller'
+  defaults:
+    _controller: '\Drupal\wristcheck_basic\Controller\SellController::howToBeSeller'
+    _title: 'Inquire how to be seller'
+  requirements:
+    _access: 'TRUE'

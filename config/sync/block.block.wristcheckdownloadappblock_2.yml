@@ -25,7 +25,7 @@ third_party_settings:
 id: wristcheckdownloadappblock_2
 theme: wristcheck_barrio
 region: bottom_footer
-weight: -10
+weight: -9
 provider: null
 plugin: wristcheck_download_app_block
 settings:

@@ -1,0 +1,65 @@
+.wc-brands-warp{
+    .views-element-container{
+        width: 100%;
+    }
+}
+.views-infinite-scroll-content-wrapper,
+.view-id-wristcheck_popular_watch_brands{
+    >.view-content>.views-row{
+        padding: 10px;
+    }
+    .views-field-field-brand-logo{
+        width: 100%;
+        padding-top: 82%;
+        overflow: hidden;
+        position: relative;
+
+        a{
+            display: inline-block;
+            .lazyload{
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+.view-id-wristcheck_all_brands{
+    margin-bottom: 40px;
+}
+.brand-list-item{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    width: 100%;
+    h3{
+        font-size: 38px;
+        font-weight: 400;
+        color: #222222;
+        width: 50px;
+    }
+    .wc-category-brand-item{
+        margin-bottom: 25px;
+    }
+    ul{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 5px;
+        >li{
+            list-style: none;
+        }
+        a{
+            display: inline-block;
+            font-size: 20px;
+        }
+    }
+
+}
+
+@media (max-width: 640px){
+    .view-id-wristcheck_popular_watch_brands .view-content > .views-row{
+        width: 50%;
+    }
+}

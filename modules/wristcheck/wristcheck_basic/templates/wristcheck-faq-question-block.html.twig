@@ -1,0 +1,20 @@
+<div class="row">
+{#  {{ drupal_entity("block_content",62)}}#}
+  	<div class="col-md-6 wc-do-you-have-any-questions">
+		<div class="wc-panel">
+			<div class="wc-panel__title text-center">Do you have any questions?</div>
+			<div class="wc-do-you-have-any-questions-sub">CALL : 
+			{% if variables['phone'] %}
+				<a href="tel:{{ variables['phone'] }}">{{ variables['phone'] }}</a>
+			{% else %}
+				<a href="tel:+0012 987654">+0012 987654</a>
+			{% endif %}
+			</div>
+			<div class="wc-do-you-have-any-questions-sub mb-32">
+				EMAIL : <a class="email" href="tomail:{{ variables['mail'] }}">{{variables['mail']}}support@wristcheck.com</a>
+			</div>
+			<div class="divider"></div>
+			{{ drupal_view('wristcheck_faq','faq_contact_us') }}
+		</div>
+	</div>
+</div>

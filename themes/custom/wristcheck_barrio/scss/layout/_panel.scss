@@ -1,14 +1,19 @@
 @import '../variables/color';
 
+.wc-discover-panel {
+  padding: 100px !important;
+}
+
 .wc-panel {
-  padding: 50px 0;
+  padding: 64px 0;
 
   .wc-panel3__title {
     font-size: 30px;
     font-weight: bold;
     color: rgba(51, 51, 51, 1);
     margin: 0;
-    padding: 50px 0 20px;
+    padding: 64px 0 20px;
+    font-family: "basis-grotesque-bold-pro";
   }
 
   .wc-panel2__title {
@@ -16,23 +21,32 @@
     font-weight: bold;
     color: rgba(51, 51, 51, 1);
     margin: 0;
-    padding: 50px 0 20px;
+    padding: 64px 0 20px;
+    font-family: "basis-grotesque-bold-pro";
   }
-
+.wc-sell-input{
+  display: flex;
+  border-bottom: 1px solid white;
+}
+.wc-sell-inputl{
+  margin: 10px;
+}
   .wc-panel2__sub {
     font-size: 18px;
-    font-family: Source Han Sans CN;
+
     font-weight: 500;
     color: #222222;
     padding-bottom: 40px;
+    font-family: "basis-grotesque-bold-pro";
   }
 
   .wc-panel__title {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
-    color: rgba(51, 51, 51, 1);
+    color: rgba(0,0,0,.9);
     margin: 0;
-    padding: 50px 0;
+    padding: 0 0 64px 0;
+    font-family: "basis-grotesque-bold-pro";
 
     &.pb-100 {
       padding-bottom: 100px;
@@ -44,12 +58,14 @@
     font-weight: bold;
     color: rgba(34, 34, 34, 1);
     line-height: 53px;
+    font-family: "basis-grotesque-bold-pro";
   }
 
   .wc-panel__description {
     font-size: 24px;
     //color: rgba(34, 34, 34, 1);
     line-height: 53px;
+    font-family: "basis-grotesque-bold-pro";
   }
 
   .wc-ex-btn {
@@ -90,6 +106,8 @@
   display: inline-block;
   width: 100%;
   height: 490px;
+  background-color: #ddd;
+  overflow: hidden;
   //width: 288px;
   //height: 288px;
   //margin-bottom: -15px;
@@ -106,7 +124,7 @@
 
   .flex-1-item {
     padding: 0 30px;
-    flex: 1;
+    flex: 1 0 200px;
   }
 
   h1 {
@@ -118,11 +136,18 @@
   }
 
   .wc-testimdnials-content {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
-    color: rgba(101, 101, 101, 1);
-    line-height: 23px;
+    color: rgba(0,0,0,.9);
+    line-height: 24px;
     word-break: break-all;
+    margin-bottom: 8px;
+  }
+  .wc-testimdnials-auth {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(0,0,0,.56);
   }
 }
 
@@ -135,9 +160,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    padding: 30px;
+    padding: 0;
     display: flex;
     align-items: flex-end;
+    overflow: hidden;
+    &:hover{
+      .ani-scale_max{
+        transform: scale(1.1);
+      }
+    }
   }
 
   .img-bg {
@@ -169,19 +200,31 @@
 
   .wc-rolex-title {
     font-size: 18px;
-    font-family: Source Han Sans CN;
     font-weight: bold;
-    color: rgba(51, 51, 51, 1);
+    color: #FFF;
     line-height: 30px;
     font-variant: all-small-caps;
   }
 
   .wc-rolex-sub {
     font-size: 14px;
-    font-family: Source Han Sans CN;
     font-weight: 400;
-    color: rgba(153, 153, 153, 1);
+    color: #FFF;
     line-height: 24px;
+  }
+}
+.wc-rolex-item{
+  .wc-rolex-img{
+    position: relative;
+    padding-top: 50%;
+    overflow: hidden;
+    >.lazyload{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
   }
 }
 
@@ -234,7 +277,7 @@
 
   .wc-news-title {
     font-size: 30px;
-    font-family: Source Han Sans CN;
+
     font-weight: bold;
     color: rgba(239, 238, 238, 1);
     line-height: 24px;
@@ -351,13 +394,45 @@
   }
 }
 
-.wc-brand-product,
+.wc-brand-product,.wc-discover-panel,
 .view-wristcheck-products,
 .view-id-wristcheck_popular_watch_brands {
+  .js-pager__items {
+    padding-top: 64px;
+    margin: 0;
+     > li {
+       text-align: center;
+       list-style: none;
+       >a {
+         padding: 10px;
+         border: 1px solid #D8D8D8;
+         border-color: #D8D8D8;
+         font-weight: bold;
+       }
+     }
+  }
   .view-content {
     display: flex;
     flex-wrap: wrap;
-
+    .views-infinite-scroll-content-wrapper {
+      display: flex ;
+      flex-wrap: wrap;
+      > .views-row {
+        display: block;
+        width: 33%;
+        padding: 5px;
+        .field-content {
+          transition: all .3s ease-in;
+          a > img {
+            display: inline-block;
+            width: 100%;
+          }
+          &:hover {
+            box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
     > .views-row {
       display: block;
       width: 20%;
@@ -404,9 +479,73 @@
     }
 
     > ul > li {
+      //width: 25%;
+      width: 33.3%;
+      float: left;
+      padding: 0.75rem 1.25rem;
+    }
+  }
+}
+.wc-editor-pick {
+  .item-list {
+    *zoom: 1;
+    display: block;
+    width: 100%;
+
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+      // Fixes Opera/contenteditable bug:
+      // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+      line-height: 0;
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    > ul > li {
       width: 25%;
       float: left;
       padding: 0.75rem 1.25rem;
     }
+  }
+}
+@media (max-width: 1700px) {
+  .wc-ex-panel {
+    height: 350px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .wc-ex-panel {
+    height: 250px;
+  }
+  .wc-panel{
+    padding: 20px 0;
+  }
+  .wc-rolex .wc-rolex-item{
+    height: 400px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 876px) {
+  .wc-ex-panel {
+    height: 200px;
+  }
+  .view-wristcheck-products .item-list > ul > li{
+    width: 50%;
+  }
+  .wc-panel .wc-panel__title{
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .view-wristcheck-products .item-list > ul > li{
+    width: 100%;
+    padding: 0.75rem 0;
   }
 }

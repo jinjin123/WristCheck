@@ -29,7 +29,37 @@ class UserRegisterForm extends FormBase
   {
 
     $form['errors'] = [];
-     $form['Email'] = [
+//    $form['first_name'] = [
+//      '#type' => 'textfield',
+//      '#title' => 'First name',
+//      '#size' => 60,
+//      '#maxlength' => USERNAME_MAX_LENGTH,
+//      '#description' => $this->t('Enter your First Name.' ),
+//      '#required' => TRUE,
+//      '#attributes' => [
+//        'autocorrect' => 'none',
+//        'autocapitalize' => 'none',
+//        'spellcheck' => 'false',
+//        'autofocus' => 'autofocus',
+//        'placeholder' => 'First Name',
+//      ],
+//    ];
+//    $form['last_name'] = [
+//      '#type' => 'textfield',
+//      '#title' => 'Last name',
+//      '#size' => 60,
+//      '#maxlength' => USERNAME_MAX_LENGTH,
+//      '#description' => $this->t('Enter your Last Name.' ),
+//      '#required' => TRUE,
+//      '#attributes' => [
+//        'autocorrect' => 'none',
+//        'autocapitalize' => 'none',
+//        'spellcheck' => 'false',
+//        'autofocus' => 'autofocus',
+//        'placeholder' => 'Last Name',
+//      ],
+//    ];
+    $form['email'] = [
       '#type' => 'textfield',
       '#title' => 'Email',
       '#size' => 60,
@@ -44,35 +74,70 @@ class UserRegisterForm extends FormBase
         'placeholder' => 'Email',
       ],
     ];
-
-    $form['Name'] = [
-      '#type' => 'textfield',
-      '#title' => 'Username',
+//    $form['username'] = [
+//      '#type' => 'textfield',
+//      '#title' => 'Username',
+//      '#size' => 60,
+//      '#maxlength' => USERNAME_MAX_LENGTH,
+//      '#description' => $this->t('Enter your UserName.' ),
+//      '#required' => TRUE,
+//      '#attributes' => [
+//        'autocorrect' => 'none',
+//        'autocapitalize' => 'none',
+//        'spellcheck' => 'false',
+//        'autofocus' => 'autofocus',
+//        'placeholder' => 'First Name',
+//      ],
+//    ];
+    $form['password'] = [
+      '#type' => 'password',
+      '#title' => 'Password',
       '#size' => 60,
       '#maxlength' => USERNAME_MAX_LENGTH,
-      '#description' => $this->t('Enter your username.' ),
+      '#description' => $this->t('Enter your Password .' ),
       '#required' => TRUE,
       '#attributes' => [
         'autocorrect' => 'none',
         'autocapitalize' => 'none',
         'spellcheck' => 'false',
         'autofocus' => 'autofocus',
-        'placeholder' => 'Username',
+        'placeholder' => 'Password',
       ],
     ];
-    $form['condtion'] = [
+    $form['discoverupdate'] = [
       '#type' => 'checkbox',
-      '#title' => t("I ACCEPT WRIST CHECK'S PRIVACY POLICY"),
+      '#title' => t("Sign up for Wristcheck Discover Updates"),
       '#size' => 10,
-      '#disabled' => TRUE,
+//      '#disabled' => TRUE,
       '#maxlength' => 255,
       '#default_value' => 1,
-      '#required' => TRUE,
+//      '#required' => TRUE,
       '#description' =>  t(""),
+    ];
+    $form['condition'] = [
+      '#type' => 'checkbox',
+      '#title' => t("Sign up for Wristcheck Product Launches/Drops"),
+      '#size' => 10,
+//      '#disabled' => TRUE,
+      '#maxlength' => 255,
+      '#default_value' => 1,
+//      '#required' => TRUE,
+      '#description' =>  t(""),
+    ];
+    $form['labeldes'] = [
+      '#type' => 'markup',
+//      '#markup' => '<div class="links">'."aaaaa" .'</div>',
+//      '#suffix'=>'<div class="form-footer text-center"><p class="form-footer-title">' . $this->t('Do you not currently have a user account?') . '</p><div><a class="wc-btn-dark"><div class="wc-btn-cont"><span class="fa fa-arrow-right"></span> <span class="btn-line"></span> <span>' . $this->t('IN THE CONTINUE') . '</span></div></a></div></div>',
+//      '#weight' => 1000,
+//      '#type' => 'markup',
+//      '#title' => t("This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply"),
+      '#markup'=> t("This site is protected by reCAPTCHA and the Google") . " " .'<a href="javascript:;" class="wc-term-link">'.t('Privacy Policy').'</a>'. " " .t("and"). " " .'<a href="javascript:;" class="wc-term-link">'.t('Terms of Service').'</a>'." ".t("apply") ,
+//      '#attributes' => array('class' => 'label1'),
+//      '#description' =>  t(""),
     ];
     $form['actions'] = [
       '#type' => 'button',
-      '#value' => $this->t('register'),
+      '#value' => $this->t('SIGN UP'),
       '#submit' => ['::submitForm'],
       '#validate' => ['::validateForm'],
       '#ajax' => array(
@@ -99,18 +164,25 @@ class UserRegisterForm extends FormBase
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+//    dd($form_state->getValues()["condition"]);
     try {
       $mailManager = \Drupal::service('plugin.manager.mail');
-      $email = $form_state->getValues()['Email'];
-      $name = $form_state->getValues()['Name'];
-      $pwd = $this->randompwd();
+//      $first_name = $form_state->getValues()['first_name'];
+//      $last_name = $form_state->getValues()['last_name'];
+      $email = $form_state->getValues()['email'];
+//      $name = $form_state->getValues()['username'];
+      $pwd = $form_state->getValues()['password'];
+      $disUpdate = $form_state->getValues()['discoverupdate'];
+      $cond = $form_state->getValues()['condition'];
+//      $pwd = $this->randompwd();
       $result = trim($email);
       if (filter_var($result, FILTER_VALIDATE_EMAIL)) {
-        if($email !="" && $name !="")  {
+//        if($email !="" && $name !="" && $pwd !="")  {
+        if($email !="" && $pwd !="")  {
           $query = \Drupal::entityQuery('user');
           $orGroup1 = $query->orConditionGroup();
           $orGroup1->condition('mail', $email);
-          $orGroup1->condition('name', $name);
+//          $orGroup1->condition('name', $name);
           $ids = $query->condition($orGroup1)
             ->execute();
           if (!empty($ids)) {
@@ -119,9 +191,13 @@ class UserRegisterForm extends FormBase
             //  create user
             $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
             $user = \Drupal\user\Entity\User::create();
-            $user->setUsername($name);
+//            $user->setUsername($name);
             $user->setPassword($pwd);
             $user->setEmail($email);
+//            $user->set("field_first_name",$first_name);
+//            $user->set("field_last_name",$last_name);
+            $user->set("field_discover_updated",$disUpdate);
+            $user->set("field_product_launches",$cond);
             $user->set("init",  $email);
             $user->set("langcode", $langcode);
             $user->set("preferred_langcode", $langcode);
@@ -130,7 +206,7 @@ class UserRegisterForm extends FormBase
             $user->save();
 //        $sys_mail  = \Drupal::config('system.site')->get('mail');
             $params['subject'] = t('Wristcheck Username & Password Email');
-            $params['body'] = t('Your Username is: @user , Your  Password is: @pass', ['@user' => $name, '@pass'=> $pwd]);
+            $params['body'] = t('Your Username is: @user , Your  Password is: @pass', ['@user' => $email , '@pass'=> $pwd]);
             $params['headers'] = [
               'content-type' => 'text/plain',
             ];

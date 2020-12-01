@@ -10,4 +10,17 @@
  * @see template_preprocess_input()
  */
 #}
-<button{{ attributes }}>{{ safe_value_label | raw }}</button>{{ children }}
+{% if(attributes.value == 'Remove') %}
+<button{{ attributes.addClass('wc-btn-dark wc-btn-large') }} data-progress-type="WCFullprogress" >
+    <span class="wc-btn-cont">
+        {{ safe_value_label | raw }}
+    </span>
+</button>
+{% else %}
+<button{{ attributes.addClass('wc-btn-dark wc-btn-large wc-form-submit') }} data-progress-type="WCFullprogress" >
+    <span class="wc-btn-cont">
+        {{ safe_value_label | raw }}
+    </span>
+</button>
+{% endif %}
+{{ children }}

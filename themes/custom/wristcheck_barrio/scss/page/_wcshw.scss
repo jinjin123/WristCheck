@@ -1,0 +1,49 @@
+.wc-wcshw-warp {
+  min-height: 800px;
+}
+
+form.node-wcshw-form {
+  padding: 100px 0;
+
+  .layout-region-node-main {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #FFF;
+  }
+
+  .layout-region-node-footer {
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  .layout-region-node-secondary > fieldset {
+    padding: 20px;
+    background-color: #FFF;
+
+    .vertical-tabs__menu {
+      border-right: 1px solid #ddd;
+    }
+  }
+
+  .form-control {
+    height: auto;
+  }
+  .tabledrag-toggle-weight,
+  .link-edit-summary {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+  }
+  .tabledrag-toggle-weight-wrapper{
+    padding-bottom: 10px;
+  }
+}

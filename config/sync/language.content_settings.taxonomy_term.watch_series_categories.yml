@@ -1,0 +1,11 @@
+uuid: e8342a11-c701-4156-8e9f-c5fc1e3bac71
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.watch_series_categories
+id: taxonomy_term.watch_series_categories
+target_entity_type_id: taxonomy_term
+target_bundle: watch_series_categories
+default_langcode: site_default
+language_alterable: false

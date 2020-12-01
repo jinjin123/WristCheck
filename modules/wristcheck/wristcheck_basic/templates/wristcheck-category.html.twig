@@ -1,5 +1,6 @@
 <div class="wc-panel pt-100">
-  <h1 class='wc-panel__title text-center'>{{ 'WATCH BRANDS AND MANUFACTURERS'|t }}</h1>
+  {#<h1 class='wc-panel__title text-center'>{{ 'WATCH BRANDS AND MANUFACTURERS'|t }}</h1>#}
+  <h1 class='wc-panel__title text-center'>{{ 'TOP BRANDS'|t }}</h1>
   <h3 class="wc-panel__sub text-center pb-50">{{ 'Popular watch brands'|t }}</h3>
   <div class='container wc-brands-warp'>
     {{ drupal_view('wristcheck_popular_watch_brands') }}
@@ -13,6 +14,7 @@
 <div class="wc-panel">
   <h1 class='wc-panel__title text-center'>{{ 'ALL BRANDS'|t }}</h1>
   <div class="container">
-    {{ drupal_view('wristcheck_all_brands') }}
+    {{ drupal_view('wristcheck_all_brands','category_brand') }}
   </div>
 </div>
+{{ attach_library('wristcheck_barrio/category-styling') }}
