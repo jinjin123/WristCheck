@@ -624,23 +624,25 @@ function wristcheck_basic_cart_update($form, &$form_state) {
   $order_id = substr($values["form_id"], strlen('views_form_commerce_cart_form_default_'));
   $order = Order::load($order_id);
   $subTotalPrice = $order->getSubtotalPrice();
-  //$totalPrice = $order->getTotalPrice();
-  //$currency_code = $totalPrice->getCurrencyCode();
-  $insurance_rate = \Drupal::config('wristcheck_basic.rateSettings')->get('insurance');
-  $adjustment_amount = $subTotalPrice->multiply($insurance_rate)->divide('100');
-  $adjustment = new Adjustment([
-    'type' => 'custom',
-    'label' => 'Insurance Plus '. $insurance_rate .'%',
-    'amount' => $adjustment_amount,
-    'percentage' => bcdiv($insurance_rate, '100', 3),
-    'included' => FALSE,
-    'locked' => TRUE,
-  ]);
-  if ($values['insurance']) {
-    $order->set('field_if_need_insurance', 1);
-    $order->setAdjustments([$adjustment]);
-    $order->save();
+  $totalPrice = $order->getTotalPrice();
+  if(isset($totalPrice)){
+    $insurance_rate = \Drupal::config('wristcheck_basic.rateSettings')->get('insurance');
+    $adjustment_amount = $subTotalPrice->multiply($insurance_rate)->divide('100');
+    $adjustment = new Adjustment([
+      'type' => 'custom',
+      'label' => 'Insurance Plus '. $insurance_rate .'%',
+      'amount' => $adjustment_amount,
+      'percentage' => bcdiv($insurance_rate, '100', 3),
+      'included' => FALSE,
+      'locked' => TRUE,
+    ]);
+    if ($values['insurance']) {
+      $order->set('field_if_need_insurance', 1);
+      $order->setAdjustments([$adjustment]);
+      $order->save();
+    }
   }
+  //$currency_code = $totalPrice->getCurrencyCode();
   else {
     $order->set('field_if_need_insurance', 0);
     $order->setAdjustments([]);
